@@ -1,0 +1,34 @@
+\usepackage[aux]{rerunfilecheck}
+\usepackage{polyglossia}
+\setmainlanguage{german}
+\usepackage{fontspec}
+\usepackage[unicode]{hyperref}
+\usepackage{bookmark}
+\usepackage[autostyle]{csquotes}
+\setotherlanguages{english, french}
+\usepackage{amsmath} % unverzichtbare Mathe-Befehle
+\usepackage{amssymb} % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen für amsmath
+\usepackage{fontspec} % nach amssymb
+\usepackage[
+math-style=ISO, % \
+bold-style=ISO, % |
+sans-style=italic, % | ISO-Standard folgen
+nabla=upright, % |
+partial=upright, % /
+]{unicode-math} % "Does exactly what it says on the tin."
+\setmathfont{Latin Modern Math}
+% \setmathfont{Tex Gyre Pagella Math} % alternativ
+\usepackage[
+locale=DE,
+separate-uncertainty=true, % Immer Fehler mit ±
+per-mode=symbol-or-fraction, % m/s im Text, sonst \frac
+% alternativ:
+% per-mode=reciprocal, % m s^{-1}
+% output-decimal-marker=., % . statt , für Dezimalzahlen
+]{siunitx}
+\usepackage[
+version=4,
+math-greek=default,
+text-greek=default,
+]{mhchem}
