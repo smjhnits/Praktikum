@@ -10,7 +10,7 @@ with open('daten.txt', 'r') as f:
     with open('Test.tex', 'w') as t:
         t.write(r'\documentclass[caption=tableheading]{scrartcl}')
         t.write('\n')
-        t.write(r'\input{/home/sebastian/Dokumente/Präambel.tex}')
+        t.write(r'\input{PFAD DEINER Präambel.tex}') #HIER PFAD DEINER PRÄAMBEL EINFÜGEN
         t.write('\n')
         t.write(r'\begin{document}')
         t.write('\n')
