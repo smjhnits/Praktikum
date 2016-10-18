@@ -1,0 +1,70 @@
+Gang: 6 Untersetzer: 10e3
+3984
+3985
+3970
+3967
+3996
+
+Gang: 12 Untersetzer: 10e3
+1987
+1999
+1992
+1999
+1994
+
+Gang: 18 Untersetzer: 10e2
+13311
+13306
+13272
+13324
+13226
+
+Gang: 24 Untersetzer: 10e2
+9935
+9936
+9955
+10027
+9931
+
+Gang: 30 Untersetzer: 10e2
+7974
+7999
+7968
+1982
+7972
+
+Gang: 36 Untersetzer: 10e2
+6678
+6689
+6652
+6670
+6640
+
+Gang: 42 Untersetzer: 10e2
+5735
+5723
+5580
+5726
+5732
+5736
+
+Gang: 48 Untersetzer: 10e2
+5018
+5036
+5040
+4997
+5011
+
+Gang: 54 Untersetzer: 10e2
+4462
+4452
+4484
+4465
+4469
+
+Gang: 60 Untersetzer: 10e2
+4011
+4025
+4018
+4033
+4011

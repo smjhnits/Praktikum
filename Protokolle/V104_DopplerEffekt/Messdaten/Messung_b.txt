@@ -1,0 +1,7 @@
+Verschiebung[cm]  | Phasenverschiebung
+0,0 | 0
+0,9 | 180
+1,8 | 0
+2,7 | 180
+3,5 | 0
+4,4 | 180

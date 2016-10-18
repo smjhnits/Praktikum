@@ -1,0 +1,140 @@
+Frequenzmessung zum Empfänger hin (Mikrofon-Verstärker: x200)
+
+Gang: 6 Untersetzer: 10e5
+12447
+12447
+12447
+12447
+12447
+
+Gang:6 Untersetzer: 10e6
+20745
+20745
+20745
+20745
+20745
+
+Gang: 12 Untersetzer: 10e5
+6224
+6224
+6224
+6225
+6225
+
+Gang: 12 Untersetzer: 10e6
+20748
+20748
+20748
+20748
+20748
+
+Gang: 18 Untersetzer: 10e6
+20751
+20751
+20751
+20751
+20751
+(4150 mit Untersetzer: 10e5)
+
+Gang: 24 Untersetzer: 10e6
+20754
+20754
+20755
+20754
+20754
+
+Gang: 30 Untersetzer: 10e6
+20757
+20757
+20757
+20757
+20757
+
+Gang: 36 Untersetzer: 10e6
+20760
+20760
+20760
+20760
+20760
+
+Gang: 42 Untersetzer: 10e6
+20763
+20764
+20763
+20764
+20764
+
+Gang: 48 Untersetzer: 10e6
+20766
+20767
+20766
+20767
+20766
+
+Gang: 54 Untersetzer: 10e6
+20770
+20769
+20769
+20769
+20769
+
+Gang: 60 Untersetzer: 10e6
+20772
+20772
+20772
+20772
+20772
+
+Frequenzmessung vom Empfänger weg (Mikrofon-Verstärker: x200)
+
+Gang: 6 Untersetzer: 10e6
+20739
+20739
+20739
+20739
+20740
+
+Gang: 12 Untersetzer: 10e6
+20735
+20736
+20736
+20736
+20736
+
+Gang: 18 Untersetzer: 10e6
+20733
+20733
+20733
+20733
+20733
+
+Gang: 24 Untersetzer: 10e6
+20730
+20730
+20730
+20730
+20730
+
+Gang: 30 Untersetzer: 10e6
+20727
+20726
+20727
+20727
+20727
+
+Gang: 36 Untersetzer: 10e6
+20724
+20724
+20724
+20723
+20724
+
+Gang: 42 Untersetzer: 10e6
+20722
+20722
+20722
+20722
+20722
+
+Messung abgebrochen, da die Strecke zu kurz ist, um höhere Gänge als 42 zu testen.
+Werte von Gang 42 müssen ebenfalls rechnerisch überprüft werden.

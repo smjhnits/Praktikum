@@ -1,0 +1,59 @@
+Gang: 6 Untersetzer: 10e6 zum Mikrofon hin (v-)
+6
+6
+6
+5
+6
+
+Gang: 6 Untersetzer: 10e6 vom Mikrofon weg (v+)
+2
+0
+0
+1
+1
+
+Gang: 12 Untersetzer: 10e6 v-
+12
+11
+12
+12
+12
+
+Gang: 18 Untersetzer: 10e6 v-
+18
+18
+18
+18
+17
+
+Gang: 24 Untersetzer: 10e6 v-
+24
+24
+23
+23
+25
+
+Gang: 30 Untersetzer: 10e6 v-
+30
+17
+8
+30
+10
+30
+30
+30
+31
+30
+
+Gang: 36 Untersetzer: 10e6 v-
+37
+35
+35
+35
+37
+
+Gang: 42 Untersetzer: 10e6 v-
+40
+Strecke geändert: 17
+                  17
+                  20
