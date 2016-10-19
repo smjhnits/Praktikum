@@ -1,3 +1,10 @@
+Ruhefrequenz: Untersetzer: 10e6
+20742
+20742
+20742
+20742
+20742
+
 Frequenzmessung zum Empfänger hin (Mikrofon-Verstärker: x200)
 
 Gang: 6 Untersetzer: 10e5
