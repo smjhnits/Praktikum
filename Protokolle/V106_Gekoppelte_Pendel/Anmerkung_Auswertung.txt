@@ -1,0 +1,7 @@
+Bei Tabelle 7 stimmt der berechnete K-Wert nicht ganz, müsste glaube ich 0.22 und nicht 0.3 sein,
+bin mir aber nicht ganz sicher, kannst du ja mal überprüfen.
+Desweiteren stimmt der Wert für die gemessenen Kopplungskonstante in Messung 2 Tabelle 7 nicht.
+
+Sonst wäre nur die Frage ob du in der Überschriften statt "bestimmen der..."
+lieber "Bestimmung der ..." schreibst.
+Sonst ist alles super.
