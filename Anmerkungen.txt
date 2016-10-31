@@ -1,4 +1,6 @@
 Wir haben doch kein Fadenpendel in unserem Experiment benutzt oder ?
+- doch steht so in der Versuchsbeschreibung, es geht um den Typ Fadenpendel,
+  mathematisch und physikalisch gesehen.
 
 Tippfehlerkorrektur:
 Seite 2: Massenstück
