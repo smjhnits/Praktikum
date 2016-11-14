@@ -20,6 +20,7 @@
 \usepackage{mathtools} % Erweiterungen für amsmath
 \usepackage{fontspec} % nach amssymb
 % muss ins document: \usefonttheme{professionalfonts} % für Beamer Präsentationen
+\usepackage{longtable}
 
 \usepackage[
 math-style=ISO,    % \
@@ -60,7 +61,10 @@ text-greek=default,
 \floatplacement{figure}{htbp}
 \floatplacement{table}{htbp}
 
+
+
 \usepackage{booktabs}
+\usepackage[backend=bibe]{biblatex}
  \addbibresource{lit.bib}
 
  \usepackage{microtype}
@@ -109,3 +113,4 @@ text-greek=default,
 
 \usepackage[unicode]{hyperref}
 \usepackage{bookmark}
+\usepackage[shortcuts]{extdash} %nach hyperref, bookmark
