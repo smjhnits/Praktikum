@@ -1,7 +1,7 @@
 % bei Standalone in documentclass noch:
 % \RequirePackage{luatex85}
 
-\documentclass[captions=tableheading, titlepage= firstiscover, parskip = half ]{scrartcl}
+\documentclass[captions=tableheading, titlepage= firstiscover, parskip = half , bibliography=totoc]{scrartcl}
 %paper = a5 für andere optinen
 % titlepage= firstiscover
 % bibliography=totoc für bibdateien
@@ -10,8 +10,8 @@
 \usepackage{scrhack} % nach \documentclass
 \usepackage[aux]{rerunfilecheck}
 \usepackage{polyglossia}
-\usepackage[style=alphabetic]{biblatex} % mit [style = alphabetic oder numeric]
-% nach polyglossia
+\usepackage[style=alphabetic, backend=biber]{biblatex} % mit [style = alphabetic oder numeric] nach polyglossia
+\addbibresource{lit.bib}
 \setmainlanguage{german}
 
 \usepackage[autostyle]{csquotes}
@@ -64,8 +64,6 @@ text-greek=default,
 
 
 \usepackage{booktabs}
-\usepackage[backend=bibe]{biblatex}
- \addbibresource{lit.bib}
 
  \usepackage{microtype}
  \usepackage{xfrac}
