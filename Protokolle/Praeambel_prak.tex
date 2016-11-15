@@ -1,0 +1,114 @@
+% bei Standalone in documentclass noch:
+% \RequirePackage{luatex85}
+
+\documentclass[captions=tableheading, titlepage= firstiscover, parskip = half , bibliography=totoc]{scrartcl}
+%paper = a5 für andere optinen
+% titlepage= firstiscover
+% bibliography=totoc für bibdateien
+% parskip=half  Veränderung um Absätze zu verbessern
+
+\usepackage{scrhack} % nach \documentclass
+\usepackage[aux]{rerunfilecheck}
+\usepackage{polyglossia}
+\usepackage[style=alphabetic, backend=biber]{biblatex} % mit [style = alphabetic oder numeric] nach polyglossia
+\addbibresource{lit.bib}
+\setmainlanguage{german}
+
+\usepackage[autostyle]{csquotes}
+\usepackage{amsmath} % unverzichtbare Mathe-Befehle
+\usepackage{amssymb} % viele Mathe-Symbole
+\usepackage{mathtools} % Erweiterungen für amsmath
+\usepackage{fontspec} % nach amssymb
+% muss ins document: \usefonttheme{professionalfonts} % für Beamer Präsentationen
+\usepackage{longtable}
+
+\usepackage[
+math-style=ISO,    % \
+bold-style=ISO,    % |
+sans-style=italic, % | ISO-Standard folgen
+nabla=upright,     % |
+partial=upright,   % /
+]{unicode-math} % "Does exactly what it says on the tin."
+\setmathfont{Latin Modern Math}
+% \setmathfont{Tex Gyre Pagella Math} % alternativ
+
+\usepackage[
+% die folgenden 3 nur einschalten bei documenten
+locale=DE,
+separate-uncertainty=true, % Immer Fehler mit ±
+per-mode=symbol-or-fraction, % m/s im Text, sonst \frac
+]{siunitx}
+
+% alternativ:
+% per-mode=reciprocal, % m s^{-1}
+% output-decimal-marker=., % . statt , für Dezimalzahlen
+
+\usepackage[
+version=4,
+math-greek=default,
+text-greek=default,
+]{mhchem}
+
+\usepackage[section, below]{placeins}
+\usepackage{caption} % Captions schöner machen
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{subcaption}
+
+% \usepackage{showframe} Wenn man die Ramen sehen will
+
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+
+
+\usepackage{booktabs}
+
+ \usepackage{microtype}
+ \usepackage{xfrac}
+
+ \usepackage{expl3}
+ \usepackage{xparse}
+
+ % \ExplSyntaxOn
+ % \NewDocumentComman \I {}  %Befehl\I definieren, keine Argumente
+ % {
+ %    \symup{i}              %Ergebnis von \I
+ % }
+ % \ExplSyntaxOff
+
+ \usepackage{pdflscape}
+ \usepackage{mleftright}
+
+ % Mit dem mathtools-Befehl \DeclarePairedDelimiter können Befehle erzeugen werden,
+ % die Symbole um Ausdrücke setzen.
+ % \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+ % \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+ % in Mathe:
+ %\abs{x} \abs*{\frac{1}{x}}
+ %\norm{\symbf{y}}
+
+ % Für Physik IV und Quantenmechanik
+ \DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+ \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+ % <name> <#arguments> <left> <right> <body>
+ \DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{
+ #1 \delimsize| #2
+ }
+
+\setlength{\delimitershortfall}{-1sp}
+
+ \usepackage{tikz}
+ \usepackage{tikz-feynman}
+
+ \usepackage{csvsimple}
+ % Tabellen mit \csvautobooktabular{"file"}
+ % muss in table umgebung gesetzt werden
+
+
+% \multicolumn{#Spalten}{Ausrichtung}{Inhalt}
+
+\usepackage[unicode]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash} %nach hyperref, bookmark
