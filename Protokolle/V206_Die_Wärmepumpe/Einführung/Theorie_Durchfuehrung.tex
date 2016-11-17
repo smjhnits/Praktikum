@@ -80,12 +80,67 @@ kann, je kleiner die Differenz zwischen $T_1$ und $T_2$ ist.
 
 Mit dem Werten von $T_1$ kann nun die pro Zeiteinheit gewonnene Wärmemenge berechnet werden:
 
-\begin{equation}
-  \label{eqn:gWM}
-  \frac{\increment Q_1}{\increment t} = (m_1c_W + m_kc_k) \frac{\increment T_1}{\increment t}
-\end{equation}
+\begin{align}
+  \label{eqn:Gueteziffer}
+  \frac{\increment Q_1}{\increment t} &= (m_1c_W + m_kc_k) \frac{\increment T_1}{\increment t} \\
+  \nu                                 &= \frac{\increment Q_1}{\increment t N}
+\end{align}
 
 $m_1c_w$ und $m_kc_k$ entsprechen dabei den Wärmekapazitäten der Kupferschlange und des Eimers.
+Für die Güteziffer wird noch N als die zeitlich gemittelte Leistung benötigt.
+
+\subsection{Bestimmung des Massendurchsatzes}
+
+Mit den Werten von $T_2$ und der Verdampfungswärme $L$ kann nun der Massendurchsatz $\increment m $
+berechnet werden:
+
+\begin{align}
+  \label{eqn:Massendurchsatz}
+  \frac{\increment Q_2}{\increment t} &= (m_2 c_W + m_k c_k) \frac{\increment T_2}{\increment t} \\
+  \frac{\increment Q_2}{\increment t} &= L \frac{\increment m}{\increment t}
+\end{align}
+
+\subsection{Bestimmung der mechanischen Kompressorleistung \texorpdfstring{$N_{mech}$}{t} }
+
+Um die mechnanische Kompresorleistung $N_{mech}$ zu bestimmen muss vorher die vom Kompressor aufgebrachte
+Arbeit zur Komprimierung des Volumens $V_a$ auf das Volumen $V_b$ berechnet werden:
+
+\begin{equation}
+  \label{eqn:Am}
+  A_m = \frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) V_a
+\end{equation}
+
+Mit der Dichte $\rho$ im gasförmigen Zustand, also beim Druck $p_a$, kann nun $N_{mech}$ berechnet werden:
+
+\begin{equation}
+  \label{eqn:Nmech}
+  N_{mech} = \frac{\increment A_m}{\increment t} =  \frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho} \frac{\increment m}{\increment t}
+\end{equation}
+
+\section{Aufbau und Durchführung}
+
+\subsection{Aufbau}
+
+Die verwendte Wärmepumpe besteht aus mehreren Komponenten. Die Apparatur besteht aus zwei thermisch Isolierten Reservoiren
+mit Wasser. Durch beide Reservoire läuft eine Kupferrohr, in dem sich ein Gas befindet. Der Kompressor erzeugt in beiden Hälften
+unterschiedliche Drücke, indem er das Gas komprimiert. Das erst flüssige Gas durchströmt nun das Kupferrohr in Reservoir 2 und
+verdampft unter dort herrschenden Druck. Dabei nimmt entzieht es dem Reservoir die Verdampfungswärme und wird danach im Kompressor
+adiabatisch komprimiert, bis der Druck hoch genug ist, um  das Gas im Reservoir 1 wieder zu verflüssigen. Die entstehende
+Kondensationswärme wird dort somit ans Wasser abgegeben. In einem nachgeschalteten Reiniger wird die Flüssigkeit von Gasresten
+getrennt und dann durch das Drosselventil geleitet, damit der Zyklus im Reservoir 2 von vorne beginnt. Damit in den Kompressor keine
+Flüssigkeitsreste gelangen, wird eine Steuervorrichtung angebracht. Dieser misst die Temperaturdifferenz zwischen Ausgang und Eingang
+und verringert die Flüssigkeitszufuhr, sollte die Verdampfungrate im Reservoir 2 zu stark abfallen. So wird nach und nach das
+Reservoir 2 abgekühlt und das Reservoir 2 erwärmt und die Wärmeenergie vom 1. in das 2. Reservoir transportiert.
+
+\subsection{Durchführung}
+
+Am Anfang des Experimentes werden die beiden Reservoire mit 4 Litern Wasser befüllt. Dann werden die beiden Reservoire an der Apparatur
+befestigt, sodass das beide Behälter optimal abgedichtet sind. Anschließend werden die beiden Rührstäbe und der Kompressor
+ein geschaltet. Nun werden im Abstand von einer Minute die verschiedenen Werte [$p_a, p_b, T_1, T_2, L$] gemessen und notiert. Sobald
+die Temperatur im Reservoir 2 die 50 °C Marke erreicht, werden Kompressor und Rührstäbe ausgeschaltet und der Versuch ist beendet.
+
+
+
 
 
 
