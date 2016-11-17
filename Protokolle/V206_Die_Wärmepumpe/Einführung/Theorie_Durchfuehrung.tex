@@ -1,5 +1,92 @@
-\input{" ../../..Praeambel_prak.tex"}
+\input{"../../Praeambel_prak.tex"}
+
+\title{Versuch 206}
+\subtitle{Die Wärmepumpe}
+\author{Jonah Nitschke\\
+        lejonah@web.de \and
+        Sebastian Pape\\
+        sepa@gmx.de}
+\date{Durchführung: 15.11.2016\\
+      Abgabe: 22.11.2016}
 
 \begin{document}
+
+\maketitle
+
+\section{Einführung}
+
+Im folgenden Versuch geht es um den transport von Wärmeenergie zwischen zwei Wärmereservoiren.
+Imm Gegensatz zu der allgemein gültigen Regel wir hier nun mithilfe einer Wärmepumpe
+Wärmeenergie von einem Reservoir mit kaltem Wasser in ein Reservoir mit warmen Wasser transponiert.
+Während des Versuchs werden verschiedene Messwerte aufgenommen um hinterher das Verhältniss von Temperatur,
+Druck sowie aufgewandter Arbeit zu beurteilen.
+
+\section{Theorie}
+
+% Einfügen von Kommentaren zur Thermodynamik aus blauer Mappe
+
+Um nun in dem folgenden Versuch einen Fluss der Wärmeenergie von dem kälteren reservoir zu dem
+wärmeren reservoir zu realisieren, muss zusätzliche Arbeit aufgewandt werden. Für diesen Prozess wird
+im folgenden eine Wärmepumpe benutzt, deren Aufbau später noch in Kapitel 3 erläutet wird und deren Bedingungen
+zur Vereinfachung der Berechnungen als idealisiert betrachtet werden.
+
+Das Verhältniss von transponierter Wärmemenge zu aufgewandter Arbeit anzugeben, wird die Güteziffer
+$\nu$ eingeführt. Nach dem ersten Hauptsatz der Thermodynamik \eqref{eqn:1HSa} gilt für den Wärmenergietransport
+zwischen zwei Medien:
+
+\begin{align}
+  \increment U &= \increment Q + \increment W \label{eqn:1HSa} \\
+  Q_1          &= Q_2 + A   \label{eqn:1HSb}
+\end{align}
+
+Die in unserem Fall geltende 2. Formel \eqref{eqn:1HSb} sagt, dass die vom Transportmedium an Reservoir 2 abgegebene
+Wärmeenergie $Q_1$ der Summe der aus Reservoir 1 entnommenen Wärmeenergie $Q_2$ und der aufgewandten Arbeit $A$
+entsprechen muss. Die Güteziffer der Wärmepumpe kann somit über folgende Formel errechnet werden:
+
+\begin{equation}
+  \nu = \frac{Q1}{A}
+\end{equation}
+
+Nach dem 2.HS der Thermodynamik lässt sich zudem die Beziehung zwischend den Wärmemengen und Temperaturen der
+beiden Reservoiren durch folgende Formel ausdrücken:
+
+\begin{equation}
+  \label{eqn:2HS}
+  \frac{Q_1}{T_1} - \frac{Q_2}{T_2} = 0
+\end{equation}
+
+Für die Gültigkeit dieser Formel muss jedoch gelten, dass der stattfindende Übertragungsprozess reversibel sein.
+Somit müsste die aufgewandte mechanische Energie jederzeit vollständig zurückgewonnen werden können. Da es
+sich dabei um eine idealisierte Annahme handelt, die in der Realität nie zutrifft, muss \eqref{eqn:2HS} etwas
+umformuliert werden:
+
+\begin{equation}
+  \label{eqn:2HS1}
+  \frac{Q_1}{T_1} - \frac{Q_2}{T_2} > 0
+\end{equation}
+
+Aus den Gleichungen (1) bis (4) folgt somit:
+
+\begin{align}
+  Q1         &= A + \frac{T_2}{T_1}Q_1 \label{eqn:A1.1} \\
+  \nu_{id}   &= \frac{Q_1}{A} = \frac{T_1}{T_1 - T_2} \label{eqn:A1.2} \\
+  \nu_{real} &< \frac{Q_1}{A} = \frac{T_1}{T_1 - T_2} \label{eqn:A1.3}
+\end{align}
+
+Die Gleichungen \eqref{eqn:A1.2} und \eqref{eqn:A1.3} zeigen, dass eine Wärmepumpe umso effektiver eingestuft werden
+kann, je kleiner die Differenz zwischen $T_1$ und $T_2$ ist.
+
+\subsection{Bestimmung der realen Güteziffer \texorpdfstring{$\nu$}{z}}
+
+Mit dem Werten von $T_1$ kann nun die pro Zeiteinheit gewonnene Wärmemenge berechnet werden:
+
+\begin{equation}
+  \label{eqn:gWM}
+  \frac{\increment Q_1}{\increment t} = (m_1c_W + m_kc_k) \frac{\increment T_1}{\increment t}
+\end{equation}
+
+$m_1c_w$ und $m_kc_k$ entsprechen dabei den Wärmekapazitäten der Kupferschlange und des Eimers.
+
+
 
 \end{document}
