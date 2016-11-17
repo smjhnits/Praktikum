@@ -12,6 +12,8 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
 
 \section{Einführung}
 
@@ -68,7 +70,6 @@ umformuliert werden:
 Aus den Gleichungen (1) bis (4) folgt somit:
 
 \begin{align}
-  Q1         &= A + \frac{T_2}{T_1}Q_1 \label{eqn:A1.1} \\
   \nu_{id}   &= \frac{Q_1}{A} = \frac{T_1}{T_1 - T_2} \label{eqn:A1.2} \\
   \nu_{real} &< \frac{Q_1}{A} = \frac{T_1}{T_1 - T_2} \label{eqn:A1.3}
 \end{align}
@@ -110,6 +111,13 @@ Arbeit zur Komprimierung des Volumens $V_a$ auf das Volumen $V_b$ berechnet werd
   A_m = \frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) V_a
 \end{equation}
 
+Für den Kompressor wird nun näherungsweise angenommen, dass es sich um eine adiabatische Komprimierung handelt,
+sodass die Poisson-Gleichung als Zusammenhang zwischen Druck und Volumen gilt:
+
+\begin{equation}
+  p_a V^{\kappa}_a = p_b V^{\kappa}_b = p V^{\kappa} .
+\end{equation}
+
 Mit der Dichte $\rho$ im gasförmigen Zustand, also beim Druck $p_a$, kann nun $N_{mech}$ berechnet werden:
 
 \begin{equation}
@@ -121,24 +129,71 @@ Mit der Dichte $\rho$ im gasförmigen Zustand, also beim Druck $p_a$, kann nun $
 
 \subsection{Aufbau}
 
-Die verwendte Wärmepumpe besteht aus mehreren Komponenten. Die Apparatur besteht aus zwei thermisch Isolierten Reservoiren
-mit Wasser. Durch beide Reservoire läuft eine Kupferrohr, in dem sich ein Gas befindet. Der Kompressor erzeugt in beiden Hälften
-unterschiedliche Drücke, indem er das Gas komprimiert. Das erst flüssige Gas durchströmt nun das Kupferrohr in Reservoir 2 und
-verdampft unter dort herrschenden Druck. Dabei nimmt entzieht es dem Reservoir die Verdampfungswärme und wird danach im Kompressor
-adiabatisch komprimiert, bis der Druck hoch genug ist, um  das Gas im Reservoir 1 wieder zu verflüssigen. Die entstehende
-Kondensationswärme wird dort somit ans Wasser abgegeben. In einem nachgeschalteten Reiniger wird die Flüssigkeit von Gasresten
-getrennt und dann durch das Drosselventil geleitet, damit der Zyklus im Reservoir 2 von vorne beginnt. Damit in den Kompressor keine
-Flüssigkeitsreste gelangen, wird eine Steuervorrichtung angebracht. Dieser misst die Temperaturdifferenz zwischen Ausgang und Eingang
-und verringert die Flüssigkeitszufuhr, sollte die Verdampfungrate im Reservoir 2 zu stark abfallen. So wird nach und nach das
-Reservoir 2 abgekühlt und das Reservoir 2 erwärmt und die Wärmeenergie vom 1. in das 2. Reservoir transportiert.
+Die verwendte Wärmepumpe besteht aus mehreren Komponenten. Grundlegend sind zwei thermisch isolierte Reservoire mit einer festgelegten
+Wassermenge. Durch beide Reservoire läuft eine Kupferrohr, in dem sich das Gas Dichlodifluormethan befindet. Der Kompressor erzeugt
+mithilfe der eingebrachten Leistung $L$ in beiden
+Hälften unterschiedliche Drücke, indem er das Gas "adiabatisch" komprimiert. Das anfangs kondensierte Gas durchströmt zuerst das Kupferrohr in Reservoir 2 und
+verdampft unter dem dort herrschenden Druck $p_a$ bei der Temperatur $T_2$. Dabei entzieht es dem Reservoir die Verdampfungswärme und wird danach
+weiter zum Kompressor geleitet. Dort wird es solange komprimiert, bis der Druck $p_b$ im Reservoir 1 hoch genug ist, um das Gas bei der
+Temperatur $T_1$ kondensieren zu lassen. Die entstehende
+Kondensationswärme wird dort ans Wasser abgegeben, sodass dieses sich erhitzt. In einem nachgeschalteten Reiniger wird die Flüssigkeit
+von Gasresten getrennt, um eine blasenfreie Flüssigkeitzufuhr zum folgenden Drosselventil zu gewährleisten. Damit in den Kompressor keine
+Flüssigkeitsreste gelangen, wird eine Steuervorrichtung angebracht, welche über die Temperaturdifferenz zwischen Ausgang und Eingang
+des Kompressors die Flüssigkeitzufuhr steuert um eine ventuell zu niedrige Verdampfungsrate in Reservoir 2 auszugleichen.
 
 \subsection{Durchführung}
 
-Am Anfang des Experimentes werden die beiden Reservoire mit 4 Litern Wasser befüllt. Dann werden die beiden Reservoire an der Apparatur
-befestigt, sodass das beide Behälter optimal abgedichtet sind. Anschließend werden die beiden Rührstäbe und der Kompressor
-ein geschaltet. Nun werden im Abstand von einer Minute die verschiedenen Werte [$p_a, p_b, T_1, T_2, L$] gemessen und notiert. Sobald
-die Temperatur im Reservoir 2 die 50 °C Marke erreicht, werden Kompressor und Rührstäbe ausgeschaltet und der Versuch ist beendet.
+Am Anfang des Experimentes werden die beiden Reservoire mithilfe eines Messkolben mit 4 Litern Wasser befüllt. Nach Einbau der beiden Reservoire
+in die Apparatur werden Rührstabe und Kompressor eingeschaltet. Um die beiden Reservoire optimal anzudichten, werden unter die beiden Behälter
+noch Holzkeile geschoben. Nun werden im Abstand von einer Minute die verschiedenen Drücke und Temperaturen
+von Reservoir 2 [$p_a, T_2$] und Reservoir 1 [$p_b, T_1$], sowie die duch den Kompressor eingebrachte Leistung $L$ gemessen und notiert. Bei dem Druck
+wird dabei die innere schwarze Skala abgelesen und am Ende wird bei allen Werten noch 1 bar hinzuaddiert. Sobald
+die Temperatur im Reservoir 2 die 50 °C Marke erreicht, wird der Kompressor wieder ausgeschaltet.
 
+\newpage
+
+\subsection{Messwerte}
+
+\begin{table}
+  \caption{Messwerte des Versuchs}
+  \begin{tabular}{c c c c c c}
+    \toprule $\increment t$ & $T_2$ & $p_a$ & $T_1$ & $p_b$ & $L$ \\
+    \midrule
+     1 & 21.4 & 3.3 & 21.6 & 5.0  & 115 \\
+     2 & 20.5 & 3.6 & 22.8 & 5.2  & 120 \\
+     3 & 19.3 & 3.7 & 24.0 & 5.4  & 125 \\
+     4 & 18.1 & 3.86& 25.3 & 5.9  & 125 \\
+     5 & 17.1 & 3.8 & 26.7 & 6.0  & 127 \\
+     6 & 16.2 & 3.7 & 28.0 & 6.1  & 126 \\
+     7 & 15.4 & 3.6 & 29.2 & 6.5  & 125 \\
+     8 & 14.6 & 3.5 & 30.5 & 6.8  & 124 \\
+     9 & 13.9 & 3.4 & 31.7 & 7.0  & 123 \\
+    10 & 13.2 & 3.3 & 33.9 & 7.1  & 123 \\
+    11 & 12.5 & 3.2 & 34.0 & 7.2  & 122 \\
+    12 & 11.8 & 3.1 & 35.1 & 7.6  & 121 \\
+    13 & 11.1 & 3.0 & 36.1 & 7.9  & 121 \\
+    14 & 10.4 & 3.0 & 37.1 & 8.0  & 122 \\
+    15 & 9.80 & 2.9 & 38.1 & 8.1  & 121 \\
+    16 & 9.20 & 2.8 & 39.0 & 8.3  & 123 \\
+    17 & 8.60 & 2.8 & 40.0 & 8.7  & 124 \\
+    18 & 8.00 & 2.78& 40.9 & 8.9  & 125 \\
+    19 & 7.50 & 2.7 & 41.8 & 9.1  & 125 \\
+    20 & 7.10 & 2.7 & 42.6 & 9.2  & 125 \\
+    21 & 6.60 & 2.6 & 43.4 & 9.5  & 125 \\
+    22 & 6.20 & 2.6 & 44.2 & 9.8  & 125 \\
+    23 & 5.80 & 2.6 & 45.0 & 9.9  & 125 \\
+    24 & 5.40 & 2.57& 45.8 & 10.0 & 125 \\
+    25 & 5.00 & 2.57& 46.5 & 10.2 & 125 \\
+    26 & 4.70 & 2.5 & 47.3 & 10.5 & 125 \\
+    27 & 4.40 & 2.5 & 47.9 & 10.7 & 125 \\
+    28 & 4.10 & 2.5 & 48.6 & 10.9 & 125 \\
+    29 & 3.80 & 2.5 & 49.3 & 11.0 & 125 \\
+    30 & 3.60 & 2.4 & 50.0 & 11.1 & 125 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+$\increment t$ in min., T in °C, L in Watt, p in bar
 
 
 
