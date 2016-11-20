@@ -194,18 +194,18 @@ Der Differentialquotient $\frac{\mathup{d}}{\mathup{d}t} T(t)$ der Ausgleichskur
 Der Differentialquotient wurde für die Zeiten $360 \si{\second}$, $720 \si{\second}$, $1080 \si{\second}$ und $1440 \si{\second}$ berechnet.
 Daraus ergeben sich die Werte:
 \begin{align*}
-  \frac{\mathup{d}}{\mathup{d}t} T_1(360) &= 0,0204 \pm 0,00023 &
-  \frac{\mathup{d}}{\mathup{d}t} T_2(360) &= -0,0143 \pm 0,00025 \\
-  \frac{\mathup{d}}{\mathup{d}t} T_1(720) &= 0,0177 \pm 0,00027 &
-  \frac{\mathup{d}}{\mathup{d}t} T_2(720) &= 0,0177 \pm 0,00030 \\
-  \frac{\mathup{d}}{\mathup{d}t} T_1(1080) &= 0,151 \pm 0,00033 &
-  \frac{\mathup{d}}{\mathup{d}t} T_2(1080) &= 0,151 \pm 0,00036 \\
-  \frac{\mathup{d}}{\mathup{d}t} T_1(1440) &= 0,0125 \pm 0,00040 &
-  \frac{\mathup{d}}{\mathup{d}t} T_2(1440) &= 0,0125 \pm 0,00044
+  \frac{\mathup{d}}{\mathup{d}t} T_1(360) &= (0,0204 \pm 0,00023) \frac{\si{\kelvin}}{\si{\second}} &
+  \frac{\mathup{d}}{\mathup{d}t} T_2(360) &= (-0,0143 \pm 0,00025) \frac{\si{\kelvin}}{\si{\second}} \\
+  \frac{\mathup{d}}{\mathup{d}t} T_1(720) &= (0,0177 \pm 0,00027) \frac{\si{\kelvin}}{\si{\second}} &
+  \frac{\mathup{d}}{\mathup{d}t} T_2(720) &= (0,0177 \pm 0,00030) \frac{\si{\kelvin}}{\si{\second}} \\
+  \frac{\mathup{d}}{\mathup{d}t} T_1(1080) &= (0,151 \pm 0,00033) \frac{\si{\kelvin}}{\si{\second}} &
+  \frac{\mathup{d}}{\mathup{d}t} T_2(1080) &= (0,151 \pm 0,00036) \frac{\si{\kelvin}}{\si{\second}} \\
+  \frac{\mathup{d}}{\mathup{d}t} T_1(1440) &= (0,0125 \pm 0,00040) \frac{\si{\kelvin}}{\si{\second}} &
+  \frac{\mathup{d}}{\mathup{d}t} T_2(1440) &= (0,0125 \pm 0,00044) \frac{\si{\kelvin}}{\si{\second}}
 \end{align*}
 Die Fehler werden nach der Gaußschen Fehlerfortpflanzung wie folgt ermittelt:
 \begin{align*}
-  \increment\frac{\mathup{d}}{\mathup{d}t} T(t) = \sqrt{(\frac{\mathup{d^2}T(t)}{\mathup{d}tA}\cdot\increment A)^2 + (\frac{\mathup{d^2}T(t)}{\mathup{d}tB}\cdot\increment B)^2}
+  \increment\frac{\mathup{d}}{\mathup{d}t} T(t) = \sqrt{\left(\frac{\mathup{d^2}T(t)}{\mathup{d}tA}\cdot\increment A\right)^2 + \left(\frac{\mathup{d^2}T(t)}{\mathup{d}tB}\cdot\increment B\right)^2}
 \end{align*}
 Dabei ist $\increment x$ jeweils der Fehler des hinterstehenden Parameters.
 \subsection{Bestimmug der Güteziffer \texorpdfstring{$\nu$}{z}}
@@ -223,7 +223,7 @@ In der Formel \eqref{eqn:Güte} sind die Parameter $A$ und $B$ die einzigen fehl
    \label{tab:Güteziffer}
    \begin{tabular}[width=0.4\textwidth]{S[table-format=3.0] S[table-format=1.3] S[table-format=1.4] S[table-format=2.3]}
        \toprule
-       {\emph{Zeit}} & {$\nu_{\tiny{real}}$} & {\emph{Fehler}} & {$\nu_{\tiny{ideal}}$} \\
+       {\emph{Zeit} in \si{\second}} & {$\nu_{\tiny{real}}$} & {\emph{Fehler}} & {$\nu_{\tiny{ideal}}$} \\
        \midrule
        360 & 2,826 & 0,0322 & 25,521 \\
        720 & 2,564 & 0,0395 & 13,230 \\
@@ -236,7 +236,7 @@ Die Fehler wurden mit Hilfe der Gaußschen Fehlerfortpflanzung berechnet.
 
 Da nur $A$ und $B$ mit Fehlern behaftet sind ergibt sich die folgende Fehlerformel.
 \begin{align*}
-  \increment\nu = \sqrt{(\frac{\mathup{d\nu}}{\mathup{dA}}\increment A)^2+ (\frac{\mathup{d\nu}}{\mathup{dB}}\increment B)^2}
+  \increment\nu = \sqrt{\left(\frac{\mathup{d\nu}}{\mathup{dA}}\increment A\right)^2+ \left(\frac{\mathup{d\nu}}{\mathup{dB}}\increment B\right)^2}
 \end{align*}
 Die ideale Güteziffer ist fehlerfrei, da sie über die Temperaturen errechnet wurde. Diese ergibt sich aus Formel \eqref{eqn:A1.2}.
 \subsection{Bestimmung des Massendurchsatzes}
@@ -259,7 +259,7 @@ Mit $L$ lässt sich nun auch der Massendurchsatz nach \eqref{eqn:Massendurchsatz
    \label{tab:Massendurchsatz}
    \begin{tabular}[width=0.4\textwidth]{S[table-format=3.0] S[table-format=1.5] S[table-format=1.5]}
        \toprule
-       {\emph{Zeit}} & {$\frac{\mathup{d}m}{\mathup{d}t}$ in $\frac{\si{\mol}}{\si{\second}}$} & {\emph{Fehler}} \\
+       {\emph{Zeit} in \si{\second}} & {$\frac{\mathup{d}m}{\mathup{d}t}$ in $\frac{\si{\mol}}{\si{\second}}$} & {\emph{Fehler}} \\
        \midrule
        360 & -0,01217 & 0,00043 \\
        720 & -0,00987 & 0,00042 \\
@@ -271,21 +271,20 @@ Mit $L$ lässt sich nun auch der Massendurchsatz nach \eqref{eqn:Massendurchsatz
 
 Die Fehler ergeben sich mit Hilfe der Gaußschen Fehlerfortpflanzung wie folgt.
 \begin{align*}
-  \increment\frac{\mathup{d}m}{\mathup{d}t} = \sqrt{(\frac{\mathup{d^2}m}{\mathup{d}tA}\cdot\increment A)^2 + (\frac{\mathup{d^2}m}{\mathup{d}tB}\cdot\increment B)^2 + (\frac{\mathup{d^2}m}{\mathup{d}tL}\cdot\increment L)^2}
+  \increment\frac{\mathup{d}m}{\mathup{d}t} = \sqrt{\left(\frac{\mathup{d^2}m}{\mathup{d}tA}\cdot\increment A\right)^2 + \left(\frac{\mathup{d^2}m}{\mathup{d}tB}\cdot\increment B\right)^2 + \left(\frac{\mathup{d^2}m}{\mathup{d}tL}\cdot\increment L\right)^2}
 \end{align*}
 \subsection{Bestimmung der mechanische Kompressorleistung \texorpdfstring{$N_{mech}$}{t}}
 Wie in der Theorie erwähnt wurde, wird der natürliche Wärmeenergiefluss mit Hilfe von mechanischer Arbeit umgekehrt.
 Die dafür benötigte Leistung $N_{mech}$ lässt sich über \eqref{eqn:Nmech} berechnen. Vorerst muss der Massendurchsatz von $\frac{\si{\mol}}{\si{\second}}$ in die Einheiten $\frac{\si{g}}{\si{\mol\second}}$ umgerechnet werden, sodass die mechanische Leistung in $\si{\watt}$ errechnet wird. Das verwendete Gas Dichlordiflourmethan ($\ce{Cl2F2C}$)hat eine Molare Masse von $120,91 \frac{\si{\g}}{\si{\mol}}$.
 Die Dichte $\rho$ lässt sich unter der Annahme, dass der Kompressor adiabatisch arbeitet über die ideale Gasgleichung festlegen.
-\begin{align*}
-  p V &= n R T &
-  \iff n R = \frac{p V}{T} \\
-\end{align*}
+\begin{equation*}
+  p V = n R T \quad\iff\quad n R = \frac{p V}{T}
+\end{equation*}
 Darausfolgt für $n_0R = n_2R$, mit $V = \frac{m}{\rho}$:
-\begin{align*}
-  \frac{p_0m}{\rho_0T_0} &= \frac{p_2m}{\rho T_2} & \iff \frac{p_0}{\rho_0T_0} = \frac{p_2}{\rho T_2}\\
-  \iff\rho &= \frac{p_2\rho_0T_0}{p_0T_2}
-\end{align*}
+\begin{equation*}
+  \frac{p_0m}{\rho_0T_0} = \frac{p_2m}{\rho T_2} \quad\iff\quad\frac{p_0}{\rho_0T_0} = \frac{p_2}{\rho T_2}
+  \quad\iff\quad\rho = \frac{p_2\rho_0T_0}{p_0T_2}
+\end{equation*}
 Als Werte waren $\rho_0 = 5,51 \frac{\si{g}}{\si{l}}$ bei $T = 273,15 \si{\kelvin}$, $p_0 = 1 \si{bar}$ und $\kappa = 1,14$ vorgegeben.
 Durch \eqref{eqn:Nmech} ergeben sich die in Tabelle \ref{tab:Nmech} visualisierten Werte.
 \floatplacement{table}{htbp}
@@ -306,7 +305,7 @@ Durch \eqref{eqn:Nmech} ergeben sich die in Tabelle \ref{tab:Nmech} visualisiert
 \end{table}
 Der Fehler für die mechanische Leistung $N_{mech}$ ergibt sich aus der Gaußschen Fehlerfortpflanzung wie folgt.
 \begin{align*}
-  \increment N_{mech} = \sqrt{(\frac{\mathup{d}N_{mech}}{\mathup{d}\frac{\mathup{d}m}{\mathup{d}t}}\cdot\increment\frac{\mathup{d}m}{\mathup{d}t})^2}
+  \increment N_{mech} = \sqrt{\left(\frac{\mathup{d}N_{mech}}{\mathup{d}\frac{\mathup{d}m}{\mathup{d}t}}\cdot\increment\frac{\mathup{d}m}{\mathup{d}t}\right)^2}
 \end{align*}
 \section{Diskussion}
 Im Folgendem werden die Versuchsergebnisse diskutiert. Dabei wird besonders auf den Vergleich zwischen der idealen Güteziffer $\nu_{ideal}$ und der empirisch gefundenen Güteziffer $\nu_{real}$ eingegangen.
