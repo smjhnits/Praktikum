@@ -170,7 +170,7 @@ Die Temperatur in $\si{\kelvin}$ wurde gegenüber der Zeit in $\si{\second}$ auf
   \label{fig:Temperaturverlauf}
 \end{figure}
 \subsubsection{Ausgleichsfunktion}
-Den Temperaturverlauf der beiden Reservoire wurde darüberhinaus durch eine nicht-lineare Ausgleichsrechnung dargestellt.
+Der Temperaturverlauf der beiden Reservoire wurde darüberhinaus durch eine nicht-lineare Ausgleichsrechnung dargestellt.
 Hierfür wurde die quadratische Funktion $T(t) = A\cdot t^2 + B\cdot t + C$ verwendet. Der Fit wurde mit Hilfe von \textit{curve\_fit} erstellt, wobei die Fehler aus der Kovarianz-Matrix von \textit{curve\_fit} entstammen. An der Ausgleichskurve wird deutlich, dass sich die Temperaturveläufe relativ präzise approximieren lassen. Die Fehler sind in der selben Einheit, wie der zugehörige Parameterwerte.
 
 \begin{figure}
@@ -215,8 +215,8 @@ Die Fehler werden nach der Gaußschen Fehlerfortpflanzung wie folgt ermittelt:
   \increment\frac{\mathup{d}}{\mathup{d}t} T(t) = \sqrt{\left(\frac{\mathup{d^2}T(t)}{\mathup{d}tA}\cdot\increment A\right)^2 + \left(\frac{\mathup{d^2}T(t)}{\mathup{d}tB}\cdot\increment B\right)^2}
 \end{align*}
 Dabei ist $\increment x$ jeweils der Fehler des hinterstehenden Parameters.
-\subsection{Bestimmug der Güteziffer \texorpdfstring{$\nu$}{z}}
-In dem folgendem Abschnitt wird die Gütteziffer $\nu$ der verwendeten Wärmepumpe bestimmt. Diese ergibt sich aus der Formel \eqref{eqn:Güte_theo}. Für die Wärmekapazität der Apparatur wurde der Wert $750 \frac{\si{\joule}}{\si{\kelvin}}$ verwendet. Dieser war an dem Versuchsaufbaus angegeben. Die Wärmekapazität des Wassers ist für einen Liter mit $4182\frac{\si{\joule}}{\si{\kelvin}}$ zu bemessen. In dem Versuch wurden die Reservoire mit $4 \mathup{l}$ Wasser befüllt.
+\subsection{Bestimmung der Güteziffer \texorpdfstring{$\nu$}{z}}
+In dem folgendem Abschnitt wird die Güteziffer $\nu$ der verwendeten Wärmepumpe bestimmt. Diese ergibt sich aus der Formel \eqref{eqn:Güte_theo}. Für die Wärmekapazität der Apparatur wurde der Wert $750 \frac{\si{\joule}}{\si{\kelvin}}$ verwendet. Dieser war an dem Versuchsaufbaus angegeben. Die Wärmekapazität des Wassers ist für einen Liter mit $4182\frac{\si{\joule}}{\si{\kelvin}}$ zu bemessen. In dem Versuch wurden die Reservoire mit $4 \mathup{l}$ Wasser befüllt.
 Mit der Ausgleichgeraden ergibt sich für $\nu$ die Formel:
 \begin{equation}
   \label{eqn:Güte}
