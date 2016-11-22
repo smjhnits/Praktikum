@@ -20,7 +20,7 @@ FallzeitKugel1 = ufloat(np.mean(daten[1]), np.std(daten[1], ddof = 1) * s)
 
 Temperaturen = daten[2]
 
-Messungen = np.array([daten[3], daten[4]])
+Messungen = np.array(daten[3], daten[4])
 Mesungen = Messungen.T
 
 print(Messungen)
