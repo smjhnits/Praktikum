@@ -11,6 +11,9 @@ MasseZ = ufloat(0.261545, 0)
 HöheZ = ufloat(0.02, 0)
 RadiusZ = ufloat(0.0225, 0)
 
+LängeS = ufloat(0.62, 0)
+MasseS = ufloat(0.13528, 0)
+
 Längen = Zeiten.T[0]
 Längen = Längen.T
 
@@ -49,26 +52,27 @@ x_plot = np.linspace(0.001, 0.095)
 plt.plot(Lq, TqM, 'rx', label="Differenzen")
 plt.plot(x_plot, f(x_plot, *params), 'b-', label='linearer Fit', linewidth=1)
 plt.legend(loc="best")
-plt.title(r"$T^2 \, gegen \, r^2$")
-plt.xlabel(r"$r^2 \, in \, m^2$")
+plt.title(r"$T^2 \, gegen \, a^2$")
+plt.xlabel(r"$a^2 \, in \, m^2$")
 plt.ylabel(r"$T^2 \, in \, s^2$")
 
-plt.savefig("plot1.pdf")
-plt.show()
+#plt.savefig("plot1.pdf")
+#plt.show()
 
 Steigung = ufloat(params[0], errors[0])
 Abschnitt = ufloat(params[1], errors[1])
 
 Iz = MasseZ*((RadiusZ**2)/4 + (HöheZ**2)/12)
+Is = MasseS*(LängeS**2)*(1/12)
 
 WRGd = 8 * (np.pi**2) * MasseZ/Steigung
-Id = Abschnitt * WRGd/ (4 * np.pi**2) - 2*Iz
+Id = Abschnitt * WRGd/ (4 * np.pi**2) - 2*Iz - Is
 
 #print(Iz)
 #print(WRGd)
-#print(Id)
+print(Id)
 
-#np.savetxt("WRGdyn.txt", np.column_stack([WRGd.n, WRGd.s]), header = "dynamische Winkelrichtgröße")
+np.savetxt("WRGdyn.txt", np.column_stack([WRGd.n, WRGd.s, Id.n, Id.s]), header = "dynamische Winkelrichtgröße")
 
 def linregress(x, y):
     x = np.array(x)
