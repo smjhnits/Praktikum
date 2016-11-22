@@ -1,0 +1,384 @@
+\input{"Praeambel_prak.tex"}
+
+\title{Versuch 101}
+\subtitle{Das Trägheitsmoment}
+\author{Jonah Nitschke\\
+        lejonah@web.de \and
+        Sebastian Pape\\
+        sepa@gmx.de}
+\date{Durchführung: 08.11.2016\\
+      Abgabe: 15.11.2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+\input{Theorie_Durchfuehrung.tex}
+
+\section{Auswertung}
+\subsection{Bestimmung der Winkelrichtgröße und des Eigenträgheitmomentes der Drillachse}
+Für die Bestimmung der Winkelrichtgröße wurde folgende Formel verwendet:
+\begin{equation}
+  D = \frac{\lvert F \rvert \cdot \lvert r \rvert}{\varphi}
+\end{equation}
+
+Unsere Messergebenisse der Winkel und der jeweilig wirkenden Kraft sind in Tabelle 1 eingetragen.
+
+\begin{table}
+  \centering
+  \caption{Wirkende Kraft in N in Abhängigkeit des Drehwinkels bei verschiedenen Abständen.}
+  \label{tab:data1}
+  \begin{tabular}{c c c c c}
+    \toprule $Abstand in m$ & $\frac{1}{3} \pi$ & $\frac{2}{3} \pi$ & $ \pi$ & $\frac{4}{3} \pi$ \\
+    \midrule
+    0.10 & 0.31 & 0.61 & 0.89  & 1.20 \\
+    0.15 & 0.20 & 0.40 & 0.595 & 0.89 \\
+    0.20 & 0.16 & 0.30 & 0.44  & 0.59 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mithilfe der Messdaten werden die jeweiligen Winkelrichtgrößen berechnet und gemittelt,
+sodass sich folgender Wert für die "statische" Winkelrichtgröße ergibt:
+
+\begin{equation}
+  D_{stat} = (0.029088 \pm 0.000329) \symup{Nm}
+\end{equation}
+
+Die Winkelrichtgröße kann auch dynamisch bestimmt werden. Die Messergebnisse dazu befinden sich
+in Tabelle 2. Zur Bestimmung von $D_{dyn}$ wird in einem Graphen $T^2$ gegen $a^2$ aufgetragen,
+wobei $a$ dem jeweiligen Abstand zum Drillachsenmittelpunkt $\lvert r \rvert$ entspricht und $T$
+der jeweilig gemessenen Schwingungsdauer. Mittels linearer Regression wird dann die Steigung $m$ sowie
+der y-Achsenabschnitt $b$ berechnet. Mithilfe dieser Werte wird dann ebenfalls die
+Winkelrichtgröße mit folgender Formel berechnet:
+
+\begin{equation}
+  D_{dyn} = \frac{8\pi^2 \cdot m_{zyl}}{m}
+\end{equation}
+
+Der Fehler ergibt sich dabei mithilfe Gauß´scher Fehlerrechnung aus folgender Formel:
+
+\begin{equation}
+  \sigma_{D_{dyn}} = \frac{8 \pi^2 \cdot m_{zyl}}{m^2} \cdot \sigma_m
+\end{equation}
+
+\begin{table}
+  \centering
+  \caption{Schwingungsdauern bei jeweiligen Abständen.}
+  \label{tab:data2}
+  \begin{tabular}{c c c c }
+    \toprule $a in m$ & $a^2 in m^2$ & $T in s$ & $T^2 in s^2$ \\
+    \midrule
+    0.0500 & 0.0025 & 2.79867 &  7.8325\\
+    0.1000 & 0.0100 & 3.61067 &  13.037\\
+    0.1245 & 0.0155 & 4.12933 &  17.051\\
+    0.1504 & 0.0226 & 4.71533 &  22.234\\
+    0.1751 & 0.0306 & 5.29200 &  28.005\\
+    0.2000 & 0.0400 & 5.84000 &  34.106\\
+    0.2261 & 0.0511 & 6.49133 &  42.137\\
+    0.2505 & 0.0628 & 7.10800 &  50.524\\
+    0.2740 & 0.0751 & 7.69600 &  59.228\\
+    0.3000 & 0.0900 & 8.33733 &  69.511\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{plot1.pdf}
+\end{figure}
+
+Die Steigung der Regressionsgerade beträgt $m = (705.90543 \pm 1.89267) \frac{s^2}{m^2}$ und
+der y-Achsenabschnitt hat einen Wert von $b = (6.11521 \pm 0.09211) s^2$. So ergibt sich für
+die "dynamische" Winkelrichtgröße folgender Wert:
+
+\begin{equation}
+  D_{dyn} = (0.02925 \pm 0.00008) \symup{Nm}
+\end{equation}
+
+Zu sehen ist, dass $D_{dyn}$ im Fehlerbereich von $D_{stat}$ liegt, dies aber anders herum nicht
+gilt. Da $D_{dyn}$ den geringeren Fehler hat, wird im folgenden mit diesem Wert weitergerechnet.
+
+Mithilfe von $D_{dyn}$ und des y-Achsenabschnittes von Abbildung 1 können nun mit folgenden Formeln
+auch das Trägheitsmoment der Drillachse und der Fehler bestimmt werden:
+
+\begin{align}
+  I_D        &= I_{ges} - 2 \cdot I_{Z}\\
+             &= \frac{b \cdot D_{dyn}}{4 \pi^2} - 2 \cdot I_{Z}\\
+  \sigma_I   &= \sqrt{(\frac{D_{dyn}}{4\pi^2} \cdot \sigma_b)^2 + (\frac{b}{4\pi^2} \cdot \sigma_{D_{dyn}})^2}
+\end{align}
+
+Dabei wird das Trägheitsmoment der Stange vernachlässigt, da diese als masselos angenommen werden soll.
+Das Trägheitsmoment der Zylinder muss vorher allerdings berechnet werden und hinterher abgezogen werden.
+Dabei ergibt sich für $I_{Z}$ folgender Wert:
+
+\begin{equation}
+  I_Z = m_{zylinder} \cdot (\frac{R_Z^2}{4} + \frac{H_Z^2}{12}) \symup{kg m^2}
+\end{equation}
+
+Bei $R_Z$ und $H_Z$ handelt es sich dabei um Radius und Höhe des Zylinders. Da wir in unserer Formel
+den y-Achsenabschnitt verwenden, muss der Satz von Steiner nicht beachtet werden, da wir sozusagen
+mit einer Schwingungsdauer bei $r=0$ rechnen. Mit dem obigen y-Achsenabschnitt ergibt sich dann
+für das Trägheitsmoment der Drillachse folgender Wert:
+
+\begin{equation}
+  I_D = (0.0045 \pm 0.0007) \symup{kg m^2}
+\end{equation}
+
+\subsection{Bestimmung der Trägheitsmomente zwei verschiedener Körper}
+Im folgenden Abschnitt wird das Trägheitsmoment einer homogenen Kugel sowie einer
+homogenen Zylinders sowohl theoretisch über Abmessung und Masse sowie experimentell über
+die Schwingungsdauer bestimmt und danach verglichen.
+
+\subsubsection{Trägheitsmoment einer homogenen Kugel}
+Vor dem Start der Messungen wurden zuerst sowohl Masse als auch Durchmesser der Kugel ermittelt.
+Dabei wird beides als fehlerfrei angenommen:
+
+\begin{align}
+  r_K &= (0.06883 \pm 0.00000) \symup{m} \\
+  m_K &= (0.33821 \pm 0.00000) \symup{kg}
+\end{align}
+
+Mit diesen Werten lässt sich das "theoretische" Trägheitsmoment wie folgt bestimmen:
+
+\begin{equation}
+  I_{Kugel,theo} = \frac{2}{5} m_{Kugel} \cdot r_K^2 = (0.00154 \pm 0.0) \symup{kg m^2}
+\end{equation}
+
+Als nächstes wird das Trägheitsmoment über die Schwingungsdauer bestimmt. Die gemessenen Werte
+sind in Tabelle 3 eingetragen.
+
+\begin{table}
+  \centering
+  \caption{Schwingungsdauern der homogenen Kugel}
+  \begin{tabular}{c c c c c c c c c c c}
+    \toprule $Messung$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\
+    \midrule $Dauer [s]$ & 7.50 & 7.50 & 7.47 & 7.44 & 7.50 & 7.41 & 7.50 & 7.47 & 7.56 & 7.47\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Für die Schwingungsdauer werden die Werte noch durch 5 geteilt und gemittelt. Wir erhalten somit einen Wert von :
+
+\begin{equation}
+  T_{Kugel} = (1.4964 \pm 0.0026) \symup{s}
+\end{equation}
+
+Damit ergibt sich für das Trägheitsmoment folgender Wert:
+
+\begin{equation}
+  I_{Kugel,exp} = \frac{T^2 D_{dyn}}{4\pi^2} = (0.001659 \pm 0.0000034) \symup{kg m^2}
+\end{equation}
+
+Der Fehler errechnet sich wie folgt mithilfe der Gauß´schen Fehlerfortpflanzung:
+
+\begin{equation}
+  \sigma_I = \sqrt{(2T \frac{D_{dyn}}{4\pi^2} \cdot \sigma_T)^2 + (\frac{T^2}{4\pi^2} \cdot \sigma_{D_{dyn}})^2}
+    \label{eqn:sigma}
+\end{equation}
+
+Anschließend müsste eigentlich noch das Trägheitsmoment der Drillachse abgezogen werden. Da dieser
+Wert dann allerdings stark negativ sein würde und experimenteller und theoretischer Wert nur geringfügig abweichen,
+wird dies hier als physikalisch nicht sinnvoll angesehen. Somit ergibt sich eine Abweichunge zwischen
+beiden Werte von ca. $7.2 \%$. Näheres dazu findet sich in der Diskussion.
+
+Verwendet wird dabei die dynamisch bestimmte Winkelrichtgröße, da dieser Größe der selbige
+Messprozess zugrunde liegt, den wir auch bei der Bestimmung der Trägheitsmomente über die
+Schwingungsdauer verwendet haben.
+
+\subsubsection{Trägheitsmoment eines homogenen Zylinders}
+
+Die Messwerte für die Schwingungsdauern finden sich in Tabelle 4. Die Rechnungen sind dabei analog
+zu denen der homogenen Kugel.
+
+\begin{align}
+  r_Z &= (0.04012 \pm 0.00000) \symup{m} \\
+  h_Z &= (0.13990 \pm 0.00000) \symup{m} \\
+  m_Z &= (1.00580 \pm 0.00000) \symup{kg}
+\end{align}
+
+\begin{equation}
+  I_{Zylinder,theo} = \frac{1}{2} m_Z \cdot r_Z^2 = (0.000809 \pm 0.0) \symup{kg m^2}
+\end{equation}
+
+\begin{table}
+  \centering
+  \caption{Schwingungsdauern des homogenen Zylinder}
+  \begin{tabular}{c c c c c c c c c c c}
+    \toprule $Messung$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ \\
+    \midrule $Dauer [s]$ & 5.22 & 5.28 & 5.28 & 5.25 & 5.28 & 5.22 & 5.28 & 5.22 & 5.25 & 5.25\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Für die Schwingungsdauer erhalten wir somit einen Wert von:
+
+\begin{equation}
+  T_{Zylinder} = (1.0506 \pm 0.0017) \symup{s}
+\end{equation}
+
+Damit errechnet sich für das Trägheitsmoment und dessen Fehler \eqref{eqn:sigma} folgender Wert:
+
+\begin{equation}
+  I_{Zylinder,exp} = (0.0008179 \pm 0.0000034)  \symup{kg m^2}
+\end{equation}
+
+Auch hier müsste wir bei der homogenen Kugel eigentlich noch $I_D$ abgezogen werden,
+analog zu Kapitel 3.2.1 wird jedoch darauf verzichtet. Es ergibt sich somit eine
+Abweichung von ca. $1 \%$ zwischen beiden Werten.
+
+\newpage
+
+\subsection{Das Trägheitsmoment einer Holzpuppe in zwei verschiedenen Positionen}
+
+Als letzte Teil der Messungen soll das Trägheitsmoment eine Holzpuppe in zwei verschiedenen
+Positionen bestimmt werden. In Position 1 sind die beiden Arme seitlich ausgestreckt und
+bei Position 2 sind der rechte Arm sowie das rechte Bein nach vorne ausgestreckt.
+
+%Hier noch Referenz für Sebastian
+
+\subsubsection{Abschätzung des Trägheitsmomentes aus den Abmessungen}
+In der folgenden Tabelle sind alle Abmessungen der Puppe eingetragen. Die Indizes entsprechen
+dabei dem entsprechendem Körperteil [t = Torso, k = Kopf, a = Arm, b = Bein].
+
+\begin{table}
+  \centering
+  \caption{Abmessungen der Holzfigur in Metern}
+  \begin{tabular}{c c c c c c c c}
+    \toprule $r_t$ & $h_t$ & $r_k$ & $h_k$ & $r_a$ & $h_a$ & $r_b$ & $h_b$ \\
+    \midrule 0.023034 & 0.13114 & 0.015805 & 0.071 & 0.1002 & 0.17864 & 0.01136 & 0.20042 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Bei den Rechnungen werden die einzelnen Körperteile als Zylinder angenommen. Da die Körperteile
+allerdings teilweise erheblich von diesen Formen abweichen kann folgendes jedoch lediglich als
+Abschätzung betrachtet werden. Somit macht auch eine Fehlerrechnung in diesem Fall keinen Sinn
+und wird in diesem Abschnitt nicht durchgeführt.
+
+Das Gesamtträgheitsmoment entspricht somit einer Summation der Trägheitsmomente der einzelnen
+Körperteile. Um die Massen der einzelnen Körperteile zu ermitteln, wurde das Gesamtvolumen der
+Figur berechnet und damit die Dichte bestimmt. Mit dem Volumen der einzelnen Körperteile wurden
+dann die einzelnen Massen [Tabelle 6] bestimmt:
+
+\begin{table}
+  \centering
+  \caption{Volumen und Massen der einzelnen Körperteile}
+  \begin{tabular}{c | c c}
+    \toprule $Objekt$ & $Volumen [cm^3]$ & $Masse [kg]$ \\
+    \midrule
+    Torso & 0.0004373 & 0.134536 \\
+    Kopf  & 0.0001110 & 0.034293 \\
+    Arm   & 0.0001125 & 0.034679 \\
+    Bein  & 0.0001625 & 0.050011 \\
+  \end{tabular}
+\end{table}
+
+\newpage
+
+Für Position 1 gilt somit folgende Formel:
+
+\begin{align}
+  I_{ges} &= I_T + I_K + 2 \cdot I_A + 2 \cdot I_B\\
+          &= \frac{1}{2} m_t r_t^2 + \frac{1}{2} m_k r_k^2 + 2 \cdot (m_a(\frac{r_a^2}{4} + \frac{h_a^2}{12}) + m_a(r_t + \frac{h_a}{2})^2) \\
+          &+ 2 \cdot (\frac{1}{2} m_b r_b^2 + m_b(\frac{r_b}{2})^2)
+\end{align}
+
+Position 2 wird analog berechnet, allerdings wird vorab noch der Abstand der Mittelpunkte von
+ausgestrecktem Arm und Bein zur Drehachse bestimmt:
+
+\begin{align}
+  \increment_a = \sqrt{(r_t + r_a)^2 + \frac{h_a^2}{4}} \\
+  \increment_b = \sqrt{(r_t + r_b)^2 + \frac{h_b^2}{4}}
+\end{align}
+
+\begin{align}
+  I_{ges} &= I_T + I_K + I_A + I_B\\
+          &= \frac{1}{2} m_t r_t^2 + \frac{1}{2} m_k r_k^2 + (\frac{1}{2} m_a r_a^2 + m_a (r_a + r_t)^2) \\
+          &+ (\frac{1}{2} m_b r_b^2 + m_b (\frac{r_t}{2})^2) + (m(\frac{r_b^2}{4} + \frac{h_b^2}{12}) + m_b\increment_2^2) \\
+          &+ (m(\frac{r_a^2}{4} + \frac{h_a^2}{12}) + m_a\increment_1^2)
+\end{align}
+
+Somit ergeben sich folgende Trägheitsmomente:
+
+\begin{align}
+  I_{ges,pos1} = (0.001117 \pm 0.0) \symup{kg m^2} \\
+  I_{ges,pos2} = (0.001251 \pm 0.0) \symup{kg m^2}
+\end{align}
+
+\subsubsection{Brechnung der Trägheitsmomente anhand der experimentellen Daten}
+
+Wie zuvor kann nun das Trägheitsmoment auch anhand der experimentell ermittelten Daten (Tabelle 7) bestimmt
+werden:
+
+\begin{align}
+  T_{pos1} &= (1.1284 \pm 0.0029) \symup{s} \\
+  T_{pos2} &= (1.4096 \pm 0.0032) \symup{s}
+\end{align}
+
+Der angegebenen Fehler für die Trägheitsmomente errechnet sich nach \eqref{eqn:sigma}.
+Somit ergeben sich für die Trägheitsmomente folgende Werte:
+
+\begin{align}
+  I_{pos1} &= (0.000944 \pm 0.000005) \symup{kg m^2} \\
+  I_{pos2} &= (0.001472 \pm 0.000008) \symup{kg m^2}
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Schwingungsdauer der beiden Positionen der Holzpuppe}
+  \begin{tabular}{c c | c c}
+    \toprule $5T_{pos1} [s]$ & $T_{pos1} [s]$ & $5T_{pos2} [s]$ & $T_{pos2} [s]$ \\
+    \midrule
+    5.63 & 1.126 & 6.07 & 1.394 \\
+    5.62 & 1.124 & 7.06 & 1.412 \\
+    5.59 & 1.118 & 7.06 & 1.412 \\
+    5.63 & 1.126 & 7.04 & 1.408 \\
+    5.60 & 1.120 & 7.10 & 1.420 \\
+    5.72 & 1.144 & 7.03 & 1.406 \\
+    5.62 & 1.124 & 7.13 & 1.426 \\
+    5.63 & 1.126 & 7.00 & 1.400 \\
+    5.72 & 1.144 & 7.09 & 1.418 \\
+    5.66 & 1.132 & 7.00 & 1.400 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\section{Diskussion}
+
+Die Abweichung der dynamischen Winkelrichtgröße zur statischen Winkelrichtgröße beträgt lediglich
+ca. $0.6 \%$, somit scheint hier kein systematischer Fehler vorzuliegen. Für die weiteren Berechnungen
+wurde in diesem Fall $D_{dyn}$ verwendet, da dieser den kleineren Fehler hatte.
+
+Die Abweichungen der experimentell und theoretisch berechneten Werte für den homogenen Zylinder und
+die homogene Kugel sind mit $7.2 \%$ bzw. $1.0 \%$ ziemlich gering. Allerdings kann davon ausgegangen
+werden, dass die theoretischen Werte für beide Objekte näher an den tatsächlichen Werten sind, da
+die Abmessungen relativ genau bestimmt werden konnten. Zudem wurde wie zuvor erwähnt bei den beiden
+experimentell bestimmten Werten das Eigenträgheitsmoment der Drillachse nicht abgezogen, da sich sonst
+negative Werte ergeben und dies als physikalisch nicht sinnvoll betrachtet werden kann. Da die Werte
+schon zuvor relativ nahe beieinander waren, kann von einem Fehler bei der Bestimmung von $I_D$ ausgegangen
+werden.
+
+Ein möglicher Grund dafür könnte die Betrachtung der Stange als masselos sein, da ansonsten das
+Trägheitsmoment der Drillachse ziemlich gering wäre. Schon eine Betrachtung der Stange als unendlich dünnen
+langen Stab würde die Berechnung von $I_D$ deutlich verbessern. Bereits ein Gewicht von 150 g bei der vorhandenen
+Länge von ca. 60 cm würde das Trägheitsmoment der Drillachse komplett egalisieren.
+
+Den gleichen Effekt kann man auch bei den Trägheitsmomenten der beiden Figurenpositionen beachten. Mit
+Abzug von $I_D$ wären $I_{pos1}$ und $I_{pos2}$ ebenfalls negativ. Ohne Abzug von $I_D$ liegt jedoch
+erneut eine Abweichung von lediglich ungefähr $16 \%$ in beiden Fällen vor. Diese Abweichungen können
+überraschend als ziemlich gering angesehen werden, da die Abmessungen der Figuren und die anschließende
+Abschätzung aufgrund der stark idealisierten Werte eher als ziemlich ungenau betrachtet werden müssen.
+Somit wurde im Vorfeld der Messung ein weitaus größerer Fehler erwartet.
+
+Ein weitere Fehlerquelle bei den Messungen ist zudem vermutlich das Messen mithilfe einer Stoppuhr,
+da hier Faktoren wie zum Beispiel die menschliche Reaktionszeit mit reinspielen.
+
+\newpage
+
+\printbibliography
+
+\end{document}
