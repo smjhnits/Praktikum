@@ -36,14 +36,14 @@ Messungen = np.transpose(Messungen)
 
 print("Fallzeit kleine Kugel: ", FallzeitKugel2)
 print("Fallzeit große Kugel: ", FallzeitKugel1)
-print("Temperaturen: ", Temperaturen)
+print("Temperaturen: ", '\n', Temperaturen)
 print('\n')
 
 Mittelwerte = np.array([ np.mean(row) for row in Messungen ])
 Fehler = np.array([s * np.std(row) for row in Messungen])
 kombiniert = np.array([ufloat(n, Fehler[i]) for i,n in enumerate(Mittelwerte)])
 
-print("Messung der Fallzeiten: ", kombiniert)
+print("Messung der Fallzeiten: ", '\n', unp.nominal_values(kombiniert))
 print('\n')
 
 #Ermittlung der Kugeldichte und benötigte Daten
@@ -55,7 +55,6 @@ DichteGr /= 1000                         # Anpassung in g/cm^3
 DichteW = 0.998
 DichteW_array = np.array([0.9957, 0.994, 0.9922, 0.9902, 0.9880, 0.9980, 0.9857, 0.9832, 0.9806, 0.9778])
 Kkl = 0.07640/1000                       # Umrechnung in Pa * cm^3 / g
-Strecke = 0.1
 
 print("Dichte der kleinen Kugel: ", DichteKl)
 print("Dichte der großen Kugel: ", DichteGr)
@@ -78,18 +77,45 @@ Kgr1 = Kgr*1000
 #Ermittlung der ViskositäTemperaturen
 
 Viskos = np.array([ Kgr * (DichteGr - DichteW_array[i]) * n for i,n in enumerate(kombiniert) ])
-print("Viskositäten: ", Viskos)
+print("Viskositäten: ",'\n',  unp.nominal_values(Viskos))
+print('\n')
 
 #Plot anfertigen
+
+def f(x, A, B):
+    return A * np.exp( B / x)
+
+params, covariance = curve_fit(f, Temperaturen, unp.nominal_values(Viskos))
+
+x_plot = np.linspace(300, 350, num = 100)
 
 yAchse = unp.log(Viskos)
 xAchse = 1 / kombiniert
 
-plt.plot(1/Temperaturen, unp.nominal_values(Viskos), "b-",)
-plt.title("Viskos gegen T")
+plt.plot(1/Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
+plt.plot(1/x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
+plt.grid(True, which = "both")
+plt.xlabel(r"$T$ in $K$")
+plt.ylabel(r"Viskositäten in $\eta$")
+plt.legend(loc = 'best')
 plt.yscale('log')
-#plt.xlim(300, 350)
-#plt.ylim(0.5e-5, 1.5e-5)
-plt.show()
+#plt.show()
+
+print("Parameter: ", params)
+print('\n')
 
 #Geschwindigkeiten
+
+Strecke = 0.1
+Geschwindigkeiten = Strecke / kombiniert
+Vcm = Geschwindigkeiten * 100
+
+print("Geschwindigkeiten: ", '\n', unp.nominal_values(Vcm) )
+print('\n')
+
+#Reynoldszahl
+
+Reynolds = np.array([DichteW_array[i] * Vcm[i] * 2 * Rgr * 100 / n for i,n in enumerate(Viskos)])
+print("Reynoldszahl mit cm : ", '\n', unp.nominal_values(Reynolds))
+print('\n')
+print("Reynoldszahl mit m : ", '\n', unp.nominal_values(Reynolds)/10)
