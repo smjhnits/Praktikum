@@ -2,7 +2,6 @@
 
 \begin{document}
 
-\section{Auswertung}
 \section{Messwerte}
 
 \begin{table}
@@ -10,7 +9,7 @@
   \caption{gemessene Werte}
   \label{tab:Messdaten}
   \begin{tabular}{c c c c c }
-    \toprule $Fallzeit Kugel 1$ & $Fallzeit Kugel 1$ & $Temperatur$ & $Messung 1$ & $Messung 2$ \\
+    \toprule $Fallzeit \,\, Kugel \, 2 \,\, [s]$ & $Fallzeit\,\, Kugel\, 1 \,\, [s]$ & $Temperatur \,\, [°C]$ & $Messung \, 1 \,\, [s]$ & $Messung \, 2 \,\, [s]$ \\
     \midrule
     11.80 & 68.47 & 31.0 & 68.86 & 68.86 \\
     11.80 & 68.95 & 36.0 & 68.33 & 68.21 \\
@@ -26,9 +25,67 @@
   \end{tabular}
 \end{table}
 
+\begin{table}
+  \centering
+  \label{tab:FallzeitenGemittelt}
+  \caption{Mittelwerte der Fallzeiten für Teil 1 des Versuches}
+  \begin{tabular}{c c c c}
+    \toprule $Fallzeit \,\, Kugel \,\, 1$ & $\increment_{FK1}$ & $Fallzeit \,\, Kugel \,\, 2$ & $\increment_{FK2}$ \\
+    \midrule
+    68.50 & 0.30 & 11.89 & 0.13 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+\begin{table}
+  \label{tab:TemperaturGemittelt}
+  \centering
+  \caption{Mittelwerte der Messung bei verschiedenen Temperaturen für die große Kugel}
+  \begin{tabular}{c | c c c c c c c c c c }
+    \toprule
+    $Temperatur \,\, [K]$          & 304.15 & 309.15 & 312.15 & 318.15 & 322.65 \\
+    $Fallzeit \,\, [s]$            & 68.86 & 68.27 & 65.76 & 60.42 & 59.27 \\
+    $\increment_{FZ} \,\, [s]$     & 0 & 0.035 & 0.002 & 0.058 & 0 \\
+    \midrule
+    $Temperatur \,\, [K]$          & 324.65 & 329.15 & 333.15 & 337.15 & 341.15 \\
+    $Fallzeit \,\, [s]$            & 58.59 & 58.29 & 56.66 & 55.13 & 54.38 \\
+    $\increment_{FZ} \,\, [s]$     & 0.040 & 0.003 & 0.035 & 0.014 & 0.014 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+\newpage
 
+\section{Auswertung}
+
+\subsection{Bestimmung der Apparatekonstante für die große Kugel}
+
+In dem ersten Teil des Versuches soll die Apparatekonstante für die große Kugel (Kugel 1) bestimmt
+werden. Dafür wird mithilfe der bekannten Apparatekonstante für die kleine Kugel (Kugel 2) die Viskosität
+des Wassers bei Raumtemperatur bstimmt und in folgende Formel eingesetzt:
+
+\begin{align}
+  \label{eqn:KappaGroß}
+  \Kappa_{kl} &= 0.007640 \, \symup{[mPa\, cm^3 / g]} \\
+  \eta        &= \Kappa_{gr} \cdot \left( \rho_K - \rho_{Fl} \right) \cdot t
+\end{align}
+
+Bei $\rho_K$ und $\rho_{Fl}$ handelt es sich um die Dichten der Kugel und der betrachteten
+Flüssigkeit. Mithilfe der gemessenen Radien und Gewichte der Kugeln kann die Dichte
+bestimmt werden:
+
+\begin{align}
+  r_{gr}    &= (0.0078017 \pm 0.0000017) \, \symup{[m]}     & r_{kl}    &= (0.0077167 \pm 0.0000017) \, \symup{[m]} \\
+  m_{gr}    &= 0.00496 \, \symup{[kg]}                        & m_{kl}    &= 0.00446 \, \symup{[kg]} \\
+  \rho_{gr} &= (2493.6 \pm 1.6) \, \symup{\left[ kg/m^3\right]} & \rho_{gr} &= (2312.0 \pm 1.5) \, \symup{\left[ kg/m^3\right]}
+\end{align}
+
+Somit ergeben sich für die Viskosität des Wassers bei Raumtemperatur $\eta_{20}$ und $K_{gr}$ folgende Werte:
+
+\begin{align}
+  \eta_{20}   &= (0.001194 \pm 0.00013) \, \symup{[Pa \, s]} \\
+  \Kappa_{gr} &= (0.001165 \pm, 0.00012) \, \symup{[mPa\, cm^3 / g]}
+\end{align}
 
 
 \end{document}

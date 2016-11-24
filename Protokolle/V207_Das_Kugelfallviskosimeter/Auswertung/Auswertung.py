@@ -43,7 +43,8 @@ Mittelwerte = np.array([ np.mean(row) for row in Messungen ])
 Fehler = np.array([s * np.std(row) for row in Messungen])
 kombiniert = np.array([ufloat(n, Fehler[i]) for i,n in enumerate(Mittelwerte)])
 
-print("Messung der Fallzeiten: ", '\n', unp.nominal_values(kombiniert))
+#print("Messung der Fallzeiten: ", '\n', unp.nominal_values(kombiniert))
+print("Messung der Fallzeiten: ", '\n', kombiniert)
 print('\n')
 
 #Ermittlung der Kugeldichte und benötigte Daten
@@ -56,6 +57,8 @@ DichteW = 0.998
 DichteW_array = np.array([0.9957, 0.994, 0.9922, 0.9902, 0.9880, 0.9980, 0.9857, 0.9832, 0.9806, 0.9778])
 Kkl = 0.07640/1000                       # Umrechnung in Pa * cm^3 / g
 
+print("Kugel 1 = große Kugel")
+print("Kugel 2 = kleine Kugel")
 print("Dichte der kleinen Kugel: ", DichteKl)
 print("Dichte der großen Kugel: ", DichteGr)
 print("Dichte Wasser: ", DichteW)
@@ -101,6 +104,7 @@ plt.xlabel(r"$T$ in $K$")
 plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$")
 plt.legend(loc = 'best')
 plt.yscale('log')
+plt.tight_layout()
 plt.savefig("Plot_T.pdf")
 #plt.show()
 
@@ -114,6 +118,7 @@ plt.xlabel(r"1/$T$ in $K$")
 plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$ ")
 plt.legend(loc = 'best')
 plt.yscale('log')
+plt.tight_layout()
 plt.savefig("Plot_T_1.pdf")
 #plt.show()
 
