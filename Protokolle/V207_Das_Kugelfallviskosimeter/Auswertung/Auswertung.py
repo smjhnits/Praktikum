@@ -45,6 +45,19 @@ Strecke = 0.1
 
 Kgr = (Kkl * (DichteKl - DichteW) * FallzeitKugel2) / ( (DichteGr - DichteW) * FallzeitKugel1)
 
-print(Kkl * (DichteKl - DichteW) * FallzeitKugel2)
+#Umrechnung in milliPascal *cm^3 / g
 
-print(Kgr * 1000)
+Kgr1 = Kgr*1000
+
+#Ermittlung der ViskositäTemperaturen
+
+Viskos = np.array([ Kgr * (DichteGr - DichteW) * n for n in kombiniert ])
+
+#Plot anfertigen
+
+yAchse = unp.log(Viskos)
+xAchse = 1 / kombiniert
+
+plt.plot(unp.nominal_values(xAchse), unp.std_devs(yAchse), "b-",)
+
+print(Viskos)
