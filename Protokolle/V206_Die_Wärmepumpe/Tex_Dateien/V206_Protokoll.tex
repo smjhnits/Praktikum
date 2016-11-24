@@ -256,7 +256,7 @@ Damit der Massedurchsatz bestimmt werden kann, muss zunächst die Verdampfungsw�
   \subcaption{Graph zur Bestimmung der Verdampfungswärme}
 \end{figure}
 
-Die Ausgleichsgerade ergibt sich aus der Steigung $m = -2462,019$ und dem Achsenabschnitt $n = 8,540$. Die Ausgleichsrechnung wurde mit Hilfe von \textit{curve\_fit} bewerkstelligt. Die Parameter $m$ und $n$ sind mit den Fehlern $\increment m = 68,222$ und $\increment n = 0.220$ behaftet. Aus der Steigung $m$ und der allgemeinen Gaskonstanten $R$ lässt sich die Verdampfungswärne über $L = -mR$ errechnen.
+Die Ausgleichsgerade ergibt sich aus der Steigung $m = 2462,019$ und dem Achsenabschnitt $n = -8,540$. Die Ausgleichsrechnung wurde mit Hilfe von \textit{curve\_fit} bewerkstelligt. Die Parameter $m$ und $n$ sind mit den Fehlern $\increment m = 68,222$ und $\increment n = 0.220$ behaftet. Aus der Steigung $m$ und der allgemeinen Gaskonstanten $R$ lässt sich die Verdampfungswärne über $L = mR$ errechnen.
 Somit ergibt sich für die Verdampfungswärme schließlich $L = (20470,715 \pm 567,230) \frac{\si{\joule}\si{\second}}{\si{\mol}\si{\kelvin}}$.
 Mit $L$ lässt sich nun auch der Massendurchsatz nach \eqref{eqn:Massendurchsatz1} berechnen.
 \floatplacement{table}{htbp}
@@ -268,10 +268,10 @@ Mit $L$ lässt sich nun auch der Massendurchsatz nach \eqref{eqn:Massendurchsatz
        \toprule
        {\emph{Zeit} in \si{\second}} & {$\frac{\mathup{d}m}{\mathup{d}t}$ in $\frac{\si{\mol}}{\si{\second}}$} & {\emph{Fehler}} \\
        \midrule
-       360 & -0,01217 & 0,00043 \\
-       720 & -0,00987 & 0,00042 \\
-       1080 & -0,00756 & 0,00044 \\
-       1440 & -0,00526 & 0,00046 \\
+       360 & 1,217 & 0,043 \\
+       720 & 0,99 & 0,042 \\
+       1080 & 0,76 & 0,044 \\
+       1440 & 0,53 & 0,046 \\
        \bottomrule
    \end{tabular}
 \end{table}
@@ -303,10 +303,10 @@ Durch \eqref{eqn:Nmech} ergeben sich die in Tabelle \ref{tab:Nmech} visualisiert
        \toprule
        {\emph{Zeit} in $\si{\second}$} & {\emph{Dichte} $\rho$ in $\frac{\si{g}}{\si{\meter}^3}$} & {\emph{Leistung} $N_{mech}$ in $\si{\watt}$} & {\emph{Fehler}} \\
        \midrule
-       360 & 24,447 & 0,1029 & 0.00356 \\
-       720 & 21,655 & 0,1027 & 0.00430 \\
-       1080 & 20,342 & 0,0911 & 0.00510 \\
-       1440 & 19,451 & 0,0705 & 0.00603 \\
+       360 & 24,447 & 10,29 & 0.356 \\
+       720 & 21,655 & 10,27 & 0.430 \\
+       1080 & 20,342 & 9,11 & 0.510 \\
+       1440 & 19,451 & 7,05 & 0.603 \\
        \bottomrule
    \end{tabular}
 \end{table}
