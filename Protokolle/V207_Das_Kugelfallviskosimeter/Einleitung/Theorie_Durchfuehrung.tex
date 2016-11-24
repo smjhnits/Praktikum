@@ -24,6 +24,52 @@ mit abschließender Diskussion dieser.
 
 \section{Theorie}
 
-Sobald ein Körper durch ein Medium bewegt wird, entsteht innere Reibung. Der Körper tritt in Wechselwirkung mit
-dem umgebenem Medium, wobei diese Wechselwirkung von der Geschwindigkeit des Körpers abhängt.
- 
+\subsection{Innere Reibung}
+
+Sobald ein Körper durch ein Medium bewegt wird, entsteht innere Reibung. Die Stärke dieser Reibung hängt von der Beschaffenheit
+des Umgebungsmediums ab und wird als dynamische Viskosität oder auch Zähigkeit bezeichnet.
+In dem Versuch wurde eine Kugel, mit Radius $r$ durch destilliertes Wasser bewegt. Die Reibungskraft, die der Bewegung
+entgegengerichtet ist, lässt sich über das \emph{Stokessche Gesetzt} bestimmen.
+\begin{equation}
+  \label{eqn:Stokes}
+  F_R = 6\pi r \eta v
+\end{equation}
+Dabei ist $\eta$ die dynamische Viskosität und $v$ die Geschwindigkeit der Kugel. Die \emph{Stokes Gleichung} gilt nur für laminare
+Strömungen, was bedeutet, dass die Ausdehnung der Flüssigkeit hinreichend groß sein muss, wodurch Wirbelbildungen verhindert werden.
+Die Kugel wird in dem Versuch durch ein Rohr, mit leicht größerem Durchmesser als dem der Kugel fallen gelassen.
+Die erreichten Fallgeschwindigkeit der Kugel, durch das Medium sind darüberhinaus hinreichend gering, sodass
+alle Voraussetzungen für die Gültigkeit von Gleichung \eqref{enq:Stokes} gegeben sind.
+Wenn die Kugel in einer viskosen Flüssigkeit fällt, wirken zum einem ihre Gewichtskrat $F_g$, die Reibungskraft der Flüssigkeit $F_R$
+und der Auftrieb $F_A$. Die Auftriebskraft, ist wie die Reibungskraft der Bewegungsrichtung entgegengerichtet.
+Die Reibungskraft nimmt mit zunehmender Geschwindigkeit der Kugel zu. Dies bedeutet, dass sich ein Kräftegleichgewicht zwischen
+$F_g$ und $F_R$ einstellt, wodurch sich eine konstante Fallgeschwindigkeit ergibt.
+Die Zähigkeit der Flüssigkeit lässt sich über das empirische Gesetz \eqref{eqn: dyn. Voskosität} bestimmen.
+\begin{equation}
+  \label{eqn: dyn. Viskosität}
+  \eta = K(\rho_K - \rho_{Fl}) \cdot t
+\end{equation}
+Wobei $K$ eine Apparaturkonstante, $\rho_K$ die Dichte der Kugel, $\rho_{Fl} die Dichte der Umgebungsflüssigkeit$ und $t$ die Fallzeit ist.
+Die Apparaturkonstante enthält sowohl Informationen über die Fallhöhe, als auch über die Kugelgeometrie.
+
+\subsection{Temperaturabhängigkeit der Viskosität}
+
+Die Temperaturabhängigkeit der dynamischen Viskosität lässt sich mit Hilfe der \emph{Andradeschen Gleichung} bestimmen, die da lautet
+\begin{equation}
+  \eta(T) = A \exp^{\frac{B}{T}}.
+\end{equation}
+$A$ und $B$ sind dabei Konstanten, die über eine Ausgleichsrechung bestimmt werden können.
+
+\subsection{\emph{Reynoldsche Zahl}}
+
+Die \emph{Stokes Gleichung} ist nur für laminare Strömungen gültig. Das trömungsverhlten einer
+
+\section{Durchführung}
+
+\subsection{Aufbau}
+
+Zur Bestimmung der dynamischen Viskosität von destillierten Wasser wurde das Kugelfall-Viskosimeter nach Höppler verwendet.
+Das Rohr, durch welches die Kugel fällt ist leicht angewinkelt, sodass die Kugel nicht unkontrolliert hindurchfällt, sondern an der Rohrinnenseite
+entlang gleitet. Es ist daruach zu achten, dass keine Luftblasen an der Rohrinnenseite und der Kugel haften, da durch diese die
+Fallzeit unvorhersehbar beeinflusst wird.
+
+\end{document}
