@@ -92,13 +92,29 @@ x_plot = np.linspace(300, 350, num = 100)
 yAchse = unp.log(Viskos)
 xAchse = 1 / kombiniert
 
+# Plot mit V gegen T
+
+plt.plot(Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
+plt.plot(x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
+plt.grid(True, which = "both")
+plt.xlabel(r"$T$ in $K$")
+plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$")
+plt.legend(loc = 'best')
+plt.yscale('log')
+plt.savefig("Plot_T.pdf")
+#plt.show()
+
+# Plot mit V gegen 1/T
+
+plt.clf()
 plt.plot(1/Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
 plt.plot(1/x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
 plt.grid(True, which = "both")
-plt.xlabel(r"$T$ in $K$")
-plt.ylabel(r"Viskositäten in $\eta$")
+plt.xlabel(r"1/$T$ in $K$")
+plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$ ")
 plt.legend(loc = 'best')
 plt.yscale('log')
+plt.savefig("Plot_T_1.pdf")
 #plt.show()
 
 print("Parameter: ", params)
