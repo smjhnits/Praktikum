@@ -9,7 +9,7 @@
   \caption{gemessene Werte}
   \label{tab:Messdaten}
   \begin{tabular}{c c c c c }
-    \toprule $Fallzeit \,\, Kugel \, 2 \,\, [s]$ & $Fallzeit\,\, Kugel\, 1 \,\, [s]$ & $Temperatur \,\, [°C]$ & $Messung \, 1 \,\, [s]$ & $Messung \, 2 \,\, [s]$ \\
+    \toprule $Fallzeit \,\, Kugel \, 2 \,\, [\symup{s}]$ & $Fallzeit\,\, Kugel\, 1 \,\, [\symup{s}]$ & $Temperatur \,\, [\symup{°C}]$ & $Messung \, 1 \,\, [\symup{s}]$ & $Messung \, 2 \,\, [\symup{s}]$ \\
     \midrule
     11.80 & 68.47 & 31.0 & 68.86 & 68.86 \\
     11.80 & 68.95 & 36.0 & 68.33 & 68.21 \\
@@ -27,29 +27,29 @@
 
 \begin{table}
   \centering
-  \label{tab:FallzeitenGemittelt}
-  \caption{Mittelwerte der Fallzeiten für Teil 1 des Versuches}
+  \caption{Mittelwerte der Fallzeiten \texorpdfstring{$[\symup{s}]$}{b} für Teil 1 des Versuches}
   \begin{tabular}{c c c c}
     \toprule $Fallzeit \,\, Kugel \,\, 1$ & $\increment_{FK1}$ & $Fallzeit \,\, Kugel \,\, 2$ & $\increment_{FK2}$ \\
     \midrule
     68.50 & 0.30 & 11.89 & 0.13 \\
     \bottomrule
   \end{tabular}
+  \label{tab:FallzeitenGemittelt}
 \end{table}
 
 \begin{table}
-  \label{tab:TemperaturGemittelt}
   \centering
   \caption{Mittelwerte der Messung bei verschiedenen Temperaturen für die große Kugel}
+  \label{tab:TemperaturGemittelt}
   \begin{tabular}{c | c c c c c c c c c c }
     \toprule
-    $Temperatur \,\, [K]$          & 304.15 & 309.15 & 312.15 & 318.15 & 322.65 \\
-    $Fallzeit \,\, [s]$            & 68.86 & 68.27 & 65.76 & 60.42 & 59.27 \\
-    $\increment_{FZ} \,\, [s]$     & 0 & 0.035 & 0.002 & 0.058 & 0 \\
+    $Temperatur \,\, [\symup{K}]$          & 304.15 & 309.15 & 312.15 & 318.15 & 322.65 \\
+    $Fallzeit \,\, [\symup{s}]$            & 68.86 & 68.27 & 65.76 & 60.42 & 59.27 \\
+    $\increment_{FZ} \,\, [\symup{s}]$     & 0 & 0.035 & 0.002 & 0.058 & 0 \\
     \midrule
-    $Temperatur \,\, [K]$          & 324.65 & 329.15 & 333.15 & 337.15 & 341.15 \\
-    $Fallzeit \,\, [s]$            & 58.59 & 58.29 & 56.66 & 55.13 & 54.38 \\
-    $\increment_{FZ} \,\, [s]$     & 0.040 & 0.003 & 0.035 & 0.014 & 0.014 \\
+    $Temperatur \,\, [\symup{K}]$          & 324.65 & 329.15 & 333.15 & 337.15 & 341.15 \\
+    $Fallzeit \,\, [\symup{s}]$            & 58.59 & 58.29 & 56.66 & 55.13 & 54.38 \\
+    $\increment_{FZ} \,\, [\symup{s}]$     & 0.040 & 0.003 & 0.035 & 0.014 & 0.014 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -80,12 +80,42 @@ bestimmt werden:
   \rho_{gr} &= (2493.6 \pm 1.6) \, \symup{\left[ kg/m^3\right]} & \rho_{gr} &= (2312.0 \pm 1.5) \, \symup{\left[ kg/m^3\right]}
 \end{align}
 
+In Tabelle \ref{tab:FallzeitenGemittelt} sind die Mittelwerte und Fehler der gemessenen Fallzeiten für die
+kleine und Große Kugel bei Raumtemperatur eingetragen.
 Somit ergeben sich für die Viskosität des Wassers bei Raumtemperatur $\eta_{20}$ und $K_{gr}$ folgende Werte:
 
 \begin{align}
   \eta_{20}   &= (0.001194 \pm 0.00013) \, \symup{[Pa \, s]} \\
-  \Kappa_{gr} &= (0.001165 \pm, 0.00012) \, \symup{[mPa\, cm^3 / g]}
+  \Kappa_{gr} &= \frac{\eta_{20}}{\left( \rho_{gr} - \rho_{w} \right) \cdot t_{gr}} \\
+              &= (0.001165 \pm, 0.00012) \, \symup{[mPa\, cm^3 / g]}
 \end{align}
+
+Die Fehler für $\eta_{20}$ und $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fehlerfortpflanzung:
+
+\begin{align}
+\increment \eta    &= \sqrt{ \left( \partial_{\rho_{gr}} \eta \cdot \increment \rho_{gr} \right)^2 + \left( \partial_{t_{gr}} \eta \cdot \increment t_{gr} \right)^2  }\\
+\increment K_{gr} &= \sqrt{ \left( \partial_{\eta} K_{gr} \cdot \increment \eta \right)^2 + \left( \partial_{\rho_{gr}} K_{gr} \cdot \increment \rho_{gr} \right)^2 +
+                      \left( \partial_{t_{gr}} K_{gr} \cdot \increment t_{gr} \right)^2  }
+\end{align}
+
+\begin{figure}
+  \label{plt:Viskos}
+  \includegraphics[height = 10 cm]{Plot_T.pdf}
+  \includegraphics[height = 10 cm]{Plot_T_1.pdf}
+\end{figure}
+
+\subsection{Bestimmung der Konstanten A/B für die zeitabhängige Viskosität \texorpdfstring{$\eta(T)$}{z}}
+
+In den beiden Graphen \ref{plt:Viskos} sieht man einmal die Viskosität gegen T und einmal gegen 1/T aufgetragen.
+Die y - Skala ist dabei logarythmisch angepasst. Die Plots wurden mithilfe von Python erstellt und ergeben
+für A und B folgende Parameter:
+
+\begin{align}
+  A &= 1.2651 \cdot 10^{-4} \\
+  B &= 6.8567 \cdot 10^{2}
+\end{align}
+
+
 
 
 \end{document}

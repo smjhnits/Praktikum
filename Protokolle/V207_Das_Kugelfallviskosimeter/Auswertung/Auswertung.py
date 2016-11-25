@@ -80,7 +80,8 @@ Kgr1 = Kgr*1000
 #Ermittlung der ViskositäTemperaturen
 
 Viskos = np.array([ Kgr * (DichteGr - DichteW_array[i]) * n for i,n in enumerate(kombiniert) ])
-print("Viskositäten: ",'\n',  unp.nominal_values(Viskos))
+#print("Viskositäten: ",'\n',  unp.nominal_values(Viskos))
+print("Viskositäten: ",'\n',  Viskos)
 print('\n')
 
 #Plot anfertigen
@@ -106,6 +107,9 @@ plt.legend(loc = 'best')
 plt.yscale('log')
 plt.tight_layout()
 plt.savefig("Plot_T.pdf")
+
+print("Parameter für Viskositäten gegen T: ", '\n', params)
+print('\n')
 #plt.show()
 
 # Plot mit V gegen 1/T
@@ -120,6 +124,9 @@ plt.legend(loc = 'best')
 plt.yscale('log')
 plt.tight_layout()
 plt.savefig("Plot_T_1.pdf")
+
+print("Parameter für Viskositäten gegen 1/T: ", '\n', params)
+print('\n')
 #plt.show()
 
 print("Parameter: ", params)
@@ -131,12 +138,15 @@ Strecke = 0.1
 Geschwindigkeiten = Strecke / kombiniert
 Vcm = Geschwindigkeiten * 100
 
-print("Geschwindigkeiten: ", '\n', unp.nominal_values(Vcm) )
+#print("Geschwindigkeiten: ", '\n', unp.nominal_values(Vcm) )
+print("Geschwindigkeiten: ", '\n', Vcm)
 print('\n')
 
 #Reynoldszahl
 
 Reynolds = np.array([DichteW_array[i] * Vcm[i] * 2 * Rgr * 100 / n for i,n in enumerate(Viskos)])
-print("Reynoldszahl mit cm : ", '\n', unp.nominal_values(Reynolds))
+#print("Reynoldszahl mit cm : ", '\n', unp.nominal_values(Reynolds))
+print("Reynoldszahl mit cm : ", '\n', Reynolds)
 print('\n')
-print("Reynoldszahl mit m : ", '\n', unp.nominal_values(Reynolds)/10)
+#print("Reynoldszahl mit m : ", '\n', unp.nominal_values(Reynolds)/10)
+print("Reynoldszahl mit m : ", '\n', Reynolds/10)
