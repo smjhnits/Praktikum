@@ -113,15 +113,15 @@ plt.plot(x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
 plt.plot(Temperature, ViskosLit, "gx", label = "Viskositäten Literatur")
 plt.plot(x_plot, f(x_plot, *paramslit), "k-", label = "Fit der Literaturwerte")
 plt.grid(True, which = "both")
-plt.xlabel(r"$T$ in $K$")
-plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$")
+plt.xlabel(r"$T \,\, in \,\, K$")
+plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
 plt.legend(loc = 'best')
 plt.yscale('log')
 plt.xlim(294, 357)
 plt.tight_layout()
 plt.savefig("Plot_T.pdf")
 
-print("Parameter für Viskositäten gegen T: ", '\n', params)
+print("Parameter für Viskositäten Literatur: ", '\n', paramslit)
 print('\n')
 #plt.show()
 
@@ -133,18 +133,25 @@ plt.plot(1/x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
 plt.plot(1/Temperature, ViskosLit, "gx", label = "Viskositäten Literatur")
 plt.plot(1/x_plot, f(x_plot, *paramslit), "k-", label = "Fit der Literaturwerte")
 plt.grid(True, which = "both")
-plt.xlabel(r"1/$T$ in $K$")
-plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$ ")
+plt.xlabel(r"$1/T \,\, in \,\, 1/K$")
+plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
 plt.legend(loc = 'best')
 plt.yscale('log')
 plt.tight_layout()
-#plt.savefig("Plot_T_1.pdf")
+plt.savefig("Plot_T_1.pdf")
 
-print("Parameter für Viskositäten gegen 1/T: ", '\n', params)
+print("Parameter für Viskositäten Experimentell: ", '\n', params)
 print('\n')
 #plt.show()
 
 print("Parameter: ", params)
+print('\n')
+
+#Abweichungen Literatur und Experimentell
+
+ViskosLit2 = np.array([ paramslit[0] * np.exp( paramslit[1] / n ) for n in Temperaturen])
+Abweichungen = Viskos - ViskosLit2
+print("Durchschnittliche Abweichung: ", np.mean(Abweichungen))
 print('\n')
 
 #Geschwindigkeiten
