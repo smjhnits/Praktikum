@@ -84,12 +84,22 @@ Viskos = np.array([ Kgr * (DichteGr - DichteW_array[i]) * n for i,n in enumerate
 print("Viskositäten: ",'\n',  Viskos)
 print('\n')
 
+#Literaturwerte einspeichern
+
+ViskosLit = np.array([ 797.7, 653.1, 547.1, 466.8, 404.5, ])
+
+ViskosLit *= 10**(-6)
+
+Temperature = np.array([ 30.0, 40.0 , 50.0, 60.0, 70.0, ])
+Temperature += 273.15
+
 #Plot anfertigen
 
 def f(x, A, B):
     return A * np.exp( B / x)
 
 params, covariance = curve_fit(f, Temperaturen, unp.nominal_values(Viskos))
+paramslit, covariancelit = curve_fit(f, Temperature, ViskosLit)
 
 x_plot = np.linspace(300, 350, num = 100)
 
@@ -100,11 +110,14 @@ xAchse = 1 / kombiniert
 
 plt.plot(Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
 plt.plot(x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
+plt.plot(Temperature, ViskosLit, "gx", label = "Viskositäten Literatur")
+plt.plot(x_plot, f(x_plot, *paramslit), "k-", label = "Fit der Literaturwerte")
 plt.grid(True, which = "both")
 plt.xlabel(r"$T$ in $K$")
 plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$")
 plt.legend(loc = 'best')
 plt.yscale('log')
+plt.xlim(294, 357)
 plt.tight_layout()
 plt.savefig("Plot_T.pdf")
 
@@ -117,13 +130,15 @@ print('\n')
 plt.clf()
 plt.plot(1/Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
 plt.plot(1/x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
+plt.plot(1/Temperature, ViskosLit, "gx", label = "Viskositäten Literatur")
+plt.plot(1/x_plot, f(x_plot, *paramslit), "k-", label = "Fit der Literaturwerte")
 plt.grid(True, which = "both")
 plt.xlabel(r"1/$T$ in $K$")
 plt.ylabel(r"Viskosität $\eta$ in $Pa \, s$ ")
 plt.legend(loc = 'best')
 plt.yscale('log')
 plt.tight_layout()
-plt.savefig("Plot_T_1.pdf")
+#plt.savefig("Plot_T_1.pdf")
 
 print("Parameter für Viskositäten gegen 1/T: ", '\n', params)
 print('\n')

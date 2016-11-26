@@ -99,21 +99,71 @@ Die Fehler für $\eta_{20}$ und $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fe
 \end{align}
 
 \begin{figure}
-  \label{plt:Viskos}
-  \includegraphics[height = 10 cm]{Plot_T.pdf}
-  \includegraphics[height = 10 cm]{Plot_T_1.pdf}
+  \centering
+  \includegraphics[height = 9 cm]{Plot_T.pdf}
+  \caption{Viskositäten gegen T}
+  \label{plt:ViskosT}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[height = 9 cm]{Plot_T_1.pdf}
+  \caption{Viskositäten gegen 1/T}
+  \label{plt:Viskos_T}
 \end{figure}
 
 \subsection{Bestimmung der Konstanten A/B für die zeitabhängige Viskosität \texorpdfstring{$\eta(T)$}{z}}
 
-In den beiden Graphen \ref{plt:Viskos} sieht man einmal die Viskosität gegen T und einmal gegen 1/T aufgetragen.
+In den beiden Abbildungen \ref{plt:ViskosT} und \ref{plt:Viskos_T} sieht man einmal die Viskosität gegen T und einmal gegen 1/T aufgetragen.
+Zum Vergleich sind in beiden Graphen auch die Literaturwerte mit eingebunden.
 Die y - Skala ist dabei logarythmisch angepasst. Die Plots wurden mithilfe von Python erstellt und ergeben
 für A und B folgende Parameter:
 
 \begin{align}
-  A &= 1.2651 \cdot 10^{-4} \\
-  B &= 6.8567 \cdot 10^{2}
+  \symup{A} &= 1.2651 \cdot 10^{-4} \\
+  \symup{B} &= 6.8567 \cdot 10^{2}
 \end{align}
+
+Somit ergibt sich für die Andradesche Gleichung für die Temperaturabhängigkeit der Viskosität von destilliertem
+Wasser folgende Formel:
+
+\begin{equation}
+  \eta(\symup{T}) = 1.2651 \cdot 10^{-4} \cdot \exp \left( \frac{6.8567 \cdot 10^{2}}{\symup{T}} \right)
+\end{equation}
+
+\subsection{Bestimmung der Reynoldszahl}
+
+Mithilfe der folgenden Formel für die Reynoldszahl kann bei dem vorliegenden Versuch beurteilt werden, ob es
+sich um eine laminare Strömung handelt.
+
+\begin{equation}
+  R = \frac{ \rho_{w} \cdot v \cdot d}{\eta}
+\end{equation}
+
+
+Als kritische Zahl für Rohrströmungen gilt normalerweise ein Faktor von ca. 2300. Da für das $d$ in diesem
+Fall jedoch nicht der Querschnitt der Strömung, sondern der Durchmesser der umströmten Kugel verwendet wird,
+halbiert sich dieser Wert zu $R_{krit} = 1150$.
+
+Die Geschwindigkeit der Kugel für die verschiedenen Temperaturen lassen sich mit den gemessenen Fallzeiten in
+Tabelle \ref{tab:TemperaturGemittelt} und der vorher bekannten Messtrecke von $S = 0.1$ m berechnen. Sie sind
+in der folgenden Tabelle eingetragen.
+
+\begin{table}
+  \centering
+  \caption{Geschwindigkeit der großen Kugel für verschiedene Geschwindigkeiten}
+  \label{tab:Geschwindigkeiten}
+  \begin{tabular}{c | c c c c c }
+    \toprule
+    $v \,\, in \,\, \left[ \frac{m}{s} \right]$ & 0.145 & 0.146 & 0.152 & 0.166 & 0.169 \\
+    $\increment v \,\, in \,\, \left[ \frac{m}{s} \cdot 10^{-5} \right]$ & $0$ & $7.432$ & $0.667$ & $15.81$ & $0$ \\
+    \midrule
+    $v \,\, in \,\, \left[ \frac{m}{s} \right]$ & 0.171 & 0.172 & 0.176 & 0.181 & 0.184 \\
+    $\increment v \,\, in \,\, \left[ \frac{m}{s} \cdot 10^{-5} \right ]$ & $11.77$ & $0.849$ & $10.79$ & $4.749$ & $4.882$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 
 
 
