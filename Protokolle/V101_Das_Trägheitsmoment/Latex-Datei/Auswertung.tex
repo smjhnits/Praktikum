@@ -90,6 +90,15 @@ Der Fehler ergibt sich dabei mithilfe Gauß´scher Fehlerrechnung aus folgender 
   \caption{Die Quadrate der Schwingungsdauer gegenüber den Abstandsquadraten}
 \end{figure}
 
+Die Regression wird dabei von Python durchgeführt, indem an folgende Funktion gefittet wird.
+Die Parameter $C_1$ und $C_2$ entsprechen dabei der Steigung und dem y-Achsenabschnitt:
+
+\begin{align}
+  T^2 &= C_1 * a^2 + C_2 \\
+  C_1 &= m \\
+  C_2 &= b
+\end{align}
+
 Die Steigung der Regressionsgerade beträgt $m = (706 \pm 2) \frac{s^2}{m^2}$ und
 der y-Achsenabschnitt hat einen Wert von $b = (6.12 \pm 0.09) s^2$. So ergibt sich für
 die "dynamische" Winkelrichtgröße folgender Wert:
@@ -120,15 +129,7 @@ Dabei ergeben sich für $I_{Z}$ und $I_{Stange}$ folgende Werte:
 
 Bei $R_Z$ und $H_Z$ handelt es sich dabei um Radius und Höhe des Zylinders. Da wir in unserer Formel
 den y-Achsenabschnitt verwenden, muss der Steinersche Satz \eqref{eqn:Steiner} nicht beachtet werden, da wir sozusagen
-mit einer Schwingungsdauer bei $r=0$ rechnen:
-
-\begin{align}
-  T^2 &= C_1 * a^2 + C_2 \\
-  C_1 &= m \\
-  C_2 &= b
-\end{align}
-
-
+mit einer Schwingungsdauer bei $r=0$ rechnen.
 Mit dem obigen y-Achsenabschnitt ergibt sich dann für das Trägheitsmoment der Drillachse folgender Wert:
 
 \begin{equation}
@@ -353,8 +354,8 @@ Die Abweichung der dynamischen Winkelrichtgröße zur statischen Winkelrichtgrö
 ca. $0.6 \%$, somit scheint hier kein systematischer Fehler vorzuliegen. Für die weiteren Berechnungen
 wurde in diesem Fall $D_{dyn}$ verwendet, da dieser den kleineren Fehler hatte.
 
-Die Abweichung der experimentell und theoretisch berechneten Werte der beiden Figuren ist mit einem Wert von
-ca. 0 $\%$ bei dem homogenen Zylinder ziemlich gering, während sich bei der homogenen Kugel einer
+Die Abweichung der experimentell und theoretisch berechneten Werte der beiden Figuren ist mit einer nahezu
+nicht vorhandenen Abweichung bei dem homogenen Zylinder ziemlich gering, während sich bei der homogenen Kugel eine
 Abweichung von ca. 14 $\%$ ergibt. Allerdings kann davon ausgegangen
 werden, dass die theoretischen Werte für beide Objekte näher an den tatsächlichen Werten sind, da
 die Abmessungen relativ genau bestimmt werden konnten.
