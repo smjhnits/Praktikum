@@ -1,0 +1,79 @@
+\input{"../../Praeambel_prak.tex"}
+
+\title{Versuch 201}
+\subtitle{Das Dulong-Petitsche Gesetz}
+\author{Jonah Nitschke\\
+        lejonah@web.de \and
+        Sebastian Pape\\
+        sepa@gmx.de}
+\date{Durchführung: 29.11.2016\\
+      Abgabe: 06.12.2016}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Einfuehrung}
+Bei dem folgenden Versuch geht es darum, die Aussage des Dulong-Petitschen Gesetzes
+über die Gleichmäßigkeit der Molwärme von verschiedenen Stoffen zu überprüfen und
+darauf basierend zu Entscheiden, ob die klassische Mechanik zur Beschreibung
+der oszillatorischen Bewegung von Atomen ausreicht oder ob dies nur auf der
+Grundlage der Quantenmechanik geschehen kann.
+
+\section{Theorie}
+
+\subsection{spezifische Wärmekapazität}
+
+Erhöht sich die Temperatur eines Körpers um $\increment T$ so ergibt sich
+für aufgenommene Wärmeenergie und Temperaturdifferenz entsprechend
+des 1. Thermodynamischen Hauptsatzes folgende Beziehung:
+
+\begin{equation}
+  \increment Q = m c \increment T
+\end{equation}
+
+Bei c handelt es sich dabei um die Wärmekapazität bzw. im Bezug auf den
+vorliegenden Stoff um die \emph{spezifische Wärmekapazität}. Von
+Bedeutung für das vorliegende Experiment ist zudem die \emph{Molwärme} C.
+Sie beschreibt die benötigte Wärmemenge, um ein Mol eines Stoffes um dT zu
+erwärmen. Dabei wird noch unter $C_V$ für konstante Volumen und $C_p$ für
+konstanten Druck unterschieden.
+
+\subsection{Dulong-Petit}
+
+Das Dulong-Petitsche Gesetz trifft die Aussage, dass die Atomwärme bei konstanten
+Volumen $C_V$ im festen Aggregatzustand unabhängig von dem Charakter des Elements
+ist, sondern konstant den Wert 3R annimmt (R = Allgemeine Gaskonstante). Die
+Herleitung dieses Zusammenhanges basiert dabei auf der Annahme, dass Atome in
+einem Festkörpergitter um feste Punkte schwingen, und ihre potentielle und
+kinetische Energie dabei gleich sind. Gleichzeitig besagt das
+\emph{Äquipartitionstheorem}, dass ein Atom dabei die kinetische Energie
+$ < E_{kin} > = 1/2 k T$ besitzt. Aus beiden folgt dann für die mittlere Energie
+des Festkörpers der Wert 3RT und aus diesem der oben geschriebene Wert für die
+\emph{Molwärme} $C_V$.
+
+Die Molwärme $C_V$ von allen festen chemischen Elementen nimmt bei hoher
+Temperatur tatsächlich etwa den Wert 3R an, bei vielen Stoffen auch schon bei
+Zimmertemperatur. Die kinetische Theorie kann allerdings nicht beschreiben, warum
+die Molwärme aller chemischen Elementen bei hinreichend tiefen Temperaturen
+beliebig klein wird.
+
+Das liegt an der Annahme, dass die Energie der atomaren Oszillatoren sich
+beliebig ändern kann. Dies steht im Widerspruch zu Quantentheorie, die
+Energieänderungen nur in bestimmten Beträgen erlaubt. Die nun auf
+komplizierte Weise von T abhängige mittlere Energie kann somit nur über
+eine Aufsummierung der verschiedenen Energiezustände multipliziert mit der
+jeweiligen Wahrscheinlichkeit ihres Auftretens geschehen. Mit der
+Boltzmann-Verteilung ergibt sich für die innere Energie damit folgender Ausdruck:
+
+\begin{equation}
+  < U_{qu} > = \frac{ 3 N_l \hbar \omega}{\textbf{exp} (\hbar \omega / kT) - 1}
+\end{equation}
+
+Für den Grenzfall von $ T \to \infty$ ergibt sich jedoch auch hier wieder der
+bekannte Zusammenhang von $< U_{qu} > = 3RT$.
+
+
+\end{document}
