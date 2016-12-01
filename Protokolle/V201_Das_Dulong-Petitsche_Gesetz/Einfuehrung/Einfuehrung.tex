@@ -24,7 +24,7 @@ Grundlage der Quantenmechanik geschehen kann.
 
 \section{Theorie}
 
-\subsection{spezifische Wärmekapazität}
+\subsection{\texorpdfstring{$\emph{spezifische Wärmekapazität}$}{z}}
 
 Erhöht sich die Temperatur eines Körpers um $\increment T$ so ergibt sich
 für aufgenommene Wärmeenergie und Temperaturdifferenz entsprechend
@@ -75,5 +75,81 @@ Boltzmann-Verteilung ergibt sich für die innere Energie damit folgender Ausdruc
 Für den Grenzfall von $ T \to \infty$ ergibt sich jedoch auch hier wieder der
 bekannte Zusammenhang von $< U_{qu} > = 3RT$.
 
+\subsection{Messung der spez. Wärmekapazität fester Körper mit dem Mischungskalorimeter}
+
+Da eine Messung mit konstantem Volumen schwer zu realisieren ist, wird bei dem
+Experiment auf ein konstanten Druck zurückgegriffen. Dafür ist es notwendig, den
+Zusammenhang zwischen $C_V$ und $C_p$ zu kennen:
+
+\begin{equation}
+  C_p - C_V = 9 \alpha^2 \kappa V_0 T
+\end{equation}
+
+Bei $\alpha$, $\kappa$ und $V_=0$ handelt es sich um Konstanten. Für die abgegebene
+Wärmeenergie des Körpers $(Q_1)$ und die aufgenommene Wärmemenge der Kalorimeterwände
+ergeben sich folgende Formel:
+
+\begin{align}
+  Q_1 &= c_k m_k (T_k - T_m) \\
+  Q_2 &= (c_W m_W + c_g m_g) (T_k - T_m)
+\end{align}
+
+Bei $T_m$ handelt es sich um die sich einstellende Mischtemperatur und alle Werte
+mit Index k und W beziehen sich auf den Körper bzw. das Wasser.
+
+Bei dem Experiment wird ein Wärmeverlust des Systems vernachlässigt, so dass
+für die Bestimmung der spez. Wärmekapazität des Körpers die obigen Formeln
+lediglich gleichgesetzt werden müssen $(Q_1=Q_2)$:
+
+\begin{equation}
+  c_k = \frac{(c_W m_W + c_g m_g) (T_k - T_m)}{m_k (T_k - T_m)}
+\end{equation}
+
+Die Wärmekapazität $c_g m_g$ des Kalorimeters muss am Anfang des Experiments
+noch einmal extra bestimmt werden und kann mit folgender Formel errechnet werden:
+
+\begin{equation}
+  \label{eqn:cgmg}
+  c_g m_g = \frac{c_W m_y \left(T_y - T_m' \right) - c_W m_x \left(T_x - T_m' \right)}{\left( T_m' - T_x \right)}
+\end{equation}
+
+
+\section{Messtechnische Hinweise}
+
+Für die Messung der Temperaturen bei diesem Versuch wird ein Thermoelement benutzt.
+
+
+%
+%
+%
+
+\section{Durchführung}
+
+Bevor die Messungen für die \emph{spezifische Wärmekapazität} begonnen werden,
+muss zuerst eine Referenzwert ermittelt werden, um hinterher mithilfe der gemessenen
+Spannungen die vorliegenden Temperaturen zu bestimmen. Dafür wird ein Dewar-Gefäß
+mit Eiswasser gefüllt und in einem Becherglas zum Kochen gebracht. Erst werden
+beide Enden des Kabels in das Eiswasser gelegt, um die Spannungsdifferent bei
+einem Temperaturunterschied von 0 K zu überprüfen. Anschließend wird ein Ende in
+das kochende Wasser gelegt um die Spannungsdifferenz bei einem Unterschied von
+100 K zu überprüfen. Mit beiden Spannungen kann ein lineare Regression ausgeführt
+werden um die Paramter zur Bestimmmung der Temperatur in Abhängigkeit der
+gemessenen Spannungen zu bestimmen.
+
+Danach wird noch die die \emph{spezifische Wärmekapazität} des Kalorimeters bestimmt.
+In das Dewar-Gefäß werden zwei Mengen an Wasser der Masse $m_x$ und $m_y$ und der
+Temperaturen $T_x$ und $T_y$ gegeben. Anschließend wird die Mischtemperatur
+$T_m$ gemessen und mit \eqref{eqn:cgmg} kann die \emph{spezifische Wärmekapazität}
+bestimmt werden.
+
+Nach den Vorbereitungen kann mit den eigentlichen Messungen gestartet werden.
+Zuerst wird das Dewar-Gefäß mit der gleichen Flüssigkeitsmenge wie bei der
+Bestimmung von $c_g m_g$ gefüllt. Dann wird das Blei in dem Becherglas mit kochendem
+Wasser aufgeheizt. Dabei wird mit dem Thermoelement die Temperatur des Bleis
+gemessen. Vor dem Eintauchen des Körpers in das Diwar-Gefäß wird die
+Temperatur des Wassers noch einmal bestimmt. Nach einer kurzen Wartezeit wird
+dann die Mischtemperatur gemessen.
+Für die Metalle Blei 2 und Graphit wird die Messung drei mal durchgeführt.
+Anschließend wird die Messung noch einmal für Kupfer durchgeführt.
 
 \end{document}
