@@ -1,0 +1,99 @@
+\input{../../Praeambel_prak.tex}
+\begin{document}
+
+\section{Auswertung}
+
+\subsection{Bestimmen der spezifischen Wärmekapazität des Kalorimeters}
+
+Zu Beginn des Versuches wurde die spezifische Wärmekapazität des Kalorimeters
+$c_gm_g$ bestimmt, da diese Größe für die Berechnung der spezifischen
+Wärmekapazität der Stoffe $c_k$ notwendig ist. Mittels Formel (??) wurde
+$c_gm_c$ ermittelt. Mit den folgenden Werten wurde $c_gm_g$ berechnet.
+
+\begin{description}
+  \item[$T_x$]$ = \SI{294,28}{\kelvin}$
+  \item[$T_y$]$ = \SI{354,59}{\kelvin}$
+  \item[$T_m$]$ = \SI{322,38}{\kelvin}$
+  \item[$m_x$]$ = \SI{278,97}{\gram}$
+  \item[$m_y$]$ = \SI{298,98}{\gram}$
+\end{description}
+
+Für die spezifische Wärmekapazität von Wasser wurde der Wert $c_w =
+\SI{4,18}{\joule\per\gram\per\kelvin}$ verwendet.
+Es ergibt sich ein Wert von $c_gm_g = \SI{267,09}{\joule\per\kelvin}$.
+
+\section{Bestimmen der spezifischen Wärmekapazität von verschiedenen Stoffen}
+
+Es wurden in dem Versuch die spezifische Wärmekapazität der Stoffe Graphit,
+Blei und Kupfer bestimmt, wobei für Blei die Probe Blei 2 verwendet wurde.
+Für Graphit und Blei wurden jeweils drei Messungen und für Kupfer lediglich eine
+Messung durchgeführt. Die spezifische Wärmekapazität $c_k$ eines Körpers
+wird über Formel (??) ermittelt. In der beiliegenden Tabelle sind die gemessenen
+Größen des jeweiligen Stoffes eingetragen.
+
+\floatplacement{table}{htpb}
+\begin{table}
+ \centering
+ \caption{Messdaten der verwendeten Stoffe}
+ \label{tab:Messdaten1}
+ \begin{tabular}[width=0.4\textwidth]{S S[table-format=3.2] S[table-format=3.2]
+   S[table-format=3.2] S[table-format=3.2]}
+     \toprule
+     {}  & {$T_w$ in $\si{\kelvin}$} & {$T_k$ in $\si{\kelvin}$} &
+     {$T_m$ in $\si{\kelvin}$} & {$m_w$ in $\si{\gram}$} \\
+     \midrule
+     \text{Graphit} & & & & \\
+     \text{Messung 1} & 293,77 & 377,27 & 296,09 & 772,50 \\
+     \text{Messung 2} & 297,38 & 374,44 & 299,70 & 772,50 \\
+     \text{Messung 3} & 299,95 & 375,45 & 302,53 & 772,50 \\
+     & & & & \\
+     \text{Blei} & & & & \\
+     \text{Messung 1} & 295,31 & 371,60 & 296,86 & 765,89 \\
+     \text{Messung 2} & 296,86 & 369,28 & 298,41 & 765,89 \\
+     \text{Messung 3} & 298,41 & 370,57 & 299,95 & 765,89 \\
+     & & & & \\
+     \text{Kupfer} & & & & \\
+     \text{Messung 1} & 293,77 & 377,79 & 294,80 & 769,56 \\
+     \bottomrule
+\end{tabular}
+
+\FloatBarrier
+
+Für die untersuchten Proben ergibt sich somit:
+
+\begin{align*}
+  c_{Graphit} &= (\num{0,53 +- 0,03})\si{\joule\per\gram\per\kelvin} \\
+  c_{Blei} &= (\num{0,19 +- 0,004})\si{\joule\per\gram\per\kelvin} \\
+  c_{Kupfer} &= \num{0,18}\si{\joule\per\gram\per\kelvin} \\
+\end{align*}
+
+Die Fehler für Graphit und Blei wurden über die Formel \eqref{eqn:Fehler} bestimmt.
+
+\begin{equation}
+  \label{eqn:Fehler}
+  \increment\bar{x} = \frac{1}{\sqrt{N}}\cdot\sqrt{\frac{1}{N - 1}
+  \cdot\sum_{i = 1}^N(x_i-\bar{x})^2}
+\end{equation}
+Dabei ist $\bar{x}$ der Mittelwert der gemessenen Größe.
+\end{table}
+
+\FloatBarrier
+
+\subsection{Bestimmen der Atomwärme}
+
+Damit die Atomwärme $c_p$ eines Stoffes bestimmt werden kann, muss die
+spezifische Wärmekapazität dieses mit seiner Molarenmasse multipliziert werden.
+
+\begin{equation}
+  c_p = c_k\cdot M
+\end{equation}
+
+Für den jewiligen Stoff ergibt sich somit:
+
+\begin{align*}
+  c_{pG} &= (\num{6,38 +- 0,40})\si{\joule\per\gram\per\kelvin} \\
+  c_{pB} &= (\num{39,99 +- 0,73})\si{\joule\per\gram\per\kelvin} \\
+  c_{pK} &= \num{11,50}\si{\joule\per\gram\per\kelvin} \\
+\end{align*}
+
+\end{document}
