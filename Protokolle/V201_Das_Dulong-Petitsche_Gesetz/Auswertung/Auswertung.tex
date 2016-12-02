@@ -3,6 +3,16 @@
 
 \section{Auswertung}
 
+\subsection{Justieren des Thermoelementes}
+Zu Beginn des Veruches musste das Thermoelement justiert werden. Für die
+Ausgleichgerade ergibt sich die folgende Funktion.
+
+\begin{align*}
+  T(U) &\approx 25.77 \cdot U + 273,15 & [T(U)] = \si{\kelvin}
+\end{align*}
+
+Die Funktion ist abhängig von den gemessenen Spannungen $U$ ($[U] = \si{\milli\volt}$).
+
 \subsection{Bestimmen der spezifischen Wärmekapazität des Kalorimeters}
 
 Zu Beginn des Versuches wurde die spezifische Wärmekapazität des Kalorimeters
@@ -56,28 +66,26 @@ Größen des jeweiligen Stoffes eingetragen.
      \text{Messung 1} & 293,77 & 377,79 & 294,80 & 769,56 \\
      \bottomrule
 \end{tabular}
-
+\end{table}
 \FloatBarrier
 
 Für die untersuchten Proben ergibt sich somit:
 
 \begin{align*}
-  c_{Graphit} &= (\num{0,53 +- 0,03})\si{\joule\per\gram\per\kelvin} \\
+  c_{Graphit} &= (\num{1,02 +- 0,064})\si{\joule\per\gram\per\kelvin} \\
   c_{Blei} &= (\num{0,19 +- 0,004})\si{\joule\per\gram\per\kelvin} \\
   c_{Kupfer} &= \num{0,18}\si{\joule\per\gram\per\kelvin} \\
 \end{align*}
 
-Die Fehler für Graphit und Blei wurden über die Formel \eqref{eqn:Fehler} bestimmt.
+Die Fehler für Graphit und Blei wurden über die folgende Formel bestimmt.
 
 \begin{equation}
   \label{eqn:Fehler}
-  \increment\bar{x} = \frac{1}{\sqrt{N}}\cdot\sqrt{\frac{1}{N - 1}
+  \increment\bar{x} = \sqrt{\frac{1}{N(N - 1)}
   \cdot\sum_{i = 1}^N(x_i-\bar{x})^2}
 \end{equation}
-Dabei ist $\bar{x}$ der Mittelwert der gemessenen Größe.
-\end{table}
 
-\FloatBarrier
+Dabei ist $\bar{x}$ der Mittelwert der gemessenen Größe.
 
 \subsection{Bestimmen der Atomwärme}
 
@@ -91,9 +99,26 @@ spezifische Wärmekapazität dieses mit seiner Molarenmasse multipliziert werden
 Für den jewiligen Stoff ergibt sich somit:
 
 \begin{align*}
-  C_{pG} &= (\num{6,38 +- 0,40})\si{\joule\per\mol\per\kelvin} \\
-  C_{pB} &= (\num{39,99 +- 0,73})\si{\joule\per\mol\per\kelvin} \\
-  C_{pK} &= \num{11,50}\si{\joule\per\mol\per\kelvin} \\
+  C_{pG} &= (\num{12,29 +- 0,768})\si{\joule\per\mol\per\kelvin} \\
+  C_{pB} &= (\num{39,99 +- 0,727})\si{\joule\per\mol\per\kelvin} \\
+  C_{pK} &= \num{11,50}\si{\joule\per\mol\per\kelvin}
 \end{align*}
+
+\subsection{Vergleich mit Dulong-Petit}
+
+Aus den Überlegungen der klassischen Mechanik, die bereits in der Theorie
+erwähnt wurden ergibt sich, dass die Atomwärme $C_V$ materialunabhängig
+und konstant den Wert $3\cdot R \approx \SI{24,94}{\joule\per\mol\per\kelvin}$
+beträgt. Nun gilt es diese Aussage zuüberprüfen.
+Der Zusammenhang zwischen $C_p$ und $C_V$ ist nach Formel (??) bekannt.
+Für die geprüften Stoffe ergit sich:
+
+\begin{align*}
+  C_{VG} &= (\num{12.26}\pm\num{0,0002})\si{\joule\per\kelvin} \\
+  C_{VB} &= (\num{38,26}\pm\num{0,0052})\si{\joule\per\kelvin} \\
+  C_{VK} &= \num{10,78}\si{\joule\per\kelvin}
+\end{align*}
+
+
 
 \end{document}
