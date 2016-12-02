@@ -1,7 +1,171 @@
 \input{../../Praeambel_prak.tex}
+\title{Versuch 201}
+\subtitle{Das Dulong-Petitsche Gesetz}
+\author{Jonah Nitschke\\
+        lejonah@web.de \and
+        Sebastian Pape\\
+        sepa@gmx.de}
+\date{Durchführung: 29.11.2016\\
+      Abgabe: 06.12.2016}
+
 \begin{document}
 
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Einführung}
+Bei dem folgenden Versuch geht es darum, die Aussage des Dulong-Petitschen Gesetzes
+über die Gleichmäßigkeit der Molwärme von verschiedenen Stoffen zu überprüfen und
+darauf basierend zu Entscheiden, ob die klassische Mechanik zur Beschreibung
+der oszillatorischen Bewegung von Atomen ausreicht oder ob dies nur auf der
+Grundlage der Quantenmechanik geschehen kann.
+
+\section{Theorie}
+
+\subsection{\texorpdfstring{$\emph{spezifische Wärmekapazität}$}{z}}
+
+Erhöht sich die Temperatur eines Körpers um $\increment T$ so ergibt sich
+für aufgenommene Wärmeenergie und Temperaturdifferenz entsprechend
+des 1. Thermodynamischen Hauptsatzes folgende Beziehung:
+
+\begin{equation}
+  \increment Q = m c \increment T
+\end{equation}
+
+Bei c handelt es sich dabei um die Wärmekapazität bzw. im Bezug auf den
+vorliegenden Stoff um die \emph{spezifische Wärmekapazität}. Von
+Bedeutung für das vorliegende Experiment ist zudem die \emph{Molwärme} C.
+Sie beschreibt die benötigte Wärmemenge, um ein Mol eines Stoffes um dT zu
+erwärmen. Dabei wird noch unter $C_V$ für konstante Volumen und $C_p$ für
+konstanten Druck unterschieden.
+
+\subsection{Dulong-Petit}
+
+Das Dulong-Petitsche Gesetz trifft die Aussage, dass die Atomwärme bei konstanten
+Volumen $C_V$ im festen Aggregatzustand unabhängig von dem Charakter des Elements
+ist, sondern konstant den Wert 3R annimmt (R = Allgemeine Gaskonstante). Die
+Herleitung dieses Zusammenhanges basiert dabei auf der Annahme, dass Atome in
+einem Festkörpergitter um feste Punkte schwingen, und ihre potentielle und
+kinetische Energie dabei gleich sind. Gleichzeitig besagt das
+\emph{Äquipartitionstheorem}, dass ein Atom dabei die kinetische Energie
+$ < E_{kin} > = 1/2 k T$ besitzt. Aus beiden folgt dann für die mittlere Energie
+des Festkörpers der Wert 3RT und aus diesem der oben geschriebene Wert für die
+\emph{Molwärme} $C_V$.
+
+Die Molwärme $C_V$ von allen festen chemischen Elementen nimmt bei hoher
+Temperatur tatsächlich etwa den Wert 3R an, bei vielen Stoffen auch schon bei
+Zimmertemperatur. Die kinetische Theorie kann allerdings nicht beschreiben, warum
+die Molwärme aller chemischen Elementen bei hinreichend tiefen Temperaturen
+beliebig klein wird.
+
+Das liegt an der Annahme, dass die Energie der atomaren Oszillatoren sich
+beliebig ändern kann. Dies steht im Widerspruch zu Quantentheorie, die
+Energieänderungen nur in bestimmten Beträgen erlaubt. Die nun auf
+komplizierte Weise von T abhängige mittlere Energie kann somit nur über
+eine Aufsummierung der verschiedenen Energiezustände multipliziert mit der
+jeweiligen Wahrscheinlichkeit ihres Auftretens geschehen. Mit der
+Boltzmann-Verteilung ergibt sich für die innere Energie damit folgender Ausdruck:
+
+\begin{equation}
+  < U_{qu} > = \frac{ 3 N_l \hbar \omega}{\textbf{exp} (\hbar \omega / kT) - 1}
+\end{equation}
+
+Für den Grenzfall von $ T \to \infty$ ergibt sich jedoch auch hier wieder der
+bekannte Zusammenhang von $< U_{qu} > = 3RT$.
+
+\subsection{Messung der spez. Wärmekapazität fester Körper mit dem Mischungskalorimeter}
+
+Da eine Messung mit konstantem Volumen schwer zu realisieren ist, wird bei dem
+Experiment auf ein konstanten Druck zurückgegriffen. Dafür ist es notwendig, den
+Zusammenhang zwischen $C_V$ und $C_p$ zu kennen:
+
+\begin{equation}
+  \label{eqn:Cp-CV}
+  C_p - C_V = 9 \alpha^2 \kappa V_0 T
+\end{equation}
+
+Bei $\alpha$, $\kappa$ und $V_=0$ handelt es sich um Konstanten. Für die abgegebene
+Wärmeenergie des Körpers $(Q_1)$ und die aufgenommene Wärmemenge der Kalorimeterwände
+ergeben sich folgende Formel:
+
+\begin{align}
+  Q_1 &= c_k m_k (T_k - T_m) \\
+  Q_2 &= (c_W m_W + c_g m_g) (T_k - T_m)
+\end{align}
+
+Bei $T_m$ handelt es sich um die sich einstellende Mischtemperatur und alle Werte
+mit Index k und W beziehen sich auf den Körper bzw. das Wasser.
+
+Bei dem Experiment wird ein Wärmeverlust des Systems vernachlässigt, so dass
+für die Bestimmung der spez. Wärmekapazität des Körpers die obigen Formeln
+lediglich gleichgesetzt werden müssen $(Q_1=Q_2)$:
+
+\begin{equation}
+  \label{eqn:ck}
+  c_k = \frac{(c_W m_W + c_g m_g) (T_k - T_m)}{m_k (T_k - T_m)}
+\end{equation}
+
+Die Wärmekapazität $c_g m_g$ des Kalorimeters muss am Anfang des Experiments
+noch einmal extra bestimmt werden und kann mit folgender Formel errechnet werden:
+
+\begin{equation}
+  \label{eqn:cgmg}
+  c_g m_g = \frac{c_W m_y \left(T_y - T_m' \right) - c_W m_x \left(T_x - T_m' \right)}{\left( T_m' - T_x \right)}
+\end{equation}
+
+
+\section{Messtechnische Hinweise}
+
+Für die Messung der Temperaturen bei diesem Versuch wird ein Thermoelement benutzt.
+Dies liegt vor allem and der sehr hohen Einstellgeschwindigkeit, die erzielt werden
+kann. Das Thermoelement besteht aus zwei verschiedenen Metallen, die hinsichtlich
+ihrer Elektronen-Austrittsarbeit unterschiedlich sind. Wie in Abbildung % Hier das Bild zum Thermoelement einfügen
+zu erkennen, gibt es zwei Berührungstellen dieser Metalle. An diesen Berührungsstellen
+wandern die Elektronen von dem Metall mit der niedrigeren in das Metall mit der
+höheren Austrittsarbeit, bis das durch die Ladungsverschiebung entstehende Potential
+diesen Elektronendrift unterbindet. Das enstehende Potenzial nennt man dann
+\emph{Kontaktpotenzial}. Das Kontaktpotenzial hat an beiden Berührungstellen
+allerdings ein anderes Vorzeichen, so dass an den Berührungsstellen der beiden
+Metalle A keine Differenzspannung zu beobachten ist. Tritt nun an einer der beiden
+Berührungsstelle eine Erwärmung auf, wird das Kontaktpotenzial beeinflusst und
+die beiden Kontaktpotenziale heben sich nicht mehr auf. Daraus resultiert eine
+messbare Spannung an den Enden der beiden A-Dräten, die spezifsch ist für jede
+Temperaturdifferenz zwischen beiden Berührungsstellen.
+
+\section{Durchführung}
+
+Bevor die Messungen für die \emph{spezifische Wärmekapazität} begonnen werden,
+muss zuerst eine Referenzwert ermittelt werden, um hinterher mithilfe der gemessenen
+Spannungen die vorliegenden Temperaturen zu bestimmen. Dafür wird ein Dewar-Gefäß
+mit Eiswasser gefüllt und in einem Becherglas zum Kochen gebracht. Erst werden
+beide Enden des Kabels in das Eiswasser gelegt, um die Spannungsdifferent bei
+einem Temperaturunterschied von 0 K zu überprüfen. Anschließend wird ein Ende in
+das kochende Wasser gelegt um die Spannungsdifferenz bei einem Unterschied von
+100 K zu überprüfen. Mit beiden Spannungen kann ein lineare Regression ausgeführt
+werden um die Paramter zur Bestimmmung der Temperatur in Abhängigkeit der
+gemessenen Spannungen zu bestimmen.
+
+Danach wird noch die die \emph{spezifische Wärmekapazität} des Kalorimeters bestimmt.
+In das Dewar-Gefäß werden zwei Mengen an Wasser der Masse $m_x$ und $m_y$ und der
+Temperaturen $T_x$ und $T_y$ gegeben. Anschließend wird die Mischtemperatur
+$T_m$ gemessen und mit \eqref{eqn:cgmg} kann die \emph{spezifische Wärmekapazität}
+bestimmt werden.
+
+Nach den Vorbereitungen kann mit den eigentlichen Messungen gestartet werden.
+Zuerst wird das Dewar-Gefäß mit der gleichen Flüssigkeitsmenge wie bei der
+Bestimmung von $c_g m_g$ gefüllt. Dann wird das Blei in dem Becherglas mit kochendem
+Wasser aufgeheizt. Dabei wird mit dem Thermoelement die Temperatur des Bleis
+gemessen. Vor dem Eintauchen des Körpers in das Diwar-Gefäß wird die
+Temperatur des Wassers noch einmal bestimmt. Nach einer kurzen Wartezeit wird
+dann die Mischtemperatur gemessen.
+Für die Metalle Blei 2 und Graphit wird die Messung drei mal durchgeführt.
+Anschließend wird die Messung noch einmal für Kupfer durchgeführt.
+
 \section{Auswertung}
+
+Alle Messergebnisse werden in zweistelliger Arithmetik angegeben. Zugehörige
+Fehler sind auf sinnvoll erachtete Stellen gerundet.
 
 \subsection{Justieren des Thermoelementes}
 Zu Beginn des Veruches musste das Thermoelement justiert werden. Für die
@@ -17,8 +181,8 @@ Die Funktion ist abhängig von den gemessenen Spannungen $U$ ($[U] = \si{\milli\
 
 Zu Beginn des Versuches wurde die spezifische Wärmekapazität des Kalorimeters
 $c_gm_g$ bestimmt, da diese Größe für die Berechnung der spezifischen
-Wärmekapazität der Stoffe $c_k$ notwendig ist. Mittels Formel (??) wurde
-$c_gm_c$ ermittelt. Mit den folgenden Werten wurde $c_gm_g$ berechnet.
+Wärmekapazität der Stoffe $c_k$ notwendig ist. Mittels Formel \eqref{eqn:cgmg} wurde
+$c_gm_g$ ermittelt. Mit den folgenden Werten wurde $c_gm_g$ berechnet.
 
 \begin{description}
   \item[$T_x$]$ = \SI{294,28}{\kelvin}$
@@ -29,7 +193,8 @@ $c_gm_c$ ermittelt. Mit den folgenden Werten wurde $c_gm_g$ berechnet.
 \end{description}
 
 Für die spezifische Wärmekapazität von Wasser wurde der Wert $c_w =
-\SI{4,18}{\joule\per\gram\per\kelvin}$ verwendet.
+\SI{4,18}{\joule\per\gram\per\kelvin}$, wie in der Versuchsbeschreibung
+\cite{anleitung} empfohlen verwendet.
 Es ergibt sich ein Wert von $c_gm_g = \SI{267,09}{\joule\per\kelvin}$.
 
 \section{Bestimmen der spezifischen Wärmekapazität von verschiedenen Stoffen}
@@ -38,13 +203,12 @@ Es wurden in dem Versuch die spezifische Wärmekapazität der Stoffe Graphit,
 Blei und Kupfer bestimmt, wobei für Blei die Probe Blei 2 verwendet wurde.
 Für Graphit und Blei wurden jeweils drei Messungen und für Kupfer lediglich eine
 Messung durchgeführt. Die spezifische Wärmekapazität $c_k$ eines Körpers
-wird über Formel (??) ermittelt. In der beiliegenden Tabelle sind die gemessenen
+wird über Formel \eqref{eqn:ck} ermittelt. In der beiliegenden Tabelle sind die gemessenen
 Größen des jeweiligen Stoffes eingetragen.
 
 \floatplacement{table}{htpb}
 \begin{table}
  \centering
- \caption{Messdaten der verwendeten Stoffe}
  \label{tab:Messdaten1}
  \begin{tabular}[width=0.4\textwidth]{S S[table-format=3.2] S[table-format=3.2]
    S[table-format=3.2] S[table-format=3.2]}
@@ -66,6 +230,7 @@ Größen des jeweiligen Stoffes eingetragen.
      \text{Messung 1} & 293,77 & 377,79 & 294,80 & 769,56 \\
      \bottomrule
 \end{tabular}
+  \caption{Messdaten der verwendeten Stoffe}
 \end{table}
 \FloatBarrier
 
@@ -109,16 +274,54 @@ Für den jewiligen Stoff ergibt sich somit:
 Aus den Überlegungen der klassischen Mechanik, die bereits in der Theorie
 erwähnt wurden ergibt sich, dass die Atomwärme $C_V$ materialunabhängig
 und konstant den Wert $3\cdot R \approx \SI{24,94}{\joule\per\mol\per\kelvin}$
-beträgt. Nun gilt es diese Aussage zuüberprüfen.
-Der Zusammenhang zwischen $C_p$ und $C_V$ ist nach Formel (??) bekannt.
-Für die geprüften Stoffe ergit sich:
+beträgt. Nun gilt es diese Aussage zu überprüfen.
+Der Zusammenhang zwischen $C_p$ und $C_V$ ist nach Formel \eqref{eqn:Cp-CV} bekannt.
+In der folgenden Tabelle sind die berechneten Werte von $C_V$, sowie ihre
+prozentuale Abweichung von dem Theoriewert aus dem \emph{Dulong-Petitschen
+Gesetz}. Die Werte wurden anhand der Daten aus der Versuchbeschreibung
+\cite{anleitung} berechnet.
 
-\begin{align*}
-  C_{VG} &= (\num{12.26}\pm\num{0,0002})\si{\joule\per\kelvin} \\
-  C_{VB} &= (\num{38,26}\pm\num{0,0052})\si{\joule\per\kelvin} \\
-  C_{VK} &= \num{10,78}\si{\joule\per\kelvin}
-\end{align*}
+\floatplacement{table}{htpb}
+\begin{table}
+ \centering
+ \label{tab:Vergleich}
+ \begin{tabular}[width=0.4\textwidth]{S[table-format=2.2] S[table-format=1.4]
+ S[table-format=2.2]}
+     \toprule
+     {$C_V$ in \si{\joule\per\kelvin}}  & {$\increment C_V$ in
+     $\si{\joule\per\kelvin}$} & {\small{Prozentuale Abweichung}} \\
+     \midrule
+     12,26 & 0,0002 & \text{--}49,15 \\
+     38,26 & 0,0052 & \text{+}53,39 \\
+     10,78 & \text{\,\,\,\,\,\,\,\,\,\,\textbf{---}} & \text{--}43,22 \\
+     \bottomrule
+     \end{tabular}
+  \caption{Vergleich zwischen dem Dulon-Petitschen Gesetz und den gemessenen
+  Werten}
+\end{table}
 
+\section{Diskussion}
 
+In dem Versuch wurde überprüft, ob eine klassische Betrachtung der Ozillation
+von Atomen in einem Festkörper möglich ist, oder ob dies bereits mit Hilfe
+der Quantenmechanik angegangen werden muss. Die Aussage kann anhand der
+Vergleichswerte von $C_V$ mit $3R$ getroffen werden. Aus diesen folgt, dass
+die Oszillation der Atome in Festkörpern quantenmechanisch betrachtet werden
+muss, da die Messergebnisse deutlich von den Theoriewert verschieden sind.
+Dabei ist jedoch zu sagen, dass die Messungenauigkeiten in dem Versuch nicht
+zu vernachlässigen sind. Die Sicherheit der Ergebnisse  wurde deutlich von der
+Qualität des Thermoelements beschnitten. Zum einen wurde die hundert Grad Marke,
+die bei der Justierung bestimmt wurde teilweise von den erhitzten Proben
+überschritten. Solch eine Überschreitung zeigt, dass die zuvor bestimmte
+Eichmarke fehlerhaft war. Dies bedeutet, dass jede Temperaturmessung mit einem
+systematischen Fehler behaftet ist. Zum anderen hatte das Thermoelement
+unberechenbare Fehlfunktionen, weshalb die Genauigkeit und Zuverlässigkeit des
+Thermoelementes in Frage zustellen ist. Die Restlichen Messgrößen, wie das
+Gewicht der Proben konnte porblemlos bestimmt werden. Es ist anzunehmen, dass
+abgesehen von der Temperaturmessung die restlichen Größen keinen systematischen
+Fehler unterliegen. Anhand der aufgeführten Argumente kann die Aussage
+weder wiederlegt, noch bestätigt werden.
+
+\printbibliography
 
 \end{document}
