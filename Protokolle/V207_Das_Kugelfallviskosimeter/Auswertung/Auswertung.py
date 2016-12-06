@@ -27,8 +27,8 @@ print('\n')
 
 #Auslesen und Mitteln der Daten
 
-FallzeitKugel2 = ufloat(np.mean(daten[0]), np.std(daten[0], ddof = 1) * s)
-FallzeitKugel1 = ufloat(np.mean(daten[1]), np.std(daten[1], ddof = 1) * s)
+FallzeitKugel2 = ufloat(np.mean(daten[0]), np.std(daten[0], ddof = 1) * 1/np.sqrt(len(daten[0])))
+FallzeitKugel1 = ufloat(np.mean(daten[1]), np.std(daten[1], ddof = 1) * 1/np.sqrt(len(daten[1])))
 Temperaturen = daten[2]
 Temperaturen += 273.15
 Messungen = np.array([daten[3], daten[4]])
@@ -40,7 +40,7 @@ print("Temperaturen: ", '\n', Temperaturen)
 print('\n')
 
 Mittelwerte = np.array([ np.mean(row) for row in Messungen ])
-Fehler = np.array([s * np.std(row) for row in Messungen])
+Fehler = np.array([1/np.sqrt(len(row)) * np.std(row, ddof=1) for row in Messungen])
 kombiniert = np.array([ufloat(n, Fehler[i]) for i,n in enumerate(Mittelwerte)])
 
 #print("Messung der Fallzeiten: ", '\n', unp.nominal_values(kombiniert))
