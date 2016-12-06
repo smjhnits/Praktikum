@@ -7,10 +7,6 @@ from scipy.optimize import curve_fit
 
 daten = np.genfromtxt("Daten.txt", unpack = True)
 
-#RadiusGr  = np.array([0.01561/2, 0.01560/2, 0.01560/2])
-#RadiusKl  = np.array([0.01543/2, 0.01544/2, 0.01543/2])
-#GewichtGr = np.array([0.00496, 0.00496, 0.00496])
-#GewichtKl = np.array([0.00445, 0.00445, 0.00445])
 RadiusGr  = np.array([1.561/2, 1.560/2, 1.560/2])
 RadiusKl  = np.array([1.543/2, 1.544/2, 1.543/2])
 GewichtGr = np.array([4.96, 4.96, 4.96])
@@ -23,14 +19,13 @@ Rkl = ufloat(np.mean(RadiusKl), np.std(RadiusKl, ddof = 1) * s)
 Ggr = ufloat(np.mean(GewichtGr), np.std(GewichtGr, ddof = 1) * s)
 Gkl = ufloat(np.mean(GewichtKl), np.std(GewichtKl, ddof = 1) * s)
 
-print("Radius große Kugel: ", Rgr)
-print("Gewicht große Kugel: ", Ggr)
-print("Radius kleine Kugel: ", Rkl)
-print("Gewicht kleine Kugel: ", Gkl)
+print("Radius große Kugel: ", Rgr, " cm")
+print("Gewicht große Kugel: ", Ggr, " g")
+print("Radius kleine Kugel: ", Rkl, " cm")
+print("Gewicht kleine Kugel: ", Gkl, " g")
 print('\n')
 
 #Auslesen und Mitteln der Daten
-
 FallzeitKugel2 = ufloat(np.mean(daten[0]), np.std(daten[0], ddof = 1) * 1/np.sqrt(len(daten[0])))
 FallzeitKugel1 = ufloat(np.mean(daten[1]), np.std(daten[1], ddof = 1) * 1/np.sqrt(len(daten[1])))
 Temperaturen = daten[2]
@@ -63,18 +58,18 @@ Kkl = 0.07640                            # in mPa * cm^3 / g
 
 print("Kugel 1 = große Kugel")
 print("Kugel 2 = kleine Kugel")
-print("Dichte der kleinen Kugel: ", DichteKl)
-print("Dichte der großen Kugel: ", DichteGr)
-print("Dichte Wasser: ", DichteW)
+print("Dichte der kleinen Kugel: ", DichteKl, " g/cm^3")
+print("Dichte der großen Kugel: ", DichteGr, " g/cm^3")
+print("Dichte Wasser: ", DichteW, " g/cm^3")
 print('\n')
 
 #Ermittlung von K
 
 Viskositätkl20 = (Kkl * (DichteKl - DichteW) * FallzeitKugel2)
 Kgr = Viskositätkl20 / ( (DichteGr - DichteW) * FallzeitKugel1)
-print("Viskosität kleiner Kugel: ", Viskositätkl20)
-print("Apparaturkonstante kleine Kugel: ", Kkl)
-print("Apparaturkonstante große Kugel: ", Kgr)
+print("Viskosität kleiner Kugel: ", Viskositätkl20, " mPa s")
+print("Apparaturkonstante kleine Kugel: ", Kkl, " mPa s cm^3 7 g")
+print("Apparaturkonstante große Kugel: ", Kgr, " mPa s cm^3 7 g")
 print('\n')
 
 
@@ -106,13 +101,21 @@ paramslit, covariancelit = curve_fit(f, Temperature, ViskosLit)
 
 x_plot = np.linspace(300, 350, num = 100)
 
-yAchse = unp.log(Viskos)
-xAchse = 1 / kombiniert
+#Der Scheiß für Mareike
+
+Viskoslog = np.log(unp.nominal_values(Viskos))
+
+def g(x, A, B):
+    return A * x + B
+
+paramslog, covariancelog = curve_fit(g, Temperaturen, Viskoslog)
+
+print("Parameter mit linearem Fit: ", paramslog)
 
 # Plot mit V gegen T
 
-plt.plot(Temperaturen, unp.log(unp.nominal_values(Viskos) ), "bx", label = "Viskositäten")
-plt.plot(x_plot, unp.log(f(x_plot, *params)) , "r-", label = "Regressionskurve")
+plt.plot(Temperaturen, unp.log(unp.nominal_values(Viskos)), "bx", label = "Viskositäten")
+plt.plot(x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
 plt.plot(Temperature, unp.log(ViskosLit), "gx", label = "Viskositäten Literatur")
 plt.plot(x_plot, unp.log(f(x_plot, *paramslit)), "k-", label = "Fit der Literaturwerte")
 plt.grid(True, which = "both")
@@ -123,30 +126,32 @@ plt.legend(loc = 'best')
 plt.xlim(294, 357)
 plt.ylim(-9, 2)
 plt.tight_layout()
-plt.savefig("Plot_T.pdf")
+#plt.savefig("Plot_T.pdf")
 
-print("Parameter für Viskositäten Literatur: ", '\n', paramslit)
+print("Parameter für Viskositäten Literatur: ", '\n', paramslit, " A in mPa s, B in K")
 print('\n')
-plt.show()
+#plt.show()
 
 # Plot mit V gegen 1/T
 
 plt.clf()
-plt.plot(1/Temperaturen, unp.nominal_values(Viskos), "bx", label = "Viskositäten")
-plt.plot(1/x_plot, f(x_plot, *params), "r-", label = "Regressionskurve")
-plt.plot(1/Temperature, ViskosLit, "gx", label = "Viskositäten Literatur")
-plt.plot(1/x_plot, f(x_plot, *paramslit), "k-", label = "Fit der Literaturwerte")
+plt.plot(1/Temperaturen, unp.log(unp.nominal_values(Viskos)), "bx", label = "Viskositäten")
+plt.plot(1/x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
+plt.plot(1/Temperature, unp.log(ViskosLit), "gx", label = "Viskositäten Literatur")
+plt.plot(1/x_plot, unp.log(f(x_plot, *paramslit)), "k-", label = "Fit der Literaturwerte")
+plt.plot(1/x_plot, g(x_plot, *paramslog), "y-", label = "Linearer Fit") #fwfewf
 plt.grid(True, which = "both")
 plt.xlabel(r"$1/T \,\, in \,\, 1/K$")
 plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
 plt.legend(loc = 'best')
-plt.yscale('log')
+plt.ylim(-9, 2)
+#plt.yscale('log')
 plt.tight_layout()
-plt.savefig("Plot_T_1.pdf")
+#plt.savefig("Plot_T_1.pdf")
 
-print("Parameter für Viskositäten Experimentell: ", '\n', params)
+print("Parameter für Viskositäten Experimentell: ", '\n', params, " A in mPa s, B in K")
 print('\n')
-#plt.show()
+plt.show()
 
 print("Parameter: ", params)
 print('\n')
