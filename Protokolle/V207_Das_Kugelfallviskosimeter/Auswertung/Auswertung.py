@@ -7,8 +7,11 @@ from scipy.optimize import curve_fit
 
 daten = np.genfromtxt("Daten.txt", unpack = True)
 
-RadiusGr  = np.array([1.561/2, 1.560/2, 1.560/2])
-RadiusKl  = np.array([1.543/2, 1.544/2, 1.543/2])
+DurchmesserGr  = np.array([1.561, 1.560, 1.560])
+DurchmesserKl  = np.array([1.543, 1.544, 1.543])
+
+RadiusGr  = DurchmesserGr / 2
+RadiusKl  = DurchmesserKl / 2
 GewichtGr = np.array([4.96, 4.96, 4.96])
 GewichtKl = np.array([4.45, 4.45, 4.45])
 
@@ -19,6 +22,9 @@ Rkl = ufloat(np.mean(RadiusKl), np.std(RadiusKl, ddof = 1) * s)
 Ggr = ufloat(np.mean(GewichtGr), np.std(GewichtGr, ddof = 1) * s)
 Gkl = ufloat(np.mean(GewichtKl), np.std(GewichtKl, ddof = 1) * s)
 
+
+print("Durchmesser große Kugel: ", np.mean(DurchmesserGr), np.std(DurchmesserGr, ddof = 1) *s)
+print("Durchmesser kleine Kugel: ", np.mean(DurchmesserKl), np.std(DurchmesserKl, ddof = 1) *s)
 print("Radius große Kugel: ", Rgr, " cm")
 print("Gewicht große Kugel: ", Ggr, " g")
 print("Radius kleine Kugel: ", Rkl, " cm")
@@ -82,14 +88,23 @@ Viskos = np.array([ Kgr * (DichteGr - DichteW_array[i]) * n for i,n in enumerate
 print("Viskositäten: ",'\n',  Viskos)
 print('\n')
 
+print("Temperaturen: ", '\n', Temperaturen)
+print('\n')
+
+
 #Literaturwerte einspeichern
 
 ViskosLit = np.array([ 797.7, 653.1, 547.1, 466.8, 404.5, ])
 
-ViskosLit *= 10**(-6)
+ViskosLit *= 10**(-3)
 
 Temperature = np.array([ 30.0, 40.0 , 50.0, 60.0, 70.0, ])
 Temperature += 273.15
+
+print("Viskositäten Literaturwerte: ", '\n' , ViskosLit)
+print('\n')
+print("Temperaturen Literatur: ", '\n', Temperature)
+print('\n')
 
 #Plot anfertigen
 
@@ -110,7 +125,9 @@ def g(x, A, B):
     return A * 1/x + B
 
 paramslog, covariancelog = curve_fit(g, Temperaturen, Viskoslog)
+errorsExperimentell = np.sqrt(np.diag(covariancelog))
 paramslitlog, covariancelitlog = curve_fit(g, Temperature, Viskoslitlog)
+errorsLit = np.sqrt(np.diag(covariancelitlog))
 
 # Plot mit V gegen T
 
@@ -130,6 +147,7 @@ plt.tight_layout()
 
 print("Parameter für Viskositäten Literatur: ", '\n', paramslit, " A in mPa s, B in K")
 print("Parameter mit linearer Regression", '\n', paramslitlog)
+print("Fehler der linearen Regression: ", '\n', errorsExperimentell[0], errorsExperimentell[1])
 print('\n')
 #plt.show()
 
@@ -139,21 +157,24 @@ plt.clf()
 plt.plot(1/Temperaturen, unp.log(unp.nominal_values(Viskos)), "bx", label = "Viskositäten")
 #plt.plot(1/x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
 plt.plot(1/Temperature, unp.log(ViskosLit), "gx", label = "Viskositäten Literatur")
-plt.plot(1/x_plot, unp.log(f(x_plot, *paramslit)), "k-", label = "Fit der Literaturwerte")
+plt.plot(1/x_plot, g(x_plot, *paramslitlog), "k-", label = "Fit der Literaturwerte")
 plt.plot(1/x_plot, g(x_plot, *paramslog), "r-", label = "Linearer Fit") #fwfewf
 plt.grid(True, which = "both")
 plt.xlabel(r"$1/T \,\, in \,\, 1/K$")
-plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
+plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, mPa \,\, s$ ")
 plt.legend(loc = 'best')
-plt.ylim(-9, 2)
+plt.ylim(-1.5, 0.5)
 #plt.yscale('log')
 plt.tight_layout()
-#plt.savefig("Plot_T_1.pdf")
+plt.savefig("Plot_T_1.pdf")
 
 print("Parameter für Viskositäten Experimentell: ", '\n', params, " A in mPa s, B in K")
-print("Parameter mit linearem Fit: ", paramslog, " Erster wert ist B, zweiter muss noch umgerechnet werden")
+print("Parameter mit linearem Fit: ",  '\n',paramslog,)
+ParameterA = ufloat(paramslog[1], errorsExperimentell[1])
+print("Parameter A : ", unp.exp(ParameterA))
+print("Fehler der linearen Regression: ", '\n',  errorsLit[0], errorsLit[1])
 print('\n')
-plt.show()
+#plt.show()
 
 print("Parameter: ", params)
 print('\n')
@@ -172,7 +193,7 @@ Geschwindigkeiten = Strecke / kombiniert
 Vcm = Geschwindigkeiten * 100
 
 #print("Geschwindigkeiten: ", '\n', unp.nominal_values(Vcm) )
-print("Geschwindigkeiten: ", '\n', Vcm)
+print("Geschwindigkeiten:  Angaben in cm", '\n', Vcm)
 print('\n')
 
 #Reynoldszahl
