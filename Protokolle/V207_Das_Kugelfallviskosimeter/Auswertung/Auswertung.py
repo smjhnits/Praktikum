@@ -104,13 +104,13 @@ x_plot = np.linspace(300, 350, num = 100)
 #Der Scheiß für Mareike
 
 Viskoslog = np.log(unp.nominal_values(Viskos))
+Viskoslitlog = np.log(unp.nominal_values(ViskosLit))
 
 def g(x, A, B):
-    return A * x + B
+    return A * 1/x + B
 
 paramslog, covariancelog = curve_fit(g, Temperaturen, Viskoslog)
-
-print("Parameter mit linearem Fit: ", paramslog)
+paramslitlog, covariancelitlog = curve_fit(g, Temperature, Viskoslitlog)
 
 # Plot mit V gegen T
 
@@ -129,6 +129,7 @@ plt.tight_layout()
 #plt.savefig("Plot_T.pdf")
 
 print("Parameter für Viskositäten Literatur: ", '\n', paramslit, " A in mPa s, B in K")
+print("Parameter mit linearer Regression", '\n', paramslitlog)
 print('\n')
 #plt.show()
 
@@ -136,10 +137,10 @@ print('\n')
 
 plt.clf()
 plt.plot(1/Temperaturen, unp.log(unp.nominal_values(Viskos)), "bx", label = "Viskositäten")
-plt.plot(1/x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
+#plt.plot(1/x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
 plt.plot(1/Temperature, unp.log(ViskosLit), "gx", label = "Viskositäten Literatur")
 plt.plot(1/x_plot, unp.log(f(x_plot, *paramslit)), "k-", label = "Fit der Literaturwerte")
-plt.plot(1/x_plot, g(x_plot, *paramslog), "y-", label = "Linearer Fit") #fwfewf
+plt.plot(1/x_plot, g(x_plot, *paramslog), "r-", label = "Linearer Fit") #fwfewf
 plt.grid(True, which = "both")
 plt.xlabel(r"$1/T \,\, in \,\, 1/K$")
 plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
@@ -150,6 +151,7 @@ plt.tight_layout()
 #plt.savefig("Plot_T_1.pdf")
 
 print("Parameter für Viskositäten Experimentell: ", '\n', params, " A in mPa s, B in K")
+print("Parameter mit linearem Fit: ", paramslog, " Erster wert ist B, zweiter muss noch umgerechnet werden")
 print('\n')
 plt.show()
 
