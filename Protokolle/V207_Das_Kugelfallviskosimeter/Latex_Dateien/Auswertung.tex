@@ -5,7 +5,7 @@
   \caption{gemessene Maßen der Kugeln}
   \label{tab:Kugeldaten}
   \begin{tabular}{c c c c c c}
-    \toprule $m_gr \,\, in \,\, \symup{g}$ & $m_kl \,\, in \,\, \symup{g}$ &
+    \toprule $m_{gr} \,\, in \,\, \symup{g}$  & $m_{kl} \,\, in \,\, \symup{g}$ &
              $d_{gr} \,\, in \,\, \symup{cm}$ & $ \increment d_{gr} \,\, in \,\, \symup{cm}$ &
              $d_{kl} \,\, in \,\, \symup{cm}$ & $ \increment d_{kl} \,\, in \,\, \symup{cm}$ \\
     \midrule 4.96 & 4.46 & 1.56 & 0.00 & 1.54 & 0.00
@@ -108,14 +108,16 @@ Flüssigkeit. Mithilfe der gemessenen Durchmesser und Gewichte der Kugeln kann d
 mit folgenden Formeln bestimmt werden:
 
 \begin{align}
-  r    &= \frac{d}{2} \\
-  \rho &= \frac{m}{\frac{4}{3} \cdot \pi \cdot r^2}
+  r               &= \frac{d}{2} \\
+  \rho            &= \frac{m}{\frac{4}{3} \cdot \pi \cdot r^2} \\
+  \increment \rho &= \sqrt{ \left(\partial_m \rho \cdot \increment m \right) ^2 +
+                    \left( \partial_r \rho \cdot \increment r \right) ^2}
 \end{align}
 
 \begin{align}
   r_{gr}    &= (0.78017 \pm 0.00017) \, \symup{cm}     & r_{kl}    &= (0.77167 \pm 0.00017) \, \symup{cm} \\
-  \rho_{gr} &= (2.4936 \pm 0.0016) \, \symup{g/cm^3} & \rho_{kl} &= (2.3120 \pm 0.0015) \, \symup{g/cm^3}
-  \rho_{W} = 0.998 \, \symup{g/cm^3}
+  \rho_{gr} &= (2.4936 \pm 0.0016) \, \symup{g/cm^3} & \rho_{kl} &= (2.3120 \pm 0.0015) \, \symup{g/cm^3} \\
+  \rho_{W}  &= 0.998 \, \symup{g/cm^3}
   \label{eqn:Daten}
 \end{align}
 
@@ -129,7 +131,7 @@ Somit ergibt sich für $K_{gr}$ folgender Wert:
               &= (0.01165 \pm, 0.00007) \, \symup{mPa\, cm^3 / g}
 \end{align}
 
-Die Fehler für $\eta_{20}$ und $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fehlerfortpflanzung:
+Der Fehler für $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fehlerfortpflanzung:
 
 \begin{align}
 \increment K_{gr} &= \sqrt{ \left( \partial_{t_{kl}} K_{gr} \cdot \increment t_{kl} \right)^2 +
@@ -174,8 +176,8 @@ Die Fehler für $\eta_{20}$ und $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fe
 
 \begin{figure}
   \centering
-  \includegraphics[height = 9.2 cm]{Plot_T_1.pdf}
-  \caption{Viskositäten gegen 1/T}
+  \includegraphics[height = 9.5 cm]{Plot_T_1.pdf}
+  \caption{ln(\texorpdfstring{$\eta$}{i}) gegen 1/T, Daten aus Tabellen \ref{tab:nuExp} und \ref{tab:nuLit}}
   \label{plt:Viskos_T}
 \end{figure}
 
