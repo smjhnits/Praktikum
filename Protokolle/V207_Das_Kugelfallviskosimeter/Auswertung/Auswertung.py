@@ -90,7 +90,7 @@ print('\n')
 
 print("Temperaturen: ", '\n', Temperaturen)
 print('\n')
-
+Viskos *= 10**(-3)
 
 #Literaturwerte einspeichern
 
@@ -105,7 +105,7 @@ print("Viskositäten Literaturwerte: ", '\n' , ViskosLit)
 print('\n')
 print("Temperaturen Literatur: ", '\n', Temperature)
 print('\n')
-
+ViskosLit *= 10**(-3)
 #Plot anfertigen
 
 def f(x, A, B):
@@ -129,27 +129,10 @@ errorsExperimentell = np.sqrt(np.diag(covariancelog))
 paramslitlog, covariancelitlog = curve_fit(g, Temperature, Viskoslitlog)
 errorsLit = np.sqrt(np.diag(covariancelitlog))
 
-# Plot mit V gegen T
-
-plt.plot(Temperaturen, unp.log(unp.nominal_values(Viskos)), "bx", label = "Viskositäten")
-plt.plot(x_plot, unp.log(f(x_plot, *params)), "r-", label = "Regressionskurve")
-plt.plot(Temperature, unp.log(ViskosLit), "gx", label = "Viskositäten Literatur")
-plt.plot(x_plot, unp.log(f(x_plot, *paramslit)), "k-", label = "Fit der Literaturwerte")
-plt.grid(True, which = "both")
-plt.xlabel(r"$T \,\, in \,\, K$")
-plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, Pa \,\, s$ ")
-plt.legend(loc = 'best')
-#plt.yscale('log')
-plt.xlim(294, 357)
-plt.ylim(-9, 2)
-plt.tight_layout()
-#plt.savefig("Plot_T.pdf")
-
 print("Parameter für Viskositäten Literatur: ", '\n', paramslit, " A in mPa s, B in K")
 print("Parameter mit linearer Regression", '\n', paramslitlog)
 print("Fehler der linearen Regression: ", '\n', errorsExperimentell[0], errorsExperimentell[1])
 print('\n')
-#plt.show()
 
 # Plot mit V gegen 1/T
 
@@ -161,9 +144,9 @@ plt.plot(1/x_plot, g(x_plot, *paramslitlog), "k-", label = "Fit der Literaturwer
 plt.plot(1/x_plot, g(x_plot, *paramslog), "r-", label = "Linearer Fit") #fwfewf
 plt.grid(True, which = "both")
 plt.xlabel(r"$1/T \,\, in \,\, 1/K$")
-plt.ylabel(r"$Viskosität \,\, \eta \,\, in \,\, mPa \,\, s$ ")
+plt.ylabel(r"$ln(\eta)$ ")
 plt.legend(loc = 'best')
-plt.ylim(-1.5, 0.5)
+plt.xlim(0.0029, 0.00333)
 #plt.yscale('log')
 plt.tight_layout()
 plt.savefig("Plot_T_1.pdf")
@@ -198,9 +181,14 @@ print('\n')
 
 #Reynoldszahl
 
-Reynolds = np.array([DichteW_array[i] * Vcm[i] * 2 * Rgr * 100 / n for i,n in enumerate(Viskos)])
+Reynolds = np.array([DichteW_array[i] * Vcm[i] * 2 * Rgr  / 10 / n for i,n in enumerate(Viskos)])
 #print("Reynoldszahl mit cm : ", '\n', unp.nominal_values(Reynolds))
-print("Reynoldszahl mit cm : ", '\n', Reynolds)
+print("Reynoldszahl große Kugel : ", '\n', Reynolds)
 print('\n')
-#print("Reynoldszahl mit m : ", '\n', unp.nominal_values(Reynolds)/10)
-print("Reynoldszahl mit m : ", '\n', Reynolds/10)
+
+#Reynoldszahl kleine Kugel
+
+Viskositätkl20 *= 10**(-3)
+
+Reynoldskl = DichteW * Strecke * 2 * Rkl / 10 / Viskositätkl20
+print("Reynoldszahl in cm kleine kugel : ", '\n' ,Reynoldskl)

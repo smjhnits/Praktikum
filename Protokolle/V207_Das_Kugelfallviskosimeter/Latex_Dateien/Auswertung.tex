@@ -206,11 +206,9 @@ Da für das $d$ in diesem Fall jedoch nicht der Querschnitt der Strömung, sonde
 der Durchmesser der umströmten Kugel verwendet wird, halbiert sich dieser Wert zu
 $Re_{krit} = 1150$. \cite{Reynold}
 
-
-\newpage
-
 Mit dem in \eqref{eqn:Daten} berechneten Radien der Kugeln und der Dichte von Wasser
-für die jeweiligen Temperaturen ergeben sich für die Reynoldzahlen nun folgende Werte:
+für die jeweiligen Temperaturen ergeben sich für die Reynoldzahlen nun folgende
+Werte:
 
 \begin{table}
   \caption{Reynoldszahlen der großen Kugel für die verschiedenen Temperaturen}
@@ -225,21 +223,32 @@ für die jeweiligen Temperaturen ergeben sich für die Reynoldzahlen nun folgend
   \end{tabular}
 \end{table}
 
-\section{Auswertung}
+Und mit der gleichen Berechnung ergibt sich für die kleine Kugel ein Wert von:
 
-Wie man in den Abbildungen \ref{plt:ViskosT} und \ref{plt:Viskos_T} erkennen kann, weichen die
-ermittelten Viskositäten für destilliertes Wasser deutlich von den Literaturwerten ab. Durch einen
-Fit der Literaturwerte an die Andradesche Gleichung ergeben sich die Parameter $ A = 2.19 \cdot 10^{-6} $
-und $ B = 1.79 \cdot 10^{3} $. Im Durchschnitt weichen die Funktionen um ca. $ 0.000495 \, \symup{Pa \, s}$ ab.
-Jedoch ist auch erkennbar, dass das Verhalten beider Funktionen sich ähnelt, somit kann ein systematischer Fehler
-bei diesem Experiment wohl ausgeschlossen werden.
+\begin{equation}
+  Re_{kl} = (12.90 \pm 0.08)
+\end{equation}
 
-Die ermittelten Reynoldszahlen lassen sich schlecht mit Literaturwerten vergleichen, da sie für jedes Experiment aufgrund
-der Abhängigkeiten von Apparaturwerten unterschiedlich sind. Allerdings sind die ermittelten Reynoldszahlen deutlich
-kleiner als der in Abschnit 4.2 angegebene kritische Wert $R_{krit} = 1150$. Somit handelt es sich mit einer ziemlich
-großen Sicherheit bei dem beobachteten Experiment um laminare Strömungen.
+\section{Diskussion}
 
-Die entstandenen Abweichungen für die Viskositäten sind vermutlich auf statistischen Fehler zurückzuführen. Ein
-großer Faktor war vermutlich die Zeitmessung bei dem Experiment. Hier ist einerseits die menschliche Reaktionszeit
-mit einzubeziehen und andererseist ist die gemessenen Zeiten auch davon abhängen, ob man beim Start und Ende jeder Messung
-jeweils den selben Referenzpunkt der Kugel beobachtet, was in der Praxis schwer exakt zu realisieren ist.
+Wie man in den Abbildungen \ref{plt:ViskosT} und \ref{plt:Viskos_T} erkennen kann,
+weichen die ermittelten Viskositäten für destilliertes Wasser deutlich von den
+Literaturwerten ab. Durch einen Fit der Literaturwerte an die Andradesche Gleichung
+ergeben sich die Parameter $ A = 2.19 \cdot 10^{-6} $ und $ B = 1.79 \cdot 10^{3} $.
+Im Durchschnitt weichen die Funktionen um ca. $ 0.000495 \, \symup{Pa \, s}$ ab.
+Jedoch ist auch erkennbar, dass das Verhalten beider Funktionen sich ähnelt, somit
+kann ein systematischer Fehler als ziemlich wahrscheinlich angenommen werden.
+
+Die ermittelten Reynoldszahlen lassen sich schlecht mit Literaturwerten vergleichen,
+da sie für jedes Experiment aufgrund der Abhängigkeiten von Apparaturwerten
+unterschiedlich sind. Allerdings sind die ermittelten Reynoldszahlen deutlich
+kleiner als der in Abschnit 4.2 angegebene kritische Wert $R_{krit} = 1150$.
+Somit handelt es sich mit einer ziemlich großen Sicherheit bei dem beobachteten
+Experiment um laminare Strömungen.
+
+Die entstandenen Abweichungen für die Viskositäten sind vermutlich auf statistischen
+Fehler zurückzuführen. Ein großer Faktor war vermutlich die Zeitmessung bei dem
+Experiment. Hier ist einerseits die menschliche Reaktionszeit mit einzubeziehen
+und andererseist ist die gemessenen Zeiten auch davon abhängen, ob man beim Start
+und Ende jeder Messungjeweils den selben Referenzpunkt der Kugel beobachtet, was
+in der Praxis schwer exakt zu realisieren ist.
