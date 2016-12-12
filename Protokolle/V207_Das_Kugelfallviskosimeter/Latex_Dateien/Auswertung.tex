@@ -12,13 +12,26 @@
   \end{tabular}
 \end{table}
 
+
+Die Werte der Tabelle \ref{tab:Kugeldaten} und aller folgenden Tabellen wurden
+dabei mit folgenden Formeln für Mittelwert, Fehler und Fehlerfortpflanzung
+berechnet:
+
+\begin{align}
+  \label{eqn:Schwachsinn}
+  \bar{x}            &= \frac{1}{n} \sum_{i=1} x_i                                                   \\
+  \increment \bar{x} &= \sqrt{\frac{a}{n(n-1)} \sum_{i=1}^n (x_i - \bar{x})^2}                       \\
+  \increment f       &= \sqrt{\sum_{i=1}^n \left( \partial_{x_i} f \cdot \increment x_i \right)^2 }
+  \label{Schwachsinn2}
+\end{align}
+
 \begin{table}
   \centering
-  \caption{gemessene Werte für die Fallzeit der kleinen und großen Kugel}
+  \caption{gemessene Werte für die Fallzeit der kleinen (\texorpdfstring{$t_2$}{j}) und großen (\texorpdfstring{$t_1$}{q}) Kugel}
   \label{tab:Messdaten}
   \begin{tabular}{c c}
-    \toprule $Fallzeit \,\, Kugel \, 2 \,\, in \,\, \symup{s}$ &
-             $Fallzeit \,\, Kugel \, 1 \,\, in \,\, \symup{s}$ \\
+    \toprule $t_2 \,\, in \,\, \symup{s}$ &
+             $t_1 \,\, in \,\, \symup{s}$ \\
     \midrule
     11.80 & 68.47  \\
     11.80 & 68.95  \\
@@ -60,8 +73,8 @@
   \centering
   \caption{Mittelwerte der Fallzeiten für Teil 1 des Versuches}
   \begin{tabular}{c c c c}
-    \toprule $Fallzeit \,\, Kugel \,\, 1 \,\, in \,\, \symup{s}$ & $\increment t \,\, in \,\, \symup{s}$ &
-             $Fallzeit \,\, Kugel \,\, 2 \,\, in \,\, \symup{s}$ & $\increment t \,\, in \,\, \symup{s}$ \\
+    \toprule $Fallzeit \,\, Kugel \,\, 1 \,\, in \,\, \symup{s}$ & $\increment t_1 \,\, in \,\, \symup{s}$ &
+             $Fallzeit \,\, Kugel \,\, 2 \,\, in \,\, \symup{s}$ & $\increment t_2 \,\, in \,\, \symup{s}$ \\
     \midrule
     68.51 & 0.11 & 11.90 & 0.07 \\
     \bottomrule
@@ -99,8 +112,9 @@ bestimmt und in folgende Formel eingesetzt:
 
 \begin{align}
   \label{eqn:KappaGroß}
-  \Kappa_{kl} &= 0.07640 \, \symup{mPa\, cm^3 / g} \\
-  \eta        &= \Kappa_{gr} \cdot \left( \rho_K - \rho_{Fl} \right) \cdot t
+  \Kappa_{kl}     &= 0.07640 \, \symup{mPa\, cm^3 / g} \\
+  \eta            &= \Kappa_{gr} \cdot \left( \rho_K - \rho_{Fl} \right) \cdot t
+    \label{eqn:Etta}
 \end{align}
 
 Bei $\rho_K$ und $\rho_{Fl}$ handelt es sich um die Dichten der Kugel und der betrachteten
@@ -123,7 +137,8 @@ mit folgenden Formeln bestimmt werden:
 
 Die Dichte für das Wasser wurde dabei \cite{Kohlrausch} entnommen. In Tabelle
 \ref{tab:FallzeitenGemittelt} sind die Mittelwerte und Fehler der gemessenen
-Fallzeiten für die kleine und Große Kugel bei Raumtemperatur eingetragen.
+Fallzeiten für die kleine und große Kugel bei Raumtemperatur eingetragen. Die
+Werte wurden dabei mit den Formeln \eqref{eqn:Schwachsinn} bis \eqref{Schwachsinn2} bestimmt.
 Somit ergibt sich für $K_{gr}$ folgender Wert:
 
 \begin{align}
@@ -184,7 +199,16 @@ Der Fehler für $\Kappa_{gr}$ ergeben sich mit der Gaußschen Fehlerfortpflanzun
 \subsection{Bestimmung der Konstanten A/B für die zeitabhängige Viskosität \texorpdfstring{$\eta(T)$}{z}}
 
 In der Abbildung \ref{plt:Viskos_T} sieht man den Logarythmus von $\eta$ aufgetragen
-gegen T. Mithilfe einer linearen Regression mit der folgenden Formel können nun
+gegen T. Die Werte für $\eta$ wurden dabei mit Formel \eqref{eqn:Etta} berechnet und
+die Fehler ergeben sich mittels der Gaußschen Fehlerfortpflanzung.
+
+\begin{equation}
+  \increment \eta = \sqrt{  \left( \partial_{K_{gr}} \cdot \increment K_{gr} \right)^2
+                          + \left( \partial_{\rho_K} \cdot \increment \rho_K \right)^2
+                          + \left( \partial_t        \cdot \increment t      \right)^2 }
+\end{equation}
+
+Mithilfe einer linearen Regression mit der folgenden Formel können nun
 die Parameter der Andradeschen Gleichung bestimmt werden:
 
 \begin{align}
@@ -196,7 +220,7 @@ Damit ergeben sich für die Parameter A und B folgende Werte
 
 \begin{align}
   \symup{A} &= (0.131 \pm 0.022) \symup{mPa s}\\
-  \symup{B} &= (673 \pm 30) \, \symup{K}
+  \symup{B} &= (673 \pm 55) \, \symup{K}
 \end{align}
 
 \subsection{Bestimmung der Reynoldszahl}
@@ -228,7 +252,7 @@ Werte:
 Und mit der gleichen Berechnung ergibt sich für die kleine Kugel ein Wert von:
 
 \begin{equation}
-  Re_{kl} = (12.90 \pm 0.08)
+  Re_{kl} = (108.4 \pm 1.3)
 \end{equation}
 
 \section{Diskussion}

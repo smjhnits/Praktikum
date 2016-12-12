@@ -131,7 +131,7 @@ errorsLit = np.sqrt(np.diag(covariancelitlog))
 
 print("Parameter für Viskositäten Literatur: ", '\n', paramslit, " A in mPa s, B in K")
 print("Parameter mit linearer Regression", '\n', paramslitlog)
-print("Fehler der linearen Regression: ", '\n', errorsExperimentell[0], errorsExperimentell[1])
+print("Fehler der linearen Regression: ", '\n', errorsLit[0], errorsLit[1])
 print('\n')
 
 # Plot mit V gegen 1/T
@@ -152,15 +152,11 @@ plt.tight_layout()
 plt.savefig("Plot_T_1.pdf")
 
 print("Parameter für Viskositäten Experimentell: ", '\n', params, " A in mPa s, B in K")
-print("Parameter mit linearem Fit: ",  '\n',paramslog,)
+print("Parameter B : ",  '\n', ufloat(paramslog[0], errorsExperimentell[0]),)
 ParameterA = ufloat(paramslog[1], errorsExperimentell[1])
-print("Parameter A : ", unp.exp(ParameterA))
-print("Fehler der linearen Regression: ", '\n',  errorsLit[0], errorsLit[1])
+print("Parameter A : ", '\n', unp.exp(ParameterA))
 print('\n')
 #plt.show()
-
-print("Parameter: ", params)
-print('\n')
 
 #Abweichungen Literatur und Experimentell
 
@@ -190,5 +186,7 @@ print('\n')
 
 Viskositätkl20 *= 10**(-3)
 
-Reynoldskl = DichteW * Strecke * 2 * Rkl / 10 / Viskositätkl20
+print("Fallzeit kleine Kugel: ", FallzeitKugel2)
+
+Reynoldskl = DichteW * Strecke * 100 * 2 * Rkl / 10 / (Viskositätkl20 * FallzeitKugel2)
 print("Reynoldszahl in cm kleine kugel : ", '\n' ,Reynoldskl)
