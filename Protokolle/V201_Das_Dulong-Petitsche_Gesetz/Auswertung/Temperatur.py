@@ -17,4 +17,5 @@ plt.plot(U, T, "rx", label="Spannungen")
 plt.plot(x_plot, f(x_plot, *params), "b-")
 # plt.show()
 
+print(params[0], params[1])
 print(params[0] * 0.82 + params[1])

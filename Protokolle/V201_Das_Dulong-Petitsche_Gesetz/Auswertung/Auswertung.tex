@@ -54,10 +54,10 @@ des Festkörpers der Wert 3RT und aus diesem der oben geschriebene Wert für die
 \emph{Molwärme} $C_V$.
 
 Die Molwärme $C_V$ von allen festen chemischen Elementen nimmt bei hoher
-Temperatur tatsächlich etwa den Wert 3R an, bei vielen Stoffen auch schon bei
-Zimmertemperatur. Die kinetische Theorie kann allerdings nicht beschreiben, warum
-die Molwärme aller chemischen Elementen bei hinreichend tiefen Temperaturen
-beliebig klein wird.
+Temperatur tatsächlich etwa den Wert 3R an, bei schweren Stoffen teilweise
+auch schon bei Zimmertemperatur. Die kinetische Theorie kann allerdings nicht
+beschreiben, warum die Molwärme aller chemischen Elementen bei hinreichend tiefen
+Temperaturen beliebig klein wird.
 
 Das liegt an der Annahme, dass die Energie der atomaren Oszillatoren sich
 beliebig ändern kann. Dies steht im Widerspruch zu Quantentheorie, die
@@ -180,9 +180,20 @@ Alle Messergebnisse werden in zweistelliger Arithmetik angegeben. Zugehörige
 Fehler sind auf sinnvoll erachtete Stellen gerundet.
 
 \subsection{Justieren des Thermoelementes}
-Zu Beginn des Veruches musste das Thermoelement justiert werden. Für die
-Ausgleichgerade ergibt sich die folgende Funktion.
-
+Zu Beginn des Veruches musste das Thermoelement justiert werden. Die Spannung des Thermoelementes
+($U_{th}$) ist eine Funktion der vermessenen Temperaturdiffenrenz zwischen den beiden
+Berührungsstellen ($T_1 - T_2$). $U_{th}$ kann als Potenzreihe von der Temperaturdifferenz
+geschrieben werden.
+\begin{equation}
+  U_{th} = a_1(T_2 - T_1) + a_2(T_2-T_1)^2 + a_3(T_2-T_1)^3+\textbf{...}
+\end{equation}
+Der Einfachheit halber wird ein linearer Zusammenhang zwischen der Spannung
+des Thermoelementes und der Temperatur angenommen. Somit reicht der erste Term
+der Potenzreihe aus, um eine Funktion von $U_{th}$ zu erhalten.
+Als Referenztemperaturen wurde zum einen Eiswasser ($U_0$) und zum anderen siedendes
+Wasser ($U_{100}$) genommen.
+Es ergab sich $U_0 = \SI{0,00}{\milli\volt}$ und $U_{100} = \SI{3,88}{\milli\volt}$.
+Für die Ausgleichgerade der Temperatur ergibt sich die folgende Funktion.
 \begin{align*}
   T(U) &\approx 25.77 \cdot U + 273,15 & [T(U)] = \si{\kelvin}
 \end{align*}
@@ -329,10 +340,18 @@ Eichmarke fehlerhaft war. Dies bedeutet, dass jede Temperaturmessung mit einem
 systematischen Fehler behaftet ist. Zum anderen hatte das Thermoelement
 unberechenbare Fehlfunktionen, weshalb die Genauigkeit und Zuverlässigkeit des
 Thermoelementes in Frage zustellen ist. Die Restlichen Messgrößen, wie das
-Gewicht der Proben konnte porblemlos bestimmt werden. Es ist anzunehmen, dass
+Gewicht der Proben konnte problemlos bestimmt werden. Es ist anzunehmen, dass
 abgesehen von der Temperaturmessung die restlichen Größen keinen systematischen
-Fehler unterliegen. Anhand der aufgeführten Argumente kann die Aussage
-weder wiederlegt, noch bestätigt werden.
+Fehler unterliegen. Eine weitere Fehlerquelle, die die Ausagekraft der Messungen
+beschneidet ist die Isolation der Messkörper. Nach dem Erwärmen wurden diese
+ohne zusätzliche Isolation aus dem Heizbecken in das Kalorimeter übertragen.
+Bei diesem Vorgang kann ein Temperaturaustausch zwischen dem Körper und der
+Umgebungsluft stattgefunden haben, durch welchen die Energiemessung im Kalorimeter
+verfälscht werden konnte.
+Anhand der aufgeführten Argumente kann die Aussage weder wiederlegt, noch bestätigt werden.
+Es wurde jedoch festgestellt, dass die Atomwärme des Körpers mit der größten
+Molarenmasse deutlich größer ist, als die der Körper mit geringerer Molarenmasse.
+Dies war, wie in der Theorie erwähnt auch zu erwarten.
 
 \printbibliography
 
