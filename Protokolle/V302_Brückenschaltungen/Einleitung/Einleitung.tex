@@ -16,27 +16,121 @@
 %In diesem Versuch sollte mit Hilfe von Brückenschaltungen die physikalische Größe
 %von verschieden Bauteilen bestimmt werden.
 \section{Theorie}
+
 \subsection{Elektrische Brückenschaltungen}
+
 Bei Brückenschaltungen handelt es sich um elektrische Schaltungen, mit dessen
 Hifle die Widerstände von Bauteilen sehr genau bestimmt werden können.
 Hierbei sind auch komplexe Widerstände erlaubt, sodass auch die Kapazität eines
 Kondestors und die Induktivität einer Spulen gemessen werden können.
 Die grundlegende Struktur einer Brückenschaltung ist in Abb. \ref{fig:Brückenschaltung}
-dargestellt. Es wird ausgenutzt, dass zwischen zwei getrennten stromdurchflossenen
+dargestellt.
+
+\begin{figure}
+  \includegraphics[width=7.50cm, height=5cm]{V302_Brückenschaltung.png}
+  \caption{Grundlegende Struktur einer Brückenschaltung}
+  \label{fig:Brückenschaltung}
+\end{figure}
+
+Es wird ausgenutzt, dass zwischen zwei getrennten stromdurchflossenen
 Leitern eine Potentialdifferenz besteht, die durch die \emph{Kirchhoffschen Gesetze}
-bestimmt werden kann.\\
+bestimmt werden kann.\\\\
+
 1.\emph{Kirchhoffsches Gesetz}(Knotenregel):\\
 Die Summe aller in ein Knoten eingehenden Ströme ist gleich der Summe, der aus
 einem Knoten herausfließenden Ströme. Diese Gleichung ergibt sich aus der
 Ladungserhaltung.
+
 \begin{equation}
   \label{eqn:Kirchhoff1}
   \sum\ua{k} I\ua{k} = 0
 \end{equation}
+
 2.\emph{Kirchhoffsche Gesetz}(Maschenregel):\\
 Die Summe aller Spannungen in einer Masche ist gleich Null.
 Dieses Gesetzt entstammt aus der Energieerhaltung.
+
 \begin{equation}
-  \sum\ua{k}U\ua{k} = \sum\ua{k}I\ua{k}\R\ua{k}
+  \label{eqn:Krichhoff2}
+  \sum\ua{k}U\ua{k} = \sum\ua{k}I\ua{k}R\ua{k}
 \end{equation}
+
+Eine Brücke wird als abgeglichen bezeichnet, wenn die Brückenspannung $U$ verschwindet.
+Dies ist gerade der fall, wenn
+
+\begin{equation}
+  \label{eqn:abgleichbed}
+  R\ua{1}R\ua{4} = R\ua{2}R\ua{3}
+\end{equation}
+
+erfüllt ist. Diese Bedingung ist unabhängig von der Speisespannung $U\ua{S}$
+und gilt somit für jede beliebige Speisespannung.
+
+\subsection{Komplexe Wechselstromwiderstände}
+
+Komplexe Wechselstromwiderstände treten auf, wenn Kondensatoren und oder Induktivitäten
+in einer Schaltung verbaut sind. Für die Bauteile ergibt sich
+
+\begin{equation}
+  Z\ua{R} = R \qquad Z\ua{C} = \frac{1}{i\omega C} \qqaud Z\ua{L} = i\omega L.
+\end{equation}
+
+Dabei ist $i$ die imaginäre Zahl und $\omega$ die Kreisfrequenz, mit der die
+Spannung wechselt.
+
+\section{Versuchsaufbau}
+
+In dem Versuch wurden verschiedene Brückenschaltungen verwendet. In dem folgendem
+Abschnitt werden die verwendeten Schaltungen erläutert und die dazugehörigen
+Formeln angegeben.
+
+\subsection{Wheatstonesche Brücke}
+
+Die Wheatstonesche Brücke wird für die Widerstandsmessung eines unbekannten
+Widerstandes verwendet. In der Schaltung werden ausschließlich ohmsche Widerstände
+verwendet.
+
+\begin{figure}
+  \includegraphics[width=7.50cm, height=5cm]{V302_Wheatstone.png}
+  \caption{Wheatstonsche Brückenchaltung}
+  \label{fig:Wheatstone}
+\end{figure}
+Der unbekannte Widerstand lässt sich mit Hilfe von \eqref{eqn:Kirchhoff1} und
+\eqref{eqn:Kirchhoff2} ermitteln. Es ergibt sich
+\begin{equation}
+  \label{eqn:Wheatstone}
+  R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}.
+\end{equation}
+
+Dabei werden $R\ua{3}$ und $R\ua{4}$so eingestellt, dass die Brücke nach
+der Bedingung \eqref{eqn:ableichbed} abgeglichen ist.
+
+\subsection{Kapazitätsmessbrücke}
+
+Ein idealer Kondensator kann durch ergänzen eines ohmschen Widerstandes zu einem
+realen Kondensator umgewandelt werden. Ein realer Kondensator ist verlustbehaftet.
+Diese Eigenschaft wird von dem ergänzten ohmschen Widerstand übernommen.
+Mit Hilfe einer Kapazitätsmessbrücke kann die Kapazität und der Widerstand eines
+realen Kondensators bestimmt werde.
+Dafür wird der in Abb. \ref{fig:Kapazitätsmessbrücke} Aufbau verwendet.
+
+\begin{figure}
+  \includegraphics[width=7.50cm, height=5cm]{V302_Kapazitätsmessbrücke.png}
+  \caption{Kapazitätsmessbrücke}
+  \label{fig:Kapazitätsmessbrücke}
+\end{figure}
+
+Über die Knoten- und Maschenregel ergeben sich für die unbekannten Größen
+$R\ua{x}$ und $C\ua{x}$ folgende Gleichungen.
+
+\begin{equation}
+  R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}
+  C\us{x} = C\ua{2}\frac{R\ua{4}}{R\ua{3}}
+\end{equation}
+
+\subsection{Induktivitätsmessbrücke}
+
+Die Induktivitätsmessbrücke ist der Kapazitätsmessbrücke sehr ähnlich, nur anstelle
+des zu bestimmenden Kondensators wird 
+
 \end{document}
