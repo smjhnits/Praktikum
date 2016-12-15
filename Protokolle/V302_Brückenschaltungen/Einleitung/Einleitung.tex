@@ -92,9 +92,10 @@ verwendet.
 
 \begin{figure}
   \includegraphics[width=7.50cm, height=5cm]{V302_Wheatstone.png}
-  \caption{Wheatstonsche Brückenchaltung}
+  \caption{Schaltungsskizze einer Wheatstonsche Brückenchaltung}
   \label{fig:Wheatstone}
 \end{figure}
+
 Der unbekannte Widerstand lässt sich mit Hilfe von \eqref{eqn:Kirchhoff1} und
 \eqref{eqn:Kirchhoff2} ermitteln. Es ergibt sich
 \begin{equation}
@@ -116,7 +117,7 @@ Dafür wird der in Abb. \ref{fig:Kapazitätsmessbrücke} Aufbau verwendet.
 
 \begin{figure}
   \includegraphics[width=7.50cm, height=5cm]{V302_Kapazitätsmessbrücke.png}
-  \caption{Kapazitätsmessbrücke}
+  \caption{Schaltungsskizze einer Kapazitätsmessbrücke}
   \label{fig:Kapazitätsmessbrücke}
 \end{figure}
 
@@ -131,6 +132,31 @@ $R\ua{x}$ und $C\ua{x}$ folgende Gleichungen.
 \subsection{Induktivitätsmessbrücke}
 
 Die Induktivitätsmessbrücke ist der Kapazitätsmessbrücke sehr ähnlich, nur anstelle
-des zu bestimmenden Kondensators wird 
+des zu bestimmenden Kondensators die zu vermessende Spule eingebaut wird.
+Ebenso ist die ideal Spule mit einem ohmschen Widerstand zu versehen, sodass
+die sie das Verhalten einer realen Spule beschreibt.
+\begin{figure}
+  \includegraphics[width=7.50cm, height=5cm]{V302_Induktivitätsmessbrücke}
+  \caption{Schaltungsskizze einer Induktivitätsmessbrücke}
+  \label{fig:Induktivitätsmessbrücke}
+\end{figure}
+
+Durch die \emph{Kirchhoffschen Gesetze} ergeben sich
+
+\begin{equation}
+  R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}
+  L\ua{x} = L\ua{2}\frac{R\ua{3}}{R\ua{4}}.
+\end{equation}
+
+Die Induktivität und der Widerstand von einer realen Spule ist mit der
+Induktivitätsmessbrücke schwierig zu vermessen. Der Wirkanteil sollte
+möglichst alleine durch $R\ua{2}$ realisiert werden und $L\ua{2}$ sollte
+eine möglichst hohe Effizienz haben, damit $L\ua{x}$ und $R\ua{x}$ präzise vermessen
+werden können. Dies ist experimentell schwierig umzusetzen.
+Deshalb wird für die Messung von Induktivitäten die Maxwell-Brücke verwendet.
+
+\subsection{Maxwell-Brücke}
+
+
 
 \end{document}
