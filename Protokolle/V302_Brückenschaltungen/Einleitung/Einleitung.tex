@@ -27,8 +27,8 @@ Die grundlegende Struktur einer Brückenschaltung ist in Abb. \ref{fig:Brückens
 dargestellt.
 
 \begin{figure}
-  \includegraphics[width=7.50cm, height=5cm]{V302_Brückenschaltung.png}
-  \caption{Grundlegende Struktur einer Brückenschaltung}
+  \includegraphics[width=7.50cm, height=6cm]{V302_Brückenschaltung.png}
+  \caption{Grundlegende Struktur einer Brückenschaltung\cite{anleitung01}}
   \label{fig:Brückenschaltung}
 \end{figure}
 
@@ -36,7 +36,7 @@ Es wird ausgenutzt, dass zwischen zwei getrennten stromdurchflossenen
 Leitern eine Potentialdifferenz besteht, die durch die \emph{Kirchhoffschen Gesetze}
 bestimmt werden kann.\\\\
 
-1.\emph{Kirchhoffsches Gesetz}(Knotenregel):\\
+1.\emph{Kirchhoffsches Gesetz} (Knotenregel):\\
 Die Summe aller in ein Knoten eingehenden Ströme ist gleich der Summe, der aus
 einem Knoten herausfließenden Ströme. Diese Gleichung ergibt sich aus der
 Ladungserhaltung.
@@ -46,7 +46,7 @@ Ladungserhaltung.
   \sum\ua{k} I\ua{k} = 0
 \end{equation}
 
-2.\emph{Kirchhoffsche Gesetz}(Maschenregel):\\
+2.\emph{Kirchhoffsche Gesetz} (Maschenregel):\\
 Die Summe aller Spannungen in einer Masche ist gleich Null.
 Dieses Gesetzt entstammt aus der Energieerhaltung.
 
@@ -55,7 +55,15 @@ Dieses Gesetzt entstammt aus der Energieerhaltung.
   \sum\ua{k}U\ua{k} = \sum\ua{k}I\ua{k}R\ua{k}
 \end{equation}
 
-Eine Brücke wird als abgeglichen bezeichnet, wenn die Brückenspannung $U$ verschwindet.
+Der Zusammenhang zwischen der Brückenspannung $U$ und der Speisespannung $U\ua{S}$
+ist durch folgenden Zusammenhang gegeben.
+
+\begin{equation}
+  \label{eqn:BrückenUndSpeisespannung}
+  U\ua{Br} = \frac{R\ua{2}R\ua{3} - R\ua{1}R\ua{4}}{(R\ua{3} + R\ua{4})(Rua{1} + R\ua{2})}U\ua{S}
+\end{equation}
+
+Eine Brücke wird als abgeglichen bezeichnet, wenn die Brückenspannung $U\ua{Br}$ verschwindet.
 Dies ist gerade der fall, wenn
 
 \begin{equation}
@@ -63,7 +71,8 @@ Dies ist gerade der fall, wenn
   R\ua{1}R\ua{4} = R\ua{2}R\ua{3}
 \end{equation}
 
-erfüllt ist. Diese Bedingung ist unabhängig von der Speisespannung $U\ua{S}$
+erfüllt ist.
+Diese Bedingung ist unabhängig von der Speisespannung $U\ua{S}$
 und gilt somit für jede beliebige Speisespannung.
 
 \subsection{Komplexe Wechselstromwiderstände}
@@ -71,12 +80,24 @@ und gilt somit für jede beliebige Speisespannung.
 Komplexe Wechselstromwiderstände treten auf, wenn Kondensatoren und oder Induktivitäten
 in einer Schaltung verbaut sind. Für die Bauteile ergibt sich
 
-\begin{equation}
-  Z\ua{R} = R \qquad Z\ua{C} = \frac{1}{i\omega C} \qqaud Z\ua{L} = i\omega L.
-\end{equation}
+\begin{equation*}
+  Z\ua{R} = R, \qquad Z\ua{C} = \frac{1}{i\omega C}, \qquad Z\ua{L} = i\omega L.
+\end{equation*}
+
+Eine Komplexe Zahl besteht allgemein aus einem Realteil $X$ und einem Imaginärteil
+$Y$. Also ist $Z$ insgesamt $Z = X + iY$.
 
 Dabei ist $i$ die imaginäre Zahl und $\omega$ die Kreisfrequenz, mit der die
-Spannung wechselt.
+Spannung wechselt. Damit die Abgleichbedingung \eqref{eqn:abgleichbed} für die
+Brückenschaltung für komplexe Widerstände erfüllt ist müssen der Realteil und der
+Imaginärteil des Gesamtwiderstandes einzeln verschwinden. Somit ergibt sich
+
+\begin{align}
+  X\ua{1}X\ua{4} - Y\ua{1}Y\ua{4} &= X\ua{2}X\ua{3} - Y\ua{2}Y\ua{3}\label{eqn:RealteilAbgleichbed}\\
+  X\ua{1}Y\ua{4} + X\ua{4}Y\ua{1} &= X\ua{2}Y\ua{3} + x\ua{3}Y\ua{3}\label{enq:ImaginärteilAbgleichbed}.
+\end{align}
+
+Dabei ist $X\ua{i}$ der Realteil und $Y\ua{i}$ der Imaginärteil.
 
 \section{Versuchsaufbau}
 
@@ -90,21 +111,23 @@ Die Wheatstonesche Brücke wird für die Widerstandsmessung eines unbekannten
 Widerstandes verwendet. In der Schaltung werden ausschließlich ohmsche Widerstände
 verwendet.
 
+\FloatBarrier
 \begin{figure}
-  \includegraphics[width=7.50cm, height=5cm]{V302_Wheatstone.png}
-  \caption{Schaltungsskizze einer Wheatstonsche Brückenchaltung}
+  \includegraphics[width=7.50cm, height=6cm]{V302_Wheatstone.png}
+  \caption{Schaltungsskizze einer Wheatstonsche Brückenchaltung\cite{anleitung01}}
   \label{fig:Wheatstone}
 \end{figure}
+\FloatBarrier
 
 Der unbekannte Widerstand lässt sich mit Hilfe von \eqref{eqn:Kirchhoff1} und
-\eqref{eqn:Kirchhoff2} ermitteln. Es ergibt sich
+\eqref{eqn:Krichhoff2} ermitteln. Es ergibt sich
 \begin{equation}
   \label{eqn:Wheatstone}
   R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}.
 \end{equation}
 
 Dabei werden $R\ua{3}$ und $R\ua{4}$so eingestellt, dass die Brücke nach
-der Bedingung \eqref{eqn:ableichbed} abgeglichen ist.
+der Bedingung \eqref{eqn:abgleichbed} abgeglichen ist.
 
 \subsection{Kapazitätsmessbrücke}
 
@@ -116,18 +139,18 @@ realen Kondensators bestimmt werde.
 Dafür wird der in Abb. \ref{fig:Kapazitätsmessbrücke} Aufbau verwendet.
 
 \begin{figure}
-  \includegraphics[width=7.50cm, height=5cm]{V302_Kapazitätsmessbrücke.png}
-  \caption{Schaltungsskizze einer Kapazitätsmessbrücke}
+  \includegraphics[width=7.50cm, height=6cm]{V302_Kapazitätsmessbrücke.png}
+  \caption{Schaltungsskizze einer Kapazitätsmessbrücke\cite{anleitung01}}
   \label{fig:Kapazitätsmessbrücke}
 \end{figure}
 
 Über die Knoten- und Maschenregel ergeben sich für die unbekannten Größen
 $R\ua{x}$ und $C\ua{x}$ folgende Gleichungen.
 
-\begin{equation}
-  R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}
-  C\us{x} = C\ua{2}\frac{R\ua{4}}{R\ua{3}}
-\end{equation}
+\begin{align}
+  R\ua{x} &= R\ua{2}\frac{R\ua{3}}{R\ua{4}}\label{KapazitätsmessbrückeRx}\\
+  C\ua{x} &= C\ua{2}\frac{R\ua{4}}{R\ua{3}}\label{KapazitätsmessbrückeLx}
+\end{align}
 
 \subsection{Induktivitätsmessbrücke}
 
@@ -136,17 +159,18 @@ des zu bestimmenden Kondensators die zu vermessende Spule eingebaut wird.
 Ebenso ist die ideal Spule mit einem ohmschen Widerstand zu versehen, sodass
 die sie das Verhalten einer realen Spule beschreibt.
 \begin{figure}
-  \includegraphics[width=7.50cm, height=5cm]{V302_Induktivitätsmessbrücke}
-  \caption{Schaltungsskizze einer Induktivitätsmessbrücke}
+  \includegraphics[width=7.50cm, height=6cm]{V302_Induktivitätsmessbrücke}
+  \caption{Schaltungsskizze einer Induktivitätsmessbrücke\cite{anleitung01}}
   \label{fig:Induktivitätsmessbrücke}
 \end{figure}
 
-Durch die \emph{Kirchhoffschen Gesetze} ergeben sich
+Durch die Komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
+\eqref{enq:ImaginärteilAbgleichbed} ergeben sich
 
-\begin{equation}
-  R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}
-  L\ua{x} = L\ua{2}\frac{R\ua{3}}{R\ua{4}}.
-\end{equation}
+\begin{align}
+  R\ua{x} &= R\ua{2}\frac{R\ua{3}}{R\ua{4}}\label{InduktivitätmessbrückeRx}\\
+  L\ua{x} &= L\ua{2}\frac{R\ua{3}}{R\ua{4}}.\label{InduktivitätmessbrückeLx}
+\end{align}
 
 Die Induktivität und der Widerstand von einer realen Spule ist mit der
 Induktivitätsmessbrücke schwierig zu vermessen. Der Wirkanteil sollte
@@ -157,6 +181,70 @@ Deshalb wird für die Messung von Induktivitäten die Maxwell-Brücke verwendet.
 
 \subsection{Maxwell-Brücke}
 
+Bei der Maxwell-Brücke wird parallel zum vierten ohmsche Widerstand $R\ua{4}$
+eine Kondensator mit der Kapazität $C\ua{4}$ geschaltet. Die Schaltung ist in
+Abb. \ref{fig:Maxwell-Brücke} skizziert.
 
+\begin{figure}
+  \includegraphics[width=7.50cm, height=6cm]{V302_MaxwellBrücke.png}
+  \caption{Schaltungsskizze einer Maxwell-Brücke\cite{anleitung01}}
+  \label{fig:Maxwell-Brücke}
+\end{figure}
+
+Durch die Komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
+\eqref{enq:ImaginärteilAbgleichbed} ergeben sich
+
+\begin{align}
+  R\ua{x} &= \frac{R\ua{2}R\ua{3}}{R\ua{4}}\label{eqn:Maxwell_Rx}\\
+  L\ua{x} &= R\ua{2}R\ua{3}C\ua{4}.\label{eqn:Maxwell_Lx}
+\end{align}
+
+Die Regelwiderstände $R\ua{3}$ und $R\ua{4}$ werden als Abgleichelemente verwendet
+und der Kondensator sollte für eine präzise Messung möglichst verlustarm sein.
+
+\subsection{Wien-Robinson-Brücke}
+Die Wien-Robinson-Brücke ist eine frequenzabhängige Brückenschaltung. Der Zusammenhang
+zwischen der Brückenspannung und der Speisespannung kann über die Formel
+\eqref{eqn:BrückenUndSpeisespannung} berechnet werden.
+
+\begin{equation}
+  \label{eqn:Wien-Robinson-Brücke}
+  \left|\frac{U\ua{Br}}{U\ua{S}}\right|^2 = \frac{\left(\omega^2R^2C^2 - 1\right)^2}{
+  9\left[\left(1 - \omega^2R^2C^2\right)^2 + 9\omega^2R^2C^2\right]}
+\end{equation}
+
+Die Brückenspannung verschwindet für die Frequenz $\omega\ua{0} = \frac{1}{RC}$.
+Somit wird die Frequenz $\omega\ua{0}$ gefiltert und alle Schwingungen mit
+der Frequenz $\omega\ua{0}$ werden nicht durch diese Brückenschaltung durchgelassen.
+Schwingungen mit einer Frequenz nahe von $\omega\ua{0}$ werden stark abgeschwächt.
+
+\begin{figure}
+  \includegraphics[width=7.50cm, height=6cm]{V302_Wien-Robinson_Brücke.png}
+  \caption{Schatungsskizze einer Wien-Robinson-Brücke\cite{anleitung01}}
+  \label{fig:Wien-Robinson-Brücke}
+\end{figure}
+
+\subsection{Klirrfaktor}
+
+In dem Versuch soll der Klirrfaktor des verwendeten Sinusgenerator bestimmt werden.
+Der Klirrfaktor ist eine Zeichen der Güte eines Generators und beschreibt die
+Anteile der Oberwellen im Verhältnis zu der Grundwelle.
+Der Klirrfaktor kann mit Hilfe der Wien-Robinson-Brücke (Abb.\ref{fig:Wien-Robinson-Brücke})
+ermittelt werden. Dafür stellt man die Widerstände so ein, dass die Brückenspannung
+minimal ist. An diesem Minimun ist die Frequenz $\omega\ua{0}$ erreicht, bei dem
+nur noch die Oberwellen des Sinusgenerators durch die Schaltungen gelassen werden.\\
+Der Klirrfaktor ist definiert als:
+
+\begin{equation}
+  \label{eqn:Klirrfaktor}
+  k := \frac{\sqrt{U\ua{2}^2} + U\ua{3}^2 + ... }{U\ua{1}}.
+\end{equation}
+
+Dabei ist $U\ua{1}$ die Amplitude der Grundwelle und $U\ua{i}$ die Amplitude der
+i-ten Oberwelle. Zur vereinfachten Rechnung wird hierbei lediglich $U\ua{2}$
+berücksichtigt.
+
+\newpage
+\printbibliography
 
 \end{document}
