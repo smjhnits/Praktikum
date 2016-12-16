@@ -23,11 +23,35 @@ SpeiseSP  /= 100
 v0 = 1 / (R * C * 2 * np.pi)
 
 xAchse = Frequenzen / v0
-yAchse = BrückenSP / SpeiseSpkorrektur
+yAchse = BrückenSP / SpeiseSP
+
+def f(x):
+    return unp.sqrt( 1/9*((x**2-1)**2/((1-x**2)**2+9*x**2)))
+
+laufvariabel = np.linspace(1e-1, 210, 10000)
+
+Werteneu = xAchse[0:8]
+print(Werteneu)
 
 plt.plot(xAchse, yAchse, "bx", label = "Funktionswerte")
-
+plt.plot(laufvariabel, f(laufvariabel), "r-", label = "Funktionsfit")
+plt.legend( loc = "best")
+plt.xlabel(r'$\mathrm{\nu} / \mathrm{\nu_0}$' )
+plt.ylabel(r'$\mathrm{U_{Br}} / \mathrm{U_{Sp}}$')
+plt.ylim(0, 0.4)
 plt.xscale("log")
-plt.ylim(0, 0.70)
+#plt.show()
 
-plt.show()
+plt.clf()
+
+plt.plot(xAchse, yAchse, "bx", label = "Funktionswerte")
+plt.plot(laufvariabel, f(laufvariabel), "r-", label = "Funktionsfit")
+plt.legend( loc = "best")
+plt.xlabel(r'$\mathrm{\nu} / \mathrm{\nu_0}$' )
+plt.ylabel(r'$\mathrm{U_{Br}} / \mathrm{U_{Sp}}$')
+plt.xscale("log")
+#plt.show()
+
+U2 = (0.018 / 2 / np.sqrt(2)) / f(2)
+k = U2 / 1.6
+print(U2, k)
