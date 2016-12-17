@@ -6,8 +6,8 @@
 
 \begin{table}
   \centering
-  \label{tab:Wheatstone}
   \caption{Gemessene Werte bei der Wheatstoneschen Brücke}
+  \label{tab:Wheatstone}
   \begin{tabular}{ c c c c c }
     \toprule
       & & Messung 1 & Messung 2 & Messung 3 \\
@@ -25,8 +25,8 @@
 
 \begin{table}
   \centering
-  \label{tab:Kapazitätohne}
   \caption{Gemessene Werte für die Kapazitätsmessbrücke ohne Wiederstände}
+  \label{tab:Kapazitätohne}
   \begin{tabular}{ c c c c c }
     \toprule
     & & Messung 1 & Messung 2 & Messung 3 \\
@@ -45,8 +45,8 @@
 
 \begin{table}
   \centering
-  \label{tab:Kapazitätohne}
   \caption{Gemessene Werte für die Kapazitätsmessbrücke mit Wiederständen}
+  \label{tab:Kapazitätmit}
   \begin{tabular}{ c c c c c}
     \toprule
     & & Messung 1 & Messung 2 & Messung 3 \\
@@ -67,8 +67,8 @@
 
 \begin{table}
   \centering
-  \label{tab:Induktivitätsmessbrücke}
   \caption{Gemessene Werte für die Induktivitätmessbrücke}
+  \label{tab:Induktivitätsmessbrücke}
   \begin{tabular}{ c c c c c}
     \toprule
     & & Messung 1 & Messung 2 & Messung 3 \\
@@ -89,8 +89,8 @@
 
 \begin{table}
   \centering
-  \label{tab:Maxwell}
   \caption{Gemessene Werte für R-L-Glieder mit der Maxwell-Brücke}
+  \label{tab:Maxwell}
   \begin{tabular}{ c c c c c }
     \toprule
     & & Messung 1 & Messung 2 & Messung 3 \\
@@ -108,8 +108,8 @@
 
 \begin{table}
   \centering
-  \label{tab:MessungE}
   \caption{Gemessene Werte bei der Wien-Robinson-Brücke}
+  \label{tab:MessungE}
   \begin{tabular}{ c c c}
     \toprule
     $\su{\nu}$ in $\su{\frac{1}{s}}$ & $\su{U\ua{Br}}$ in V & $\su{U\ua{Sp}}$ in V \\
@@ -151,7 +151,112 @@
   \end{tabular}
 \end{table}
 
+\section{Auswertung}
 
+Die Mittelwerte und Fehler der errechneten Größen in den folgenden Abschnitten
+errechnen sich mit folgenden Formeln:
 
+\begin{align}
+  \label{eqn:barx}
+  \bar{x}            &= \frac{1}{N} \sum_{i=1}^N x_i \\
+  \increment \bar{x} &= \sqrt{ \frac{1}{N(N-1)} \sum_{i=1}^N \left(x_i - \bar{x}\right)^2}
+  \label{eqn:incrementx}
+\end{align}
+
+\subsection{Wheatstonesche Brückenschaltung}
+Mit den gemessenen Werte aus Tabelle \ref{tab:Wheatstone} und der Formel ??
+lassen sich nun die gesuchten
+Widerstände berechnen. Dabei ergeben sich folgende Werte:
+
+\begin{align}
+  \su{R\ua{x,10}} &= (243.1 \pm 0.4) \, \su{\Omega} \\
+  \su{R\ua{x,12}} &= (395.4 \pm 0.7) \, \su{\Omega}
+\end{align}
+
+\subsection{Kapazitätsmessbrücke}
+
+Mit den Werten aus Tabelle \ref{tab:Kapazitätohne} für die Kapazitätsmessbrücke
+ohne zwischengeschaltete Widerstände und der Formel ?? ergeben sich für die
+gesuchten Kapazitäten die folgenden Werte:
+
+\begin{align}
+  \su{C\ua{x,1}} &= (652.9 \pm 1.4) \, \su{nF} \\
+  \su{C\ua{x,3}} &= (415.7 \pm 0.7) \, \su{nF}
+\end{align}
+
+Mit den Werten aus Tabelle \ref{tab:Kapazitätmit} für die Kapazitätsmessbrücke
+mit Widerständen und den Formen ?? und ?? lassen sich ebenfalls die gesuchten
+Werte der R-C-Glieder bestimmen:
+
+\begin{align}
+  \su{R\ua{x,8}} &= (571.8 \pm 0.6) \, \su{\Omega} \\
+  \su{C\ua{x,8}} &= (291.3 \pm 0.7) \, \su{nF}
+\end{align}
+
+\begin{align}
+  \su{R\ua{x,9}} &= (487.6 \pm 0.3) \, \su{\Omega} \\
+  \su{C\ua{x,9}} &= (430.0 \pm 0.6) \, \su{nF}
+\end{align}
+
+\subsection{Induktivitätsmessbrücke}
+
+Mit den Formeln ?? und ?? und den Werten aus der Tabelle \ref{tab:Induktivitätsmessbrücke}
+ergeben sich für die gesuchten R-L-Glieder folgende Werte:
+
+\begin{align}
+  \su{R\ua{x,16}} &= (442 \pm 27) \, \su{\Omega} \\
+  \su{L\ua{x,16}} &= (147 \pm 6) \, \su{mH}
+\end{align}
+
+\begin{align}
+  \su{R\ua{x,18}} &= (364 \pm 4) \, \su{\Omega}  \\
+  \su{L\ua{x,18}} &= (50.5 \pm 0.1) \, \su{mH}
+\end{align}
+
+\subsection{Maxwell-Brücke}
+Die gleichen R-L-Glieder wie bei der Induktivitätsmessbrücke wurden nochmal mithilfe
+der Maxwell-Brücke gemessen, bei der ein Kondensator mit der Kapazität $\su{C_4} = 399 \, nF$
+verwendet wurde. Mit den Werte aus der Tabelle \ref{tab:Maxwell}
+sowie den Formeln ?? und ?? ergeben sich für die beiden R-L-Glieder somit folgende
+Werte:
+
+\begin{align}
+  \su{R\ua{x,16}} &= (417.5 \pm 1.3) \, \su{\Omega} \\
+  \su{L\ua{x,16}} &= (138.1 \pm 0.4) \, \su{mH}
+\end{align}
+
+\begin{align}
+  \su{R\ua{x,18}} &= (366.8 \pm 1.3) \, \su{\Omega}  \\
+  \su{L\ua{x,18}} &= (50.94 \pm 0.17) \, \su{mH}
+\end{align}
+
+\subsection{Robinson-Wien-Brücke}
+
+Bei der Messung die für Robinson-Wien-Schaltung wurden die folgenden Komponenten
+verwendet:
+
+\begin{align}
+  \su{C}   &=  (415.7 \pm 0.7) \, \su{nF}  \\
+  \su{R'}  &= 332 \, \su{\Omega}          \\
+  \su{2R'} &= 664 \, \su{\Omega}         \\
+  \su{R}   &= 1000 \, \su{\Omega}
+\end{align}
+
+In dieser Messreihe wurde die Frequenzabhängigkeit der Brückenspannung untersucht.
+Dazu wird in dem Graphen ?? das Verhältnis der effektiven Brückenspannung $\su{U\ua{Br,eff}}$
+zur Speisespannung $\su{U\ua{Sp}}$ gegen $\su{\Omega}$ = $\frac{\su{\nu}}{\su{\nu_0}}$
+aufgetragen. Für $\su{U\ua{Br,eff}}$ gilt dabei:
+
+\begin{equation}
+  \su{U\ua{Br,eff}} = \frac{\su{U\ua{Br}}}{2\sqrt{2}} .
+\end{equation}
+
+Als Frequenz, bei der die Brückenspannung verschwinden sollte, ergibt sich folgender
+Wert:
+
+\begin{align}
+  \su{\omega_0} &= \frac{1}{\u{RC}} = \frac{1}{1000 \, \su{\Omega} \cdot (415.7 \pm 0.7) \cdot 10^{-9} \, \su{F}} = (2406 \pm 4) \, Hz \\
+  \su{\nu_0}    &= \frac{\su{\omega_0}}{2\pi} = (382.9 \pm 0.6) \, Hz
+\end{align}
 
 \end{document}
