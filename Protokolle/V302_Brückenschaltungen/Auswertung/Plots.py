@@ -57,7 +57,7 @@ plt.legend( loc = "best")
 plt.xlabel(r'$\mathrm{\nu} / \mathrm{\nu_0}$' )
 plt.ylabel(r'$\mathrm{U_{Br}} / \mathrm{U_{Sp}}$')
 plt.xscale("log")
-#plt.savefig('Plot_groß.pdf')
+#plt.savefig('Plot_gross.pdf')
 #plt.show()
 
 U2 = (0.018 / 2 / np.sqrt(2)) / f(2)

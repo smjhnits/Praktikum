@@ -114,14 +114,14 @@
     \toprule
     $\su{\nu}$ in $\su{\frac{1}{s}}$ & $\su{U\ua{Br}}$ in V & $\su{U\ua{Sp}}$ in V \\
     \midrule
-    20   & 2.480  & 2.700 \\
-    100  & 1.960  & 2.550 \\
-    200  & 1.000  & 2.200 \\
-    270  & 0.524  & 2.000 \\
-    320  & 0.260  & 1.800 \\
-    340  & 0.172  & 1.800 \\
-    360  & 0.078  & 1.700 \\
-    370  & 0.044  & 1.700 \\
+    20    & 2.480 & 2.700 \\
+    100   & 1.960 & 2.550 \\
+    200   & 1.000 & 2.200 \\
+    270   & 0.524 & 2.000 \\
+    320   & 0.260 & 1.800 \\
+    340   & 0.172 & 1.800 \\
+    360   & 0.078 & 1.700 \\
+    370   & 0.044 & 1.700 \\
     390   & 0.053 & 1.650 \\
     395   & 0.084 & 1.650 \\
     400   & 0.094 & 1.650 \\
@@ -248,7 +248,8 @@ zur Speisespannung $\su{U\ua{Sp}}$ gegen $\su{\Omega}$ = $\frac{\su{\nu}}{\su{\n
 aufgetragen. Für $\su{U\ua{Br,eff}}$ gilt dabei:
 
 \begin{equation}
-  \su{U\ua{Br,eff}} = \frac{\su{U\ua{Br}}}{2\sqrt{2}} .
+  \su{U\ua{Br,eff}} = \frac{\su{U\ua{Br}}}{2\sqrt{2}}.
+  \label{eqn:Ubreff}
 \end{equation}
 
 Als Frequenz, bei der die Brückenspannung verschwinden sollte, ergibt sich folgender
@@ -258,5 +259,72 @@ Wert:
   \su{\omega_0} &= \frac{1}{\u{RC}} = \frac{1}{1000 \, \su{\Omega} \cdot (415.7 \pm 0.7) \cdot 10^{-9} \, \su{F}} = (2406 \pm 4) \, Hz \\
   \su{\nu_0}    &= \frac{\su{\omega_0}}{2\pi} = (382.9 \pm 0.6) \, Hz
 \end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[height = 9.5 cm]{Plot_klein.pdf}
+  \caption{Vergleich der Messdaten mit einer Theoriekurve im kleineren Bildintervall}
+  \label{Plotgeschnitten}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[height = 9.5 cm]{Plot_gross.pdf}
+  \caption{Vergleich der Messdaten mit einer Theoriekurve}
+  \label{Plotkomplett}
+\end{figure}
+
+Für die Bestimmung des Klirrfaktors wird zunächst genähert, dass die Summe der
+Oberwellen nur von dem Term der zweiten Oberwelle bestimmt wird. Im Folgendem
+wird mit der Effektivspannung gerechnet, da diese bereits in Formel \eqref{eqn:Ubreff}
+bestimmt wurde. Da in den Abbildungen \ref{Plotkomplett} und \ref{Plotgeschnitten}
+ziemlich große Abweichungen zu erkennen sind, wird ein realtiv großer Klirrfaktor
+erwartet.
+
+Mit Formel ?? werden zu Berechnung noch die Werte für $\su{U_2}$ und $\su{U_1}$ bestimmt,
+wobei $\su{U_1}$ die 1,65 V von $\su{U\ua{Sp}}$ bei $\su{\nu_0}$ sind. Mit ?? und
+ $\su{\Omega}$ = 2 folgt dann:
+
+\begin{align}
+  \su{U_2} &= \frac{\su{U\ua{Br,eff}}}{f(2)} \\
+           &= 4.269 \cdot 10^{-2} \, V.
+\end{align}
+
+Der Klirrfaktor ergibt sich damit nun aus dem Quotienten von $\su{U_2}$ und
+$\su{U_1}$:
+
+\begin{equation}
+  \su{k} = \frac{\su{U_2}}{\su{U_1}} = 2.668 \cdot 10^{-2}.
+\end{equation}
+
+\newpage
+
+
+\section{Diskussion}
+
+Auffällig ist, dass bei eigentlich allen Messungen der Fehler der einzelnen
+Bauteile ziemlich gering ist. Dies lässt auf eine ziemlich gute Messung schließen,
+die nur durch das Anschaffen neuer Bauteile wirklich verbessert werden kann.
+
+Vergleicht man bei den Messungen die Fehler der Induktivitätsmessbrücke und die
+der Maxwell-Brücke, sieht man, dass bei letzterem deutlich geringere Fehler
+auftreten. Dies könnte vor allem an der Annahme liegen, dass die verwendete
+Spule $\su{L_2}$ bei der Induktivitätsmessbrücke keinen Innenwiderstand besitzt,
+was in der Messung nicht realisierbar ist.
+Zwar wurde auch bei der Maxwell-Brücke der Kondensator als verlustfrei angenommen,
+dies lässt sich jedoch weitaus besser realisieren. Dennoch sind die Abweichungen
+der gemessenen Werte beider Methoden nicht allzu groß, die Maxwell-Brücke
+scheint in dieser Messung lediglich genauer zu sein.
+
+Bei der Bestimmung des Klirrfaktors sieht man, dass die gemessenen Werte besonders
+bei Frequenzen oberhalb des Minimums stark von der Theoriekurve abweichen. Da die
+Form der Kurve jedoch ähnlich ist, kann man auf einen systematischen Fehler schließen.
+Dies ist schon in den Messwerten zu erkennen, in denen die Speisespannung eigentlich
+relativ konstant bleiben sollte, jedoch zwischenzeitlich auf ca. 3 $\%$ des
+ursprünglichen Wertes absinkt. Somit kann der Klirrfaktor als Beurteilung der
+Güte des Sinusgenerators eigenlich nur bedingt verwendet werden. Dennoch ist
+der Wert trotz der Messungenauigkeiten ziemlich gering.
+
+
 
 \end{document}
