@@ -160,7 +160,7 @@ errechnen sich mit folgenden Formeln:
 \end{align}
 
 \subsection{Wheatstonesche Brückenschaltung}
-Mit den gemessenen Werte aus Tabelle \ref{tab:Wheatstone} und der Formel ??
+Mit den gemessenen Werte aus Tabelle \ref{tab:Wheatstone} und der Formel \eqref{eqn:Wheatstone}
 lassen sich nun die gesuchten
 Widerstände berechnen. Dabei ergeben sich folgende Werte:
 
@@ -172,8 +172,8 @@ Widerstände berechnen. Dabei ergeben sich folgende Werte:
 \subsection{Kapazitätsmessbrücke}
 
 Mit den Werten aus Tabelle \ref{tab:Kapazitätohne} für die Kapazitätsmessbrücke
-ohne zwischengeschaltete Widerstände und der Formel ?? ergeben sich für die
-gesuchten Kapazitäten die folgenden Werte:
+ohne zwischengeschaltete Widerstände und der Formel \eqref{KapazitätsmessbrückeLx}
+ergeben sich für die gesuchten Kapazitäten die folgenden Werte:
 
 \begin{align}
   \su{C\ua{x,1}} &= (652.9 \pm 1.4) \, \su{nF} \\
@@ -181,8 +181,8 @@ gesuchten Kapazitäten die folgenden Werte:
 \end{align}
 
 Mit den Werten aus Tabelle \ref{tab:Kapazitätmit} für die Kapazitätsmessbrücke
-mit Widerständen und den Formen ?? und ?? lassen sich ebenfalls die gesuchten
-Werte der R-C-Glieder bestimmen:
+mit Widerständen und den Formen \eqref{KapazitätsmessbrückeRx} und \eqref{KapazitätsmessbrückeLx}
+lassen sich ebenfalls die gesuchten Werte der R-C-Glieder bestimmen:
 
 \begin{align}
   \su{R\ua{x,8}} &= (571.8 \pm 0.6) \, \su{\Omega} \\
@@ -196,7 +196,8 @@ Werte der R-C-Glieder bestimmen:
 
 \subsection{Induktivitätsmessbrücke}
 
-Mit den Formeln ?? und ?? und den Werten aus der Tabelle \ref{tab:Induktivitätsmessbrücke}
+Mit den Formeln \eqref{InduktivitätmessbrückeRx} und \eqref{InduktivitätmessbrückeLx}
+und den Werten aus der Tabelle \ref{tab:Induktivitätsmessbrücke}
 ergeben sich für die gesuchten R-L-Glieder folgende Werte:
 
 \begin{align}
@@ -213,8 +214,8 @@ ergeben sich für die gesuchten R-L-Glieder folgende Werte:
 Die gleichen R-L-Glieder wie bei der Induktivitätsmessbrücke wurden nochmal mithilfe
 der Maxwell-Brücke gemessen, bei der ein Kondensator mit der Kapazität $\su{C_4} = 399 \, nF$
 verwendet wurde. Mit den Werte aus der Tabelle \ref{tab:Maxwell}
-sowie den Formeln ?? und ?? ergeben sich für die beiden R-L-Glieder somit folgende
-Werte:
+sowie den Formeln \eqref{eqn:Maxwell_Rx} und \eqref{eqn:Maxwell_Lx} ergeben sich
+für die beiden R-L-Glieder somit folgende Werte:
 
 \begin{align}
   \su{R\ua{x,16}} &= (417.5 \pm 1.3) \, \su{\Omega} \\
@@ -239,7 +240,8 @@ verwendet:
 \end{align}
 
 In dieser Messreihe wurde die Frequenzabhängigkeit der Brückenspannung untersucht.
-Dazu wird in dem Graphen ?? das Verhältnis der effektiven Brückenspannung $\su{U\ua{Br,eff}}$
+Dazu wird in den Graphen \ref{Plotkomplett} und \ref{Plotgeschnitten}
+das Verhältnis der effektiven Brückenspannung $\su{U\ua{Br,eff}}$
 zur Speisespannung $\su{U\ua{Sp}}$ gegen $\su{\Omega}$ = $\frac{\su{\nu}}{\su{\nu_0}}$
 aufgetragen. Für $\su{U\ua{Br,eff}}$ gilt dabei:
 
@@ -277,9 +279,9 @@ bestimmt wurde. Da in den Abbildungen \ref{Plotkomplett} und \ref{Plotgeschnitte
 ziemlich große Abweichungen zu erkennen sind, wird ein realtiv großer Klirrfaktor
 erwartet.
 
-Mit Formel ?? werden zu Berechnung noch die Werte für $\su{U_2}$ und $\su{U_1}$ bestimmt,
-wobei $\su{U_1}$ die 1,65 V von $\su{U\ua{Sp}}$ bei $\su{\nu_0}$ sind. Mit ?? und
- $\su{\Omega}$ = 2 folgt dann:
+Mit Formel \eqref{eqn:Klirrfaktor} werden zu Berechnung noch die Werte für $\su{U_2}$ und $\su{U_1}$ bestimmt,
+wobei $\su{U_1}$ die 1,65 V von $\su{U\ua{Sp}}$ bei $\su{\nu_0}$ sind. Mit \eqref{eqn:Wien-Robinson-Brücke}
+und $\su{\Omega}$ = 2 folgt dann:
 
 \begin{align}
   \su{U_2} &= \frac{\su{U\ua{Br,eff}}}{f(2)} \\
