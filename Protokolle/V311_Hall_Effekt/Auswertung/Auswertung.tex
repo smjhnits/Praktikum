@@ -21,8 +21,8 @@ Diagramm visualisiert.
 
 In dem Diagramm wird deutlich, dass sich die Verläufe der $B$-Feldstärke bei
 unterschiedlich geregelter Stromstärke kaum unterscheiden. Daran ist ersichtlich,
-dass der Hystereseeffekt bei der Auswertung der Messergebnisse nur einen geringen
-Einfluss hat und aus diesem Grund zu vernachlässigen ist.
+dass der Hystereseeffekt bei der Auswertung der Messergebnisse nur einen vernachlässigbaren
+Einfluss.
 
 Bei den im Versuch angestellten Messungen wurde stets die Stromstärke hochgeregelt,
 sodass die $B$-Feldstärke gegenüber des aufgedrehten Stroms verwendet wird, um
@@ -47,7 +47,7 @@ In dem folgenden Diagrammen ist die Spannung gegenüber der Stromstärke aufgetr
 Die Regressionsgerade wurde direkt in Diagramme integriert.
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{Widerstansmessung.pdf}
+  \includegraphics[width=\textwidth]{Widerstandsmessung.pdf}
   \caption{Diagramme der Widerstandsmessung}
   \label{fig:Widerstände}
 \end{figure}
@@ -56,7 +56,45 @@ Es ergibt sich für die Zinkprobe ein gemessener Widerstand von $R_Z =
 (\SI{13,32\pm0,067}{\milli\ohm}$. Für die Kupferprobe ergibt sich ein gemesserner
 Widerstand von $R_K = \SI{7,64\pm0,016}{\milli\ohm}$.
 
-\subsection{Bestimmung von der Hall--Spannung $U_H$}
+\subsection{Bestimmen der Hall--Spannung $U_H$}
+
+Die Hall--Spannung wurde nun unter variirenden Bedingungen gemessen,
+Bei der ersten Messung wurde der Probenstrom konstant gelassen und der
+Spulenstrom aufgedreht, wodurch die $B$-Feldstärke erhöht wird. Bei der zweiten
+Messung wurde die vorgehensweise umgekehrt. Der Spulenstrom wurde konstant gelassen
+und der Probenstrom wurde aufgedreht.
+Die Messdaten der ersten Messung sind aus den Tabellen \ref{tab:Zink_U_H},
+\ref{tab:Kupfer_U_H}, \ref{tab:Zink_U_H_umgepolt} und \ref{tab:Kupfer_U_H_umgepolt}
+zu entnehmen.
+Die Messdaten der zweiten Messung sind in den Tabellen \ref{tab:tab:Zink_U_H_2},
+\ref{tab:Kupfer_U_H_2}, \ref{tab:Zink_U_H_2_umgepolt} und \ref{tab:Kupfer_U_H_2_umgepolt}
+dargestellt.
+Die folgenden Diagramme visualisieren die gemessenen Daten.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_I_s.pdf}
+  \label{fig:U_H_const_Ip}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_I_p.pdf}
+  \label{fig:U_H_const_Is}
+\end{figure}
+\FloatBarrier
+
+Über den zuvor bestimmten Proportionalitätsfaktor kann die Hall-Spannung
+der $B$-Feldstärke gegenüber aufgetragen werden. Es ergeben sich damit die
+folgenden Diagramme.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_B_s.pdf}
+  \label{fig:U_H_const_Ip_B}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_B_p.pdf}
+  \label{fig:U_H_const_Is_B}
+\end{figure}
 
 
 

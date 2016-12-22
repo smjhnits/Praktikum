@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import scipy.constants as const
 
 # Strom gegen B-Feld auftragen
 
@@ -36,7 +37,7 @@ plt.title('Lineare Regression an die B-Feld Vermessung mit steigendem Storm')
 plt.tight_layout()
 plt.savefig('lineareRegression.pdf')
 
-print('Proportionalitätsfaktor alpha zwischen B und I: ', *params)
+print('Proportionalitätsfaktor alpha zwischen B und I: ', params[0])
 
 # Widerstand berechnen
 
@@ -108,11 +109,15 @@ plt.subplot(2, 1, 1)
 plt.plot(I_s_Zink, U_H_Zink_s, 'kx')
 plt.plot(I_s_Zink, function(I_s_Zink, *paramsU_H_I_Zink_s), 'r-', label=r'lineare Regression')
 plt.title('Hall-Spannung von Zink gegenüber I bei konstantem Probenstrom')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 plt.subplot(2, 1, 2)
 plt.plot(I_s_Kupfer, U_H_Kupfer_s, 'kx')
 plt.plot(I_s_Kupfer, function(I_s_Kupfer, *paramsU_H_I_Kupfer_s), 'b-', label=r'lineare Regression')
 plt.title('Hall-Spannung von Kupfer gegenüber I bei konstantem Probenstrom')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 
 plt.tight_layout()
@@ -123,11 +128,15 @@ plt.subplot(2, 1, 1)
 plt.plot(B_s_Zink, U_H_Zink_s, 'kx')
 plt.plot(B_s_Zink, function(B_s_Zink, *paramsU_H_B_Zink_s), 'r-', label=r'lineare Regression')
 plt.title('Hall-Spannung von Zink gegenüber B bei konstantem Probenstrom')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 plt.subplot(2, 1, 2)
 plt.plot(B_s_Kupfer, U_H_Kupfer_s, 'kx')
 plt.plot(B_s_Kupfer, function(B_s_Kupfer, *paramsU_H_B_Kupfer_s), 'b-', label=r'lineare Regression')
 plt.title('Hall-Spannung von Kupfer gegenüber B bei konstantem Probenstrom')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 
 plt.tight_layout()
@@ -194,3 +203,16 @@ plt.legend(loc='best')
 
 plt.tight_layout()
 plt.savefig('Hall_Spannung_gegenüber_B_p.pdf')
+
+# Bestimmen der Ladungsträger pro Volumen n
+# Abmessungen der Proben [1] = Höhe, [2] = Breite, [3] = Dicke, Angaben in cm
+
+Zink = np.array([2.603, 4.406, 0.043])
+Kupfer = np.array([2.80, 2.53, 0.0018])
+
+# U_H_Zink = 1 / 2 * (U_H_Zink_p + U_H_Zink_s)
+# U_H_Kupfer = 1 / 2 * (U_H_Kupfer_p + U_H_Kupfer_s)
+# B_Zink = 1 / 2 * (B_p_Zink + B_s_Zink)
+# B_Kupfer = 1 / 2 * (B_p_Kupfer + B_s_Kupfer)
+
+n_Zink = - 1 / (const.e)
