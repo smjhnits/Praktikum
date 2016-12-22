@@ -1,0 +1,66 @@
+\input{"../../Praeambel_prak.tex"}
+
+\begin{document}
+
+\section{Auswertung}
+
+\subsection{Hystereseeffekt}
+
+In diesem Abschnitt wird der in dem Versuch auftretende Hystereseeffekt untersucht.
+Dazu wird die gemessene B-Feldstärke gegenüber der Stromstärke aufgetragen. Dabei
+wird einmal der Strom von \SI{0}{\ampere} bis auf \SI{5}{\ampere} aufgedreht und zum
+anderen der Strom von \SI{5}{\ampere} auf \SI{0}{\ampere} runtergedeht.
+Es wurden jeweils zehn Messungen erhoben. Die Messergebnisse sind in dem folgendem
+Diagramm visualisiert.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Hysterese.pdf}
+  \caption{Der auftretende Hystereseeffekt}
+  \label{fig:Hysterese}
+\end{figure}
+
+In dem Diagramm wird deutlich, dass sich die Verläufe der $B$-Feldstärke bei
+unterschiedlich geregelter Stromstärke kaum unterscheiden. Daran ist ersichtlich,
+dass der Hystereseeffekt bei der Auswertung der Messergebnisse nur einen geringen
+Einfluss hat und aus diesem Grund zu vernachlässigen ist.
+
+Bei den im Versuch angestellten Messungen wurde stets die Stromstärke hochgeregelt,
+sodass die $B$-Feldstärke gegenüber des aufgedrehten Stroms verwendet wird, um
+den Proportionalitätsfaktor zwischen der Stromstärke $I$ und $B$ zu ermitteln.
+Der lineare Fit ist in dem folgendem Diagramm dargestellt.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{lineareRegression.pdf}
+  \caption{'Lineare Regression an die $B$-Feldstärke bei aufsteigendem $I$'}
+  \label{fig:lineareRegression}
+\end{figure}
+
+Als Proportionalitätsfaktor zwischen $I$ und $B$ ergibt sich somit $B =
+253,35 * I$. Der Proportionalitätsfaktor wird als fehlerfrei angenommen.
+
+\subsection{Messung der Widerstände}
+
+Die Widerstände lassen sich über die Messergebnisse der Spannung bei variirender
+Stromstärke errechnen. Das ohmsche Gesetzt besagt, dass der Widerstand der
+Proportionalitätsfaktor zwischen der Spannung und der Stromstärke ist.
+In dem folgenden Diagrammen ist die Spannung gegenüber der Stromstärke aufgetragen.
+Die Regressionsgerade wurde direkt in Diagramme integriert.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Widerstansmessung.pdf}
+  \caption{Diagramme der Widerstandsmessung}
+  \label{fig:Widerstände}
+\end{figure}
+
+Es ergibt sich für die Zinkprobe ein gemessener Widerstand von $R_Z =
+(\SI{13,32\pm0,067}{\milli\ohm}$. Für die Kupferprobe ergibt sich ein gemesserner
+Widerstand von $R_K = \SI{7,64\pm0,016}{\milli\ohm}$.
+
+\subsection{Bestimmung von der Hall--Spannung $U_H$}
+
+
+
+\input{Messergebnisse.tex}
+
+
+\end{document}
