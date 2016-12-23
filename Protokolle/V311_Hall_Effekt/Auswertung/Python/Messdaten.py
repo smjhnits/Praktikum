@@ -18,7 +18,7 @@ I = np.linspace(0, 10, 11)
 U_Zink = np.array([-0.02, 14.13, 27.7, 41.1, 55.5, 68.3, 81.5, 94.7, 107.1, 120.3, 133.7])
 U_Kupfer = np.array([0, 7.83, 15.54, 23.3, 30.9, 38.6, 46.3, 53.9, 61.5, 68.8, 76.5])
 
-# Messung der Hall-Spannung bei konstantem Probenstrom U_H in mV, Zink I_p: = 8 A, Kuofer: I_p = 10 A
+# Messung der Hall-Spannung bei konstantem Probenstrom U_H in mV, Zink I_p: = 8 A, Kupfer: I_p = 10 A
 
 I_s_Zink = np.linspace(0, 5, 11)
 I_s_Kupfer = np.linspace(0, 3.5, 8)

@@ -108,14 +108,14 @@ plt.clf()
 plt.subplot(2, 1, 1)
 plt.plot(I_s_Zink, U_H_Zink_s, 'kx')
 plt.plot(I_s_Zink, function(I_s_Zink, *paramsU_H_I_Zink_s), 'r-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Zink gegenüber I bei konstantem Probenstrom')
+plt.title('Hall-Spannung von Zink gegenüber I bei konstantem Probenstrom von $8 A$')
 plt.ylabel(r'Hall-Spannung in $mV$')
 plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 plt.subplot(2, 1, 2)
 plt.plot(I_s_Kupfer, U_H_Kupfer_s, 'kx')
 plt.plot(I_s_Kupfer, function(I_s_Kupfer, *paramsU_H_I_Kupfer_s), 'b-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Kupfer gegenüber I bei konstantem Probenstrom')
+plt.title('Hall-Spannung von Kupfer gegenüber I bei konstantem Probenstrom von $10 A$')
 plt.ylabel(r'Hall-Spannung in $mV$')
 plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
@@ -127,16 +127,16 @@ plt.clf()
 plt.subplot(2, 1, 1)
 plt.plot(B_s_Zink, U_H_Zink_s, 'kx')
 plt.plot(B_s_Zink, function(B_s_Zink, *paramsU_H_B_Zink_s), 'r-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Zink gegenüber B bei konstantem Probenstrom')
+plt.title('Hall-Spannung von Zink gegenüber B bei konstantem Probenstrom von $8 A$')
 plt.ylabel(r'Hall-Spannung in $mV$')
-plt.xlabel(r'Stromstärke in $A$')
+plt.xlabel(r'$B$-Feldstärke in $mT$')
 plt.legend(loc='best')
 plt.subplot(2, 1, 2)
 plt.plot(B_s_Kupfer, U_H_Kupfer_s, 'kx')
 plt.plot(B_s_Kupfer, function(B_s_Kupfer, *paramsU_H_B_Kupfer_s), 'b-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Kupfer gegenüber B bei konstantem Probenstrom')
+plt.title('Hall-Spannung von Kupfer gegenüber B bei konstantem Probenstrom von $10 A$')
 plt.ylabel(r'Hall-Spannung in $mV$')
-plt.xlabel(r'Stromstärke in $A$')
+plt.xlabel(r'$B$-Feldstärke in $mT$')
 plt.legend(loc='best')
 
 plt.tight_layout()
@@ -164,55 +164,115 @@ Kupfer_Ip_U_H_2 = - np.array([0.338, 0.337, 0.336, 0.335, 0.335, 0.334, 0.333, 0
 U_H_Zink_p = 1 / 2 * (Zink_Ip_U_H_1 - Zink_Ip_U_H_2)
 U_H_Kupfer_p = 1 / 2 * (Kupfer_Ip_U_H_1 - Kupfer_Ip_U_H_2)
 
-for i in range(11):
-    B_p_Zink[i] = I_umwandeln_B(I_p[i])
-for i in range(11):
-    B_p_Kupfer[i] = I_umwandeln_B(I_p_Kupfer[i])
+# for i in range(11):
+#    B_p_Zink[i] = I_umwandeln_B(I_p[i])
+# for i in range(11):
+#    B_p_Kupfer[i] = I_umwandeln_B(I_p_Kupfer[i])
 
 paramsU_H_I_Zink_p, covariance_U_H_I_Zink_p = curve_fit(function, I_p, U_H_Zink_p)
 paramsU_H_I_Kupfer_p, covariance_U_H_I_Kupfer_p = curve_fit(function, I_p_Kupfer, U_H_Kupfer_p)
-paramsU_H_B_Zink_p, covariance_U_H_B_Zink_p = curve_fit(function, B_p_Zink, U_H_Zink_p)
-paramsU_H_B_Kupfer_p, covariance_U_H_B_Kupfer_p = curve_fit(function, B_p_Kupfer, U_H_Kupfer_p)
+# paramsU_H_B_Zink_p, covariance_U_H_B_Zink_p = curve_fit(function, B_p_Zink, U_H_Zink_p)
+# paramsU_H_B_Kupfer_p, covariance_U_H_B_Kupfer_p = curve_fit(function, B_p_Kupfer, U_H_Kupfer_p)
 
 plt.clf()
 plt.subplot(2, 1, 1)
 plt.plot(I_p, U_H_Zink_p, 'kx')
 plt.plot(I_p, function(I_p, *paramsU_H_I_Zink_p), 'r-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Zink gegenüber I bei konstanten Spulenstrom')
+plt.title('Hall-Spannung von Zink gegenüber I bei konstanten Spulenstrom von $5 A$')
 plt.legend(loc='best')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.subplot(2, 1, 2)
 plt.plot(I_p_Kupfer, U_H_Kupfer_p, 'kx')
 plt.plot(I_p_Kupfer, function(I_p_Kupfer, *paramsU_H_I_Kupfer_p), 'b-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Kupfer gegenüber I bei konstanten Spulenstrom')
+plt.title('Hall-Spannung von Kupfer gegenüber I bei konstanten Spulenstrom von $3 A$')
+plt.ylabel(r'Hall-Spannung in $mV$')
+plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
 
 plt.tight_layout()
 plt.savefig('Hall_Spannung_gegenüber_I_p.pdf')
 
-plt.clf()
-plt.subplot(2, 1, 1)
-plt.plot(B_p_Zink, U_H_Zink_p, 'kx')
-plt.plot(B_p_Zink, function(B_p_Zink, *paramsU_H_B_Zink_p), 'r-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Zink gegenüber B bei konstanten Spulenstrom')
-plt.legend(loc='best')
-plt.subplot(2, 1, 2)
-plt.plot(B_p_Kupfer, U_H_Kupfer_p, 'kx')
-plt.plot(B_p_Kupfer, function(B_p_Kupfer, *paramsU_H_B_Kupfer_p), 'b-', label=r'lineare Regression')
-plt.title('Hall-Spannung von Kupfer gegenüber B bei konstanten Spulenstrom')
-plt.legend(loc='best')
+# plt.clf()
+# plt.subplot(2, 1, 1)
+# plt.plot(B_p_Zink, U_H_Zink_p, 'kx')
+# plt.plot(B_p_Zink, function(B_p_Zink, *paramsU_H_B_Zink_p), 'r-', label=r'lineare Regression')
+# plt.title('Hall-Spannung von Zink gegenüber B bei konstanten Spulenstrom')
+# plt.legend(loc='best')
+# plt.ylabel(r'Hall-Spannung in $mV$')
+# plt.xlabel(r'$B$-Feldstärke in $mT$')
+# plt.subplot(2, 1, 2)
+# plt.plot(B_p_Kupfer, U_H_Kupfer_p, 'kx')
+# plt.plot(B_p_Kupfer, function(B_p_Kupfer, *paramsU_H_B_Kupfer_p), 'b-', label=r'lineare Regression')
+# plt.title('Hall-Spannung von Kupfer gegenüber B bei konstanten Spulenstrom')
+# plt.ylabel(r'Hall-Spannung in $mV$')
+# plt.xlabel(r'$B$-Feldstärke in $mT$')
+# plt.legend(loc='best')
 
-plt.tight_layout()
-plt.savefig('Hall_Spannung_gegenüber_B_p.pdf')
+# plt.tight_layout()
+# plt.savefig('Hall_Spannung_gegenüber_B_p.pdf')
 
 # Bestimmen der Ladungsträger pro Volumen n
 # Abmessungen der Proben [1] = Höhe, [2] = Breite, [3] = Dicke, Angaben in cm
 
 Zink = np.array([2.603, 4.406, 0.043])
 Kupfer = np.array([2.80, 2.53, 0.0018])
+Zink_Querschnitt = Zink[0] * Zink[2]
+Kupfer_Querschnitt = Kupfer[0] * Kupfer[2]
 
 # U_H_Zink = 1 / 2 * (U_H_Zink_p + U_H_Zink_s)
 # U_H_Kupfer = 1 / 2 * (U_H_Kupfer_p + U_H_Kupfer_s)
 # B_Zink = 1 / 2 * (B_p_Zink + B_s_Zink)
 # B_Kupfer = 1 / 2 * (B_p_Kupfer + B_s_Kupfer)
 
-n_Zink = - 1 / (const.e)
+# n_Zink_constI = 1 / (const.e * U_H_Zink_p * Zink[2] * params[0]) * I_p[10]
+# n_Zink_constB = 1 / (const.e * U_H_Zink_s * Zink[2] * params[0]) * I_s_Zink[10]
+# n_Kupfer_constI = 1 / (const.e * U_H_Kupfer_p * Zink[2] * params[0]) * I_p_Kupfer[10]
+# n_Kupfer_constB = 1 / (const.e * U_H_Kupfer_s * Zink[2] * params[0]) * I_s_Kupfer[10]
+
+n_Zink_p = - 1 / (Zink[2] * const.e * U_H_Zink_p[10]) * (I_p[10])**2 * params[0]
+n_Zink_s = 1 / (Zink[2] * const.e * U_H_Zink_s[10]) * (I_s_Zink[10])**2 * params[0]
+n_Kupfer_p = - 1 / (Kupfer[2] * const.e * U_H_Kupfer_p[10]) * (I_p_Kupfer[10])**2 * params[0]
+n_Kupfer_s = 1 / (Kupfer[2] * const.e * U_H_Kupfer_s[7]) * (I_s_Kupfer[7])**2 * params[0]
+
+print('n_Zink bei konstantem Spulenstrom: ', n_Zink_p)
+print('n_Zink bei konstantem Probenstrom: ', n_Zink_s)
+print('n_Kupfer bei konstantem Spulenstrom: ', n_Kupfer_p)
+print('n_Kupfer bei konstantem Probenstrom: ', n_Kupfer_s)
+
+# Bestimmen der Ladungsträger pro Atom
+
+molareMasse_Zink = 26
+dichte_Zink = 7.14
+molareMasse_Kupfer = 63.5
+dichte_Kupfer = 8.96
+Ladungsträgerdichte_Zink_theorie = molareMasse_Zink / (Zink[0] * Zink[1] * Zink[2] * dichte_Zink)
+Ladungsträgerdichte_Kupfer_theorie = molareMasse_Kupfer / (Kupfer[0] * Kupfer[1] * Kupfer[2] * dichte_Kupfer)
+print('Ladungsträgerdichte Zink: ', Ladungsträgerdichte_Zink_theorie)
+print('Ladungsträgerdichte Kupfer: ', Ladungsträgerdichte_Kupfer_theorie)
+print('Ladungsträgerdichte_Zink_theorie_pro_atom: ', Ladungsträgerdichte_Zink_theorie / const.Avogadro)
+print('Ladungsträgerdichte_Kupfer_theorie_pro_atom: ', Ladungsträgerdichte_Kupfer_theorie / const.Avogadro)
+print('Ladungsträgerdichte_Zink_pro_atom_p: ', n_Zink_p / const.Avogadro)
+
+# mittlere Flugzeit
+
+
+def tau(Name, l, b, d, n, R):
+    print(Name, (2 * const.m_e * l * 100) / ((const.e)**2 * n * b * d * R))
+    return (2 * const.m_e * l * 100) / ((const.e)**2 * n * b * d * R)
+
+tau_Zink_p = tau('tau_Zink_p: ', Zink[1], Zink[0], Zink[2], n_Zink_p, params_Zink[0])
+tau_Zink_p_err = tau('tau_Zink_p Fehler: ', Zink[1], Zink[0], Zink[2], n_Zink_p, np.sqrt(np.diag(covariance_Zink))[0])
+tau_Zink_s = tau('tau_Zink_s: ', Zink[1], Zink[0], Zink[2], n_Zink_s, params_Zink[0])
+tau_Zink_s_err = tau('tau_Zink_s Fehler: ', Zink[1], Zink[0], Zink[2], n_Zink_s, np.sqrt(np.diag(covariance_Zink))[0])
+tau_Kupfer_p = tau('tau_Kupfer_p: ', Kupfer[1], Kupfer[0], Kupfer[2], n_Kupfer_p, params_Kupfer[0])
+tau_Kupfer_p_err = tau('tau_Kufer_p Fehler: ', Kupfer[1], Kupfer[0], Kupfer[2], n_Kupfer_p, np.sqrt(np.diag(covariance_Kupfer))[0])
+tau_Kupfer_s = tau('tau_Kupfer_s: ', Kupfer[1], Kupfer[0], Kupfer[2], n_Kupfer_s, params_Kupfer[0])
+tau_Kupfer_s_err = tau('tau_Kufer_s Fehler: ', Kupfer[1], Kupfer[0], Kupfer[2], n_Kupfer_s, np.sqrt(np.diag(covariance_Kupfer))[0])
+
+# mittlere Driftgeschwindigkeit
+
+
+def v_drift(Name, n, I, querschnitt):
+    print(Name, - (100 * I / querschnitt) / (n * const.e))
+    return (- (100 * I / querschnitt) / (n * const.e))
