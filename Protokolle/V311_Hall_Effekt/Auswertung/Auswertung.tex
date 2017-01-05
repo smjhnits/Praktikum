@@ -58,7 +58,7 @@ Widerstand von $R_K = \SI{7,64\pm0,016}{\milli\ohm}$.
 
 \subsection{Bestimmen der Hall--Spannung $U_H$}
 
-Die Hall--Spannung wurde nun unter variirenden Bedingungen gemessen,
+Die Hall--Spannung wurde nun unter variirenden Bedingungen gemessen.
 Bei der ersten Messung wurde der Probenstrom konstant gelassen und der
 Spulenstrom aufgedreht, wodurch die $B$-Feldstärke erhöht wird. Bei der zweiten
 Messung wurde die vorgehensweise umgekehrt. Der Spulenstrom wurde konstant gelassen
@@ -96,31 +96,184 @@ folgenden Diagramme.
 In diesem Abschnitt werden mit Hilfe der Messergebnisse für die Hall-Spannung und die
 Widerstände der Proben mikroskopische Leitfähigkeitsparameter bestimmt.
 Zuerst wurde die Ladungsträgeranzahl pro Volumen ermittelt.
-Diese ergibt sich aus
+Diese ergibt sich aus umstellen der Formel \eqref{eqn:} nach $n$ zu:
 
 \begin{equation}
   n = -\frac{B\cdot I_q}{e_0 U_H d}.
 \end{equation}
 
+Für die Messungen bei konstantem Probenstrom ergeben sich die Werte
+
+\begin{align*}
+  n_{Zink} &= (\num{8,30\pm 0,34})\cdot 10^{27}\frac{1}{\si{\meter^3}}\\
+  n_{Kupfer} &= (\num{2,278\pm 0,30})\cdot 10^{29}\frac{1}{\si{\meter^3}}.
+\end{align*}
+
 Für die Messungen bei konstantem Spulenstrom ergeben sich die Werte
 
+\begin{align*}
+  n_{{Zink}} &= (\num{7,14\pm 0,34}) \cdot 10^{27}\frac{1}{\si{\meter^3}}\\
+  n_{{Kupfer}} &= (\num{2,25\pm 0,07})\cdot10^{29}\frac{1}{\si{\meter^3}}.
+\end{align*}
+
+Die Zahl der Ladungsträger pro Atom $z$ lässt sich über die folgende Formel bestimmen
+
 \begin{equation}
-  n_{\tiny{Zink}} = 1,1768 \cdot 10^{26}
-  n_{\tiny{Kupfer}} = 7,9864 \cdot 10^{27}.
+  z = n \cdot V
+\end{equation}
+,wobei $n$ die Ladungsträgerdichte pro Volumen ist und $V$ das Molarevolumen ist.
+
+Es ergeben sich für die Zahl der Ladungsträger pro Atom bei konstantem
+Querstrom die folgenden Werte
+
+\begin{align*}
+  z_{Zink} &= \SI{0,0502\pm0,0021}{\mol\per\meter^3}\\
+  z_{Kupfer} &= \SI{2,680\pm0,35}{\mol\per\meter^3}
+\end{align*}
+
+Bei konstentem Spulenstrom ergeben sich
+
+\begin{align*}
+  z_{Zink} &= \SI{0,0432\pm0,0021}{\mol\per\meter^3}\\
+  z_{Kupfer} &= \SI{2,64\pm0,08}{\mol\per\meter^3}
+\end{align*}
+
+Nach Bestimmen der Ladungsträgerdichte kann die mittlere Flugzeit $\bar{\tau}$
+über die Formel \eqref{eqn:} ermittelt werden.
+Aus den Messungen ergeben sich die folgenden Werte. Für die Ladungsträgerdichte
+bei konstantem Querstrom ergeben sich
+
+\begin{align*}
+\bar{\tau}_{Zink} &= (\num{2,53\pm 0,10})\cdot 10^{-13}\si{\second}\\
+\bar{\tau}_{Kupfer} &= (\num{2,046\pm 0.027})\cdot 10^{-13}\si{\second}.
+\end{align*}
+
+Für die Ladungsträgerdichte bei konstantem Spulenstrom ergeben sich
+
+\begin{align*}
+\bar{\tau}_{Zink} &= (\num{2,94\pm 0,14})\cdot 10^{-13}\si{\second}\\
+\bar{\tau}_{Kupfer} &= (\num{2,07\pm 0,06})\cdot 10^{-13}\si{\second}.
+\end{align*}
+
+Die Driftgeschwindigkeit lässt sich durch den folgenden Zusammenhang
+berechen.
+\begin{equation}
+  v_d = - \frac{j}{n * e_0}
+\end{equation}
+Dabei ist $j$ die Stromdichte und $n$ die Ladungsträgerdichte pro Volumen.
+Für die Driftgeschwindigkeit bei konstatem Querstrom ergeben sich
+
+\begin{align*}
+  v_{d,Zink} &= (\num{7,52\pm0,31})\cdot 10^{-4}\si{\meter\per\second}\\
+  v_{d,Kupfer} &= (\num{2,74\pm0,04})\cdot 10^{-5}\si{\meter\per\second}.
+\end{align*}
+
+Für die Driftgeschwindigkeit bei konstantem Spulenstrom ergeben sich
+
+\begin{align*}
+  v_{d,Zink} &= (\num{8,7\pm0,4})\cdot 10^{-4}\si{\meter\per\second}\\
+  v_{d,Kupfer} &= (\num{2,78\pm0,08})\cdot 10^{-5}\si{\meter\per\second}.
+\end{align*}
+
+Damit die Totalegeschwindigkeit $|\bar{v}|$ und die mittlere freie Weglänge
+$\bar{l}$ ermittelt werden kann muss die
+Fermie-Energie der Proben bestimmt werden. Es gelten die folgenden Beziehungen.
+
+\begin{align}
+  \label{eqn:Fermi_E}
+  E_F &= \frac{h^2}{2m_0}\sqrt[3]{\left(\frac{3}{8\pi}n\right)^2}\\
+  \label{eqn:Totalgesch}
+  |\bar{v}| &\approx \sqrt{\frac{2E_F}{m_0}}\\
+  \label{eqn:l}
+  \bar{l} &\approx \bar{\tau}\sqrt{\frac{2E_F}{m_0}}.
+\end{align}
+
+Somit lässt sich die Totalgeschwindigkeit allein durch das Bestimmen von $n$
+approximieren.
+
+Aus den Messdaten ergeben sich für bei konstantem Querstrom
+
+\begin{align*}
+  E_{F,Zink} &= (\num{2,39\pm0,07}) \si{\eV}\\
+  E_{F,Kupfer} &= (\num{0,218\pm0,002})\si{\eV}.
+\end{align*}
+
+Für die Messungen mit konstantem Spulenstrom ergibt sich
+
+\begin{align*}
+  E_{F,Zink} &= (\num{2,17\pm0,07}) \si{\eV}\\
+  E_{F,Kupfer} &= (\num{0,216\pm0,004})\si{\eV}.
+\end{align*}
+
+Nun kann über die Formel \eqref{eqn:Totalgesch} die Totalgeschwindigkeit errechnet werden. Die folgenden Werte sind bei konstantem Querstrom.
+
+\begin{align*}
+  |\bar{v}|_{Zink} &= (1,555\pm 0,021) \cdot 10^{6} \si{\meter\per\second}\\
+  |\bar{v}|_{Kupfer} &= (4,692\pm0,020) \cdot 10^6 \si{\meter\per\second}
+\end{align*}
+
+Für die Messungen bei konstantem Spulenstrom ergeben sich die folgenden Werte.
+
+\begin{align*}
+  |\bar{v}|_{Zink} &= (1,48\pm 0,023) \cdot 10^{6} \si{\meter\per\second}\\
+  |\bar{v}|_{Kupfer} &= (4,67\pm0,05) \cdot 10^6 \si{\meter\per\second}
+\end{align*}
+
+Desweiteren kann die mittlere freie Weglänge über \eqref{eqn:l} bestimmt werden.
+Für die Messdaten bei konstantem Querstrom ergenen sich
+
+\begin{align*}
+  \bar{l}_{Zink} &= (\num{0,393\pm0,011})\si{\micro\meter}\\
+  \bar{l}_{Kupfer} &= (\num{0,960\pm0,009})\si{\micro\meter}.
+\end{align*}
+
+Anhand der Messdaten bei kostantem Spulenstrom ergeben sich die folgenden Werte.
+
+\begin{align*}
+  \bar{l}_{Zink} &= (\num{0,435\pm0,014})\si{\micro\meter}\\
+  \bar{l}_{Kupfer} &= (\num{0,969\pm0,020})\si{\micro\meter}
+\end{align*}
+
+Zwischen $\bar{\tau}$ und der Beweglichkeit $\mu$ besteht der folgende Zusammenhang.
+
+\begin{equation}
+  \label{eqn:mu}
+  \mu = \frac{e_0}{2m_0}\bar{\tau}
 \end{equation}
 
-Fürdie Messungen bei konstantem Probenstrom ergeben sich die Werte
+Darüber ergeben sich bei konstantem Probenstrom die beiliegenden Werte.
 
-\begin{equation}
-  n_{\tiny{Zink}} = 5,7461 \cdot 10^{25}
-  n_{\tiny{Kupfer}} = 8,6094 \cdot 10^{26}.
-\end{equation}
+\begin{align*}
+  \mu_{Zink} &= (\num{0,0222\pm0,0009})\si{\ampere\second^2\per\kilo\gram}\\
+  \mu_{Kupfer} &= (\num{0,0180\pm0,00024})\si{\ampere\second^2\per\kilo\gram}
+\end{align*}
 
-%\begin{figure}
-%  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_B_p.pdf}
-%  \label{fig:U_H_const_Is_B}
-%\end{figure}
+Bei konstantem Spulenstrom entstehen die Widerstandsmessung
+\begin{align*}
+  \mu_{Zink} &= (\num{0,0258\pm0,0012})\si{\ampere\second^2\per\kilo\gram}\\
+  \mu_{Kupfer} &= (\num{0,0182\pm0,0006})\si{\ampere\second^2\per\kilo\gram}.
+\end{align*}
 
+\section{Diskussion}
+
+Abschließend werden die Ergebnisse der Auswertung diskutiert und hingehend ihrer
+Aussagekrat bewertet. Zunächst werden mögliche Messungenauigkeiten erläutert.
+Die Maße der Proben wurde mittels einer Schieblehre gemessen. Die Proben wiesen
+dahingehend Mängel auf, dass ihre Maße nur ungenau bestimmt werden konnten, da sie
+durch vorherige Messungen anderer Gruppen schon deformiert waren. Zudem konnte
+die Dicke der Proben nur schwierig gemessen werden, da die Proben fixiert waren.
+In der Auswertung wurden die Maße als fehlerfrei angenommen, weshalb die Aussagekraft
+der ermittelten Größen eingeschränkt wird. Darüberhinaus machte das Voltmeter keinen
+zuverlässigen Eindruck, weil es häufig zwischen willkürlich scheinenden Werten
+herschwankte. Es musste ein Moment abgepasst werden, bei dem das Voltmeter zuverlässig
+schien. Die Messungen konnten aus diesem Grund auch nicht widerholt werden, ohne
+völlig verschiedene Resultate zu erhalten. Die Magnetfeldstärke wurde mit Hilfe
+einer Hall-Sonde bestimmt werden und wurde ebenfalls als fehlerfrei angenommen.
+Dadurch wird die Aussagekraft der erhaltenen Ergebnisse weiter beschnitten.
+Anhand der aufgeführten Argumente wird deutlich, dass die Ergebnisse deutlich
+durch Messfehler in ihrer Aussagekraft beschränkt sind.\\
+Ausgehend von der Tatsache, dass Kupfer ein Elektronenleiter ist, ist die
+Probe Zink als Löcherleiter zu bewerten.
 
 
 \input{Messergebnisse.tex}
