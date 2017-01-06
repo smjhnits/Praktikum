@@ -1,0 +1,70 @@
+\input{"../../Praeambel_prak.tex"}
+
+\title{Versuch 311}
+\subtitle{Der Hall-Effekt}
+\author{Sebastian Pape\\
+        sepa@gmx.de \and
+        Jonah Nitschke\\
+        lejonah@web.de}
+\date{Durchführung: 20.12.2017\\
+      Abgabe: 10.01.2017}
+
+\begin{document}
+\maketitle
+
+\section{Einleitung}
+
+In dem folgenden Versuch geht es darum, mithilfe der Messungen der Hall-Spannung
+und des Widerstandes die mikroskopischen Leitfähigkeitsparameter von verschiedenen
+Metallen zu bestimmen. Für den folgenden Versuch wurden die Metalle Zink und Kupfer
+verwendet.
+
+\section{Theorie}
+\subsection{Bandstruktur und elektrische Leitfähigkeit bei Kristallstrukuturen}
+
+Grundlegend für den folgenden Versuch ist die Eigenschaft, dass sich in Metallatomen
+die Valenzelektronen abspalten können und mit benachbarten Valenzelektronen ein
+System bilden, dass dem Pauli-Prinzip unterliegt. Somit können die Energieniveaus
+in der Atomhülle als Energiebänder aufgefasst werden. Diese können sich einerseits
+überlappen, andererseits können jedoch auch Lücken auftreten, die als verbotene
+Zone beschrieben werden. Es handelt sich hierbei um Energiewerte, die die Elektronen
+nicht annehmen können.
+
+Aus dem Pauli-Prinzip folgt des weiteren, dass Energiebänder nur eine begrenzte
+Anzahl an Elektronen aufnehmen können. Gefüllte Energiebänder können somit keine
+Energie mehr aufnehmen, lediglich teilweise gefüllte Bänder rufen die hohe elektrische
+Leitfähigkeit von Metallen hervor. Diese Bänder nennt man Leitungsbänder und ihre
+Elektronen werden als Leitungselektronen bezeichnet.
+
+Die fehlende Leitfähigkeit bei Isolatoren lässt sich auf ein leeres oberes Band
+zurückführen, durch das die verbotene Zone zu breit ist um den Elektronen zu
+erlauben, die Lücke zu überspringen. Mithilfe der Quantentheorie kann nun gezeigt
+werden, dass ein idealer Metallkristall eine unendlich hohe elektrische Leitfähigkeit
+besitzen müsste. Die endliche Leitfähigkeit realer Proben beruht somit im weitesten
+Sinne auf Kristallaufbaufehler.
+
+\subsection{Bestimmung der elekrische Leitfähigkeit eines Metalles}
+
+Um die elektrische Leitfähigkeit eines Metalles zu bestimmen müssen vorher noch
+andere mikroskopische Größen bestimmt werden. Die mittlere Flugzeit $\bar{\tau}$
+gibt zum Beispiel das gemittelte Zeitintervall zwischen zwei Zusammenstößen eines
+Elektrons an.
+
+Bei einem angelegten äußerem Feld $\vec{E}$ erfährt das Elektron eine Beschleunigung
+$\vec{b}$ in Richtung des E-Feldes und erfährt somit folgende Geschwindigkeitsänderung:
+
+\begin{align}
+  \vec{b}            &= - \frac{e\ua{0}}{m\ua{0}} \vec{E} \\
+  \increment \vec{\bar{v}} &= \vec{b} \cdot \bar{\tau} = - \frac{e\ua{0}}{m\ua{0}} \vec{E}
+\end{align}
+
+Da die Elektronen nach jedem Zusammenstoß zufällig in eine beliebige Richtung
+gestreut werden, beträgt die Startgeschwindigkeit in Richtung von $\vec{E}$ im
+Mittel null. Somit kann über $\increment \vec{\bar{v}}$ noch die Driftgeschwindigkeit
+$\vec{\bar{v}}_d$ definiert werden:
+
+\begin{equation}
+  \vec{\bar{v}}_d = \frac{1}{2} \increment \vec{\bar{v}}
+\end{equation}
+
+\end{document}
