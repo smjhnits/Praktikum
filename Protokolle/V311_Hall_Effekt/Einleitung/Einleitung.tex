@@ -55,7 +55,7 @@ $\vec{b}$ in Richtung des E-Feldes und erfährt somit folgende Geschwindigkeits�
 
 \begin{align}
   \vec{b}            &= - \frac{e\ua{0}}{m\ua{0}} \vec{E} \\
-  \increment \vec{\bar{v}} &= \vec{b} \cdot \bar{\tau} = - \frac{e\ua{0}}{m\ua{0}} \vec{E} .
+  \increment \vec{\bar{v}} &= \vec{b} \cdot \bar{\tau} = - \frac{e\ua{0}}{m\ua{0}} \vec{E} \bar{\tau} .
 \end{align}
 
 Da die Elektronen nach jedem Zusammenstoß zufällig in eine beliebige Richtung
@@ -100,8 +100,8 @@ Kraft zu kompensieren. Mithilfe dieses Effektes kann nun die Hall-Spannung besti
 werden:
 
 \begin{align}
-  U\ua{H} &= E\ua{y} \cdot b = \bar{v}\ua{d}B\cdot b \\
-          &= - \frac{1}{ne\ua{0}} \frac{B \cdot I\ua{q}}{d} .
+  %U\ua{H}   &= E\ua{y} \cdot b = \bar{v}\ua{d}B\cdot b \\
+  U\ua{H}   &= - \frac{1}{ne\ua{0}} \frac{B \cdot I\ua{q}}{d} .
 \end{align}
 
 Wie in der Formel schon erkennbar ist, lässt sich nun die Ladungsträgerdichte n
@@ -127,7 +127,7 @@ bestimmt werden und führt für die mittlere freie Weglänge somit auf folgende 
 \end{align}
 
 Im weiteren soll auch noch der Proportionalitätsfaktor zwischen der Driftgeschwindigkeit
-und angelegtem E-Feld, auch Beweglichkeit gennant, bestimmt werden :
+und angelegtem E-Feld, auch Beweglichkeit genannt, bestimmt werden :
 
 \begin{equation}
   \vec{\bar{v}}\ua{d} = \mu\vec{E}
@@ -142,20 +142,38 @@ positive Ladung verhalten. Dieser Beitrag zur elektrischen Leitfähigkeit wird
 auch anormaler Hall-Effekt gennant, welcher nun ein umgekehrtes Vorzeichen besitzt
 und zur Bestimmung der Ladungsträgerart verwendet werden kann.
 
-\section{Versuchsdurchführung}
+\subsection{Messtechnische Hinweise}
+
+Ein Problem bei der Messung der Hall-Spannung ist die fehlende Möglichkeit, die
+beiden Kontaktstellen für das Multimeter auf einer Äquipotenzialebene anzuordnen.
+Um die so durch den Spannungsabfall auftretende Störspannung raus zu filtern,
+werden zwei Messungen angefertigt, zwischen denen das Magnetfeld einmal umgepolt
+wird. Mit folgender Formel lässt sich dann die eigentliche Hall-Spannung ausrechnen:
+
+\begin{equation}
+  U\ua{H} = \frac{1}{2} \cdot ( U\ua{ges+} - U\ua{ges-} )
+\end{equation}
+
+
+\section{Versuchsdurchführung und Versuchsaufbau}
 
 Als erstes wurde mithilfe eines Teslameters die magnetische Feldstärke zwischen
-den beiden Spulen für verschiedene Stromstärken gemessen. Dabei wurden zwei Messungen
+den beiden Spulen für verschiedene Stromstärken gemessen. Dafür wurden zwei nebeneinander
+stehende Spulen in Reihe an einen Generator angeschlosse. Die Feldstärke wurde
+zwischen den beiden Spulen gemessenen. Dabei wurden zwei Messungen
 vorgenommen, eine bei der die Stromstärke langsam erhöht wurde und eine weitere
-bei der die Stromstärke langsam gesengt wurde.
+bei der die Stromstärke langsam gesenkt wurde, um eine Hystereskurve bestimmen
+zu können.
 
-Anschließend wurde für beide Proben der Widerstand gemessen, indem ein Strom angelegt
-wurde und die Spannung gemessen wurde. Mithilfe einer Schieblehre wurden dann
-von beiden Proben die Abmessungen gemessen.
+Anschließend wurde für beide Proben der Widerstand gemessen, indem mit einem Generator
+ein Strom an den Proben angelegt wurde und die Spannung mithilfe eines Multimeters
+gemessen wurde. Mithilfe einer Schieblehre wurden dann
+von beiden Proben die Abmessungen bestimmt.
 
 Als nächstes wurde die Messungen des Hall-Effektes bei der Zinkprobe vorgenommen.
 Dafür wurde als  erstes der Strom, der durch die Probe fließt, konstant gelassen
-und der Spulenstrom verändert. Es wurden zwei Messreihen angelegt, zwischen denen
+und der Spulenstrom verändert. Die Probe wird dafür zwischen den beiden Spulen
+befestigt. Es wurden zwei Messreihen angelegt, zwischen denen
 die Magneten einmal umgepolt wurden. Anschließend wurde noch eine Messung durchgeführt,
 in der der Spulenstrom konstant gelassen wurde, während der durch die Probe fließende
 Strom verändert wurde.
@@ -164,12 +182,5 @@ Bei der Messung für die Kupferprobe traten erhebliche Schwierigkeiten auf, so d
 die Messung abgebrochen und mithilfe des anderen Versuchpaares eine zweite
 Kupferprobe ausgewertet wurde. Für diese Probe wurden dann sowohl die Abmessungen
 als auch die Messung der Spannungen bei verschiedenen Stromstärken wiederholt.
-
-\section{Messtechnische Hinweise und Versuchsaufbau}
-
-Für die verschiedenen Spannungs- und Strommessungen wurde bei dem Versuch ein
-Multimeter verwendet
-
-
 
 \end{document}
