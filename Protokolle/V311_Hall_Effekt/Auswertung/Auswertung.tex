@@ -2,6 +2,10 @@
 
 \begin{document}
 
+\input{Messergebnisse.tex}
+
+\newpage
+
 \section{Auswertung}
 
 \subsection{Hystereseeffekt}
@@ -22,7 +26,7 @@ Diagramm visualisiert.
 In dem Diagramm wird deutlich, dass sich die Verläufe der $B$-Feldstärke bei
 unterschiedlich geregelter Stromstärke kaum unterscheiden. Daran ist ersichtlich,
 dass der Hystereseeffekt bei der Auswertung der Messergebnisse nur einen vernachlässigbaren
-Einfluss.
+Einfluss besitzt.
 
 Bei den im Versuch angestellten Messungen wurde stets die Stromstärke hochgeregelt,
 sodass die $B$-Feldstärke gegenüber des aufgedrehten Stroms verwendet wird, um
@@ -40,10 +44,10 @@ Als Proportionalitätsfaktor zwischen $I$ und $B$ ergibt sich somit $B =
 
 \subsection{Messung der Widerstände}
 
-Die Widerstände lassen sich über die Messergebnisse der Spannung bei variirender
-Stromstärke errechnen. Das ohmsche Gesetzt besagt, dass der Widerstand der
+Die Widerstände lassen sich über die Messergebnisse der Spannung bei variierender
+Stromstärke errechnen. Das Ohmsche Gesetz besagt, dass der Widerstand der
 Proportionalitätsfaktor zwischen der Spannung und der Stromstärke ist.
-In dem folgenden Diagrammen ist die Spannung gegenüber der Stromstärke aufgetragen.
+In den folgenden Diagrammen ist die Spannung gegenüber der Stromstärke aufgetragen.
 Die Regressionsgerade wurde direkt in Diagramme integriert.
 
 \begin{figure}
@@ -58,7 +62,7 @@ Widerstand von $R_K = \SI{7,64\pm0,016}{\milli\ohm}$.
 
 \subsection{Bestimmen der Hall--Spannung $U_H$}
 
-Die Hall--Spannung wurde nun unter variirenden Bedingungen gemessen.
+Die Hall--Spannung wurde nun unter variierenden Bedingungen gemessen.
 Bei der ersten Messung wurde der Probenstrom konstant gelassen und der
 Spulenstrom aufgedreht, wodurch die $B$-Feldstärke erhöht wird. Bei der zweiten
 Messung wurde die vorgehensweise umgekehrt. Der Spulenstrom wurde konstant gelassen
@@ -66,18 +70,18 @@ und der Probenstrom wurde aufgedreht.
 Die Messdaten der ersten Messung sind aus den Tabellen \ref{tab:Zink_U_H},
 \ref{tab:Kupfer_U_H}, \ref{tab:Zink_U_H_umgepolt} und \ref{tab:Kupfer_U_H_umgepolt}
 zu entnehmen.
-Die Messdaten der zweiten Messung sind in den Tabellen \ref{tab:tab:Zink_U_H_2},
+Die Messdaten der zweiten Messung sind in den Tabellen \ref{tab:Zink_U_H_2},
 \ref{tab:Kupfer_U_H_2}, \ref{tab:Zink_U_H_2_umgepolt} und \ref{tab:Kupfer_U_H_2_umgepolt}
 dargestellt.
 Die folgenden Diagramme visualisieren die gemessenen Daten.
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_I_s.pdf}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenueber_I_s.pdf}
   \label{fig:U_H_const_Ip}
 \end{figure}
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_I_p.pdf}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenueber_I_p.pdf}
   \label{fig:U_H_const_Is}
 \end{figure}
 \FloatBarrier
@@ -87,7 +91,7 @@ der $B$-Feldstärke gegenüber aufgetragen werden. Es ergeben sich damit die
 folgenden Diagramme.
 
 \begin{figure}
-  \includegraphics[width=\textwidth]{Hall_Spannung_gegenüber_B_s.pdf}
+  \includegraphics[width=\textwidth]{Hall_Spannung_gegenueber_B_s.pdf}
   \label{fig:U_H_const_Ip_B}
 \end{figure}
 
@@ -96,7 +100,7 @@ folgenden Diagramme.
 In diesem Abschnitt werden mit Hilfe der Messergebnisse für die Hall-Spannung und die
 Widerstände der Proben mikroskopische Leitfähigkeitsparameter bestimmt.
 Zuerst wurde die Ladungsträgeranzahl pro Volumen ermittelt.
-Diese ergibt sich aus umstellen der Formel \eqref{eqn:} nach $n$ zu:
+Diese ergibt sich aus umstellen der Formel \eqref{eqn:Hall_Spannung} nach $n$ zu:
 
 \begin{equation}
   n = -\frac{B\cdot I_q}{e_0 U_H d}.
@@ -128,18 +132,18 @@ Querstrom die folgenden Werte
 
 \begin{align*}
   z_{Zink} &= \SI{0,0502\pm0,0021}{\mol\per\meter^3}\\
-  z_{Kupfer} &= \SI{2,680\pm0,35}{\mol\per\meter^3}
+  z_{Kupfer} &= \SI{2,680\pm0,35}{\mol\per\meter^3}.
 \end{align*}
 
 Bei konstentem Spulenstrom ergeben sich
 
 \begin{align*}
   z_{Zink} &= \SI{0,0432\pm0,0021}{\mol\per\meter^3}\\
-  z_{Kupfer} &= \SI{2,64\pm0,08}{\mol\per\meter^3}
+  z_{Kupfer} &= \SI{2,64\pm0,08}{\mol\per\meter^3}.
 \end{align*}
 
 Nach Bestimmen der Ladungsträgerdichte kann die mittlere Flugzeit $\bar{\tau}$
-über die Formel \eqref{eqn:} ermittelt werden.
+über die Formel \eqref{eqn:mittlereZeit} ermittelt werden.
 Aus den Messungen ergeben sich die folgenden Werte. Für die Ladungsträgerdichte
 bei konstantem Querstrom ergeben sich
 
@@ -274,9 +278,6 @@ Anhand der aufgeführten Argumente wird deutlich, dass die Ergebnisse deutlich
 durch Messfehler in ihrer Aussagekraft beschränkt sind.\\
 Ausgehend von der Tatsache, dass Kupfer ein Elektronenleiter ist, ist die
 Probe Zink als Löcherleiter zu bewerten.
-
-
-\input{Messergebnisse.tex}
 
 
 \end{document}
