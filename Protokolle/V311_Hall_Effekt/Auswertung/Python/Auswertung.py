@@ -99,7 +99,7 @@ Kupfer_Is_U_H_2 = - np.array([0.340, 0.342, 0.343, 0.345, 0.347, 0.349, 0.351, 0
 
 
 U_H_Zink_s = 1 / 2 * (Zink_Is_U_H_1 - Zink_Is_U_H_2)
-U_H_Kupfer_s = 1 / 2 * (Kupfer_Is_U_H_1 - Kupfer_Is_U_H_2)
+U_H_Kupfer_s = -1 / 2 * (Kupfer_Is_U_H_1 - Kupfer_Is_U_H_2)
 
 paramsU_H_I_Zink_s, covariance_U_H_I_Zink_s = curve_fit(function, I_s_Zink, U_H_Zink_s)
 paramsU_H_I_Kupfer_s, covariance_U_H_I_Kupfer_s = curve_fit(function, I_s_Kupfer, U_H_Kupfer_s)
@@ -164,7 +164,7 @@ Zink_Ip_U_H_2 = np.array([-0.020, 0.047, 0.116, 0.184, 0.250, 0.318, 0.389, 0.45
 Kupfer_Ip_U_H_2 = - np.array([0.338, 0.337, 0.336, 0.335, 0.335, 0.334, 0.333, 0.332, 0.332, 0.332, 0.330])
 
 U_H_Zink_p = 1 / 2 * (Zink_Ip_U_H_1 - Zink_Ip_U_H_2)
-U_H_Kupfer_p = 1 / 2 * (Kupfer_Ip_U_H_1 - Kupfer_Ip_U_H_2)
+U_H_Kupfer_p = - 1 / 2 * (Kupfer_Ip_U_H_1 - Kupfer_Ip_U_H_2)
 
 # for i in range(11):
 #    B_p_Zink[i] = I_umwandeln_B(I_p[i])
