@@ -76,6 +76,8 @@ Zeitverhältniss = np.array([n/Sweep_Zeit for n in Zeiten])
 Abstände = np.array([Differenzen[i]*n for i,n in enumerate(Zeitverhältniss)])
 
 nu_m_expC = np.array([n + Abstände[i] for i,n in enumerate(Start)])
+Abweichungen_Sweep = np.array([ (n - nu_m_theo[7-i])/n  for i,n in enumerate(nu_m_expC)])
 
 print("Berechnete Abstände: ", Abstände, '\n')
 print("Mit der Sweep-Methode berechnete Werte für nu-: ", nu_m_expC, '\n')
+print("Abweichungen nu-: ", Abweichungen_Sweep, '\n')

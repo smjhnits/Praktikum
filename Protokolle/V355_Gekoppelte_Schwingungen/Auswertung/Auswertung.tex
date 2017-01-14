@@ -21,7 +21,7 @@ Berechnungen als fehlerfrei betrachtet werden:
 \begin{align}
   L        &= 0.03251              \, \su{H}       \\
   C        &= 8.01 \cdot 10^{-10}  \, \su{F}       \\
-  C\ua{Sp} &= 3.7 \dot 10^{-10}    \, \su{F}       \\
+  C\ua{Sp} &= 3.7 \cdot 10^{-10}    \, \su{F}       \\
   R        &= 48                   \, \su{\Omega}
 \end{align}
 
@@ -126,8 +126,52 @@ Die Abweichungen werden dabei analog zu Formel \eqref{eqn:Abweichungen} bestimmt
   \label{tab:Messungb}
 \end{table}
 
+%grafik einfügen mit Theoriewerten und experimentell bestimmten Werten
 
+\newpage
 
+\subsection{Bestimmung der Fundamentalfrequenzen mittels einenes Sweeps}
+
+In dem letzen Teil der Messung wurden mithilfe eines Sweeps erneut die beiden
+Fundamentalfrequenzen bestimmt. Dazu wurden sowohl Startwert, Endwert sowie auch
+Zeitspanne des Sweeps eingestellt. Um die Messungen zu vereinfachen wurden der
+Startwert $\nu\ua{S}$ und Endwert $\nu\ua{E}$ jedes Mal so angepasst, dass der
+Startwert mit den vorher bestimmten Werten für $\nu_t^{+}$ übereinstimmt. lediglich
+die Dauer des Sweeps wurde konstant bei $t\ua{S}$ = 2 Sekunden gelassen.
+
+Am Oszilloskop wurde dann bei der Messung die Zeitspanne zwischen dem ersten
+Spannungsmaximum und dem zweiten Spannungsmaximum $t\ua{D}$ gemessen. Mit folgender
+Formel kann dann der Frequenzwert für $\nu_{-}$ bestimmt werden:
+
+\begin{equation}
+  \nu_{-} = \nu\ua{S} + \frac{t\ua{D}}{t\ua{S}} \cdot ( \nu\ua{E} - \nu\ua{S}).
+\end{equation}
+
+In Tabelle \ref{fig:Messungc} sind die verschiedenen bestimmten Werte eingetragen, sowie für
+die Fundamentalfrequenz  $\nu_{-}$ die Abweichungen zu den theoretischen Werten.
+
+\begin{table}
+  \centering
+  \begin{tabular}{ c | c | c | c | c | c }
+    \toprule $C\ua{k}$ in $\su{nF}$
+           & $\nu_{+} \, (\nu\ua{S})$ in $\su{kHz}$ & $\nu\ua{E}$ in $\su{kHz}$
+           & $t\ua{D}$ in $\su{s}$
+           & $\nu_{-}$ in $\su{kHz}$ & $a\ua{\nu_{-}}$ in $\su{\%}$ \\
+    \midrule
+    9.99 & 30.77 & 40.00 & 0.500 & 33078 & 1.0 \\
+    8.00 & 30.79 & 40.00 & 0.600 & 33533 & 0.9 \\
+    6.47 & 30.80 & 40.00 & 0.740 & 34204 & 1.0 \\
+    5.02 & 30.81 & 40.00 & 0.925 & 35060 & 0.8 \\
+    4.00 & 30.82 & 40.00 & 1.125 & 35984 & 0.6 \\
+    3.00 & 30.83 & 40.00 & 1.475 & 37593 & 0.7 \\
+    2.03 & 30.84 & 50.00 & 1.000 & 40420 & 0.8 \\
+    1.01 & 30.85 & 55.05 & 1.360 & 47306 & 0.2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Mithilfe der Sweep-Methode bestimmte Werte für die Fundamentalfrequenzen
+           und die Abweichungen zu den theoretisch bestimmten Werten}
+  \label{fig:Messungc}
+\end{table}
 
 
 
