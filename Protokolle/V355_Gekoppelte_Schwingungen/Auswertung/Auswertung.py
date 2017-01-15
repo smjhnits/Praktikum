@@ -28,6 +28,7 @@ Start = np.array([30.85, 30.84, 30.83, 30.82, 30.81, 30.80, 30.79, 30.77]) * 10 
 Stop = np.array([55.05, 50, 40, 40, 40, 40, 40, 40]) * 10 ** (3)
 Sweep_Zeit = 2
 Zeiten = np.array([1.36, 1, 1.475, 1.125, 0.925, 0.740, 0.6, 0.5])
+Zeiten_Error = np.array([ufloat(n, 0.05) for n in Zeiten])
 
 C_K_Error = np.array([ufloat(n, 0.003*n) for n in Kopplungskapazitäten])
 
@@ -71,13 +72,14 @@ print("Abweichungen nu-: ", Abweichungen_m, '\n')
 # Messung mit der Sweep Methode
 
 Differenzen = np.array([ Stop[i]-n for i,n in enumerate(Start)])
-Zeitverhältniss = np.array([n/Sweep_Zeit for n in Zeiten])
+Zeitverhältniss = np.array([n/Sweep_Zeit for n in Zeiten_Error])
 
 Abstände = np.array([Differenzen[i]*n for i,n in enumerate(Zeitverhältniss)])
 
 nu_m_expC = np.array([n + Abstände[i] for i,n in enumerate(Start)])
 Abweichungen_Sweep = np.array([ (n - nu_m_theo[7-i])/n  for i,n in enumerate(nu_m_expC)])
 
+print("Zeiten: ", Zeiten_Error, '\n')
 print("Berechnete Abstände: ", Abstände, '\n')
 print("Mit der Sweep-Methode berechnete Werte für nu-: ", nu_m_expC, '\n')
 print("Abweichungen nu-: ", Abweichungen_Sweep, '\n')
