@@ -21,11 +21,11 @@ In dem Versuch V355 werden gekoppelte schwingfähige Systeme in Form von elektri
 Schaltungen betrachtet. Vom besonderem Interesse sind hierbei der stattfindende
 Energieaustausch zwischen den Systemen, sowie die Schwingungsfrequenzen.
 Es werden elektrische Schaltungen betrachtet, da die Amplituden und Frequenzen
-der Schwingungen besonders präzise gemessen und beobachtet werden.
+der Schwingungen besonders präzise gemessen und beobachtet werden können.
 
 \subsection{Gekoppelte Schwingungen}
 
-Als eine Schwingungen wird ein Forgang bezeichnet, bei dem ein System periodisch
+Als eine Schwingungen wird ein Vorgang bezeichnet, bei dem ein System periodisch
 zwischen zwei Zuständen wechselt. Werden zwei schwingende Systeme gekoppelt,
 wechselwirken diese miteinander. Die Wechselwirkung wird in Form von einem
 Energiaustausch zwischen den Systeme vollzogen. In dem Versuch wurden zwei identische
@@ -40,7 +40,7 @@ Darstellung eines gekoppelten elektrischen Schwingkreises ist in der Abb.
   \label{fig:gekoppelterSchwingkreis}
 \end{figure}
 
-Über die Kirchhoffschen Regelen und Differentiation lassen sie die folgenden
+Über die Kirchhoffschen Regeln und Differentiation lassen sie die folgenden
 Schwingungsgleichugen aufstellen.
 
 \begin{align}
@@ -121,5 +121,64 @@ einer Schwebung.
   \caption{Beispiel einer Schwebung.\cite{anleitung01}\protect}
   \label{fig:Schwebung}
 \end{figure}
+
+\section{Durchführung}
+
+\subsection{Justierung der Schwingkreise}
+
+Bevor die ersten Messreihen für den Versuch notiert werden können, müssen die beiden
+Schwingkreise justiert werden. Für die Justierung wird die Schaltung aus Abbildung \ref{fig:gekoppelterSchwingkreis}
+verwendet, bei der der Kopplungskondensator überbrückt wird. Zuerst wird dabei
+grob der Bereich für die Resonanzfrequenz eingestellt,
+indem die Frequenz gesucht wird, bei der der Strom maximal wird. In einem weiteren
+Schritt wird die Messung noch einmal etwas genauer durchgeführt, indem an das
+Oszilloskop noch die Spannung des Sinus-Generators eingespeist wird. Auf dem Oszilloskop
+wird dann mithilfe des XY-Betriebes und der Betrachtung der Lissajous-Figuren die
+Resonanzfrequenz bestimmt, indem die Frequenz so lange verschoben wird, bis auf
+dem Bildschirm ein Kreis zu sehen ist.
+
+Danach werden sowohl Sinus-Generator als
+auch Oszilloskop an den an den rechten Schiwngkreis angeschlossen. Hier wird die
+bei dem linken Schwingkreis verwendete Resonanzfrezquenz an dem Generator eingestellt
+und der veränderliche Kondensator so lange angepasst, bis auch hier auf dem Oszilloskop
+ein Kreis zu sehen ist.
+
+\subsection{Beobachtung des Energieaustausches}
+
+Für den ersten Teil des Versuches wird die Abbildung ?? verwendet. Statt einem
+Sinus-Generator wird nun eine Rechteckspannung an den Schwingkreis angelegt und
+die Überbrückung des Kopplungskondensators entfernt. Als nächstes wird mit dem
+Oszilloskop der Spannungsabfall an dem $\SI{48}{\ohm}$ Widerstand gemessen.
+Die Frequenz wird dabei deutlich runter gedreht, um auf dem Oszilloskop
+die Schwebungen und die Schwingungen sichtbar zu machen.
+Dann wird für jede Kapazitätseinstellung die Anzahl an Maxima innerhalb einer
+Schwebung gemessen, um hinterher das Verhältniss der Frequenzen zu bestimmen.
+
+\subsection{Messung der Fundamentalfrequenzen}
+
+\subsubsection{Methode über Phasenverschiebung}
+
+Damit die Fundamentalfrequenzen $\nu_+$ und $\nu_-$ gemessen werden können, muss
+ebenfalls der Aufbau aus Abb. ?? verwendet werden. Der Generator muss auf den
+Sinusspannungsbetreib umgestellt werden. Die Fundamentalfrequenzen sind in Abhängigkeit
+von dem Kopplungskondensator $C_K$ zu bestimmen. Die Generatorspannung wird an das
+Osilloskop angeschlossen, sodass die aus dem Aufbau abgeleitete Spannung ihr
+gegenüber steht. Dadurch entstehen Lissajous-Figuren. $\nu_+$ ist erreicht, wenn
+eine Phase von $\pi$ auf dem Oszilloskop dargestellt ist. $\nu_-$ ist dementsprechend
+bei einer Phase von $0$ erreicht.
+
+\subsubsection{Methode über Sweepen}
+
+Eine weitere Möglichkeit für das Bestimmen der Fundamentalfrequenzen geht über die
+Sweepmethode.
+Sweepen kann an dem Generator eingestellt werden und bedeutet, dass ein voreingestelltes
+Spannungsintervall zu einer einstellbaren Zeit von dem Generator durchlaufen wird.
+Es wird der selbe Aufbau wie bei der vorherigen Methode verwendet.
+Damit die Fundamentalfrequenzen bestimmt werden können muss die Zeit zwischen den
+auftretenden Peaks gemessen werden, sowie die Spannungsrate die pro Zeiteinheit
+von dem Generator widergegeben wird. Der Spannungsanstieg des Generators, um das
+Spannungsintervall zu durchlaufen ist linear.
+
+\printbibliography
 
 \end{document}
