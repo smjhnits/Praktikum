@@ -151,16 +151,6 @@
 
 \section{Auswertung}
 
-Die Mittelwerte und Fehler der errechneten Größen in den folgenden Abschnitten
-errechnen sich mit folgenden Formeln:
-
-\begin{align}
-  \label{eqn:barx}
-  \bar{x}            &= \frac{1}{N} \sum_{i=1}^N x_i \\
-  \increment \bar{x} &= \sqrt{ \frac{1}{N(N-1)} \sum_{i=1}^N \left(x_i - \bar{x}\right)^2}
-  \label{eqn:incrementx}
-\end{align}
-
 \subsection{Wheatstonesche Brückenschaltung}
 Mit den gemessenen Werte aus Tabelle \ref{tab:Wheatstone} und der Formel \eqref{eqn:Wheatstone}
 lassen sich nun die gesuchten
@@ -274,17 +264,16 @@ Wert:
   \label{Plotkomplett}
 \end{figure}
 
-Für die Bestimmung des Klirrfaktors wird zunächst genähert, dass die Summe der
-Oberwellen nur von dem Term der zweiten Oberwelle bestimmt wird. Im Folgendem
-wird mit der Effektivspannung gerechnet, da diese bereits in Formel \eqref{eqn:Ubreff}
-bestimmt wurde.
-%Da in den Abbildungen \ref{Plotkomplett} und \ref{Plotgeschnitten}
-%ziemlich große Abweichungen zu erkennen sind, wird ein realtiv großer Klirrfaktor
-%erwartet.
+In dem folgendem Abschnitt wird mit der bereits durch Formel \eqref{eqn:Ubreff}
+bestimmten Effektivspannung
+weitergerechnet, um den Klirrfaktor zu bestimmen. Zur Vereinfachung der Rechnung
+wird dabei genähert, dass die Summe der Oberwellen lediglich von dem Term der
+zweiten Oberwelle bestimmt wird.
 
 Mit Formel \eqref{eqn:Klirrfaktor} werden zu Berechnung noch die Werte für $\su{U_2}$ und $\su{U_1}$ bestimmt,
-wobei $\su{U_1}$ die 1,65 V von $\su{U\ua{Sp}}$ bei $\su{\nu_0}$ sind. Mit \eqref{eqn:Wien-Robinson-Brücke}
-und $\su{\Omega}$ = 2 folgt dann:
+wobei $\su{U_1}$ die 1,65 V von $\su{U\ua{Sp}}$ bei $\su{\nu_0}$ sind. Aus der Formel
+\eqref{eqn:Wien-Robinson-Brücke}
+und $\su{\Omega}$ = 2 errechnet sich $U\ua{2}$ dann wie folgt:
 
 \begin{align}
   \su{U_2} &= \frac{\su{U\ua{Br,eff}}}{f(2)} \\
@@ -303,13 +292,17 @@ $\su{U_1}$:
 
 \section{Diskussion}
 
-Auffällig ist, dass bei eigentlich allen Messungen der Fehler der einzelnen
-Bauteile ziemlich gering ist. Dies lässt auf eine ziemlich gute Messung schließen,
-die nur durch das Anschaffen neuer Bauteile wirklich verbessert werden kann.
+In dem folgenden Abschnitt soll nun betrachtet werden, inwieweit die verwendeten
+Messmethoden zuverlässige Ergebnisse liefern.
 
-Vergleicht man bei den Messungen die Fehler der Induktivitätsmessbrücke und die
-der Maxwell-Brücke, sieht man, dass bei letzterem deutlich geringere Fehler
-auftreten. Dies könnte vor allem an der Annahme liegen, dass die verwendete
+Bei allen Messungen ist deutlich erkennbar, dass die Fehler der einzelnen Bauteile
+relativ gering ausfallen. Somit lässt sich auf eine systematisch korrekte und
+ziemlich genaue Messung schließen.
+
+Ein Vergleich der auftretenden Fehler bei den Messungen 4.3 und 4.4, der
+Induktivitätsmessbrücke und der Maxwell-Brücke, zeigt einen deutlichen Unterschied
+bei den entstehenden Fehlern. Die Fehler der Maxwell-Brücke fallen deutlich geringer
+aus, was vor allem an der Annahme liegen könnte, dass die verwendete
 Spule $\su{L_2}$ bei der Induktivitätsmessbrücke keinen Innenwiderstand besitzt,
 was in der Messung nicht realisierbar ist.
 Zwar wurde auch bei der Maxwell-Brücke der Kondensator als verlustfrei angenommen,

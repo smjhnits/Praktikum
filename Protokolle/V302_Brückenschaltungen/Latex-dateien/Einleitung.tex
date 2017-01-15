@@ -27,6 +27,7 @@ Die grundlegende Struktur einer Brückenschaltung ist in Abb. \ref{fig:Brückens
 dargestellt.
 
 \begin{figure}
+  \centering
   \includegraphics[width=7.50cm, height=6cm]{V302_Brueckenschaltung.png}
   \caption{Grundlegende Struktur einer Brückenschaltung\cite{anleitung01}}
   \label{fig:Brückenschaltung}
@@ -64,7 +65,7 @@ ist durch folgenden Zusammenhang gegeben.
 \end{equation}
 
 Eine Brücke wird als abgeglichen bezeichnet, wenn die Brückenspannung $U\ua{Br}$ verschwindet.
-Dies ist gerade der fall, wenn
+Dies ist gerade der Fall, wenn
 
 \begin{equation}
   \label{eqn:abgleichbed}
@@ -84,7 +85,7 @@ in einer Schaltung verbaut sind. Für die Bauteile ergibt sich
   Z\ua{R} = R, \qquad Z\ua{C} = \frac{1}{i\omega C}, \qquad Z\ua{L} = i\omega L.
 \end{equation*}
 
-Eine Komplexe Zahl besteht allgemein aus einem Realteil $X$ und einem Imaginärteil
+Eine komplexe Zahl besteht allgemein aus einem Realteil $X$ und einem Imaginärteil
 $Y$. Also ist $Z$ insgesamt $Z = X + iY$.
 
 Dabei ist $i$ die imaginäre Zahl und $\omega$ die Kreisfrequenz, mit der die
@@ -101,7 +102,7 @@ Dabei ist $X\ua{i}$ der Realteil und $Y\ua{i}$ der Imaginärteil.
 
 \section{Versuchsaufbau}
 
-In dem Versuch wurden verschiedene Brückenschaltungen verwendet. In dem folgendem
+In dem Versuch werden verschiedene Brückenschaltungen verwendet. In dem folgendem
 Abschnitt werden die verwendeten Schaltungen erläutert und die dazugehörigen
 Formeln angegeben.
 
@@ -126,13 +127,14 @@ Der unbekannte Widerstand lässt sich mit Hilfe von \eqref{eqn:Kirchhoff1} und
   R\ua{x} = R\ua{2}\frac{R\ua{3}}{R\ua{4}}.
 \end{equation}
 
-Dabei werden $R\ua{3}$ und $R\ua{4}$so eingestellt, dass die Brücke nach
+Dabei werden $R\ua{3}$ und $R\ua{4}$ so eingestellt, dass die Brücke nach
 der Bedingung \eqref{eqn:abgleichbed} abgeglichen ist.
 
 \subsection{Kapazitätsmessbrücke}
 
-Ein idealer Kondensator kann durch ergänzen eines ohmschen Widerstandes zu einem
-realen Kondensator umgewandelt werden. Ein realer Kondensator ist verlustbehaftet.
+Durch das Ergänzen eines ohmschen Widerstandes in der Schaltung kann auch mit
+einem idealen Kondensator ein realer Kondensator simuliert werden.
+Ein realer Kondensator ist verlustbehaftet.
 Diese Eigenschaft wird von dem ergänzten ohmschen Widerstand übernommen.
 Mit Hilfe einer Kapazitätsmessbrücke kann die Kapazität und der Widerstand eines
 realen Kondensators bestimmt werde.
@@ -154,17 +156,17 @@ $R\ua{x}$ und $C\ua{x}$ folgende Gleichungen.
 
 \subsection{Induktivitätsmessbrücke}
 
-Die Induktivitätsmessbrücke ist der Kapazitätsmessbrücke sehr ähnlich, nur anstelle
-des zu bestimmenden Kondensators wird die zu vermessende Spule eingebaut.
+Die Induktivitätsmessbrücke ist der Kapazitätsmessbrücke sehr ähnlich, nur wird
+anstelle des zu bestimmenden Kondensators die zu vermessende Spule eingebaut.
 Ebenso ist die ideale Spule mit einem ohmschen Widerstand zu versehen, sodass
-die sie das Verhalten einer realen Spule beschreibt.
+sie das Verhalten einer realen Spule beschreibt.
 \begin{figure}
   \includegraphics[width=7.50cm, height=6cm]{V302_Induktivitaetsmessbruecke}
   \caption{Schaltungsskizze einer Induktivitätsmessbrücke\cite{anleitung01}}
   \label{fig:Induktivitätsmessbrücke}
 \end{figure}
 
-Durch die Komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
+Durch die komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
 \eqref{enq:ImaginärteilAbgleichbed} ergeben sich
 
 \begin{align}
@@ -176,8 +178,9 @@ Die Induktivität und der Widerstand von einer realen Spule sind mit der
 Induktivitätsmessbrücke schwierig zu vermessen. Der Wirkanteil sollte
 möglichst alleine durch $R\ua{2}$ realisiert werden und $L\ua{2}$ sollte
 eine möglichst hohe Effizienz haben, damit $L\ua{x}$ und $R\ua{x}$ präzise vermessen
-werden können. Dies ist experimentell schwierig umzusetzen.
-Deshalb wird für die Messung von Induktivitäten die Maxwell-Brücke verwendet.
+werden können. Dies ist experimentell kompliziert zu realisieren.
+Deshalb wird für die Messung von Induktivitäten in einem weiterern
+Versuch noch einmal die Maxwell-Brücke verwendet.
 
 \subsection{Maxwell-Brücke}
 
@@ -191,7 +194,7 @@ Abb. \ref{fig:Maxwell-Brücke} skizziert.
   \label{fig:Maxwell-Brücke}
 \end{figure}
 
-Durch die Komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
+Durch die komplexen Abgleichbedingungen \eqref{eqn:RealteilAbgleichbed} und
 \eqref{enq:ImaginärteilAbgleichbed} ergeben sich
 
 \begin{align}
