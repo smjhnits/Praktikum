@@ -1,16 +1,3 @@
-\input{"../../Praeambel_prak.tex"}
-
-\title{Versuch 355}
-\subtitle{Gekoppelte Schwingkreise}
-\author{Sebastian Pape\\
-        sepa@gmx.de \and
-        Jonah Nitschke\\
-        lejonah@web.de}
-\date{Durchführung: 10.01.2017\\
-      Abgabe: 17.01.2017}
-
-\begin{document}
-\maketitle
 \setcounter{page}{1}
 
 \section{Theorie}
@@ -62,11 +49,13 @@ zu:
 
 Die Lösung von \eqref{eqn:DGL_1+2} ist eine Schwingungsgleichung mit der Frequenz
 \begin{equation}
+  \label{eqn:nu+}
   \nu^+ = \frac{1}{2\pi\sqrt{LC}}.
 \end{equation}
 Die DGL \eqref{eqn:DGL_1-2} ist ebenfalls
 lösbar durch eine Schwingungsgleichung. Die Lösung hat eine Frequenz von
 \begin{equation}
+  \label{eqn:nu-}
   \nu^- = \frac{1}{\left[2\pi\sqrt{L\left(\frac{1}{C}+\frac{2}{C_K}\right)^{(-1)}}\right]}.
 \end{equation}
 Die Lösungen haben die Form:
@@ -121,6 +110,19 @@ einer Schwebung.
   \caption{Beispiel einer Schwebung.\cite{anleitung01}\protect}
   \label{fig:Schwebung}
 \end{figure}
+
+\subsection{Erzwungene Schwingungen}
+
+Schwingungen werden erzwungen, wenn eine eingeprägte Sinusspannung an den Schwingkreis
+angeschlossen wird. Mit Hilfe der Kirchhoffschen Regeln lassen sich Formeln für
+die Fundamentalfrequenzen ableiten.
+
+\begin{align}
+  \label{eqn:I(w^+)}
+  |I(\omega^+)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}}} \\
+  \label{eqn:I(w^-)}
+  |I(\omega^-)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}(1 + \frac{C}{C_K})}}
+\end{align}
 
 \section{Durchführung}
 
@@ -184,7 +186,3 @@ Spannungsintervall zu durchlaufen ist linear.
   \caption{Schaltplan der Messungen b) und c)}
   \label{Schaltplan}
 \end{figure}
-
-\printbibliography
-
-\end{document}
