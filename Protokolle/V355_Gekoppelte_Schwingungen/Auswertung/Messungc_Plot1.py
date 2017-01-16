@@ -36,6 +36,8 @@ plt.plot(Kopplungskapazitäten, unp.nominal_values(nu_m_expC1), 'bx', label = r'
 plt.plot(Kopplungskapazitäten, nu_m_theo1, 'rx', label = r'Theoriewerte: $\nu_{-}$')
 plt.plot(Kopplungskapazitäten, Nü_positiv, 'mx', label = r'Messung b): $\nu_{+}$')
 plt.plot(Kopplungskapazitäten, nu_p_theo1, 'yx', label = r'Theoriewerte: $\nu_{+}$')
+plt.xlabel(r'$Kopplungskapazität \,\, C_k \,\, in \,\, \mathrm{F}$')
+plt.ylabel(r'$Frequenzen \,\, \nu \,\, in \,\, \mathrm{Hz}$')
 
 plt.legend(loc = 'best')
 #plt.show()
