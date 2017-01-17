@@ -100,6 +100,17 @@ Die folgenden Diagramme visualisieren die gemessenen Daten.
 \end{figure}
 \FloatBarrier
 
+Die zu den Regressionsgeraden aus den letzten beiden Diagrammen sind
+durch \eqref{eqn:Steigung_Zink_I_p} und \eqref{eqn:Steigung_Kupfer_I_p}
+gegeben.
+
+\begin{align}
+  \label{eqn:Steigung_Zink_I_p}
+  m_{1, Zink} &= (\num{1,40 \pm 0,06})\cdot 10^{-5}\si{\volt\per\tesla}\\
+  \label{eqn:Steigung_Kupfer_I_p}
+  m_{1, Kupfer} &= (\num{-1,52 \pm 0,02})\cdot 10^{-5}\si{\volt\per\tesla}
+\end{align}
+
 Über den zuvor bestimmten Proportionalitätsfaktor kann die Hall-Spannung
 der $B$-Feldstärke gegenüber aufgetragen werden. Es ergeben sich damit die
 folgenden Diagramme.
@@ -108,6 +119,19 @@ folgenden Diagramme.
   \includegraphics[width=\textwidth]{Hall_Spannung_gegenueber_B_s.pdf}
   \label{fig:U_H_const_Ip_B}
 \end{figure}
+
+Die zugehörigen Steigungen der Regressionsgraden sind im Folgendem dargestellt.
+
+\begin{align}
+  \label{eqn:Steigung_Zink_Ip_B}
+  m_{2, Zink} &= (\num{-2,57 \pm 0,12})\cdot 10^{-3}\si{\volt\per\tesla}\\
+  \label{eqn:Steigung_Kupfer_Ip_B}
+  m_{2, Kupfer} &= (\num{1,17 \pm 0,04})\cdot 10^{-3}\si{\volt\per\tesla}
+\end{align}
+
+Mit Hilfe der Steigungen \eqref{eqn:Steigung_Zink_I_p}, \eqref{eqn:Steigung_Kupfer_I_p},
+\eqref{eqn:Steigung_Zink_Ip_B} und \eqref{eqn:Steigung_Kupfer_Ip_B}
+lässt sich die Ladungsträgerdichte pro Volumen berechnen.
 
 \subsection{Bestimmen mikroskopischer Leitfähigkeitsparamter}
 
@@ -291,6 +315,11 @@ Dadurch wird die Aussagekraft der erhaltenen Ergebnisse weiter beschnitten.
 Anhand der aufgeführten Argumente wird deutlich, dass die Ergebnisse deutlich
 durch Messfehler in ihrer Aussagekraft beschränkt sind. Bei der Messung
 des Hystereseeffektes wird deutlich, dass dieser zu vernachlässigen ist.
+
+Bei der Messung für die Kupferprobe traten erhebliche Schwierigkeiten auf, so dass
+die Messung abgebrochen und mithilfe des anderen Versuchpaares eine zweite
+Kupferprobe ausgewertet wurde. Für diese Probe wurden dann sowohl die Abmessungen
+als auch die Messung der Spannungen bei verschiedenen Stromstärken wiederholt.
 
 Ausgehend von der Tatsache, dass Kupfer ein Elektronenleiter ist, ist die
 Probe Zink als Löcherleiter zu bewerten.

@@ -12,8 +12,10 @@ I_abfallend = np.linspace(5, 0, 11)
 B_aufsteigend = np.array([7.7, 142, 272, 420, 556, 700, 840, 975, 1077, 1158, 1220])
 B_abfallend = np.array([1220, 1169, 1095, 977, 845, 703, 563, 422, 279, 138, 8.3])
 
-plt.plot(I_aufsteigend, B_aufsteigend, 'r-', label=r'Aufsteigende Stromstärke')
-plt.plot(I_abfallend, B_abfallend, 'b-', label=r'Abfallende Stromstärke')
+plt.plot(I_aufsteigend, B_aufsteigend, 'rx', label=r'Aufsteigende Stromstärke')
+plt.plot(I_abfallend, B_abfallend, 'bx', label=r'Abfallende Stromstärke')
+plt.plot(I_aufsteigend, B_aufsteigend, 'r-')
+plt.plot(I_abfallend, B_abfallend, 'b-')
 plt.ylabel(r'B-Feld Stärke in $mT$')
 plt.xlabel(r'Stromstärke in $A$')
 plt.legend(loc='best')
@@ -146,8 +148,8 @@ plt.savefig('Hall_Spannung_gegenueber_B_s.pdf')
 
 # print(,paramsU_H_I_Zink_s)
 # print(,paramsU_H_I_Kupfer_s)
-# print(,paramsU_H_B_Zink_s)
-# print(,paramsU_H_B_Kupfer_s)
+print('Steigung der Regressionsgeraden Z_konstProbenstrom:',paramsU_H_B_Zink_s[0], np.sqrt(np.diag(covariance_U_H_B_Zink_s))[0])
+print('Steigung der Regressionsgeraden K_konstI_p:', paramsU_H_B_Kupfer_s[0], np.sqrt(np.diag(covariance_U_H_B_Kupfer_s))[0])
 
 # Messung der Hall-Spannung bei konstantem Spulenstrom U_H in mV, Zink: I_s = 5 A, Kupfer: I_s = 3 A
 
@@ -194,6 +196,9 @@ plt.legend(loc='best')
 
 plt.tight_layout()
 plt.savefig('Hall_Spannung_gegenueber_I_p.pdf')
+
+print('Steigung der Regressionsgeraden Z_konstSpulenstrom:', paramsU_H_I_Zink_p[0], np.sqrt(np.diag(covariance_U_H_I_Zink_p))[0])
+print('Steigung der Regressionsgeraden K_konstI_s:', paramsU_H_I_Kupfer_p[0], np.sqrt(np.diag(covariance_U_H_I_Kupfer_p))[0])
 
 # plt.clf()
 # plt.subplot(2, 1, 1)
