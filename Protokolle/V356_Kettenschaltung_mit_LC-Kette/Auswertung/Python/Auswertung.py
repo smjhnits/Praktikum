@@ -24,10 +24,10 @@ def exp(x, a, b, c):
 
 Abstaende_1 = np.array([0, 3, 6, 9, 12, 15, 18])
 Abstaende_2 = np.array([0, 2, 4, 6, 8, 11, 14])
-omega_C_Duchlasskurve = np.array([1338, 2055, 2843, 3730, 5023, 6471, 8624]) / (2 * np.pi)
-omega_C1C2_Durchlasskurve = np.array([7345, 10478, 15169, 21072,30336, 50353, 79169]) / (2 * np.pi)
+omega_C_Durchlasskurve = np.array([1338, 2055, 2843, 3730, 5023, 6471, 8624]) * (2 * np.pi)
+omega_C1C2_Durchlasskurve = np.array([7345, 10478, 15169, 21072,30336, 50353, 79169]) * (2 * np.pi)
 
-params_omega_C, covariance_omega_C = curve_fit(exp, Abstaende_1, omega_C_Duchlasskurve)
+params_omega_C, covariance_omega_C = curve_fit(exp, Abstaende_1, omega_C_Durchlasskurve)
 LC_Fehler = np.sqrt(np.diag(covariance_omega_C))
 params_omega_C1C2, covariance_omega_C1C2 = curve_fit(exp, Abstaende_2, omega_C1C2_Durchlasskurve)
 LC1C2_Fehler = np.sqrt(np.diag(covariance_omega_C1C2))
@@ -101,17 +101,69 @@ plt.savefig('Dispersionskurve_C1C2_theorie.pdf')
 
 # Abstand abgeschätzt 17.2 cm = 5 + 11 / 15 LE
 grenzfrequenz_C = exp(17.2, *params_omega_C)
-print('Gemessene Grenzfrequenz LC: ', grenzfrequenz_C / (2 * np.pi))
+print('Gemessene Grenzomega LC: ', grenzfrequenz_C, LC_Fehler)
 # Abstand gemessen 11 cm = 6 LE
 grenzfrequenz_C1C2_1 = exp(11, *params_omega_C1C2)
-print('Gemessene Grenzfrequenz C1C2_1: ',  grenzfrequenz_C1C2_1 / (2 * np.pi))
-# Abstand gemessen 13.2 cm
-grenzfrequenz_C1C2_2 = exp(13.2, *params_omega_C1C2)
-print('Gemessene Grenzfrequenz C1C2_2: ',  grenzfrequenz_C1C2_2 / (2 * np.pi))
+print('Gemessene Grenzomega C1C2_1: ',  grenzfrequenz_C1C2_1, LC1C2_Fehler)
+# Abstand gemessen 12.2 cm
+grenzfrequenz_C1C2_2 = exp(12.2, *params_omega_C1C2)
+print('Gemessene Grenzomega C1C2_2: ',  grenzfrequenz_C1C2_2, LC1C2_Fehler)
+
+# Durchlasskurve exponentialer Fit mit Messdaten
+plt.clf()
+plt.plot(Abstaende_1, exp(Abstaende_1, *params_omega_C), 'b-', label=r'Dispersionskurve C gemessen')
+plt.plot(Abstaende_1, omega_C_Durchlasskurve, 'rx')
+plt.ylabel(r'$\omega$ in $1/s$')
+plt.xlabel(r'Abstand in $cm$')
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Durchlasskurve_C.pdf')
+
+plt.clf()
+plt.plot(Abstaende_2, exp(Abstaende_2, *params_omega_C1C2), 'b-', label=r'Dispersionskurve C1C2 gemessen')
+plt.plot(Abstaende_2, omega_C1C2_Durchlasskurve, 'rx')
+plt.ylabel(r'$\omega$ in $1/s$')
+plt.xlabel(r'Abstand in $cm$')
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Durchlasskurve_C1C2.pdf')
 
 # Dispersionsrelation
+x_Werte_Disperion_1 = np.array([0, np.pi, 2 * np.pi, 3 * np.pi, 4 * np.pi, 5 * np.pi, 6 * np.pi, 7 * np.pi]) / 14
+nu_C_Dispersion = np.array([0, 7927, 15610, 23372, 30703, 38072, 43171, 49000])
+omega_C_Dispersion = nu_C_Dispersion * (2 * np.pi)
+x_Werte_Disperion_2 = np.array([0, np.pi, 2 * np.pi, 3 * np.pi, 4 * np.pi, 5 * np.pi, 6 * np.pi, 7 * np.pi, 8 * np.pi, 9 * np.pi, 10 * np.pi, 11 * np.pi, 12 * np.pi, 13 * np.pi]) / 14
+nu_C1C2_Dispersion = np.array([0, 7158, 14188, 15169, 21078, 27714, 34188, 40094, 45378, 50298, 54295, 57976, 60550, 62625])
+omega_C1C2_Dispersion = nu_C1C2_Dispersion * (2 * np.pi)
 
-# ??????
+plt.clf()
+plt.plot(theta, dispersion_C, 'b-', label=r'Dispersionskurve C')
+plt.plot(x_Werte_Disperion_1, omega_C_Dispersion, 'bx', label=r'Messdaten')
+plt.ylabel(r'$\omega$ in $1/s$')
+plt.xlabel(r'$\theta$')
+plt.xticks([0, np.pi / 2],
+          [r'$0$', r'$\frac{\pi}{2}$'])
+plt.xlim(0, np.pi / 2)
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Dispersionskurve_C.pdf')
+
+plt.clf()
+plt.plot(theta, dispersion_C1C2_1, 'b-', label=r'Dispersionskurve C1C2')
+plt.plot(theta, dispersion_C1C2_2, 'b-', label=r'Dispersionskurve C1C2')
+plt.plot(x_Werte_Disperion_2, omega_C1C2_Dispersion, 'bx', label=r'Messdaten')
+plt.ylabel(r'$\omega$ in $1/s$')
+plt.xlabel(r'$\theta$')
+plt.xticks([0, np.pi / 2],
+          [r'$0$', r'$\frac{\pi}{2}$'])
+plt.xlim(0, np.pi / 2)
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Dispersionskurve_C1C2.pdf')
 
 # d.) Messung der Spannungsamplituden der offenen LC-Kette
 
@@ -120,15 +172,37 @@ Kettenglieder_C = np.array([1.55, 1.425, 1.2, 0.95, 0.66, 0.3, 0.027, 0.3, 0.95,
 nu_2 = 14307
 Kettenglieder_C1C2 = np.array([0.925, 0.65, 0.25, 0.2, 0.61, 0.9, 1, 0.98, 0.71, 0.28, 0.17, 0.65, 1, 1.05])
 
+Kettenglieder_C_x = range(0, len(Kettenglieder_C))
+plt.clf()
+plt.plot(Kettenglieder_C_x, Kettenglieder_C, 'bo', label=r'einerseits offene Welle')
+plt.ylabel(r'Spannung in $mV$')
+plt.xlabel(r'Kettenglieder')
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Messung_d_1.pdf')
+
+Kettenglieder_C1C2_x = range(0, len(Kettenglieder_C1C2))
+plt.clf()
+plt.plot(Kettenglieder_C1C2_x, Kettenglieder_C1C2, 'bo', label=r'einerseits offene Welle')
+plt.ylabel(r'Spannung in $mV$')
+plt.xlabel(r'Kettenglieder')
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Messung_d_2.pdf')
+
 # e.) Messung der Spannungsamplituden einer abgeschlossenen LC-Kette
 
 nu_3 = 7337
 Kettenglieder_C_e = np.array([25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 24.5, 24.5, 24.5])
 
+Kettenglieder_C_e_x = range(0, len(Kettenglieder_C_e))
 plt.clf()
-plt.plot(range(Kettenglieder_C_e), Kettenglieder_C_e, 'rx', label=r'abgeschlossene Welle')
+plt.plot(Kettenglieder_C_e_x, Kettenglieder_C_e, 'bo', label=r'abgeschlossene Welle')
 plt.ylabel(r'Spannung in $mV$')
 plt.xlabel(r'Kettenglieder')
+plt.ylim(24, 25.6)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
