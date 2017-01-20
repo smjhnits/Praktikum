@@ -101,13 +101,16 @@ plt.savefig('Dispersionskurve_C1C2_theorie.pdf')
 
 # Abstand abgeschätzt 17.2 cm = 5 + 11 / 15 LE
 grenzfrequenz_C = exp(17.2, *params_omega_C)
-print('Gemessene Grenzomega LC: ', grenzfrequenz_C, LC_Fehler)
+grenzfrequenz_C_err = exp(17.2, *LC_Fehler)
+print('Gemessene Grenzomega LC: ', grenzfrequenz_C, grenzfrequenz_C_err)
 # Abstand gemessen 11 cm = 6 LE
 grenzfrequenz_C1C2_1 = exp(11, *params_omega_C1C2)
-print('Gemessene Grenzomega C1C2_1: ',  grenzfrequenz_C1C2_1, LC1C2_Fehler)
+grenzfrequenz_C1C2_1_err = exp(11, *LC1C2_Fehler)
+print('Gemessene Grenzomega C1C2_1: ',  grenzfrequenz_C1C2_1, grenzfrequenz_C1C2_1_err)
 # Abstand gemessen 12.2 cm
 grenzfrequenz_C1C2_2 = exp(12.2, *params_omega_C1C2)
-print('Gemessene Grenzomega C1C2_2: ',  grenzfrequenz_C1C2_2, LC1C2_Fehler)
+grenzfrequenz_C1C2_2_err = exp(12.2, *LC1C2_Fehler)
+print('Gemessene Grenzomega C1C2_2: ',  grenzfrequenz_C1C2_2, grenzfrequenz_C1C2_2_err)
 
 # Durchlasskurve exponentialer Fit mit Messdaten
 plt.clf()
@@ -137,28 +140,36 @@ omega_C_Dispersion = nu_C_Dispersion * (2 * np.pi)
 x_Werte_Disperion_2 = np.array([0, np.pi, 2 * np.pi, 3 * np.pi, 4 * np.pi, 5 * np.pi, 6 * np.pi, 7 * np.pi, 8 * np.pi, 9 * np.pi, 10 * np.pi, 11 * np.pi, 12 * np.pi, 13 * np.pi]) / 14
 nu_C1C2_Dispersion = np.array([0, 7158, 14188, 15169, 21078, 27714, 34188, 40094, 45378, 50298, 54295, 57976, 60550, 62625])
 omega_C1C2_Dispersion = nu_C1C2_Dispersion * (2 * np.pi)
+# Werte die Größer als pi / 2 sind 'umklappen'
+for i in range(0, len(omega_C1C2_Dispersion)):
+    if (x_Werte_Disperion_2[i] > np.pi/2):
+        x_Werte_Disperion_2[i] -= 2 * (x_Werte_Disperion_2[i] - np.pi/2)
 
 plt.clf()
 plt.plot(theta, dispersion_C, 'b-', label=r'Dispersionskurve C')
+plt.plot(theta, grenzfrequenz_theo_C, 'b--')
 plt.plot(x_Werte_Disperion_1, omega_C_Dispersion, 'bx', label=r'Messdaten')
 plt.ylabel(r'$\omega$ in $1/s$')
 plt.xlabel(r'$\theta$')
-plt.xticks([0, np.pi / 2],
-          [r'$0$', r'$\frac{\pi}{2}$'])
-plt.xlim(0, np.pi / 2)
+plt.xticks([0, np.pi/8, np.pi / 4, 3*np.pi/8 , np.pi/2, 5 * np.pi/8, 3*np.pi/4, 7*np.pi/8, np.pi],
+           [r"$0$", r"$\frac{\pi}{8}$", r"$\frac{\pi}{4}$", r"$\frac{3\pi}{8}$", r"$\frac{\pi}{2}$",
+           r"$\frac{5\pi}{8}$", r"$\frac{3\pi}{4}$", r"$\frac{7\pi}{8}$", r"$\pi$"])
+plt.xlim(0, np.pi)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
 plt.savefig('Dispersionskurve_C.pdf')
 
 plt.clf()
-plt.plot(theta, dispersion_C1C2_1, 'b-', label=r'Dispersionskurve C1C2')
-plt.plot(theta, dispersion_C1C2_2, 'b-', label=r'Dispersionskurve C1C2')
-plt.plot(x_Werte_Disperion_2, omega_C1C2_Dispersion, 'bx', label=r'Messdaten')
+plt.plot(theta, dispersion_C1C2_1, 'b-', label=r'Dispersionskurve $C_1C_2$')
+plt.plot(theta, dispersion_C1C2_2, 'r-', label=r'Dispersionskurve $C_1C_2$')
+plt.plot(x_Werte_Disperion_2, omega_C1C2_Dispersion, 'gx', label=r'Messdaten')
+plt.plot(theta, grenzfrequenz_theo_C1C2_2, 'r--')
+plt.plot(theta, grenzfrequenz_theo_C1C2_1, 'b--')
 plt.ylabel(r'$\omega$ in $1/s$')
 plt.xlabel(r'$\theta$')
-plt.xticks([0, np.pi / 2],
-          [r'$0$', r'$\frac{\pi}{2}$'])
+plt.xticks([0, np.pi / 8, np.pi / 4, 3 * np.pi / 8, np.pi / 2],
+          [r'$0$', r'$\frac{\pi}{8}$', r'$\frac{\pi}{4}$', r'$\frac{3\pi}{8}$', r'$\frac{\pi}{2}$'])
 plt.xlim(0, np.pi / 2)
 plt.legend(loc='best')
 plt.grid()
@@ -170,11 +181,11 @@ plt.savefig('Dispersionskurve_C1C2.pdf')
 nu_1 = 7133
 Kettenglieder_C = np.array([1.55, 1.425, 1.2, 0.95, 0.66, 0.3, 0.027, 0.3, 0.95, 1.2, 1.4, 1.55, 1.575])
 nu_2 = 14307
-Kettenglieder_C1C2 = np.array([0.925, 0.65, 0.25, 0.2, 0.61, 0.9, 1, 0.98, 0.71, 0.28, 0.17, 0.65, 1, 1.05])
+Kettenglieder_C_2 = np.array([0.925, 0.65, 0.25, 0.2, 0.61, 0.9, 1, 0.98, 0.71, 0.28, 0.17, 0.65, 1, 1.05])
 
 Kettenglieder_C_x = range(0, len(Kettenglieder_C))
 plt.clf()
-plt.plot(Kettenglieder_C_x, Kettenglieder_C, 'bo', label=r'einerseits offene Welle')
+plt.plot(Kettenglieder_C_x, Kettenglieder_C, 'bo', label=r'Messdaten')
 plt.ylabel(r'Spannung in $mV$')
 plt.xlabel(r'Kettenglieder')
 plt.legend(loc='best')
@@ -182,9 +193,9 @@ plt.grid()
 plt.tight_layout()
 plt.savefig('Messung_d_1.pdf')
 
-Kettenglieder_C1C2_x = range(0, len(Kettenglieder_C1C2))
+Kettenglieder_C_2_x = range(0, len(Kettenglieder_C_2))
 plt.clf()
-plt.plot(Kettenglieder_C1C2_x, Kettenglieder_C1C2, 'bo', label=r'einerseits offene Welle')
+plt.plot(Kettenglieder_C_2_x, Kettenglieder_C_2, 'bo', label=r'Messdaten')
 plt.ylabel(r'Spannung in $mV$')
 plt.xlabel(r'Kettenglieder')
 plt.legend(loc='best')
@@ -199,7 +210,7 @@ Kettenglieder_C_e = np.array([25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 24.5, 
 
 Kettenglieder_C_e_x = range(0, len(Kettenglieder_C_e))
 plt.clf()
-plt.plot(Kettenglieder_C_e_x, Kettenglieder_C_e, 'bo', label=r'abgeschlossene Welle')
+plt.plot(Kettenglieder_C_e_x, Kettenglieder_C_e, 'bo', label=r'Messdaten')
 plt.ylabel(r'Spannung in $mV$')
 plt.xlabel(r'Kettenglieder')
 plt.ylim(24, 25.6)

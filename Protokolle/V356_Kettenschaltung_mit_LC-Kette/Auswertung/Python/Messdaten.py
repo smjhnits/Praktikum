@@ -25,7 +25,7 @@ nu_C1C2_Dispersion = np.array([0, 7158, 14188, 15169, 21078, 27714, 34188, 40094
 nu_1 = 7133
 Kettenglieder_C = np.array([1.55, 1.425, 1.2, 0.95, 0.66, 0.3, 0.027, 0.3, 0.95, 1.2, 1.4, 1.55, 1.575])
 nu_2 = 14307
-Kettenglieder_C1C2 = np.array([0.925, 0.65, 0.25, 0.2, 0.61, 0.9, 1, 0.98, 0.71, 0.28, 0.17, 0.65, 1, 1.05])
+Kettenglieder_C_2 = np.array([0.925, 0.65, 0.25, 0.2, 0.61, 0.9, 1, 0.98, 0.71, 0.28, 0.17, 0.65, 1, 1.05])
 
 # e.) Messung der Spannungsamplituden einer abgeschlossenen LC-Kette
 
