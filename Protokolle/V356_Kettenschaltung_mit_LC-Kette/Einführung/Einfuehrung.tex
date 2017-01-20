@@ -85,5 +85,103 @@ die Phasengeschwindigkeit einen Minimalwert:
   v\ua{Ph\ua{min}} =  \frac{2}{\pi} \frac{1}{\sqrt{\su{LC}}}
 \end{equation}
 
+\subsection{(Undendlich lange) LC-Ketten}
+
+Interessant für die Schltungstechnik ist auch der am Eingang der Kette gemessene
+Eingangswiderstand, welcher als Quotient von der am Eingangskondensator anliegenden
+Spannung $U\ua{0}$ und dem in die Schaltung hineinfließenden Strom $I\ua{0}$
+definiert ist:
+
+\begin{equation}
+  Z(\omega) = \frac{U\ua{0}}{I\ua{0}} = \sqrt{ \frac{L}{C}} \frac{1}{ \sqrt{1 - \frac{1}{4} \omega^2 LC} }.
+\end{equation}
+
+Der Eingangswiderstand einer (undendlich langen) Kette ist somit rein reell,
+obwohl in der Schaltung nur Komponenten mit imaginären Impedanzen verwendet wurden.
+Dieses Ergebnis ist auch zu erwarten gewesen, da in einer (undendlich langen) Kette
+keine Reflexion auftreten sollte. Somit sind Strom und Spannung an jedem Ort in
+Phase, elektrische Energie kann lediglich in die Kette hineinfließen und eine
+(unendlich lange) Kette kann also auch bei einer begrenzten mit dem Wellenwiderstand
+als Abschlusswiderstand simuliert werden.
+
+Über den angeschlossenen Widerstand und den Wellenwiderstand lässt sich das
+Verhältnis zwischen eingehender und ausgehender Spannung über folgende
+Formel bestimmen:
+
+
+
+Die Welle weißt nun für verschieden Abschlusswiderstände unterschiedliche
+Eigenschaften auf, die im folgenden aufgelistet sind:
+
+
+\renewcommand{\labelenumi}{\alph{enumi})}
+\begin{enumerate}
+  \item offenes Ende (R = $\infty$): \\
+        $U\ua{ref}$ = $U\ua{E}$ $\implies$ vollständige Reflexion ohne Phasensprung.
+
+  \item kurzgeschlossene Kette (R = 0): \\
+        $U\ua{ref}$ = - $U\ua{E}$ $\implies$ vollständige Reflexion mit Phasensprung.
+
+  \item Abschluss mit Wellenwiderstand (R = Z): \\
+        $U\ua{ref}$ = 0 $\implies$ keine Reflexion.
+
+  \item in allen anderen Fällen tritt eine Teilreflexion auf und bei einem nicht
+        reelen R zusätzlich eine Phasendrehung.
+\end{enumerate}
+
+Bei den ersten beiden Fällen tritt also durch Überlagerung einer hinlaufenden
+Welle und der rücklaufenden Welle eine Überlagerung zu einer stehenden Welle
+statt. Dabei entstehen Schwingungsknoten, an denen die Amplitude für alle
+Zeiten verschwindet:
+
+\begin{align}
+  n\ua{z}\theta &= z \frac{\pi}{2} \, \, \, \, \, (z = 1,3,5, ...)
+  \label{eqn:offenesEnde}
+\end{align}
+
+\begin{align}
+  n\ua{z}\theta &= z \pi \, \, \, \, \, (z = 1,2,3, ...)
+  \label{eqn:geschlossenesEnde}
+\end{align}
+
+Dabei bezieht sich die Formel \eqref{eqn:offenesEnde} auf ein offenes Ende und
+die Formel \eqref{eqn:geschlossenesEnde} auf ein geschlossenes Ende.
+
+Im Fall $R = \infty$ kann sich allerdings nur dann eine stehende Welle ausbilden,
+wenn am Kettenende (n=$\su{n}\ua{max}$) ein Spannungsbauch befindet.
+
+\newpage
+
+\section{Versuchsdurchführung}
+
+\subsection{Bestimmung der Durchlasskurve}
+
+In dem ersten Teil des Experimentes wird mithilfe eines Schreibers eine Durchlasskurve
+für beide Ketten angefertigt. Dabei wird an dem Generator ein Sweeo eingestellt,
+sodass der Schreiber die gemessenen Spannung am Ausgang der LC-Kette in Abhängigkeit
+der anliegenden Frequenz. Die Schaltung für diesen Teil der Messung ist in Abbildung ??
+zu sehen.
+
+\subsection{Bestimmung der Dispersionsrelation}
+
+Mithilfe der in Abbildung ?? dargestellten Schaltung lässt sich die Phasenverschiebung
+pro Kettenglied betrachten. Dafür wird an einem Oszillloskop mithilfe von Lissajous-Figuren
+die Phasenverschiebung zwischen Eingangs- und Ausgangsspannung betrachtet, wobei
+lediglich Frequenzen mit einer Phasenverschiebung eines Vielfachen von $\pi$
+notiert werden.
+
+\subsection{Nachweis von stehenden Wellen}
+
+Mit der Schaltung nach Abbildung ?? (ohne Schreiber und Wobbeleinrichtung) wird
+nun versucht, stehende Wellen nachzuweisen.
+Dafür wird mit einem Millivoltmeter anfangs die Ausgangsspannung gemessen, um eine
+Frequenz mit einem Spannungsmaximum am Kettenende zu finden. Dach wird an jedem
+Kettenglied die auftretende Spannung gemessen. Diese Messung wird für eine
+beiderseits offene Kette mit der 1. und 2. Eigenschwingung durchgeführt und danach
+für eine mit dem Wellenwiderstand als Abschlusswiderstand eingestellte Kette
+für eine beliebige Frequenz wiederholt.
+
+
+
 
 \end{document}
