@@ -18,7 +18,7 @@ nu_C1C2_Durchlasskurve = np.array([7345, 10478, 21072,30336, 50353, 79169])
 # b.) Dispersionrelation
 
 nu_C_Dispersion = np.array([0, 7927, 15610, 23372, 30703, 38072, 43171, 49000])
-nu_C1C2_Dispersion = np.array([0, 7158, 14188, 15169, 21078, 27714, 34188, 40094, 45378, 50298, 54295, 57976, 60550, 62625])
+nu_C1C2_Dispersion = np.array([0, 7158, 14188, 21078, 27714, 34188, 40094, 45378, 50298, 54295, 57976, 60550, 62625])
 
 # d.) Messung der Spannungsamplituden der offenen LC-Kette
 
