@@ -55,12 +55,19 @@ sich für die $LC\ua{1}C\ua{2}$-Kette folgende Dispersionsrelation:
   \label{eqn:RelationC1C2}
 \end{equation}
 
+\begin{figure}
+  \includegraphics[width = \textwidth]{DIspersionskurveC1C2.jpg}
+  \caption{Dispersionskurve bei einer Kette mit zwei unterschiedlichen Kondensatoren}
+  \label{fig:RelationC12}
+\end{figure}
+
 Wie der Formel \eqref{eqn:RelationC1C2} entnommen werden kann, bilden sich bei
 dieser Dispersionsrelation zwei Äste, auch akustischer und optische Ast genannt
-(siehe Abbildung ??). Zwischen den beiden Ästen existiert ein Bereich, welcher
+(siehe Abbildung \ref{fig:RelationC12}). Zwischen den beiden Ästen existiert ein Bereich, welcher
 bei der Schwingung nicht auftretenden Frequenzen beinhält. Während $\omega\ua{1}$
 bei $\theta = \frac{\pi}{2}$ ein Maximum besitzt, tritt dort für $\omega\ua{2}$
-ein Minimum auf (siehe Abbildung ??).
+ein Minimum auf (siehe Abbildung \ref{fig:RelationC12}).
+
 
 \begin{align}
   \omega\ua{1} &= \sqrt{ \frac{1}{L} \frac{2(C\ua{1} + C\ua{2})}{C\ua{1}C\ua{2}}} \,
@@ -104,10 +111,21 @@ Phase, elektrische Energie kann lediglich in die Kette hineinfließen und eine
 (unendlich lange) Kette kann also auch bei einer begrenzten mit dem Wellenwiderstand
 als Abschlusswiderstand simuliert werden.
 
+\begin{figure}
+  \includegraphics[width = \textwidth]{AbhaengigkeitImpedanz.jpg}
+  \caption{Frequenzabhängigkeit der Impedanz}
+  \label{fig:Impedanzabhängigkeit}
+\end{figure}
+
+In Abbildung \ref{fig:Impedanzabhängigkeit} sieht man die Abhängigkeit der Impedanz
+von der angelegten Frequenz.
 Über den angeschlossenen Widerstand und den Wellenwiderstand lässt sich das
-Verhältnis zwischen eingehender und ausgehender Spannung über folgende
+Verhältnis zwischen Amplitude der eingehenden und reflektierten Spannung über folgende
 Formel bestimmen:
 
+\begin{equation}
+  \frac{U\ua{ref}}{U\ua{E}} = \frac{r - Z}{r + Z}.
+\end{equation}
 
 
 Die Welle weißt nun für verschieden Abschlusswiderstände unterschiedliche
@@ -156,23 +174,38 @@ wenn am Kettenende (n=$\su{n}\ua{max}$) ein Spannungsbauch befindet.
 
 \subsection{Bestimmung der Durchlasskurve}
 
+\begin{figure}
+  \includegraphics[width = \textwidth]{Durchlasskurve.jpg}
+  \caption{Schaltung zur Bestimmung der Durchlasskurve und dem Nachweis stehender Wellen}
+  \label{fig:Durchlasskurve}
+\end{figure}
+
 In dem ersten Teil des Experimentes wird mithilfe eines Schreibers eine Durchlasskurve
-für beide Ketten angefertigt. Dabei wird an dem Generator ein Sweeo eingestellt,
+für beide Ketten angefertigt. Dabei wird an dem Generator ein Sweep eingestellt,
 sodass der Schreiber die gemessenen Spannung am Ausgang der LC-Kette in Abhängigkeit
-der anliegenden Frequenz. Die Schaltung für diesen Teil der Messung ist in Abbildung ??
-zu sehen.
+der anliegenden Frequenz aufzeichnet. Dabei müssen die Achsen so angepasst sein,
+dass die Grenzfrequenzen auf der angefertigten Zeichnung ebenfalls zu sehen sind.
+Die Schaltung für diesen Teil der Messung ist in Abbildung \ref{fig:Durchlasskurve} zu sehen.
+
 
 \subsection{Bestimmung der Dispersionsrelation}
 
-Mithilfe der in Abbildung ?? dargestellten Schaltung lässt sich die Phasenverschiebung
+\begin{figure}
+  \includegraphics[width = \textwidth]{Dispersionsrelation.jpg}
+  \caption{Schaltung zur Bestimmung der Dispersionsrelation}
+  \label{fig:Dispersion}
+\end{figure}
+
+Mithilfe der in Abbildung \ref{fig:Dispersion} dargestellten Schaltung lässt sich die Phasenverschiebung
 pro Kettenglied betrachten. Dafür wird an einem Oszillloskop mithilfe von Lissajous-Figuren
 die Phasenverschiebung zwischen Eingangs- und Ausgangsspannung betrachtet, wobei
 lediglich Frequenzen mit einer Phasenverschiebung eines Vielfachen von $\pi$
 notiert werden.
 
+
 \subsection{Nachweis von stehenden Wellen}
 
-Mit der Schaltung nach Abbildung ?? (ohne Schreiber und Wobbeleinrichtung) wird
+Mit der Schaltung nach Abbildung \ref{fig:Durchlasskurve} (ohne Schreiber und Wobbeleinrichtung) wird
 nun versucht, stehende Wellen nachzuweisen.
 Dafür wird mit einem Millivoltmeter anfangs die Ausgangsspannung gemessen, um eine
 Frequenz mit einem Spannungsmaximum am Kettenende zu finden. Dach wird an jedem
@@ -180,7 +213,6 @@ Kettenglied die auftretende Spannung gemessen. Diese Messung wird für eine
 beiderseits offene Kette mit der 1. und 2. Eigenschwingung durchgeführt und danach
 für eine mit dem Wellenwiderstand als Abschlusswiderstand eingestellte Kette
 für eine beliebige Frequenz wiederholt.
-
 
 
 
