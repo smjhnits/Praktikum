@@ -176,6 +176,31 @@ plt.grid()
 plt.tight_layout()
 plt.savefig('Dispersionskurve_C1C2.pdf')
 
+# c.) Phasengeschwindigkeit
+
+# x_Werte_Disperion_1 = np.array([0, np.pi, 2 * np.pi, 3 * np.pi, 4 * np.pi, 5 * np.pi, 6 * np.pi, 7 * np.pi]) / 14
+# nu_C_Dispersion = np.array([0, 7927, 15610, 23372, 30703, 38072, 43171, 49000])
+# omega_C_Dispersion = nu_C_Dispersion * (2 * np.pi)
+
+v_Ph = omega_C_Dispersion / (np.arccos(1 - 1 / 2 * omega_C_Dispersion**2 * L * C_1))
+print('Phasengeschwindigkeit: ', omega_C_Dispersion / (np.arccos(1 - 1 / 2 * omega_C_Dispersion**2 * L * C_1)))
+omega = np.sqrt(2 / (L * C_1) * (1 - np.cos(x_Werte_Disperion_1)))
+
+x_Werte_Ph = np.linspace(0, 8 * np.pi / 14, 100)
+
+omega_theo = np.sqrt(2 / (L * C_1) * (1 - np.cos(x_Werte_Ph)))
+v_Ph_theo = omega_theo / (np.arccos(1 - 1 / 2 * omega_theo**2 * L * C_1))
+
+plt.clf()
+plt.plot(omega_theo / (2 * np.pi), v_Ph_theo, 'b-', label=r'$v_{Ph}(\nu)$')
+plt.plot(omega / (2 * np.pi), v_Ph, 'rx', label=r'Messdaten')
+plt.xlabel(r'$\nu$ in $Hz$')
+plt.ylabel(r'Geschwindigkeit in $\frac{m}{s}$')
+plt.xlim(0, 50000)
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('Phasengesch.pdf')
+
 # d.) Messung der Spannungsamplituden der offenen LC-Kette
 
 nu_1 = 7133

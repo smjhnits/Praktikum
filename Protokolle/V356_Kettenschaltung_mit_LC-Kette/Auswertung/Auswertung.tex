@@ -66,12 +66,12 @@ Grenzfrequenz bei  $\SI{12,2}{\centi\meter}$.
 Für die Grenzfrequenzen ergeben sich damit die Werte:
 
 \begin{align}
-  \omega_{Grenz,C} &= \num{50224,00\pm 3864,40}\si{\hertz}\\
-  \omega_{Grenz,C_1C_2}^{akustisch} &= \num{311361,75\pm 13506,32}\si{\hertz}\\
-  \omega_{Grenz,C_1C_2}^{optisch} &= \num{376566,51\pm 13543,23}\si{\hertz}
+  \omega_{Grenz,C} &= (\num{50224,00\pm 3864,40})\si{\hertz}\\
+  \omega_{Grenz,C_1C_2}^{akustisch} &= (\num{311361,75\pm 13506,32})\si{\hertz}\\
+  \omega_{Grenz,C_1C_2}^{optisch} &= (\num{376566,51\pm 13543,23})\si{\hertz}
 \end{align}
 
-\section{Dispersionskurven}
+\subsection{Dispersionskurven}
 
 Mit den Angaben \eqref{L}, \eqref{C1} und \eqref{C2} kann die Dispersionskurve
 der $LC-Kette$ und der $LC_1C_2$-Kette über die Funktion (??) bestimmt werden.
@@ -88,6 +88,38 @@ Die Messdaten wurden in das Diagramm mit eingetragen.
   \label{fig:DispersionC1C2}
 \end{figure}
 \FloatBarrier
+
+\subsection{Phasengeschwindigkeit}
+
+Anhand der Dispersionsrelation und der gemessenen Eigenfreqeunzen aus Tabelle
+\ref{tab:Dispersionsrelation} lässt sich die Phasengeschwindigkeit über die
+Formel (??) berechnen.
+Die Theoriekurve und die Werte, die sich aus den Messungen ergeben sind in
+dem Diagramm \ref{fig:Phasengesch} dargestellt.
+
+\FloatBarrier
+\tiny{
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \sisetup{table-format=6.0}
+ \begin{tabular}[width=\textwidth]{S| S S S S S S S S}
+    \midrule
+    $\theta$ & 0 & $\frac{\pi}{14}$ & $\frac{\pi}{7}$ & $\frac{3\pi}{14}$ & $\frac{2\pi}{7}$ & $\frac{5\pi}{14}$ & $\frac{3\pi}{7}$ & $\frac{\pi}{2}$ \\
+    $v_{Ph}$\text{\,in\,}$\si{\meter\per\second}$ & \text{\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,--} & 201524 & 200019 & 19412 & 193799 & 188791 & 184288 & 177700 \\
+    \bottomrule
+\end{tabular}
+  \caption{Messdaten der Phasengeschwindigkeit}
+  \label{tab:Phasengesch}
+\end{table}
+}
+\FloatBarrier
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{Phasengesch.pdf}
+  \caption{Phasengeschwindigkeit}
+  \label{fig:Phasengesch}
+\end{figure}
 
 \subsection{Stehende Wellen}
 
@@ -123,11 +155,12 @@ Zudem konnten die gemessenen Frequenzen nur schwierig abgelesen werden, da der
 Generator keine kontinuierliche Frequenz bereitgestellt hat. Die Frequenzen
 können deshalb die Messergebnisse mit Fehlern behaftet haben.
 Während des zeichnens der Durchlasskurve von dem $XY$-Schreibers wurden Fixpunkte
-an dem Diagramm gewählt, an denen die Frequenz zu bestimmen war.
-Das Messen der Frequenzen erfolgte jedoch nicht parrallel zum Zeichnen.
+an dem Diagramm gewählt, an denen die Frequenz zu bestimmen war. Die Abstandsmessung
+der Fixpunkte wurde als fehlerfrei angenommen und das Messen der Frequenzen
+erfolgte nicht parrallel zum Zeichnen.
 Insgesamt ist zu sagen, dass die verwendete Apparatur sehr alt ist und sehr
 undurchsichtig wirkte.
-Die Induktivitäten und Kapazitäten der Apparatur wurden als fehlerfrei angenommen.\\
+Die Induktivitäten und Kapazitäten der Apparatur wurden als fehlerfrei angenommen.\\ \\
 Die Messergebnisse der Durchlasskurven sind in den Abbildungen \ref{fig:DispersionC}
 und \ref{fig:DispersionC1C2} dargestellt. Es ist ersichltich, dass
 die Dispersionskurve der $LC$-Kette beinahe auf der Theoriekurve liegt.
@@ -138,7 +171,7 @@ Verschiebungen nicht mehr erkennbar. Die gemessene Dispersinskurve der
 $LC_1C_2$-Kette ähnelt der Theoriekurve erkennbar, doch scheint sie um eine
 Konstante nach unten verschoben zu sein. Es wird deutlich, dass der Anfang
 der Kurve linear ist. Die Abweichungen der Messdaten von der Theoriekurve
-sind durch die oben genannten Gründe erklärbar.\\
+sind durch die oben genannten Gründe erklärbar.\\ \\
 Nun folgt eine Diskussion der Diagramme \ref{fig:Messungd1}, \ref{fig:Messungd2}
 und \ref{fig:Messunge}. In den ersten Diagramm ist die 1. Eigenschwingung der
 $LC$-Kettenschaltung zusehen. Die Gestalt der Eigenschwingung ist deutlich
