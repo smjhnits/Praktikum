@@ -24,12 +24,25 @@ Diese Daten wurden ohne Fehler angegeben und werden deshalb als fehlerfrei
 angenommen. In der $LC$-Kettenschaltung wurde der Kondensator mit der
 Kapazität $C_1$ verwendet.
 
-Mittels der Formeln ????? ergeben dich die die Grenzfrequenzen zu:
+Es gelten die folgenden Zusammenhänge für die Apparaturkonstanten und die
+Grenzrequenzen.
+
+\begin{align}
+  \label{eqn:omega_C_grenz}
+  \omega_{Grenz,C} &= \frac{2}{\sqrt{L\cdot C_1}} \\
+  \label{eqn:omega_C_2_grenz}
+  \omega_{Grenz,C_1C_2}^{akustisch} &= \sqrt{\frac{2}{L\cdot C_2}} \\
+  \label{eqn:omega_C_1_grenz}
+  \omega_{Grenz,C_1C_2}^{optisch} &= \sqrt{\frac{2}{L\cdot C_1}} \\
+\end{align}
+
+Mittels \eqref{eqn:omega_C_grenz}, \eqref{eqn:omega_C_2_grenz} und
+\eqref{eqn:omega_C_1_grenz} ergeben sich die Werte:
 
 \begin{align*}
   \omega_{Grenz,C} &= \num{404075,78}\si{\hertz}\\
   \omega_{Grenz,C_1C_2}^{akustisch} &= \num{285724,72}\si{\hertz}\\
-  \omega_{Grenz,C_1C_2}^{optisch} &= \num{417902,43}\si{\hertz}\\
+  \omega_{Grenz,C_1C_2}^{optisch} &= \num{417902,43}\si{\hertz}.\\
 \end{align*}
 
 Mit Hilfe des $XY$-Scheibers wurden die Grenzfrequenzen der $LC$-Kettenschaltung
@@ -58,7 +71,7 @@ Die Ausgleichsrechnung wurde mithilfe des \emph{Python}-Packetes
   \label{fig:C1C2}
 \end{figure}
 
-Es ergeben sich mittels der Messdaten (\ref{fig:Ceinzeln}) und (\ref{fig:C1C2})
+Es ergeben sich mittels der Messdaten \ref{fig:Ceinzeln} und \ref{fig:C1C2}
 die folgenden Funktionen.
 
 \begin{align}
@@ -87,8 +100,12 @@ Für die Grenzfrequenzen ergeben sich damit die Werte:
 \subsection{Dispersionskurven}
 
 Mit den Angaben \eqref{L}, \eqref{C1} und \eqref{C2} kann die Dispersionskurve
-der $LC-Kette$ und der $LC_1C_2$-Kette über die Funktion (??) bestimmt werden.
-Die Messdaten wurden in das Diagramm mit eingetragen.
+der $LC-Kette$ und der $LC_1C_2$-Kette über die Funktionen \eqref{eqn:RelationC}
+und \eqref{eqn:RelationC1C2} bestimmt werden.
+Die Messdaten wurden in das Diagramm mit eingetragen. Bei allen Werten die eine
+Phasenverschiebung von über $\frac{\pi}{2}$ haben wurde die Phasenverschiebung
+mit $\frac{\pi}{2}$ subtrahiert, da die Dispersionskurve $\frac{\pi}{2}$-Periodisch
+ist.
 
 \begin{figure}
   \includegraphics[width=\textwidth]{Dispersionskurve_C.pdf}
@@ -106,7 +123,7 @@ Die Messdaten wurden in das Diagramm mit eingetragen.
 
 Anhand der Dispersionsrelation und der gemessenen Eigenfreqeunzen aus Tabelle
 \ref{tab:Dispersionsrelation} lässt sich die Phasengeschwindigkeit über die
-Formel (\eqref{eqn:Phasengeschwindigkeit}) berechnen.
+Formel \eqref{eqn:Phasengeschwindigkeit} berechnen.
 Die Theoriekurve und die Werte, die sich aus den Messungen ergeben sind in
 dem Diagramm \ref{fig:Phasengesch} dargestellt.
 
