@@ -13,4 +13,60 @@
 \maketitle
 \setcounter{page}{1}
 
+\section{Theorie}
+
+In dem Versuch V353 wurde das Relaxationsverhalten eines $RC$-Kreises untersucht.
+Relaxation bedeutet, dass ein System aus seinen Ruhezustand gebracht wird
+und nicht-oszillatiorisch in diesen zurückkehrt.
+Mit einem $RC$-Kreis ist solch ein Relaxationsverhalten zu erreichen.
+
+\subsection{Ent- und Aufladevorgang}
+
+Bei dem Ladevorgang eines Kondensators mit der Kapazität $C$ über einen Widerstand
+$R$ lässt sich die Ladung auf dem Kondensator als Funktion der Zeit darstellen.
+Es ergibt sich unter der Randbedingung $Q(\infty) = 0$ die folgende Formel.
+
+\begin{equation}
+  \label{eqn:Entladen}
+  Q(t) = Q(0)\cdot \exp{\frac{-t}{RC}}
+\end{equation}
+
+Für den Aufladevorgang gelten die Randbedingungen $Q(0) = 0$ und $Q(\inty) = CU_0$. Dabei ist $U_0$ die Spannung der Spannungsquelle. Damit ergibt sich
+die folgende Formel des Aufladevorgangs eines Kondensators über einen Widerstand.
+
+\begin{equation}
+  \label{eqn:aufladen}
+  Q(t) = CU_0(1 - \exp{\frac{-t}{RC}})
+\end{equation}
+
+$RC$ wird auch spezifische Zeitkonstante genannt, da dieser Ausdruck ein Maß
+der Geschwindigkeit des Entladevorgangs darstellt.
+Nach $\tau = RC$ ändert sich die Ladung des Kondensators um den Faktor $0,368$. Nach $2,3\tau$ sind nur noch 10\% des Ausgangswertes derLadung auf dem
+Kondensator vorhanden.
+
+\subsection{Relaxationsverhalten bei periodischer Anregung}
+
+Wird nun an den $RC$-Kreis eine periodische Spannung $U(t) = U_0\cos{\omega t}$
+anstelle einer einzelnen Erregung angelegt ändert sich das Relaxationsverhalten
+mit der Frequenz $\omega$. Ist $\omega \ll \frac{1}{RC}$ sind die
+Spannungen des Generators und des Kondensators näherungsweise in Phase.
+Je hochfrequenter die Spannung wird, desto deutlicher wird die Phase
+zwischen den beiden Spannungen.
+Für $\omega\rightarrow\infty$ nähert sich die Phasenverschiebung asymptotisch
+den Wert $\frac{pi}{2}$.
+
+\subsection{Der RC-Kreis als Integrator}
+
+Mit Hilfe eines $RC$-Kreises lässt sich die angeschlossene Spannung $U(t)$
+unter der Voraussetzun $\omega\ll\frac{1}{RC}$ integireren. Dies hängt damit zusammen, dass die Kondensatorspannung $U_C(t)$
+proportional mit dem Integral von $U(t)$ zusammenhängt.
+Unter der gestellten Bedingung gilt näherungsweise der Zusammenhang
+
+\begin{equation}
+  \label{eqn:Integrator}
+  U_C(t) = \frac{1}{RC}\int_0^tU(t')\symup{d}t'.
+\end{equation}
+
+\section{Durchführung}
+
 \end{document}
