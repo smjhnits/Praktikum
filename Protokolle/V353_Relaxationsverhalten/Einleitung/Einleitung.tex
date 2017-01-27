@@ -28,20 +28,20 @@ Es ergibt sich unter der Randbedingung $Q(\infty) = 0$ die folgende Formel.
 
 \begin{equation}
   \label{eqn:Entladen}
-  Q(t) = Q(0)\cdot \exp{\frac{-t}{RC}}
+  Q(t) = Q(0)\cdot \exp{(-\frac{t}{RC})}
 \end{equation}
 
-Für den Aufladevorgang gelten die Randbedingungen $Q(0) = 0$ und $Q(\inty) = CU_0$. Dabei ist $U_0$ die Spannung der Spannungsquelle. Damit ergibt sich
+Für den Aufladevorgang gelten die Randbedingungen $Q(0) = 0$ und $Q(\infty) = CU_0$. Dabei ist $U_0$ die Spannung der Spannungsquelle. Damit ergibt sich
 die folgende Formel des Aufladevorgangs eines Kondensators über einen Widerstand.
 
 \begin{equation}
   \label{eqn:aufladen}
-  Q(t) = CU_0(1 - \exp{\frac{-t}{RC}})
+  Q(t) = CU_0(1 - \exp{(-\frac{t}{RC})})
 \end{equation}
 
-$RC$ wird auch spezifische Zeitkonstante genannt, da dieser Ausdruck ein Maß
+$RC$ wird auch \emph{spezifische Zeitkonstante} genannt, da dieser Ausdruck ein Maß
 der Geschwindigkeit des Entladevorgangs darstellt.
-Nach $\tau = RC$ ändert sich die Ladung des Kondensators um den Faktor $0,368$. Nach $2,3\tau$ sind nur noch 10\% des Ausgangswertes derLadung auf dem
+Nach $\tau = RC$ ändert sich die Ladung des Kondensators um den Faktor $0,368$. Nach $2,3\tau$ sind nur noch 10\% des Ausgangswertes der Ladung auf dem
 Kondensator vorhanden.
 
 \subsection{Relaxationsverhalten bei periodischer Anregung}
@@ -53,7 +53,7 @@ Spannungen des Generators und des Kondensators näherungsweise in Phase.
 Je hochfrequenter die Spannung wird, desto deutlicher wird die Phase
 zwischen den beiden Spannungen.
 Für $\omega\rightarrow\infty$ nähert sich die Phasenverschiebung asymptotisch
-den Wert $\frac{pi}{2}$.
+den Wert $\frac{\pi}{2}$.
 
 \subsection{Der RC-Kreis als Integrator}
 
@@ -80,12 +80,33 @@ Rechteckspannungsbetrieb eingestellt und das Oszilloskop so geregelt, dass
 die Lage des Spannungsnullpunktes zu sehen ist. Während des Suchvorganges des
 Spannungsnullpunktes wurde die Periodendauer der Rechteckspannung möglichst groß gewählt. Sobald eine geeignete Kurve gefunden wurde, konnte diese
 als Bild gespeichert werden.
+
 Danach wurde der Generator auf den Sinusspannunsbetrieb umgestellt, sodass
 der $RC$-Kreis bei variirender Frequenz untersucht werden konnte.
 Die Amplitude der Kondensatorspannung wurde bei insgesamt 15 verschiedenen
 Frequenzen beobachtet. Dabei wurden fünf Frequenzen aus dem nieder
-frequenten Bereich 
+frequenten Bereich zwischen $10$ bis $\SI{100}{\hertz}$ betrachtet. Die
+anderen zehn Frequenzen wurden aus dem Frequenzbereich zwischen $200$ bis
+$\SI{1100}{\hertz}$ in hunderter Schritten gewählt. Bei der Messung wurden
+neben der Frequenz und Kondensatorspannung auch die Generatorspannungen betrachtet.
 
+Desweiteren wurde der Phasenunterschied zwischen Generator- und Kondensatorspannung
+in Abhängigkeit von der Frequenz gemessen. Dafür wurden die beiden Spannungen
+auf die Eingänge des Oszilloskops gelegt. Es wurde der Abstand der beiden
+Nulldurchgänge, sowie die Periodendauer der Generatorspannung mit Hilfe
+des digitlen Periodendauermessgerät, welches in dem Oszilloskop integriert ist
+gemessen.
+
+Abschließend wurde die Eigenschaft der Kondensatorspannung als Integrator
+der Generatorspannung untersucht. Dafür wurde die Frequenz minimal gereglt,
+sodass sie der Bedingung $\omega\ll \frac{1}{RC}$ genügt. Bei dem verwendeten
+Generator war die Minimalfrequenz bei ca. $\SI{4}{\hertz}$ erreicht.
+Nun wurde die Generatorspannung parallel zu der Kondensatorspannung auf dem
+Oszilloskop ausgegeben und bei geeigneten Einstellungen als Bild gespeichert.
+Die Messung wurde mit eines Sinusspannung, einer Rechteckspannung und einer
+Dreieckspannung durchgeführt.\\
+
+\FloatBarrier
 \begin{figure}
   \includegraphics[width=\textwidth]{Aufbau_V353.PNG}
   \caption{Schaltplanskizze des verwendeten RC-Kreises}
