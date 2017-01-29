@@ -1,0 +1,109 @@
+\input{../../Praeambel_prak.tex}
+
+\begin{document}
+
+\section{Auswertung}
+
+\subsection{Messung der Zeitkonstanten mit einer Entladekurve}
+
+In dem ersten Teil des Versuches wird mit dem Oszilloskop die Entladekurve des
+sich im RC-Kreis befindenden Kondensators betrachtet. Dem in Abbildung \ref{fig:thermodruck}
+zu sehenden Thermodruck werden dabei 13 Wertepaare entnommen und in den Graphen
+(Abbildung \ref{fig:Messunga}) eingetragen. Mithilfe einer linearen Regression nach
+Formel \eqref{eqn:FitMessungA} kann dann die Steigung ermittelt werden, deren
+Kehrwert im Betrag der Zeitkonstante $RC$ entspricht.
+
+\begin{align}
+  \label{eqn:FitMessungA}
+  ln \left( U\ua{C} \right) &= m \cdot t + b \\
+  m    &= -\frac{1}{RC}
+\end{align}
+
+\begin{table}
+  \centering
+  \caption{Entnommene Wertepaare für die Spannungsamplituden zu verschiedenen
+          Zeitpunkten des Entladevorgangs}
+  \label{tab:MessungA}
+  \begin{tabular}{c c || c c}
+    \toprule $t \,\, in \,\, \su{ms}$ & $U\ua{C} \,\, in \,\, \su{V}$ &
+             $t \,\, in \,\, \su{ms}$ & $U\ua{C} \,\, in \,\, \su{V}$ \\
+    \midrule
+    0.00 & 12.4 & 1.75 & 3.4 \\
+    0.25 & 10   & 2.00 & 2.8 \\
+    0.50 &  8.2 & 2.25 & 2.4 \\
+    0.75 &  6.6 & 2.50 & 2   \\
+    1.00 &  5.8 & 2.75 & 1.8 \\
+    1.25 &  4.6 & 3.00 & 1.6 \\
+    1.50 &  4   & -    & -   \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Mithilfe der linearen Regression ergibt sich dabei für die Zeitkonstante $RC$ ein
+Wert von $RC = (0.00146 \pm 0.00003) \, \su{s}$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 12 cm]{Sternchen.jpg}
+  \caption{Thermodruck der in Messung x.x betrachteten Entladekurve }
+  \label{fig:thermodruck}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 12 cm]{Messunga.jpg}
+  \caption{gemessene Werte für $U\ua{C}$ aufgetragen gegen die Zeit $t$}
+  \label{fig:Messunga}
+\end{figure}
+
+%Eingügen der Grafik mit den eingetragenenen Werten
+
+\newpage
+
+\subsection{Bestimmung der Zeitkonstanten über Messung der zeitabhängigen Spannungsamplitude}
+
+In der zweiten Messung des Versuches wurde mithilfe des Oszilloskopes die Spannungsamplitude
+an dem Kondensator in Abhängigkeit der Frequenz gemessen. Die gemessenen Werte
+werden logarythmisch in dem Graphen aufgetragen und mithilfe eines Regressionskurve
+nach Formel \eqref{eqn:FitMessungB} kann dann die Zeitkonstante RC bestimmt werden,
+die in Formel \eqref{eqn:FitMessungB} der Konstante a entspricht.
+
+\begin{equation}
+  A(\nu) = \frac{1}{ \sqrt{ 1 + ( 2 \cdot \pi \cdot x )^2 \cdot a^2}}
+  \label{eqn:FitMessungB}
+\end{equation}
+
+Aus der Abbildung \ref{fig:Messungb} ergibt sich somit mit der Regressionskurve
+für die Zeitkonstante folgender Wert:
+
+\begin{equation}
+  RC = a = (0.00130 \pm 0.00002) \, \su{s} .
+\end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 12 cm]{Messungb.jpg}
+  \caption{Verhältnis der gemessenen Spannungsamplituden $U\ua{C}$ und der Ausgangsspannung $U\ua{0}$
+           aus Tabelle ?? aufgetragen gegen die Frequenz $\nu$}
+  \label{fig:Messungb}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
