@@ -4,11 +4,14 @@ Bei den Messungen wurden folgende Komponenten verwendet, die bei den anschließe
 Berechnungen als fehlerfrei betrachtet werden:
 
 \begin{align}
-  L        &= 0.03251              \, \su{H}       \\
+  L        &= 0.03251              \, \su{mH}       \\
   C        &= 8.01 \cdot 10^{-10}  \, \su{F}       \\
   C\ua{Sp} &= 3.7 \cdot 10^{-10}    \, \su{F}       \\
   R        &= 48                   \, \su{\Omega}
 \end{align}
+
+Bei dem $C\ua{Sp}$ handelt es sich dabei um die Kapazität, die jede Spule besitzt
+und die bei den Rechnungen ebenfalls beachtet werden muss.
 
 \subsection{Justierung der Schwingkreise}
 
@@ -51,14 +54,14 @@ Die Abweichung berechnet sich dabei nach folgender Formel:
            & $\nu_t^{+}$ in $\su{kHz}$ & $\nu_t^{-}$ in $\su{kHz}$
            & $\sigma\ua{\nu_t^{-}}$ in $\su{kHz}$ & $n\ua{t}$ & $a$ in $\su{\%}$ \\
   \midrule
-  9.99 & 0.030 & 14 & 30.492 & 32.730 & 0.006 & 14.1 & 0.8 \\
-  8.00 & 0.024 & 12 & 30.492 & 33.259 & 0.008 & 11.5 & 4.0 \\
-  6.47 & 0.019 & 10 & 30.492 & 33.874 & 0.010 & 9.5  & 5.0 \\
-  5.02 & 0.015 & 8  & 30.492 & 34.777 & 0.012 & 7.6  & 5.0 \\
-  4.00 & 0.012 & 6  & 30.492 & 35.770 & 0.014 & 6.3  & 5.0 \\
-  3.00 & 0.009 & 5  & 30.492 & 37.328 & 0.018 & 5    & 0.8 \\
-  2.03 & 0.006 & 4  & 30.492 & 40.093 & 0.025 & 3.7  & 8.0 \\
-  1.01 & 0.003 &    & 30.492 & 47.404 & 0.039 & 2.3  &     \\
+  9.99 & 0.03 & 14 & 30.492 & 32.730 & 0.006 & 14.1 & 0.8 \\
+  8.00 & 0.02 & 12 & 30.492 & 33.259 & 0.008 & 11.5 & 4.0 \\
+  6.47 & 0.02 & 10 & 30.492 & 33.87 & 0.01 & 9.5  & 5.0 \\
+  5.02 & 0.02 & 8  & 30.492 & 34.78 & 0.01 & 7.6  & 5.0 \\
+  4.00 & 0.01 & 6  & 30.492 & 35.77 & 0.01 & 6.3  & 5.0 \\
+  3.00 & 0.009 & 5  & 30.492 & 37.33 & 0.02 & 5    & 0.8 \\
+  2.03 & 0.006 & 4  & 30.492 & 40.09 & 0.03 & 3.7  & 8.0 \\
+  1.01 & 0.003 &    & 30.492 & 47.40 & 0.04 & 2.3  &     \\
   \bottomrule
   \end{tabular}
  \caption{Bestimmte Werte für die Fundamentalfrequenzen und Vergleich der
@@ -68,11 +71,14 @@ Die Abweichung berechnet sich dabei nach folgender Formel:
 
 Da bei dem Bestimmen der Anzahl an Maxima der Schwingung in einem Schwebungsbauch
 vor allem an den äußeren Rändern die Maxima nicht klar erkennbar sind, wird bei den
-gemessenen Werte ein Fehler von $\pm 1$ angegeben.
+gemessenen Werten ein Fehler von $\pm 1$ angegeben.
 
 Für die letzte Kapazitätseinstellung konnte die Anzahl an Maxima nicht eindeutig
 bestimmt werden, deswegen kann hier kein Vergleich mit den theoretischen Werten
 erfolgen.
+
+In der Tabelle ist jedoch deutlich zu sehen, dass mit sinkender Kopplungskapazität
+auch das Verhältnis der Schwingungs- und Schwebungsfrequenz immer geringer wird.
 
 Die angegebenen Fehler berechnen sich dabei mit der Gaußschen Fehlerfortpflanzung
 und berechnen sich wie folgt:
@@ -81,14 +87,16 @@ Da bei allen Bauteilen, außer dem Kopplungskondensator, eine Fehlerfreiheit
 vorausgesetzt wurde, ergibt sich aufgrund der in Formel \eqref{eqn:I(w^-)} erkenntlichen fehlenden
 Abhängigkeit für $\nu_t^{+}$ kein Fehler und für $\nu_t^{-}$ folgende Fehlerformel:
 
-\begin{equation}
-  \increment \nu_t^{-} = \sqrt{\partial_{C\ua{k}} \nu_t^{-} \cdot \increment C\ua{k}}
-\end{equation}
+\begin{align}
+  \increment \nu_t^{-} &= \sqrt{(\partial_{C\ua{k}} \nu_t^{-} \cdot \increment C\ua{k})^2} \\
+                       &= -2\pi\left[ L^3 \left[ \left( \frac{1}{C} + \frac{2}{C\ua{k}}\right)^{-1}
+                          + C\ua{Sp} \right]^3 \right]^{-\frac{1}{2}} \frac{L}{\left( \frac{C\ua{k}}{C} + 2 \right)^2} \cdot \increment C\ua{k}
+\end{align}
 
 \subsection{Bestimmung der Fundamentalfrequenzen mithilfe einer erzwungenen Schwingung}
 
 Mithilfe einer erzwungenen Schwingung und verschiedenen Einstellungen des
-Kopplungskondensators können die beiden Fundamentalfrequenzen erneut experimentell
+Kopplungskondensators können die beiden Fundamentalfrequenzen experimentell
 bestimmt werden. In Tabelle \ref{tab:Messungb} sind die gemessenen Frequenzen sowie deren
 Abweichungen zu den theoretisch bestimmten Werten zu sehen. Es handelt sich dabei
 um die in Tabelle \ref{tab:Messunga} angegebenen Werte.
@@ -117,10 +125,14 @@ Die Abweichungen werden dabei analog zu Formel \eqref{eqn:Abweichungen} bestimmt
   \label{tab:Messungb}
 \end{table}
 
+Die bestimmten Fundamentalfrequenzen und die Theoriewerte sind in Abbildung \ref{fig:Messungb}
+noch einmal grafisch dargestellt. Wie erwartet ist der Wer für $\nu_{+}$ nahezu
+konstant und der wert von $\nu_{-}$ zeigt einen exponentiellen Abfall. Beide
+Werte liegen dabei nahe an den Theoriewerten.
 
 \begin{figure}
  \includegraphics[width=\textwidth]{Messungb_Plot1.pdf}
- \caption{Vergleich der in Messung b) bestimmten Werte mit den Theoriewerten}
+ \caption{Vergleich der in Messung 3.2 bestimmten Werte mit den Theoriewerten}
  \label{fig:Messungb}
 \end{figure}
 
@@ -175,15 +187,23 @@ Zeiten ein Fehler von $\pm$ 0.05 Sekunden berücksichtigt, welcher in der Tabell
 
 Auch hier wurden die Fehler mit der Gaußschen Fehlerfortpflanzung berechnet:
 
-\begin{equation}
-  \increment \nu_t^{-} = \sqrt{\partial_{t\ua{D}} \nu_t^{-} \cdot \increment t\ua{D}}
-\end{equation}
+\begin{align}
+  \increment \nu_{-} &= \sqrt{\left(\partial_{t\ua{D}} \nu_{-} \cdot \increment t\ua{D}\right)^2} \\
+                     &= \frac{1}{t\ua{S}}\cdot ( \nu\ua{E} - \nu\ua{S}) \cdot \increment t\ua{D} .
+\end{align}
 
 \begin{figure}
  \includegraphics[width=\textwidth]{Messungc_Plot1.pdf}
- \caption{Vergleich der in Messung c) bestimmten Werte mit den Theoriewerten}
+ \caption{Vergleich der in Messung 3.3.1 bestimmten Werte mit den Theoriewerten}
  \label{fig:Messungc}
 \end{figure}
+
+Auch hier sind die berechneten Frequenzen sowie die Theoriewerte noch einmal grafisch
+in Abbildung \ref{fig:Messungc} dargestellt. Wie schon bei der vorherigen Messung
+kann man einen konstanten Wert für $\nu_{+}$ sowie einen exponentiellen
+Abfall bei $\nu_{-}$ beobachten, wobei erneut die Werte nicht bedeutend von den
+Theoriewerten abweichen, wie auch schon in der Tabelle \ref{tab:Messungc}
+sichtbar.
 
 \section{Diskussion}
 
@@ -197,29 +217,25 @@ schwankend sind und von einem Fehler von 0.8 $\%$ $(C\ua{k} = 3.00 \, \su{nF})$ 
 zu einem Fehler von 8.0 $\%$ $(C\ua{k} = 2.03 \, \su{nF})$ reichen.
 
 Wie in den beiden Abbildungen \ref{fig:Messungb} und \ref{fig:Messungc} erkennbar
-ist, weichen die experimentell bestimmten Werte in den Messung a) und b)
+ist, weichen die experimentell bestimmten Werte in den Messung 3.2 und 3.3.1
 nur minimal von den Theoriewerten
 ab. Die Tabellen \ref{tab:Messungb} und \ref{tab:Messungc} zeigen beide, dass die
 Abweichungen der Werte von $\nu_{+}$ und $\nu_{-}$ lediglich im Bereich von ca.
 einem Prozent liegen. Zudem sind die Theoriewerte von $\nu_t^{-}$ alle im Bereich
-der in Messung c) bestimmten Fehler für $\nu_{-}$.
+der in Messung 3.3.1 bestimmten Fehler für $\nu_{-}$.
 
 Die Abweichungen der Werte können jedoch auf getroffene Annahmen zurückgeführt
 werden. Zum einem werden die verwendeten Bauteile bei dem Versuch, mit Ausnahme
 des Kopplungskondensators, als fehlerfrei angenommen.
-Die bei Messung a) verwendete Methode ist zudem ziemlich ungenau, was sich auch
+Die bei Messung 3.2 verwendete Methode ist zudem ziemlich ungenau, was sich auch
 darin widerspiegelt, dass für die Einstellung $C\ua{k} = 1.01 \su{nF}$ kein
 Wert für die Anzahl an Maxima bestimmt werden konnte. Vor allem die Differenzierung
 der Maxima an den äußeren Rändern der Schwebung stellte sich als kompliziert
-heraus.
+heraus. Des Weiteren wird die abgelesene Frequenz bei dem Generator ebenfalls als
+fehlerfrei angenommen.
 
-Des Weiteren wird die abgelesene Frequenz bei dem Generator ebenfalls als
-fehlerfrei angenommen. Da die Fehler für die Differenzzeiten $t\ua{D}$ und die
-Anzahl an Maxima $n$ bei den einzelnen Messungen selbst überlegt sind, lässt sich
-nur schwer eine Aussage darüber treffen, welche Messmethode genauer ist.
-
-Zusammenfassend ist jedoch erkenntlich, dass sowohl die in Messung b) als auch die
-in Messung c) verwendeten Messmethoden geeignet sind, um die beiden Fundamentalfrequenzen
-annähernd genau zu bestimmen. Lediglich die bei Messung a) verwendete Methode
+Zusammenfassend ist jedoch erkenntlich, dass sowohl die in Messung 3.3.1 als auch die
+in Messung 3.3.1 verwendeten Messmethoden geeignet sind, um die beiden Fundamentalfrequenzen
+bis auf eine Abweichung von ca. 1 $\%$ genau zu bestimmen. Lediglich die bei Messung 3.2 verwendete Methode
 scheint ziemlich ungenau zu sein und ist daher für die genauere Bestimmung des
 Frequenzverhältnisses nicht zu empfehlen.

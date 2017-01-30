@@ -23,12 +23,12 @@ nu_p_theo1 = np.array([nu_p_theo, nu_p_theo, nu_p_theo, nu_p_theo, nu_p_theo, nu
 
 nu_m_theo1 = np.array([unp.nominal_values(n) for n in nu_m_theo])
 
-plt.plot(Kopplungskapazitäten, Nü_negativ, 'bx', label = r'Messung b): $\nu_{-}$')
-plt.plot(Kopplungskapazitäten, nu_m_theo1, 'rx', label = r'Theoriewerte: $\nu_{-}$')
-plt.plot(Kopplungskapazitäten, Nü_positiv, 'mx', label = r'Messung b): $\nu_{+}$')
-plt.plot(Kopplungskapazitäten, nu_p_theo1, 'yx', label = r'Theoriewerte: $\nu_{+}$')
+plt.plot(Kopplungskapazitäten, Nü_negativ*10**(-3), 'bx', label = r'Messung 3.2: $\nu_{-}$')
+plt.plot(Kopplungskapazitäten, nu_m_theo1*10**(-3), 'rx', label = r'Theoriewerte: $\nu_{-}$')
+plt.plot(Kopplungskapazitäten, Nü_positiv*10**(-3), 'mx', label = r'Messung 3.2: $\nu_{+}$')
+plt.plot(Kopplungskapazitäten, nu_p_theo1*10**(-3), 'yx', label = r'Theoriewerte: $\nu_{+}$')
 plt.xlabel(r'$Kopplungskapazität \,\, C_k \,\, in \,\, \mathrm{F}$')
-plt.ylabel(r'$Frequenzen \,\, \nu \,\, in \,\, \mathrm{Hz}$')
+plt.ylabel(r'$Frequenzen \,\, \nu \,\, in \,\, \mathrm{kHz}$')
 
 plt.legend(loc = 'best')
 #plt.show()

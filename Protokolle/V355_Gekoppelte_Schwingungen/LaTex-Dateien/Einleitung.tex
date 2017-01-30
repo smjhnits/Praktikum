@@ -12,11 +12,11 @@ der Schwingungen besonders präzise gemessen und beobachtet werden können.
 
 \subsection{Gekoppelte Schwingungen}
 
-Als eine Schwingungen wird ein Vorgang bezeichnet, bei dem ein System periodisch
+Als eine Schwingung wird ein Vorgang bezeichnet, bei dem ein System periodisch
 zwischen zwei Zuständen wechselt. Werden zwei schwingende Systeme gekoppelt,
 wechselwirken diese miteinander. Die Wechselwirkung wird in Form von einem
-Energiaustausch zwischen den Systeme vollzogen. In dem Versuch wurden zwei identische
-Schwingkreise über einen Kopplungskondensator $C_K$ gekopplet. Eine schematische
+Energieaustausch zwischen den Systeme vollzogen. In dem Versuch wurden zwei identische
+Schwingkreise über einen Kopplungskondensator $C_K$ gekoppelt. Eine schematische
 Darstellung eines gekoppelten elektrischen Schwingkreises ist in der Abb.
 \ref{fig:gekoppelterSchwingkreis} dargestellt.
 
@@ -50,19 +50,19 @@ zu:
 Die Lösung von \eqref{eqn:DGL_1+2} ist eine Schwingungsgleichung mit der Frequenz
 \begin{equation}
   \label{eqn:nu+}
-  \nu^+ = \frac{1}{2\pi\sqrt{LC}}.
+  \nu^+ = \frac{1}{2\pi\sqrt{L(C + C\ua{Sp})}}.
 \end{equation}
 Die DGL \eqref{eqn:DGL_1-2} ist ebenfalls
 lösbar durch eine Schwingungsgleichung. Die Lösung hat eine Frequenz von
 \begin{equation}
   \label{eqn:nu-}
-  \nu^- = \frac{1}{\left[2\pi\sqrt{L\left(\frac{1}{C}+\frac{2}{C_K}\right)^{(-1)}}\right]}.
+  \nu^- = \frac{1}{2\pi\sqrt{L\left(\left(\frac{1}{C}+\frac{2}{C_K}\right)^{-1} + C\ua{Sp}\right)}}.
 \end{equation}
 Die Lösungen haben die Form:
 
 \begin{align}
-  \left(I_1 + I_2\right)(t) &= \left(I_{1,0} + I_{2,0}\right)cos\left(2\pi\nu^+t\right)\\
-  \left(I_1 - I_2\right)(t) &= \left(I_{1,0} - I_{2,0}\right)cos\left(2\pi\nu^-t\right).
+  \left(I_1 + I_2\right)(t) &= \left(I_{1,0} + I_{2,0}\right)\cos{\left(2\pi\nu^+t\right)}\\
+  \left(I_1 - I_2\right)(t) &= \left(I_{1,0} - I_{2,0}\right)\cos{\left(2\pi\nu^-t\right)}.
 \end{align}
 
 Die ermittelten Frequenzen $\nu^+$ und $\nu^-$ heißen Fundamentalfrequenzen,
@@ -72,13 +72,14 @@ Der erste Spezialfall ist, wenn die beiden Oszillatoren mit der selben
 Amplitude und Frequenz schwingen.
 In diesem Fall ist die Kopplung minimal, da die Systeme nicht miteinander interargieren
 und es liegt die Frequenz $\nu^+$ vor. Der andere Spezialfall beschreibt die
-gegenphasige Schwingung bei gleicher Amplitude der Systeme. In diesem Fall
+gegenphasige Schwingung bei gleicher Frequenz aber entgegengesetzter Amplitude
+ der Systeme. In diesem Fall
 ist die Kopplung maximal und es liegt die Frequenz $\nu^-$ vor.
 
 \subsubsection{Schwebungen}
 
 Bei den Fundamentalschwingungen waren beide Oszillatoren bei Betrachtungsanfang
-gleich- bzw. gegenphasig. Es treten von den Fundamentalschwingungen
+gleich- bzw. gegenphasig. Es treten neben den Fundamentalschwingungen
 verschiedene Schwingverhalten auf, wenn einer der Oszillatoren bei
 Beobachtungsbeginn z.B. in Ruhe ist.
 Das dann auftretende Schwingverhalten wird als Schwebung bezeichnet.
@@ -93,12 +94,12 @@ Dieses Schwingverhalten lässt sich durch die folgenden Gleichungen beschreiben.
 
 Dabei ist $\omega^+ = 2\pi\nu^+$ und $\omega^- = 2\pi\nu^-$.
 Unter der Annahme, dass die Fundamentalschwingungen $\nu^+$ und $\nu^-$ ungefähr
-gleich sind gilt:$\frac{1}{2}\omega^++\omega^-\approx\omega^+$, sowie
-$\omega^- + \omega^+ \ll\omega^+$.
+gleich sind gilt:$\frac{1}{2}(\omega^++\omega^-\approx\omega^+)$, sowie
+$\omega^- - \omega^+ \ll\omega^+$.
 In den Gleichungen \eqref{eqn:Schwebung_1} und \eqref{eqn:Schwebung_2} wird
 ersichtlich, dass unter der getroffenen Annahme der erste Faktor in den Gleichungen
 ungefähr mit der Einzelschwingung eines entkoppelten Oszillators übereinstimmt.
-Der Zweite Faktor beschreibt ebenfalls eine Schwingung mit einer Frequenz
+Der zweite Faktor beschreibt ebenfalls eine Schwingung mit einer Frequenz
 $\ll\omega^+$. Dies ist der Schwebungsanteil der Schwingung.
 Die Differenz der Fundamentalschwingungen wird als Schwebungsfrequenz
 bezeichnet. Die Abbildung \ref{fig:Schwebung} zeigt ein exemplarische Darstellung
@@ -111,18 +112,18 @@ einer Schwebung.
   \label{fig:Schwebung}
 \end{figure}
 
-\subsection{Erzwungene Schwingungen}
+%\subsection{Erzwungene Schwingungen}
 
-Schwingungen werden erzwungen, wenn eine eingeprägte Sinusspannung an den Schwingkreis
-angeschlossen wird. Mit Hilfe der Kirchhoffschen Regeln lassen sich Formeln für
-die Fundamentalfrequenzen ableiten.
+%Schwingungen werden erzwungen, wenn eine eingeprägte Sinusspannung an den Schwingkreis
+%angeschlossen wird. Mit Hilfe der Kirchhoffschen Regeln lassen sich Formeln für
+%die Fundamentalfrequenzen ableiten.
 
-\begin{align}
-  \label{eqn:I(w^+)}
-  |I(\omega^+)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}}} \\
-  \label{eqn:I(w^-)}
-  |I(\omega^-)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}(1 + \frac{C}{C_K})}}
-\end{align}
+%\begin{align}
+%  \label{eqn:I(w^+)}
+%%  |I(\omega^+)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}}} \\
+%  \label{eqn:I(w^-)}
+%  |I(\omega^-)| &= \frac{1}{R\sqrt{4 + \frac{R^2C_K^2}{LC}(1 + \frac{C}{C_K})}}
+%\end{align}
 
 \section{Durchführung}
 
@@ -151,7 +152,7 @@ Für den ersten Teil des Versuches wird die Abbildung \ref{Schaltplan} verwendet
 Sinus-Generator wird nun eine Rechteckspannung an den Schwingkreis angelegt und
 die Überbrückung des Kopplungskondensators entfernt. Als nächstes wird mit dem
 Oszilloskop der Spannungsabfall an dem $\SI{48}{\ohm}$ Widerstand gemessen.
-Die Frequenz wird dabei deutlich runter gedreht, um auf dem Oszilloskop
+Die Frequenz wird dabei deutlich reduziert, um auf dem Oszilloskop
 die Schwebungen und die Schwingungen sichtbar zu machen.
 Dann wird für jede Kapazitätseinstellung die Anzahl an Maxima innerhalb einer
 Schwebung gemessen, um hinterher das Verhältniss der Frequenzen zu bestimmen.
@@ -164,25 +165,25 @@ Damit die Fundamentalfrequenzen $\nu_+$ und $\nu_-$ gemessen werden können, mus
 ebenfalls der Aufbau aus Abb. \ref{Schaltplan} verwendet werden. Der Generator muss auf den
 Sinusspannungsbetreib umgestellt werden. Die Fundamentalfrequenzen sind in Abhängigkeit
 von dem Kopplungskondensator $C_K$ zu bestimmen. Die Generatorspannung wird an das
-Osilloskop angeschlossen, sodass die aus dem Aufbau abgeleitete Spannung ihr
+Oszilloskop angeschlossen, sodass die aus dem Aufbau abgeleitete Spannung ihr
 gegenüber steht. Dadurch entstehen Lissajous-Figuren. $\nu_+$ ist erreicht, wenn
-eine Phase von $\pi$ auf dem Oszilloskop dargestellt ist. $\nu_-$ ist dementsprechend
-bei einer Phase von $0$ erreicht.
+eine Phase von $0$ auf dem Oszilloskop dargestellt ist. $\nu_-$ ist dementsprechend
+bei einer Phase von $\pi$ erreicht.
 
 \subsubsection{Methode über Sweepen}
 
 Eine weitere Möglichkeit für das Bestimmen der Fundamentalfrequenzen geht über die
 Sweepmethode.
 Sweepen kann an dem Generator eingestellt werden und bedeutet, dass ein voreingestelltes
-Spannungsintervall zu einer einstellbaren Zeit von dem Generator durchlaufen wird.
+Frequenzintervalle zu einer einstellbaren Zeit von dem Generator durchlaufen wird.
 Es wird der selbe Aufbau wie bei der vorherigen Methode verwendet.
 Damit die Fundamentalfrequenzen bestimmt werden können muss die Zeit zwischen den
-auftretenden Peaks gemessen werden, sowie die Spannungsrate die pro Zeiteinheit
-von dem Generator widergegeben wird. Der Spannungsanstieg des Generators, um das
-Spannungsintervall zu durchlaufen ist linear.
+auftretenden Peaks gemessen werden, sowie die Frequenzsrate die pro Zeiteinheit
+von dem Generator widergegeben wird. Der Frequenzanstieg des Generators, um das
+Frequenzintervall zu durchlaufen ist linear.
 
 \begin{figure}
   \includegraphics[width = \textwidth, height = 6cm]{aufbau_schwebung.png}
-  \caption{Schaltplan der Messungen b) und c)}
+  \caption{Schaltplan der Messungen 3.2 und 3.3.1}
   \label{Schaltplan}
 \end{figure}
