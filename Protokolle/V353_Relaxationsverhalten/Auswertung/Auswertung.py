@@ -34,7 +34,7 @@ plt.plot(laufvariableA, FitMessungA(laufvariableA, *params_a), 'r-', label = r'$
 plt.ylabel(r'$\mathrm{ln(U_0)}$')
 plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
 plt.legend(loc = 'best')
-plt.savefig('Messunga.jpg')
+plt.savefig('Messunga.pdf')
 #plt.show()
 
 print('Parameter RC aus der Messung a',params_a_u)
@@ -64,7 +64,7 @@ plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
 plt.ylabel(r'$ \mathrm{Verhältnis} \,\, \frac{U_c}{U_g}$')
 plt.legend(loc = 'best')
 plt.xscale('log')
-plt.savefig('Messungb.jpg')
+plt.savefig('Messungb.pdf')
 #plt.show()
 
 # Messung c
@@ -98,7 +98,7 @@ plt.ylabel(r'$ Phasenverschiebung $')
 plt.yticks([0,1/16*np.pi,1/8*np.pi,3/16*np.pi,1/4*np.pi,5/16*np.pi,3/8*np.pi,7/16*np.pi,1/2*np.pi,9/16*np.pi,5/8*np.pi,11/16*np.pi,3/4*np.pi,13/16*np.pi],
 ['0','$\\frac{1}{16}\\pi$', '$\\frac{1}{8}\\pi$','$\\frac{3}{16}\\pi$' ,'$\\frac{1}{4}\\pi$','$\\frac{5}{16}\\pi$','$\\frac{3}{8}\\pi$','$\\frac{7}{16}\\pi$','$\\frac{1}{2}\\pi$','$\\frac{9}{16}\\pi$','$\\frac{5}{8}\\pi$','$\\frac{11}{16}\\pi$','$\\frac{3}{4}\\pi$','$\\frac{13}{16}\\pi$'])
 plt.grid()
-plt.savefig('Messungc.jpg')
+plt.savefig('Messungc.pdf')
 #plt.show()
 
 print("Phasenverschiebung in Radiant: ", phase2, '\n')
@@ -120,5 +120,5 @@ plt.polar(winkel,np.cos(winkel),'r-',label=r'$\mathrm{Theoriekurve}$')
 plt.xticks([0,0.25*np.pi,0.5*np.pi,0.75*np.pi,np.pi,1.25*np.pi,1.5*np.pi,1.75*np.pi],['0','$\\frac{1}{4}\\pi$', '$\\frac{1}{2}\\pi$','$\\frac{3}{4}\\pi$' ,'$\\pi$','$\\frac{5}{4}\\pi$','$\\frac{3}{2}\\pi$','$\\frac{7}{4}\\pi$'])
 plt.legend(loc= [0.05,0.25])
 plt.ylim(0,1.2)
-plt.savefig('Messungd.jpg')
+plt.savefig('Messungd.pdf')
 #plt.show()
