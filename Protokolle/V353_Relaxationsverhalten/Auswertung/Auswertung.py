@@ -92,6 +92,8 @@ plt.grid()
 plt.savefig('Messungc.jpg')
 #plt.show()
 
+print("Phasenverschiebung in Radiant: ", phase2, '\n')
+
 # Messung bzw. Plot d
 
 plt.clf()

@@ -8,7 +8,8 @@
 
 In dem ersten Teil des Versuches wird mit dem Oszilloskop die Entladekurve des
 sich im RC-Kreis befindenden Kondensators betrachtet. Dem in Abbildung \ref{fig:thermodruck}
-zu sehenden Thermodruck werden dabei 13 Wertepaare entnommen und in den Graphen
+zu sehenden Thermodruck werden dabei 13 Wertepaare, bestehend aus der Zeit $t$
+und der Kondensatorspannung $U\ua{C}$, entnommen und in den Graphen
 (Abbildung \ref{fig:Messunga}) eingetragen. Mithilfe einer linearen Regression nach
 Formel \eqref{eqn:FitMessungA} kann dann die Steigung ermittelt werden, deren
 Kehrwert im Betrag der Zeitkonstante $RC$ entspricht.
@@ -45,7 +46,7 @@ Wert von $RC = (0.00146 \pm 0.00003) \, \su{s}$.
 \begin{figure}
   \centering
   \includegraphics[width = 12 cm]{Sternchen.jpg}
-  \caption{Thermodruck der in Messung x.x betrachteten Entladekurve }
+  \caption{Thermodruck der in Messung x.1 betrachteten Entladekurve }
   \label{fig:thermodruck}
 \end{figure}
 
@@ -62,14 +63,17 @@ Wert von $RC = (0.00146 \pm 0.00003) \, \su{s}$.
 
 \subsection{Bestimmung der Zeitkonstanten über Messung der zeitabhängigen Spannungsamplitude}
 
-In der zweiten Messung des Versuches wurde mithilfe des Oszilloskopes die Spannungsamplitude
-an dem Kondensator in Abhängigkeit der Frequenz gemessen. Die gemessenen Werte
-werden logarythmisch in dem Graphen aufgetragen und mithilfe eines Regressionskurve
-nach Formel \eqref{eqn:FitMessungB} kann dann die Zeitkonstante RC bestimmt werden,
-die in Formel \eqref{eqn:FitMessungB} der Konstante a entspricht.
+In der zweiten Messung des Versuches wurde mithilfe des Oszilloskopes die
+Spannungsamplitude an dem Kondensator in Abhängigkeit der Frequenz gemessen,
+da auch diese eine Abhängigkeit von der Zeitkonstante aufweist.
+Das Verhältnis von gemessener Amplitude $U\ua{C}$ und der anliegenden
+Ausgangsspannung wird $U\ua{G}$ logarythmisch in dem Graphen aufgetragen und
+mithilfe einer Regressionskurve nach Formel \eqref{eqn:FitMessungB} kann dann
+die Zeitkonstante RC bestimmt werden, die in Formel \eqref{eqn:FitMessungB} der
+Konstante a entspricht.
 
 \begin{equation}
-  A(\nu) = \frac{1}{ \sqrt{ 1 + ( 2 \cdot \pi \cdot x )^2 \cdot a^2}}
+  A(\nu) = \frac{U\ua{G}}{ \sqrt{ 1 + ( 2 \cdot \pi \cdot \nu )^2 \cdot a^2}}
   \label{eqn:FitMessungB}
 \end{equation}
 
@@ -83,10 +87,83 @@ für die Zeitkonstante folgender Wert:
 \begin{figure}
   \centering
   \includegraphics[width = 12 cm]{Messungb.jpg}
-  \caption{Verhältnis der gemessenen Spannungsamplituden $U\ua{C}$ und der Ausgangsspannung $U\ua{0}$
-           aus Tabelle ?? aufgetragen gegen die Frequenz $\nu$}
+  \caption{Verhältnis der gemessenen Spannungsamplituden $U\ua{C}$ und der
+           Ausgangsspannung $U\ua{0}$ aus Tabelle \ref{tab:MessungB} aufgetragen
+          gegen die Frequenz $\nu$}
   \label{fig:Messungb}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{Gemessene Spannungsamplituden der Kondensatorspannung für verschiedene
+           angelegte Frequenzen $\nu$}
+  \label{tab:MessungB}
+  \begin{tabular}{ c c c || c c c }
+    \toprule $\nu \,\, in \,\, \su{Hz}$ & $U\ua{C} \,\, in \,\, \su{V}$ & $U\ua{C} \,\, in \,\, \su{V}$ &
+             $\nu \,\, in \,\, \su{Hz}$ & $U\ua{C} \,\, in \,\, \su{V}$ & $U\ua{C} \,\, in \,\, \su{V}$ \\
+    \midrule
+     10 & 14.1  & 14.35 &  500 & 3.48 & 14.1 \\
+     30 & 13.62 & 14.25 &  600 & 3.01 & 14.1 \\
+     50 & 12.91 & 14.20 &  700 & 2.61 & 14.1 \\
+     75 & 11.88 & 14.25 &  800 & 2.30 & 14.1 \\
+    100 & 10.77 & 14.2  &  900 & 2.14 & 14.1 \\
+    200 &  7.29 & 14.13 & 1000 & 1.90 & 14.0 \\
+    300 &  5.39 & 14.1  & 1100 & 1.74 & 13.9 \\
+    400 &  4.20 & 14.1  & -    & -    & -    \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Messung der Zeitkonstante über die Phasenverschiebung}
+
+In dem dritten Teil des Experimentes wird die Zeitkonstante noch einmal über
+den Phasenverschub bestimmt, der wie in Formel ?? zu sehen ist sowohl
+von der Frequenz als auch von der Zeitkonstante abhängig ist. Die gemessenen Werte
+für die zeitliche Verzögerung $a$ sowie die Schwingungsdauer $b$ und die daraus
+resultierende Phasenverschiebung $\varphi$ sind in der folgenden Tabelle zu sehen.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Werte für die Parameter a und b sowie die resultierende Phasenverschiebung}
+  \label{tab:Phasenverschiebung}
+  \begin{tabular}{c c c c}
+    \toprule $\nu \,\, in  \,\, \su{Hz}$ & $a \,\, in \,\, \su{ms}$ &
+             $b \,\, in \,\, \su{ms}$ & $\varphi \,\, in \,\, \su{rad}$ \\
+    \midrule
+     10 & 99.2 & 100.1 & 0.055 \\
+     30 & 32.0 &  33.3 & 0.253 \\
+     50 & 18.4 &  20.0 & 0.506 \\
+     75 & 12.0 &  13.3 & 0.631 \\
+    100 & 8.80 &  10.0 & 0.754 \\
+    200 & 4.20 &  5.00 & 1.005 \\
+    300 & 2.68 &  3.33 & 1.226 \\
+    400 & 2.00 &  2.50 & 1.257 \\
+    500 & 1.60 &  2.00 & 1.257 \\
+    600 & 1.32 &  1.67 & 1.317 \\
+    700 & 1.12 &  1.43 & 1.362 \\
+    800 & 1.00 &  1.25 & 1.257 \\
+    900 & 0.88 &  1.11 & 1.302 \\
+    1000 & 0.76 &  1.00 & 1.508 \\
+    1100 & 0.66 &  0.91 & 1.726 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die gemessene Phasenverschiebung wird in Abbildung ?? gegen die eingestellte
+Frequenz aufgetragen. Über eine Regressionskurve nach Formel \eqref{eqn:regressionC},
+in der der Parameter a der zu bestimmenden Zeitkonstante RC entspricht.
+
+\begin{equation}
+  \varphi = \arctan (- 2 \pi \nu a)
+  \label{eqn:regressionC}
+\end{equation}
+
+Für RC ergibt sich somit der folgende Wert:
+
+\begin{equation}
+  RC = (0.00139 \pm 0.00013) \, \su{s} .
+\end{equation}
+
 
 
 
