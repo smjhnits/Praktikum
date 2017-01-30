@@ -46,7 +46,7 @@ Wert von $RC = (0.00146 \pm 0.00003) \, \su{s}$.
 \begin{figure}
   \centering
   \includegraphics[width = 12 cm]{Sternchen.jpg}
-  \caption{Thermodruck der in Messung x.1 betrachteten Entladekurve }
+  \caption{Thermodruck der in Messung 3.1 betrachteten Entladekurve }
   \label{fig:thermodruck}
 \end{figure}
 
@@ -67,13 +67,13 @@ In der zweiten Messung des Versuches wurde mithilfe des Oszilloskopes die
 Spannungsamplitude an dem Kondensator in Abhängigkeit der Frequenz gemessen,
 da auch diese eine Abhängigkeit von der Zeitkonstante aufweist.
 Das Verhältnis von gemessener Amplitude $U\ua{C}$ und der anliegenden
-Ausgangsspannung wird $U\ua{G}$ logarythmisch in dem Graphen aufgetragen und
+Ausgangsspannung wird $U\ua{G}$ in dem Graphen \ref{fig:Messungb} aufgetragen und
 mithilfe einer Regressionskurve nach Formel \eqref{eqn:FitMessungB} kann dann
 die Zeitkonstante RC bestimmt werden, die in Formel \eqref{eqn:FitMessungB} der
 Konstante a entspricht.
 
 \begin{equation}
-  A(\nu) = \frac{U\ua{G}}{ \sqrt{ 1 + ( 2 \cdot \pi \cdot \nu )^2 \cdot a^2}}
+  \frac{A(\nu)}{U\ua{G}} = \frac{1}{ \sqrt{ 1 + ( 2 \cdot \pi \cdot \nu )^2 \cdot a^2}}
   \label{eqn:FitMessungB}
 \end{equation}
 
@@ -120,11 +120,12 @@ In dem dritten Teil des Experimentes wird die Zeitkonstante noch einmal über
 den Phasenverschub bestimmt, der wie in Formel ?? zu sehen ist sowohl
 von der Frequenz als auch von der Zeitkonstante abhängig ist. Die gemessenen Werte
 für die zeitliche Verzögerung $a$ sowie die Schwingungsdauer $b$ und die daraus
-resultierende Phasenverschiebung $\varphi$ sind in der folgenden Tabelle zu sehen.
+resultierende Phasenverschiebung $\varphi$ sind in der folgenden Tabelle zu sehen
+und wurden mithilfe eines Oszilloskopes gemessen.
 
 \begin{table}
   \centering
-  \caption{Gemessene Werte für die Parameter a und b sowie die resultierende Phasenverschiebung}
+  \caption{Gemessene Werte für die Parameter a und b sowie die \\ resultierende Phasenverschiebung}
   \label{tab:Phasenverschiebung}
   \begin{tabular}{c c c c}
     \toprule $\nu \,\, in  \,\, \su{Hz}$ & $a \,\, in \,\, \su{ms}$ &
@@ -149,9 +150,12 @@ resultierende Phasenverschiebung $\varphi$ sind in der folgenden Tabelle zu sehe
   \end{tabular}
 \end{table}
 
-Die gemessene Phasenverschiebung wird in Abbildung ?? gegen die eingestellte
-Frequenz aufgetragen. Über eine Regressionskurve nach Formel \eqref{eqn:regressionC},
-in der der Parameter a der zu bestimmenden Zeitkonstante RC entspricht.
+\newpage
+
+Die gemessene Phasenverschiebung wird in Abbildung \ref{fig:Messungc} gegen die
+eingestellte Frequenz aufgetragen. Über eine Regressionskurve nach Formel
+\eqref{eqn:regressionC}, in der der Parameter a der zu bestimmenden Zeitkonstante
+RC entspricht.
 
 \begin{equation}
   \varphi = \arctan (- 2 \pi \nu a)
@@ -164,23 +168,189 @@ Für RC ergibt sich somit der folgende Wert:
   RC = (0.00139 \pm 0.00013) \, \su{s} .
 \end{equation}
 
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Messungc.jpg}
+  \caption{Abhängigkeit der Phasenverschiebung von der angelegten Frequenz}
+  \label{fig:Messungc}
+\end{figure}
+
+In Abbildung \ref{fig:Messungc} zeigt sich, dass ein Wert der Phasenverschiebung
+über dem Wert $\frac{\pi}{2}$ liegt, was laut der Theorie nicht möglich sein sollte.
+Deswegen wurde die Zeitkonstante noch einmal bestimmt, wobei der letzte Messwert
+bei der Regression nicht beachtet wurde. Als korrigierter Wert ergibt sich somit:
+
+\begin{equation}
+  RC = (0.00136 \pm 0.00010) \, \su{s} .
+\end{equation}
+
+\subsection{Phasenabhängigkeit der Generatorspannung}
+
+Um in diesem Abschnitt die Amplitude noch einmal als Funktion der Phasenverschiebung
+zu berechnen, wird als RC der vorher berechnete Wert von $RC = (0.00136 \pm 0.00010)
+\,\su{s}$ verwendet. Die berechneten Wert befinden sind in der folgenden Tabelle
+sichtbar und sind in Abbildung \ref{fig:Messungd} nochmal in einem Polarplot dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Berechnete Amplituden aus den Werten von Aufgabenteil 3.3}
+  \label{tab:AmplitudeNeu}
+  \begin{tabular}{c c c }
+    \toprule $\nu \,\, in  \,\, \su{Hz}$ & $\varphi \,\, in \,\, \su{rad}$
+           & $\frac{A}{U\ua{G}}$ \\
+    \midrule
+     10 & 0.055 & 0.646 \\
+     30 & 0.253 & 0.975 \\
+     50 & 0.506 & 1.133 \\
+     75 & 0.631 & 0.921 \\
+    100 & 0.754 & 0.801 \\
+    200 & 1.005 & 0.494 \\
+    300 & 1.226 & 0.367 \\
+    400 & 1.257 & 0.278 \\
+    500 & 1.257 & 0.223 \\
+    600 & 1.317 & 0.189 \\
+    700 & 1.362 & 0.164 \\
+    800 & 1.257 & 0.139 \\
+    900 & 1.302 & 0.125 \\
+    1000 & 1.508 & 0.117 \\
+    1100 & 1.726 & 0.105 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Dabei sind in Abbildung \ref{fig:Messungd} die in Tabelle \ref{tab:AmplitudeNeu}
+stehenden Werte für die mit der Phasenverschiebung und der Frequenz berechneten
+Amplituden eingetragen sowie zudem auch die gemessenen Amplituden in Abhängigkeit
+der Frequenz aus Messung 3.2. Bei der roten Linie handelt es sich dabei um eine
+zum Vergleich der Werte herangezogene Theoriekurve.
+
+\newpage
+
+\begin{figure}
+  \centering
+  \includegraphics[width =  \textwidth]{Messungd.jpg}
+  \caption{Amplitude in Abhängigkeit der Phase}
+  \label{fig:Messungd}
+\end{figure}
 
 
+\subsection{Betrachten des RC-Kreises als Integrator}
 
+In dem letzten Teil des Experimentes sollte mithilfe eines Oszilloskopes und drei
+verschiedenen Spannungen noch einmal betrachtet werden, inwieweit der RC-Kreis
+die Eigenschaften eines Integrators besitzt. In den Abbildungen \ref{fig:Rechteck}
+,\ref{fig:Dreieck}  und \ref{fig:Sinus}  ist
+dabei die eingespeiste Generatorspannung (gelb) sowie die Kondensatorspannun (blau)
+zu erkennen.
 
+Da bei dem ersten Thermodruck am Kreis eine Rechteckspannung anliegt, sollte bei
+in Abbildung \ref{fig:Rechteck} an dem Kondensator eine Dreiecksspannung, bzw.
+auf jedem Intervall eine Gerade zu erkennen sein:
 
+\begin{equation*}
+   \int c \, \su{dx}= cx+b \,\,\,\, c,b\in\su{R}.
+\end{equation*}
 
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics{Rechteck.jpg}
+  \caption{Anliegende Rechteckspannung bei dem RC-Kreis}
+  \label{fig:Rechteck}
+\end{figure}
+\FloatBarrier
 
+Entsprechend der Integration einer Geraden sollte bei einspeisen einer Dreiecksspannung
+in den RC-Kreis an dem Kondensator ein Spannungsverlauf mit periodisch aneinander
+gereihten quadratischen Funktionen zu erkennen sein, was sich mit Abbildung \ref{fig:Dreieck}
+auch bestätigen lässt:
 
+\begin{equation*}
+   \int mx+b \, \su{d}{x}= \frac{1}{2}mx^2+bx+c \,\,\,\, m,b,c\in\su{R}.
+\end{equation*}
 
+\begin{figure}
+  \centering
+  \includegraphics{Dreieck.jpg}
+  \caption{Anliegende Dreieckspannung bei dem RC-Kreis}
+  \label{fig:Dreieck}
+\end{figure}
 
+\newpage
 
+Bei einer anliegenden Sinusspannung sollte sich durch den RC-Kreis entsprechend
+der Integrationsregeln eine Cosinusspannung einstellen, was in Abbildung \ref{fig:Sinus}
+auch beobachtbar ist:
 
+\begin{equation*}
+  \int \sin(x)\, \su{dx} = - \cos(x)+c \,\,\,\, c\in \su{R}.
+\end{equation*}
 
+\begin{figure}
+  \centering
+  \includegraphics{Sinus.jpg}
+  \caption{Anliegende Sinusspannung bei dem RC-Kreis}
+  \label{fig:Sinus}
+\end{figure}
 
+\section{Diskussion}
 
+In diesem Versuch wurden zusammengefasst drei verschiedene Methoden betrachtet,
+die alle eine Bestimmung der Zeikonstante RC ermöglichten. Die verschiedenen
+Messergebnisse sind in der folgenden Tabelle noch einmal aufgelistet.
 
+\begin{table}
+  \caption{Bestimmte Werte für RC bei den verschiedenen Messungen}
+  \label{tab:Zusammenfassung}
+  \begin{tabular}{c | c c c c}
+    \toprule  $Messung$ & $3.1$ & $3.2$ & $3.3$ & $3.3 \,\, mit \,\, Korrektur$ \\
+    \midrule  $RC \, \pm \, \increment RC$ & $0.00146 \, \pm \, 0.00003$ &
+              $0.00130 \, \pm \, 0.00002$ & $0.00139 \, \pm \, 0.00013$ &
+              $0.00136 \, \pm \, 0.00010$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+Wie man sieht, weichen die bestimmten Werte teilweise doch deutlich von einander
+ab, wobei auch die Fehlergrenzen so gering sind, dass kein Wert im Fehlerintervall
+eines anderen liegt.
 
+Ein Grund für diese Abweichungen sind vermutlich die Messmethoden. Bei der Messung
+3.1 wurden zum Beispiel die verwendeten Werte einfach aus dem Thermodruck abgelesen.
+Da dieser jedoch eine ziemlich geringe Auflösung besitzt, entstehen hier wahrscheinlich
+schon ziemlich hohe Abweichungen zu den eigentlich gemessenen Werten. Eine weitere
+Ursache für die Abweichungen bei dieser Methode ist vermutlich, dass das sichtbare
+Zeitintervall für die Messung nicht groß genug ist, um die komplette Aufladung
+und Entladung des Kondensators darzustellen.
+
+Bei der Messung 3.2 wurde über eine Messung der Ausgangsspannung sowie der
+frequenzabhängigen Amplitude die Zeitkonstante bestimmt. Vergleicht man diesen
+Wert mit dem im Abschnitt 3.1 bestimmten, so ist eine starke Abweichung erkenntlich.
+Betrachtet man die beiden Schaltpläne der Messungen, sieht man, dass vor allem
+der hohe Innenwiderstand des Generators bei den Messungen zu Abweichungen führen
+kann. Da die Amplituden mithilfe des Oszilloskopes gemessen wurden, ist eine
+Ungenauigkeit durch das Ablesen eher unwahrscheinlich, jedoch spielt die Genauigkeit
+des Oszilloskopes dafür eine Rolle bei den Entstehungen der Abweichungen.
+
+%Vielleicht noch etwas einfügen zu systematischen Fehler
+
+Wie in Abschnit 3.3 schon erwähnt, ist bei der Messung über
+die Phasenverschiebung ein systematischer Fehler zu vermuten, da als Ergebnisse
+Werte entstehen, die laut der Theorie nicht zulässig sind. Deswegen wurde
+nochmal ein Korrekturwert ermittelt, bei dem die nach Theorie nicht zulässigen
+Werte nicht beachtet wurden. Zudem ist die Entstehung der Abweichungen aufgrund
+eines Ablesefehlers ziemlich wahrscheinlich, da das genaue Bestimmen des
+Abstandes a besonders für kleine Werte ziemlich fehleranfällig ist.
+
+In dem Polarplot in Abbildung \ref{fig:Messungd} sind nochmal die bestimmten Amplituden
+mit den Werten aus den Messungen 3.2 und 3.3 eingetragen. Sichtbar ist, dass die
+Werte aus der Messung 3.2 deutlich näher an der Theoriekurve liegen als die bestimmten
+Amplituden mit den Werten aus Messung 3.3. Jedoch gilt das nur für die Werte
+oberhalb eines Phasenverschubes von $\frac{\pi}{4}$.
+
+In Abschnitt 3.5 wurde der RC-Kreis noch einmal als Integrator betrachtet. Bei allen
+drei Spannungstypen zeigt sich, dass diese Beziehung bestätigt werden kann, da alle
+gemessenen Darstellungen sehr mit den theoretisch ermittelten Formen für die
+Spannungen übereinstimmen.
 
 \end{document}
