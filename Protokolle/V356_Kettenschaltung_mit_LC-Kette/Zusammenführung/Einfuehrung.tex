@@ -12,15 +12,14 @@
 \begin{document}
 \maketitle
 
-\section{Einleitung}
+\section{Theorie}
 
-In dem folgendem Versuch geht es um die Betrachtung von Wellen mithilfe eines
-Schwingkreises als Analogon zum verketteten harmonischen Oszillators in der
+In dem folgendem Versuch geht es um die Betrachtung von Wellen mithilfe eine
+$LC$-Kette als Analogon zum verketteten harmonischen Oszillators in der
 Mechanik. Dabei werden verschiedene charakteristische Größen der entstehenden
 stehenden Wellen betrachtet, wie zum Beispiel Dispersionsrelation, sowie Phasenverschub
 zwischen der eingehenden und ausgehenden Spannung.
 
-\section{Theorie}
 
 \subsection{Die Dispersionsrelationen}
 
@@ -51,7 +50,7 @@ sich für die $LC\ua{1}C\ua{2}$-Kette folgende Dispersionsrelation:
 \begin{equation}
   \omega\ua{1,2}^2 = \frac{1}{L} \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{1}}
   \right\} \, \pm \, \frac{1}{L} \sqrt{ \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{1}}
-  \right\}^2  - \frac{4\cos(\theta)^2}{C\ua{1}C\ua{2}}} .
+  \right\}^2  - \frac{4\sin(\theta)^2}{C\ua{1}C\ua{2}}} .
   \label{eqn:RelationC1C2}
 \end{equation}
 
@@ -93,9 +92,9 @@ die Phasengeschwindigkeit einen Minimalwert:
   \label{eqn:Phasengeschwindigkeit}
 \end{equation}
 
-\subsection{(Undendlich lange) LC-Ketten}
+\subsection{(unendlich lange) LC-Ketten}
 
-Interessant für die Schltungstechnik ist auch der am Eingang der Kette gemessene
+Interessant für die Schaltungstechnik ist auch der am Eingang der Kette gemessene
 Eingangswiderstand, welcher als Quotient von der am Eingangskondensator anliegenden
 Spannung $U\ua{0}$ und dem in die Schaltung hineinfließenden Strom $I\ua{0}$
 definiert ist:
@@ -104,9 +103,9 @@ definiert ist:
   Z(\omega) = \frac{U\ua{0}}{I\ua{0}} = \sqrt{ \frac{L}{C}} \frac{1}{ \sqrt{1 - \frac{1}{4} \omega^2 LC} }.
 \end{equation}
 
-Der Eingangswiderstand einer (undendlich langen) Kette ist somit rein reell,
+Der Eingangswiderstand einer (unendlich langen) Kette ist somit rein reell,
 obwohl in der Schaltung nur Komponenten mit imaginären Impedanzen verwendet wurden.
-Dieses Ergebnis ist auch zu erwarten gewesen, da in einer (undendlich langen) Kette
+Dieses Ergebnis ist auch zu erwarten gewesen, da in einer (unendlich langen) Kette
 keine Reflexion auftreten sollte. Somit sind Strom und Spannung an jedem Ort in
 Phase, elektrische Energie kann lediglich in die Kette hineinfließen und eine
 (unendlich lange) Kette kann also auch bei einer begrenzten mit dem Wellenwiderstand
@@ -114,7 +113,7 @@ als Abschlusswiderstand simuliert werden.
 
 \begin{figure}
   \includegraphics[width = \textwidth]{AbhaengigkeitImpedanz.jpg}
-  \caption{Frequenzabhängigkeit der Impedanz \cite{anleitung01}}
+  \caption{Frequenzabhängigkeit des Wellenwiderstandes \cite{anleitung01}}
   \label{fig:Impedanzabhängigkeit}
 \end{figure}
 
@@ -129,7 +128,7 @@ Formel bestimmen:
 \end{equation}
 
 
-Die Welle weißt nun für verschieden Abschlusswiderstände unterschiedliche
+Die Welle weist nun für verschiede Abschlusswiderstände unterschiedliche
 Eigenschaften auf, die im folgenden aufgelistet sind:
 
 
@@ -139,7 +138,7 @@ Eigenschaften auf, die im folgenden aufgelistet sind:
         $U\ua{ref}$ = $U\ua{E}$ $\implies$ vollständige Reflexion ohne Phasensprung.
 
   \item kurzgeschlossene Kette (R = 0): \\
-        $U\ua{ref}$ = - $U\ua{E}$ $\implies$ vollständige Reflexion mit Phasensprung.
+        $U\ua{ref}$ = - $U\ua{E}$ $\implies$ vollständige Reflexion mit Phasensprung um $\pi$.
 
   \item Abschluss mit Wellenwiderstand (R = Z): \\
         $U\ua{ref}$ = 0 $\implies$ keine Reflexion.
@@ -148,9 +147,9 @@ Eigenschaften auf, die im folgenden aufgelistet sind:
         reelen R zusätzlich eine Phasendrehung.
 \end{enumerate}
 
-Bei den ersten beiden Fällen tritt also durch Überlagerung einer hinlaufenden
-Welle und der rücklaufenden Welle eine Überlagerung zu einer stehenden Welle
-statt. Dabei entstehen Schwingungsknoten, an denen die Amplitude für alle
+Bei den ersten beiden Fällen entsteht durch Interferenz der einlaufenden
+und der rücklaufenden Welle eine stehenden Welle.
+Dabei entstehen Schwingungsknoten, an denen die Amplitude für alle
 Zeiten verschwindet:
 
 \begin{align}
