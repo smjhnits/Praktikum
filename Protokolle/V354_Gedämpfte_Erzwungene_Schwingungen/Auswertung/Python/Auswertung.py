@@ -30,6 +30,10 @@ U_G = np.array([5.4, 5.4, 5.12, 5.04, 4.8, 4.48, 4.4, 4.4, 4.4, 4.32, 4.48, 4.72
 U_C = np.array([5.44, 5.92, 6.64, 8.4, 10.8, 12.8, 13, 13.2, 13, 12.8, 11.2, 7.6, 5.2, 4, 3, 2]) # Volt Kondensatorspannung
 phase = phasenversch / lamda * 2 * np.pi
 
+
+def f(x, m, b):
+    return m * x + b
+
 # zu a.)
 
 
@@ -69,21 +73,48 @@ print('Abweichung: ', R_ap / R_ap_theo)
 
 Uc_U = U_C / U_G
 
-# halblogarithmisch
+
+# halblogarithmisch ? kein ersichtlicher Vorteil
 plt.clf()
 plt.plot(nu_c, Uc_U, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
-plt.xscale('log')
+plt.plot(R_eff / L * np.ones(20), np.linspace(0, 3, 20), 'b--', label=r'Breite')
+# plt.xscale('log')
 plt.xlabel(r'$\nu$ in $Hz$')
 plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
+plt.xlim(9800, 71000)
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('messung_c.pdf')
 
+
+nu_res = np.array([nu_c[5], nu_c[6], nu_c[7], nu_c[8], nu_c[9]]) # Frequenz um Resonanzfrequenz
+Uc_U_res = np.array([Uc_U[5], Uc_U[6], Uc_U[7], Uc_U[8], Uc_U[9]]) # Spannung um Rosonansfrequenz
+
+params_1, covariance_1 = curve_fit(f, nu_res, Uc_U_res)
+
+plt.clf()
+plt.plot(nu_res, Uc_U_res, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
+plt.xlabel(r'$\nu$ in $Hz$')
+plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('messung_c_linear.pdf')
+
+# zu d.)
+
 plt.clf()
 plt.plot(nu_c, phase, 'bx', label=r'$\phi (\nu$)')
-plt.xscale('log')
+# plt.xscale('log')
 plt.xlabel(r'$\nu$ in $Hz$')
 plt.ylabel(r'$\phi$ in $rad$')
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('phase_gegen_nu.pdf')
+
+nu_res = unp.sqrt(1 / (L * C) - R_eff**2 / (2 * L**2)) * 2 * np.pi
+nu_1 = R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) * 2 * np.pi
+nu_2 = - R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) * 2 * np.pi
+
+
+print('nu_1 - nu_2: ', nu_1 - nu_2)
+print('theo nu_1 - nu_2 = R / L: ', R_eff / L)
