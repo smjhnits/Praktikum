@@ -4,6 +4,7 @@ from scipy.optimize import curve_fit
 # import scipy.constants as const
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 
 # Apparaturdaten
 
@@ -77,7 +78,8 @@ Uc_U = U_C / U_G
 # halblogarithmisch ? kein ersichtlicher Vorteil
 plt.clf()
 plt.plot(nu_c, Uc_U, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
-plt.plot(R_eff / L * np.ones(20), np.linspace(0, 3, 20), 'b--', label=r'Breite')
+plt.plot(noms(R_eff / L) * np.ones(20), np.linspace(0, 3, 20), 'b--', label=r'Breite')
+plt.plot(2 * noms(R_eff / L) * np.ones(20), np.linspace(0, 3, 20), 'b--')
 # plt.xscale('log')
 plt.xlabel(r'$\nu$ in $Hz$')
 plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
@@ -88,14 +90,17 @@ plt.savefig('messung_c.pdf')
 
 
 nu_res = np.array([nu_c[5], nu_c[6], nu_c[7], nu_c[8], nu_c[9]]) # Frequenz um Resonanzfrequenz
-Uc_U_res = np.array([Uc_U[5], Uc_U[6], Uc_U[7], Uc_U[8], Uc_U[9]]) # Spannung um Rosonansfrequenz
+Uc_U_res = np.array([Uc_U[5], Uc_U[6], Uc_U[7], Uc_U[8], Uc_U[9]]) # Spannung um Resonanzfrequenz
 
 params_1, covariance_1 = curve_fit(f, nu_res, Uc_U_res)
 
 plt.clf()
 plt.plot(nu_res, Uc_U_res, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
+plt.plot(nu_res, f(nu_res, *params_1), 'r-', label=r'Ausgleichsgrade')
 plt.xlabel(r'$\nu$ in $Hz$')
 plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
+plt.xlim(33900, 37100)
+plt.ylim(2.84, 3.2)
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('messung_c_linear.pdf')
@@ -111,9 +116,9 @@ plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('phase_gegen_nu.pdf')
 
-nu_res = unp.sqrt(1 / (L * C) - R_eff**2 / (2 * L**2)) * 2 * np.pi
-nu_1 = R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) * 2 * np.pi
-nu_2 = - R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) * 2 * np.pi
+nu_res = unp.sqrt(1 / (L * C) - R_eff**2 / (2 * L**2)) / 2 * np.pi
+nu_1 = R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
+nu_2 = - R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
 
 
 print('nu_1 - nu_2: ', nu_1 - nu_2)
