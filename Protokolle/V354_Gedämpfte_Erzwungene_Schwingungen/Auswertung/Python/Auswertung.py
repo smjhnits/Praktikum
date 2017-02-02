@@ -16,6 +16,7 @@ R_2 = ufloat(271.6, 0.3) # Ohm
 nu_a = 5.820 # Hertz
 maxima = np.array([11, 9.12, 7.84, 6.88, 6.16, 5.6, 5.28, 4.96, 4.80, 4.68, 4.56, 4.44]) + 4.08 # Volt
 zeit = np.array([0, 27.5, 27.5, 27.5, 30, 30, 30, 30, 32.5, 32.5, 35, 35]) * 10**(-6) # Zeit in Sekunden zwischen den Maxima
+zeit_ges = np.array([0, 27.5, 55, 82.5, 112.5, 142.5, 172.5, 202.5, 235, 267.5, 302.5, 337.5]) * 10**(-6)
 
 # Messung b.)
 R_ap = 13.5 * 1000 # Ohm (gefundener Widerstand für den aperiodischen Grenzfall)
@@ -32,23 +33,23 @@ phase = phasenversch / lamda * 2 * np.pi
 # zu a.)
 
 
-def e(a, b, x):
-    return np.exp(a * x) + b
+def e(x, a, b, c):
+    return a * np.exp(b * x) + c
 
-params, covariance = curve_fit(e, zeit, maxima)
+params, covariance = curve_fit(e, zeit_ges, maxima)
 
 plt.clf()
-plt.plot(zeit, maxima, 'bx', label=r'Messdaten')
-plt.plot(zeit, e(zeit, *params), 'r-', label=r'Ausgleichsrechnung')
+plt.plot(zeit_ges, maxima, 'bx', label=r'Messdaten')
+plt.plot(zeit_ges, e(zeit_ges, *params), 'r-', label=r'Ausgleichsrechnung')
 plt.title('Ausgleichrechnung')
 plt.legend(loc='best')
 plt.savefig('ausgleichsrechnung.pdf')
 
 print('Auslgeichsrechnung: ', params, np.diag(np.sqrt(covariance)))
 
-fehler_exp = np.diag(np.sqrt(covariance))[0]
-wert_exp = params[0]
-exponent = ufloat(wert_exp, fehler_exp)
+fehler_exp = np.diag(np.sqrt(covariance))[1]
+wert_exp = params[1]
+exponent = - ufloat(wert_exp, fehler_exp)
 
 R_eff = exponent * 2 * L
 T_ex = 1 / exponent
@@ -69,6 +70,7 @@ print('Abweichung: ', R_ap / R_ap_theo)
 Uc_U = U_C / U_G
 
 # halblogarithmisch
+plt.clf()
 plt.plot(nu_c, Uc_U, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
 plt.xscale('log')
 plt.xlabel(r'$\nu$ in $Hz$')
