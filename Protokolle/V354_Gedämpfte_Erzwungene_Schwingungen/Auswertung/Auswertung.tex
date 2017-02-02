@@ -1,0 +1,101 @@
+\input{"../../Praeambel_prak.tex"}
+
+\begin{document}
+
+\section{Auswertung}
+
+Im Folgendem werden die Messergebnisse ausgewertet und auf geeignete Weise
+visualisiert.
+Die verwendete Schaltung hatte die folgenden Daten.
+
+\begin{align*}
+  L &= \SI{3,53\pm 0,03}{\milli\henry} \\
+  C &= \SI{5,015\pm 0,015}{\nano\farad} \\
+  R_1 &= \SI{30,3\pm 0,1}{\ohm} \\
+  R_2 &= \SI{271,6\pm 0,3}{\ohm}
+\end{align*}
+
+\subsection{Einhüllende der Schwingungskurve}
+
+Die Wertepaare ($U_C(t_i), t_i$) müssen fürdie Ausgleichsrechnung bestimmt werden.
+Die Werte $U_C(t_i)$ wurden mit dem Cursor des Oszilloskops gemessen.
+Hingegen wurden die Zeiten $t_i$ aus dem Bild der Schwingungskurve mit
+Hilfe eines Lineals abgelesen. Ein Abbild der Schwingungskurve ist in Abb.
+\ref{fig:Schwingungskurve} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth, angle=90, height=8cm]{F0001TEK.JPG}
+  \caption{Gemessene Schwingungskurve.}
+  \label{fig:Schwingungskurve}
+\end{figure}
+
+Die Schwingungskurve in Abb. \ref{fig:Schwingungskurve} wurde beim
+Widerstand $R_1$ und einer Generatorfrequenz $\SI{5,82}{\hertz}$ erstellt.
+
+Die diskreten Wertepaare ($U_C(t_i), t_i$) sind in der Tabelle \ref{tab:Messunga}
+dargestellt. Dabei wurden für $U_C(t_i)$ jeweils die Maxima der Schwingungskurve
+vermessen.
+
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \sisetup{table-format=3.2}
+ \begin{tabular}[width=\textwidth]{S S}
+     \toprule
+      {Zeit in $\si{\micro\second}$} & {Maxima in $\si{\volt}$} \\
+     \midrule
+      0 & 15,08 \\
+      27,5 & 13,2 \\
+      55 & 11,92 \\
+      82,5 & 10,96 \\
+      112,5 & 10,24 \\
+      142,5 & 9,68 \\
+      172,5 & 9,36 \\
+      202,5 & 9,04 \\
+      235 & 8,88 \\
+      267,5 & 8,76 \\
+      302,5 & 8,64 \\
+      337,5 & 8,52 \\
+      \bottomrule
+  \end{tabular}
+  \caption{Messdaten der Schwingungskurve.}
+  \label{tab:Schwingungskurve}
+\end{table}
+
+Mit den Wertepaaren aus Tabelle \ref{tab:schwingungskurve} wurde mittels
+des \emph{Python}-Paketes \emph{curve_fit} eine Ausgleichsrechnung an eine
+exponential Funktion der Form
+
+\begin{align}
+  \label{eqn:exp}
+  U_c(t) = a\cdot\exp^{-b\cdot t} + c
+\end{align}
+
+durchgeführt. Für die Parameter ergeben sich somit die Werte
+
+\begin{align*}
+  a & = \SI{6,62(3)}{\volt} \\
+  b &= \num{1,17(1)e4}\frac{1}{\si{\per\second}} \\
+  c &= \SI{8,44(2)}{\volt}
+\end{align*}
+
+Die Ausgleichfunktion ist mit den Daten aus Tabelle \ref{tab:Schwingungskurve} in Abb. \ref{fig:Ausgleichrechnung} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{ausgleichsrechnung.pdf}
+  \caption{Darstellung der Ausgleichsfunktion.}
+  \label{fig:Ausgleichsrechnung}
+\end{figure}
+
+Der Exponent der Ausgleichsfunktion liefert über die Formeln (??) den
+effektiv Widerstand $R_{eff}$ und die Abklingzeit $T_{ex}$.
+Damit ergeben sich die folgenden Werte.
+
+\begin{align*}
+  R_{eff} &= \SI{82,4(12)}{\ohm}\\
+  T_{ex} &= \SI{8,56(1)e-5}{\second}
+\end{align*}
+
+\end{document}
