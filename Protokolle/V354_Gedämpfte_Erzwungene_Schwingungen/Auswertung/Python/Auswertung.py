@@ -89,7 +89,7 @@ plt.plot(2 * noms(R_eff / L) * np.ones(20) / 10**3 - 3.5, np.linspace(0, 3.2, 20
 plt.plot(nu_c / 10**3, U_c_abgesunken * np.ones(16), 'g--', label=r'$\frac{1}{\sqrt{2}}U_{C,max}$')
 # plt.xscale('log')
 plt.xlabel(r'$\nu$ in $kHz$')
-plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
+plt.ylabel(r'$\frac{U_c}{U}$')
 plt.xlim(9.2, 71)
 plt.ylim(0, 3.2)
 plt.grid()
@@ -100,7 +100,7 @@ plt.savefig('messung_c.pdf')
 print('nu_res: ', nu_c[7])
 print('Breite in kHz: ', 2 * noms(R_eff / L) / 10**3 - 3.5 - (noms(R_eff / L)/ 10**3 + 3.5))
 print('nu_+, nu_-: ', noms(R_eff / L) / 10**3 + 3.5, 2 * noms(R_eff / L) / 10**3 - 3.5)
-print('nu_+theo, nu_-theo: ', noms(R_eff / L) / 10**3, 2 * noms(R_eff / L) / 10**3)
+print('nu_+theo, nu_-theo: ', R_eff / L / 10**3, 2 * R_eff / L / 10**3)
 
 nu_res = np.array([nu_c[5], nu_c[6], nu_c[7], nu_c[8], nu_c[9]]) # Frequenz um Resonanzfrequenz
 Uc_U_res = np.array([Uc_U[5], Uc_U[6], Uc_U[7], Uc_U[8], Uc_U[9]]) # Spannung um Resonanzfrequenz
@@ -122,9 +122,15 @@ plt.savefig('messung_c_linear.pdf')
 
 # zu d.)
 
+nu_1_gemessen = nu_c[4]
+nu_2_gemessen = nu_c[11]
+
 plt.clf()
 plt.plot(nu_c / 10**3, phase, 'bx', label=r'$\phi (\nu$)')
 # plt.xscale('log')
+plt.plot(nu_1_gemessen * np.ones(20) / 10**3, np.linspace(-0.5, 5 * np.pi * 4, 20), 'g--', label=r'$\nu_1$ bzw. $\nu_2$')
+plt.plot(nu_2_gemessen * np.ones(20) / 10**3, np.linspace(-0.5, 5 * np.pi * 4, 20), 'g--')
+plt.plot(nu_c[9] * np.ones(20) / 10**3, np.linspace(-0.5, 5 * np.pi * 4, 20), 'r--', label=r'$\nu_{res}$')
 plt.xlabel(r'$\nu$ in $kHz$')
 plt.ylabel(r'$\varphi$ in $rad$')
 plt.yticks([0, np.pi / 4, np.pi / 2, 3 * np.pi / 4, np.pi],
@@ -139,6 +145,11 @@ plt.savefig('phase_gegen_nu.pdf')
 nu_1 = R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
 nu_2 = - R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
 
+print('nu_1,gemessen ; nu_2,gemessen: ', nu_1_gemessen, nu_2_gemessen)
 print('nu_resgemessen: ', nu_c[9])
 print('nu_1 - nu_2: ', nu_1 - nu_2)
+print('nu_1,theo; nu_2,theo: ', nu_1, nu_2)
 print('theo nu_1 - nu_2 = R / L: ', R_eff / L)
+
+print('Güte, theo: ', 1 / R_eff * unp.sqrt(L / C) / (np.pi))
+print('Güte, gemessen: ', Uc_U[7])

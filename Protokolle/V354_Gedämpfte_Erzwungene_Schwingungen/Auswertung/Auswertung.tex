@@ -76,11 +76,11 @@ durchgeführt. Für die Parameter ergeben sich somit die Werte
 
 \begin{align*}
   a & = \SI{6,62(3)}{\volt} \\
-  b &= \num{1,17(1)e4}\frac{1}{\si{\per\second}} \\
+  b &= \num{1,17(1)e4}\frac{1}{\si{\second}} \\
   c &= \SI{8,44(2)}{\volt}
 \end{align*}
 
-Die Ausgleichfunktion ist mit den Daten aus Tabelle \ref{tab:Schwingungskurve} in Abb. \ref{fig:Ausgleichrechnung} dargestellt.
+Die Ausgleichfunktion ist mit den Daten aus Tabelle \ref{tab:Schwingungskurve} in Abb. \ref{fig:Ausgleichsrechnung} dargestellt.
 
 \floatplacement{table}{htbp}
 \begin{figure}
@@ -116,6 +116,7 @@ die folgenden Werte.
   R\ua{ap} = \SI{13500}{\ohm}
 \end{align*}
 
+Die Messung wurde bei einer Frequenz von $\nu = \SI{5,82}{\hertz}$ erhoben.
 Der Wert $R\ua{ap}$ ist der experimentell bestimmte Wert. Dieser wurde an
 dem variablen Widerstand der Apparatur abgelesen und wird als fehlerfrei
 angenommen. Die gemessene Wert ist ca. acht mal größer als der
@@ -133,23 +134,154 @@ verwendet.
 Die berechnete Resonanzfrequenz beträgt:
 
 \begin{align*}
-  \nu\ua{res} = \SI{3.774(17)e4}{\hertz}.
+  \nu\ua{res} &= \SI{3.774(17)e4}{\hertz}.
 \end{align*}
 
+In dem Diagramm \ref{fig:Kondensator_Frequ} ist die normierte Kondensatorspannung
+in Abhängigkeit von der Frequenz dargestellt. Mit normiert ist gemeint, dass die
+Kondensatorspannung durch die Generatorspannung geteilt wird.
+Das Diagramm \ref{fig:Kondensator_Frequ} wurde mit den Daten aus Tabelle \ref{tab:Kondensator_Frequ}
+erstellt.
+
+\floatplacement{table}{htbp}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{messung_c.pdf}
+  \caption{Normierte Kondensatorspannung in Abhängigkeit von der Frequenz.}
+  \label{fig:Kondensator_Frequ}
+\end{figure}
+
+Der Maximalwert der Kondensatorspannung wird bei einer Frequenz von
+
+\begin{equation}
+  \label{eqn:Resonanzfrequenz}
+  \nu\ua{res} = \SI{36}{\kilo\hertz}
+\end{equation}
+
+gemessen. Die Halbwertsbreite der Kondensatorspannung ist durch die Differenz der Werte
+$\nu_+$ und $\nu_-$ gegeben.
+
+\begin{align*}
+  \nu_+ &\approx \SI{27}{\kilo\hertz} \\
+  \nu_- &\approx \SI{43}{\kilo\hertz}
+\end{align*}
+
+Damit ergibt sich die Breite zu $\approx 16\si{\kilo\hertz}$.
+
+Die dazugehörigen Theoriewerte lassen sich über \eqref{} errechnen.
+
+\begin{align*}
+  \nu\ua{+,theo} &= \SI{23,32(27)}{\kilo\hertz} \\
+  \nu\ua{-,theo} &= \SI{46,7(5)}{\kilo\hertz}
+\end{align*}
+
+Die Werte weichen nur geringfügig voneinander ab.
+Die Güte $q$ des Schwingkreises ist der Maximalwert des Verhältnises von
+Kondensatorspannung zur Generatorspannung.
+In Abb. \ref{fig:Kondensator_Frequ} ist das Maximalverhältnis bei der
+Resonanzfrequenz erreicht. An diesem Punkt beträgt das Verhältnis
+
+\begin{equation*}
+  q = 3.
+\end{equation*}
+
+Der errechnete Wert liegt bei $q\ua{theo} = 3,24$ und stimmt im Rahmen der
+Messungenauigkeiten mit dem gemessenen Wert überein.
+
+\subsubsection{Resonanzfrequenz aus der Phasenverschiebung}
+
+Aus der Phasenverschiebung zwischen Generator- und Kondensatorspannung in Abhängigkeit
+von der Frequenz kann die Resonanzfrequenz $\nu\ua{res}$ bestimmt werden.
+Die Resonanzfrequenz ist der Wert an dem die Phase zwischen den Spannungen
+$\varphi\ua{res} = \frac{\pi}{2}$ entspricht.
 Der gemessene Wert wurde aus dem Diagramm \ref{fig:Resonanz} abgelesen.
 
 \floatplacement{table}{htbp}
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{phase_gegen_nu.pdf}
-  \caption{Kondensatorspannung gegenüber der Frequenz.}
+  \caption{Phase zwischen Kondensator- und Generatorspannung in Abhängigkeit von der Frequenz.}
   \label{fig:Resonanz}
 \end{figure}
 
-Der abgelesene Wert bei einer Phase von $\varphi = \frac{pi}{2}$ ist:
+Der abgelesene Wert bei einer Phase von $\varphi\ua{res}$ ist:
 
 \begin{equation*}
-  \nu\ua{res} = \SI{37000}{\hertz}.
+  \nu\ua{res} = \SI{37}{\kilo\hertz}.
 \end{equation*}
+
+Dieser Wert stimmt mit dem berechneten und in \eqref{eqn:Resonanzfrequenz} bestimmten
+Wert nahezu überein.
+
+Die Frequenz $\nu_1$, bei der die Freqeunz gerade $\frac{\pi}{4}$ ist, sowie die
+Frequenz $\nu_2$, bei der $\varphi = \frac{3\pi}{4}$ ist sind dem Diagramm \ref{fig:Resonanz}
+näherungsweise zu entnehmen.
+
+\begin{align*}
+  \nu_1 &\approx \SI{30}{\kilo\hertz} \\
+  \nu_2 &\approx \SI{45}{\kilo\hertz}
+\end{align*}
+
+Rechnerisch ergeben sich über die Formel \eqref{??} $nu_1$ und $\nu_2$ zu:
+
+\begin{align*}
+  \nu\ua{1,theo} &= \SI{36,21(17)}{\kilo\hertz} \\
+  \nu\ua{2,theo} &= \SI{38,55(17)}{\kilo\hertz}
+\end{align*}
+
+Die Werte weichen deutlich von den gemessenen Werten ab.
+Dies ist damit zu begründen, dass die gemessenen Werte nur Näherungen entsprechen.
+Damit eine höhere Sicherheit der Messdaten besteht, hätten mehr Messwerte um den
+Bereich einer Phasenverschiebung von $\varphi = \frac{\pi}{4}$ bzw.
+$\varphi = \frac{3\pi}{4}$ genommen werden müssen. Es lässt sich aufgrund der
+mangelnden Anzahl an Messwerten keine präzise Begründung für die signifikanten Unterschiede
+zwischen den Theoriewerten und den gemessenen Werten machen.
+
+\section{Diskussion}
+
+Anhand der ausgewerteten Daten wird deutlich, dass lediglich der gemessene
+Widerstand des aperiodischen Grenzfalles enorm vob dem theoretisch berechneten Wert
+abweicht.
+Die aufgetretene Abweichnung wurde auf einen systematischen Fehler zurückgeführt.
+Zudem weichen die bestimmten Frequenzen $\nu_1$ und $\nu_2$ deutlich von den
+berechneten Werten ab. Dies wurde mit der geringfügigen Aussagekraft der wenigen
+Messdaten in den Bereich von $\varphi = \frac{\pi}{4}$ und $\varphi = \frac{3\pi}{4}$
+begründet.
+Die sonstigen Werte entsprachen alle im Rahmen der Messungenauigkeiten den theoretisch
+berechneten Werten.
+
+\section{Messdaten}
+
+Die Daten der Messung zur Resonanzfrequenz sind in der folgenden Tabelle dargestellt.
+
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \sisetup{table-format=2.1}
+ \begin{tabular}[width=\textwidth]{S S S S S}
+     \toprule
+      {$\nu_G$ in $\si{\kilo\hertz}$} & {$\lambda$ in $\si{\micro\second}$} & {$\varphi$ in $\si{\micro\second}$} & {$U\ua{G}$ in $\si{\volt}$} & {$U\ua{C}$ in $\si{\volt}$} \\
+     \midrule
+      10 & 98,0 &   0    &  5,4  & 5,4 \\
+      15 & 67,0 &   1,2  &  5,4  & 5,9 \\
+      20 & 50,8 &   1,6  &  5,1  & 6,6 \\
+      25 & 40,0 &   2,0  &  5,0  & 8,4 \\
+      30 & 33,2 &   3,2  &  4,8  & 10,8 \\
+      34 & 29,6 &   4,8  &  4,5  & 12,8 \\
+      35 & 28,4 &   5,2  &  4,4  & 13,0 \\
+      36 & 28,0 &   6,4  &  4,4  & 13,2 \\
+      36,5&27,2 & 6,0  &  4,4  & 13,0 \\
+      37 & 26,4 &   6,8  &  4,3  & 12,8 \\
+      40 & 25,2 &   7,8  &  4,5  & 11,2 \\
+      45 & 22,2 &   8,4  &  4,7  & 7,6 \\
+      50 & 19,8 &   8,6  &  4,9  & 5,2 \\
+      55 & 18,2 &   8,2  &  5,0  & 4,0 \\
+      60 & 16,6 &   8.0  &  5,0  & 3,0 \\
+      70 & 14,0 &   7.0  &  5,0  & 2,0 \\
+      \bottomrule
+  \end{tabular}
+  \caption{Messdaten zur Resonanzfrequenz.}
+  \label{tab:Kondensator_Frequ}
+\end{table}
 
 \end{document}
