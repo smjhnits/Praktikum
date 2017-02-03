@@ -84,21 +84,30 @@ U_c_abgesunken = U_c_max / np.sqrt(2) / 4.4
 # halblogarithmisch ? kein ersichtlicher Vorteil
 plt.clf()
 plt.plot(nu_c / 10**3, Uc_U, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
-plt.plot(noms(R_eff / L) * np.ones(20) / 10**3 + 3.5, np.linspace(0, 3, 20), 'b--', label=r'Breite')
-plt.plot(2 * noms(R_eff / L) * np.ones(20) / 10**3 - 3.5, np.linspace(0, 3, 20), 'b--')
+plt.plot(noms(R_eff / L) * np.ones(20) / 10**3 + 3.5, np.linspace(0, 3.2, 20), 'b--', label=r'Breite')
+plt.plot(2 * noms(R_eff / L) * np.ones(20) / 10**3 - 3.5, np.linspace(0, 3.2, 20), 'b--')
 plt.plot(nu_c / 10**3, U_c_abgesunken * np.ones(16), 'g--', label=r'$\frac{1}{\sqrt{2}}U_{C,max}$')
 # plt.xscale('log')
 plt.xlabel(r'$\nu$ in $kHz$')
 plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
 plt.xlim(9.2, 71)
+plt.ylim(0, 3.2)
+plt.grid()
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('messung_c.pdf')
 
+print('nu_res: ', nu_c[7])
+print('Breite in kHz: ', 2 * noms(R_eff / L) / 10**3 - 3.5 - (noms(R_eff / L)/ 10**3 + 3.5))
+print('nu_+, nu_-: ', noms(R_eff / L) / 10**3 + 3.5, 2 * noms(R_eff / L) / 10**3 - 3.5)
+print('nu_+theo, nu_-theo: ', noms(R_eff / L) / 10**3, 2 * noms(R_eff / L) / 10**3)
 
 nu_res = np.array([nu_c[5], nu_c[6], nu_c[7], nu_c[8], nu_c[9]]) # Frequenz um Resonanzfrequenz
 Uc_U_res = np.array([Uc_U[5], Uc_U[6], Uc_U[7], Uc_U[8], Uc_U[9]]) # Spannung um Resonanzfrequenz
 
+nu_res_theo = unp.sqrt(1 / (L * C) - R_eff**2 / (2 * L**2)) / (2 * np.pi)
+
+print('nu_res: ', nu_res_theo)
 
 plt.clf()
 plt.plot(nu_res / 10**3, Uc_U_res, 'rx', label=r'$\frac{U_c}{U}(\nu)$')
@@ -107,29 +116,29 @@ plt.ylabel(r'$\frac{U_c}{U}$ in $V$')
 plt.xlim(33.9, 37.1)
 plt.ylim(2.84, 3.1)
 plt.legend(loc='best')
+plt.grid()
 plt.tight_layout()
 plt.savefig('messung_c_linear.pdf')
 
 # zu d.)
 
-print (phase, np.pi)
-
-
 plt.clf()
 plt.plot(nu_c / 10**3, phase, 'bx', label=r'$\phi (\nu$)')
 # plt.xscale('log')
 plt.xlabel(r'$\nu$ in $kHz$')
-plt.ylabel(r'$\phi$ in $rad$')
+plt.ylabel(r'$\varphi$ in $rad$')
 plt.yticks([0, np.pi / 4, np.pi / 2, 3 * np.pi / 4, np.pi],
           [r'$0$', r'$\frac{\pi}{4}$', r'$\frac{\pi}{2}$', r'$\frac{3\pi}{4}$', r'$\pi$'])
 plt.legend(loc='best')
+plt.grid()
+plt.xlim(8, 72)
+plt.ylim(-0.5, np.pi + 0.5)
 plt.tight_layout()
 plt.savefig('phase_gegen_nu.pdf')
 
-nu_res = unp.sqrt(1 / (L * C) - R_eff**2 / (2 * L**2)) / 2 * np.pi
 nu_1 = R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
 nu_2 = - R_eff / (2 * L) + unp.sqrt(R_eff**2 / (4 * L**2) + 1 / (L * C)) / 2 * np.pi
 
-
+print('nu_resgemessen: ', nu_c[9])
 print('nu_1 - nu_2: ', nu_1 - nu_2)
 print('theo nu_1 - nu_2 = R / L: ', R_eff / L)
