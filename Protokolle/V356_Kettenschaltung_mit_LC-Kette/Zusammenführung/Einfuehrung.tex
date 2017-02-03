@@ -16,10 +16,24 @@
 
 In dem folgendem Versuch geht es um die Betrachtung von Wellen mithilfe eine
 $LC$-Kette als Analogon zum verketteten harmonischen Oszillators in der
-Mechanik. Dabei werden verschiedene charakteristische Größen der entstehenden
-stehenden Wellen betrachtet, wie zum Beispiel Dispersionsrelation, sowie Phasenverschub
-zwischen der eingehenden und ausgehenden Spannung.
+Mechanik. Eine LC-Kette ist eine Kettenschaltung aus mehreren einzelnen LC-Kreise.
+Es gibt dabei verschiedenen Betrachtungen solch einer Kette. Einerseits handelt es
+sich bei den einzelnen Kettengliedern um Tiefpässe, somit kann ein solche Schaltung
+zum Beispiel zum Herausfiltern von hohen Frequenzen genutzt werden.
 
+Andererseits handelt es sich auch um ein gekoppeltes Schwingungssystem, daher eine
+Kopplung von Schwingkreisen durch gemeinsame Kapazitäten. Somit kann eine
+LC-Kettenschaltung als Transportvorrichtung für elektrische Energie betrachtet werden.
+Betrachtet werden soll also, unter welchen Bedingungen Energie nun von einem
+zum anderen Ende transportiert werden kann. In dem Versuch wird dabei die als
+Dispersion bezeichnete Erscheinung, dass der Energietransport von der angelegten
+Frequenz abhängig und nur in endlichen Frequenzbereichen möglich ist, untersucht.
+
+Eine weiter Analogie besteht zu einem mechanischen Schwingungssystem. Somit eignet
+sich eine LC-Kette auch zu Darstellung bzw. Betrachtung von Wellen. Dabei werden
+verschiedene charakteristische Größen der entstehenden stehenden Wellen betrachtet,
+wie zum Beispiel Dispersionsrelation, sowie Phasenverschub zwischen der eingehenden
+und ausgehenden Spannung.
 
 \subsection{Die Dispersionsrelationen}
 
@@ -48,8 +62,8 @@ allerdings jedes zweite Kettenglied eine andere Amplitude aufweist. Somit ergibt
 sich für die $LC\ua{1}C\ua{2}$-Kette folgende Dispersionsrelation:
 
 \begin{equation}
-  \omega\ua{1,2}^2 = \frac{1}{L} \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{1}}
-  \right\} \, \pm \, \frac{1}{L} \sqrt{ \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{1}}
+  \omega\ua{1,2}^2 = \frac{1}{L} \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{2}}
+  \right\} \, \pm \, \frac{1}{L} \sqrt{ \left\{ \frac{1}{C\ua{1}} + \frac{1}{C\ua{2}}
   \right\}^2  - \frac{4\sin(\theta)^2}{C\ua{1}C\ua{2}}} .
   \label{eqn:RelationC1C2}
 \end{equation}
@@ -63,15 +77,32 @@ sich für die $LC\ua{1}C\ua{2}$-Kette folgende Dispersionsrelation:
 Wie der Formel \eqref{eqn:RelationC1C2} entnommen werden kann, bilden sich bei
 dieser Dispersionsrelation zwei Äste, auch akustischer und optische Ast genannt
 (siehe Abbildung \ref{fig:RelationC12}). Zwischen den beiden Ästen existiert ein Bereich, welcher
-bei der Schwingung nicht auftretenden Frequenzen beinhält. Während $\omega\ua{1}$
-bei $\theta = \frac{\pi}{2}$ ein Maximum besitzt, tritt dort für $\omega\ua{2}$
+bei der Schwingung nicht auftretenden Frequenzen beinhält. Während $\omega\ua{2}$
+bei $\theta = \frac{\pi}{2}$ ein Maximum besitzt, tritt dort für $\omega\ua{1}$
 ein Minimum auf (siehe Abbildung \ref{fig:RelationC12}).
 
 
 \begin{align}
+  \label{eqn:omega1}
   \omega\ua{1} &= \sqrt{ \frac{1}{L} \frac{2(C\ua{1} + C\ua{2})}{C\ua{1}C\ua{2}}} \,
   \left\{ 1 - \theta^2 \frac{C\ua{1}C\ua{2}}{(C\ua{1} + C\ua{2})^2} \right\} \\
+  \label{eqn:omega2}
   \omega\ua{2} &= \sqrt{ \frac{2}{L(C\ua{1} + C\ua{2})}} \, \theta
+\end{align}
+
+Aus den Formeln \eqref{eqn:omega1} und \eqref{eqn:omega2} lassen sich nun die in
+Abbildung \ref{fig:RelationC12} schon eingetragenen Grenzfrequenzen für den optischen
+sowei akustischen Ast bestimmen:
+
+\begin{align}
+  \label{eqn:omega_C_grenz}
+  \omega_{Grenz,C} &= \frac{2}{\sqrt{L\cdot C_1}} \\
+  \label{eqn:omega_C_1_grenz}
+  \omega_{Grenz,C_1C_2}^{optisch} &= \sqrt{\frac{2}{L\cdot C_1}}  \\
+  \label{eqn:omega_C_2_grenz_unten}
+  \omega_{Grenz,C_1C_2,unten}^{akustisch} &= \sqrt{\frac{2}{L\cdot C_2}} \\
+  \label{eqn:omega_C_2_grenz_oben}
+  \omega_{Grenz,C_1C_2,oben}^{akustisch} &= \sqrt{\frac{2}{L} \frac{(C\ua{1}+C\ua{2})}{C\ua{1}C\ua{2}}}. \\
 \end{align}
 
 Aus den bestimmten Dispersionsrelationen lassen sich nun ebenfalls die Phasen- und
@@ -95,7 +126,7 @@ die Phasengeschwindigkeit einen Minimalwert:
 \subsection{(unendlich lange) LC-Ketten}
 
 Interessant für die Schaltungstechnik ist auch der am Eingang der Kette gemessene
-Eingangswiderstand, welcher als Quotient von der am Eingangskondensator anliegenden
+Eingangswiderstand (auch Wellenwiderstand), welcher als Quotient von der am Eingangskondensator anliegenden
 Spannung $U\ua{0}$ und dem in die Schaltung hineinfließenden Strom $I\ua{0}$
 definiert ist:
 
@@ -105,20 +136,20 @@ definiert ist:
 
 Der Eingangswiderstand einer (unendlich langen) Kette ist somit rein reell,
 obwohl in der Schaltung nur Komponenten mit imaginären Impedanzen verwendet wurden.
-Dieses Ergebnis ist auch zu erwarten gewesen, da in einer (unendlich langen) Kette
-keine Reflexion auftreten sollte. Somit sind Strom und Spannung an jedem Ort in
-Phase, elektrische Energie kann lediglich in die Kette hineinfließen und eine
+Somit sind Strom und Spannung an jedem Ort in
+Phase, elektrische Energie kann lediglich in die Kette hineinfließen. Eine
 (unendlich lange) Kette kann also auch bei einer begrenzten mit dem Wellenwiderstand
 als Abschlusswiderstand simuliert werden.
 
 \begin{figure}
   \includegraphics[width = \textwidth]{AbhaengigkeitImpedanz.jpg}
-  \caption{Frequenzabhängigkeit des Wellenwiderstandes \cite{anleitung01}}
+  \caption{Frequenzabhängigkeit der charakteristischen Impedanz \cite{anleitung01}}
   \label{fig:Impedanzabhängigkeit}
 \end{figure}
 
 In Abbildung \ref{fig:Impedanzabhängigkeit} sieht man die Abhängigkeit der Impedanz
-von der angelegten Frequenz.
+von der angelegten Frequenz. Zu sehen ist, dass sich die Frequenz einem bestimmten
+Grenzwert annähert, ab dem der Wellenwiderstand über alle Grenzen wächst.
 Über den angeschlossenen Widerstand und den Wellenwiderstand lässt sich das
 Verhältnis zwischen Amplitude der eingehenden und reflektierten Spannung über folgende
 Formel bestimmen:
@@ -128,7 +159,7 @@ Formel bestimmen:
 \end{equation}
 
 
-Die Welle weist nun für verschiede Abschlusswiderstände unterschiedliche
+Die Welle weist nun für verschiedene Abschlusswiderstände unterschiedliche
 Eigenschaften auf, die im folgenden aufgelistet sind:
 
 
@@ -182,7 +213,7 @@ wenn am Kettenende (n=$\su{n}\ua{max}$) ein Spannungsbauch befindet.
 
 In dem ersten Teil des Experimentes wird mithilfe eines Schreibers eine Durchlasskurve
 für beide Ketten angefertigt. Dabei wird an dem Generator ein Sweep eingestellt,
-sodass der Schreiber die gemessenen Spannung am Ausgang der LC-Kette in Abhängigkeit
+sodass der Schreiber die gemessenen Spannungamplitude am Ausgang der LC-Kette in Abhängigkeit
 der anliegenden Frequenz aufzeichnet. Dabei müssen die Achsen so angepasst sein,
 dass die Grenzfrequenzen auf der angefertigten Zeichnung ebenfalls zu sehen sind.
 Die Schaltung für diesen Teil der Messung ist in Abbildung \ref{fig:Durchlasskurve}
@@ -197,7 +228,8 @@ zu sehen.
   \label{fig:Dispersion}
 \end{figure}
 
-Mithilfe der in Abbildung \ref{fig:Dispersion} dargestellten Schaltung lässt sich die Phasenverschiebung
+Mithilfe der in Abbildung \ref{fig:Dispersion} dargestellten Schaltung lässt sich
+die Phasenverschiebung
 pro Kettenglied betrachten. Dafür wird an einem Oszillloskop mithilfe von Lissajous-Figuren
 die Phasenverschiebung zwischen Eingangs- und Ausgangsspannung betrachtet, wobei
 lediglich Frequenzen mit einer Phasenverschiebung eines Vielfachen von $\pi$
@@ -209,11 +241,11 @@ notiert werden.
 Mit der Schaltung nach Abbildung \ref{fig:Durchlasskurve} (ohne Schreiber und Wobbeleinrichtung) wird
 nun versucht, stehende Wellen nachzuweisen.
 Dafür wird mit einem Millivoltmeter anfangs die Ausgangsspannung gemessen, um eine
-Frequenz mit einem Spannungsmaximum am Kettenende zu finden. Dach wird an jedem
+Frequenz mit einem Spannungsmaximum am Kettenende zu finden. Danach wird an jedem
 Kettenglied die auftretende Spannung gemessen. Diese Messung wird für eine
 beiderseits offene Kette mit der 1. und 2. Eigenschwingung durchgeführt und danach
 für eine mit dem Wellenwiderstand als Abschlusswiderstand eingestellte Kette
-für eine beliebige Frequenz wiederholt.
+für eine beliebige Eigenfrequenz wiederholt.
 
 \newpage
 
