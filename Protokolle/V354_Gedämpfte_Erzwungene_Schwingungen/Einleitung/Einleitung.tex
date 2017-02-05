@@ -53,14 +53,21 @@ Erläutert werden.
 In diesem Fall ist der Term mit der Wurzel rein reel und  es entsteht eine
 harmonische Schwingung, deren Amplitude mit zunehmender
 Zeit gegen Null geht. Die Einhüllende wird dabei durch eine Exponentialfunktion
-beschrieben. Mithilfe der Schwingungsdauer lässt sich dann errechnen, nach welcher
+beschrieben, wie auch in Abbildung \ref{fig:Schwingfall} anhand der rot gestrichelten
+Linie zu sehen ist.
+Mithilfe der Schwingungsdauer lässt sich dann errechnen, nach welcher
 Zeit die Amplitude auf den $e$-ten Teil ihrer Ursprungsamplitude abgesenkt ist:
 
 \begin{equation}
   T\ua{ex} := \frac{2L}{R} \su{s} .
 \end{equation}
 
-\newpage
+\begin{figure}
+  \centering
+  \includegraphics{Schwingfall.png}
+  \caption{Zeitlicher Verlauf einer gedämpften Schwingung}
+  \label{fig:Schwingfall}
+\end{figure}
 
 \textbf{2.Fall :} $\frac{1}{LC} < \frac{R^2}{4L^2}$
 
@@ -68,7 +75,15 @@ Bei diesem Fall handelt es sich um eine aperiodische Dämpfung, bei der die Lös
 keinen oszillatorischen Teil besitzt. In diesem Versuch wird dabei nur der als
 aperiodischer Grenzfall bezeichneter Spezialfall betrachtet, bei dem
 $\frac{1}{LC} = \frac{R^2}{4L^2}$ gilt und der Strom ohne Überschwinger am schnellsten
-gegen Null geht.
+gegen Null geht (siehe schwarz gestrichelte Linie Abbildung \ref{fig:Kriechfall}).
+
+\begin{figure}
+  \includegraphics{Kriechfall.png}
+  \caption{Möglicher Zeitverlauf des Stromes in einem Schwingkreis mit aperiodischer Dämpfung}
+  \label{fig:Kriechfall}
+\end{figure}
+
+\newpage
 
 \subsection{Die erzwungene Schwingung}
 
@@ -101,8 +116,71 @@ Wird bei der Schaltung eine schwache Dämpfung betrachtet, für die
 $\frac{R^2}{2L^2} \, << \, \frac{1}{LC}$ gilt, nähert sich $\omega\ua{res}$
 der Kreisfrequenz $\omega\ua{0}$ der ungedämpften Schwingung an. In diesem
 Fall übertrifft $U\ua{C}$ die Erregerspannung $U\ua{0}$ um den Faktor
-$\frac{1}{\omega\ua{0}RC}$, welcher auch als Güte des Schwingkreises bezeichnet wird.
+$\frac{1}{\omega\ua{0}RC}$, welcher auch als Güte $q$ des Schwingkreises bezeichnet wird.
 
+Ein weiterer Faktor für die Güte eines Schwingkreises ist die Breite der Resonanzkurve,
+welche durch die beiden Frequenzen $\omega\ua{+}$ und $\omega\ua{-}$ charakterisiert
+wird. Bei den beiden Frequenzen handelt es sich um die Werte, bei denen die
+Kondensatorspannung auf den Bruchteil $\frac{1}{\sqrt{2}}$ ihres Maximalwertes
+absinkt. Für Güte und Breite folgt dabei folgende Beziehung:
 
+\begin{equation}
+  q = \frac{\omega\ua{0}}{\omega\ua{+} - \omega\ua{-}} .
+\end{equation}
+
+\newpage
+
+\section{Durchführung}
+
+Im ersten Teil des Experimentes wird die Zeitabhängigkeit der Amplitude untersucht,
+um daraus den effektiven Dämpfungswiderstand zu bestimmen. Dafür wird die Schaltung
+aus Abbildung \ref{fig:MessungA} verwendet. Dabei wird auf dem Oszilloskop die abklingende Schwingung
+beobachtet. Mithilfe des Reglers wird die Zeitachseneinstellung so angepasst, bis
+auf dem Bildschirm ein Intervall zu sehen ist, auf dem die Amplitude etwa um
+den Faktor 3 bis 8 abgenommen hat. Anschließend werden mit der Cursor sowohl
+Amplituden der Maxima sowie auch der zeitliche Abstand gemessen und ein Thermodruck
+angefertigt.
+
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics{MessungA.png}
+  \caption{Schaltung zur Messung der Zeitabhängigkeit der Kondensatorspannungsamplitude}
+  \label{fig:MessungA}
+\end{figure}
+\FloatBarrier
+
+Im zweiten Fall wird die Schaltung aus Abbildung \ref{fig:MessungB} verwendet, bei der nun der
+veränderbare Widerstand in den Stromkreis angeschlossen wird. Der Widerstand wird
+zu erst auf maximalen Wert eingestellt, so das auf dem Bildschirm eine aperiodische
+Dämpfung beobachtbar ist. Dann wird der Widerstand so lange runter geregelt, bis
+auf dem Oszilloskop ein Überschwinger zu sehen ist. Der Dämpfungswiderstand ist
+dabei genau in dem Moment eingestell, wo gerade noch kein Überschwinger zu erkennen
+ist.
+
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics{MessungB.png}
+  \caption{Schaltung zur Bestimmung des Dämpfungswiderstandes bei dem aperiodischen Grenzfall}
+  \label{fig:MessungB}
+\end{figure}
+\FloatBarrier
+
+Für die letzten beiden Teile der Messung wird der Schaltplan aus Abbildung \ref{fig:MessungC} verwendet.
+Auf dem Oszilloskop werden dabei sowohl die Erreger- als auch die Kondensatorspannung
+sichtbar gemacht. Zuerst werden bei jeder Frequenzveränderung die Amplituden beider
+Spannungen notiert. Dann werden mithilfe des Cursors der zeitliche Abstand der beiden
+Nulldurchgänge beider Spannungsverläufe sowie die Wellenlänge der Kondensatorspannung
+gemessen, um daraus hinterher die Phasenverschiebung zu berechnen.
+
+\FloatBarrier
+\begin{figure}
+  \centering
+  \includegraphics{MessungC.png}
+  \caption{Schaltung zur Messung der Frequenzabhängigkeit sowie der Phasenverschiebung}
+  \label{fig:MessungC}
+\end{figure}
+\FloatBarrier
 
 \end{document}
