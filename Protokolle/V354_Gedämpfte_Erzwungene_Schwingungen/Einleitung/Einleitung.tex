@@ -14,8 +14,94 @@
 \maketitle
 \newpage
 
+\section{Theorie}
 
+In dem folgenden Versuch wird ein elektronischer Kreis, im Kern bestehend aus einem
+Widerstand, einer Spule und einem Kondensator. Über diese Schaltung kann eine
+gedämpfte Schwingung betrachtet werden, sowie durch Anschluss eines Generators
+aus eine erzwungene Schwingung. Im Laufe des Versuches sollen der Dämpfungswiderstand,
+die Frequenzabhängigkeit der Kondensatorspannung sowie die Phase zwischen
+Erreger- und Kondensatorspannung betrachtet werden.
 
+\subsection{Der gedämpfte Schwingkreis}
+
+Der in diesem Experiment betrachtete gedämpfte Schwingkreis ist in Im Grunde nur
+eine Erweiterung des RC-Kreise mit einer Spule. Somit kommen in der Schaltung
+zwei Energiespeicher vor, zwischen denen die Energie hin und her pendelt. Durch
+den eingebauten Widerstand geht bei der Schwingung Energie in Form von Wärme verloren
+und somit wird das ganze System gedämpft. Betrachtet man solch eine Schaltung, kann
+mithilfe der Kirchhoffschen Gesetze eine Differentialgleichung für den Strom
+aufgestellt werden:
+
+\begin{equation}
+  \frac{\su{d}^2I}{\su{d}t^2} + \frac{R}{L}\frac{\su{d}I}{\su{d}t} + \frac{1}{LC} I = 0 .
+\end{equation}
+
+Durch Lösen der Differentialgleichung ergibt sich mit einem geeigneten Ansatz für
+die Frequenz ein Term, der von der Stärke der Dämpfung abhängig ist:
+
+\begin{equation}
+  \tilde{\omega}_{1,2} = j \frac{R}{2L} \pm \sqrt{ \frac{1}{LC} - \frac{R^2}{4L^2}} .
+\end{equation}
+
+Je nachdem wie sich der unter der Wurzel stehende Term verhält, können für die
+gedämpfte Schwingung verschiedene Fälle betrachtet werden, von denen zwei im folgenden
+Erläutert werden.
+
+\textbf{1.Fall :} $\frac{1}{LC} > \frac{R^2}{4L^2}$
+
+In diesem Fall ist der Term mit der Wurzel rein reel und  es entsteht eine
+harmonische Schwingung, deren Amplitude mit zunehmender
+Zeit gegen Null geht. Die Einhüllende wird dabei durch eine Exponentialfunktion
+beschrieben. Mithilfe der Schwingungsdauer lässt sich dann errechnen, nach welcher
+Zeit die Amplitude auf den $e$-ten Teil ihrer Ursprungsamplitude abgesenkt ist:
+
+\begin{equation}
+  T\ua{ex} := \frac{2L}{R} \su{s} .
+\end{equation}
+
+\newpage
+
+\textbf{2.Fall :} $\frac{1}{LC} < \frac{R^2}{4L^2}$
+
+Bei diesem Fall handelt es sich um eine aperiodische Dämpfung, bei der die Lösung
+keinen oszillatorischen Teil besitzt. In diesem Versuch wird dabei nur der als
+aperiodischer Grenzfall bezeichneter Spezialfall betrachtet, bei dem
+$\frac{1}{LC} = \frac{R^2}{4L^2}$ gilt und der Strom ohne Überschwinger am schnellsten
+gegen Null geht.
+
+\subsection{Die erzwungene Schwingung}
+
+Wird bei dem vorher betrachteten Schaltkreis noch ein Generator mit eingebaut,
+handelt es sich um eine erzwungene Schwingung, für die sich mithilfe der
+Kirchhoffschen Gesetze für die Kondensatorspannung $U\ua{C}$
+folgende Differentialgleichung ergibt:
+
+\begin{equation}
+  LC\frac{\su{d}^2U\ua{C}}{\su{d}t^2} + RC\frac{\su{d}U\ua{C}}{\su{d}t} + U\ua{C} = U\ua{0} \exp^{j\omega t} .
+\end{equation}
+
+Aus dieser Differentialgleichung können nun mit einem geeigneten Ansatz eine Funktion
+für die Kondensatorspannung $U\ua{c}$ sowie eine Gleichung für die Phasenverschiebung
+$\varphi$ zwischen Erreger- und Kondensatorspannung bestimmt werden:
+
+\begin{align}
+  \varphi(\omega) &= \arctan \left( \frac{-\omega RC}{1 - LC\omega^2} \right) \\
+  U\ua{C}(\omega) &= \frac{U\ua{0}}{ \sqrt{ \left(1 - LC\omega^2 \right)^2 + \omega^2R^2C^2}} .
+\end{align}
+
+Die Kondensatorspannung kann bei der sogenannten Resonanzfrequenz $\omega\ua{res}$
+auch einen Wert größer als $U\ua{0}$ annehmen:
+
+\begin{equation}
+  \omega\ua{res} = \sqrt{\frac{1}{LC} - \frac{R^2}{2L^2}} .
+\end{equation}
+
+Wird bei der Schaltung eine schwache Dämpfung betrachtet, für die
+$\frac{R^2}{2L^2} \, << \, \frac{1}{LC}$ gilt, nähert sich $\omega\ua{res}$
+der Kreisfrequenz $\omega\ua{0}$ der ungedämpften Schwingung an. In diesem
+Fall übertrifft $U\ua{C}$ die Erregerspannung $U\ua{0}$ um den Faktor
+$\frac{1}{\omega\ua{0}RC}$, welcher auch als Güte des Schwingkreises bezeichnet wird.
 
 
 
