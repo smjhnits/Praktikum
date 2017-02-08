@@ -1,8 +1,6 @@
 
 \section{Auswertung}
 
-Im Folgendem werden die Messergebnisse ausgewertet und auf geeignete Weise
-visualisiert.
 Die verwendete Schaltung hatte die folgenden Daten.
 
 \begin{align*}
@@ -14,7 +12,8 @@ Die verwendete Schaltung hatte die folgenden Daten.
 
 \subsection{Einhüllende der Schwingungskurve}
 
-Die Wertepaare ($U_C(t_i), t_i$) müssen für die Ausgleichsrechnung bestimmt werden.
+Die Wertepaare ($U_C(t_i), t_i$) müssen für die Ausgleichsrechnung an die Funktion
+\eqref{eqn:exp} bestimmt werden.
 Die Werte $U_C(t_i)$ wurden mit dem Cursor des Oszilloskops gemessen.
 Hingegen wurden die Zeiten $t_i$ aus dem Bild der Schwingungskurve mit
 Hilfe eines Lineals abgelesen. Ein Abbild der Schwingungskurve ist in Abb.
@@ -23,7 +22,7 @@ Hilfe eines Lineals abgelesen. Ein Abbild der Schwingungskurve ist in Abb.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth, angle=90, height=8cm]{F0001TEK.JPG}
-  \caption{Gemessene Schwingungskurve.}
+  \caption{Gemessene Schwingungskurve der gedämpften Schwingung des ersten Teils.}
   \label{fig:Schwingungskurve}
 \end{figure}
 
@@ -34,6 +33,9 @@ Die diskreten Wertepaare ($U_C(t_i), t_i$) sind in der Tabelle \ref{tab:Schwingu
 dargestellt. Dabei wurden für $U_C(t_i)$ jeweils die Maxima der Schwingungskurve
 vermessen.
 
+In der Abb. \ref{fig:Schwingungskurve} ist die Referenzlinie bezüglich der die Maxima
+vermessen sind, die niederigste Linie an der linken Seite.
+
 \floatplacement{table}{htbp}
 \begin{table}
  \centering
@@ -42,15 +44,15 @@ vermessen.
      \toprule
       {Zeit in $\si{\micro\second}$} & {Maxima in $\si{\volt}$} \\
      \midrule
-      0 & 15,08 \\
-      27,5 & 13,2 \\
-      55 & 11,92 \\
+      0,0 & 15,08 \\
+      27,5 & 13,20 \\
+      55,0 & 11,92 \\
       82,5 & 10,96 \\
       112,5 & 10,24 \\
       142,5 & 9,68 \\
       172,5 & 9,36 \\
       202,5 & 9,04 \\
-      235 & 8,88 \\
+      235,0 & 8,88 \\
       267,5 & 8,76 \\
       302,5 & 8,64 \\
       337,5 & 8,52 \\
@@ -122,18 +124,13 @@ die folgenden Werte.
 
 \begin{align*}
   R\ua{ap,theo} &= \SI{1678(8)}{\ohm}\\
-  R\ua{ap} &= \SI{13500}{\ohm}
+  R\ua{ap} &= \SI{2700}{\ohm}
 \end{align*}
 
 Die Messung wurde bei einer Frequenz von $\nu = \SI{5,82}{\hertz}$ erhoben.
 Der Wert $R\ua{ap}$ ist der experimentell bestimmte Wert. Dieser wurde an
 dem variablen Widerstand der Apparatur abgelesen und wird als fehlerfrei
-angenommen. Die gemessene Wert ist ca. acht mal größer als der
-theoretisch berechnete Wert. Dies hängt damit zusammen, dass der experimentelle
-Wert an der Apparatur nur ungenau abzulesen war. Zudem war nicht sichergestellt,
-dass der abgelesene Widerstand tatsächlich mit dem angelegten Widerstand
-übereinstimmt. Damit ist die Diskrepantz auf einen systematischen
-Fehler zurückzuführen.
+angenommen.
 
 \subsection{Resonanzfrequenz}
 
@@ -166,7 +163,7 @@ Der Maximalwert der Kondensatorspannung wird bei einer Frequenz von
 
 \begin{equation}
   \label{eqn:Resonanzfrequenz}
-  \nu\ua{res} = \SI{36}{\kilo\hertz}
+  \nu\ua{res,1} = \SI{36}{\kilo\hertz}
 \end{equation}
 
 gemessen. Die Halbwertsbreite der Kondensatorspannung ist durch die Differenz der Werte
@@ -177,14 +174,20 @@ $\nu_+$ und $\nu_-$ gegeben.
   \nu_- &\approx \SI{43}{\kilo\hertz}
 \end{align*}
 
-Damit ergibt sich die Breite zu $\approx 16\si{\kilo\hertz}$.
+Damit ergibt sich die Breite zu $\approx \SI{16}{\kilo\hertz}$.
 
-Die dazugehörigen Theoriewerte sind im Folgendem gegeben.
+Der dazugehörigen Theoriewerte ist im Folgendem gegeben.
 
 \begin{align*}
-  \nu\ua{+,theo} &= \SI{23,32(27)}{\kilo\hertz} \\
-  \nu\ua{-,theo} &= \SI{46,7(5)}{\kilo\hertz}
+  \text{Breite}\ua{theo} &= \SI{27,53(27)}{\kilo\hertz} \\
 \end{align*}
+
+Dieser ergibt sich über die Formel \eqref{eqn:breite}.
+
+\begin{equation}
+  \label{eqn:breite}
+  \text{Breite} \approx \frac{R\ua{eff}}{L}
+\end{equation}
 
 Die Werte weichen nur geringfügig voneinander ab.
 Die Güte $q$ des Schwingkreises ist der Maximalwert des Verhältnises von
@@ -196,8 +199,7 @@ Resonanzfrequenz erreicht. An diesem Punkt beträgt das Verhältnis
   q = 3.
 \end{equation*}
 
-Der errechnete Wert liegt bei $q\ua{theo} = 3,24$ und stimmt im Rahmen der
-Messungenauigkeiten mit dem gemessenen Wert überein.
+Der errechnete Wert liegt bei $q\ua{theo} = \num{3,24(4)}$.
 
 \subsubsection{Resonanzfrequenz aus der Phasenverschiebung}
 
@@ -206,6 +208,38 @@ von der Frequenz kann die Resonanzfrequenz $\nu\ua{res}$ bestimmt werden.
 Die Resonanzfrequenz ist der Wert, an dem die Phase zwischen den Spannungen
 $\varphi\ua{res} = \frac{\pi}{2}$ entspricht.
 Der gemessene Wert wurde aus dem Diagramm \ref{fig:Resonanz} abgelesen.
+
+Die Daten der Messung zur Resonanzfrequenz sind in der Tabelle \eqref{tab:Kondensator_Frequ} dargestellt.
+
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \sisetup{table-format=2.1}
+ \begin{tabular}[width=\textwidth]{S S S S S}
+     \toprule
+      {$\nu_G$ in $\si{\kilo\hertz}$} & {$\lambda$ in $\si{\micro\second}$} & {$\varphi$ in $\si{\micro\second}$} & {$U\ua{G}$ in $\si{\volt}$} & {$U\ua{C}$ in $\si{\volt}$} \\
+     \midrule
+      10 & 98,0 &   0    &  5,4  & 5,4 \\
+      15 & 67,0 &   1,2  &  5,4  & 5,9 \\
+      20 & 50,8 &   1,6  &  5,1  & 6,6 \\
+      25 & 40,0 &   2,0  &  5,0  & 8,4 \\
+      30 & 33,2 &   3,2  &  4,8  & 10,8 \\
+      34 & 29,6 &   4,8  &  4,5  & 12,8 \\
+      35 & 28,4 &   5,2  &  4,4  & 13,0 \\
+      36 & 28,0 &   6,4  &  4,4  & 13,2 \\
+      36,5 & 27,2 & 6,0  &  4,4  & 13,0 \\
+      37 & 26,4 &   6,8  &  4,3  & 12,8 \\
+      40 & 25,2 &   7,8  &  4,5  & 11,2 \\
+      45 & 22,2 &   8,4  &  4,7  & 7,6 \\
+      50 & 19,8 &   8,6  &  4,9  & 5,2 \\
+      55 & 18,2 &   8,2  &  5,0  & 4,0 \\
+      60 & 16,6 &   8.0  &  5,0  & 3,0 \\
+      70 & 14,0 &   7.0  &  5,0  & 2,0 \\
+      \bottomrule
+  \end{tabular}
+  \caption{Messdaten zur Resonanzfrequenz.}
+  \label{tab:Kondensator_Frequ}
+\end{table}
 
 \floatplacement{table}{htbp}
 \begin{figure}
@@ -221,7 +255,7 @@ Das Diagramm \ref{fig:Resonanz} wurde mit Daten aus der Tabelle
 Der abgelesene Wert bei einer Phase von $\varphi\ua{res}$ ist:
 
 \begin{equation*}
-  \nu\ua{res} = \SI{37}{\kilo\hertz}.
+  \nu\ua{res,2} = \SI{37}{\kilo\hertz}.
 \end{equation*}
 
 Dieser Wert stimmt mit dem berechneten und in \eqref{eqn:Resonanzfrequenz} bestimmten
@@ -260,49 +294,52 @@ zwischen den Theoriewerten und den gemessenen Werten machen.
 
 \section{Diskussion}
 
-Anhand der ausgewerteten Daten wird deutlich, dass lediglich der gemessene
-Widerstand des aperiodischen Grenzfalles enorm von dem theoretisch berechneten Wert
-abweicht.
-Die aufgetretene Abweichnung wurde auf einen systematischen Fehler zurückgeführt.
-Zudem weichen die bestimmten Frequenzen $\nu_1$ und $\nu_2$ deutlich von den
-berechneten Werten ab. Dies wurde mit der geringfügigen Aussagekraft der wenigen
+Der effektiv Widerstand $R\ua{eff}$ weicht von dem angelegtem Widerstand $R\ua{1}$
+ab, weil bei $R\ua{1}$ der Innenwiderstand des Generators, sowie der
+Widerstand der verwendeten Kabel vernachlässigt worden ist.
+
+Der gemessene Wert des Widerstandes im aperiodischen Grenzfall $R\ua{ap}$
+weicht um ca. $\SI{900}{\ohm}$ von dem theoretisch berechneten Wert ab.
+Der Innenwiderstand ist bei dem theoretischem Wert vernachlässigt
+worden, weshalb der berechnete Widerstand niedriger sein muss als der gemessene.
+Zudem hängt die Diskrepanz damit zusammen, dass der experimentelle Wert an der Apparatur
+nur ungenau abgelesen werden konnte und vermutlich fehlerhaft ist. Es war somit nicht
+sichergestellt, dass der abgelesene Widerstand tatsächlich mit dem angelegten
+Widerstand übereinstimmt.
+
+Darüberhinaus weichen die bestimmten Frequenzen $\nu_1$ und $\nu_2$ deutlich von den
+berechneten Werten ab. Dies ist mit der geringfügigen Aussagekraft der wenigen
 Messdaten in den Bereich von $\varphi = \frac{\pi}{4}$ und $\varphi = \frac{3\pi}{4}$
-begründet.
-Die sonstigen Werte entsprachen alle im Rahmen der Messungenauigkeiten den theoretisch
-berechneten Werten.
+begründet. Im dem für $\nu_1$ und $\nu_2$ relevanten Messbereich wurde
+jeweils lediglich ein Messwert erhoben. Es ist also verständlich, dass dieser
+nicht mit dem berechnetem Wert übereinstimmt.
 
-\newpage
+Die Güte der Apparatur weicht weicht um ca. $8\%$ von dem berechnetem Wert ab.
+Dies ist im Rahmen der Messung als nicht signifikanter Unterschied zu betrachten.
 
-\section{Messdaten}
-
-Die Daten der Messung zur Resonanzfrequenz sind in der folgenden Tabelle dargestellt.
 
 \floatplacement{table}{htbp}
 \begin{table}
  \centering
- \sisetup{table-format=2.1}
- \begin{tabular}[width=\textwidth]{S S S S S}
+ \begin{tabular}[width=\textwidth]{S S}
      \toprule
-      {$\nu_G$ in $\si{\kilo\hertz}$} & {$\lambda$ in $\si{\micro\second}$} & {$\varphi$ in $\si{\micro\second}$} & {$U\ua{G}$ in $\si{\volt}$} & {$U\ua{C}$ in $\si{\volt}$} \\
+     {Messgrößen} & {Messdaten} \\
      \midrule
-      10 & 98,0 &   0    &  5,4  & 5,4 \\
-      15 & 67,0 &   1,2  &  5,4  & 5,9 \\
-      20 & 50,8 &   1,6  &  5,1  & 6,6 \\
-      25 & 40,0 &   2,0  &  5,0  & 8,4 \\
-      30 & 33,2 &   3,2  &  4,8  & 10,8 \\
-      34 & 29,6 &   4,8  &  4,5  & 12,8 \\
-      35 & 28,4 &   5,2  &  4,4  & 13,0 \\
-      36 & 28,0 &   6,4  &  4,4  & 13,2 \\
-      36,5&27,2 & 6,0  &  4,4  & 13,0 \\
-      37 & 26,4 &   6,8  &  4,3  & 12,8 \\
-      40 & 25,2 &   7,8  &  4,5  & 11,2 \\
-      45 & 22,2 &   8,4  &  4,7  & 7,6 \\
-      50 & 19,8 &   8,6  &  4,9  & 5,2 \\
-      55 & 18,2 &   8,2  &  5,0  & 4,0 \\
-      60 & 16,6 &   8.0  &  5,0  & 3,0 \\
-      70 & 14,0 &   7.0  &  5,0  & 2,0 \\
+      \text{Fitparameter} a & $\SI{6,62(3)}{\volt}$ \\
+      \text{Fitparameter} b & $\SI{1,17(1)e4}{\per\second}$ \\
+      \text{Fitparameter} c & $\SI{8,44(2)}{\volt}$ \\
+      $R\ua{eff}$ & $\SI{82,4(12)}{\ohm}$ \\
+      $T\ua{ex}$ & $\SI{8,56(1)e-5}{\second}$ \\
+      $R\ua{ap}$ & $\SI{2700}{\ohm}$ \\
+      $\nu\ua{res,1}$ & $\SI{36}{\kilo\hertz}$ \\
+      $\nu\ua{+}$ & $\SI{27}{\kilo\hertz}$ \\
+      $\nu\ua{-}$ & $\SI{43}{\kilo\hertz}$ \\
+      q & 3 \\
+      $\nu\ua{res,2}$ & $\SI{36}{\kilo\hertz}$ \\
+      $\nu\ua{1}$ & $\SI{30}{\kilo\hertz}$ \\
+      $\nu\ua{2}$ & $\SI{45}{\kilo\hertz}$ \\
       \bottomrule
   \end{tabular}
-  \caption{Messdaten zur Resonanzfrequenz.}
-  \label{tab:Kondensator_Frequ}
+  \caption{Tabelle aller ermittelten Messgrößen.}
+  \label{tab:Messdaten}
 \end{table}
