@@ -30,8 +30,8 @@ eine Erweiterung des RC-Kreise mit einer Spule. Somit kommen in der Schaltung
 zwei Energiespeicher vor, zwischen denen die Energie hin und her schwingt. Durch
 den eingebauten Widerstand geht bei der Schwingung Energie in Form von Wärme verloren
 und somit wird das ganze System gedämpft. Betrachtet man solch eine Schaltung, kann
-mithilfe der Kirchhoffschen Gesetze eine Differentialgleichung für den Strom
-aufgestellt werden:
+mithilfe der Kirchhoffschen Gesetze eine Differentialgleichung für den Strom I
+mithilfe des Widerstandes R, der Spule L und dem Kondensator C aufgestellt werden:
 
 \begin{equation}
   \frac{\su{d}^2I}{\su{d}t^2} + \frac{R}{L}\frac{\su{d}I}{\su{d}t} + \frac{1}{LC} I = 0 .
@@ -139,8 +139,13 @@ absinkt. Für Güte und Breite folgt dabei folgende Beziehung:
 
 Im ersten Teil des Experimentes wird die Zeitabhängigkeit der Amplitude untersucht,
 um daraus den effektiven Dämpfungswiderstand zu bestimmen. Dafür wird die Schaltung
-aus Abbildung \ref{fig:MessungA} verwendet. Dabei wird auf dem Oszilloskop die abklingende Schwingung
-beobachtet. Mithilfe des Reglers wird die Zeitachseneinstellung so angepasst, bis
+aus Abbildung \ref{fig:MessungA} verwendet. Die verwendete Schaltung besteht aus
+einem Stromkreis, in dem der Nadelimpulsgenerator, der Widerstand $R\ua{2}$, eine
+Spule und ein Kondensator in Reihe geschaltet sind. Unter Verwendung eines Tastkopfes wird die an
+dem Kondensator abfallende Spannung auf ein Oszillographen gegeben, auf dem dann
+die abklingende Schwingung beobachtet wird.
+
+Mithilfe des Reglers wird die Zeitachseneinstellung so angepasst, bis
 auf dem Bildschirm ein Intervall zu sehen ist, auf dem die Amplitude etwa um
 den Faktor 3 bis 8 abgenommen hat. Anschließend werden mit der Cursor sowohl
 Amplituden der Maxima sowie auch der zeitliche Abstand gemessen und ein Thermodruck
@@ -155,38 +160,44 @@ angefertigt.
 \end{figure}
 \FloatBarrier
 
-Im zweiten Fall wird die Schaltung aus Abbildung \ref{fig:MessungB} verwendet, bei der nun der
-veränderbare Widerstand in den Stromkreis angeschlossen wird. Der Widerstand wird
-zu erst auf seinen maximalen Wert eingestellt, sodass auf dem Bildschirm eine
+Im zweiten Fall wird die Schaltung aus Abbildung \ref{fig:MessungA} ebenfalls
+verwendet, jedoch wird nun anstatt des vorherigen Widerstandes ein variabler
+Widerstand mit einem maximalen Wert von 5 $\su{\Omega}$ eingebaut. Der Widerstand wird
+zuerst auf seinen maximalen Wert eingestellt, sodass auf dem Bildschirm eine
 kritische Dämpfung beobachtbar ist. Dann wird der Widerstand so lange runter geregelt, bis
 auf dem Oszilloskop ein Überschwinger zu sehen ist. Der Dämpfungswiderstand ist
 dabei genau in dem Moment eingestell, wo gerade noch kein Überschwinger zu erkennen
 ist.
 
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics{MessungB.png}
-  \caption{Schaltung zur Bestimmung des Dämpfungswiderstandes bei dem aperiodischen Grenzfall \cite{anleitung01}.}
-  \label{fig:MessungB}
-\end{figure}
-\FloatBarrier
+%\FloatBarrier
+%\begin{figure}
+%  \centering
+%  \includegraphics{MessungB.png}
+%  \caption{Schaltung zur Bestimmung des Dämpfungswiderstandes bei dem aperiodischen Grenzfall \cite{anleitung01}.}
+%  \label{fig:MessungB}
+%\end{figure}
+%\FloatBarrier
 
-Für die letzten beiden Teile der Messung wird der Schaltplan aus Abbildung \ref{fig:MessungC} verwendet.
-Auf dem Oszilloskop werden dabei sowohl die Erreger- als auch die Kondensatorspannung
+Für die letzten beiden Teile der Messung wird wieder der Schaltplan aus Abbildung
+\ref{fig:MessungA} verwendet. Dabei wird der variable Widerstand wieder entfernt
+und ein fester Widerstand $R\ua{2}$ in die Schaltung eingebaut. Über den Generator
+wird nun eine Sinusspannung in den Stromkreis eingegeben, wobei die Eingangsspannung
+nun ebenfalls auf den zweiten Eingang des Oszillographen gegeben wird.
+Somit werden auf dem Oszilloskop sowohl die Erreger- als auch die Kondensatorspannung
 sichtbar gemacht. Zuerst werden bei jeder Frequenzveränderung die Amplituden beider
-Spannungen notiert. Dann werden mithilfe des Cursors der zeitliche Abstand der beiden
+Spannungen notiert, wobei die jeweilig eingestellte Frequenz direkt am Generator
+abgelesen wird. Dann werden mithilfe des Cursors der zeitliche Abstand der beiden
 Nulldurchgänge beider Spannungsverläufe sowie die Wellenlänge der Kondensatorspannung
 gemessen, um daraus hinterher die Phasenverschiebung zu berechnen.
 
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics{MessungC.png}
-  \caption{Schaltung zur Messung der Frequenzabhängigkeit sowie der Phasenverschiebung \cite{anleitung01}.}
-  \label{fig:MessungC}
-\end{figure}
-\FloatBarrier
+%\FloatBarrier
+%\begin{figure}
+%  \centering
+%  \includegraphics{MessungC.png}
+%  \caption{Schaltung zur Messung der Frequenzabhängigkeit sowie der Phasenverschiebung \cite{anleitung01}.}
+%  \label{fig:MessungC}
+%\end{figure}
+%\FloatBarrier
 
 \newpage
 
