@@ -19,6 +19,7 @@ print("Die Dämpfung bei der ungeschlitzten Aluminiumplatte beträgt ca. ", Däm
 print("Die Dämpfung bei der mittel geschlitzten Aluminiumplatte beträgt ca. ", Dämpfung2*100, "%.", '\n')
 print("Die Dämpfung bei der maximal geschlitzten Aluminiumplatte beträgt ca. ", Dämpfung3*100, "%.", '\n')
 
+
 #Messung 1
 
 plt.clf()
@@ -59,12 +60,12 @@ plt.savefig('Messung3.pdf')
 
 plt.clf()
 plt.plot(Stromstärken, Messung_1, 'kx', label = r'Messung1')
-plt.plot(Stromstärken, Messung_2, 'rx', label = r'Messung2')
-plt.plot(Stromstärken, Messung_3, 'bx', label = r'Messung3')
+plt.plot(Stromstärken, 0.92578125*Messung_2, 'rx', label = r'Messung2')
+plt.plot(Stromstärken, 0.871324*Messung_3, 'bx', label = r'Messung3')
 plt.ylim(0, 300)
 plt.xlim(-0.5, 5.5)
 plt.xlabel(r'Stromstärke in A')
 plt.ylabel(r'Zeit in s')
 plt.legend(loc = 'best')
-plt.savefig('Kombiniert.pdf')
+plt.savefig('Kombiniert_gestaucht.pdf')
 #plt.show()
