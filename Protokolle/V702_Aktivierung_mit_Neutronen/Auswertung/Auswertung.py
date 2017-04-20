@@ -125,6 +125,7 @@ plt.savefig('Rhodium_normal_rechts.pdf')
 #Rhodium normal
 
 plt.clf()
-plt.plot(Zeiten_rhodium, Werte_Rhodium_korrigiert, 'bx')
+plt.errorbar( Zeiten_rhodium, Werte_Rhodium_korrigiert,  Werte_R_Fehler, fmt='x')
+#plt.plot(Zeiten_rhodium, Werte_Rhodium_korrigiert, 'bx')
 plt.plot(Zeiten_rhodium, np.exp(N_0_Rhodium_links)*np.exp(-Lamba_Rhodium_links*Zeiten_rhodium) + np.exp(N_0_Rhodium_rechts)*np.exp(-Lamba_Rhodium_rechts*Zeiten_rhodium) , 'r-')
 plt.savefig('Rhodium_normal.pdf')
