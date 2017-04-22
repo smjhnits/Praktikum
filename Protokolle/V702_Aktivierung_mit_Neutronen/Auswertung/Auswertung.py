@@ -42,14 +42,37 @@ def f(x, a, b):
 
 params, covariance = curve_fit(f, Zeiten_Indium, Werte_I_log)
 
-plt.errorbar( Zeiten_Indium, Werte_I_log,  yerr=Fehler_I_log, fmt='x')
-plt.plot(Zeiten_Indium, f(Zeiten_Indium, *params), 'b-', label='linearer Fit', linewidth=0.3)
+errors = np.sqrt(np.diag(covariance))
+
+N_0_Indium = params[1]
+Lambda_Indium = -params[0]
+
+N_0_Indium_u = ufloat(params[1], errors[1])
+Lambda_Indium_u = ufloat(-params[0], errors[0])
+
+Fit_X_Indium = np.linspace(0, 4000, 1000)
+
+plt.errorbar( Zeiten_Indium, Werte_I_log,  yerr=Fehler_I_log, fmt='x', label= r'$Messwerte \,\, Indium$')
+plt.plot(Fit_X_Indium, f(Fit_X_Indium, *params), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$log(Anzahl \,\, an \,\, Zerfällen)$')
+plt.legend()
 plt.savefig('Indium_log.pdf')
 
 plt.clf()
-plt.errorbar( Zeiten_Indium, Werte_Indium_korrigiert,  Werte_I_Fehler, fmt='x')
-plt.plot(Zeiten_Indium, np.exp(params[1])*np.exp(params[0]*Zeiten_Indium), 'r-')
+plt.errorbar( Zeiten_Indium, Werte_Indium_korrigiert,  Werte_I_Fehler, fmt='x', label=r'$Messwerte \,\, Indium$')
+plt.plot(Fit_X_Indium, np.exp(params[1])*np.exp(params[0]*Fit_X_Indium), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ Anzahl \,\, an \,\, Zerfällen $')
+plt.legend()
 plt.savefig('Indium_normal.pdf')
+
+HWZ_Indium = np.log(2)/Lambda_Indium_u
+
+print("Gemessene Steigung der linearen regression: ", params[0], errors[0], '\n')
+print("Gemessener Achsenabschnitt der linearen regression: ", params[1], errors[1], '\n')
+print("Umgerechnete Parameter: ", N_0_Indium_u, Lambda_Indium_u, '\n')
+print("Halbwertszeit von Indium: ", unp.nominal_values(HWZ_Indium), unp.std_devs(HWZ_Indium), '\n')
 
 #Rhodium
 
@@ -78,21 +101,39 @@ Fehler_R_links_log_minus = np.array([np.log(n + Werte_R_links_Fehler[i]) - np.lo
 Fehler_R_links_log = np.array([Fehler_R_links_log_minus, Fehler_R_links_log_plus])
 
 params, covariance = curve_fit(f, Zeiten_R_links, Werte_R_links_log)
+errors = np.sqrt(np.diag(covariance))
 
 N_0_Rhodium_links = params[1]
-Lamba_Rhodium_links = -params[0]
+Lambda_Rhodium_links = -params[0]
+
+N_0_Rhodium_links_u = ufloat(params[1], errors[1])
+Lambda_Rhodium_links_u = ufloat(-params[0], errors[0])
+
+HWZ_Rhodium_links = np.log(2)/Lambda_Rhodium_links_u
+
+Fit_X_Rhodium_links = np.linspace(10, 80, 1000)
 
 plt.clf()
-plt.errorbar( Zeiten_R_links, Werte_R_links_log,  yerr=Fehler_R_links_log, fmt='x')
-plt.plot(Zeiten_R_links, f(Zeiten_R_links, *params), 'b-', label='linearer Fit', linewidth=0.3)
+plt.errorbar( Zeiten_R_links, Werte_R_links_log,  yerr=Fehler_R_links_log, fmt='x', label=r'$Messwerte \,\, Rhodium \, 104$')
+plt.plot(Fit_X_Rhodium_links, f(Fit_X_Rhodium_links, *params), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ log(Anzahl \,\, an \,\, Zerfällen) $')
+plt.legend()
 plt.savefig('Rhodium_links_log.pdf')
 
-Fit_X_Rhodium_links = np.linspace(15, 75, 1000)
 
 plt.clf()
-plt.errorbar( Zeiten_R_links, Werte_R_links_korrigiert,  Werte_R_links_Fehler, fmt='x')
-plt.plot(Fit_X_Rhodium_links, np.exp(N_0_Rhodium_links)*np.exp(-Lamba_Rhodium_links*Fit_X_Rhodium_links), 'r-')
+plt.errorbar( Zeiten_R_links, Werte_R_links_korrigiert,  Werte_R_links_Fehler, fmt='x', label=r'$Messwerte \,\, Rhodium \, 104$')
+plt.plot(Fit_X_Rhodium_links, np.exp(N_0_Rhodium_links)*np.exp(-Lambda_Rhodium_links*Fit_X_Rhodium_links), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ Anzahl \,\, an \,\, Zerfällen $')
+plt.legend()
 plt.savefig('Rhodium_normal_links.pdf')
+
+print("Gemessene Steigung der linearen regression: ", params[0], errors[0], '\n')
+print("Gemessener Achsenabschnitt der linearen regression: ", params[1], errors[1], '\n')
+print("Umgerechnete Parameter: ", N_0_Rhodium_links_u, Lambda_Rhodium_links_u, '\n')
+print("Halbwertszeit von Rhodium104: ", unp.nominal_values(HWZ_Rhodium_links), unp.std_devs(HWZ_Rhodium_links), '\n')
 
 #Rhodium rechter Teil
 
@@ -106,26 +147,58 @@ Fehler_R_rechts_log_minus = np.array([np.log(n + Werte_R_rechts_Fehler[i]) - np.
 Fehler_R_rechts_log = np.array([Fehler_R_rechts_log_minus, Fehler_R_rechts_log_plus])
 
 params, covariance = curve_fit(f, Zeiten_R_rechts, Werte_R_rechts_log)
+errors = np.sqrt(np.diag(covariance))
 
 N_0_Rhodium_rechts = params[1]
-Lamba_Rhodium_rechts = -params[0]
+Lambda_Rhodium_rechts = -params[0]
 
-Fit_X_Rhodium_rechts = np.linspace(360, 720, 1000)
+N_0_Rhodium_rechts_u = ufloat(params[1], errors[1])
+Lambda_Rhodium_rechts_u = ufloat(-params[0], errors[0])
+
+HWZ_Rhodium_rechts = np.log(2)/Lambda_Rhodium_rechts_u
+
+Fit_X_Rhodium_rechts = np.linspace(350, 750, 1000)
 
 plt.clf()
-plt.errorbar( Zeiten_R_rechts, Werte_R_rechts_log,  yerr=Fehler_R_rechts_log, fmt='x')
-plt.plot(Zeiten_R_rechts, f(Zeiten_R_rechts, *params), 'b-', label='linearer Fit', linewidth=0.3)
+plt.errorbar( Zeiten_R_rechts, Werte_R_rechts_log,  yerr=Fehler_R_rechts_log, fmt='x', label=r'$Messwerte \,\, Rhodium \, 104i$')
+plt.plot(Fit_X_Rhodium_rechts, f(Fit_X_Rhodium_rechts, *params), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ log(Anzahl \,\, an \,\, Zerfällen) $')
+plt.legend()
 plt.savefig('Rhodium_rechts_log.pdf')
 
 plt.clf()
-plt.errorbar( Zeiten_R_rechts, Werte_R_rechts_korrigiert,  Werte_R_rechts_Fehler, fmt='x')
-plt.plot(Fit_X_Rhodium_rechts, np.exp(N_0_Rhodium_rechts)*np.exp(-Lamba_Rhodium_rechts*Fit_X_Rhodium_rechts), 'r-')
+plt.errorbar( Zeiten_R_rechts, Werte_R_rechts_korrigiert,  Werte_R_rechts_Fehler, fmt='x', label=r'$Messwerte \,\, Rhodium \, 104i$')
+plt.plot(Fit_X_Rhodium_rechts, np.exp(N_0_Rhodium_rechts)*np.exp(-Lambda_Rhodium_rechts*Fit_X_Rhodium_rechts), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ Anzahl \,\, an \,\, Zerfällen $')
+plt.legend()
 plt.savefig('Rhodium_normal_rechts.pdf')
+
+print("Gemessene Steigung der linearen regression: ", params[0], errors[0], '\n')
+print("Gemessener Achsenabschnitt der linearen regression: ", params[1], errors[1], '\n')
+print("Umgerechnete Parameter: ", N_0_Rhodium_rechts_u, Lambda_Rhodium_rechts_u, '\n')
+print("Halbwertszeit von Rhodium104i: ", unp.nominal_values(HWZ_Rhodium_rechts), unp.std_devs(HWZ_Rhodium_rechts), '\n')
 
 #Rhodium normal
 
+Fit_X_Rhodium = np.linspace(0, 750, 1000)
+
 plt.clf()
-plt.errorbar( Zeiten_rhodium, Werte_Rhodium_korrigiert,  Werte_R_Fehler, fmt='x')
-#plt.plot(Zeiten_rhodium, Werte_Rhodium_korrigiert, 'bx')
-plt.plot(Zeiten_rhodium, np.exp(N_0_Rhodium_links)*np.exp(-Lamba_Rhodium_links*Zeiten_rhodium) + np.exp(N_0_Rhodium_rechts)*np.exp(-Lamba_Rhodium_rechts*Zeiten_rhodium) , 'r-')
+plt.errorbar( Zeiten_rhodium, Werte_Rhodium_korrigiert,  Werte_R_Fehler, fmt='x', label=r'$Messwerte \,\, Rhodium$')
+plt.plot(Fit_X_Rhodium, np.exp(N_0_Rhodium_links)*np.exp(-Lambda_Rhodium_links*Fit_X_Rhodium) + np.exp(N_0_Rhodium_rechts)*np.exp(-Lambda_Rhodium_rechts*Fit_X_Rhodium), 'r-', label= r'$linearer \,\, Fit$', linewidth=0.7)
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ Anzahl \,\, an \,\, Zerfällen $')
+plt.xlim(0, 750)
+plt.legend()
 plt.savefig('Rhodium_normal.pdf')
+
+plt.clf()
+plt.errorbar( Zeiten_rhodium, Werte_Rhodium_korrigiert,  Werte_R_Fehler, fmt='x', label=r'$Messwerte \,\, Rhodium$')
+plt.axvline(355, color = 'k', label=r'$t^{*}$')
+plt.axvline(80, color = 'k', label=r'$t_{i}$')
+plt.xlabel(r'$t \,\, in \,\, \mathrm{s}$')
+plt.ylabel(r'$ Anzahl \,\, an \,\, Zerfällen $')
+plt.xlim(0, 750)
+plt.legend()
+plt.savefig('Rhodium_normal_ohne.pdf')
