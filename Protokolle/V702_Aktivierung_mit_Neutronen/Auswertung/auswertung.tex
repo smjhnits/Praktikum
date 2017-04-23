@@ -34,7 +34,7 @@ um die Zerfallskonstante zu bestimmen:
   \label{eqn:linRegress}
 \end{equation}
 
-\subsection{Halbwertzeit Indium}
+\subsection{Halbwertszeit von Indium}
 
 Bei der Messung von Indium wurde ein Zeitintervall von $\increment t = 240 \,
 \su{s}$ und ein Messzeitraum von $t\ua{ges} = 3600 \, \su{s}$ gewählt. Die
@@ -43,7 +43,7 @@ in Abbildung \ref{fig:Indium} dargestellt.
 
 \begin{table}
   \centering
-  \caption{Gemessene Zerfälle bei Indium}
+  \caption{Gemessene Zerfälle bei Indium.}
   \label{tab:Indium}
   \begin{tabular}{c c c c}
     \toprule $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ & $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ \\
@@ -62,7 +62,7 @@ in Abbildung \ref{fig:Indium} dargestellt.
 
 \begin{figure}
   \includegraphics[width = \textwidth]{Indium_log.pdf}
-  \caption{logarythmische Darstellung der gemessenen Zerfälle bei Indium}
+  \caption{logarythmische Darstellung der gemessenen Zerfälle bei Indium.}
   \label{fig:Indium}
 \end{figure}
 
@@ -83,18 +83,127 @@ Indium bestimmt werden, für die sich der folgende Wert ergibt:
 
 \subsection{Halbwertzeit von Rhodium}
 
+Bei der Messung mit $\su{Rh}_{45}^{103}$ wurde ein Zeitintervall von $\increment t = 12 \,
+\su{s}$ und ein Messzeitraum von $t\ua{ges} = 720 \, \su{s}$ gewählt. Die gemessenen
+Zerfälle sind in Tabelle \ref{tab:Indium} eingetragen sowie grafisch in Abbildung
+\ref{fig:RhodiumOhne} dargestellt.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Zerfälle bei Indium.}
+  \label{tab:Indium}
+  \begin{tabular}{c c c c c c}
+    \toprule $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ & $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$
+           & $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ \\
+    \midrule
+    15 & 630 & 30 & 517 & 45 & 445 \\
+    60 & 330 & 75 & 265 & 90 & 212 \\
+    105 & 192 & 120 & 176 & 135 & 152 \\
+    150 & 116 & 165 & 99 & 180 & 98 \\
+    195 & 92 & 210 & 64 & 225 & 55 \\
+    240 & 60 & 255 & 55 & 270 & 61 \\
+    285 & 51 & 300 & 51 & 315 & 33 \\
+    330 & 40 & 345 & 48 & 360 & 28 \\
+    375 & 32 & 390 & 35 & 405 & 33 \\
+    420 & 25 & 435 & 22 & 450 & 29 \\
+    465 & 18 & 480 & 27 & 495 & 22 \\
+    510 & 22 & 525 & 25 & 540 & 25 \\
+    555 & 22 & 570 & 20 & 585 & 22 \\
+    600 & 13 & 615 & 24 & 630 & 23 \\
+    645 & 12 & 660 & 21 & 675 & 19 \\
+    690 & 18 & 705 & 15 & 720 & 14 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
 \begin{figure}
   \includegraphics[width = \textwidth]{Rhodium_normal_ohne.pdf}
-  \caption{Gemessene Zerfälle bei Rhodium}
+  \caption{Gemessene Zerfälle bei Rhodium.}
   \label{fig:RhodiumOhne}
 \end{figure}
 
-Um die Halbwertzeiten der zwei verschiedenen Isotope $Rh^{104}$ sowie $Rh^{104i}$
-zu bestimmen, die bei dem Zerfall von $Rh_{45}^{103}$ entstehen, wurden für die
-Unterteilung die Messzeiten $t^{*}=355 \, \su{s}$ und $t_i=80 \, \su{s}$ gewählt.
+Um die Halbwertzeiten der zwei verschiedenen Isotope $\su{Rh}^{104}$ sowie $\su{Rh}^{104i}$
+zu bestimmen, die bei dem Zerfall von $\su{Rh}_{45}^{103}$ entstehen, werden für die
+Unterteilung die Messzeiten $t^{*}=355 \, \su{s}$ und $t_{max}=80 \, \su{s}$ gewählt.
 
+\begin{figure}
+  \includegraphics[width = \textwidth]{Rhodium_links_log.pdf}
+  \caption{logarythmische Darstellung der gemessene Zerfälle für $t < t_{max}$ bei $\su{Rh}^{104}$.}
+  \label{fig:Rh104}
+\end{figure}
 
+Mithilfe einer linearen Regression gemäß Formel \eqref{eqn:linRegress} können
+dann mithilfe der Werte für $t < t_{max}$ (Abbildung \ref{fig:Rh104}) zuerst die beiden Parameter
+für $\su{Rh}^{104}$ bestimmt:
 
+\begin{align*}
+  A &= \lambda\ua{Rhodium\,104} = (0.0147 \pm 0.0009) \, \frac{1}{\su{s}}\\
+  B &= N\ua{0,Rhodium\,104}     = (6.68 \pm 0.05)
+\end{align*}
+
+Mit den Werten ergibt sich für die Halbwertszeit von $\su{Rh}^{104}$ folgender
+Wert:
+
+\begin{equation*}
+  T\ua{Rhodium\,104} = (47 \pm 3) \, \su{s}
+\end{equation*}
+
+Mithilfe der selben Vorgehensweise kann aus allen Werten für $t > t^{*}$ (Abbildung
+\ref{fig:Rh104i}) auch die Halbwertszeit für $\su{Rh}^{104i}$ berechnet werden,
+sodass sich folgende Parameter ergeben:
+
+\begin{align*}
+  A                  &= \lambda\ua{Rhodium\,104i} = (0.0023 \pm 0.0004) \, \frac{1}{\su{s}}\\
+  B                  &= N\ua{0,Rhodium\,104i}     = (4.1 \pm 0.2) \\
+  T\ua{Rhodium\,104i} &= (297 \pm 54) \, \su{s}
+\end{align*}
+
+\begin{figure}
+  \includegraphics[width = \textwidth]{Rhodium_links_log.pdf}
+  \caption{logarythmische Darstellung der gemessene Zerfälle für $t > t^{*}$ bei $\su{Rh}^{104i}$.}
+  \label{fig:Rh104i}
+\end{figure}
+
+Mit den bestimmten Parametern für $\su{Rh}^{104}$ und $\su{Rh}^{104i}$ kann nun
+auch eine Summenkurve nach Formel ?? gezeichnet werden (Abbildung \ref{fig:Summe}).
+
+\begin{figure}
+  \includegraphics[width = \textwidth]{Rhodium_normal}
+  \caption{Summenkurve für den Zerfall von $\su{Rh}_{45}^{103}$.}
+  \label{fig:Summe}
+\end{figure}
+
+\subsection{Diskussion}
+
+Wenn man die berechneten Halbwertszeiten für $\su{Rh}_{45}^{103}$ und $\su{In}_{49}^{115}$
+mit den Literaturwerten vergleicht, sieht man eine leichte Abweichung. Jedoch liegen
+die Literaturwerte bei zweien der drei Isotope im Fehlerintervall des jeweiligen
+experimentellen Werts und lediglich bei $\su{Rh}^{104}$ weicht der Wert stärker
+ab (siehe Tabelle \ref{tab:vergleich}).
+
+\begin{table}
+  \centering
+  \caption{Halbwertszeiten der verschiedenen Isotope}
+  \label{tab:vergleich}
+  \begin{tabular}{c c c}
+    \toprule
+    Isotop & $T_{exp} \, in \, \su{s}$ & $T_{Lit} \, in \, \su{s}$ \\
+    \midrule
+    $\su{In}_{49}^{115}$ & $3278 \, \pm \, 141$ & $3257$ \\
+    $\su{Rh}^{104}$      & $47 \, \pm \, 3$     & $42.3$ \\
+    $\su{Rh}^{104i}$     & $297 \, \pm \, 54$   & $274$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Zusammen mit dieser Erkenntnis und den verschiedenen Abbildungen lässt sich darauf
+schließen, dass die auftretenden Abweichungen lediglich durch statistische Fehler
+hervorgerufen werden.
+
+Fehlerquellen können hierbei vor allem der Nulleffekt und das Geiger-Müller-Zählrohr
+sein, da die von der Umgebung abgegebene Radioaktivität im Laufe des Experimentes
+schwankt und nicht anhand einer vorher ausgeführten Nullmessung komplett
+eliminiert werden kann.
 
 
 \end{document}
