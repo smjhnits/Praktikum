@@ -1,18 +1,3 @@
-\input{"../../Praeambel_prak.tex"}
-
-\title{Versuch 702}
-\subtitle{Aktivierung mit Neutronen}
-\author{Sebastian Pape\\
-        sepa@gmx.de \and
-        Jonah Nitschke\\
-        lejonah@web.de}
-\date{Durchführung: 18.07.2017\\
-      Abgabe: 25.07.2017}
-
-\begin{document}
-
-\maketitle
-
 \section{Auswertung}
 
 Bei der Nullmessung wurde ein Zeitintervall von $\increment t = 900$ gewählt und
@@ -20,10 +5,10 @@ es wurden zwei Messungen durchgeführt, deren Mittelwert für weitere Berechnung
 verwendet wurde:
 
 \begin{align*}
-  N\ua{1}                &= 218 \\
-  N\ua{2}                &= 224 \\
-  \bar{N}                &= 221 \\
-  \sigma\ua{Nullmessung} &= 14.87
+  N\ua{1} &= 218 \\
+  N\ua{2} &= 224 \\
+  \bar{N} &= 221 \\
+  \sigma\ua{Nullmessung} = 14.87
 \end{align*}
 
 Bei allen Messungen wird eine lineare Regression in der folgenden Form verwendet,
@@ -67,14 +52,21 @@ in Abbildung \ref{fig:Indium} dargestellt.
 \end{figure}
 
 Mithilfe einer linearen Regression der Form \eqref{eqn:linRegress} gemäß Formel
-?? werden dabei die Zeitkonstante $\lambda$ und $N\ua{0,Indium}$ bestimmt:
+\eqref{eqn:expo} werden dabei die Zeitkonstante $\lambda$ und $N\ua{0,Indium}$ bestimmt:
 
 \begin{align*}
 A &= \lambda\ua{Indium} = (0.0002 \pm 9 \cdot 10^{-6}) \, \frac{1}{\su{s}}\\
 B &= N\ua{0,Indium}     = (7.96 \pm 0.02)
 \end{align*}
 
-Mit der Formel ?? kann aus der bestimmten Zeitkonstante nun die Halbwertzeit von
+\begin{align}
+  T(\lambda) &= \frac{ln(2)}{\lambda} \\
+  \sigma_{T} &= \frac{ln(2)}{\lambda^2} \cdot \sigma_{\lambda}
+  \label{eqn:Halbwert}
+\end{align}
+
+
+Mit der Formel \eqref{eqn:Halbwert} kann aus der bestimmten Zeitkonstante nun die Halbwertzeit von
 Indium bestimmt werden, für die sich der folgende Wert ergibt:
 
 \begin{equation*}
@@ -134,15 +126,15 @@ Unterteilung die Messzeiten $t^{*}=355 \, \su{s}$ und $t_{max}=80 \, \su{s}$ gew
 
 Mithilfe einer linearen Regression gemäß Formel \eqref{eqn:linRegress} können
 dann mithilfe der Werte für $t < t_{max}$ (Abbildung \ref{fig:Rh104}) zuerst die beiden Parameter
-für $\su{Rh}^{104}$ bestimmt:
+für $\su{Rh}^{104}$ bestimmt werden:
 
 \begin{align*}
   A &= \lambda\ua{Rhodium\,104} = (0.0147 \pm 0.0009) \, \frac{1}{\su{s}}\\
   B &= N\ua{0,Rhodium\,104}     = (6.68 \pm 0.05)
 \end{align*}
 
-Mit den Werten ergibt sich für die Halbwertszeit von $\su{Rh}^{104}$ folgender
-Wert:
+Mit den Werten und Formel \eqref{eqn:Halbwert} ergibt sich für die Halbwertszeit
+von $\su{Rh}^{104}$ folgender Wert:
 
 \begin{equation*}
   T\ua{Rhodium\,104} = (47 \pm 3) \, \su{s}
@@ -185,7 +177,7 @@ ab (siehe Tabelle \ref{tab:vergleich}).
 
 \begin{table}
   \centering
-  \caption{Halbwertszeiten der verschiedenen Isotope}
+  \caption{Halbwertszeiten der verschiedenen Isotope \cite{Page01}.}
   \label{tab:vergleich}
   \begin{tabular}{c c c}
     \toprule
@@ -206,6 +198,3 @@ Fehlerquellen können hierbei vor allem der Nulleffekt und das Geiger-Müller-Z�
 sein, da die von der Umgebung abgegebene Radioaktivität im Laufe des Experimentes
 schwankt und nicht anhand einer vorher ausgeführten Nullmessung komplett
 eliminiert werden kann.
-
-
-\end{document}
