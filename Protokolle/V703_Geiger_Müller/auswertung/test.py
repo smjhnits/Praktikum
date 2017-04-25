@@ -102,18 +102,18 @@ print('Totzeit aus 2 Q M: ', Totzeit_2)
 
 
 
-params_2, covariance_2 = curve_fit(function, Stromstärken[7:31], plateau_y)
+params_2, covariance_2 = curve_fit(function, plateau_y, Stromstärken[7:31])
 
 plt.clf()
-plt.plot(Stromstärken[7:31], plateau_y, 'kx', label = r'$Gemessene \,\, Daten$')
-plt.plot(np.linspace(1, 4.3), function(np.linspace(1, 4.3), *params_2), 'r-', label = r'$lineare \,\, Regression$')
-plt.xlabel(r'$U \,\, in \,\, \mu A$')
-plt.ylabel(r'$\frac{N}{\Delta t} \,\, in \,\, \frac{1}{s}$')
-plt.xlim(1, 4.3)
-plt.ylim(34700, 36300)
+plt.plot(plateau_y, Stromstärken[7:31],'kx', label = r'$Gemessene \,\, Daten$')
+plt.plot(np.linspace(34700, 36000), function(np.linspace(34700, 36000), *params_2), 'r-', label = r'$lineare \,\, Regression$')
+plt.xlabel(r'$\frac{N}{\Delta t} \,\, in \,\, \frac{1}{s}$')
+plt.ylabel(r'$I \,\, in \,\, \mu A$')
+plt.ylim(1, 4.3)
+plt.xlim(34700, 36000)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
 plt.savefig('Stromstärke_gegen_Anzahl.pdf')
 
-print(params_2)
+print(params_2, np.diag(np.sqrt(covariance_2)))
