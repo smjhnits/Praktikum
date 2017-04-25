@@ -1,0 +1,199 @@
+\input{"../../../Praeambel_prak.tex"}
+
+\begin{document}
+
+\section{Auswertung}
+
+Im Folgendem werden die erhobenen Messdaten ausgewertet und abschließend
+bezüglich ihrer Genauigkeit disskutiert.
+
+\subsection{Zählrohr-Chrakteristik}
+
+Anhand der gemessenen Teilchenanzahl und der zugehörigen Spannung kann die
+Charakteristik des verwendeten Geiger-Müller-Zählrohres.
+
+Die Charakteristik ergibt sich aus den Messdaten, die in Tabelle \ref{tab:}
+dargestellt sind. Die Messungen sollten von $\SI{300}{\volt}$ bis $\SI{700}{\volt}$
+vollzogen werde, jedoch ergaben die Messungen bei $\SI{300}{\volt}$ und
+$\SI{310}{\volt}$ eine registrierte Teilchenanzahl von Null.
+Dies erscheint unrealistisch und wurde aus diesem Grund von der Auswertung
+ausgeschlossen. Aus diesem Grund wurde die Messung aus dem Wertebereich
+von $\SI{320}{\volt}$ bis $\SI{700}{\volt}$ in $\SI{10}{\volt}$-Schritten
+durchgeführt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Charakteristik.pdf}
+  \caption{Charakteristik des verwendeten Geiger-Müller-Zählrohres, $\Delta t = \SI{60}{\second}$}
+  \label{fig:Charakteristik}
+\end{figure}
+
+Die in \ref{fig:Charakteristik} dargestellte Charakteristik zeigt die verwendete
+Apparatur bei einer Betriebsspannung zwischen $\num{320}$ bis $\SI{700}{\volt}$.
+
+Die Plateau-Ebene ist deutlich zu erkennen, da in diesem Bereich das Verhältnis zwischen
+registrierter Teilchenanzahl pro Minute und der Spannung nahezu konstant ist.
+Die Plateau-Ebene beginnt bei ca. $\SI{380}{\volt}$ und endet bei ca.
+$\SI{630}{\volt}$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plateau.pdf}
+  \caption{Plateau-Ebene des Messgerätes mit linearer Regression}
+  \label{fig:Plateau}
+\end{figure}
+
+Die Regressionsgeraden an den Plateau-Bereich hat ungefähr die folgenden Daten.
+
+\begin{equation}
+  \label{eqn:function}
+  \frac{N}{\Delta t}(U) = \SI{6315e-5}{\per\volt\per\second} + \SI{5587e-1}{\per\second}
+\end{equation}
+
+
+Vor der Platreau-Ebene ist der Proportionalitätsbereich von $\SI{320}{\volt}$ bis $\SI{380}{\volt}$ vermessen worden.
+
+An den Plateau-Bereich schließt sich der Entladungsbereich an, der
+bis $\SI{700}{\volt}$ gemessen wurde. In diesem Bereich nimmt die
+Steigung der registrierten Teilchenanzahl pro Minute im Bezug auf
+die angelegte Spannung exponentiell zu.
+
+
+\subsection{Qualitative Bestimmung der Totzeit}
+
+Die Nachentladungen konnten bei dem Messvorgang der Totzeit $\tau$, über das
+Oszilloskop deutlich beobachtet werden.
+Es wurden insgesamt fünf Messungen bei unterschiedlicher Anodenspannung
+genommen.
+
+
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \caption{Qualitativ bestimmte Totzeit}
+ \sisetup{table-format=3.0}
+ \begin{tabular}[width=\textwidth]{S S}
+     \toprule
+   {Spannung in  $\si{volt}$} & {Totzeit in $\si{\mu\second}$}\\
+     \midrule
+     400 & 180 \\
+     450 & 190 \\
+     500 & 200 \\
+     550 & 210 \\
+     600 & 215 \\
+    \bottomrule
+\end{tabular}
+  \label{tab:Totzeit_1}
+\end{table}
+
+Aus den Daten der Tabelle \ref{tab:Totzeit_1} wurde der Mittelwert mit
+zugehöriger Standardabweichung bestimmt.
+Es ergibt sich der Wert $\tau = \SI{2.39 (8)}{\mu\second}$.
+
+Gleichzeitig wurde auch die Erholungszeit qualitativ bestimmt.
+Die Messergebnisse sind in Tabelle \ref{tab: Erholungszeit} angegeben.
+
+\floatplacement{table}{htbp}
+\begin{table}
+ \centering
+ \caption{Qualitativ bestimmte Totzeit}
+ \sisetup{table-format=3.0}
+ \begin{tabular}[width=\textwidth]{S S}
+     \toprule
+   {Spannung in  $\si{volt}$} & {Erholungszeit in $\si{\milli\second}$}\\
+     \midrule
+     400 & 2,3 \\
+     450 & 2,3 \\
+     500 & 2,4 \\
+     550 & 2,45 \\
+     600 & 2,5 \\
+    \bottomrule
+\end{tabular}
+  \label{tab:Erholungszeit}
+\end{table}
+
+Für die Erholungszeit ergibt sich der Wert $t_{\symup{Erholung}}$
+
+\subsection{Bestimmung der Totzeit mithilfe der Zwei-Quellen-Methode}
+
+Die wahre Impulsrate $N_{\symup{w}}$ unterscheidet sich aufgrund der Totzeit $\tau $von der
+gemessenen Impulsrate $N_{\symup{r}}$ um den Faktor $\frac{1}{1-\tau N_{\symup{r}}}$.
+
+Aus diesem Grund wird die Zwei-Quellen-Methode verwendet, bei der
+zuerst die Impulsrate einer einzelnen Quelle gemessen wird.
+Daraufhin wird eine weitere Quelle hinzugefügt, die eine unterschiedliche
+Strahlungsrate besitzt. Im letzten Schritt wird die erste Quelle aus der
+Apparatur entnommen.
+
+Aufgrund der genommenen Messwerte kann die Totzeit für $\tau^2N_{\symup{i}}^2 << 1$
+($i = 1, 2, 1+2$) durch die Formel \ref{eqn:Totzeit} approximiert werden.
+
+\begin{equation}
+  \label{eqn:Totzeit}
+  \tau \approx \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
+\end{equation}
+
+Die Messung ergaben die folgenden Werte.
+
+\begin{description}
+  \item[$N_1$] 25692
+  \item[$N_2$] 1109
+  \item[$N_{1+2}$] 26775
+\end{description}
+
+Dabei sind die $N_i$ ($i = 1, 2, 1+2$) in registrierten Teilchen pro Minute bestimmt.
+
+Aus den Messwerten ergibt sich mit der Formel \ref{eqn:Totzeit}
+$\tau$ zu \SI{3(24)e-5}{\second}.
+
+\subsection{Messung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge}
+
+In dem Versuch wurde der vom Zählrohr freigesetzte Strom
+in Abhängigkeit von der angelegten Spannung gemessen.
+Die Messung wurde in $\SI{10}{\volt}$ Schritten von
+$\SI{320}{\volt}$ bis $\SI{700}{\volt}$ durchgeführt.
+Die Messdaten sind in Tabelle \ref{tab:} dargestellt.
+Zwischen der Zählrate und der gemessenen Stromstärke besteht ein
+linearer Zusammenhang der wie folgt dazustellen ist.
+
+\begin{equation*}
+  I = \Delta Q \cdot N
+\end{equation*}
+
+Deshalb lässt sich die freigesetzte Ladung por Teilchen im Zählrohr über eine
+lineare Regression aus den Daten der Tabelle \ref{tab:} ermitteln.
+Dafür wurde die registrierte Teilchenanzahl pro Minute der Stromstärke
+gegenübergestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Stromstärke_gegen_Anzahl.pdf}
+  \caption{Teilchenanzahl pro Minute gegenüber der gemessenen Stromstärke mit linearer Regression}
+  \label{fig:Stromstärke_gegen_Anzahl}
+\end{figure}
+
+Die Ausgleichsgerade hat die folgenden Daten.
+
+
+
+\section{Diskussion}
+
+Die Steigung der Regressiongeraden, die an die Plateau-Ebene angelegt wurde
+besitzt eine sehr geringe Steigung (vgl. \ref{eqn:function}).
+Damit ist das Verhältnis zwischen registriertet Teilchenanzahl und Spannung
+im Rahmen der Messgenauigkeit als konstant anzusehen.
+
+Die Totzeit konnte an der verwendeten Apparatur nicht über die Zwei-Quellen-Methode
+bestimmt werden, da die Probenhalterung beim einlegen der zweiten Quelle
+verwackelt ist, sodass keine zuverlässigen Messwerte erhoben werden konnten.
+Die verwendeten Messdaten entstammen den Messungen der parallel arbeitenden
+Gruppe Steven D. Becker und Stefan G. Grisard.
+Deshalb ist der Vergleich zwischen den Methoden zur Bestimmung der Totzeit
+nicht sinnvoll. Deshalb wird angenommen, dass die qualitativ bestimmte
+Totzeit tatsächlich die Totzeit der Apparatur genügend gut beschreibt.
+
+\section{Messdaten}
+
+In diesem Kapitel sind die
+
+\end{document}
