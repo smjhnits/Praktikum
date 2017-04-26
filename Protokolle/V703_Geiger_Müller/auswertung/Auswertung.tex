@@ -74,7 +74,7 @@ genommen.
  \sisetup{table-format=3.0}
  \begin{tabular}[width=\textwidth]{S S}
      \toprule
-   {Spannung in  $\si{volt}$} & {Totzeit in $\si{\mu\second}$}\\
+   {Spannung in  $\si{\volt}$} & {Totzeit in $\si{\mu\second}$}\\
      \midrule
      400 & 180 \\
      450 & 190 \\
@@ -100,7 +100,7 @@ Die Messergebnisse sind in Tabelle \ref{tab:Erholungszeit} angegeben.
  \sisetup{table-format=3.0}
  \begin{tabular}[width=\textwidth]{S S}
      \toprule
-   {Spannung in  $\si{volt}$} & {Erholungszeit in $\si{\milli\second}$}\\
+   {Spannung in  $\si{\volt}$} & {Erholungszeit in $\si{\milli\second}$}\\
      \midrule
      400 & 2,3 \\
      450 & 2,3 \\
@@ -183,7 +183,7 @@ Die Ladung pro Teilchen ist ungefähr gleich der Steigung der Ausgleichsgeraden.
 Damit wird jedem Teilchen eine freigesetzte Ladungsmende von $\approx \SI{2,406e-3}{\coulomb}$
 zugeordnet. Dies entspricht ca. $\num{1,502e16}$ Elementarladungen.
 
-Zudem wurde die Stromstärke bei steigender Spannung gemessen. Das Messintervall
+Zudem wurde die Stromstärke bei steigender SPannung gemessen. Das Messintervall
 erstreckt sich über den selben Spannungsbereich wie bei Bestimmung der Charakteristik.
 
 Eine Grafik dieses Diagrammes ist in Abb. \ref{fig:Spannung gegen Strom}
@@ -237,56 +237,58 @@ In diesem Kapitel sind die Messdaten der Messung der Charakteristik dargestellt.
 
 
 
-\floatplacement{table}{htbp}
-\begin{table}
- \centering
- \caption{Messdaten zur Charakteristik}
- \begin{tabular}[width=\textwidth]{S S S}
-     \toprule
-   {Spannung in  $\si{volt}$} & {Zählrate in $\frac{1}{\si{\minute}}$} & {Stromstärke in $\si{\milli\ampere}$}\\
-     \midrule
-     320 & 33062 & 0,3 \\
-     330 & 33816 & 0,45 \\
-     340 & 33883 & 0,6 \\
-     350 & 34142 & 0,7 \\
-     360 & 34549 & 0,85 \\
-     370 & 34491 & 0,95 \\
-     380 & 34815 & 1,1 \\
-     390 & 34818 & 1,2 \\
-     400 & 34975 & 1,25 \\
-     410 & 35219 & 1,4 \\
-     420 & 34923 & 1,6 \\
-     430 & 35100 & 1,7 \\
-     440 & 34947 & 1,8 \\
-     450 & 35133 & 1,9 \\
-     460 & 35390 & 2,1 \\
-     470 & 35342 & 2,3 \\
-     480 & 35359 & 2,4 \\
-     490 & 35363 & 2,5 \\
-     500 & 35234 & 2,6 \\
-     510 & 35695 & 2,8 \\
-     520 & 35722 & 2,9 \\
-     530 & 35332 & 3,0 \\
-     540 & 35523 & 3,0 \\
-     550 & 35617 & 3,2 \\
-     560 & 35747 & 3,3 \\
-     570 & 35433 & 3,4 \\
-     580 & 35827 & 3,5 \\
-     590 & 35757 & 3,6 \\
-     600 & 35908 & 3,8 \\
-     610 & 35868 & 3,95 \\
-     620 & 35853 & 4,0 \\
-     630 & 36340 & 4,1 \\
-     640 & 36405 & 4,4 \\
-     650 & 36758 & 4,5 \\
-     660 & 37352 & 4,7 \\
-     670 & 37824 & 4,8 \\
-     680 & 38535 & 4,9 \\
-     690 & 39689 & 5,2 \\
-     700 & 41082 & 5,4 \\
-    \bottomrule
-\end{tabular}
-  \label{tab:Charakteristik}
-\end{table}
+%\floatplacement{table}{htbp}
+%\begin{table}
+% \centering
+% \caption{Messdaten zur Charakteristik}
+% \begin{tabular}[width=\textwidth]{S S S}
+%     \toprule
+%   {Spannung in  $\si{volt}$} & {Zählrate in $\frac{1}{\si{\minute}}$} & %{Stromstärke in $\si{\milli\ampere}$}\\
+%     \midrule
+%     320 & 33062 & 0,3 \\
+%     330 & 33816 & 0,45 \\
+%     340 & 33883 & 0,6 \\
+%     350 & 34142 & 0,7 \\
+%     360 & 34549 & 0,85 \\
+%     370 & 34491 & 0,95 \\
+%     380 & 34815 & 1,1 \\
+%     390 & 34818 & 1,2 \\
+%     400 & 34975 & 1,25 \\
+%     410 & 35219 & 1,4 \\
+%     420 & 34923 & 1,6 \\
+%     430 & 35100 & 1,7 \\
+%     440 & 34947 & 1,8 \\
+%     450 & 35133 & 1,9 \\
+%     460 & 35390 & 2,1 \\
+%     470 & 35342 & 2,3 \\
+%     480 & 35359 & 2,4 \\
+%     490 & 35363 & 2,5 \\
+%     500 & 35234 & 2,6 \\
+%     510 & 35695 & 2,8 \\
+%     520 & 35722 & 2,9 \\
+%     530 & 35332 & 3,0 \\
+%     540 & 35523 & 3,0 \\
+%     550 & 35617 & 3,2 \\
+%     560 & 35747 & 3,3 \\
+%     570 & 35433 & 3,4 \\
+%     580 & 35827 & 3,5 \\
+%     590 & 35757 & 3,6 \\
+%     600 & 35908 & 3,8 \\
+%     610 & 35868 & 3,95 \\
+%     620 & 35853 & 4,0 \\
+%     630 & 36340 & 4,1 \\
+%     640 & 36405 & 4,4 \\
+%     650 & 36758 & 4,5 \\
+%     660 & 37352 & 4,7 \\
+%     670 & 37824 & 4,8 \\
+%     680 & 38535 & 4,9 \\
+%     690 & 39689 & 5,2 \\
+%     700 & 41082 & 5,4 \\
+%    \bottomrule
+%\end{tabular}
+%  \label{tab:Charakteristik}
+%\end{table}
+
+\input{"Tabelle_Charakteristik.tex"}
 
 \end{document}
