@@ -47,11 +47,11 @@ Die Regressionsgeraden an den Plateau-Bereich hat ungefähr die folgenden Daten.
 
 \begin{equation}
   \label{eqn:function}
-  \frac{N}{\Delta t}(U) = \SI{6315e-5}{\per\volt\per\second} + \SI{5587e-1}{\per\second}
+  \frac{N}{\Delta t}(U) = \SI{6315e-5}{\per\volt\per\second} \cdot U + \SI{5587e-1}{\per\second}
 \end{equation}
 
 
-Vor der Platreau-Ebene ist der Proportionalitätsbereich von $\SI{320}{\volt}$ bis $\SI{380}{\volt}$ vermessen worden.
+Vor der Plateau-Ebene ist der Proportionalitätsbereich von $\SI{320}{\volt}$ bis $\SI{380}{\volt}$ vermessen worden.
 
 An den Plateau-Bereich schließt sich der Entladungsbereich an, der
 bis $\SI{700}{\volt}$ gemessen wurde. In diesem Bereich nimmt die
@@ -61,7 +61,7 @@ die angelegte Spannung exponentiell zu.
 
 \subsection{Qualitative Bestimmung der Totzeit}
 
-Die Nachentladungen konnten bei dem Messvorgang der Totzeit $\tau$, über das
+Die Nachentladungen konnten bei dem Messvorgang der Totzeit $\Tau$, über das
 Oszilloskop deutlich beobachtet werden.
 Es wurden insgesamt fünf Messungen bei unterschiedlicher Anodenspannung
 genommen.
@@ -88,7 +88,7 @@ genommen.
 
 Aus den Daten der Tabelle \ref{tab:Totzeit_1} wurde der Mittelwert mit
 zugehöriger Standardabweichung bestimmt.
-Es ergibt sich der Wert $\tau = \SI{2.39 (8)}{\mu\second}$.
+Es ergibt sich der Wert $\Tau = \SI{2.39 (8)}{\mu\second}$.
 
 Gleichzeitig wurde auch die Erholungszeit qualitativ bestimmt.
 Die Messergebnisse sind in Tabelle \ref{tab:Erholungszeit} angegeben.
@@ -116,8 +116,8 @@ Für die Erholungszeit ergibt sich der Wert $t_{\symup{Erholung}} = \SI{2,39(8)}
 
 \subsection{Bestimmung der Totzeit mithilfe der Zwei-Quellen-Methode}
 
-Die wahre Impulsrate $N_{\symup{w}}$ unterscheidet sich aufgrund der Totzeit $\tau $von der
-gemessenen Impulsrate $N_{\symup{r}}$ um den Faktor $\frac{1}{1-\tau N_{\symup{r}}}$.
+Die wahre Impulsrate $N_{\symup{w}}$ unterscheidet sich aufgrund der Totzeit $\Tau$ von der
+gemessenen Impulsrate $N_{\symup{r}}$ um den Faktor $\frac{1}{1-\Tau N_{\symup{r}}}$.
 
 Aus diesem Grund wird die Zwei-Quellen-Methode verwendet, bei der
 zuerst die Impulsrate einer einzelnen Quelle gemessen wird.
@@ -125,12 +125,12 @@ Daraufhin wird eine weitere Quelle hinzugefügt, die eine unterschiedliche
 Strahlungsrate besitzt. Im letzten Schritt wird die erste Quelle aus der
 Apparatur entnommen.
 
-Aufgrund der genommenen Messwerte kann die Totzeit für $\tau^2N_{\symup{i}}^2 << 1$
+Aufgrund der genommenen Messwerte kann die Totzeit für $\Tau^2N_{\symup{i}}^2 << 1$
 ($i = 1, 2, 1+2$) durch die Formel \eqref{eqn:Totzeit} approximiert werden.
 
 \begin{equation}
   \label{eqn:Totzeit}
-  \tau \approx \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
+  \Tau \approx \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
 \end{equation}
 
 Die Messung ergaben die folgenden Werte.
@@ -144,7 +144,7 @@ Die Messung ergaben die folgenden Werte.
 Dabei sind die $N_i$ ($i = 1, 2, 1+2$) in registrierten Teilchen pro Minute bestimmt.
 
 Aus den Messwerten ergibt sich mit der Formel \eqref{eqn:Totzeit}
-$\tau$ zu \SI{3(24)e-5}{\second}.
+$\Tau$ zu \SI{3(24)e-5}{\second}.
 
 \subsection{Messung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge}
 
@@ -183,7 +183,7 @@ Die Ladung pro Teilchen ist ungefähr gleich der Steigung der Ausgleichsgeraden.
 Damit wird jedem Teilchen eine freigesetzte Ladungsmende von $\approx \SI{2,406e-3}{\coulomb}$
 zugeordnet. Dies entspricht ca. $\num{1,502e16}$ Elementarladungen.
 
-Zudem wurde die Stromstärke bei steigender SPannung gemessen. Das Messintervall
+Zudem wurde die Stromstärke bei steigender Spannung gemessen. Das Messintervall
 erstreckt sich über den selben Spannungsbereich wie bei Bestimmung der Charakteristik.
 
 Eine Grafik dieses Diagrammes ist in Abb. \ref{fig:Spannung gegen Strom}
