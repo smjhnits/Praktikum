@@ -38,7 +38,7 @@ Quelle_1 = ufloat(25692 / 60, np.sqrt(25692) / 60)
 Quelle_1_2 = ufloat(26775 / 60, np.sqrt(26775) / 60)
 Quelle_2 = ufloat(1109 / 60, np.sqrt(1109) / 60)
 
-plt.errorbar(testXAchse, Zählrate/60, yerr=Zählrate_err/60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
+plt.errorbar(testXAchse, Zählrate/60, yerr=Zählrate_err / 60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
 plt.plot(np.ones(200) * 630, np.linspace(540, 700, 200), 'g--', label = r'Beginn des Entladungsbereiches')
 plt.plot(np.ones(200) * 380, np.linspace(540, 700, 200), 'b--', label = r'Beginn des Pleateau-Bereiches')
 plt.xlabel(r'$U \,\, in \,\, V$')
@@ -62,8 +62,9 @@ plt.savefig('Spannung_gege_Strom.pdf')
 #  Plateubereich von 380 - 620 V
 
 plateau_y = Zählrate[7:31]
+plateau_yerr = np.sqrt(plateau_y)
 plateau_x = np.linspace(380, 620, 24)
-
+print(plateau_yerr)
 #  lineareRegression an die Plateau-Ebene
 
 def function(x, a, b):
@@ -74,6 +75,7 @@ params, covariance = curve_fit(function, np.linspace(370, 630, 24), plateau_y / 
 print('Plateau_steigung: ', params)
 
 plt.clf()
+plt.errorbar(plateau_x, plateau_y / 60, yerr=plateau_yerr / 60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
 plt.plot(plateau_x, plateau_y / 60, 'kx', label = r'$Gemessene \,\, \beta - Teilchen$')
 plt.plot(np.linspace(370, 630, 24), function(np.linspace(370, 630, 24), *params), 'r-', label = r'$lineare \,\, Regression$')
 plt.xlabel(r'$U \,\, in \,\, V$')
@@ -102,15 +104,16 @@ print('Totzeit aus 2 Q M: ', Totzeit_2)
 
 
 
-params_2, covariance_2 = curve_fit(function, plateau_y, Stromstärken[7:31])
+params_2, covariance_2 = curve_fit(function, plateau_y / 60, Stromstärken[7:31])
 
 plt.clf()
+plt.errorbar(plateau_y / 60, Stromstärken[7:31], xerr=plateau_yerr /60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
 plt.plot(plateau_y, Stromstärken[7:31],'kx', label = r'$Gemessene \,\, Daten$')
-plt.plot(np.linspace(34700, 36000), function(np.linspace(34700, 36000), *params_2), 'r-', label = r'$lineare \,\, Regression$')
+plt.plot(np.linspace(34700 / 60, 36000 / 60), function(np.linspace(34700 / 60, 36000 / 60), *params_2), 'r-', label = r'$lineare \,\, Regression$')
 plt.xlabel(r'$\frac{N}{\Delta t} \,\, in \,\, \frac{1}{s}$')
 plt.ylabel(r'$I \,\, in \,\, \mu A$')
 plt.ylim(1, 4.3)
-plt.xlim(34700, 36000)
+plt.xlim(34700 / 60, 36000 / 60)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
