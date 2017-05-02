@@ -4,16 +4,20 @@ from uncertainties import ufloat
 import uncertainties.unumpy as unp
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import scipy.constants as const
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 
-testXAchse = np.linspace(320, 700, 39)
+Spannung = np.linspace(320, 700, 39)
+
+elektron_l = const.elementary_charge
 
 def mean(x, name):
     print(name, np.mean(x))
     return np.mean(x)
 
 def std(x, name):
-    print(name, np.std(x) / np.sqrt(x))
-    return np.std(x) / np.sqrt(x)
+    print(name, np.std(x) / np.sqrt(len(x)))
+    return np.std(x) / np.sqrt(len(x))
 
 Zählrate = np.array([33062, 33816, 33883, 34142, 34549, 34491, 34815, 34818,
                      34975, 35219, 34923, 35100, 34947, 35133, 35390, 35342,
@@ -38,7 +42,9 @@ Quelle_1 = ufloat(25692 / 60, np.sqrt(25692) / 60)
 Quelle_1_2 = ufloat(26775 / 60, np.sqrt(26775) / 60)
 Quelle_2 = ufloat(1109 / 60, np.sqrt(1109) / 60)
 
-plt.errorbar(testXAchse, Zählrate/60, yerr=Zählrate_err / 60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
+print('Quelle_1, Quelle_2, Quelle_1_2. ', Quelle_1, Quelle_2, Quelle_1_2)
+
+plt.errorbar(Spannung, Zählrate/60, yerr=Zählrate_err / 60, fmt='kx', label = r'Gezählte $\beta -Teilchen$')
 plt.plot(np.ones(200) * 630, np.linspace(540, 700, 200), 'g--', label = r'Beginn des Entladungsbereiches')
 plt.plot(np.ones(200) * 380, np.linspace(540, 700, 200), 'b--', label = r'Beginn des Pleateau-Bereiches')
 plt.xlabel(r'$U \,\, in \,\, V$')
@@ -49,15 +55,15 @@ plt.grid()
 plt.tight_layout()
 plt.savefig('Charakteristik.pdf')
 
-plt.clf()
-plt.plot(testXAchse, Stromstärken, 'kx', label = r'$Gemessene \,\, Stromstärken$')
-plt.xlabel(r'$U \,\, in \,\, V$')
-plt.ylabel(r'$I \,\, in \,\, A$')
-plt.xlim(300, 710)
-plt.legend(loc='best')
-plt.grid()
-plt.tight_layout()
-plt.savefig('Spannung_gege_Strom.pdf')
+# plt.clf()
+# plt.plot(Spannung, Stromstärken, 'kx', label = r'Gemessene Stromstärken')
+# plt.xlabel(r'$U$ in $V$')
+# plt.ylabel(r'$I$ in $A$')
+# plt.xlim(300, 710)
+# plt.legend(loc='best')
+# plt.grid()
+# plt.tight_layout()
+# plt.savefig('Spannung_gege_Strom.pdf')
 
 #  Plateubereich von 380 - 620 V
 
@@ -72,14 +78,14 @@ def function(x, a, b):
 
 params, covariance = curve_fit(function, np.linspace(370, 630, 24), plateau_y / 60)
 
-print('Plateau_steigung: ', params)
+print('Plateau_steigung: ', params, np.sqrt(np.diag(covariance)))
 
 plt.clf()
-plt.errorbar(plateau_x, plateau_y / 60, yerr=plateau_yerr / 60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
-plt.plot(plateau_x, plateau_y / 60, 'kx', label = r'$Gemessene \,\, \beta - Teilchen$')
-plt.plot(np.linspace(370, 630, 24), function(np.linspace(370, 630, 24), *params), 'r-', label = r'$lineare \,\, Regression$')
-plt.xlabel(r'$U \,\, in \,\, V$')
-plt.ylabel(r'$\frac{N}{\Delta t} \,\, in \,\, \frac{1}{s}$')
+plt.errorbar(plateau_x, plateau_y / 60, yerr=plateau_yerr / 60, fmt='kx', label = r'Gezählte $\beta$ -Teilchen')
+plt.plot(plateau_x, plateau_y / 60, 'kx', label = r'Gemessene $\beta$ - Teilchen')
+plt.plot(np.linspace(370, 630, 24), function(np.linspace(370, 630, 24), *params), 'r-', label = r'lineare Regression')
+plt.xlabel(r'$U$ in $V$')
+plt.ylabel(r'$\frac{N}{\Delta t}$ in $\frac{1}{s}$')
 plt.xlim(370, 630)
 plt.ylim(560, 620)
 plt.legend(loc='best')
@@ -101,22 +107,36 @@ print('Totzeit aus 2 Q M: ', Totzeit_2)
 
 
 #  Aufgabe e
+def Ladungf (I, N):
+    return I / N
 
 
-
-params_2, covariance_2 = curve_fit(function, plateau_y / 60, Stromstärken[7:31])
-
+Anzahl = unp.uarray(60 * Zählrate, 60 * Zählrate_err)
+Ladung = unp.uarray(noms(Ladungf(Stromstärken, Anzahl)),stds(Ladungf(Stromstärken, Anzahl))) * 10**(-6) * 10**(-7)
+print(Ladung * 10**7)
 plt.clf()
-plt.errorbar(plateau_y / 60, Stromstärken[7:31], xerr=plateau_yerr /60, fmt='kx', label = r'$Gezählte \,\, \beta -Teilchen$')
-plt.plot(plateau_y, Stromstärken[7:31],'kx', label = r'$Gemessene \,\, Daten$')
-plt.plot(np.linspace(34700 / 60, 36000 / 60), function(np.linspace(34700 / 60, 36000 / 60), *params_2), 'r-', label = r'$lineare \,\, Regression$')
-plt.xlabel(r'$\frac{N}{\Delta t} \,\, in \,\, \frac{1}{s}$')
-plt.ylabel(r'$I \,\, in \,\, \mu A$')
-plt.ylim(1, 4.3)
-plt.xlim(34700 / 60, 36000 / 60)
+plt.errorbar(Spannung, noms(Ladung)/ elektron_l, yerr=stds(Ladung) / elektron_l, fmt='kx', label=r'Fehler')
+plt.plot(Spannung, noms(Ladung) / elektron_l, 'kx', label=r'Messdaten')
+plt.ylabel(r'Freigesetzte Elementarladungen $\cdot 10^{-7}$')
+plt.xlabel(r'Spannung $U$ in V')
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
-plt.savefig('Stromstärke_gegen_Anzahl.pdf')
+plt.savefig('Spannung_Ladung.pdf')
 
-print(params_2, np.diag(np.sqrt(covariance_2)))
+# params_2, covariance_2 = curve_fit(function, plateau_y / 60, Stromstärken[7:31])
+
+# plt.clf()
+# plt.errorbar(plateau_y / 60, Stromstärken[7:31], xerr=plateau_yerr /60, fmt='kx', label = r'Gezählte $\beta$ -Teilchen')
+# plt.plot(plateau_y, Stromstärken[7:31],'kx', label = r'Gemessene Daten')
+# plt.plot(np.linspace(34700 / 60, 36000 / 60), function(np.linspace(34700 / 60, 36000 / 60), *params_2), 'r-', label = r'lineare # Regression')
+# plt.xlabel(r'$\frac{N}{\Delta t}$ in $\frac{1}{s}$')
+# plt.ylabel(r'$I$ in $\mu A$')
+# plt.ylim(1, 4.3)
+# plt.xlim(34700 / 60, 36000 / 60)
+# plt.legend(loc='best')
+# plt.grid()
+# plt.tight_layout()
+# plt.savefig('Stromstärke_gegen_Anzahl.pdf')
+#
+# print(params_2, np.diag(np.sqrt(covariance_2)))

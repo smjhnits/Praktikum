@@ -7,9 +7,17 @@ from uncertainties import ufloat_fromstr
 from pint import UnitRegistry
 import string
 import latex
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
+import uncertainties.unumpy as unp
+import scipy.constants as const
 ureg = UnitRegistry()
 Q_ = ureg.Quantity
 
+
+elektron_l = const.elementary_charge
+
+def Ladungf (I, N):
+    return I / N
 
 class Latexdocument(object):
     def __init__(self, filename):
@@ -43,5 +51,11 @@ I = np.array([0.3, 0.45, 0.6, 0.7, 0.85, 0.95, 1.1, 1.2,  1.25, 1.4,
                                               2.9,  3.0, 3.0, 3.2,  3.3,  3.4, 3.5, 3.6, 3.8, 3.95,
                                               4.0,  4.1, 4.4, 4.5,  4.7,  4.8, 4.9, 5.2, 5.4])
 Zählrate_err = np.sqrt(Zählrate)
-testXAchse = np.linspace(320, 700, 39)
-Latexdocument('Tabelle_Charakteristik.tex').tabular([testXAchse, Zählrate,Zählrate_err, I], '   {Spannung in  $\si{volt}$} & {Zählrate $N$ in $\frac{1}{\si{\minute}}$} & {$\Delta N$} &  {Stromstärke in $\si{\milli\ampere}$}', [0, 0, 0, 2], caption = 'bla', label = 'bla')
+Spannung = np.linspace(320, 700, 39)
+
+
+
+Anzahl = unp.uarray(60 * Zählrate, 60 * Zählrate_err)
+Ladung = unp.uarray(noms(Ladungf(I, Anzahl)),stds(Ladungf(I, Anzahl))) * 10**(-12) / elektron_l
+
+Latexdocument('Tabelle_Charakteristik.tex').tabular([Spannung, Zählrate,Zählrate_err, I, noms(Ladung), stds(Ladung)], '{Spannung in  $\si{\volt}$} & \multicolumn {2}{c}{Zählrate in $N$ in $\frac{1}{\si{\minute}}$} & {Stromstärke in  $\si{\milli\ampere}$ } & \multicolumn {2}{c}{Anzahl freigesetzter Elementarladungen in $\si{\milli\coulomb}$} \\', [0, 0, 0, 2, 3, 3], caption = 'Messdaten der Charakteristik', label = 'tab:Charakteristik')

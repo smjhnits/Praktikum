@@ -6,7 +6,7 @@ bezüglich ihrer Genauigkeit disskutiert.
 \subsection{Zählrohr-Chrakteristik}
 
 Anhand der gemessenen Teilchenanzahl und der zugehörigen Spannung kann die
-Charakteristik des verwendeten Geiger-Müller-Zählrohres.
+Charakteristik des verwendeten Geiger-Müller-Zählrohres bestimmt werden.
 
 Die Charakteristik ergibt sich aus den Messdaten, die in Tabelle \ref{tab:Charakteristik}
 dargestellt sind. Die Messungen sollten von $\SI{300}{\volt}$ bis $\SI{700}{\volt}$
@@ -43,7 +43,7 @@ Die Regressionsgeraden an den Plateau-Bereich hat ungefähr die folgenden Daten.
 
 \begin{equation}
   \label{eqn:function}
-  \frac{N}{\Delta t}(U) = \SI{6315e-5}{\per\volt\per\second} \cdot U + \SI{5587e-1}{\per\second}
+  \frac{N}{\Delta t}(U) = \SI{6315(609)e-5}{\per\volt\per\second} \cdot U + \SI{5587(31)e-1}{\per\second}
 \end{equation}
 
 
@@ -84,7 +84,7 @@ genommen.
 
 Aus den Daten der Tabelle \ref{tab:Totzeit_1} wurde der Mittelwert mit
 zugehöriger Standardabweichung bestimmt.
-Es ergibt sich der Wert $\Tau = \SI{2.39 (8)}{\mu\second}$.
+Es ergibt sich der Wert $\Tau = \SI{198 (6)}{\mu\second}$.
 
 Gleichzeitig wurde auch die Erholungszeit qualitativ bestimmt.
 Die Messergebnisse sind in Tabelle \ref{tab:Erholungszeit} angegeben.
@@ -132,9 +132,9 @@ Aufgrund der genommenen Messwerte kann die Totzeit für $\Tau^2N_{\symup{i}}^2 <
 Die Messungen ergaben die folgenden Werte.
 
 \begin{description}
-  \item[$N_1:$] 25692
-  \item[$N_2:$] 1109
-  \item[$N_{1+2}:$] 26775
+  \item[$N_1:$] $\num{428(3)}$
+  \item[$N_2:$] $\num{19(1)}$
+  \item[$N_{1+2}:$] $\num{446(3)}$
 \end{description}
 
 Dabei sind die $N_i$ ($i = 1, 2, 1+2$) in registrierten Teilchen pro Minute bestimmt.
@@ -152,48 +152,62 @@ Die Messdaten sind in Tabelle \ref{tab:Charakteristik} dargestellt.
 Zwischen der Zählrate und der gemessenen Stromstärke besteht ein
 linearer Zusammenhang der wie folgt dazustellen ist.
 
-\begin{equation*}
-  I = \Delta Q \cdot N
-\end{equation*}
-
-Deshalb lässt sich die freigesetzte Ladung por Teilchen im Zählrohr über eine
-lineare Regression aus den Daten der Tabelle \ref{tab:Charakteristik} ermitteln.
-Dafür wurde die gemessene Stromstärke der registrierte Teilchenanzahl pro Minute
-gegenübergestellt.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{Stromstärke_gegen_Anzahl.pdf}
-  \caption{Gemessenen Stromstärke gegenüber der Teilchenanzahl pro Minute mit linearer Regression}
-  \label{fig:Stromstärke_gegen_Anzahl}
-\end{figure}
-
-Die Ausgleichsgerade hat ungefähr die folgenden Daten.
-
 \begin{equation}
-  \label{eqn:Augleichsgerade_Ladung}
-  I(N) = \SI{144(13)e-1}{\mu\ampere\second}\cdot N - \SI{82,577(8)}{\coulomb}
+  \label{eqn:Spannung}
+  I = \Delta Q \cdot N
 \end{equation}
 
-Die Ladung pro Teilchen ist ungefähr gleich der Steigung der Ausgleichsgeraden.
-Damit wird jedem Teilchen eine freigesetzte Ladungsmenge von $\approx \SI{144e-1}{\coulomb}$
-zugeordnet. Dies entspricht ca. $\num{9e17}$ Elementarladungen.
+Durch umstellen der obigen Formel lässt sich die freigesetzte Ladung
+pro Teilchen bestimmen.
 
-Zudem wurde die Stromstärke bei steigender Spannung gemessen. Das Messintervall
-erstreckt sich über den selben Spannungsbereich wie bei der Bestimmung der Charakteristik.
+\begin{equation}
+  \label{eqn:Ladung}
+  \Delta Q = \frac{I}{N}
+\end{equation}
 
-Eine Grafik dieses Diagrammes ist in Abb. \ref{fig:Spannung gegen Strom}
-dargestellt.
+Die ausgerechnete Ladung ist in Abb. \ref{fig:Ladung Spannung} der angelegten
+Betriebsspannung gegenüber gestellt. Die Ladung wurde in dem Diagramm durch
+die Elementarladung geteilt, um die Anzahl der freigesetzten Elektronen
+zu bestimmen.
+
+% Deshalb lässt sich die freigesetzte Ladung por Teilchen im Zählrohr über eine
+% lineare Regression aus den Daten der Tabelle \ref{tab:Charakteristik} ermitteln.
+% Dafür wurde die gemessene Stromstärke der registrierte Teilchenanzahl pro Minute
+% gegenübergestellt.
+%
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{Stromstärke_gegen_Anzahl.pdf}
+%   \caption{Gemessenen Stromstärke gegenüber der Teilchenanzahl pro Minute mit linearer Regression}
+%   \label{fig:Stromstärke_gegen_Anzahl}
+% \end{figure}
+%
+% Die Ausgleichsgerade hat ungefähr die folgenden Daten.
+%
+% \begin{equation}
+%   \label{eqn:Augleichsgerade_Ladung}
+%   I(N) = \SI{144(13)e-1}{\mu\ampere\second}\cdot N - \SI{82,577(8)}{\coulomb}
+% \end{equation}
+%
+% Die Ladung pro Teilchen ist ungefähr gleich der Steigung der Ausgleichsgeraden.
+% Damit wird jedem Teilchen eine freigesetzte Ladungsmenge von $\approx \SI{144e-1}{\coulomb}$
+% zugeordnet. Dies entspricht ca. $\num{9e17}$ Elementarladungen.
+%
+% Zudem wurde die Stromstärke bei steigender Spannung gemessen. Das Messintervall
+% erstreckt sich über den selben Spannungsbereich wie bei der Bestimmung der Charakteristik.
+%
+% Eine Grafik dieses Diagrammes ist in Abb. \ref{fig:Spannung gegen Strom}
+% dargestellt.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{Spannung_gege_Strom.pdf}
-  \caption{Gemessenen Stromstärke gegenüber der Spannung}
-  \label{fig:Spannung gegen Strom}
+  \includegraphics[width=\textwidth]{Spannung_Ladung.pdf}
+  \caption{Freigesetze Elementarladungen mit steigender Betriebsspannung}
+  \label{fig:Ladung Spannung}
 \end{figure}
 
-Anhand der Abb. \ref{fig:Spannung gegen Strom} wird ersichtlich, dass die Stromstärke
-mit zunehmender Spannung ebenfalls zunimmt. Der Zusammenhang scheint linear.
+Anhand der Abb. \ref{fig:Ladung Spannung} wird ersichtlich, dass die Stromstärke
+mit zunehmender Spannung ebenfalls zunimmt.
 
 \section{Diskussion}
 
@@ -213,18 +227,21 @@ Deshalb ist der Vergleich zwischen den Methoden zur Bestimmung der Totzeit
 nicht sinnvoll. Es wird angenommen, dass die qualitativ bestimmte
 Totzeit tatsächlich die Totzeit der Apparatur genügend gut beschreibt.
 
-Die Messung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge wurde mithilfe
-einer linearen Regression bewerkstelligt. Dies ist sinnvoll, da ein linearer
-Zusammenhang zwischen der registrierten Teilchenanzahl pro Minute und der
-währenddessen gemessenen Stromstärke bestehnt.
-Der Porportionalitätsfaktor zwischen den beiden Größen ist die freigesetzte
-Ladung. Es wurde lediglich der Plateau-Bereich betrachtet, da davon auszugehen
-ist, dass dort die Nachentladungen vernachlässigbar gering sind und die
-freigesetzte Ladungsmenge lediglich von dem eingehenden ionisierendem
-Teilchen stammt. Damit lässt sich dann die freigesetzte Ladungsmenge pro Teilchen
-möglichst präzise bestimmen. Die gefundene freigesetzt Ladungsmenge pro Teilchen
-erscheint, unter Betrachtung der Townsend-Lawine realistisch.
-
+% Die Messung der pro Teilchen vom Zählrohr freigesetzten Ladungsmenge wurde mithilfe
+% einer linearen Regression bewerkstelligt. Dies ist sinnvoll, da ein linearer
+% Zusammenhang zwischen der registrierten Teilchenanzahl pro Minute und der
+% währenddessen gemessenen Stromstärke bestehnt.
+% Der Porportionalitätsfaktor zwischen den beiden Größen ist die freigesetzte
+% Ladung. Es wurde lediglich der Plateau-Bereich betrachtet, da davon auszugehen
+% ist, dass dort die Nachentladungen vernachlässigbar gering sind und die
+% freigesetzte Ladungsmenge lediglich von dem eingehenden ionisierendem
+% Teilchen stammt. Damit lässt sich dann die freigesetzte Ladungsmenge pro Teilchen
+% möglichst präzise bestimmen. Die gefundene freigesetzt Ladungsmenge pro Teilchen
+% erscheint, unter Betrachtung der Townsend-Lawine realistisch.
+Die Messung der pro Teilchen vom Zählrohr freigesetzte Ladungsmenge ergab
+sinvoll erscheinende Ergebnisse. Die freigesetzte Ladungsmenge steigt
+annähernd linear mit zunehmender Betriebsspannung. Die Abb. \ref{fig:Ladung Spannung}
+lässt einen linearen Zusammenhang der beiden Größen vermuten.
 
 \section{Messdaten}
 
