@@ -12,8 +12,8 @@ def mean(x, name):
     return np.mean(x)
 
 def std(x, name):
-    print(name, np.std(x))
-    return np.std(x)
+    print(name, np.std(x) / np.sqrt(x))
+    return np.std(x) / np.sqrt(x)
 
 Zählrate = np.array([33062, 33816, 33883, 34142, 34549, 34491, 34815, 34818,
                      34975, 35219, 34923, 35100, 34947, 35133, 35390, 35342,

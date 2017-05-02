@@ -15,22 +15,23 @@
 
 \maketitle
 
+\setcounter{page}{1}
 \section{Theorie}
 
 \subsection{Zielsetzung}
 
-Der Versuch 702 setzt sich mit dem radioaktiven Zerfall von Aktivierten Atomkernen auseinander.
+Der Versuch 702 setzt sich mit dem radioaktiven Zerfall von aktivierten Atomkernen auseinander.
 Das Ziel des Versuches ist es die Halbwertszeit des Isotopes $\ce{^{116}_{49}In}$
-und eines Rhodiumisomeres zu bestimmen.
+des Rhodiumisotopes $\ce{^{104}_{45}Rh}$, sowie $\ce{^{104i}_{45}Rh}$ zu bestimmen.
 
 \subsection{Theoretische Grundlagen}
 
-Damit instabile Kerne erzeugt werden, werden stabile Kene mit Neutronen beschossen.
+Damit instabile Kerne erzeugt werden, werden stabile Kerne mit Neutronen beschossen.
 Der Vorteil der Neutronenaktivierung liegt darin, dass die ladungsneutralen
 Neutronen weniger Energie benötigen, um die Kerne zu aktivieren, da sie
-nicht die Coulomb-Barriere des geladenen Kernes überwinden müssen.
+nicht die Coulomb-Barriere des geladenen Kern überwinden müssen.
 
-Eine Allgemeine Kernreaktion eines Beispielkernes $\ce{^{m}_{z}A}$ sieht
+Eine allgemeine Kernreaktion eines Beispielkernes $\ce{^{m}_{z}A}$ sieht
 folgendermaßen aus:
 
 \begin{equation*}
@@ -39,7 +40,7 @@ folgendermaßen aus:
 
 $\ce{^{m}_{z}A^{*}}$ ist dabei der sogenannte Zwischenkern oder auch Compoundkern.
 Seine Energie ist im Vergleich zu dem Ausgangskern um die kinetische Energie
-des Neutrons und der Bindungsenergie höher.
+und die Bindungsenergie des Neutrons höher.
 Bei geringer kinetischer Energie des Neutrons ist die eingebrachte Energie
 zu gering um ein Nukleon oder ein Neutron wieder abzugeben. Deshalb wird
 nach etwa $\SI{e-16}{\second}$ ein $\gamma$-Quant abgegeben, sodass der Kern
@@ -48,10 +49,10 @@ hat aber eine deutlich längere Lebensdauer als der Zwischenkern.
 Die Zerfallsreihe dieses Kerns läuft wie folgt ab:
 
 \begin{equation*}
-  \ce{^{m+1}_{z}A -> ^{m+1}_{z+1}C + \beta^{-} + E_{kin} + \bar{\nu}_{e}}.
+  \ce{^{m+1}_{z}A -> ^{m+1}_{z+1}C + \beta^{-} + \text{\emph{E}}_{kin} + \bar{\nu}_{e}}.
 \end{equation*}
 
-Dieser Zerfall ist ein erlaubter Zerfall, da die Masse der linken Seite
+Dieser Zerfall ist ein erlaubter Zerfall, wenn die Masse der linken Seite
 größer ist als die Gesamtmasse der rechten Seite. Der Massenunterschied
 ist durch die Einsteinsche Energie-Masse Beziehung einzusehen.
 
@@ -60,11 +61,15 @@ ist durch die Einsteinsche Energie-Masse Beziehung einzusehen.
   \Delta E = \Delta mc^2
 \end{equation}
 
-Die Masse wird in Form von kinetischer Energie an das $\beta^{-}$- und
-$\bar{\nu}_{e}$-Teilchen abgegeben ($\bar{\nu}_{e}$ ist ein Antineutrino).
+\subsection{Erzeugen freier Neutronen}
+
+Freie Neutronen kommen aufgrund ihrer Instabilität nicht in der Natur vor und
+müssen über Kernreaktionen erzeugt werden. Bei der Beschuss von $\ce{^9_4Be}$-Kernen
+mit $\alpha$-Teilchen. Die $\alpha$-Teilchen stammen aus dem Zerfall von
+$\ce{^226Ra}$-Kernen.
 
 Wenn Neutronen auf stabile Atomkerne geschossen werden, ist die
-charakteristische Größe, dass ein Neutron von einem Atomkern eingefangen wird
+charakteristische Größe, dass ein Neutron von einem Atomkern eingefangen wird,
 der Wirkungsquerschnitt. Er ist über die Formel
 
 \begin{equation}
@@ -74,7 +79,7 @@ der Wirkungsquerschnitt. Er ist über die Formel
 
 definiert, wenn Neutronen auf eine Folie mit einem Flächeninhalt von
 $\SI{1}{\centi\meter^2}$ geschossen werden.
-Dabei ist $n$ die Anzahl der abgeschossenen Neutronen, $u$ die
+Dabei ist $n$ die Gesamtanzahl der Neutronen, $u$ die
 Anzahl der eingefangenen Neutronen, $d$ die Dicke der beschossenen Fläche und
 $K$ die Anzahl der Atome pro Quadratcentimeter in der Folie.
 Der Wirkungsquerschnitt wird in der Einheit $\SI{e-24}{\centi\meter^2} = \SI{1}{\barn}$
@@ -86,7 +91,7 @@ dient die De-Broglie-Wellenlänge $\lambda$, die definiert ist über:
 
 \begin{equation}
   \label{eqn:debroglie}
-  \lambda = h / m_n v.
+  \lambda = \frac{h}{m_n v}.
 \end{equation}
 
 Ist $\lambda$ groß gegenüber dem Kernradius $R (\approx \SI{e-14}{\meter})$
@@ -104,14 +109,14 @@ der um die Neutronenquelle anliegt. Zum Abbremsen der schnellen Neutronen
 eignen sich ähnlich schwere Moleküle besser, da aus den Formeln des elastischen
 Stoßes hervorgeht, dass der größte Energieübertrag zweier elastisch stoßender
 Teilchen  bei gleicher Masse erfolgt. Deshalb eignet sich Parrafin, weil der in
-dem Paraffin enthaltene Wasserstoff beinahe die selbe Masse wie ein
+dem Paraffin enthaltene Wasserstoff ungefähr die gleiche Masse wie ein
 Neutron besitzt. Sind die Neutronen auf eine Geschwindigkeit von
 $\SI{2,2}{\kilo\meter\per\second}$ abgebremst, werden sie auch als
 thermische Neutronen bezeichnet.
 
 Der radioaktive Zerfall von instabilen Atomkernen lässt sich durch ein
 Exponentialgesetzt beschreiben. Die Anzahl der zur Zeit $t$ noch nicht
-Zerfallenen Kerne lässt sich wie folgt berechnen.
+zerfallenen Kerne lässt sich wie folgt berechnen.
 
 \begin{equation}
   \label{eqn:expo}
@@ -120,6 +125,24 @@ Zerfallenen Kerne lässt sich wie folgt berechnen.
 
 Dabei ist $N_0$ die anfängliche Anzahl der instabilen Kerne und $\lambda$
 die Zerfallskonstante.
+Die Halbwertszeit $\Tau$ ergibt sich über
+
+\begin{equation}
+  \label{eqn:Halbwertszeit}
+  \Tau = \ln{\frac{2}{\lambda}}.
+\end{equation}
+
+In dem Versuch wurden Zeitintervalle $\delta t$ untersucht.
+DieHalbwertszeit lässt sich trotzdem bestimmen und ist über folgenden Zusammenhang
+gegeben.
+
+\begin{equation}
+  \label{eqn:Halbwertszeit über Intervalle}
+  N{\delta t}(t) = N_0 e^{-\lambda t}(1 - e^{-\lambda \delta t})
+\end{equation}
+
+Durch lineare Regression der Wertepaare $\{\ln{N_{\delta t}(t_{\symup{i}}}), t_{\symup{i}}\}$
+kann die Zerfallskonstante $\lambda$ ermittelt werden.
 
 Die Zerfallsreihen der verwendeten Proben Indium und Rhodium sind im Folgenden
 dargestellt.
@@ -136,9 +159,16 @@ dargestellt.
   \end{cases}.
 \end{align}
 
+Bei aktivierten Rhodium laufen zwei Zerfälle parallel ab, wie in \eqref{eqn:Rhodium}
+dargestellt ist. Die Halbwertszeiten der beiden Isotope kann trotzdem bestimmt werden,
+da sie deutlich verschieden ist. Der Zerfall von $\ce{^{104}_{45}Rh}$ ist
+kurzlebiger als der Zerfall von $\ce{^{104i}_{45}Rh}$. 
+
+
 \section{Durchführung}
 
-Die zu untersuchenden Proben wurden im Vorhinein aktiviert. Für die Aktivierung
+Die zu untersuchenden Proben sind im Vorhinein aktiviert, weil die Halbwertszeiten
+der Proben klein sind. Für die Aktivierung
 wird die Apparatur aus Abb. \ref{fig:Aktivierung} verwendet.
 
 \begin{figure}
@@ -160,19 +190,19 @@ Die in Abb. \ref{fig:Aktivierung} aufgeführten Makierungen sind wie folgt erkl�
 
 Vor der ersten Messung muss der Nullwert bestimmt werden. Dafür wird eine
 Messung über $\SI{900}{\second}$ ohne Probe gemacht.
-Danach wurden die zu untersuchenden Proben in den Aufbau eingelegt.
-Es wurden das Isotop Indium-116 ($\ce{^{116}In}$)
-und ein Rhodiumisomer ($\ce{^{104}Rh}$ \& $\ce{^{104i}Rh}$) untersucht.
+Danach wird die zu untersuchenden Proben in den Aufbau eingelegt.
+Es werden das Isotop Indium-116 ($\ce{^{116}In}$)
+und die Rhodiumisotope ($\ce{^{104}Rh}$ \& $\ce{^{104i}Rh}$) untersucht.
 Für das Indiumisotop ist eine Messzeit von einer Stunde mit einem Messintervall von
-$\Delta t = \SI{240}{\second}$ gewählt worden. Für das Rhodiumisomer ist eine
-Messzeit von $\SI{12}{\minute}$ angesetzt worden, mit einem Messintervall
+$\Delta t = \SI{240}{\second}$ zu wählen. Für das Rhodiumisomer ist eine
+Messzeit von $\SI{12}{\minute}$ angesetzt, mit einem Messintervall
 $\Delta t$ von $\SI{15}{\second}$.
 
 Die Messungen sind mit dem Aufbau, der in Abb. \ref{fig:Aufbau} dargestellt ist,
-zu realisieren. Der Aufbau besteht grundlegend aus einem Geiger-Müller-Zählrohr,
+durchzuführen. Der Aufbau besteht grundlegend aus einem Geiger-Müller-Zählrohr,
 einen Impulsverstärker und einem Zählwerk mit zwei Displays.
 Das Geiger-Müller-Zählrohr misst die radioaktiven Zerfälle in Form
-eines eletrischen Impulses. Dieser wird durch einen Impulsverstärker geschickt und
+eines Eletrischenimpulses. Dieser wird durch einen Impulsverstärker geschickt und
 letztendlich von einem Zählwerk registriert. Das Zählwerk besitzt zwei Displays,
 sodass kontinuierlich gemessen werden kann.
 
