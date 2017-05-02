@@ -82,13 +82,13 @@ N\ua{0,Indium}     &= \exp{B} = \exp{(7.96 \pm 0.02)} = (2.88 \pm 0.06) \cdot 10
 
 \begin{align}
   \label{eqn:Halbwert}
-  T(\lambda) &= \frac{ln(2)}{\lambda} \\
+  T(\lambda) &= \frac{\ln(2)}{\lambda} \\
   \label{eqn:HalbwertFehler}
-  \sigma_{T} &= \frac{ln(2)}{\lambda^2} \cdot \sigma_{\lambda}
+  \sigma_{T} &= \frac{\ln(2)}{\lambda^2} \cdot \sigma_{\lambda}
 \end{align}
 
 
-Mit der Formel \eqref{eqn:Halbwert} kann aus der bestimmten Zeitkonstante nun die Halbwertzeit von
+Mit der Formel \eqref{eqn:Halbwert} kann aus der bestimmten Zeitkonstante die Halbwertzeit von
 Indium bestimmt werden, für die sich der folgende Wert ergibt:
 
 \begin{equation*}
@@ -97,7 +97,7 @@ Indium bestimmt werden, für die sich der folgende Wert ergibt:
 
 \subsection{Halbwertszeit von Rhodium}
 
-Bei der Messung mit $\ce{_{45}^{103}Rd}$ wird ein Zeitintervall von $\increment t = 12 \,
+Bei der Messung mit $\ce{_{45}^{103}Rh}$ wird ein Zeitintervall von $\increment t = 12 \,
 \su{s}$ und ein Messzeitraum von $t\ua{ges} = 720 \, \su{s}$ gewählt. Die gemessenen
 Zerfälle sind in Tabelle \ref{tab:Rhodium} eingetragen sowie grafisch in Abbildung
 \ref{fig:RhodiumOhne} dargestellt.
@@ -107,8 +107,8 @@ Zerfälle sind in Tabelle \ref{tab:Rhodium} eingetragen sowie grafisch in Abbild
   \caption{Gemessene Zerfälle bei Rhodium.}
   \label{tab:Rhodium}
   \begin{tabular}{c c c c c c}
-    \toprule $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ & $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$
-           & $\increment t \, in \, \su{s}$ & $Anz. \, Zerfaelle$ \\
+    \toprule $\increment t$ in $\su{s}$ & Anz. Zerfaelle & $\increment t$ in $\su{s}$ & Anz. Zerfaelle
+           & $\increment t$ in $\su{s}$ & Anz. Zerfaelle \\
     \midrule
     15 & 630 & 30 & 517 & 45 & 445 \\
     60 & 330 & 75 & 265 & 90 & 212 \\
@@ -136,8 +136,8 @@ Zerfälle sind in Tabelle \ref{tab:Rhodium} eingetragen sowie grafisch in Abbild
   \label{fig:RhodiumOhne}
 \end{figure}
 
-Um die Halbwertzeiten der zwei verschiedenen Isotope $\ce{^{104}Rd}$ sowie $\ce{^{104i}Rd}$
-zu bestimmen, die bei der Aktivierung von $\ce{_{45}^{103}Rd}$ entstehen, werden für die
+Um die Halbwertzeiten der zwei verschiedenen Isotope $\ce{^{104}Rh}$ sowie $\ce{^{104i}Rh}$
+zu bestimmen, die bei der Aktivierung von $\ce{_{45}^{103}Rh}$ entstehen, werden für die
 Unterteilung die Messzeiten $t^{*}=355 \, \su{s}$ und $t_{\su{max}}=80 \, \su{s}$ gewählt. Zusätzlich
 werden von den gemessenen Werten die von den Umgebungszerfällen erzeugten Signale
 subtrahiert (siehe Tabelle \ref{tab:Rhodium104i}).
@@ -145,7 +145,7 @@ subtrahiert (siehe Tabelle \ref{tab:Rhodium104i}).
 
 \begin{table}
   \centering
-  \caption{Gemessene Werte für $\ce{^{104i}Rd}$.}
+  \caption{Gemessene Werte für $\ce{^{104i}Rh}$.}
   \label{tab:Rhodium104i}
   \begin{tabular}{c c c c c}
     \toprule
@@ -181,23 +181,23 @@ subtrahiert (siehe Tabelle \ref{tab:Rhodium104i}).
 \end{table}
 
 \begin{figure}
-  \includegraphics[width = \textwidth]{Rhodium_links_log.pdf}
-  \caption{logarithmische Darstellung der gemessene Zerfälle (N) für $t > t^{*}$ bei $\su{Rh}^{104i}$.}
+  \includegraphics[width = \textwidth]{Rhodium_rechts_log.pdf}
+  \caption{logarithmische Darstellung der gemessene Zerfälle (N) für $t > t^{*}$ bei $\ce{^{104i}Rh}$.}
   \label{fig:Rh104i}
 \end{figure}
 
 Mithilfe einer linearen Regression gemäß Formel \eqref{eqn:linRegress} können
 dann mithilfe der Werte für $t > t^{*}$ (Abbildung \ref{fig:Rh104i}) zuerst die beiden Parameter
-für $\ce{^{104i}Rd}$ bestimmt werden:
+für $\ce{^{104i}Rh}$ bestimmt werden:
 
 \begin{align*}
-  A                  &= \lambda\ua{Rhodium\,104i} = (0.0023 \pm 0.0004) \, \frac{1}{\su{s}}\\
-  B                  &= N\ua{0,Rhodium\,104i}     = (4.1 \pm 0.2) \\
+  \lambda\ua{Rhodium\,104i} &= A = (0.0023 \pm 0.0004) \, \frac{1}{\su{s}}\\
+  N\ua{0,Rhodium\,104i}     &= \exp{B}     = \exp{(4.1 \pm 0.2)} =  (61 \pm 14)\\
 \end{align*}
 
 
 Mit den Werten und Formel \eqref{eqn:Halbwert} ergibt sich für die Halbwertszeit
-von $\su{Rh}^{104i}$ folgender Wert:
+von $\ce{^{104i}Rh}$ folgender Wert:
 
 \begin{equation*}
   T\ua{Rhodium\,104i} = (297 \pm 54) \, \su{s}
@@ -205,7 +205,7 @@ von $\su{Rh}^{104i}$ folgender Wert:
 
 \begin{table}
   \centering
-  \caption{Gemessene Werte für ${104}^Rd$.}
+  \caption{Gemessene Werte für $\ce{^{104}Rh}$.}
   \label{tab:Rhodium104}
   \begin{tabular}{c c c c c}
     \toprule
@@ -221,31 +221,31 @@ von $\su{Rh}^{104i}$ folgender Wert:
 \end{table}
 
 Mithilfe der selben Vorgehensweise kann aus allen Werten für $t < t_{max}$ (Abbildung
-\ref{fig:Rh104}, Tabelle \ref{tab:Rhodium104}) auch die Halbwertszeit für $\ce{^{104}Rd}$
+\ref{fig:Rh104}, Tabelle \ref{tab:Rhodium104}) auch die Halbwertszeit für $\ce{^{104}Rh}$
 berechnet werden. Dafür
-wird vorher mithilfe der berechneten Parameter von $\ce{^{104i}Rd}$ der Anteil an Zerfällen
+wird vorher mithilfe der berechneten Parameter von $\ce{^{104i}Rh}$ der Anteil an Zerfällen
 des langlebigen Zerfalls subtrahiert,
 sodass sich folgende Parameter ergeben:
 
 \begin{align*}
   \lambda\ua{Rhodium\,104} &= A = (0.0167 \pm 0.0011) \, \frac{1}{\su{s}}\\
-  N\ua{0,Rhodium\,104}     &= \exp{B} = \exp{(6.68 \pm 0.05)} = (7.5 \pm 0.4) \cdot 10^{2}
+  N\ua{0,Rhodium\,104}     &= \exp{B} = \exp{(6.68 \pm 0.05)} = (7.5 \pm 0.4) \cdot 10^{2} \\
   T\ua{Rhodium\,104} &= (41 \pm 3) \, \su{s}
 \end{align*}
 
 \begin{figure}
   \includegraphics[width = \textwidth]{Rhodium_links_log.pdf}
-  \caption{logarithmische Darstellung der gemessene Zerfälle (N) für $t < t_{max}$ bei $\su{Rh}^{104}$.}
+  \caption{logarithmische Darstellung der gemessene Zerfälle (N) für $t < t_{max}$ bei $\ce{^{104}Rh}$.}
   \label{fig:Rh104}
 \end{figure}
 
 
-Mit den bestimmten Parametern für $\ce{^{104}Rd}$ und $\ce{^{104i}Rd}$ kann nun
+Mit den bestimmten Parametern für $\ce{^{104}Rh}$ und $\ce{^{104i}Rh}$ kann nun
 auch eine Summenkurve gezeichnet werden (Abbildung \ref{fig:Summe}).
 
 \begin{figure}
   \includegraphics[width = \textwidth]{Rhodium_normal}
-  \caption{Summenkurve für den Zerfall von $\ce{_{45}^{103}Rd}$.}
+  \caption{Summenkurve für den Zerfall von $\ce{_{45}^{103}Rh}$.}
   \label{fig:Summe}
 \end{figure}
 
@@ -253,7 +253,7 @@ auch eine Summenkurve gezeichnet werden (Abbildung \ref{fig:Summe}).
 
 \section{Diskussion}
 
-Wenn die berechneten Halbwertszeiten für $\ce{_{45}^{103}Rd}$ und $\su{In}_{49}^{115}$
+Wenn die berechneten Halbwertszeiten für $\ce{_{45}^{103}Rh}$ und $\su{In}_{49}^{115}$
 mit den Literaturwerten verglichen werden, ist eine leichte Abweichung zu erkennen.
 Bei allen drei bestimmten Halbwertszeiten liegt der Literaturwert im Fehlerintervall
 des jeweiligen experimentell bestimmten Wert (siehe Tabelle \ref{tab:vergleich}).
@@ -264,11 +264,11 @@ des jeweiligen experimentell bestimmten Wert (siehe Tabelle \ref{tab:vergleich})
   \label{tab:vergleich}
   \begin{tabular}{c c c}
     \toprule
-    Isotop & $T_{exp} \, in \, \su{s}$ & $T_{Lit} \, in \, \su{s}$ \\
+    Isotop & $T_{\su{exp}}$ in $\su{s}$ & $T_{\su{Lit}}$ in $\su{s}$ \\
     \midrule
-    $\su{In}_{49}^{115}$ & $3278 \, \pm \, 141$ & $3269$ \\
-    $\su{Rh}^{104}$      & $41 \, \pm \, 3$     & $42.3$ \\
-    $\su{Rh}^{104i}$     & $297 \, \pm \, 54$   & $274$  \\
+    $\ce{_{49}^{115}In}$ & $3278 \, \pm \, 141$ & $3269$ \\
+    $\ce{^{104}Rh}$      & $41 \, \pm \, 3$     & $42.3$ \\
+    $\ce{^{104i}Rh}$     & $297 \, \pm \, 54$   & $274$  \\
     \bottomrule
   \end{tabular}
 \end{table}
