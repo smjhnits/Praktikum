@@ -1,0 +1,168 @@
+\section{Auswertung}
+
+Bei den folgenden Rechnungen werden die Fehler mit der Gaußschen Fehlerfortpflanzung
+berechnet, wobei hierfür die automatische Fehlerrechnung mittels des Ufloat-Paketes
+von Python genutzt wird.
+Bei den Rechnungen werden die folgenden Konstanten für die Normalbedingungen, die
+Umgebungstemperatur und die Länge des Gasbehälters (b) sowie die Übersetzung (Ü)
+verwendet:
+
+\begin{align*}
+  T\ua{0} &= \SI{273.15}{K} \\
+  p\ua{0} &= \SI{1.0132}{bar} \\
+  T       &= \SI{293.15}{K} \\
+  b       &= \SI{0.05}{m} \\
+  Ü       &= 5.046
+\end{align*}
+
+\subsection{Bestimmung der Wellenlänge}
+
+Die Wellenlängen ergeben sich dabei aus den gemessenen Werten mit der Formel \eqref{},
+wobei die gemessenen Werte als fehlerfrei angenommen werden. Die berechneten Werte
+sind in der folgenden Tabelle eingetragen:
+
+\begin{table}
+  \centering
+  \caption{Gemessene Intensitätsmaxima (N) und die daraus resultierende Wellenlänge.}
+  \label{tab:Wellenlängen}
+  \begin{tabular}{c c c}
+    \toprule
+    $\increment d$ in $\si{mm}$ & N & $\lambda$ in $\si{nm}$ \\
+    \midrule
+    0.355 & 1051 & 675.05 \\
+    0.339 & 1002 & 676.41 \\
+    0.351 & 1044 & 671.98 \\
+    0.349 & 1036 & 673.34 \\
+    0.343 & 1013 & 676.89 \\
+    0.343 & 1031 & 665.07 \\
+    0.345 & 1027 & 671.52 \\
+    0.347 & 1034 & 670.81 \\
+    0.347 & 1029 & 674.07 \\
+    0.343 & 1022 & 670.93 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Durch das mitteln der bestimmten Wellenlängen (Tabelle \ref{tab:Wellenlängen})
+ergibt sich für die Wellenlänge des verwendeten Lasers ein Wert von $\lambda \,
+= \, (672.6 \pm 1.1) \, \si{nm}$, wobei es sich bei dem Fehler um die
+Standardabweichung handelt.
+
+\subsection{Bestimmung des Brechungsindexes von Luft und Kohlenstoffdioxid}
+
+Mit den anfangs angegebenen Werten und den Formeln \eqref{} lässt sich aus der
+gemessenen Anzahl an Intensitätsmaxima (N) und der Druckdifferenz ($\increment
+\su{p}$) der Brechungsindex von Luft sowie von Kohlenstoffdioxid bestimmen. Bei
+$\increment n$ handelt es sich hier nicht um den Fehler sondern die Differenz des
+Brechungsindexes, der Fehler wird durch $\sigma\ua{n}$ angegeben.
+
+\begin{table}
+  \centering
+  \caption{Gemessene Intensitätsmaxima (N) und der daraus resultierende Brechungsindex für Luft.}
+  \label{tab:IndexLuft}
+  \begin{tabular}{c c c c c}
+    \toprule
+    $\increment p$ in $\si{bar}$ & N & $\increment n$ & $n$ & $\sigma\ua{n} * 10^{6}$ \\
+    \midrule
+    0.76 & 35 & 0.000235 & 1.000337 & 0.543 \\
+    0.8  & 34 & 0.000229 & 1.000311 & 0.501 \\
+    0.8  & 34 & 0.000229 & 1.000311 & 0.501 \\
+    0.8  & 35 & 0.000235 & 1.000320 & 0.516 \\
+    0.82 & 35 & 0.000235 & 1.000312 & 0.503 \\
+    0.83 & 35 & 0.000235 & 1.000308 & 0.497 \\
+    0.8  & 34 & 0.000229 & 1.000311 & 0.501 \\
+    0.81 & 35 & 0.000235 & 1.000316 & 0.509 \\
+    0.82 & 35 & 0.000235 & 1.000312 & 0.503 \\
+    0.8  & 33 & 0.000222 & 1.000302 & 0.486 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Fehler ergeben sich mittels Gauß´scher Fehlerfortpflanzung durch folgende
+Formel:
+
+\begin{align}
+  \label{eqn:FehlerDelN}
+  \sigma\ua{\increment n} &= \frac{1}{2} \frac{z}{b} \cdot \sigma\ua{\lambda} \\
+  \label{eqn:FehlerN}
+  \sigma\ua{n}            &= \frac{T}{T\ua{0}} \frac{p\ua{0}}{\increment p} \cdot \sigma\ua{\increment n}
+\end{align}
+
+Mit den Werten aus Tabelle \ref{tab:IndexLuft} ergibt sich für den Brechungsindex
+von Luft folgender Wert:
+
+\begin{equation*}
+  n\ua{Luft} = (1.000314 \pm 0.000001)
+\end{equation*}
+
+Äquivalent dazu lässt sich auch der Brechungsindex von Kohlenstoffdioxid berechnen.
+Die gemessenen Werte sowie der jeweilige Brechungsindex sind in folgender Tabelle
+eingetragen:
+
+\begin{table}
+  \centering
+  \caption{Gemessene Intensitätsmaxima (N) und der daraus resultierende Brechungsindex für Kohlenstoffdioxid.}
+  \label{tab:IndexLuft}
+  \begin{tabular}{c c c c c}
+    \toprule
+    $\increment p$ in $\si{bar}$ & N & $\increment n$ & $n$ & $\sigma\ua{n} * 10^{6}$ \\
+    \midrule
+    0.8  & 58 & 0.000390 & 1.000530 & 0.855 \\
+    0.8  & 50 & 0.000336 & 1.000457 & 0.737 \\
+    0.64 & 36 & 0.000242 & 1.000411 & 0.663 \\
+    0.6  & 39 & 0.000262 & 1.000475 & 0.766 \\
+    0.56 & 37 & 0.000249 & 1.000483 & 0.779 \\
+    0.52 & 35 & 0.000235 & 1.000492 & 0.794 \\
+    0.48 & 29 & 0.000195 & 1.000442 & 0.712 \\
+    0.44 & 28 & 0.000188 & 1.000465 & 0.750 \\
+    0.4  & 25 & 0.000168 & 1.000457 & 0.737 \\
+    0.37 & 24 & 0.000161 & 1.000474 & 0.765 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Fehler werden dabei wieder nach Formel \eqref{eqn:FehlerDelN} und \eqref{eqn:FehlerN}
+berechnet. Für den Brechungsindex von Kohlenstoffdioxid ergibt sich damit der
+folgende Wert:
+
+\begin{equation*}
+  n\ua{CO\ua{2}} = (1.000469 \pm 0.000001)
+\end{equation*}
+
+\section{Diskussion}
+
+Bei Vergleich der gemessenen Werte mit den Literaturwerten (Tabelle \ref{tab:Vergleich})
+wird erkenntlich, dass die bestimmten Größen in der richtigen Größenordnung liegen
+und auch nicht zu stark von den Literaturwerten abweichen. Jedoch liegt keiner
+dieser Werte im Fehlerintervall des experimentell bestimmten Wertes.
+
+\begin{table}
+  \centering
+  \caption{Vergleich der experimentell bestimmten Werte mit den Litearturwerten.}
+  \label{tab:Vergleich}
+  \begin{tabular}{c c c}
+    \toprule
+    & Experimenteller Wert  & Literaturwert \\
+    \midrule
+    $\lambda$ in in $\si{nm}$ & 672.6 \pm 1.1         & 632.8         \\
+    $n\ua{Luft}$              & 1.000314 \pm 0.000001 & 1.000292      \\
+    $n\ua{CO\ua{2}}$          & 1.000469 \pm 0.000001 & 1.000449      \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die auftretenden
+Abweichungen lassen sich auf mehrer Ursachen zurückführen. Einerseits war die
+verwendete Messdiode so empfindlich, dass schon bei kleinen Erschütterungen am
+Messaufbau Interferenzmaxima registriert wurden. Ein weitere Fehlerquelle kann
+auch das Ablesen der Wegstrecke der Spiegelverschiebung an der Mikrometerschraube
+sein, da die nur in gewissem Maße genau ist.
+
+Vor allem bei der Bestimmung des Brechungsindexes von Kohlenstoffdioxid ist die
+Gaskammer eine Fehlerquelle. Es befand sich immer ein kleiner Restanteil an Luft
+in der Kammer, so dass die gemessenen Werte nicht für reines Kohlenstoffdioxid
+gelten. Um diesen Fehler so gering wie möglich zu halten, wurden jedoch mehrere
+Messungen gemacht.
+
+Da die bestimmten Werte jedoch alle den Literaturwerten ähneln, sind die auftretenden
+Fehler vermutlich ausschließlich statistischer Natur.
