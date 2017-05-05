@@ -1,7 +1,7 @@
 \section{Zielsetzung}
 
 Der Versuch V$\num{401}$ setzt sich in erster Linie mit dem Michelson--Interferrometer
-auseinander. Die Wellenlänge der verwendeten Lichtquelle, wowie der Brechungsindex
+auseinander. Die Wellenlänge der verwendeten Lichtquelle, sowie der Brechungsindex
 verschiedener Gase sollen im Laufe des Versuches bestimmt werden.
 
 \section{Theorie}
@@ -11,35 +11,35 @@ beruht. Das Ausbreitungsverhalten von Licht kann sehr gut durch das
 Verhalten von elektromagnetischen Wellen beschrieben werden.
 Da die Maxwellschen-Gleichungen durch lineare Differentialgleichungen gegeben sind,
 können ihre Lösungen, welche auch elektromagnetische Wellen sind, superponiert werden.
-Der $\vec{E}$-Feld Vektor kann jedoch nicht direkt bestimmt werden, sondern
+Der $\vec{\su{E}}$-Feld Vektor kann jedoch nicht direkt bestimmt werden, sondern
 lediglich seine Intensität, die gegeben ist durch
 
 \begin{equation}
   \label{eqn:Intensitaet}
-  I = \left|\vec{E}\right|^2.
+  I = \left|\vec{\su{E}}\right|^2.
 \end{equation}
 
-Aus der Superposition zweier Wellen mit verschiedenen Phasen ($\delta_1, \delta_2$)
+Aus der Superposition zweier Wellen mit verschiedenen Phasen ($\increment_1, \increment_2$)
 entsteht neben der Summe der Einzelintensitäten noch ein Interfenezterm,
 der das Verhalten der Überlagerung der beiden Wellen beschreibt.
 Dieser Term weist die folgende Gestalt auf.
 
 \begin{align}
   \label{eqn:Interferenterm}
-  &2k\vec{E}_0^2\cos{(\delta_2 - \delta_1)},& k\in \mathbb{R}
+  &2\su{k}\vec{\su{E}}_0^2\cos{(\increment_2 - \increment_1)},& \su{k}\in \mathbb{R}
 \end{align}
 
 Da der Kosinus beschränkt ist, ist auch der Interferenzterm beschränkt
-durch $\pm 2k\vec{E}_0$. Wenn das Argument ein Vielfaches von
+durch $\pm 2\su{k}\vec{\su{E}}_0$. Wenn das Argument ein Vielfaches von
 $\frac{n\pi}{2} + \pi$ mit $n\in \mathbb{N}$ ist verschwindet der
 Interferenzterm.
 
 Bei den alltäglichen Lichtquellen treten keine Interferenzeffekte auf,
-da die Phasenbeziehungen $\delta_i$ normalerweise Funktionen der Zeit sind.
+da die Phasenbeziehungen $\increment_i$ normalerweise Funktionen der Zeit sind.
 Dies ist auf den statistischen Prozesses der Lichterzeugung zurückzuführen.
 Licht, dessen Phasenbeziehung nicht konstant ist wird als inkohärent bezeichnet.
 
-Damit Interferenzeffekte auftreten muss die Phasenbeziehung unabhängig
+Damit Interferenzeffekte auftreten, muss die Phasenbeziehung unabhängig
 von der Zeit $t$ sein. Solch ein Licht wird als kohärent bezeichnet.
 
 Nur Licht aus der selben Quelle weist die gleiche Phasenbeziehnung auf. Damit
@@ -48,9 +48,9 @@ legen im Allgemeinen unterschiedliche Strecken zurück, weshalb sie
 eine Phasenverschiebung zueinander aufweisen.
 Der Emmissionsakt aus der Lichtquelle ist ein endlicher Prozess, dessen
 Zeitdauer als Kohärenzzeit $\tau$ bezeichnet wird. Ist die Kohärenzzeit
-kleiner klein gegenüber $\propto \lambda$ verschwinden die Interferenzeffekte,
-da aufgrund der endlichen Lichtgeschwindigkeit Licht aus verschiedenen
-Quellen an dem Detektor registriert wird.
+klein gegenüber $\propto \lambda$ verschwinden die Interferenzeffekte.
+Dies ist begründet durch die endliche Lichtgeschwindigkeit, weil dann Licht aus
+verschiedenen Quellen an dem Detektor registriert wird.
 Daraus folgt, dass eine notwendige Bedingung für das Erscheinen von
 Interferenzeffekten, ein geringer Wegunterschied zwischen den geteilten
 Strahlen ist. Der Wegunterschied, bei dem die Interferenzeffekte verschwinden
@@ -66,7 +66,7 @@ Die beiden Größen sind über den folgenden Zusammenhang \eqref{eqn:Kohärenz} 
 
 \begin{equation}
   \label{eqn:Kohärenz}
-  \tau = \frac{\ell}{c}
+  \tau = \frac{\ell}{\su{c}}
 \end{equation}
 
 Die verwendete Lichtquelle sollte möglichst als punktförmig approximiert werden können,
@@ -75,10 +75,10 @@ Als angemessene Forderung die Ungleichung \eqref{eqn:Kohärenzbed}.
 
 \begin{equation}
   \label{eqn:Kohärenzbed}
-  a \sin{(\zeta)} << \frac{\lambda}{2}
+  \su{a} \sin{(\zeta)} << \frac{\lambda}{2}
 \end{equation}
 
-In \eqref{eqn:Kohärenzbed} ist $a$ die räumliche Ausdehnung der Lichtquelle und
+In \eqref{eqn:Kohärenzbed} ist $\su{a}$ die räumliche Ausdehnung der Lichtquelle und
 $\zeta$ der Richtungsunterschied. Die Größen sind in Abb. \ref{fig:ausgedehnte_Quelle}
 abgebildet.
 
@@ -92,13 +92,26 @@ abgebildet.
 Die Bedingung \eqref{eqn:Kohärenzbed} lässt sich aus der Vorderung folgern, dass
 das ausgesendete Licht in dem Punkt P interferenzfähig ist.
 
+\subsection{Wellenlänge}
+
+Die Wellenlänge $\lambda$ zu bestimmen ist eine zetrale Aufgabe des Versuches.
+Durch Verändern der Weglänge $\increment d$ des Lichtes kann diese bestimmt werden.
+Die Wellenlänge ist gegeben durch Formel \eqref{eqn:lambda}.
+
+\begin{equation}
+  \label{eqn:lambda}
+  \lambda = 2 \frac{\increment d}{\su{z}}
+\end{equation}
+
+Dabei ist $\su{z}$ die Anzahl der auftretenden Intensitätsmaxima.
+
 \subsection{Brechungsindex}
 
 Der Versuch beschäftigt sich ebenfalls mit der Messung des Brechungsindizes von
 verschiedenen Gasen. Allgemein wird in der Optik zwischen der Weglänge und der
 optischen Weglänge unterschieden. Die optische Weglänge ist um den Faktor des
-Brechungsindex größer als die Weglänge. Dies ist dadurch zu begründen, dass
-Licht durch ein Medium mehr Zeit benötigt, als durch Vakuum. Die optische Weglänge
+Brechungsindex größer als die Weglänge. Dies ist so zu verstehen, dass
+Licht durch ein Medium mehr Zeit benötigt als durch das Vakuum. Die optische Weglänge
 beschreibt einen Weg im Vakuum, der die selbe Zeit beansprucht, wie das Licht
 durch das Medium benötigt.
 
@@ -108,22 +121,22 @@ dem Druck. Der Zusammenhang ist wie folgt bestimmt.
 
 \begin{equation}
   \label{eqn:n_Druck}
-  n\left(p_0, T_0\right) = 1 + \Delta n\left(p, p'\right)\frac{T\cdotp_0}{T_0\left(p - p'\right)}
+  \su{n}\left(\su{p}_0, \su{T}_0\right) = 1 + \increment \su{n}\left(\su{p}, \su{p}'\right)\frac{\su{T}\cdot \su{p}_0}{\su{T}_0\left(\su{p} - \su{p}'\right)}
 \end{equation}
 
-In Formel \eqref{eqn:n_Druck} ist T_0 = \SI{273,15}{\kelvin}, p_0 = \SI{1013,2}{\milli\bar},
-$\Delta n$ der variierte Brechungsindex, $p$ der Anfangsdruck, $p'$ der Enddruck
-und $T$ die Temperatur. Der variierte Brechungsindex hängt mit der Anzahl der
-auftretenden Intensitätsmaxima $z$, der Wellenlänge $\lambda$ und der Länge
-$b$ der Messzelle zusammen. Der Zusammenhang ist in \eqref{eqn:delta_n} gegeben.
+In Formel \eqref{eqn:n_Druck} ist $\su{T}_0 = \SI{273,15}{\kelvin}$, $\su{p}_0 = \SI{1013,2}{\milli\bar}$,
+$\increment \su{n}$ der variierte Brechungsindex, $\su{p}$ der Anfangsdruck, $\su{p}'$ der Enddruck
+und $\su{T}$ die Temperatur. Der variierte Brechungsindex hängt mit der Anzahl der
+auftretenden Intensitätsmaxima $\su{z}$, der Wellenlänge $\lambda$ und der Länge
+$\su{b}$ der Messzelle zusammen. Der Zusammenhang ist in \eqref{eqn:delta_n} gegeben.
 
 \begin{equation}
   \label{eqn:delta_n}
-  \Delta n = \frac{z\lambda}{2b}
+  \increment \su{n} = \frac{\su{z}\lambda}{2\symup{b}}
 \end{equation}
 
 Somit kann mit den Formeln \eqref{eqn:n_Druck} und \eqref{eqn:delta_n} der Brechungsindex
-des Füllgases einer Messzelle der Länge $d$ berechnet werden.
+des Füllgases einer Messzelle der Länge $\symup{b}$ berechnet werden.
 
 %Wird der Brechungsindex $n$ eines Mediums vergrößert steht dieses in def folgenden
 %Beziehung zu dem Auftreten von Maxima in einem

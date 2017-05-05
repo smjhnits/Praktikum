@@ -4,26 +4,26 @@ Bei den folgenden Rechnungen werden die Fehler mit der Gaußschen Fehlerfortpfla
 berechnet, wobei hierfür die automatische Fehlerrechnung mittels des Ufloat-Paketes
 von Python genutzt wird.
 Bei den Rechnungen werden die folgenden Konstanten für die Normalbedingungen, die
-Umgebungstemperatur und die Länge des Gasbehälters (b) sowie die Übersetzung (Ü)
+Umgebungstemperatur und die Länge des Gasbehälters ($\su{b}$), sowie die Übersetzung ($\su{\ddot{U}}$)
 verwendet:
 
 \begin{align*}
-  T\ua{0} &= \SI{273.15}{K} \\
-  p\ua{0} &= \SI{1.0132}{bar} \\
-  T       &= \SI{293.15}{K} \\
-  b       &= \SI{0.05}{m} \\
-  Ü       &= 5.046
+  \su{T}\ua{0} &= \SI{273.15}{K} \\
+  \su{p}\ua{0} &= \SI{1.0132}{bar} \\
+  \su{T}       &= \SI{293.15}{K} \\
+  \su{b}       &= \SI{0.05}{m} \\
+  \su{\ddot{U}}       &= 5.046
 \end{align*}
 
 \subsection{Bestimmung der Wellenlänge}
 
-Die Wellenlängen ergeben sich dabei aus den gemessenen Werten mit der Formel \eqref{},
+Die Wellenlängen ergeben sich dabei aus den gemessenen Werten mit der Formel \eqref{eqn:lambda},
 wobei die gemessenen Werte als fehlerfrei angenommen werden. Die berechneten Werte
 sind in der folgenden Tabelle eingetragen:
 
 \begin{table}
   \centering
-  \caption{Gemessene Intensitätsmaxima (N) und die daraus resultierende Wellenlänge.}
+  \caption{Gemessene Intensitätsmaxima ($\su{z}$) und die daraus resultierende Wellenlänge.}
   \label{tab:Wellenlängen}
   \begin{tabular}{c c c}
     \toprule
@@ -43,26 +43,26 @@ sind in der folgenden Tabelle eingetragen:
   \end{tabular}
 \end{table}
 
-Durch das mitteln der bestimmten Wellenlängen (Tabelle \ref{tab:Wellenlängen})
+Durch das Mitteln der bestimmten Wellenlängen (Tabelle \ref{tab:Wellenlängen})
 ergibt sich für die Wellenlänge des verwendeten Lasers ein Wert von $\lambda \,
 = \, (672.6 \pm 1.1) \, \si{nm}$, wobei es sich bei dem Fehler um die
 Standardabweichung handelt.
 
 \subsection{Bestimmung des Brechungsindexes von Luft und Kohlenstoffdioxid}
 
-Mit den anfangs angegebenen Werten und den Formeln \eqref{} lässt sich aus der
-gemessenen Anzahl an Intensitätsmaxima (N) und der Druckdifferenz ($\increment
+Mit den anfangs angegebenen Werten und den Formeln \eqref{eqn:n_Druck} und \eqref{eqn:delta_n} lässt sich aus der
+gemessenen Anzahl an Intensitätsmaxima ($\su{z}$) und der Druckdifferenz ($\increment
 \su{p}$) der Brechungsindex von Luft sowie von Kohlenstoffdioxid bestimmen. Bei
-$\increment n$ handelt es sich hier nicht um den Fehler sondern die Differenz des
+$\increment \su{n}$ handelt es sich hier nicht um den Fehler sondern die Differenz des
 Brechungsindexes, der Fehler wird durch $\sigma\ua{n}$ angegeben.
 
 \begin{table}
   \centering
-  \caption{Gemessene Intensitätsmaxima (N) und der daraus resultierende Brechungsindex für Luft.}
+  \caption{Gemessene Intensitätsmaxima ($\su{z}$) und der daraus resultierende Brechungsindex für Luft.}
   \label{tab:IndexLuft}
   \begin{tabular}{c c c c c}
     \toprule
-    $\increment p$ in $\si{bar}$ & N & $\increment n$ & $n$ & $\sigma\ua{n} * 10^{6}$ \\
+    $\increment \su{p}$ in $\si{bar}$ & $\su{z}$ & $\increment \su{n}$ & $\su{n}$ & $\sigma\ua{n} * 10^{6}$ \\
     \midrule
     0.76 & 35 & 0.000235 & 1.000337 & 0.543 \\
     0.8  & 34 & 0.000229 & 1.000311 & 0.501 \\
@@ -92,7 +92,7 @@ Mit den Werten aus Tabelle \ref{tab:IndexLuft} ergibt sich für den Brechungsind
 von Luft folgender Wert:
 
 \begin{equation*}
-  n\ua{Luft} = (1.000314 \pm 0.000001)
+  \su{n}\ua{Luft} = (1.000314 \pm 0.000001)
 \end{equation*}
 
 Äquivalent dazu lässt sich auch der Brechungsindex von Kohlenstoffdioxid berechnen.
@@ -101,11 +101,11 @@ eingetragen:
 
 \begin{table}
   \centering
-  \caption{Gemessene Intensitätsmaxima (N) und der daraus resultierende Brechungsindex für Kohlenstoffdioxid.}
+  \caption{Gemessene Intensitätsmaxima ($\su{z}$) und der daraus resultierende Brechungsindex für Kohlenstoffdioxid.}
   \label{tab:IndexLuft}
   \begin{tabular}{c c c c c}
     \toprule
-    $\increment p$ in $\si{bar}$ & N & $\increment n$ & $n$ & $\sigma\ua{n} * 10^{6}$ \\
+    $\increment \su{p}$ in $\si{bar}$ & $\su{z}$ & $\increment \su{n}$ & $\su{n}$ & $\sigma\ua{n} * 10^{6}$ \\
     \midrule
     0.8  & 58 & 0.000390 & 1.000530 & 0.855 \\
     0.8  & 50 & 0.000336 & 1.000457 & 0.737 \\
@@ -126,7 +126,7 @@ berechnet. Für den Brechungsindex von Kohlenstoffdioxid ergibt sich damit der
 folgende Wert:
 
 \begin{equation*}
-  n\ua{CO\ua{2}} = (1.000469 \pm 0.000001)
+  \su{n}_{\ce{CO_2}} = (1.000469 \pm 0.000001)
 \end{equation*}
 
 \section{Diskussion}
@@ -145,8 +145,8 @@ dieser Werte im Fehlerintervall des experimentell bestimmten Wertes.
     & Experimenteller Wert  & Literaturwert \\
     \midrule
     $\lambda$ in in $\si{nm}$ & 672.6 \pm 1.1         & 632.8         \\
-    $n\ua{Luft}$              & 1.000314 \pm 0.000001 & 1.000292      \\
-    $n\ua{CO\ua{2}}$          & 1.000469 \pm 0.000001 & 1.000449      \\
+    $\su{n}\ua{Luft}$              & 1.000314 \pm 0.000001 & 1.000292      \\
+    $\su{n}_{\ce{CO_2}}$          & 1.000469 \pm 0.000001 & 1.000449      \\
     \bottomrule
   \end{tabular}
 \end{table}
