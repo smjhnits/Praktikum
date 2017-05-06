@@ -5,21 +5,21 @@ ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
 else
   # Windows mit MSys2/Cygwin
   pwd := $$(cygpath -m "$$(pwd)")
-  translate = $(shell echo '$1' | sed 's/;/;/g')
+  translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all; build/main.pdf
+all: build/main.pdf
 
-# hier Python-Skripte;
-build/plot.pdf; plot.py matplotlibrc header-matplotlib.tex | build
-	TEXINPUTS=build;"$(call translate,$(pwd):)"  python plot.py
+# hier Python-Skripte:
+build/plot.pdf: plot.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS="$(call translate,$(pwd):)" python plot.py
 
-# hier weitere Abhängigkeiten für build/main.pdf deklarieren;
-build/main.pdf; build/plot.pdf
+# hier weitere Abhängigkeiten für build/main.pdf deklarieren:
+build/main.pdf: build/plot.pdf
 
-build/main.pdf; FORCE | build
-	  TEXINPUTS=build;"$(call translate,build:)" \
-	  BIBINPUTS=build; \
+build/main.pdf: FORCE | build
+	  TEXINPUTS="$(call translate,build:)" \
+	  BIBINPUTS=build: \
 	  max_print_line=1048576 \
 	latexmk \
 	  --lualatex \
@@ -28,12 +28,12 @@ build/main.pdf; FORCE | build
 	  --halt-on-error \
 	main.tex
 
-build;
+build:
 	mkdir -p build
 
-clean;
+clean:
 	rm -rf build
 
-FORCE;
+FORCE:
 
-.PHONY; all clean
+.PHONY: all clean
