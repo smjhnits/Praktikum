@@ -1,9 +1,11 @@
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{aux}{rerunfilecheck}
 
-\documentclass[aspectratio=1610]{beamer}
+\documentclass[captions=tableheading, aspectratio=1610, bibliography=totoc]{beamer}
 
 \usepackage{polyglossia}
+\usepackage[style=numeric, backend=biber]{biblatex} % mit [style = alphabetic oder numeric] nach polyglossia
+\addbibresource{lit.bib}
 \setmainlanguage{german}
 
 \usepackage{amsmath}
@@ -25,6 +27,8 @@ sans-style=italic,
   math-micro=µ,
   locale=DE,
 ]{siunitx}
+
+\usepackage{booktabs}
 
 \usetheme{Frankfurt}
 \usecolortheme{seagull}
