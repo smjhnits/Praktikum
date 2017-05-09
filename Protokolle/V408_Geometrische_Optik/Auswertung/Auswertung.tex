@@ -1,0 +1,143 @@
+\input{"../../Praeambel_prak.tex"}
+
+\begin{document}
+
+\section{Auswertung}
+
+Bei den Messungen der Gegenstads- und der Bildgröße wurde ein Geodreieck verwendet.
+Die weiteren Messwerte wurden an einem Lineal, welches an der Schiene integriert
+ist, abgelesen. Es wird ein Ablesefehler von $\SI{0,05}{\centi\meter}$ angenommen.
+Anhand der genommenen Messwerte wird die Linsengleichung \eqref{eqn:} und das
+Abbildungsgesetz \eqref{eqn:} überprüft.
+Die Messdaten sind in Tabelle \ref{tab:} dargestellt.
+
+Damit das Abbildungsgesetz überprüft werden kann, sind die Mittelwerte der Messung
+der Gegenstands- und der Bildweite verwendet worden. Als Fehler wurden die
+Standardabweichungen des Mittelwertes angegeben.
+
+\begin{description}
+  \centering
+  \item[$\frac{B}{G}=$]\SI{569(20)e-1}{\centi\meter}
+  \item[$\frac{<b>}{<g>}=$]\SI{3929(14)e-2}{\centi\meter}
+\end{description}
+
+Die Mittelwerte $<b>$ und $<g>$ in die Linsengleichung \eqref{eqn:} eingesetzt,
+ergeben die folgenden
+Werte. Die Brennweite der Linse, ist vom Herstellen mit $\SI{10}{\centi\meter}$
+angegeben.
+
+\begin{description}
+  \centering
+  \item[$<f_1>\ua{gemessen}=$]\SI{10578(26)e-3}{\centi\meter}
+\end{description}
+
+Die Verbindungsgereaden, zu den Wertepaaren $(g_i|b_i)$, der Linse mit bekannter
+Brennweite sind in \ref{fig:brennweite_bekannt}
+dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Messung1_brennnweite_bekannt.pdf}
+  \caption{Wertepaare $(g_i|b_i)$ aufgetragen. Zudem ist der Mittelwert der gemessenen Brennweite, sowie der abgelesene Schnittpunkt der Geraden eingetragen.}
+  \label{fig:brennweite_bekannt}
+\end{figure}
+
+Der Schnittpunkt der Geraden im Diagramm \ref{fig:brennweite_bekannt}
+ist mit Hilfe des Mauscoursers abgelesen worden. Der Ablesefehler wird mit
+$\SI{0,3}{\centi\meter}$ angegeben.
+Der Schnittpunkt hat einen Wert von $S_1 = (\num{99(3)e-1}|\num{94(3)e-1})$.
+Die Angaben sind in Centimetern.
+
+Desweiteren wurde die Brennweite einer unbekannten Linse bestimmt.
+Es wurde gleich verfahren, wie bei der Messung der bekannten Linse.
+
+\begin{description}
+  \centering
+  \item[$<f_2>\ua{gemessen}=$]\SI{9028(3)e-2}{\centi\meter}
+\end{description}
+
+Das Diagramm \ref{fig:unbekannte_brennweite} zeigt die Verbindungsgeraden,
+der Wertepaare der gemessenen $(g_i|b_i)$.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Messung2_unbekannte_brennweite.pdf}
+  \caption{Wertepaare $(g_i|b_i)$ aufgetragen. Zudem ist der Mittelwert der gemessenen Brennweite, sowie der abgelesene Schnittpunkt der Geraden eingetragen.}
+  \label{fig:unbekannte_brennweite}
+\end{figure}
+
+Der abgelesene Schnittpunkt ist gegeben mit $S_2 =
+(\num{81(3)e-1}|\num{84(3)e-1})$. Die Angaben sind in Centimetern.
+
+\subsection{Bestimmung der Brennweite nach Bessel}
+
+Die Messdaten der Messung sind in Tabelle \ref{tab:bessel} dargestellt.
+Damit der Datensatz größer ist, werden die Messdaten
+von $b_1, g_1$ und $b_2, g_2$ verwendet. Theoretisch sind $b_1 = g_2$
+und $b_2 = g_1$ identisch.
+
+Die Mittelwerte der Messdaten wurden in die Formel \eqref{eqn:} eigetragen.
+Daraus ergibt sich die folgende Brennweite.
+
+\begin{equation}
+  \centering
+  \label{eqn:bessel_ergebnis}
+  f\ua{Bessel}= \SI{9,67}{\centi\meter}
+\end{equation}
+
+Der Fehler von \eqref{eqn:bessel_ergebnis} ist, bezüglich der Messgenauigkeit,
+vernachlässigbar klein und wird daher weggelassen.
+
+Darüberhinaus wurde die chromatische Abberration untersucht.
+
+\begin{align}
+  \label{eqn:rot}
+  f\ua{rot} &= \SI{967(1)e-2}{\centi\meter}\\
+  \label{eqn:blau}
+  f\ua{blau} &= \SI{966e-2}{\centi\meter}
+\end{align}
+
+Der Fehler bei \eqref{eqn:blau} ist, bezüglich der Messungenauigkeit,
+zu vernachlässigen.
+
+\subsection{Bestimmung der Brennweite von Linsensystemen nach Abbe}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Messung_abbe_g.pdf}
+  \caption{Wertepaare $(1 + \frac{1}{V_i}|g_i)$ mit linearer Regression.}
+  \label{fig:abbe_g}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Messung_abbe_b.pdf}
+  \caption{Wertepaare $(1 + V_i|b_i)$ mit linearer Regression.}
+  \label{fig:abbe_b}
+\end{figure}
+
+\section{Diskussion}
+
+Die Messgenauigkeit der Messung der Brennweite ist in Diagramm
+\ref{fig:brennweite_bekannt} einzusehen. Bei einer hohen Messgenauigkeit haben
+die eingetragenen Geraden einen gemeinsamen Schnittpunkt. Dies ist, unter
+Berücksichtigung der Messunsicherheit, erreicht worden. Die Messung wird als
+sehr präzise eingestuft. Die Messung weicht lediglich um
+$\approx\SI{0,5}{\centi\meter}$ von der angegebenen Brennweite ab. Dies ebenfalls
+auf eine hohe Präzision der Messung hin.
+
+Als Linse mit unbekannter Brennweite wurde eine befüllbare Linse genommen. Die
+Linse wurde über eine Spritze mit Wasser befüllt. Damit in der Linse ein konstanter
+Druck gewährleistet wurde, musste die Spritze an einer definierten Person fixiert
+werden. Die Fixierung wurde per hand bewerkstelligt. Die Messung war länger, womit
+ein dauerhaft vollkommener konstanter Druck unwahrscheinlich scheint. Dadurch könnte
+die Messung beeinflusst worden sein. Der in Diagramm
+\ref{fig:unbekannte_brennweite} entstandene Schnittpunkt, weißt hingegen auf eine
+hohe Messgenauigkeit hin.
+
+
+
+Die chromatische Abberration ergab, dass die Brennweite bei blauer Lichtquelle
+minimal kleiner ist, als bei roter Lichtquelle. Dies entspricht der Erwartung. 
+
+\end{document}

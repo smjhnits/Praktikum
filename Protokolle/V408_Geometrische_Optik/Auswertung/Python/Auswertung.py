@@ -50,11 +50,15 @@ g_eins_rot_4 = unp.uarray(np.array([14.35, 13.2, 12.6, 12.35, 12]) * 10**(-2), e
 b_eins_rot_4 = b_plus_g_4 - g_eins_rot_4
 g_zwei_rot_4 = unp.uarray(np.array([31, 37, 42.5, 48.1, 53.5]) * 10**(-2), err_5)
 b_zwei_rot_4 = b_plus_g_4 - g_zwei_rot_4
+d_eins_rot_4 = g_eins_rot_4 - b_eins_rot_4
+d_zwei_rot_4 = g_zwei_rot_4 - b_zwei_rot_4
 
 g_eins_blau_4 = np.array([14.1, 13.25, 12.7, 12.4, 12.1]) * 10**(-2)
 b_eins_blau_4 = b_plus_g_4 - g_eins_blau_4
 g_zwei_blau_4 = np.array([31.2, 37.1, 42.7, 48.2, 53.3]) * 10**(-2)
 b_zwei_blau_4 = b_plus_g_4 - g_zwei_blau_4
+d_eins_blau_4 = g_eins_blau_4 - b_eins_blau_4
+d_zwei_blau_4 = g_zwei_blau_4 - b_zwei_blau_4
 
 # Nach Abbe Streulinse -100 mm, Sammellinse 100mm
 
@@ -143,29 +147,51 @@ print('schnittpkt_2 abgelesen: ', 'x=0.081(0.003), y=0.084(0.003) Fehler sehr ge
 
 # Bessel
 
-brennweite_3 = Brennweite_Bessel(b_plus_g_3, d_eins_3)
-
-
-#for i in range(len(noms(b_plus_g_3))):
-#noms(brennweite_3) = Brennweite_Bessel(noms(b_plus_g_3), noms(d_eins_3))
-#stds(brennweite_3) = Brennweite_Bessel(stds(b_plus_g_3), stds(d_eins_3))
-
+brennweite_3 = Brennweite_Bessel(np.append(b_plus_g_3, b_plus_g_3), np.append(d_eins_3, d_zwei_3))
 
 print('Brennweite nach Bessel: ', np.mean(brennweite_3))
 
+# chromatische Abberration
+
+brennweite_rot_4 = Brennweite_Bessel(np.append(b_plus_g_4, b_plus_g_4), np.append(d_eins_rot_4, d_zwei_rot_4))
+
+brennweite_blau_4 = Brennweite_Bessel(np.append(b_plus_g_4, b_plus_g_4), np.append(d_eins_blau_4, d_zwei_blau_4))
+
+print('brennweite_rot: ', np.mean(brennweite_rot_4))
+print('brennweite_blau: ', np.mean(brennweite_blau_4))
+
 # Abbe
 
-V_abbe = G / B_5
+V_abbe = B_5 / G
 
-params_g, covariance_g = curve_fit(function, g_5, 1 + 1 / V_abbe)
-params_b, covariance_b = curve_fit(function, b_5, 1 + V_abbe)
+params_g, covariance_g = curve_fit(function, 1 + 1 / noms(V_abbe), noms(g_5))
+params_b, covariance_b = curve_fit(function, 1 + noms(V_abbe), noms(b_5))
 
 
 plt.clf()
-plt.plot(g_5, function(g_5, *params_1), 'r-', label = r'lineare Regression')
-plt.ylabel(r'(1+)')
-plt.xlabel(r'g\'')
+plt.plot(np.linspace(1.5, 4.5, 10), function(np.linspace(1.5, 4.5, 10), *params_g), 'r-', label = r'lineare Regression')
+plt.plot(1 + 1 / noms(V_abbe), noms(g_5), 'kx', label=r'Messdaten')
+plt.xlabel(r'(1+$\frac{1}{V}$)')
+plt.ylabel(r'g´')
+plt.ylim(0, 0.62)
+plt.xlim(1.5, 4.2)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
-plt.savefig('Messung2_unbekannte_brennweite.pdf')
+plt.savefig('Messung_abbe_g.pdf')
+
+plt.clf()
+plt.plot(np.linspace(1, 3, 10), function(np.linspace(1, 3, 10), *params_b), 'r-', label = r'lineare Regression')
+plt.plot(1 + noms(V_abbe), noms(b_5), 'kx', label=r'Messdaten')
+plt.xlabel(r'(1 + V)')
+plt.ylabel(r'b´')
+plt.xlim(1.3, 2.9)
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+plt.savefig('Messung_abbe_b.pdf')
+
+print('Brennweite_abbe_g, Hauptebene :', params_g)
+print('fehler: ', np.sqrt(np.diag(covariance_g)))
+print('Brennweite_abbe_b, Hauptebene :', params_b)
+print('fehler: ', np.sqrt(np.diag(covariance_b)))
