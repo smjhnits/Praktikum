@@ -9,17 +9,19 @@ Die weiteren Messwerte wurden an einem Lineal, welches an der Schiene integriert
 ist, abgelesen. Es wird ein Ablesefehler von $\SI{0,05}{\centi\meter}$ angenommen.
 Anhand der genommenen Messwerte wird die Linsengleichung \eqref{eqn:} und das
 Abbildungsgesetz \eqref{eqn:} überprüft.
-Die Messdaten sind in Tabelle \ref{tab:} dargestellt.
 
 Damit das Abbildungsgesetz überprüft werden kann, sind die Mittelwerte der Messung
 der Gegenstands- und der Bildweite verwendet worden. Als Fehler wurden die
 Standardabweichungen des Mittelwertes angegeben.
+Die Messdaten sind in Tabelle \ref{tab:bekannte_brennweite} dargestellt.
 
 \begin{description}
   \centering
   \item[$\frac{B}{G}=$]\SI{569(20)e-1}{\centi\meter}
   \item[$\frac{<b>}{<g>}=$]\SI{3929(14)e-2}{\centi\meter}
 \end{description}
+
+\input{Tabelle_Messung_bekannte_brennweite.tex}
 
 Die Mittelwerte $<b>$ und $<g>$ in die Linsengleichung \eqref{eqn:} eingesetzt,
 ergeben die folgenden
@@ -50,6 +52,7 @@ Die Angaben sind in Centimetern.
 
 Desweiteren wurde die Brennweite einer unbekannten Linse bestimmt.
 Es wurde gleich verfahren, wie bei der Messung der bekannten Linse.
+Die Messdaten sind in Tabelle \ref{tab:unbekannte_brennweite} dargestellt.
 
 \begin{description}
   \centering
@@ -68,6 +71,8 @@ der Wertepaare der gemessenen $(g_i|b_i)$.
 
 Der abgelesene Schnittpunkt ist gegeben mit $S_2 =
 (\num{81(3)e-1}|\num{84(3)e-1})$. Die Angaben sind in Centimetern.
+
+\input{Tabelle_Messung_unbekannte_brennweite.tex}
 
 \subsection{Bestimmung der Brennweite nach Bessel}
 
@@ -88,7 +93,10 @@ Daraus ergibt sich die folgende Brennweite.
 Der Fehler von \eqref{eqn:bessel_ergebnis} ist, bezüglich der Messgenauigkeit,
 vernachlässigbar klein und wird daher weggelassen.
 
+\input{Tabelle_Messung_nach_Bessel.tex}
+
 Darüberhinaus wurde die chromatische Abberration untersucht.
+Die Messdaten sind in Tabelle \ref{tab:chromatische_abberration} dargestellt.
 
 \begin{align}
   \label{eqn:rot}
@@ -100,9 +108,11 @@ Darüberhinaus wurde die chromatische Abberration untersucht.
 Der Fehler bei \eqref{eqn:blau} ist, bezüglich der Messungenauigkeit,
 zu vernachlässigen.
 
+\input{Tabelle_Messung_chromatische_abberration.tex}
+
 \subsection{Bestimmung der Brennweite von Linsensystemen nach Abbe}
 
-Die Messdaten der Messung sind in Tabelle \ref{tab:} dargestellt.
+Die Messdaten der Messung sind in Tabelle \ref{tab:abbe} dargestellt.
 Mit Formel \eqref{eqn:} ergeben sich daraus die folgenden Werte.
 
 \begin{align}
@@ -130,6 +140,8 @@ Mit Formel \eqref{eqn:} ergeben sich daraus die folgenden Werte.
   \label{fig:abbe_b}
 \end{figure}
 
+\input{Tabelle_Messung_nach_Abbe.tex}
+
 \section{Diskussion}
 
 Die Messgenauigkeit der Messung der Brennweite ist in Diagramm
@@ -149,7 +161,10 @@ die Messung beeinflusst worden sein. Der in Diagramm
 \ref{fig:unbekannte_brennweite} entstandene Schnittpunkt, weißt hingegen auf eine
 hohe Messgenauigkeit hin.
 
-
+Die Messung de Linse mit unbekannter Brennweite ergab eine Brennweite von ca. $\SI{9,03}{\centi\meter}$.
+Die Messgenauigkeit ist in Abbildung \ref{fig:unbekannte_brennweite} einzusehen.
+Anhand des Schnittpunktes der Verbindungsgeraden ist die Messgenauigkeit im Rahmen
+der Messung als präzise zu bewerten.  
 
 Die chromatische Abberration ergab, dass die Brennweite bei blauer Lichtquelle
 minimal kleiner ist, als bei roter Lichtquelle. Dies entspricht der Erwartung.
