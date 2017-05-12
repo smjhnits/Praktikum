@@ -1,0 +1,135 @@
+\input{"../Praeambel_prak.tex"}
+
+\begin{document}
+
+\section{Theorie}
+
+\subsection{Zielsetzung}
+
+In dem folgenden Versuch sollen mehrere Gesetzmäßigkeiten der geometrischen Optik,
+wie zum Beispiel das Abbildungsgesetz und die Linsengleichung, mit verschiedenen
+Versuchsaufbauten überprüft werden. Zudem sollen diese dann genutzt werden, um
+für verschiedene Linsen(-Systeme) die Brennweite zu bestimmen, unter anderem auch
+noch mit der Methode von Bessel sowie der Methode von Abbe.
+
+\subsection{Grundlagen der geometrischen Optik}
+
+Grundlegend werden in der Optik Linsen aus verschiedenen Materialien betrachtet,
+die optisch dichter sind als Licht. Durch diese Eigenschaft werden Lichtstrahlen
+bei Durchgang solch eines Mediums nach dem Brechungsgesetz gebrochen. Da die
+auftretende Brechung auch Abhängig von der Geometrie des Körpers ist, werden
+die Linsen meist in zwei Kategorien eingeteilt. Ein Typus ist die Sammellinse, bei
+der parallel einfallende Lichtstrahlen zum Einfallslot hin gebrochen werden.
+Dadurch entsteht an dem Punkt, an dem sich die Lichtstrahlen bündeln ein reeles
+Bild in der Entfernung b (Bildweite) zur Hauptebene der Linse (siehe Abbildung
+\ref{}).
+
+Ein weiterer Typus ist die Streulinse, bei der die Lichtstrahlen vom Einfallslot
+weg gebrochen werden. Dadurch entsteht lediglich ein virtuelles Bild, welches
+eine negative Bildweite besitzt (siehe Abbildung \ref{}). Aufgrunf dieser
+Eigenschaften wird bei Sammellinsen von einer positiven Brennweite und bei
+Streulinsen von einer negativen Brennweite gesprochen.
+
+Während bei einer dünnen Linse die Brechung auf lediglich eine Mttelenbene reduziert
+werden kann, müssen bei dickeren Linsen zwei Hauptebenen betrachtet werden (siehe
+Abbildung \ref{}). Um nun optische Bildrekonstruktionen durchzführen, werden
+drei charakteristische Strahlen eingeführt.
+
+\begin{itemize}
+  \item \underline{Parallelstrahl}: Der Parallelstrahl läuft von der Gegenstand
+  senkrecht auf die Mittel- bzw. Hauptebene zu, wird dort gebrochen und läuft
+  dann durch den Brennpunkt.
+  \item \underline{Mittelpunktsstrahl}: Der Mittelpunktsstrahl läuft direkt durch
+  die Mitte der Linse und läuft durchgehen in die selbe Richtung.
+  \item \underline{Brennpunktstrahl}: Der Brennpunktstrahl läuft durch den Brennpunkt
+  auf die Mittel- bzw.  Haupteben zu, wird dort gebrochen und läuft dann senkrecht
+  zur Mittel- bzw. Hauptebene bis zum Bild.
+\end{itemize}
+
+Der Schnittpunkt aller drei Strahlen markiert dann das Abbild. Zwischen den bei der
+Bildrekonstruktion betrachteten Größen besteht nach dem Abbildungsgesetz folgender
+Zusammenhang:
+
+\begin{equation}
+  V = \frac{B}{G} = \frac{b}{g},
+  \label{eqn:Abbildungsgesetz}
+\end{equation}
+
+wobei V den Abbildungsmaßstab, B und G Bild- bzw. Gegenstandsgröße und b und g die
+Bild- bzw. Gegenstandsweite beschreiben. Für dünne Linsen folgt zudem die Linsengleichung,
+welche eine Zusammenhang zwischen der Brennweite f sowie b und g herstellt (Formel
+\eqref{eqn:Linsengleichung}).
+
+\begin{equation}
+\frac{1}{f} = \frac{1}{b} + \frac{1}{g}
+\label{eqn:Linsengleichung}
+\end{equation}
+
+Bei dickeren Linsen müssen wie vorher bereits erwähnt zwei Hauptebenen betrachtet
+werden. Hier werden Brennweite und weitere Größen immer bezüglich einer Hauptebene
+angegeben, sodass die Linsengleichung auch hier ihre Gültigkeit behält.
+
+Bei durch Linsen erzeugte Abbildungen kann es aufgrund der Gültigkeit der Formeln
+\eqref{eqn:Abbildungsgesetz} und \eqref{eqn:Linsengleichung} für achsennahe Strahlen
+zu einem Abbildungsfehler bei der Betrachtung achsenferner Strahlen kommen.
+Bei der sphärischen Abberration liege die Brennpunkte beider Strahlentypen nicht
+aufeinander, sodass es zu einer Unschärfe kommt. Dieser Fehler kann allerdings
+durch eine Irisblende behoben werden. Bei der chromatischen Abberation kommt es
+aufgrund der unterschiedlichen Wellenlängen im Lichtspektrum zu einer Dispersion
+bei der Brechung verschiedener Farben.
+
+Eine weitere Größe zur Beschreibung von Linsen ist die Brechkraft D, welche als
+reziproke Brennweite definiert ist. Bei einem System von mehreren dünnen Linsen
+können die einzelnen Brechkräfte einfach summiert werden:
+
+\begin{equation}
+  D = \sum_{i}^{N} D\ua{i} = \sum_{i}^{N} \frac{1}{f\ua{i}} .
+\end{equation}
+
+Zur Bestimmung der Brennweite einer Linse werden im folgenden mehrere Methoden verwendet.
+Erstens kann die Brennweite durch Messung von Bild- und Gegenstandsweite bestimmt
+werden, indem die Linsengleichung (Formel \eqref{eqn:Linsengleichung}) genutzt wird.
+
+Des weiteren wird die Methode von Bessel genutzt. Hier wird der Abstand zwischen
+Gegenstand und Bild konstant gehalten und es werden zwei verschiedene Positionen
+gesucht, bei denen das Bild scharf dargestellt wird (siehe Abbildung \ref{}).
+Da es sich um eine symmetrische Linsenstellung handelt, gilt folgende Beziehung:
+
+\begin{equation}
+  b\ua{1} = g\ua{2} \,\, \su{und} \,\, b\ua{2} = g\ua{1} .
+\end{equation}
+
+Mit den Größen $e = g\ua{1} + b\ua{1} = g\ua{2} + b\ua{2}$ (Abstand zwischen Bild
+und Gegenstand) sowie $d = g\ua{1} - b\ua{1} = g\ua{2} - b\ua{2}$ (Abstand zwischen
+den beiden Linsenpositionen) lässt sich dann ein Formel für die Brennweite der
+Linse herleiten (Formel \eqref{eqn:Bessel}).
+
+\begin{equation}
+  f = \frac{e^2 - d^2}{4e}
+  \label{eqn:Bessel}
+\end{equation}
+
+Eine weitere Methode zur Bestimmung der Brennweite ist die Methode von Abbe. Bei
+dieser können Brennweite und Lage der Hauptebenen aus dem Abbildungsmaßstab hergeleitet
+werden. Dafür werden bei einer dicken Linse wieder Bild- und Gegenstandsweite in
+Bezug zu einem beliebigen Bezugspunkt A gemessen. Hierbei gelten folgende Beziehungen:
+
+\begin{align}
+  g` &= g + h  = f \cdot \left( 1 + \frac{1}{V} \right) + h \\
+  b` &= b + h` = f \cdot \left( 1 + V \right) + h` .
+\end{align}
+
+Bei der Messung muss der Bezugspunkt nicht notwendigerweise zwischen den beiden
+Hauptebenen liegen.
+
+\section{Versuchsaufbau und Durchführung}
+
+\subsection{Bestimmung der Brennweite durch Messung der Bild- und Gegenstandsweite}
+
+\subsection{Bestimmung der Brennweite mit der Methode von Bessel}
+
+\subsection{Bestimmung der Brennweite mit der Methode von Abbe}
+
+
+
+\end{document}
