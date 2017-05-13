@@ -1,4 +1,4 @@
-\input{"../Praeambel_prak.tex"}
+\input{"../../Praeambel_prak.tex"}
 
 \begin{document}
 
@@ -22,17 +22,31 @@ die Linsen meist in zwei Kategorien eingeteilt. Ein Typus ist die Sammellinse, b
 der parallel einfallende Lichtstrahlen zum Einfallslot hin gebrochen werden.
 Dadurch entsteht an dem Punkt, an dem sich die Lichtstrahlen bündeln ein reeles
 Bild in der Entfernung b (Bildweite) zur Hauptebene der Linse (siehe Abbildung
-\ref{}).
+\ref{Sammellinse}).
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Sammellinse.png}
+  \caption{Bildrekonstruktion des Strahlenverlaufs bei einer Sammellinse.\cite{anleitung01}}
+  \label{fig:Sammellinse}
+\end{figure}
 
 Ein weiterer Typus ist die Streulinse, bei der die Lichtstrahlen vom Einfallslot
 weg gebrochen werden. Dadurch entsteht lediglich ein virtuelles Bild, welches
-eine negative Bildweite besitzt (siehe Abbildung \ref{}). Aufgrunf dieser
+eine negative Bildweite besitzt (siehe Abbildung \ref{fig:Streulinse}). Aufgrunf dieser
 Eigenschaften wird bei Sammellinsen von einer positiven Brennweite und bei
 Streulinsen von einer negativen Brennweite gesprochen.
 
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Streulinse.png}
+  \caption{Bildrekonstruktion bei einer Streulinse. \cite{anleitung01}}
+  \label{fig:Streulinse}
+\end{figure}
+
 Während bei einer dünnen Linse die Brechung auf lediglich eine Mttelenbene reduziert
 werden kann, müssen bei dickeren Linsen zwei Hauptebenen betrachtet werden (siehe
-Abbildung \ref{}). Um nun optische Bildrekonstruktionen durchzführen, werden
+Abbildung \ref{fig:dickeLinse}). Um nun optische Bildrekonstruktionen durchzführen, werden
 drei charakteristische Strahlen eingeführt.
 
 \begin{itemize}
@@ -45,6 +59,13 @@ drei charakteristische Strahlen eingeführt.
   auf die Mittel- bzw.  Haupteben zu, wird dort gebrochen und läuft dann senkrecht
   zur Mittel- bzw. Hauptebene bis zum Bild.
 \end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{dickeLinse.png}
+  \caption{Darstellung der Bildrekonstruktion bei einer dicken Linse.\cite{anleitung01}}
+  \label{fig:dickeLinse}
+\end{figure}
 
 Der Schnittpunkt aller drei Strahlen markiert dann das Abbild. Zwischen den bei der
 Bildrekonstruktion betrachteten Größen besteht nach dem Abbildungsgesetz folgender
@@ -88,11 +109,14 @@ können die einzelnen Brechkräfte einfach summiert werden:
 
 Zur Bestimmung der Brennweite einer Linse werden im folgenden mehrere Methoden verwendet.
 Erstens kann die Brennweite durch Messung von Bild- und Gegenstandsweite bestimmt
-werden, indem die Linsengleichung (Formel \eqref{eqn:Linsengleichung}) genutzt wird.
+werden, indem die Linsengleichung (Formel \eqref{eqn:Linsengleichung}) genutzt wird
+um aus Bild- und Gegenstandsweite die Brennweite zu bestimmen (siehe Abb.
+\ref{fig:Sammellinse}).
+
 
 Des weiteren wird die Methode von Bessel genutzt. Hier wird der Abstand zwischen
 Gegenstand und Bild konstant gehalten und es werden zwei verschiedene Positionen
-gesucht, bei denen das Bild scharf dargestellt wird (siehe Abbildung \ref{}).
+gesucht, bei denen das Bild scharf dargestellt wird (siehe Abbildung \ref{fig:2Sammellinsen}).
 Da es sich um eine symmetrische Linsenstellung handelt, gilt folgende Beziehung:
 
 \begin{equation}
@@ -109,27 +133,95 @@ Linse herleiten (Formel \eqref{eqn:Bessel}).
   \label{eqn:Bessel}
 \end{equation}
 
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{2Sammellinsen.png}
+  \caption{Linsenpositionen zur Bestimmung der Brennweite mit der Methode von Bessel.\cite{anleitung01}}
+  \label{fig:2Sammellinsen}
+\end{figure}
+
 Eine weitere Methode zur Bestimmung der Brennweite ist die Methode von Abbe. Bei
 dieser können Brennweite und Lage der Hauptebenen aus dem Abbildungsmaßstab hergeleitet
 werden. Dafür werden bei einer dicken Linse wieder Bild- und Gegenstandsweite in
-Bezug zu einem beliebigen Bezugspunkt A gemessen. Hierbei gelten folgende Beziehungen:
+Bezug zu einem beliebigen Bezugspunkt A gemessen (siehe Abb. \ref{fig:Linsensystem}).
+Hierbei gelten folgende Beziehungen:
 
 \begin{align}
-  g` &= g + h  = f \cdot \left( 1 + \frac{1}{V} \right) + h \\
-  b` &= b + h` = f \cdot \left( 1 + V \right) + h` .
+  g´ &= g + h  = f \cdot \left( 1 + \frac{1}{v} \right) +h \\
+  b´ &= b + h´ = f \cdot \left( 1 + v \right) + h´ .
 \end{align}
 
-Bei der Messung muss der Bezugspunkt nicht notwendigerweise zwischen den beiden
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Linsensystem.png}
+  \caption{Aufbau des Linsensystems bei der Bestimmung der Brennweite mittels der
+  Methode von Abbe.\cite{anleitung01}}
+  \label{fig:Linsensystem}
+\end{figure}
+
+Der gewählte Referenzpunkt A muss dabei nicht notwendigerweise innerhalb der
 Hauptebenen liegen.
 
 \section{Versuchsaufbau und Durchführung}
 
+Bei dem Versuch wird ein Aufbau nach Abbildung \ref{fig:Aufbau} verwendet. Auf einer
+Schiene werden die verwendete Blende mit L-förmig angeordneten punktförmigen
+Spalten (2), die verschiedenen Linsen (3) sowie der Schirm (4) montiert. Die als
+Lichtquelle verwendete Halogenlampe (1) wird vor der Schiene aufgestellt.
+Mit der auf der Schiene vorhandenen Längenskala werden die verschiedenen
+Abstände gemessen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Aufbau.JPG}
+  \caption{Schematische Darstellung des verwendeten Aufbaus bei den folgenden Messungen. \cite{anleitung01}}
+  \label{fig:Aufbau}
+\end{figure}
+
 \subsection{Bestimmung der Brennweite durch Messung der Bild- und Gegenstandsweite}
+
+Zuerst wird eine Sammellinse mit bekannter Brennweite auf der Schiene montiert.
+Mit der Linse und der
+Längenskala werden dann verschiedene Gegenstandsweiten eingestellt, zu denen
+durch Verschieben des Schirmes zu einem Punkt auf dem das Bild scharf erscheint
+die entsprechendem Bildweiten gemessen werden. Diese Messung wird 10 mal für
+verschiedene Gegenstandsweiten durchgeführt.
+Bei den ersten fünf Messungen werden zudem Bild- und Gegenstandsgröße gemessen.
+
+Anschließend wird eine dehnbare, mit Wasser gefüllte Linse auf der Schiene montiert.
+Während mit dem selben Verfahren wie bei der Sammellinse die Gegenstand- und Bildweite
+gemessen werden, wird mit einer Spritze ein konstanter Druck innerhalb der
+Linse aufrecht erhalten. Auch diese Messung wird 10 mal für verschiedene
+Gegenstandsweiten durchgeführt.
+
+Danach wird mit der Linse noch einmal die Akkomodation des Auges betrachtet, indem
+bei konstanter Bild- und Gegenstandsweite der Druck in der Linse solange verändert
+wird, bis das Bild auf dem Schirm scharf erscheint.
 
 \subsection{Bestimmung der Brennweite mit der Methode von Bessel}
 
+Zuerst werden Blende und Schirm auf einen konstanten Abstand gebracht. Nun
+wird die Sammellinse zwischen Schirm und Blende verschoben, bis auf dem Schirm
+ein scharfes Bild zu sehen ist. Das dadurch entstehende Wertepaar aus Bild-
+und Gegenstandsweite wird notiert. Danach wird die Linse bei konstantem Abstand
+zwischen Schirm und Blende noch weiter verschoben, bis das Bild erneut scharf
+dargestellt wird. Das zweite Wertepaar wird ebenfalls notiert. Die Messung
+wird 10 mal für verschiedene Abstände zwischen Blende und Schirm durchgeführt.
+
+Um die chromatische Abberation betrachten zu können, werden
+anschließend nacheinander ein roter und ein blauer Filter vor die
+Blende montiert. Für beide Filter wird die Messung fünf mal durchgeführt.
+
 \subsection{Bestimmung der Brennweite mit der Methode von Abbe}
 
+Bei dieser Methode wird zuerst ein Linsensystem aus Streu- und Sammellinse auf
+dem Schirm montiert. Dabei werden die Reiter beider Linsen direkt aneinander
+geschoben und der Berührungspunkt wird als Referenzpunkt A gewählt. Nun wird
+mithilfe des System eine bestimmte Gegenstandsweite eingestellt und der Schirm
+solange verschoben, bis das Bild scharf erscheint. Das entstehende Wertepaar aus
+Bild- und Gegenstandsweite sowie die Bildgröße werden notiert und die Messung
+anschließend neun mal für verschiedene Gegenstandsweiten wiederholt.
 
+\printbibliography
 
 \end{document}
