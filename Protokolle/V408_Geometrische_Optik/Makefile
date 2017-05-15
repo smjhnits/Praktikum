@@ -10,10 +10,10 @@ endif
 
 all: main.pdf
 
-main.pdf: Praeambel_prak.tex theorie.tex  main.tex auswertung.tex lit.bib | build
+main.pdf: Praeambel_prak.tex Theorie.tex  main.tex Auswertung.tex lit.bib | build
 		lualatex --output-directory=build main.tex
 
-full: Praeambel_prak.tex theorie.tex main.tex auswertung.tex lit.bib | build
+full: Praeambel_prak.tex Theorie.tex main.tex Auswertung.tex lit.bib | build
 		lualatex --output-directory=build main.tex
 		biber build/main.bcf
 		lualatex --output-directory=build main.tex
