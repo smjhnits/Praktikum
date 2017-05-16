@@ -8,9 +8,9 @@ else
   translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: V500.pdf
+all: build/V500.pdf
 
-main.pdf: Praeambel_prak.tex Theorie.tex  V500.tex Auswertung.tex lit.bib | build
+build/V500.pdf: Praeambel_prak.tex Theorie.tex  V500.tex Auswertung.tex lit.bib | build
 		lualatex --output-directory=build V500.tex
 
 full: Praeambel_prak.tex Theorie.tex V500.tex Auswertung.tex lit.bib | build
