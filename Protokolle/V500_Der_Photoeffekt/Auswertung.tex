@@ -1,5 +1,155 @@
 \section{Auswertung}
 
-In der folgenden Auswertungen werden alle Berechnungen mit Python durchgeführt.
+In der folgenden Auswertung werden alle Berechnungen mit Python durchgeführt.
+Bei der linearen Regression wird gemäß der Gleichung \eqref{} an eine
+Funktion der folgenden Form gefittet:
+
+\begin{equation}
+  \label{eqn:Regression0}
+  f(\su{x}) = \su{m} \cdot \su{x} + \su{b}
+\end{equation}
+
+
+\subsection{Bestimmung der Gegenspannung für die verschiedenen Spektralfarben}
+
+Für die Bestimmung der Gegenspannung der gelben Spektrallinie werden aus der Tabelle
+\ref{tab:Gelb_Komplett} lediglich die Werte für $U$ $\geq$ 0 $\su{V}$ betrachtet und in
+Abb. \ref{fig:Gelb} grafisch dargestellt.
+
+Mithilfe einer linearen Regression gemäß der Formel \eqref{eqn:Regression0} wird die
+Gegenspannung bestimmt, indem der Schnittpunkt der Ausgleichsgeraden mit der
+Spannungsachse nach folgender Formel bestimmt wird:
+
+\begin{equation}
+  \su{x}\ua{0} = - \frac{\su{b}}{\su{m}}.
+\end{equation}
+
+Damit ergeben sich für die Gegenspannungen der verschiedenen Spektralfarben
+die folgenden Werte, wobei:
+
+\input{"Tabellen/Spannungen_Tabellen.tex"}
+
+Im folgenden sind noch einmal die gemessenen Messwerte sowie die dazugehörigen
+Abbildungen für jede Spektralfarbe zu sehen.
+
+\newpage
 
 \input{"Tabellen/Tabelle_Gelb.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Pics/gelbe_Spektrallinie.pdf} \\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           gelbe Spektrallinie.}
+  \label{fig:Gelb}
+\end{figure}
+
+\newpage
+
+
+\input{"Tabellen/Tabelle_Gruen.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/gruene_Spektrallinie.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           grüne Spektralfarbe.}
+  \label{fig:Gruen}
+\end{figure}
+
+\newpage
+
+\input{"Tabellen/Tabelle_Blau_Gruen.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/blau_gruene_Spektrallinie.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           blau-grüne Spektralfarbe.}
+  \label{fig:BlauGruen}
+\end{figure}
+
+\newpage
+
+\input{"Tabellen/Tabelle_Blau.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Pics/blaue_Spektrallinie.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           blaue Spektralfarbe.}
+  \label{fig:Blau}
+\end{figure}
+
+\newpage
+
+\input{"Tabellen/Tabelle_UV1.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/UV1_Spektrallinie.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           1. ultraviolette Spektralfarbe.}
+  \label{fig:UV1}
+\end{figure}
+
+\newpage
+
+\input{"Tabellen/Tabelle_UV2.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/UV2_Spektrallinie.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           2.ultraviolette Spektralfarbe.}
+  \label{fig:UV2}
+\end{figure}
+
+\newpage
+\newpage
+
+\subsection{Bestimmung der Austrittsarbeit $A\ua{k}$ und des Verhältnisses $\frac{h}{e\ua{0}}$}
+
+\begin{align}
+  U\ua{g}   &= \frac{h}{e\ua{0}} \cdot \nu + \frac{A\ua{k}}{e\ua{0}}
+  \label{eqn:Regression1} \\
+  f(\su{x}) &= \su{m} \cdot \su{x} + \su{b}
+  \label{eqn:Regression2} \\
+  \su{m}  &= \frac{h}{e\ua{0}}
+  \label{eqn:Regression3} \\
+  \su{b}  &= \frac{A\ua{k}}{e\ua{0}}.
+  \label{eqn:Regression4}
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Pics/U_g_gegen_Frequenz.pdf}
+  \caption{Gegenspannungen der verschiedenen Lichtfrequenzen.}
+  \label{figGegenspannung}
+\end{figure}
+
+Mithilfe der in Messung 3.1 erhaltenen Gegenspannungen für die verschiedenen
+Spektralfarben (siehe Tab. \ref{tab:Spannungen}) lassen sich nun die gesuchten
+Parameter
+aus Gleichung \eqref{eqn:Regression1} bestimmen. Dafür wird eine lineare Regression
+durchgeführt (siehe Abb. \ref{fig:GegenSpannung}), welche für die Parameter
+folgende Werte ausgibt:
+
+\begin{align}
+  m = \frac{h}{e\ua{0}}                 &= \num{2.1(4)e-15} \, \si{eV}\\
+  b = \frac{A\ua{k}}{e\ua{0}} = A\ua{k} &= (\num{0.48(27)}) \, \si{eV}
+\end{align}
+
+\newpage
+
+\subsection{Betrachtung der gelben Spektralfarbe in einem Intervall von $U \, \in$ $[-20, 20] \, \su{V}$ }
+
+\input{Tabellen/Tabelle_Gelb_Komplett.tex}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Pics/gelbe_Spektrallinie_komplett.pdf}\\[0cm]
+  \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
+           gelbe Spektralfarbe.}
+  \label{fig:GelbKomplett}
+\end{figure}
