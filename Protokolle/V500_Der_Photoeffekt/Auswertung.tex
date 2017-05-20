@@ -12,27 +12,27 @@ Bei der linearen Regression wird an eine Funktion der folgenden Form gefittet:
 \subsection{Bestimmung der Gegenspannung für die verschiedenen Spektralfarben}
 
 Für die Bestimmung der Gegenspannung der gelben Spektrallinie werden aus der Tabelle
-\ref{tab:GelbKomplett} lediglich die Werte für $U$ $\geq$ 0 $\su{V}$ betrachtet und in
+\ref{tab:GelbKomplett} lediglich die Werte für $U$ $\geq \SI{0}{\volt}$ betrachtet und in
 Abb. \ref{fig:Gelb} grafisch dargestellt.
 
 Mithilfe einer linearen Regression gemäß der Formel \eqref{eqn:Regression0} wird die
 Gegenspannung bestimmt, indem der Schnittpunkt der Ausgleichsgeraden mit der
-Spannungsachse nach folgender Formel bestimmt wird:
+Spannungsachse nach folgender Formel ermittelt wird:
 
 \begin{equation}
   \su{x}\ua{0} = - \frac{\su{b}}{\su{m}}.
 \end{equation}
 
 Damit ergeben sich für die Gegenspannungen der verschiedenen Spektralfarben
-die folgenden Werte, wobei:
+die folgenden Werte.
 
 \input{"Tabellen/Spannungen_Tabellen.tex"}
 
-Die für die Bestimmung der Gegenspannung verwendet Parameter aus der linearen
+Die für die Bestimmung der Gegenspannung verwendeten Parameter aus der linearen
 Regression für die einzelnen Farbspektren sind noch einmal in Tabelle
-\eqref{tab:Messparameter} zu sehen.
+\ref{tab:Messparameter} zu sehen.
 
-Im folgenden sind noch einmal die gemessenen Messwerte sowie die dazugehörigen
+Im Folgenden sind die gemessenen Messwerte sowie die dazugehörigen
 Abbildungen für jede Spektralfarbe zu sehen.
 
 \newpage
@@ -140,10 +140,10 @@ wurden dabei mit Python berechnet.
 \end{figure}
 
 Mithilfe der in Messung 3.1 erhaltenen Gegenspannungen für die verschiedenen
-Spektralfarben (siehe Tab. \ref{tab:Spannungen}) lassen sich nun die gesuchten
+Spektralfarben (siehe Tab. \ref{tab:Spannungen}) lassen sich die gesuchten
 Parameter
 aus Gleichung \eqref{eqn:Regression1} bestimmen. Dafür wird eine lineare Regression
-nach Formel \eqref{Regression2} durchgeführt (siehe Abb. \ref{fig:Gegenspannung}), 
+nach Formel \eqref{eqn:Regression2} durchgeführt (siehe Abb. \ref{fig:Gegenspannung}),
 welche für die Parameter folgende Werte ausgibt:
 
 \begin{align}
@@ -159,22 +159,22 @@ welche für die Parameter folgende Werte ausgibt:
 
 In dem letzten Teil des Versuches wird noch einmal der Photostrom für die
 gelbe Spektralfarbe in einem Messintervall von -20 < U < 5 $\su{V}$ betrachtet.
-Die verwendeten Werte sind in die obige Tabelle \ref{tab:Gelb_Komplett} eingetragen.
-Die Abbildung \ref{fig:Komplett1} zeigt dabei einmal da ganze Messintervall und
+Die verwendeten Werte sind in die obige Tabelle \ref{tab:Gelb} eingetragen.
+Die Abbildung \ref{fig:Komplett1} zeigt das ganze Messintervall und
 Abbildung \ref{fig:Komplett2} ein Intervall für -3 < U < 1 $\su{V}$.
 
 Bei Betrachtung der beiden Abbildungen fallen einige Besonderheiten auf. Zum Beispiel
-konvergiert die Kurve bei hohen beschleunigenden Spannungen gegen einen bestimmten
-Grenzwert. Die kommt durch die Eigenschaft, dass die Anzahl der ausgelösten Elektronen
-lediglich von der Lichtintensität ist. Bei einer bestimmten Spannung wird somit
+konvergiert die Kurve bei hohen Beschleunigungssannungen gegen einen bestimmten
+Grenzwert. Dies wird durch die Eigenschaft hervorgerufen, dass die Anzahl der ausgelösten Elektronen
+lediglich von der Lichtintensität abhängt. Bei einer bestimmten Spannung wird somit
 die maximale Anzahl an auslösbaren Elektronen erreicht, welche durch eine konstante
 Lichtintensität nicht erhöht werden kann.
 
 Dieser Sättigungswert wird allerdings
 lediglich asymptotisch errreicht, da auch die Elektronen einer gewissen Streuung
-unterliegen. Um dieses Problem auszugleichen, bräuchte man eine kugelförmige
-Kathode in deren Inneren die Anode von dem Licht bestrahlt wird. Somit würden
-keine Elektronen verloren gehen.
+unterliegen. Um dieses Problem auszugleichen, würde eine kugelförmige
+Kathode in deren Inneren die Anode von dem Licht bestrahlt wird, benötigt werden.
+Solch ein Aufbau würde keinen Elektronenverlust zulassen.
 
 Eine weitere Auffälligkeit ist das Absinken des Photostroms schon vor Erreichen
 der Gegenspannung. Dieses Verhalten kann mit der Fermi-Dirac-Verteilung erklärt
@@ -191,7 +191,7 @@ die für eine Verringerung der Austrittsarbeit sorgen.
 Jedoch ist die Fläche der
 Anode im Vergleich zur Kathode sehr gering und somit wird der Sättigungswert deutlich
 schneller erreicht. Tritt der negative Strom schon bei sehr energiearmen Licht auf
-(laut Anleitung bei $\lambda$ $\approx$ 650 $\su{nm}$, \cite{anleitung01}), ist
+(laut Anleitung bei $\lambda\approx\SI{650}{\nano\meter}$, \cite{anleitung01}), ist
 die Austrittsarbeit vermutlich ziemlich gering und in der Größenordnung der Kathode.
 
 
@@ -218,8 +218,9 @@ Bei der Bestimmung der Regressionsparameter im Abschnitt 3.1 traten lediglich
 kleine Fehler auf. Zudem lagen die Regressionsgeraden meist auch ziemlich nah an
 den Messwerten. Bei Abschnitt 3.2 ergab die Regression jedoch ziemlich große
 Fehler mit einer Regressionsgeraden, die teilweise weit von den Werten entfernt liegt.
-Vergleicht man hier den experimentell bestimmten Wert für $\frac{h}{e\ua{0}}$ mit
-dem Literaturwert\cite{Quelle2}, stellt man eine Abweichung von ungefähr ca. 51 $\%$ fest:
+Wird der experimentell bestimmte Wert für $\frac{h}{e\ua{0}}$ mit
+dem Literaturwert\cite{Quelle2} verglichen, ist festzustellen, dass eine Abweichung von ca. 51 $\%$
+vorliegt.
 
 \begin{align}
   \frac{h}{e\ua{0}}_{\su{lit}} =  \SI{4.136}{eV}\\
@@ -227,19 +228,19 @@ dem Literaturwert\cite{Quelle2}, stellt man eine Abweichung von ungefähr ca. 51
 \end{align}
 
 Für das Auftreten dieses Fehlers sind mehrere Ursachen möglich. Ein große Fehlerquelle
-ist dabei vor allem der Aufbau gewesen. Das Amperemeter zeigte bei den Messungen
+ist dabei vor allem der Aufbau selbst. Das Amperemeter zeigte bei den Messungen
 erheblich Schwankungen, weswegen für das gelbe Licht zum Beispiel eine neue Messreihe
 angefertigt wurde. Ein Grund hierfür ist auch die verwendete Apparatur. Die Photozelle
 wurde mittels einer Schiene auf einem Teilkreisbogen um den Aufbau herumgefahren,
-um die in verschiedenen Winkeln brechenden Farbspektren betrachten zu könne. Jedoch
+damit die verschiedenen Farbspektren betrachtet werden könen. Jedoch
 war die Schiene schief, sodass die Photozelle beim Messen immer wieder leicht
 verrutschte und die Intensität nicht konstant gehalten werden konnte. Selbst nach
 versuchter Stabilisierung der Schiene ergab sich keine Besserung.
 
-Eine weitere Fehlerquelle ist vermutlich auch die Hg-Dampflampe. Bei Betrachtung
-der aufgespaltenen Lichtspektren auf einem Schirm war auch deutlich die rote
-Spektralfarbe erkenntlich, welche bei einer Hg-Dampflampe eigentlich nicht sichtbar
-sein sollte. Dieser Effekt beruht vermutlich auf kleine Lufteinschlüsse in der Lampe.
+Eine weitere Fehlerquelle ist vermutlich die Hg-Dampflampe. Bei Betrachtung
+der aufgespaltenen Lichtspektren auf einem Schirm war auch deutlich eine rote
+Spektralfarbe erkenntlich, welche bei einer Hg-Dampflampe eigentlich nicht vorkommen
+sollte. Dieser Effekt beruht vermutlich auf Lufteinschlüsse in der Lampe.
 
 Da der Aufbau wie beschrieben großen Anteil an den auftretenden Fehlern
 hat, sind die Abweichungen der bestimmten Werte vor allem auf systematische Fehler
@@ -247,4 +248,4 @@ zurückzuführen. Auch die großen Fehlerintervalle bei Messung 3.2 deuten darau
 
 Jedoch sind die Grundprinzipien des Photoeffektes bei der verwendeten Apparatur
 deutlich geworden, womit das Experiment zur Beobachtung des Photoeffektes
-geeignet zu sein scheint.
+geeignet ist.
