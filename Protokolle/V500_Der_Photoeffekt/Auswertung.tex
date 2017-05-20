@@ -1,8 +1,7 @@
 \section{Auswertung}
 
 In der folgenden Auswertung werden alle Berechnungen mit Python durchgeführt.
-Bei der linearen Regression wird gemäß der Gleichung \eqref{} an eine
-Funktion der folgenden Form gefittet:
+Bei der linearen Regression wird an eine Funktion der folgenden Form gefittet:
 
 \begin{equation}
   \label{eqn:Regression0}
@@ -13,7 +12,7 @@ Funktion der folgenden Form gefittet:
 \subsection{Bestimmung der Gegenspannung für die verschiedenen Spektralfarben}
 
 Für die Bestimmung der Gegenspannung der gelben Spektrallinie werden aus der Tabelle
-\ref{tab:Gelb_Komplett} lediglich die Werte für $U$ $\geq$ 0 $\su{V}$ betrachtet und in
+\ref{tab:GelbKomplett} lediglich die Werte für $U$ $\geq$ 0 $\su{V}$ betrachtet und in
 Abb. \ref{fig:Gelb} grafisch dargestellt.
 
 Mithilfe einer linearen Regression gemäß der Formel \eqref{eqn:Regression0} wird die
@@ -44,7 +43,7 @@ Abbildungen für jede Spektralfarbe zu sehen.
   \centering
   \includegraphics[width = 0.8\textwidth]{Pics/gelbe_Spektrallinie.pdf} \\[0cm]
   \caption{Gemessene Stromstärke in Abhängigkeit der angelegten Spannung für die
-           gelbe Spektrallinie.}
+           gelbe Spektralfarbe.}
   \label{fig:Gelb}
 \end{figure}
 
@@ -144,8 +143,8 @@ Mithilfe der in Messung 3.1 erhaltenen Gegenspannungen für die verschiedenen
 Spektralfarben (siehe Tab. \ref{tab:Spannungen}) lassen sich nun die gesuchten
 Parameter
 aus Gleichung \eqref{eqn:Regression1} bestimmen. Dafür wird eine lineare Regression
-durchgeführt (siehe Abb. \ref{fig:Gegenspannung}), welche für die Parameter
-folgende Werte ausgibt:
+nach Formel \eqref{Regression2} durchgeführt (siehe Abb. \ref{fig:Gegenspannung}), 
+welche für die Parameter folgende Werte ausgibt:
 
 \begin{align}
   m = \frac{h}{e\ua{0}}                 &= \num{2.1(4)e-15} \, \si{eV}\\

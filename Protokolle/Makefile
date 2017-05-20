@@ -13,6 +13,9 @@ all: build
 build:
 		#mkdir -p V503_Der_Milikan_Versuch/{Tabellen,Pics,Python}
 		#touch V503_Der_Milikan_Versuch/{Auswertung.tex,V503.tex,Theorie.tex,lit.bib,Makefile}
+		#touch V503_Der_Milikan_Versuch/Pics/savedatei.txt
+		#touch V503_Der_Milikan_Versuch/Python/savedatei.txt
+		#touch V503_Der_Milikan_Versuch/Tabellen/savedatei.txt
 		#cp -r Praeambel_prak.tex V503_Der_Milikan_Versuch/
 
 clean:
