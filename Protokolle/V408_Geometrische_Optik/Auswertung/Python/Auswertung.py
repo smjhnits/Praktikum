@@ -209,3 +209,6 @@ print('Brennweite_abbe_g, Hauptebene :', params_g)
 print('fehler: ', np.sqrt(np.diag(covariance_g)))
 print('Brennweite_abbe_b, Hauptebene :', params_b)
 print('fehler: ', np.sqrt(np.diag(covariance_b)))
+print('Brennweite Abbe: ', (params_g + params_b) / 2)
+
+print('Brennweite Abbe f_ges: ', 1 /(1 / 10 - 1 / 10 + 6 / (100)))

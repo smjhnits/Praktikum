@@ -14,9 +14,9 @@ Standardabweichung dargestellt.
 
 \begin{align}
   \label{eqn:B/G}
-  \frac{B}{G}=&\SI{56,9(0,09)}{\centi\meter} \\
+  \frac{B}{G}=&\SI{56,9(9)}{\centi\meter} \\
   \label{eqn:b/g}
-  \left<\frac{b}{g}\right>=&\SI{54,30(0,09)}{\centi\meter}
+  \left<\frac{b}{g}\right>=&\SI{54,30(9)}{\centi\meter}
 \end{align}
 
 \input{Tabellen/Tabelle_Messung_bekannte_brennweite.tex}
@@ -29,7 +29,7 @@ angegeben.
 
 \begin{description}
   \centering
-  \item[$<f_1>\ua{gemessen}=$]\SI{9,525(0,009)}{\centi\meter}
+  \item[$<f_1>\ua{gemessen}=$]\SI{9,525(9)}{\centi\meter}
 \end{description}
 
 Die Verbindungsgereaden zu den Wertepaaren $(g_i|b_i)$ der Linse mit bekannter
@@ -46,7 +46,7 @@ dargestellt.
 Der Schnittpunkt der Geraden im Diagramm \ref{fig:brennweite_bekannt}
 ist mit Hilfe des Mauscoursers abgelesen worden. Der Ablesefehler wird mit
 $\SI{0,3}{\centi\meter}$ angegeben.
-Der Schnittpunkt hat einen Wert von $S_1 = (\num{9,9(0,3)}|\num{9,4(0,3)})$.
+Der Schnittpunkt hat einen Wert von $S_1 = (\num{9,9(3)}|\num{9,4(3)})$.
 Die Angaben sind in Centimetern. Die Fehler wurden als Ablesefehler des Diagrammes angenommen.
 
 Des Weiteren wurde die Brennweite einer unbekannten Linse bestimmt.
@@ -56,7 +56,7 @@ Die Messdaten sind in Tabelle \ref{tab:unbekannte_brennweite} dargestellt.
 
 \begin{description}
   \centering
-  \item[$<f_2>\ua{gemessen}=$]\SI{8,383(0,009)}{\centi\meter}
+  \item[$<f_2>\ua{gemessen}=$]\SI{8,383(9)}{\centi\meter}
 \end{description}
 
 Das Diagramm \ref{fig:unbekannte_brennweite} zeigt die Verbindungsgeraden
@@ -70,7 +70,7 @@ der gemessenenen Wertepaare  $(g_i|b_i)$.
 \end{figure}
 
 Der abgelesene Schnittpunkt ist gegeben mit $S_2 =
-(\num{8,1(0,3)}|\num{8,4(0,3)})$. Die Angaben sind in Centimetern.
+(\num{8,1(3)}|\num{8,4(3)})$. Die Angaben sind in Centimetern.
 Es wird ein Ablesefehler von $0,03\su{cm}$ angenommen.
 
 \input{Tabellen/Tabelle_Messung_unbekannte_brennweite.tex}
@@ -98,7 +98,7 @@ Der Fehler von \eqref{eqn:bessel_ergebnis} ist bezüglich der Messgenauigkeit
 vernachlässigbar klein und wird daher weggelassen.
 
 \input{Tabellen/Tabelle_Messung_nach_Bessel.tex}
-\input{Tabellen/Brennweiten_Bessel.tex}
+\input{Tabellen/Tabelle_Brennweiten_Bessel.tex}
 
 Die Messgrößen in Tabelle \ref{tab:bessel} haben alle den Ablesefehler
 $\SI{0,05}{\centi\meter}$.
@@ -110,7 +110,7 @@ Die Messdaten sind in Tabelle \ref{tab:chromatische_abberration} dargestellt.
 
 \begin{align}
   \label{eqn:rot}
-  f\ua{rot} &= \SI{9,67(0,01)}{\centi\meter}\\
+  f\ua{rot} &= \SI{9,67(1)}{\centi\meter}\\
   \label{eqn:blau}
   f\ua{blau} &= \SI{9,66}{\centi\meter}
 \end{align}
@@ -125,20 +125,36 @@ betragen jeweils $\SI{0,05}{\centi\meter}$.
 
 \subsection{Bestimmung der Brennweite von Linsensystemen nach Abbe}
 
+Theoretisch lässt sich die Brennweite eines Linsensysteme durch die folgende
+Formel bestimmen.
+
+\begin{equation}
+  \label{eqn:Linsensysteme}
+  \frac{1}{f\ua{ges}} = \frac{1}{f_1} + \frac{1}{f_2} - \frac{d}{f_1f_2}
+\end{equation}
+
+Dabei ist $d$ der Abstand der Linsen zueinander und $f_i$ ($i = 1,2$)
+die Brennweite der Linsen. Die Brennweite der Sammellinse ist $10\su{cm}$
+und die Brennweite der Streulinse ist $-10\su{cm}$.
+Der theoretische Wert beträgt $\approx\SI{16,67}{\centi\meter}$.
 Die Messdaten der Messung sind in Tabelle \ref{tab:abbe} dargestellt.
 Mit den Formeln \eqref{eqn:Abbe1} und \eqref{eqn:Abbe2} ergeben sich daraus die
 folgenden Werte.
 
 \begin{align}
   \label{eqn:brennweite_abbe_g}
-  f\ua{g} &= \SI{16,93(0,032)}{\centi\meter} \\
+  f\ua{g} &= \SI{16,93(3)}{\centi\meter} \\
   \label{eqn:hauptebene_h}
-  f\ua{h} &= \SI{-9,38(0,095)}{\centi\meter}\\
+  H &= \SI{-9,38(5)}{\centi\meter}\\
   \label{eqn:brennweite_abbe_b}
-  f\ua{b} &= \SI{14,42(0,017)}{\centi\meter} \\
+  f\ua{b} &= \SI{14,42(2)}{\centi\meter} \\
   \label{eqn:hauptebene_abbe_h_strich}
-  f\ua{h´} &= \SI{13,05(0,031)}{\centi\meter}
+  H´ &= \SI{13,05(3)}{\centi\meter}
 \end{align}
+
+Dabei sind $H$ und $H'$ die Lagen der Hauptebene.
+
+$f\ua{g}$ und $f\ua{b}$ ergeben im mittel $f\ua{Abbe}\SI{15,68(180)}{\centi\meter}$.
 
 \begin{figure}
   \centering
@@ -167,14 +183,14 @@ auf Grund des Messverfahrens fehlerbehaftet sind.
 
 Die Messgenauigkeit der Brennweitenmessung ist in Diagramm
 \ref{fig:brennweite_bekannt} einzusehen. Bei einer hohen Messgenauigkeit haben
-die eingetragenen Geraden einen gemeinsamen Schnittpunkt. Dies ist, unter
+die eingetragenen Geraden einen gemeinsamen Schnittpunkt. Dies ist unter
 Berücksichtigung der Messunsicherheit, erreicht worden. Die Messergebnisse
 sind als präzise einzustufen. Die Messung weicht lediglich um
 $\approx\SI{0,5}{\centi\meter}$ von der angegebenen Brennweite ab. Dies deutet
 ebenfalls auf eine hohe Präzision der Messung hin.
 
 Das Abbildungsgesetz nach \eqref{eqn:Abbildungsgesetz} wurde ebenfalls
-untersucht. Die Messungen \eqref{B/G} und \eqref{b/g} ergaben Werte,
+untersucht. Die Messungen \eqref{eqn:B/G} und \eqref{eqn:b/g} ergaben Werte,
 um ca. $\SI{2,6}{\centi\meter}$ abweichen. Die Werte sind nicht durch
 den statistischen Fehler zu erklären und beruhen auf den Messmethoden.
 
@@ -196,3 +212,8 @@ der Messung als präzise zu bewerten.
 
 Die chromatische Abberration ergab, dass die Brennweite bei blauer Lichtquelle
 minimal kleiner ist, als bei roter Lichtquelle. Dies entspricht der Erwartung.
+
+Die Messung nach Abbe ergab eine Abweichung von
+$\approx\SI{1}{\centi\meter}$ vom theoretischen Wert. Die Abweichung lässt
+sich nicht durch den statistischen Fehler erklären und ist vermutlich
+auf die Messapparatur zurückführen.
