@@ -14,10 +14,17 @@ def Brennweite_Bessel(e, d):
 def function(x, a, b):
     return a * x + b
 
+def Brennweite(b, g):
+    return 1 / (1/g + 1/b)
+
+def Abbildungssgesetz(b, g):
+    return b / g
+
 G = ufloat(2.9, 0.05) * 10**-2 # Gegenstandsgröße
 # Ablesefehler wird angegeben mit 0.05cm
 err = np.ones(10) * 0.05 * 10**(-2)
 err_5 = np.ones(5) * 0.05 * 10**(-2)
+err_6 = np.ones(6) * 0.05 * 10**(-2)
 
 
 # Messung 1 Brennweite bekannt 100mmAngaben in cm
@@ -25,7 +32,7 @@ print(len(np.linspace(15, 60, 10)), np.ones(10))
 
 g_1 = unp.uarray(np.linspace(15, 60, 10) * 10**(-2), err) # Gegenstandsweite erste Messung cm in m
 b_1 = unp.uarray(np.array([27.8, 18.4, 15.3, 13.85, 13.1, 12.5, 12.05, 11.7, 11.4, 11.25]) * 10**(-2), err) # Bildweite erste Messung cm in m
-B_1 = unp.uarray(np.array([2.8, 1.9, 1.45, 1.15, 0.95])* 10**(-2), err_5) # cm in m
+B_1 = unp.uarray(np.array([0, 2.8, 1.9, 1.45, 1.15, 0.95])* 10**(-2), err_6) # cm in m
 
 # Messung bei unbekannter Brennweite
 
@@ -69,17 +76,25 @@ b_5 = b_plus_g_5 - g_5
 
 # Abbildungsgesetz
 
-b_mean_1 = ufloat(np.mean(noms(b_1)), np.mean(stds(b_1)))
-g_mean_1 = ufloat(np.mean(noms(g_1)), np.mean(stds(g_1)))
-V_aus_gb = b_mean_1 / g_mean_1
+
+V_aus_gb = Abbildungssgesetz(b_1, g_1)
+
 print('Abbildungsgesetz aus g und b: ', V_aus_gb)
-B_mean_1 = ufloat(np.mean(noms(B_1)), np.mean(stds(B_1)))
-print('Aus abgemessenen Werten Bund G: ', B_mean_1 / G)
+print('Mittelwert V_gb: ', np.mean(V_aus_gb))
+print(noms(B_1), len(noms(B_1)))
+print(noms(B_1)[1:len(noms(B_1))] / G, stds(B_1)[1:len(noms(B_1))] / G)
+
+B_G = unp.uarray(noms(B_1[1:len(noms(B_1))] / G), stds(B_1[1:len(noms(B_1))] / G))
+
+print('Aus abgemessenen Werten B und G: ', B_G)
+print('Mittelwert V: ', np.mean(B_G))
 
 # Linsengleichung
 
-brennpkt_1 = 1 / (1 / b_mean_1 + 1 / g_mean_1)
+brennpkt_1 = Brennweite(b_1, g_1)
+
 print('Brennpunkt: ', brennpkt_1)
+print('Mittelwert f_1: ', np.mean(brennpkt_1))
 
 plt.clf()
 plt.plot(np.array([0, noms(g_1)[0]]), np.array([noms(b_1)[0], 0]), 'b-')#, label=r'Messung 1')
@@ -110,11 +125,9 @@ print('schnittpkt abgelesen: ', 'x=0.099(0.003), y=0.094(0.003) Fehler sehr gena
 
 # unbekannte Brennweite
 
-b_mean_2 = ufloat(np.mean(noms(b_2)), np.mean(stds(b_2)))
-g_mean_2 = ufloat(np.mean(noms(g_2)), np.mean(stds(g_2)))
-
-brennpkt_2 = 1 / (1 / b_mean_2 + 1 / g_mean_2)
+brennpkt_2 = Brennweite(b_2, g_2)
 print('Brennpunkt_2: ', brennpkt_2)
+print('Mittelwert f_2: ', np.mean(brennpkt_2))
 
 
 plt.clf()
@@ -149,7 +162,8 @@ print('schnittpkt_2 abgelesen: ', 'x=0.081(0.003), y=0.084(0.003) Fehler sehr ge
 
 brennweite_3 = Brennweite_Bessel(np.append(b_plus_g_3, b_plus_g_3), np.append(d_eins_3, d_zwei_3))
 
-print('Brennweite nach Bessel: ', np.mean(brennweite_3))
+print('Brennweite nach Bessel: ', brennweite_3)
+print('Mittelwert Brennweite nach Bessel: ', np.mean(brennweite_3))
 
 # chromatische Abberration
 
