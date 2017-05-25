@@ -1,0 +1,117 @@
+\section{Auswertung}
+
+Anhand der genommenen Messgrößen kann der Radius der Öltröpfchen
+und die Ladung dieser ermittelt werden. Die Messdaten sind in Tabelle \ref{tab: Messdaten}
+aufgeführt.
+
+\subsection{Bestimmung der Radien}
+
+Der Radius eines vermessenen Öltröpfchens wird über Formel \eqref{eqn:} bestimmt.
+Für die Bestimmung der Radien wird die Viskorität von Luft, die Fallgeschwindigkeit
+und die Dichte des verwedeten Öles benötigt.
+Die Viskosität von Luft wurde mithilfe des Diagrammes aus \cite{anleitung01} bestimmt.
+Dafür wurden zwei Punkte aus dem Diagramm abgelesen und die dazugehörige Geradengleichung ermittelt.
+Die zu den gemessenen Temperaturen zugehörige Viskosität der Luft ist mittels der
+Geradengleichung zu bestimmen.
+Für die Dichte des verwendeten Öles wurde der Literaturwert
+$\rho\ua{Oel} = \SI{886}{\kilogram\per\meter^3}$\cite{anleitung01} verwendet.
+Die Fallzeit der Öltropfchen wurde über eine Strecke von $\SI{0,5}{\milli\meter}$
+gemessen. Die Fallgeschwindigkeiten ergeben sich durch das teilen der Strecke durch
+die gemessene Fallzeit.
+
+Die berechneten Radien sind in Tab. \ref{tab: Messdaten} dargestellt. Alle Werte
+sind als fehlerfrei angenommen worden, weshlab die Radien auch als fehlerfrei
+betrachtet werden.
+
+\subsection{Bestimmung der Ladung}
+
+Die Ladung eines vermessenen Öltröpfchens wir über Formel \eqref{eqn:} ermittelt.
+Darüberhinaus muss der Korrekturterm \eqref{eqn:} berücksichtigt werden.
+In die Berechnung der Ladung fließt die herrschende E-Feldstärke, der Radius des Öltröpfchens,
+und der Druck mit ein. Die Konstante $B$ wurde in der Literatur \cite{anleitung01}
+mit $\SI{6,17e-3}{\centi\meter}\su{Torr}$ angegeben. Als Druck wurde der
+Atmosphärendruck mit $\SI{1.01325}{bar}$ verwendet.
+Die $E$-Feldstärke ist durch die gemessene Spannung über den folgenden Zusammenhang
+festgelegt.
+
+\begin{equation}
+  E = \frac{U}{d}
+\end{equation}
+
+Die Spannungen $U$ sind in Tabelle \ref{tab: Messdaten} einzusehen. Der Abstand
+zwischen den Kondensatorplatten ist mit $\SI{7.6250 (51)}{\milli\meter}$ \cite{anleitung01}
+angegeben.
+
+Damit sind alle Größen zur Berechnung der Ladung eines Öltröpfchens gegeben. Die
+berechneten Ladungen sind in Tabelle \ref{tab: Messdaten} einzusehen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/Ladungen_E_0.pdf}
+  \caption{Ermittelte Ladungen. Das obere Diagramm zeigt die tatsächliche Messreihenfolge
+  und das untere zeigt die bestimmten Ladungen der Größe nach sortiert.}
+  \label{fig:Ladungen}
+\end{figure}
+
+Das Diagramm \ref{fig:Ladungen} zeigt die gemessenen Ladungen im Verhältnis zu der
+Elementarladung. Die Elementarladung wurde aus dem \emph{SciPy}-Packet \emph{constants}
+benutzt. Diese enspricht ungefähr einem Wert von $\SI{1,6022}{\coulomb}$.
+
+Die Elementarladung entspricht der Ladung, die den größten gemeinsamen Teiler
+aller gemessenen Ladungen bildet.
+Zuerst wurde dafür die Messdaten sortiert und alle Ladungen mit ähnlicher
+Ladung als gleich angenommen.
+Die folgeden Formel stellt dar, wie verfahren wurde.
+
+\begin{equation}
+  \su{min}\left\{\left|\su{rd}\left(\frac{Q}{Q\ua{Test}}\right) - \frac{Q}{Q\ua{Test}}\right|\right\}
+\end{equation}
+
+Als Testladungen wurde das Intervall $\left\{e_0 - 10^{-19}|e_0 + 10^{-19}\right\}$
+verwendet. Das Intervall wurde so gewählt, da anzunehmen ist, dass die gemessene Elementarladung
+in der Umgebung der tatsächlichen Elementarladung $e_0$ liegt.
+
+Als gemessene Elementarladung ergibt sich der folgende Wert.
+
+\begin{align}
+  \label{eqn:Elementarladung}
+  e\ua{gemessen} &= \SI{1,568e-19}{\coulomb} \\
+  \left|\Delta_{e_0}\right| &= \SI{3,448e-21}{\coulomb}\\
+  \delta_{e_0} &= \SI{0,022}{\coulomb}
+\end{align}
+
+$\Delta_{e_0}$ ist dabei der absolute und $\delta_{e_0}$ der relative Fehler.
+Auf eine Fehlerrechnung wurde weitestgehend verzichtet, da auftretende Fehler lediglich aus
+dem Abstand der Kondensatorplatten resultieren.
+
+\section{Diskussion}
+
+Möglich Fehlerquellen des Versuches sind in erster Linie Ablesefehler, da die
+Zeitmessung mit einer Stoppuhr realisiert wurde. Zudem ist nicht auszuschließen,
+dass die Fallbewegung der Öltropfchen vollständig horizontal und unbeeinflusst von
+äußeren Einflüssen, wie Luftstöße war. Darüberhinaus ist die Viskositätsbestimmung der
+Luft zu hinterfragen, da die bestimmte Geradengleichung aus abgelesenen Punkten
+konstruiert wurde. Ablsesefehler wurden dabei vernachlässigt. Außerdem sind die Werte des
+Thermistors in \cite{anleitung01} mit drei Nachkommastellen angegeben. Die
+Widerstandsmessung ermöglichte jedoch nur Messungen auf bis zu zwei Nachkommastellen.
+
+
+Das untere Diagramm aus Abb. \ref{fig:Ladungen} wurde der Übersichtlichkeit eingebunden.
+Der gequantelte Charakter der Ladung ist deutlich zu erkennen.
+
+Die gemessene Elementarladung weicht um $\approx 2,2\%$ von dem Literaturwert ab.
+Im Rahmen der Messgenauigkeit ist dieses Ergebnis erstaunlich präzise.
+
+
+
+\section{Messdaten}
+
+In diesem Kapitel sind die gemessenen und berechneten Größen tabellarisch
+dargestellt.
+In der Tabelle gelten die folgenden Bezeichnungen. $\Omega$ ist der gemessene
+Widerstand des Thermistors, $t_0$ ist
+die Zeit die ein Öltröpfchen ohne Feld für 0,5 mm benötigt, $\su{U}\ua{g}$
+ist die Gleichgewichtsspannung, $r$ der bestimmte Radius des Öltröpfchens und
+$q$ die berechnete Ladung dieses Öltröpfchens.
+
+\input{Tabellen/Messwerte.tex}

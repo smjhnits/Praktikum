@@ -1,0 +1,49 @@
+import collections
+import numpy as np
+import uncertainties
+import pint
+from uncertainties import ufloat
+from uncertainties import ufloat_fromstr
+from pint import UnitRegistry
+import string
+import latex
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
+import uncertainties.unumpy as unp
+import scipy.constants as const
+ureg = UnitRegistry()
+Q_ = ureg.Quantity
+
+
+def Brennweite_Bessel(e, d):
+    return (e**2- d**2) / (4 * e)
+
+class Latexdocument(object):
+    def __init__(self, filename):
+        self.name = filename
+
+    def tabular(self, spalten, header, places, caption, label):
+        with open(self.name, 'w') as f:
+            f.write('\\begin{table} \n\\centering \n\\caption{' + caption + '} \n\\label{tab: ' + label + '} \n\\begin{tabular}{')
+            f.write(len(spalten) * 'S ')
+            f.write('} \n\\toprule  \n')
+            f.write(header + '  \\\ \n')
+            f.write('\\midrule  \n ')
+            for i in range(0, len(spalten[0])):
+                for j in range(0, len(spalten)):
+                    if j == len(spalten) - 1:
+                        f.write(('{:.' + str(places[j]) + 'f}' + '\\\ \n').format(spalten[j][i]))
+                    else:
+                        f.write(('{:.' + str(places[j]) + 'f} ' + ' & ').format(spalten[j][i]))
+            f.write('\\bottomrule \n\\end{tabular} \n\\end{table}')
+
+widerstand_gemessen, t_0, U_gleichgewicht, r_oel, r_oel_err, q, q_err = np.genfromtxt('Messdaten.txt', unpack = True)
+q *= 10**19
+q *= 10
+q_err *= 10**19
+q_err *= 10
+r_oel *= 10**6
+
+
+Latexdocument('Messwerte.tex').tabular([widerstand_gemessen, t_0, U_gleichgewicht, r_oel, q, q_err], r'{$\Omega$ in $\si{\mega\ohm}$} & {$t_0$ in $\si{\second}$} & {$\su{U}\ua{g}$ in $\si{\volt}$} & {$r$ in $\si{\nano\meter}$} & {$q$ in $10^{-20}\si{\coulomb}$} & {$\delta q$}', [2, 2, 0, 2, 2, 2], caption = r'Messdaten von V503. $\Omega$ ist der gemessene Widerstand des Thermistors, $t_0$ ist die zweit die ein Öltröpfchen ohne Feld für 0,5 mm benötigt, $\su{U}\ua{g}$ ist die Gleichgewichtsspannung, $r$ der bestimmte Radius des Öltröpfchens und qdie bestimmte Ladung dieses Öltröpfchens', label = 'Messdaten')
+
+#Latexdocument('Tabelle_Brennweite_Bessel.tex').tabular([noms(noms(bbrennweite_3)), stds(brennweite_3)], '{$f\ua{Bessel}$ in $\si{\centi\meter}} & {Fehler $f\ua{Bessel}$} \\', [2, 2], caption = 'Messdaten der Linse mit unbekannter Brennweite.', label = 'tab:unbekannte_brennweite')
