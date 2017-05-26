@@ -41,6 +41,16 @@ Widerstand = np.array([3.239, 3.118, 3.004, 2.897, 2.795, 2.7, 2.61, 2.526, 2.44
 params_temp, covariance_temp = curve_fit(poly, Widerstand, temp)
 
 temp_gemessen = poly(widerstand_gemessen, *params_temp)
+x_temp = np.linspace(1.65, 2, 1000)
+plt.clf()
+plt.plot(widerstand_gemessen, temp_gemessen, 'rx', label = r'Temperatur')
+plt.plot(x_temp, poly(x_temp, *params_temp), 'b-', label = r'Fit')
+plt.xlabel(r'Widerstand in M$\Omega$')
+plt.ylabel('Temperatur in C')
+plt.xlim(1.67, 1.97)
+plt.legend(loc='best')
+plt.tight_layout()
+plt.savefig('Temp.pdf')
 
 
 ## Viskosität von Luft
