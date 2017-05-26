@@ -66,16 +66,22 @@ folgende Kräftegleichung ergibt:
   \label{eqn:Kräftegleichung_entgegen}
 \end{equation}
 
-Aus den Gleichungen \eqref{eqn:Kräftegleichung_parallel} und
-\eqref{eqn:Kräftegleichung_entgegen} können dann erneut der Tröpchenradius und
-zusätzlich die sich auf dem Tröpchen befindene Ladung q bestimmt werden:
+Für das Öltröpfchen kann durch Verstellen der anliegenden Spannung das Feld so
+eingestellt werden, dass die anliegenden Kräfte sich ausgleichen und das
+Tröpfchen zu schweben beginnt. Bei der anliegenden Schwebespannung $U\ua{Schweb}$
+muss die Stokesche Reibungskraft nicht mehr betrachtet werden, sodass sich
+folgende Kräftegleichung ergibt:
 
 \begin{align}
-  q &= 3\pi\eta\ua{L}\sqrt{ \frac{9}{4} \frac{\eta\ua{L}}{g} \frac{(v\ua{down} -
-  v\ua{up})}{(\rho\ua{Oel}-\rho\ua{L})} } \cdot \frac{(v\ua{down} + v\ua{up})}{E}
-  \label{eqn:Ladung}\\
-  r &= \sqrt{ \frac{9\eta\ua{L}(v\ua{down} - v\ua{up})}{2g(\rho\ua{Oel}-\rho\ua{L}) }}
-  \label{eqn:Radius_Ohne}
+  \frac{4\pi}{3}r^3\rho\ua{Oel}g = qE = \frac{U\ua{Schweb}}{d}
+  \label{eqn:Kräftegleichung_Schwebung}
+\end{align}
+
+Mit dem Radius nach Formel \eqref{eqn:Radius_Ohne} ergibt sich nach Umstellen
+der obigen Gleichung für die Ladung des Tröpchens die folgende Relation:
+
+\begin{align}
+  q = \frac{4\pi}{3}r^3\rho\ua{Oel}g \cdot \frac{1}{E} = \frac{4\pi}{3}r^3\rho\ua{Oel}g \cdot \frac{d}{U\ua{Schweb}}.
 \end{align}
 
 Da die Stokesche Reibungskraft nur für Tröpchen gilt, deren Radius größer als
@@ -129,22 +135,24 @@ Tröpchen kann in den Kondensator gelangen.
 
 Als erstes wird mithilfe der Libelle überprüft, ob der experimentelle Aufbau
 richtig ausgerichtet ist. Anschließend wird das Mikroskop scharf gestellt, indem
-eine Nadel durch die Öffnung geschoben wird und auf diese fokussiert wird.
+auf das Millimeterpapier fokussiert wird.
 %War das wirklich so?
 
 Zuerst werden bei ausgeschaltetem elektrischen Feld Öltröpfchen in den Kondensator
-gegeben. Von diese wird eines ausgewählt, dessen Geschwindigkeit $v\ua{0}$ zwischen
-$\SI{0.01}{\meter\per\second}$ und $\SI{0.001}{\meter\per\second}$ liegt. Anschließend wird das elektrische
-Feld eingeschaltet, um die Ladung des Tröpchens zu überprüfen. Sollte das Tröpchen
+gegeben. Für die Messung der Geschwindigkeit wurde ein Strecke von $\SI{5}{mm}$
+betrachtet, bei der die Zurücklegung dieser Strecke optimalerweise in einem Zeitraum
+von $ 5 < t < 30 \, s$ geschehen soll. Somit werden nur Teilchen ausgewählt, deren
+Geschwindigkeit $v\ua{0}$ zwischen $\SI{0.001}{\meter\per\second}$ und
+$\SI{0.00016}{\meter\per\second}$ liegt.
+
+Anschließend wird das elektrische
+Feld eingeschaltet, um die Ladung des Tröpchens zu überprüfen. Dafür wird das
+Verhalten des Tröpchens bei den verschiedenen Polungen des Kondensators betrachtet.
+Sollte das Tröpchen
 ungeladen sein, wird bei ausgeschaltetem elektrischen Feld kurzzeitig die Umgebungsluft
 mit der radioaktiven Quelle ionisiert, da sich so mehr Elementarladungen auf dem
 Tröpchen absetzen.
 
-Die Messung beginnt damit, dass die beiden Geschwindigkeiten $v\ua{down}$
-und $v\ua{up}$ bei eingeschaltetem Feld gemessen werden.
-% Wie oft, ergänzen??
-Zuletzt wird die Gleichgewichtsgeschwindigkeit bei ausgeschaltetem Feld
-gemessen.
-
-Die Messung wird für 4 weitere Tröpchen wiederholt und anschließend
-mit 4 weiteren Kondensatorspannungen durchgeführt.
+Sobald ein Tröpfchen mit passender Geschwindigkeit und Ladung gefunden wird, wird
+die Spannung des Kondensators so eingestellt, dass das Tröpchen ruht. Diese
+Messung wird für insgesamt 30 verschiedene Öltröpfchen wiederholt.
