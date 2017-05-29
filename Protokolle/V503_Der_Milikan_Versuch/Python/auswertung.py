@@ -123,6 +123,11 @@ plt.savefig('Ladungen_E_0.pdf')
 ##sortieren der Messdaten
 q_sortiert = Q_(np.sort(q_korrigiert), 'coulomb')
 q_sort = noms(q_sortiert.magnitude)
+
+# aus Grafik
+q_mittel = np.array([np.mean(q_sort[0:2]), np.mean(q_sort[3:7]), np.mean(q_sort[8:14]), np.mean(q_sort[15:19]), q_sort[20], np.mean(q_sort[21:24]), np.mean(q_sort[25:26]), q_sort[29], np.mean(q_sort[28:29])])
+
+
 #print(np.argmin(abs(q_sortiert.magnitude / e_0.magnitude - 1)))
 n = q_sortiert[0]
 q_sortiert[0] = q_sortiert[2]
@@ -134,19 +139,20 @@ q_sortiert[2] = n
 #        test[i] = np.round(q[i] / q_test)
 #    return sum(test)
 
-for i in range(len(noms(q_sortiert.magnitude)) - 1):
-    if np.abs(q_sortiert[i + 1] - q_sortiert[i]) < e_0/2:
-        q_sortiert[i + 1] = q_sortiert[i]
+
+#for i in range(len(noms(q_sortiert.magnitude)) - 1):
+#    if np.abs(q_sortiert[i + 1] - q_sortiert[i]) < e_0/2:
+#        q_sortiert[i + 1] = q_sortiert[i]
 
 #best_value = np.zeros(len(noms(q_sortiert.magnitude)))
 dist = 10**-19
 e = const.e
 q_test = np.linspace(e - dist, e + dist, len(q_sort)) ## testladungsarray
-best_value = np.array([])
+best_value = q_mittel
 
-for i in range(len(q_sort) - 1): ## raussortieren der besten gemessenen werte
-    if np.abs(q_sort[i + 1] - q_sort[i]) > e_0.magnitude /2:
-        best_value = np.append(best_value, q_sort[i])
+#for i in range(len(q_sort) - 1): ## raussortieren der besten gemessenen werte
+#    if np.abs(q_sort[i + 1] - q_sort[i]) > e_0.magnitude /2:
+#        best_value = np.append(best_value, q_sort[i])
 
 q_best = np.array([])
 
@@ -167,7 +173,13 @@ print(q_test[14] / e)
 #
 #print(np.argmin(best_value))
 
-
+### Avogadro-Konstante
+## mit faradaykonstante
+N_a = 96485.33289 / q_test[14]
+print('Avogadro: ', N_a, const.N_A)
+print('absoluter Fehler: ', const.N_A - N_a)
+print('relativer Fehler: ', np.abs(N_a - const.N_A) / const.N_A)
+print(N_a / const.N_A - 1)
 
 plt.clf()
 plt.plot(range(0, len(noms(q_sortiert.magnitude))), noms(q_sortiert.magnitude), 'kx', label = r'Messdaten')

@@ -6,7 +6,7 @@ aufgeführt.
 
 \subsection{Bestimmung der Radien}
 
-Der Radius eines vermessenen Öltröpfchens wird über Formel \eqref{eqn:} bestimmt.
+Der Radius eines vermessenen Öltröpfchens wird über Formel \eqref{eqn:Radius_Ohne} bestimmt.
 Für die Bestimmung der Radien wird die Viskorität von Luft, die Fallgeschwindigkeit
 und die Dichte des verwedeten Öles benötigt.
 Aus den gemessenen Widerständen des Thermistors ist die Temperatur zu bestimmen. Diese wird für die Viskosität der Luft benötigt. Der Zusammenhang zwischen
@@ -38,9 +38,9 @@ betrachtet werden.
 
 \subsection{Bestimmung der Ladung}
 
-Die Ladung eines vermessenen Öltröpfchens wir über Formel \eqref{eqn:} ermittelt.
-Darüberhinaus muss der Korrekturterm \eqref{eqn:} berücksichtigt werden.
-In die Berechnung der Ladung fließt die herrschende E-Feldstärke, der Radius des Öltröpfchens,
+Die Ladung eines vermessenen Öltröpfchens wir über Formel \eqref{eqn:Ladung_korrigiert} ermittelt.
+In dieser Formel ist der Korekturterm schon beinhaltet.
+In die Berechnung der Ladung fließt die herrschende $E$-Feldstärke, der Radius des Öltröpfchens,
 und der Druck mit ein. Die Konstante $B$ wurde in der Literatur \cite{anleitung01}
 mit $\SI{6,17e-3}{\centi\meter}\su{Torr}$ angegeben. Als Druck wurde der
 Atmosphärendruck mit $\SI{1.01325}{bar}$ verwendet.
@@ -72,10 +72,11 @@ benutzt. Diese enspricht ungefähr einem Wert von $\SI{1,6022}{\coulomb}$.
 
 Die Elementarladung entspricht der Ladung, die den größten gemeinsamen Teiler
 aller gemessenen Ladungen bildet.
-Zuerst wurde dafür die Messdaten sortiert und alle Ladungen mit ähnlicher
-Ladung als gleich angenommen, weil die Elementarladung gequantelt ist.
-Deshalb sind ähnliche Ladungen im Rahmen der Messgenauigkeit als gleich anzusehen. 
-Die folgeden Formel stellt dar, wie verfahren wurde.
+Damit diese bestimmt werden kann werden die Messdaten sortiert. Danach wurden für ähnliche Messdaten die
+Mittelung aus diesen verwendet. Dies ist mit der Quantelung der Elementarladung zu begründen.
+Ähnliche Messdaten müssen die selbe Elementarladung repräsentieren, da kein kontinuierliches
+Spektrum an Messdaten zugelassen ist.
+Der beste Kandidat für eine Elementarladung ist das Mininmum der im Folgendem dargestellten Menge.
 
 \begin{equation}
   \su{min}\left\{\left|\su{rd}\left(\frac{Q}{Q\ua{Test}}\right) - \frac{Q}{Q\ua{Test}}\right|\right\}
@@ -90,13 +91,40 @@ Als gemessene Elementarladung ergibt sich der folgende Wert.
 \begin{align}
   \label{eqn:Elementarladung}
   e\ua{gemessen} &= \SI{1,568e-19}{\coulomb} \\
+  \label{eqn:abs_e_0}
   \left|\Delta_{e_0}\right| &= \SI{3,448e-21}{\coulomb}\\
+  \label{eqn:rel_e_0}
   \delta_{e_0} &= \SI{0,022}{\coulomb}
 \end{align}
 
 $\Delta_{e_0}$ ist dabei der absolute und $\delta_{e_0}$ der relative Fehler.
 Auf eine Fehlerrechnung wurde weitestgehend verzichtet, da auftretende Fehler lediglich aus
 dem Abstand der Kondensatorplatten resultieren.
+
+\subsection{Avogadro--Konstante}
+
+Mit Hilfe der Faraday-Konstante $F$ und der Elementarladung lässt sich die
+Avogadro-Konstante ermitteln. Die Größen hängen über die folgende Beziehung zusammen.
+
+\begin{equation}
+  \label{eqn:avogadro}
+  N\ua{A} = \frac{F}{e_0}
+\end{equation}
+
+Es wurde der Wert der Faraday-Konstante aus dem \emph{SciPy}-Packet \emph{constants}
+verwendet. Der Literaturwert der Avogadro-Konstante lautet $N\ua{A} = \SI{6,022e23}{\mol^-1}$.
+
+Mit der berechneten Elementarladung ergibt sich die Avogadro-Konstante wie folgt.
+
+\begin{align}
+  \label{eqn:avogadro_gemessen}
+  N\ua{A,gemessen} &= \SI{6,155e23}{\mol^{-1}} \\
+  \label{eqn:abs_N_A}
+  \left|\Delta_{N\ua{A}}\right| &= \SI{1.325e22}{\mol^{-1}}\\
+  \label{eqn:rel_N_A}
+  \delta_{N\ua{A}} &= \SI{0,022}{\mol^{-1}}
+\end{align}
+
 
 \section{Diskussion}
 
@@ -111,12 +139,19 @@ Widerstandsmessung ermöglichte jedoch nur Messungen auf bis zu zwei Nachkommast
 
 
 Das untere Diagramm aus Abb. \ref{fig:Ladungen} wurde der Übersichtlichkeit eingebunden.
+Anhand dieses Diagrammes wurden die Mittel der Messdaten, wie in der Auswertung erwähnt,
+bestimmt.
 Der gequantelte Charakter der Ladung ist deutlich zu erkennen.
 
 Die gemessene Elementarladung weicht um $\approx 2,2\%$ von dem Literaturwert ab.
 Im Rahmen der Messgenauigkeit ist dieses Ergebnis erstaunlich präzise.
 
+Die Avogadro-Konstante $N\ua{A}$ wurde bis auf $\approx 2,2\%$ Abweichung vom Literaturwert
+wiedergefunden. Das Die Abweichung von $N\ua{A}$ und $e_0$ übereinstimmen liegt an dem
+linear fortgepflanztem Fehler.
+Dieses Ergebnis ist unter Betrachtung der Messmethode äußerst präzise.
 
+Zusammenfassend ist zusagen, dass alle Messerwartungen vollkommen bestätigt wurden.
 
 \section{Messdaten}
 
