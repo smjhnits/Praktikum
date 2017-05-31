@@ -1,4 +1,4 @@
-iifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
+ifeq (,$(shell sh -c 'cygpath --version 2> /dev/null'))
   # Unix
   pwd := $$(pwd)
   translate = $1
