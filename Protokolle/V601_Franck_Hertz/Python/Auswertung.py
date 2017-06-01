@@ -71,7 +71,7 @@ M_A27_x = np.array([1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130,
                     178, 185, 195, 206]) * 0.04792
 
 M_A27_y = np.array([3, 2, 2.5, 2, 2, 1.5, 2, 2, 1.5, 1.5, 1.5, 1.5, 1, 1, 1, 1.5,
-                    1, 1, 1, 1, 1.5, 2, 2, 2, 1.5, 1, 1, 0, 0, 0])
+                    1, 1, 1, 1, 1.5, 2, 2, 2, 1.5, 1, 1, 0, 0, 0])/ParamsA_1[0]
 
 plt.clf()
 plt.plot(M_A27_x, M_A27_y/2, 'k--', label = r'Abgelesene Steigungswerte des Auffängerstroms bei 27 °C')
@@ -80,7 +80,7 @@ plt.legend(loc = 'best')
 plt.xlabel(r'$U$ in $\mathrm{V}$')
 plt.ylabel(r'$\frac{N}{U}$ in $\frac{1}{\mathrm{V}}$')
 plt.xlim(0, 10)
-plt.ylim(-0.5, 2)
+#plt.ylim(-0.5, 2)
 plt.show()
 
 # Bestimmung der Steigung bei Messung b) bei Raumtemperatur
@@ -88,8 +88,7 @@ plt.show()
 M_A144_x = np.array([4, 8, 12, 18, 22, 28, 32, 36, 40, 44, 47, 51, 54, 57, 60, 64,
                    67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 95, 106]) * 0.04778
 M_A144_y = np.array([6, 5, 6, 4, 5, 4, 5, 3, 4, 3, 3, 3, 2, 2, 1.5, 2.5, 2, 1, 1,
-                    1, 1, 1, 0, 0, 0, 0, 0, 0, 0])
-
+                    1, 1, 1, 0, 0, 0, 0, 0, 0, 0])/ParamsA_2[0]
 plt.clf()
 plt.plot(M_A144_x, M_A144_y/2, 'k--', label = r'Abgelesene Steigungswerte des Auffängerstroms bei 144 °C')
 plt.plot(M_A144_x, M_A144_y/2, 'rx')
@@ -97,5 +96,5 @@ plt.legend(loc = 'best')
 plt.xlabel(r'$U$ in $\mathrm{V}$')
 plt.ylabel(r'$\frac{N}{U}$ in $\frac{1}{\mathrm{V}}$')
 plt.xlim(0, 5.3)
-plt.ylim(-0.5, 4)
+#plt.ylim(-0.5, 4)
 plt.show()
