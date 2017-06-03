@@ -8,34 +8,34 @@ from scipy.optimize import curve_fit
 
 Spektral_gelb_komplett = np.array([8.3, 8, 7.65, 7.3, 6.6, 6.4, 6.15, 5.9, 5.5,
                                    5.1, 4.8, 4.3, 3.9, 2.7, 2, 1.4, 0.7, 0.45,
-                                   0.32, 0.14, 0.05, 0]) *10**(-9)
+                                   0.32, 0.14, 0.05]) *10**(-9)
 Spannung_gelb_komplett = np.array([-19.15, -17.05, -15.01, -13.02, -10.99, -9.99,
                                    -9.0, -8.05, -7.05, -6.02, -5.05, -4.04, -3.05,
-                                   -2.02, -1.01, -0.5, 0, 0.1, 0.2, 0.31, 0.4, 0.55])
+                                   -2.02, -1.01, -0.5, 0, 0.1, 0.2, 0.31, 0.4])
 
-Spannung_gelb = Spannung_gelb_komplett[16:21]
-Spektral_gelb = Spektral_gelb_komplett[16:21]
+Spannung_gelb = Spannung_gelb_komplett[16:20]
+Spektral_gelb = Spektral_gelb_komplett[16:20]
 
-Spektral_grün = np.array([1.2, 1, 0.5, 0.8, 0.22, 0.09, 0.02, 0])*10**(-9)
-Spannung_grün = np.array([0.01, 0.1, 0.3, 0.2, 0.4, 0.5, 0.6, 0.64])
+Spektral_grün = np.array([1.2, 1, 0.5, 0.8, 0.22, 0.09, 0.02])*10**(-9)
+Spannung_grün = np.array([0.01, 0.1, 0.3, 0.2, 0.4, 0.5, 0.6])
 
 Spektral_blau_grün = np.array([0.3, 0.29, 0.22, 0.2, 0.2, 0.18, 0.15, 0.12, 0.08,
-                               0.04, 0.03, 0.02, 0.01, 0.01, 0])*10**(-9)
+                               0.04, 0.03, 0.02, 0.01, 0.01])*10**(-9)
 Spannung_blau_grün = np.array([0.01, 0.05, 0.1, 0.151, 0.202, 0.253, 0.3, 0.35,
-                               0.45, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8])
+                               0.45, 0.55, 0.6, 0.65, 0.7, 0.75])
 
-Spektral_blau = np.array([7.4, 6.6, 6.4, 5.6, 4.0, 3.2, 2.3, 1.4, 0.6, 0.33, 0.1, 0])*10**(-9)
+Spektral_blau = np.array([7.4, 6.6, 6.4, 5.6, 4.0, 3.2, 2.3, 1.4, 0.6, 0.33, 0.1])*10**(-9)
 Spannung_blau = np.array([0.01, 0.1, 0.21, 0.31, 0.4, 0.5, 0.6, 0.7, 0.81, 0.9,
-                          1.0, 1.07])
+                          1.0])
 
 Spektral_UV1 = np.array([2.7, 2.4, 2.2, 1.9, 1.7, 1.1, 0.7, 0.52, 0.28, 0.16,
-                         0.08, 0.01, 0])*10**(-9)
+                         0.08, 0.01])*10**(-9)
 Spannung_UV1 = np.array([0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,
-                         1, 1.1 ,1.12])
+                         1, 1.1 ])
 
 Spektral_UV2 = np.array([0.3, 0.26, 0.23, 0.19, 0.16, 0.12, 0.09, 0.06, 0.04,
-                         0.02, 0])*10**(-9)
-Spannung_UV2 = np.array([0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+                         0.02])*10**(-9)
+Spannung_UV2 = np.array([0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 
 #Messung a
 
@@ -92,6 +92,7 @@ plt.clf()
 plt.plot(Spannung_gelb, np.sqrt(Spektral_gelb)*10**(4), 'kx', label = r'Messwerte gelbe Spektralfarbe')
 plt.plot(x_plot, f(x_plot, *P_ge)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(0.55, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_gelb), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r' $\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
@@ -104,6 +105,7 @@ plt.clf()
 plt.plot(Spannung_grün, np.sqrt(Spektral_grün)*10**(4), 'kx', label = 'Messwerte grüne Spektralfarbe')
 plt.plot(x_plot, f(x_plot, *P_gr)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(0.64, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_grün), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r'$\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
@@ -117,6 +119,7 @@ plt.clf()
 plt.plot(Spannung_blau_grün, np.sqrt(Spektral_blau_grün)*10**(4), 'kx', label = 'Messwerte blau-grüne Spektralfarbe')
 plt.plot(x_plot, f(x_plot, *P_b_g)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(0.8, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_b_g), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r'$\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
@@ -129,6 +132,7 @@ plt.clf()
 plt.plot(Spannung_blau, np.sqrt(Spektral_blau)*10**(4), 'kx', label = 'Messwerte blaue Spektralfarbe')
 plt.plot(x_plot, f(x_plot, *P_b)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(1.07, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_blau), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r'$\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
@@ -142,6 +146,7 @@ plt.clf()
 plt.plot(Spannung_UV1, np.sqrt(Spektral_UV1)*10**(4), 'kx', label = 'Messwerte der Spektralfarbe UV1')
 plt.plot(x_plot, f(x_plot, *P_UV1)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(1.12, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_UV1), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r'$\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
@@ -155,13 +160,14 @@ plt.clf()
 plt.plot(Spannung_UV2, np.sqrt(Spektral_UV2)*10**(4), 'kx', label = 'Messwerte der Spektralfarbe UV2')
 plt.plot(x_plot, f(x_plot, *P_UV2)*10**(4), 'r-', label = 'Lineare Regression')
 plt.plot(x_plot, y_plot, 'k--')
+plt.plot(1.0, 0, 'ro', label='gemessene Nullstelle')
 plt.plot(unp.nominal_values(x_UV2), 0, 'bo', label = 'Nullstelle der linearen Regression',)
 plt.xlabel(r' $U$ in $\mathrm{V}$')
 plt.ylabel(r'$\sqrt{I}\cdot 10^4$ in $\mathrm{A}$ ')
-plt.xlim(-0.1, 1.2)
+plt.xlim(-0.1, 1.3)
 plt.ylim(-0.05, 0.22)
 plt.legend(loc = 'best')
-#plt.savefig('UV2_Spektrallinie.pdf')
+plt.savefig('UV2_Spektrallinie.pdf')
 
 
 #Messung b
@@ -169,6 +175,11 @@ plt.legend(loc = 'best')
 U_g = np.array([unp.nominal_values(x_gelb), unp.nominal_values(x_grün),
                 unp.nominal_values(x_b_g), unp.nominal_values(x_blau),
                 unp.nominal_values(x_UV1), unp.nominal_values(x_UV2)])
+
+U_g_errors =np.array([unp.std_devs(x_gelb), unp.std_devs(x_grün),
+                unp.std_devs(x_b_g), unp.std_devs(x_blau),
+                unp.std_devs(x_UV1), unp.std_devs(x_UV2)])
+
 Wellenlängen = np.array([577.579, 546, 492, 435, 405, 365]) * 10**(-9)
 Frequenzen = np.array([sc.c/n for n in Wellenlängen])
 
@@ -181,8 +192,10 @@ xf_plot = np.linspace(4.5*10**(14), 9*10**(14), 1000)
 NoPlan, covariances_np = curve_fit(g, Frequenzen, U_g)
 errors_np = np.sqrt(np.diag(covariances_np))
 
+Fehler_array = np.array([U_g_errors, U_g_errors])
+
 plt.clf()
-plt.plot(Frequenzen, U_g, 'kx', label = r'$U_{\mathrm{g}}$')
+plt.errorbar(Frequenzen, U_g, yerr=Fehler_array, fmt = 'x', label = r'$U_{\mathrm{g}}$')
 plt.plot(xf_plot, g(xf_plot, *NoPlan), 'r-', label = 'lineare Regression')
 plt.xlabel(r'$\nu$ in $\mathrm{Hz}$')
 plt.ylabel(r'$U_{\mathrm{g}}$ in $\mathrm{V}$')
@@ -197,10 +210,10 @@ Achsenabschnitt = ufloat(NoPlan[1], errors_np[1])
 Steigung_eV = Steigung / sc.e
 Austrittsarbeit = Achsenabschnitt * sc.e
 
-#print("Die Steigung der Geraden beträgt: ", Steigung, '\n' )
-#print("In Elektronenvolt: ", Steigung_eV, '\n')
-#print("Austrittsarbeit: ", Austrittsarbeit , '\n')
-#print("In Elektronenvolt: ", Austrittsarbeit / sc.e, '\n')
+print("Die Steigung der Geraden beträgt: ", Steigung, '\n' )
+print("In Elektronenvolt: ", Steigung_eV, '\n')
+print("Austrittsarbeit: ", Austrittsarbeit , '\n')
+print("In Elektronenvolt: ", Austrittsarbeit / sc.e, '\n')
 
 #Messung c
 
@@ -219,4 +232,4 @@ plt.xlim(-3, 1)
 plt.ylim(0, 3)
 plt.axvline(0)
 plt.legend(loc = 'best')
-plt.savefig('gelbe_Spektrallinie_komplett2.pdf')
+#plt.savefig('gelbe_Spektrallinie_komplett2.pdf')

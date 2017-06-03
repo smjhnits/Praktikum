@@ -33,7 +33,10 @@ Regression für die einzelnen Farbspektren sind noch einmal in Tabelle
 \ref{tab:Messparameter} zu sehen.
 
 Im Folgenden sind die gemessenen Messwerte sowie die dazugehörigen
-Abbildungen für jede Spektralfarbe zu sehen.
+Abbildungen für jede Spektralfarbe zu sehen. Die Abweichungen von den gemessenen und
+errechneten Nullstellen kommen vermutlich daher, dass bei den gemessenen Nullstellen
+schon ein negativer Photostrom vorhanden war, welcher allerdings nicht angezeigt
+wurde.
 
 \newpage
 
@@ -147,8 +150,8 @@ nach Formel \eqref{eqn:Regression2} durchgeführt (siehe Abb. \ref{fig:Gegenspan
 welche für die Parameter folgende Werte ausgibt:
 
 \begin{align}
-  m = \frac{h}{e\ua{0}}                 &= \num{2.1(4)e-15} \, \si{eV}\\
-  b = \frac{A\ua{k}}{e\ua{0}} = A\ua{k} &= (\num{0.48(27)}) \, \si{eV}
+  m = \frac{h}{e\ua{0}}                 &= \num{2.33(33)e-15} \, \si{eV}\\
+  b = \frac{A\ua{k}}{e\ua{0}} = A\ua{k} &= (\num{0.57(22)}) \, \si{eV}
 \end{align}
 
 \newpage
@@ -180,8 +183,10 @@ Eine weitere Auffälligkeit ist das Absinken des Photostroms schon vor Erreichen
 der Gegenspannung. Dieses Verhalten kann mit der Fermi-Dirac-Verteilung erklärt
 werden, da jedes ausgelöste Elektron eine andere Energie besitzt.
 
-Eine weiter Beobachtung ist das Auftreten eines dem Photostrom entegegngerichteten
-Stromes. Dies ist dadurch zu Erklären, dass auch die Anode einem lichtelektrischen
+Ein bei uns nicht aufgetretener Effekt, aber zur Vollständigkeit im Folgenden
+erwähnt, wäre außerdem noch das Auftreten eines dem
+Photostrom entegegengerichteten Stromes gewesen.
+noch erklärt. Dies ist dadurch zu Erklären, dass auch die Anode einem lichtelektrischen
 Effekt unterworfen ist, der allerdings aufgrund der Oberfläche und des verwendeten
 Materials (höhere Bindungsenergie) deutlich geringer ist als bei der Kathode.
 Allerdings verdampft das für die Kathode verwendete Material schon bei sehr
@@ -215,16 +220,16 @@ die Austrittsarbeit vermutlich ziemlich gering und in der Größenordnung der Ka
 \section{Diskussion}
 
 Bei der Bestimmung der Regressionsparameter im Abschnitt 3.1 traten lediglich
-kleine Fehler auf. Zudem lagen die Regressionsgeraden meist auch ziemlich nah an
-den Messwerten. Bei Abschnitt 3.2 ergab die Regression jedoch ziemlich große
+kleine Fehler auf. Bei Abschnitt 3.2 ergab die Regression ziemlich große
 Fehler mit einer Regressionsgeraden, die teilweise weit von den Werten entfernt liegt.
+Jedoch schneiden die Fehlerbalken größtenteils die Regressionsgerade.
 Wird der experimentell bestimmte Wert für $\frac{h}{e\ua{0}}$ mit
-dem Literaturwert\cite{Quelle2} verglichen, ist festzustellen, dass eine Abweichung von ca. 49 $\%$
+dem Literaturwert\cite{Quelle2} verglichen, ist festzustellen, dass eine Abweichung von ca. 44 $\%$
 vorliegt.
 
 \begin{align}
   \frac{h}{e\ua{0}}_{\su{lit}} =  \SI{4.136}{eV}\\
-  \frac{h}{e\ua{0}}_{\su{exp}} =  \SI{2.1}{eV}
+  \frac{h}{e\ua{0}}_{\su{exp}} =  \SI{2.33}{eV}
 \end{align}
 
 Für das Auftreten dieses Fehlers sind mehrere Ursachen möglich. Ein große Fehlerquelle
@@ -235,7 +240,9 @@ wurde mittels einer Schiene auf einem Teilkreisbogen um den Aufbau herumgefahren
 damit die verschiedenen Farbspektren betrachtet werden könen. Jedoch
 war die Schiene schief, sodass die Photozelle beim Messen immer wieder leicht
 verrutschte und die Intensität nicht konstant gehalten werden konnte. Selbst nach
-versuchter Stabilisierung der Schiene ergab sich keine Besserung.
+versuchter Stabilisierung der Schiene ergab sich keine Besserung. Zudem hatte
+auch die schwankende Intensität der Hg-Dampflampe noch großen Einfluss auf die
+Messwerte.
 
 Eine weitere Fehlerquelle ist vermutlich die Hg-Dampflampe. Bei Betrachtung
 der aufgespaltenen Lichtspektren auf einem Schirm war auch deutlich eine rote
@@ -243,8 +250,8 @@ Spektralfarbe erkenntlich, welche bei einer Hg-Dampflampe eigentlich nicht vorko
 sollte. Dieser Effekt beruht vermutlich auf Lufteinschlüsse in der Lampe.
 
 Da der Aufbau wie beschrieben großen Anteil an den auftretenden Fehlern
-hat, sind die Abweichungen der bestimmten Werte vor allem auf systematische Fehler
-zurückzuführen. Auch die großen Fehlerintervalle bei Messung 3.2 deuten darauf hin.
+hat, sind die Abweichungen der bestimmten Werte auf systematische Fehler
+zurückzuführen.
 
 Jedoch sind die Grundprinzipien des Photoeffektes bei der verwendeten Apparatur
 deutlich geworden, womit das Experiment zur Beobachtung des Photoeffektes
