@@ -1,0 +1,172 @@
+\section{Auswertung}
+
+Bei den folgenden Rechnungen wurden die Messwerte aus den vom XY-Schreiber erstellten
+Graphen abgelesen und mittels Python ausgewertet. Bei den Werten wurden Mittelwert
+und Standarsabweichung des Mittelwerts nach folgenden Formeln ermittelt:
+
+\begin{align}
+  \bar{x}      &= \frac{1}{N} \cdot \sum_{i=0}^{N} x\ua{i}
+  \label{eqn:Mittelwert} \\
+  s\ua{\bar{x}} &= \sqrt{ \frac{1}{N(N-1)} \cdot \sum_{i=0}^{N} (x\ua{i} - \bar{x})^2  }.
+  \label{eqn:Standardabweichung}
+\end{align}
+
+Die linearen Regressionen bei der Auswertung der verschiedenen Messungen wurden
+alle an die selbe Formel gefittet (\eqref{eqn:linRegress}), wobei die Parameter
+unterschiedlichen physikalischen Größen zugeordnet werden, welche in den einzelnen
+Messabschnitten noch einmal erwähnt werden.
+
+\begin{equation}
+  f(x) = A * x + B
+  \label{eqn:linRegress}
+\end{equation}
+
+Bei jeder Messung wurden die Temperaturen möglichst konstant gehalten. Mit den
+gemessenen Temperaturen lassen sich gemäß Formel \eqref{weglänge} und Formel
+\eqref{eqn:Sättigungsdruck} die mittlere freie
+Weglänge $\bar{w}$ sowie das Verhältnis $\frac{a}{\bar{w}}$ mit dem Abstand zwischen
+Kathode und Beschleunigungselektrode $a$ ($a$ = $\SI{1}{cm}$) berechnen.
+
+\begin{equation}
+  p\ua{saet}(T) = 5.5 \cdot 10^{7} \exp{-6876/T}
+  \label{eqn:Sättigungsdruck}
+\end{equation}
+
+Die ermittelten Werte sind in der folgenden Tabelle zu sehen.
+
+\input{"Tabellen/Weglaengen.tex"}
+
+Zudem wurde bei allen Messungen mithilfe des XY-Schreibers ein X-Achse eingezeichnet,
+um die jeweiligen Spannungswerte ablesen zu können. Da die Skaleneinteilung bei
+jeder Messung bekannt ist, kann mithilfe einer linaren Regression nach Formel
+\eqref{eqn:linRegress} berechnet werden, wieviel Volt ein mm auf den Graphen entspricht.
+Dabei wird die Spannung gegen den Abstand aufgetragen (Tabelle
+\ref{tab:Kaestchen}), so dass die Steigung $A$ das
+gesuchte Verhältniss wieder gibt.
+
+\input{"Tabellen/X_Achsen_Messung.tex"}
+
+Die bestimmten Steigungen sind in der folgenden Tabelle zu sehen:
+
+\input{"Tabellen/Steigungen.tex"}
+
+Da der bestimmte Fehler viel geringer als der Ablesefehler ist, werden die Werte
+bei den folgenden Berechnungen als fehlerfrei angenommen.
+
+\subsection{Bestimmung der Energieverteilung}
+
+Um die Energieverteilung bei den verschiedenen Temperaturen zu bestimmen, wird mit
+die Steigung der beiden Graphen an verschiedenen Punkten gemessen. Dafür wird immer
+die Steigung in einem Intervall von einem mm um den Punkt bestimmt. Die gemessenen
+Werte sind in der folgenden Tabelle sowie grafisch in den Abbildungen
+\ref{fig:Messung_A_27} und \ref{fig:Messung_A_144} zu sehen.
+
+\input{"Tabellen/Messung_A_27.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.75\textwidth]{Pics/Messung_A_27.pdf}
+  \caption{Abgelesene Steigungen bei Messung 3.1 bei 27 °C.}
+  \label{fig:Messung_A_27}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.75\textwidth]{Pics/Messung_A_144.pdf}
+  \caption{Abgelesene Steigungen bei Messung 3.1 bei 144 °C.}
+  \label{fig:Messung_A_144}
+\end{figure}
+
+In Abbildung \ref{fig:Messung_A_27} sieht man, dass sich bei $\SI{8.147}{V}$ ein
+Piek befindet. Da es sich um die Fermi-Dirac-Verteilung handelt, sollte dieser
+Piek eigentlich bei der Beschleunigungsspannung $U\ua{B}$ = $\SI{11}{V}$ liege.
+Aus der Differenz dieser beiden Werte kann nun das Kontaktpotenzial bestimmt
+werden:
+
+\begin{equation}
+  K\ua{A} = U\ua{B}- U\ua{B,eff} = \SI{11}{V} - \SI{8.147}{V} = \SI{2.853}{V}.
+\end{equation}
+
+Beim zweiten Graphen ist so ein Energiemaximum nicht mehr erkenntlich (Abb.
+\ref{fig:Messung_A_144}). Dies liegt
+an dem Verhättniss $\frac{a}{\bar{w}}$, welches hier deutlich höher ist (siehe
+Tabelle \ref{tab:Weglaengen}). Somit treten deutlich mehr elastische Stöße auf,
+welche die Richtung der Elektronen beeinflussen. Somit wird nicht mehr die
+Fermi-Dirac-Verteilung deutlich, da die Energieverteilung verwischt wird.
+
+\subsection{Beobachtung der Franck-Hertz-Kurve}
+
+Mithilfe der Franck-Hertz-Kurve soll im Folgenden nun die 1. Anregungsenergie für
+Quecksilber bestimmt werden. Dafür werden auf dem Graphen die Abstände zwischen
+den Maxima gemessen. Mit Formel \ref{eqn:Mittelwert} wird dann der Mittelwert
+bestimmt. Die gemessenen Werte sind in der folgenden Tabelle eingetragen.
+
+\input{"Tabellen/Hertz_Kurve.tex"}
+
+Mit den Werten aus Tabelle \ref{tab:AbstaendeMaxima} ergibt sich dann für die
+durchschnittliche Energiedifferent folgender Wert:
+
+\begin{equation}
+  E\ua{1} - E\ua{0} =  \SI{5.160 \pm 0.035}{V}.
+\end{equation}
+
+Der Fehler der Energiedifferenz wurde mit Formel \eqref{eqn:Standardabweichung}
+bestimmt.
+
+Gemäß Formel \eqref{eqn:Lichtquant} kann aus der Energiedifferenz nun die Wellenlänge des
+emittierten Lichtes bestimmt werden:
+
+\begin{equation}
+  \lambda = \frac{c}{\nu} = \frac{c \hbar}{E\ua{1} - E\ua{0}} = \SI{240.3 \pm 1.6}{nm}.
+\end{equation}
+
+Bei dem emittierten Licht handelt es sich also um die ultraviolette Spektralfarbe.
+Mit der Franck-Hertz-Kurve kann nun zudem erneut das Kontaktpotenzial bestimmt
+werden, da sich für das erste Maximum eine Verschiebung um $K$ ergibt. Da bei der
+gemessenen Kurve erst das zweite Maximum mit großer Sicherheit lokalisiert werden
+kann, gilt für das Kontaktpotenzial folgende Relation:
+
+\begin{equation}
+  K\ua{B} = U\ua{2} - 2 \cdot (E\ua{1} - E\ua{0}) = \SI{2.08 \pm 0.07}{V}.
+\end{equation}
+
+\subsection{Bestimmung der Ionisierungssspannung von Quecksilber}
+
+In dem letzten Abschnitt des Experimentes soll nun die Ionisierungsspannung
+von Quecksilber bestimmt werden. Dafür werden den vom XY-Schreiber angefertigten
+Graphen einige Messwerte in regelmäßigem Abstand entnommen. Mithilfe einer
+linearen Regression kann dann der Schnitt mit der X-Achse bestimmt werden.
+Die verwendeten Werte sind in der folgenden Tabelle sichtbar und in Abbildung
+\ref{fig:MessungC} noch einmal grafisch dargestellt. Der erste Messwert wurde in
+einem Abstand von 20 mm zum Ursprung genommen und danach entspricht der Abstand
+zwischen zwei Messwerten $\increment x$ = 30 mm ($\increment U = \SI{7.5}{V}$).
+
+\input{"Tabellen/Ionisation.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/Ionisationsspannung.pdf}
+  \caption{Lineare Regression durch die entnommen Messwerte.}
+  \label{fig:MessungC}
+\end{figure}
+
+Mithilfe der linearen Regression ergibt sich die Nullstelle bei $U\ua{Null}$ =
+15.4 $\si{V}$.
+Mithilfe der Nullstelle kann nun die Ionisierungsspannung bestimmt werden, das
+folgende Relation gilt:
+
+\begin{equation}
+  U\ua{ion} = U\ua{Null} - K.
+\end{equation}
+
+Verwendet man nun die beiden Kontaktpotenziale aus den Abschnitten 3.1 und 3.2,
+ergeben sich für die Ionisierungsspannung folgende Werte:
+
+\begin{align}
+U\ua{ion,A} &= U\ua{Null} - K\ua{A} =  12.54 \si{V} \\
+U\ua{ion,B} &= U\ua{Null} - K\ua{B} = (13.32 \pm 0.07) \si{V}.
+\end{align}
+
+\newpage
+
+\section{Diskussion}
