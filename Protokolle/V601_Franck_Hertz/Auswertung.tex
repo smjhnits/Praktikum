@@ -53,6 +53,7 @@ Die bestimmten Steigungen sind in der folgenden Tabelle zu sehen:
 Da der bestimmte Fehler viel geringer als der Ablesefehler ist, werden die Werte
 bei den folgenden Berechnungen als fehlerfrei angenommen.
 
+
 \subsection{Bestimmung der Energieverteilung}
 
 Um die Energieverteilung bei den verschiedenen Temperaturen zu bestimmen, wird mit
@@ -91,8 +92,16 @@ Beim zweiten Graphen ist so ein Energiemaximum nicht mehr erkenntlich (Abb.
 \ref{fig:Messung_A_144}). Dies liegt
 an dem Verhättniss $\frac{a}{\bar{w}}$, welches hier deutlich höher ist (siehe
 Tabelle \ref{tab:Weglaengen}). Somit treten deutlich mehr elastische Stöße auf,
-welche die Richtung der Elektronen beeinflussen. Somit wird nicht mehr die
-Fermi-Dirac-Verteilung deutlich, da die Energieverteilung verwischt wird.
+welche die Richtung der Elektronen beeinflussen. Dies führt zu einer deutlich
+geringeren Zahl an Elektronen, die an der Auffängerelektrode registriert werden,
+so dass die Energie-Verteilung in Feldrichtung verwischt wird und keinen
+Zusammenhang zur Fermi-Dirac-Verteilung mehr zeigt.
+Auffällig ist zudem, dass bei der zweiten Messreihe kaum Elektronen mit einer
+Energie über $\SI{5}{eV}$ die Auffängerelektrode erreichen. Dies liegt daran,
+dass die in 3.2 bestimmte Anregungsenergie von Quecksilber $\SI{5.160 \pm 0.035}{V}$
+(\ref{eqn:Anregung}) beträgt. Somit wechselwirken Elektronen mit einer größeren
+Energie mit den Quecksilber-Atomen und gelangen nicht mehr an die Auffängerelektrode.
+
 
 \subsection{Beobachtung der Franck-Hertz-Kurve}
 
@@ -107,7 +116,8 @@ Mit den Werten aus Tabelle \ref{tab:AbstaendeMaxima} ergibt sich dann für die
 durchschnittliche Energiedifferent folgender Wert:
 
 \begin{equation}
-  E\ua{1} - E\ua{0} =  \SI{5.160 \pm 0.035}{V}.
+  E\ua{1} - E\ua{0} =  \SI{5.160 \pm 0.035}{eV}.
+  \label{eqn:Anregung}
 \end{equation}
 
 Der Fehler der Energiedifferenz wurde mit Formel \eqref{eqn:Standardabweichung}
@@ -129,6 +139,9 @@ kann, gilt für das Kontaktpotenzial folgende Relation:
 \begin{equation}
   K\ua{B} = U\ua{2} - 2 \cdot (E\ua{1} - E\ua{0}) = \SI{2.08 \pm 0.07}{V}.
 \end{equation}
+
+Vergleicht man diesen Wert mit dem Kontaktpotenzial aus Messung 3.1, so ergibt
+sich eine Abweichung von ca. 27 $\%$.
 
 \subsection{Bestimmung der Ionisierungssspannung von Quecksilber}
 
@@ -170,3 +183,82 @@ U\ua{ion,B} &= U\ua{Null} - K\ua{B} = (13.32 \pm 0.07) \si{V}.
 \newpage
 
 \section{Diskussion}
+
+Betrachtet man die beiden vom XY-Schreiber erstellten Graphen in Abschnitt 3.1
+und die daraus resultierenden Energieverteilungen, dann sieht man bei der Messung
+bei Raumtemperatur eine deutliche Abweichung der Kurve von der Theorie. Hier
+sollte normalerweise eine Gauß-Kurve zu sehen sein. Jedoch ist die Steigung des
+Graphen schon bei geringer Bremsspannung ziemlich stark. Der Wendepunkt bei
+$U\ua{B,eff}$ ist deshalb nicht deutlich ausgeprägt, jedoch schematisch erkennbar.
+
+Bei der Messung 3.2 sind die Maxima der Franck-Hertz-Kurve deutlich ausgeprägt.
+Die mit Hilfe der Abstände bestimmte Anregungsenergie von Quecksilber zeigt hierbei
+eine Abweichung von lediglich 5 $\%$ im Vergleich zu dem Literaturwert\cite{Page02}:
+
+\begin{align}
+  E\ua{exp} &= \SI{5.160 \pm 0.035}{eV} \\
+  E\ua{Lit} &= \SI{4.9}{eV} .
+\end{align}
+
+Auch hier wurde das Kontaktpotenzial erneut bestimmt, welches eine Abweichung von
+ca. 27 $\%$ zu dem in Messung 3.1 bestimmten Kontaktpotenzial zeigt:
+
+\begin{align}
+  K\ua{A} &= \SI{2.853}{V} \\
+  K\ua{B} &= \SI{2.08 \pm 0.07}{V} .
+\end{align}
+
+Die berechneten Kontaktpotenziale können jedoch nicht mit einem Literaturwert
+verglichen werden.
+
+Bei Messung 3.3 wurde zweimal die Ionisierungsspannung von Quecksilber bestimmt.
+Im Vergleich mit dem Literaturwert $U\ua{ion,lit} = \SI{10.437}{V}$\cite{Page01}
+ist unter Verwendung des Kontaktpotenzials
+aus Messung 3.1 eine kleinere Abweichung zu erkennen.
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse für die Ionisierungsspannung aus Messung 3.3 .}
+  \label{tab:Ergebniss}
+  \begin{tabular}{c c c}
+    \toprule
+    $K$ in $\si{V}$ & $U\ua{ion}$ in $\si{V}$ & (1 - $\sfrac{U\ua{ion,lit}}{U\ua{ion}}$) in $\%$ \\
+    \midrule
+    2.853 & 12.54 & 17 \\
+    2.08  & 13.32 & 22 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Unter Hinzuziehen des Kurvenverlaufs
+des vom XY-Schreiber erstellten Graphen (siehe Anhang, Messung c) ) lässt sich sagen,
+dass $K\ua{A}$ somit vermutlich näher am tatsächlichen Wert des Kontaktpotenzials
+liegt.
+
+Für die auftretenden Abweichungen bei diesem Versuch gibt es mehrere Quellen.
+Einerseits sollte bei dem Versuch bei jeder Messung der maximale Auffängerstrom
+mit Hilfe des Speisestroms optimal eingestellt werden. Diese Variation war allerdings
+nicht möglich, da der Speisestrom auf einen konstanten Kompromisswert eingestellt
+war. Diese ermöglichte es zwar, bei allen Messungen vernünftige Ergebnisse zu
+erhalten ohne Gefahr zu laufen, dass die Apparatur berschädigt wird. Jedoch wurde
+die Qualität der Ergebnisse dadurch auch beeinflusst.
+
+Eine weiter Fehlerquelle ist das Verbindungskabel zwischen der Franck-Hertz-Kammer
+und dem Piccoamperemeter. Dieses sollte normalerweise optimal isoliert sein, um
+Störungen duch Induktionsströme zu vermeiden. Da das Kabel etwas älter war, kann
+hier jedoch von einer auftretenden Störung ausgegangen werden.
+
+Die nächste mögliche Störquelle ist die Regulierung des Temperatur. Aufgrund
+äußerer Gegebenheiten kam es immer wieder zu Temperaturschwankungen, welche
+zwar durch konstantes Regulieren der Temperatur gering gehalten werden sollte,
+jedoch zusätzlich Auswirkungen auf die Qualität der Kurven hatte. Besonders bei
+der Erstellung der Franck-Hertz-Kurve traten anfangs starke Temperaturschwankungen
+auf, aufgrund derer mehrere Graphen angefertigt werden musste. Bei allen Versuchen
+wurd versucht, die Temperaturschwankungen im einem Fehlerintervall von ca. $\SI{1}{K}$
+zu halten.
+
+Zusammengefasst haben das Alter der Apparatur und die nicht variable Einstellung
+des Speisestroms zwar erhebliche Auswirkungen auf die Qualität des Experimentes
+gehabt. Trotzdem ließen sich alle zu erwartenden Effekte in einem gewissen
+Rahmen gut beobachten, was sich auch durch die nicht allzu hohen Abweichungen
+der experimentell bestimmten Messwerte zu den Literaturwerten bestätigen lässt.
