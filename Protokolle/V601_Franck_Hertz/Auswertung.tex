@@ -2,7 +2,7 @@
 
 Bei den folgenden Rechnungen wurden die Messwerte aus den vom XY-Schreiber erstellten
 Graphen abgelesen und mittels Python ausgewertet. Bei den Werten wurden Mittelwert
-und Standarsabweichung des Mittelwerts nach folgenden Formeln ermittelt:
+und Standardabweichung des Mittelwerts nach folgenden Formeln ermittelt:
 
 \begin{align}
   \bar{x}      &= \frac{1}{N} \cdot \sum_{i=0}^{N} x\ua{i}
@@ -12,17 +12,17 @@ und Standarsabweichung des Mittelwerts nach folgenden Formeln ermittelt:
 \end{align}
 
 Die linearen Regressionen bei der Auswertung der verschiedenen Messungen wurden
-alle an die selbe Formel gefittet (\eqref{eqn:linRegress}), wobei die Parameter
+alle an die selbe Formel gefittet \eqref{eqn:linRegress}, wobei die Parameter
 unterschiedlichen physikalischen Größen zugeordnet werden, welche in den einzelnen
 Messabschnitten noch einmal erwähnt werden.
 
 \begin{equation}
-  f(x) = A * x + B
+  f(x) = A \cdot x + B
   \label{eqn:linRegress}
 \end{equation}
 
 Bei jeder Messung wurden die Temperaturen möglichst konstant gehalten. Mit den
-gemessenen Temperaturen lassen sich gemäß Formel \eqref{weglänge} und Formel
+gemessenen Temperaturen lassen sich gemäß Formel \eqref{eqn:weglänge} und Formel
 \eqref{eqn:Sättigungsdruck} die mittlere freie
 Weglänge $\bar{w}$ sowie das Verhältnis $\frac{a}{\bar{w}}$ mit dem Abstand zwischen
 Kathode und Beschleunigungselektrode $a$ ($a$ = $\SI{1}{cm}$) berechnen.
@@ -39,7 +39,7 @@ Die ermittelten Werte sind in der folgenden Tabelle zu sehen.
 Zudem wurde bei allen Messungen mithilfe des XY-Schreibers ein X-Achse eingezeichnet,
 um die jeweiligen Spannungswerte ablesen zu können. Da die Skaleneinteilung bei
 jeder Messung bekannt ist, kann mithilfe einer linaren Regression nach Formel
-\eqref{eqn:linRegress} berechnet werden, wieviel Volt ein mm auf den Graphen entspricht.
+\eqref{eqn:linRegress} berechnet werden, wieviel Volt ein Millimeter auf dem Graphen entspricht.
 Dabei wird die Spannung gegen den Abstand aufgetragen (Tabelle
 \ref{tab:Kaestchen}), so dass die Steigung $A$ das
 gesuchte Verhältniss wieder gibt.
@@ -56,10 +56,10 @@ bei den folgenden Berechnungen als fehlerfrei angenommen.
 
 \subsection{Bestimmung der Energieverteilung}
 
-Um die Energieverteilung bei den verschiedenen Temperaturen zu bestimmen, wird mit
+Um die Energieverteilung bei den verschiedenen Temperaturen zu bestimmen, wird
 die Steigung der beiden Graphen an verschiedenen Punkten gemessen. Dafür wird immer
 die Steigung in einem Intervall von einem mm um den Punkt bestimmt. Die gemessenen
-Werte sind in der folgenden Tabelle sowie grafisch in den Abbildungen
+Werte sind in der Tabelle \ref{tab:MessungA27} sowie grafisch in den Abbildungen
 \ref{fig:Messung_A_27} und \ref{fig:Messung_A_144} zu sehen.
 
 \input{"Tabellen/Messung_A_27.tex"}
@@ -79,16 +79,16 @@ Werte sind in der folgenden Tabelle sowie grafisch in den Abbildungen
 \end{figure}
 
 In Abbildung \ref{fig:Messung_A_27} sieht man, dass sich bei $\SI{8.147}{V}$ ein
-Piek befindet. Da es sich um die Fermi-Dirac-Verteilung handelt, sollte dieser
-Piek eigentlich bei der Beschleunigungsspannung $U\ua{B}$ = $\SI{11}{V}$ liege.
-Aus der Differenz dieser beiden Werte kann nun das Kontaktpotenzial bestimmt
+Piek befindet. Da es sich um die Fermi-Dirac-Verteilung handelt, liegt dieser
+Piek theoretisch bei der Beschleunigungsspannung $U\ua{B}$ = $\SI{11}{V}$.
+Aus der Differenz dieser beiden Werte kann nun das Kontaktpotential bestimmt
 werden:
 
 \begin{equation}
-  K\ua{A} = U\ua{B}- U\ua{B,eff} = \SI{11}{V} - \SI{8.147}{V} = \SI{2.853}{V}.
+  \su{K}\ua{A} = U\ua{B}- U\ua{B,eff} = \SI{11}{V} - \SI{8.147}{V} = \SI{2.853}{V}.
 \end{equation}
 
-Beim zweiten Graphen ist so ein Energiemaximum nicht mehr erkenntlich (Abb.
+Bei dem zweiten Graphen ist so ein Energiemaximum nicht mehr erkenntlich (Abb.
 \ref{fig:Messung_A_144}). Dies liegt
 an dem Verhältniss $\frac{a}{\bar{w}}$, welches hier deutlich höher ist (siehe
 Tabelle \ref{tab:Weglaengen}). Somit treten deutlich mehr elastische Stöße auf,
@@ -131,28 +131,28 @@ emittierten Lichtes bestimmt werden:
 \end{equation}
 
 Bei dem emittierten Licht handelt es sich also um die ultraviolette Spektralfarbe.
-Mit der Franck-Hertz-Kurve kann nun zudem erneut das Kontaktpotenzial bestimmt
-werden, da sich für das erste Maximum eine Verschiebung um $K$ ergibt. Da bei der
+Mit der Franck-Hertz-Kurve kann erneut das Kontaktpotential bestimmt
+werden. Das erste Maximum ist um den Wert $\su{K}$ des Kontaktpotentials verschoben. Da bei der
 gemessenen Kurve erst das zweite Maximum mit großer Sicherheit lokalisiert werden
-kann, gilt für das Kontaktpotenzial folgende Relation:
+kann, gilt für das Kontaktpotential folgende Relation:
 
 \begin{equation}
-  K\ua{B} = U\ua{2} - 2 \cdot (E\ua{1} - E\ua{0}) = \SI{2.08 \pm 0.07}{V}.
+  \su{K}\ua{B} = U\ua{2} - 2 \cdot (E\ua{1} - E\ua{0}) = \SI{2.08 \pm 0.07}{V}.
 \end{equation}
 
-Vergleicht man diesen Wert mit dem Kontaktpotenzial aus Messung 3.1, so ergibt
+Vergleicht man diesen Wert mit dem Kontaktpotential aus Messung 3.1, so ergibt
 sich eine Abweichung von ca. 27 $\%$.
 
 \subsection{Bestimmung der Ionisierungssspannung von Quecksilber}
 
-In dem letzten Abschnitt des Experimentes soll nun die Ionisierungsspannung
+In dem letzten Abschnitt des Experimentes soll die Ionisierungsspannung
 von Quecksilber bestimmt werden. Dafür werden den vom XY-Schreiber angefertigten
 Graphen einige Messwerte in regelmäßigem Abstand entnommen. Mithilfe einer
-linearen Regression kann dann der Schnitt mit der X-Achse bestimmt werden.
+linearen Regression kann der Schnitt mit der Abszisse bestimmt werden.
 Die verwendeten Werte sind in der folgenden Tabelle sichtbar und in Abbildung
 \ref{fig:MessungC} noch einmal grafisch dargestellt. Der erste Messwert wurde in
-einem Abstand von 20 mm zum Ursprung genommen und danach entspricht der Abstand
-zwischen zwei Messwerten $\increment x$ = 30 mm ($\increment U = \SI{7.5}{V}$).
+einem Abstand von 20 mm zum Ursprung genommen. Die weiteren Abstände
+zwischen zwei Messwerten entsprechen $\increment x$ = 30 mm ($\increment U = \SI{7.5}{V}$).
 
 \input{"Tabellen/Ionisation.tex"}
 
@@ -169,26 +169,24 @@ Mithilfe der Nullstelle kann nun die Ionisierungsspannung bestimmt werden, da
 folgende Relation gilt:
 
 \begin{equation}
-  U\ua{ion} = U\ua{Null} - K.
+  U\ua{ion} = U\ua{Null} - \su{K}.
 \end{equation}
 
-Verwendet man nun die beiden Kontaktpotenziale aus den Abschnitten 3.1 und 3.2,
+Verwendet man nun die beiden Kontaktpotentiale aus den Abschnitten 3.1 und 3.2,
 ergeben sich für die Ionisierungsspannung folgende Werte:
 
 \begin{align}
-U\ua{ion,A} &= U\ua{Null} - K\ua{A} =  12.54 \si{V} \\
-U\ua{ion,B} &= U\ua{Null} - K\ua{B} = (13.32 \pm 0.07) \si{V}.
+U\ua{ion,A} &= U\ua{Null} - \su{K}\ua{A} =  12.54 \si{V} \\
+U\ua{ion,B} &= U\ua{Null} - \su{K}\ua{B} = (13.32 \pm 0.07) \si{V}.
 \end{align}
-
-\newpage
 
 \section{Diskussion}
 
-Betrachtet man die beiden vom XY-Schreiber erstellten Graphen in Abschnitt 3.1
-und die daraus resultierenden Energieverteilungen, dann sieht man bei der Messung
-bei Raumtemperatur eine deutliche Abweichung der Kurve von der Theorie. Hier
-sollte normalerweise eine Gauß-Kurve zu sehen sein. Jedoch ist die Steigung des
-Graphen schon bei geringer Bremsspannung ziemlich stark. Der Wendepunkt bei
+Ein Vergleich der beiden vom XY-Schreiber erstellten Graphen in Abschnitt 3.1
+und der daraus resultierenden Energieverteilungen zeigt, dass bei der Messung
+bei Raumtemperatur eine deutliche Abweichung von der Theoriekurve ersichtlich ist.
+Theoretisch sollte eine Gauß-Kurve zu sehen sein. Jedoch ist die Steigung des
+Graphen schon bei geringer Bremsspannung auffällig stark. Der Wendepunkt bei
 $U\ua{B,eff}$ ist deshalb nicht deutlich ausgeprägt, jedoch schematisch erkennbar.
 
 Bei der Messung 3.2 sind die Maxima der Franck-Hertz-Kurve deutlich ausgeprägt.
@@ -200,20 +198,20 @@ eine Abweichung von lediglich 5 $\%$ im Vergleich zu dem Literaturwert\cite{Page
   E\ua{Lit} &= \SI{4.9}{eV} .
 \end{align}
 
-Auch hier wurde das Kontaktpotenzial erneut bestimmt, welches eine Abweichung von
-ca. 27 $\%$ zu dem in Messung 3.1 bestimmten Kontaktpotenzial zeigt:
+Auch hier wurde das Kontaktpotential erneut bestimmt, welches eine Abweichung von
+ca. 27 $\%$ zu dem in Messung 3.1 bestimmten Kontaktpotential zeigt:
 
 \begin{align}
-  K\ua{A} &= \SI{2.853}{V} \\
-  K\ua{B} &= \SI{2.08 \pm 0.07}{V} .
+  \su{K}\ua{A} &= \SI{2.853}{V} \\
+  \su{K}\ua{B} &= \SI{2.08 \pm 0.07}{V} .
 \end{align}
 
-Die berechneten Kontaktpotenziale können jedoch nicht mit einem Literaturwert
+Die berechneten Kontaktpotentiale können jedoch nicht mit einem Literaturwert
 verglichen werden.
 
 Bei Messung 3.3 wurde zweimal die Ionisierungsspannung von Quecksilber bestimmt.
 Im Vergleich mit dem Literaturwert $U\ua{ion,lit} = \SI{10.437}{V}$\cite{Page01}
-ist unter Verwendung des Kontaktpotenzials
+ist unter Verwendung des Kontaktpotentials
 aus Messung 3.1 eine kleinere Abweichung zu erkennen.
 
 \begin{table}
@@ -222,7 +220,7 @@ aus Messung 3.1 eine kleinere Abweichung zu erkennen.
   \label{tab:Ergebniss}
   \begin{tabular}{c c c}
     \toprule
-    $K$ in $\si{V}$ & $U\ua{ion}$ in $\si{V}$ & (1 - $\sfrac{U\ua{ion,lit}}{U\ua{ion}}$) in $\%$ \\
+    $\su{K}$ in $\si{V}$ & $U\ua{ion}$ in $\si{V}$ & (1 - $\sfrac{U\ua{ion,lit}}{U\ua{ion}}$) in $\%$ \\
     \midrule
     2.853 & 12.54 & 17 \\
     2.08  & 13.32 & 22 \\
@@ -232,7 +230,7 @@ aus Messung 3.1 eine kleinere Abweichung zu erkennen.
 
 Unter Hinzuziehen des Kurvenverlaufs
 des vom XY-Schreiber erstellten Graphen (siehe Anhang, Messung c) ) lässt sich sagen,
-dass $K\ua{A}$ somit vermutlich näher am tatsächlichen Wert des Kontaktpotenzials
+dass $\su{K}\ua{A}$ somit vermutlich näher am tatsächlichen Wert des Kontaktpotentials
 liegt.
 
 Für die auftretenden Abweichungen bei diesem Versuch gibt es mehrere Quellen.
@@ -241,10 +239,10 @@ mit Hilfe des Speisestroms optimal eingestellt werden. Diese Variation war aller
 nicht möglich, da der Speisestrom auf einen konstanten Kompromisswert eingestellt
 war. Diese ermöglichte es, bei allen Messungen vernünftige Ergebnisse zu
 erhalten, ohne Gefahr zu laufen, dass die Apparatur berschädigt wird. Jedoch wurde
-die Qualität der Ergebnisse dadurch auch beeinflusst.
+die Qualität der Ergebnisse dadurch beeinflusst.
 
 Eine weiter Fehlerquelle ist das Verbindungskabel zwischen der Franck-Hertz-Kammer
-und dem Piccoamperemeter. Dieses sollte normalerweise optimal isoliert sein, um
+und dem Piccoamperemeter. Dieses sollte optimal isoliert sein, um
 Störungen duch Induktionsströme zu vermeiden. Da das Kabel etwas älter war, kann
 hier jedoch von einer auftretenden Störung ausgegangen werden.
 
@@ -254,11 +252,11 @@ zwar durch konstantes Regulieren der Temperatur gering gehalten werden sollten,
 jedoch zusätzlich Auswirkungen auf die Qualität der Kurven hatten. Besonders bei
 der Erstellung der Franck-Hertz-Kurve traten anfangs starke Temperaturschwankungen
 auf, aufgrund derer mehrere Graphen angefertigt werden mussten. Bei allen Versuchen
-wurde versucht, die Temperaturschwankungen im einem Fehlerintervall von ca. $\SI{1}{K}$
+wurde versucht, die Temperaturschwankungen im einem Fehlerintervall von ca. $\SI{1}{\su{K}}$
 zu halten.
 
 Zusammengefasst haben das Alter der Apparatur und die nicht variable Einstellung
-des Speisestroms zwar erhebliche Auswirkungen auf die Qualität des Experimentes
+des Speisestroms erhebliche Auswirkungen auf die Qualität des Experimentes
 gehabt. Trotzdem ließen sich alle zu erwartenden Effekte in einem gewissen
 Rahmen gut beobachten, was sich auch durch die nicht allzu hohen Abweichungen
 der experimentell bestimmten Messwerte zu den Literaturwerten bestätigen lässt.
