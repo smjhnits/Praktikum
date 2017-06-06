@@ -50,8 +50,9 @@ Die bestimmten Steigungen sind in der folgenden Tabelle zu sehen:
 
 \input{"Tabellen/Steigungen.tex"}
 
-Da der bestimmte Fehler viel geringer als der Ablesefehler ist, werden die Werte
-bei den folgenden Berechnungen als fehlerfrei angenommen.
+Da für die Ablesefehler ein Wert von ca. $\SI{0.2}{mm}$ angenommen wird, sind
+die dadurch entstehenden Fehler im Bezug auf die Spannung so gering, dass die
+abgelesenen Spannungen aus dem Graphen im folgenden als fehlerfrei angenommen werden.
 
 
 \subsection{Bestimmung der Energieverteilung}
@@ -78,9 +79,15 @@ Werte sind in der Tabelle \ref{tab:MessungA27} sowie grafisch in den Abbildungen
   \label{fig:Messung_A_144}
 \end{figure}
 
-In Abbildung \ref{fig:Messung_A_27} sieht man, dass sich bei $\SI{8.147}{V}$ ein
+In Abbildung \ref{fig:Messung_A_27} sieht man, dass sich bei $U\ua{B,eff}$ =
+$\SI{8.147}{V}$ ein
 Piek befindet. Da es sich um die Fermi-Dirac-Verteilung handelt, liegt dieser
-Piek theoretisch bei der Beschleunigungsspannung $U\ua{B}$ = $\SI{11}{V}$.
+Piek theoretisch bei der Beschleunigungsspannung $U\ua{B}$ = $\SI{11}{V}$. An
+diesem Punkt ist die Energie der Elektronen gerade so groß, um das Kontaktpotenzial
+zu überwinden und die Quecksilberatome anzuregen. Die Elektronen wechselwirken
+somit mit den Quecksilberatomen und gelangen nicht mehr bis zur
+Auffängerelektrode. Resultierend daraus befindet sich bei $U\ua{B,eff}$ der
+stärkste Abfall.
 Aus der Differenz dieser beiden Werte kann nun das Kontaktpotential bestimmt
 werden:
 
@@ -96,11 +103,13 @@ welche die Richtung der Elektronen beeinflussen. Dies führt zu einer deutlich
 geringeren Zahl an Elektronen, die an der Auffängerelektrode registriert werden,
 so dass die Energie-Verteilung in Feldrichtung verwischt wird und keinen
 Zusammenhang zur Fermi-Dirac-Verteilung mehr zeigt.
+
 Auffällig ist zudem, dass bei der zweiten Messreihe kaum Elektronen mit einer
 Energie über $\SI{5}{eV}$ die Auffängerelektrode erreichen. Dies liegt daran,
 dass die in 3.2 bestimmte Anregungsenergie von Quecksilber $\SI{5.160 \pm 0.035}{V}$
 (\ref{eqn:Anregung}) beträgt. Somit wechselwirken Elektronen mit einer größeren
-Energie mit den Quecksilber-Atomen und gelangen nicht mehr an die Auffängerelektrode.
+Energie mit den Quecksilber-Atomen und gelangen aufgrund des Gegenfeldes nicht
+mehr an die Auffängerelektrode.
 
 
 \subsection{Beobachtung der Franck-Hertz-Kurve}
@@ -179,6 +188,8 @@ ergeben sich für die Ionisierungsspannung folgende Werte:
 U\ua{ion,A} &= U\ua{Null} - \su{K}\ua{A} =  12.54 \si{V} \\
 U\ua{ion,B} &= U\ua{Null} - \su{K}\ua{B} = (13.32 \pm 0.07) \si{V}.
 \end{align}
+
+\newpage
 
 \section{Diskussion}
 
