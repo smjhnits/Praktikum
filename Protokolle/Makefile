@@ -11,13 +11,13 @@ endif
 all: build
 
 build:
-		#mkdir -p V601_Franck_Hertz/{Tabellen,Pics,Python}
-		#touch V601_Franck_Hertz/{Auswertung.tex,V601.tex,Theorie.tex,lit.bib,Makefile}
-		#touch V601_Franck_Hertz/Pics/savedatei.txt
-		#touch V601_Franck_Hertz/Python/savedatei.txt
-		#touch V601_Franck_Hertz/Tabellen/savedatei.txt
-		#cp -r Praeambel_prak.tex V601_Franck_Hertz/
+		mkdir -p US1/{Tabellen,Pics,Python}
+		touch US1/{Auswertung.tex,US1.tex,Theorie.tex,lit.bib,Makefile}
+		touch US1/Pics/savedatei.txt
+		touch US1/Python/savedatei.txt
+		touch US1/Tabellen/savedatei.txt
+		cp -r Praeambel_prak.tex US1/
 
 clean:
-		#rm -rf V601_Franck_Hertz
+		rm -rf US1
 .PHONY: clean all
