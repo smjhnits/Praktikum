@@ -1,0 +1,90 @@
+\section{Theorie}
+
+Die Ultraschalltechnik ist heutzutage ein wichtiges Element im Alltag, das
+vor allem in der Medizin einer grundlegende Methode sowohl in der Therapie als
+auch in der Diagnose ist. In dem folgenden Versuch sollen deshalb grundlegende
+Eigenschaften und Definitionen der Ultraschallechographie kennengelernt sowie
+angewandt werden.
+
+\subsection{Theoretische Grundlagen}
+
+Der Ultraschall besitzt eine für den Menschen nicht mehr wahrnehmbare Frequenz
+zwischen $\SI{20}{kHz}$ und $\SI{1}{GHz}$. Im allgemeinen ist Schall eine
+longitudinale Welle, die mittels Druckschwankungen weitergeleitet wird und durch
+folgende Formel beschrieben werden kann:
+
+\begin{equation}
+  p(x,t) = p\ua{0} + v\ua{0}Z\cos{\omega t - kx} .
+  \label{eqn:Druckwelle}
+\end{equation}
+
+Bei dem Faktor Z handelt es sich um die akustische Impedanz, welche mithilfe der
+Dichte und der Schallgeschwindigkeit des vorliegenden Stoffes beschrieben wird:
+
+\begin{equation}
+  Z = c \cdot \rho .
+  \label{eqn:Impedanz}
+\end{equation}
+
+Schalwellen zeigen im Allgemeinen das selbe Verhalten wie elektromagnetische Wellen,
+jedoch ist bei Schwalwellen aufgrund der Änderung von Druck und Dichte die
+Phasengeschwindigkeit materialabhängig.
+
+Bei Schwalwellen muss aufgrund von unterschiedlichen Eigenschaften noch zwischen
+gasförmigen oder flüssigen Medien und Festkörpern unterschieden. In Gasen und
+Flüssigkeiten treten lediglich Longitudinalwellen auf, sodass sich für die
+Schallgeschwindigkeit folgende Relation ergibt:
+
+\begin{equation}
+  c\ua{Fl} = \sqrt{ \frac{1}{\kappa \cdot \rho} }.
+  \label{eqn:C_Fl}
+\end{equation}
+
+$\kappa$ beschreibt dabei die Kompressibilität des Mediums.
+
+Im Gegnsatz zu Gasen und Flüssigkeiten treten bei Festkörpen zusätzlich zu den
+Longitudinalwellen auch noch Transversalwellen auf, sodass die Schallgeschwindigkeit
+in Festkörpern allgemein richtungsabhängig ist. Für die Schallgeschwindigkeit ergibt
+sich mit dem Elastizitätmodul $E$ damit folgender Zusammenhang:
+
+\begin{equation}
+  c\ua{Fe} = \sqrt{ \frac{E}{\rho}}.
+  \label{eqn:C_Fk}
+\end{equation}
+
+Allerdings muss beachtet werden, dass $c\ua{Fe}$ für Transversal- und
+Logitudinalwellen unterschiedlich aussieht.
+
+Bei der Betrachtung von Schallwellen in einem Median muss beachtet werden, dass
+im Allgemeinen immer ein Teil der Energie durch Absorption verloren geht, weshalb
+sich die Intensität der Welle als eine Funktion des Ortes und des
+absorptionskoeffizienten $\alpha$ beschreiben lässt:
+
+\begin{equation}
+  I(\su{x}) = I\ua{0} \cdot e^{-\alpha \su{x}} .
+  \label{eqn:Intensiät}
+\end{equation}
+
+Da Luft einen sehr großen Absorptionskoeffizienten besitzt, wird bei dem folgenden
+Versuch immer ein Kontaktmittel verwendet. Bei dem Kontaktmittel handelt es sich
+um bidestilliertes Wasser oder Hydrogel.
+
+Während des Experimentes werden zwei verschiedenen Messmethoden verwendet, wovon
+eine auf der reflektierten Welle und ein auf der transmittierten Welle basiert.
+Der Reflexionskoeffizient R beschreibt ein Verhältnis der einfallenden und
+reflektierten Intensität und ist von den akustischen Impedanzen der beiden
+Medien ab, die die Grenzfälche bilden.
+
+\begin{equation}
+  R = \left( \frac{Z\ua{1} - Z\ua{2}}{Z\ua{1} + Z\ua{2}}).
+  \label{eqn:Reflexionskoeffizient}
+\end{equation}
+
+Der Transmittierende Anteil kann dann entsprechend aus $T = 1-R$ berechnet werden.
+
+Für die Erzeugung von Ultraschall wird in diesem Versuch der piezo-elektrische
+Effekt genutzt. Piezo-elektrische Kristalle können durch entsprechende Anregung
+durch ein äußeres elektrisches Feld in Schwingung versetzt werden. Die Amplitude
+der entstehenden Wellen und die daraus relutierende Energiedichte können dabei
+maximiert werden, wenn zwischen Anregerfrequenz und Eigenfrequenz des Kristalls
+Resonanz entsteht.  
