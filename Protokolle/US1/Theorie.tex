@@ -76,7 +76,7 @@ reflektierten Intensität und ist von den akustischen Impedanzen der beiden
 Medien ab, die die Grenzfälche bilden.
 
 \begin{equation}
-  R = \left( \frac{Z\ua{1} - Z\ua{2}}{Z\ua{1} + Z\ua{2}}).
+  R = \left( \frac{Z\ua{1} - Z\ua{2}}{Z\ua{1} + Z\ua{2}} \right).
   \label{eqn:Reflexionskoeffizient}
 \end{equation}
 
@@ -100,14 +100,16 @@ wird. Im Allgemeinen basiert es jedoch darauf, dass ein Ultraschallsignal
 losgesendet wird und die Laufzeit durch eine definierte Messstrecke mittels eines
 Empfängers gemessen wird.
 
-Bei der ersten Methode handelt es sich um das Durchschallungs-Verfahren. Hier
+Bei der ersten Methode handelt es sich um das Durchschallungs-Verfahren
+\ref{fig:Durchschall}. Hier
 wird von einem Ultraschallsender ein Signal durch einen Stoff geschickt und auf
 der anderen Seite von einem Empfänger aufgefangen. Werden nun die Amplituden der
 losgesendeten und der empfangenen Welle verglichen, kann eine Aussage darüber
 getroffen werden, ob sich in der Probe eine Fehlstelle befindet. Über den Ort der
 Fehlstelle lässt sich jedoch keine Aussage tätigen.
 
-Die zweite Methode ist das Impuls-Echo-Verfahren. Hier wird lediglich ein Schallkopf
+Die zweite Methode ist das Impuls-Echo-Verfahren \ref{fig:Impuls_Echo}.
+Hier wird lediglich ein Schallkopf
 verwendet, welcher sowohl Schalwellen lossendet als auch die reflektierten Signale
 wahrnimmt. Mithilfe der Amplitude des Echos kann hier die Größe des Echos bestimmt
 werden. Mithilfe der Schallgeschwindigkeit und der Laufzeit kann hier nun auch
@@ -117,6 +119,24 @@ die Lage der Fehlstelle bestimmt werden:
   s = \frac{1}{2} c t.
   \label{eqn:Fehlstelle}
 \end{equation}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+      \centering
+      \includegraphics[height=8cm]{Pics/Durchschall.png}
+      \caption{Durchschall-Verfahren}
+      \label{fig:Durchschall}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+      \includegraphics[height=8cm]{Pics/Impuls_Echo.png}
+      \caption{Impuls-Echo-Verfahren}
+      \label{fig:Impuls_Echo}
+    \end{subfigure}
+\caption{Die beiden Messmethoden für US1. \cite{anleitung01}}
+\label{fig:Messmethoden}
+\end{figure}
 
 Für beide Verfahren gibt es verschiedenen Darstellungsmöglichkeiten, den A-Scan,
 den B-Scan und den TM-Scan. Bei dem A-Scan (Amplitude-Scan) wird auf einem
@@ -188,8 +208,15 @@ solange erhöht, bis mindestens drei Reflexionen erkennbar sind. Mittels der Cur
 wird wieder der zeitliche Abstand zwischen den Pieks gemessen. Zusätzlich werden
 das Spektrum und das Cepstrum erstellt und abgespeichert.
 
-Im letzten Teil des Experimentes wird noch einmal das Auge untersucht. Dafür wird
+Im letzten Teil des Experimentes wird noch einmal das Auge \ref{fig:Auge} untersucht. Dafür wird
 erneut das Impuls-Echo-Verfahren genutzt. Die $\SI{2}{MHz}$ Sonde wird mit dem
 Hydrogel an das Auge gekoppelt und solange leicht verschoben, bis auf dem A-Scan-Bild
 mehrere Pieks erkennbar sind. Anschließend werden wieder die zeitlichen Abstände
 mittels der Cursor vermessen und notiert, sowie ein A-Scan-Bild exportiert.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Pics/Auge.png}
+  \caption{Schematischer Aufbau des zu untersuchenden Augenmodells \cite{anleitung01}.}
+  \label{fig:Auge}
+\end{figure}
