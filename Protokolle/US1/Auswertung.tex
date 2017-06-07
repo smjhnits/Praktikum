@@ -1,0 +1,115 @@
+\section{Auswertung}
+
+Die verwendeten Zylinder wurden mithilfe einer Schieblehre vermessen und
+hatten die folgenden Längen. Dabei werden die Werte als fehlerfrei angenommen.
+
+\begin{description}
+  \item[Zylinder 1] \SI{40,35}{\milli\meter}
+  \item[Zylinder 2] \SI{80,55}{\milli\meter}
+  \item[Zylinder 3] \SI{80,45}{\milli\meter}
+  \item[Zylinder 4] \SI{102,1}{\milli\meter}
+  \item[Zylinder 5] \SI{31,1}{\milli\meter}
+  \item[Zylinder 6] \SI{39,7}{\milli\meter}
+  \item[Zylinder 7] \SI{61,5}{\milli\meter}
+\end{description}
+
+Für die Messung mit Ultraschall wurde an dem Gerät der Literaturwert
+der Schallgeschwindigkeit in Acryl ($c\ua{Acyl, lit} = \SI{2730}{\meter\per\second}$\cite{lit})
+eingegeben. Damit wurde die Zeitachse auf diesen Wert kalibriert.
+
+\subsection{Bestimmung der Dämpfungskonstante und der Schallgeschwindigkeit mit dem Impuls--Echo--Verfahren}
+
+Die Dämpfungskonstante $\alpha$ aus \eqref{eqn:Intensität}
+lässt sich aus den genommenen Daten berechnen. Dafür werden die Messdaten
+in die Formel eingesetzt und nach es wird $\alpha$ aufgelöst.
+
+\begin{equation}
+  \label{eqn:dämpfung}
+  \alpha = - \frac{1}{x_1} \ln{\left(\frac{I_0^\text{'}}{I_0}\right)}
+\end{equation}
+
+Dabei ist $I_0^\text{'}$ die Amplitude an der Stelle $x_1 > 0$ und $I_0$
+die Amplitude an der Stelle $x  = 0$.
+
+Die Messdaten sind in Tabelle \ref{tab:} dargestellt.
+Die Werte für Zylinder 4 und den zusammengesetzten Zylinder mit dem
+achtem Messwert wurden für die Berechnung der Dämpfungskonstante nicht
+verwendet, weil die Peaks nur bei Verstärkug ausgemessen werden konnten.
+Auf das Herausrechnen des Verstärkunsfaktors wurde der Einfachheit halber verzichtet.
+Im Mittel ergibt sich die Dämpfungskontante zu:
+
+\begin{equation}
+  \alpha = \SI{21.257(301)}{\per\meter}
+\end{equation}
+
+Der Fehler ist die Standardabweichung des Mittelwertes.
+Eine Darstellung der Dämpfung in Acryl ist in dem folgende Diagramm
+eizusehen. Dabei sind die Messdaten der Anfangs- und Endamplituden
+ebenfalls eingetragen.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/Dämpfung.pdf}
+  \caption{Darstellung der Dämpfung der Amplitude mit Zunahme der Strecke.}
+  \label{fig:Dämpfung}
+\end{figure}
+
+Die Schallgeschwindigkeit ist aus den Laufzeiten zwischen den
+gemessenen Peaks und den vermessenen Zylinderlägen mithilfe von
+\eqref{eqn:Fehlstellen} zu berechnen. Dafür wurde mit dem
+\emph{Python}-Packet \emph{curve\_fit} eine lineare Ausgleichsrechung
+durchgeführt. Der systematische Fehler der Sonde ist der Ordinaten-Abschnitt
+des Ausgleichgeraden und die Schallgeschwindigkeit ist in der Steigung
+wiederzufinden.
+
+Die Werte ergeben sich zu:
+
+\begin{align}
+  \label{eqn:schallgesch_echo}
+  c\ua{Acryl, echo} &= \SI{2880.943}{\meter\per\second} \\
+  \Delta\ua{Sonde,echo} &= \SI{-3.862}{\meter\per\second}
+\end{align}
+
+Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/schallgesch_echo.pdf}
+  \caption{Schallgeschwindigkeit in Acryl, bestimmt über das Impuls-Echo-Verfahren.}
+  \label{fig:schallgesch_echo}
+\end{figure}
+
+\subsection{Bestimmung der Schallgeschwindigkeit mit dem Durchschallungsverfahren}
+
+Die Messdaten zum Durchschallungsverfahren sind in Tabelle \ref{tab:}
+dargestellt.
+Es wurde gleich verfahren wie bei dem Impuls-Echo-Verfahren.
+
+Die Werte ergeben sich zu:
+
+\begin{align}
+  \label{eqn:schallgesch_durch}
+  c\ua{Acryl, durch} &= \SI{2878.377}{\meter\per\second} \\
+  \Delta\ua{Sonde, durch} &= \SI{-2.946}{\meter\per\second}
+\end{align}
+
+Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/schallgesch_durch.pdf}
+  \caption{Schallgeschwindigkeit in Acryl, bestimmt über das Durchschallungsverfahren.}
+  \label{fig:schallgesch_durch}
+\end{figure}
+
+
+\subsection{Spektrale Analyse und Cepstrum}
+
+Die verwendeten Acrylplatten wurde mit einer Schieblehre vermessen.
+Die Dicken wurden ebenfalls als fehlerfrei angenommen.
+
+\begin{description}
+  \item[Platte 1] $d_1 = \SI{6}{\milli\meter}$
+  \item[Platte 2] $d_2 = \SI{9.9}{\milli\meter}$
+\end{description}

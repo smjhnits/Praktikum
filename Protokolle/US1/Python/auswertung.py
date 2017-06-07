@@ -42,22 +42,21 @@ auge = np.array([[0.2, 6.22, 4.61, 5.76, 41.7],
 # Auge = (Hornhaut, Iris, Linseneingang, Linsenausgang, Retina)
 
 ### Schallgeschwindigkeit bestimmen ###
-print(len(puls_2[0, 0:7]), len(Zylinder_laengen))
 
 ### Impuls-Echo ###
 
-params_c, covariance_c = curve_fit(linReg, np.sort(puls_2[1, 0:7]), np.sort(Zylinder_laengen * 2))
+params_c, covariance_c = curve_fit(linReg, np.sort(puls_2[1, 0:7] - puls_1[1, 0:7]), np.sort(Zylinder_laengen * 2))
 
 plt.clf()
 plt.plot(np.linspace(20, 80), linReg(np.linspace(20, 80), *params_c), 'r-', label = r'Ausgleichgerade')
-plt.plot(np.sort(puls_2[1, 0:7]), np.sort(Zylinder_laengen * 2), 'kx', label = r'Messdaten')
+plt.plot(np.sort(puls_2[1, 0:7] - puls_1[1, 0:7]), np.sort(Zylinder_laengen * 2), 'kx', label = r'Messdaten')
 plt.xlabel(r'$t$ in $\mu$s')
 plt.ylabel('Doppelte Zylinderlänge in mm')
 plt.xlim(20, 80)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
-plt.savefig('schallgesch_echo.pdf')
+plt.savefig('../Pics/schallgesch_echo.pdf')
 
 
 c_gemessen = params_c[0] * 10**3
@@ -79,21 +78,70 @@ plt.xlim(10, 40)
 plt.legend(loc='best')
 plt.grid()
 plt.tight_layout()
-plt.savefig('schallgesch_durch.pdf')
+plt.savefig('../Pics/schallgesch_durch.pdf')
 
 c_gemessen_d = params_c_d[0] * 10**3
 
 print('Schallgesch in [m/s]: ', c_gemessen_d)
-print('systematische Fehler der Sonde: ', params_c_d[1])
+print('systematischer Fehler der Sonde: ', params_c_d[1])
 
 ### Dämpfungsfaktor ###
 
 amplituden_puls_1 = np.append(puls_1[0, 0:2], puls_1[0, 4:6])
 amplituden_puls_2 = np.append(puls_2[0, 0:2], puls_2[0, 4:6])
+puls_laufstrecke_dämpfung = 2 * np.append(Zylinder_laengen[0:2], Zylinder_laengen[4:6]) * 10**-3 ## in Metern
 
 def exp(x, I, a):
     return I * np.exp(a * x)
 
-params_ungedämpft, covariance_ungedämpft = curve_fit(exp, np.sort(2 * Zylinder_laengen), np.sort(puls_2[0, 0:7]))
 
-print('Dämpfung: ', params_ungedämpft[1], params_ungedämpft[0])
+
+#params_ungedämpft, covariance_ungedämpft = curve_fit(exp, np.sort(2 * Zylinder_laengen), np.sort())
+
+#print('Dämpfung: ', params_ungedämpft[1], params_ungedämpft[0])
+
+dämpfung = -np.log(amplituden_puls_2 / amplituden_puls_1) * 1 / puls_laufstrecke_dämpfung
+
+print('Dämpfungsfaktor: ', dämpfung, np.std(dämpfung) / np.sqrt(len(dämpfung)))
+
+print('Dämpfungsfaktor: ', np.mean(dämpfung), np.std(dämpfung) / np.sqrt(len(dämpfung)))
+
+
+plt.clf()
+plt.plot(np.linspace(-0.03, 0.2), exp(np.linspace(-0.03, 0.2), np.mean(amplituden_puls_1), -np.mean(dämpfung)), 'r-', label = r'Ausgleichsfunktion')
+plt.plot(np.zeros(len(amplituden_puls_1)), np.sort(amplituden_puls_1), 'kx', label = r'Messdaten')
+plt.plot(np.sort(puls_laufstrecke_dämpfung), np.sort(amplituden_puls_2), 'kx')
+plt.xlabel(r'Strecke $x$ in mm')
+plt.ylabel('Amplituden in V')
+plt.xlim(-0.03, 0.2)
+plt.legend(loc='best')
+plt.grid()
+plt.tight_layout()
+#plt.show()
+plt.savefig('../Pics/Dämpfung.pdf')
+
+
+### Spektrale Analyse und Cepstrum ###
+
+dicke = peakdifferenzen * 10**(-6) * (c_gemessen + c_gemessen_d) / 4 ## s * meter / s = meter
+
+print('Dicke der Platten: ', dicke)
+print('vermessene Werte der Platten: 6 mm, 9.9 mm')
+
+
+### Auge ###
+
+c_linse = 2500 ## m / s
+c_glaskörper = 1410 ## m / s
+
+augen_peakdiff = auge * 10**(-6) / 2 ## peakdifferenzen in s
+
+hornhaut = augen_peakdiff[1, 0] * c_linse
+iris = augen_peakdiff[1, 1] * c_linse
+linse_eingang = augen_peakdiff[1, 2] * c_linse
+linse_ausgang = augen_peakdiff[1, 3] * c_linse
+retina = linse_ausgang + augen_peakdiff[0, 4] * c_glaskörper
+
+print('##Auge##',  'Hornhaut: ', hornhaut,  'Iris: ', iris,
+      'Linseneigang: ', linse_eingang,  'Linsenausgang: ', linse_ausgang,
+      'Retina: ', retina)
