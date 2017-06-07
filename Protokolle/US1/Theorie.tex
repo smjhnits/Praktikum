@@ -87,4 +87,68 @@ Effekt genutzt. Piezo-elektrische Kristalle können durch entsprechende Anregung
 durch ein äußeres elektrisches Feld in Schwingung versetzt werden. Die Amplitude
 der entstehenden Wellen und die daraus relutierende Energiedichte können dabei
 maximiert werden, wenn zwischen Anregerfrequenz und Eigenfrequenz des Kristalls
-Resonanz entsteht.  
+Resonanz entsteht.
+Des Weiteren können Piezokristalle auch durch Schallwellen angeregt werden,
+weshalb sie auch als Empfänger genutzt werden. Bei Quarz handelt es sich um den
+am meisten verwendeten Piezokristall, da dieser gleichbleibende physikalische
+Eigenschaften besitzt. Jedoch ist der Piezo-Effekt dafür relativ gering.
+
+Wie bereits vorher erwähnt kann mithilfe von Ultraschall Information über
+den Aufbau eines Stoffes gewonnen werden. Dies geschieht meistens mit einer
+Laufzeitmessung, welche hierbei mithilfe zwei verschiedener Methoden durchgeführt
+wird. Im Allgemeinen basiert es jedoch darauf, dass ein Ultraschallsignal
+losgesendet wird und die Laufzeit durch eine definierte Messstrecke mittels eines
+Empfängers gemessen wird.
+
+Bei der ersten Methode handelt es sich um das Durchschallungs-Verfahren. Hier
+wird von einem Ultraschallsender ein Signal durch einen Stoff geschickt und auf
+der anderen Seite von einem Empfänger aufgefangen. Werden nun die Amplituden der
+losgesendeten und der empfangenen Welle verglichen, kann eine Aussage darüber
+getroffen werden, ob sich in der Probe eine Fehlstelle befindet. Über den Ort der
+Fehlstelle lässt sich jedoch keine Aussage tätigen.
+
+Die zweite Methode ist das Impuls-Echo-Verfahren. Hier wird lediglich ein Schallkopf
+verwendet, welcher sowohl Schalwellen lossendet als auch die reflektierten Signale
+wahrnimmt. Mithilfe der Amplitude des Echos kann hier die Größe des Echos bestimmt
+werden. Mithilfe der Schallgeschwindigkeit und der Laufzeit kann hier nun auch
+die Lage der Fehlstelle bestimmt werden:
+
+\begin{equation}
+  s = \frac{1}{2} c t.
+  \label{eqn:Fehlstelle}
+\end{equation}
+
+Für beide Verfahren gibt es verschiedenen Darstellungsmöglichkeiten, den A-Scan,
+den B-Scan und den TM-Scan. Bei dem A-Scan (Amplitude-Scan) wird auf einem
+Bildschirm die Amplitude der registrierten Welle dargestellt. Bei dem B-Scan
+(Brightness-Scan) wird hingegen die augenommene Amplitude in eine Helligkeitsstufe
+umgewandelt, sodass durch viele punktuelle Messungen ein 2-dimensionales Bild
+eines Mediums aufgenommen werden kann. Beim TM-Scan (Time-Scan) wird eine hohe
+Impulswiederholungsfrequenz verwendet, sodass zum Beispiel Bewegungen des Gewebes
+durch unterschiedliche Impulsechos registriert werden und zeitlich dargestellt
+werden können. Diese Scan-Methode wird häufig in der Medizin kombiniert mit dem
+B-Scan angewandt.
+
+\subsection{Versuchsaufbau}
+
+Die grundlegenden Bestandteile des Aufbaus sind ein Echoskop, zwei Ultraschallsonden,
+ein PC zur Auswertung der Daten sowie verschiedene Acrylplatten und -Zylinder.
+Das Echoskop kann ausschließlich im Impuls-Betrieb genutzt werden. Zwischen den
+beiden Scan-Einstellungen (siehe Abschnitt 1.1) kann mittels einem Kipp-Schalter
+gewechselt werden, indem der Schalter auf \textbf{REFLEC.} oder \textbf{TRANS.}
+umgelegt wird. Für den Versuch werden zwei Ultraschallsonden mit 2 MHz verwendet,
+deren Empfangsleistung zwischen 0 und 35 dB liegen.
+
+Bei der verwendeten Messsoftware handelt es sich um das Programm Echo-View, mit
+dem sowohl A-Scan, FFt Spektrum, Cepstrum und das Verstärkung TGC betrachtet
+werden kann. Mithilfe der beiden Cursor können Differenzen zwischen zwei Positionen
+auf der X-Achse bestimmt werden. Zudem geben diese beiden Cursor das Intervall
+an, welches für das Frequenzspektrum und das Cepstrum verwendet werden.
+Bei dem A-Scan kann das Signal sowohl als Funktion der Zeit (in $\si{\micro\second}$)
+als auch als Funktion der Eindringtiefe (in mm) betrachtet werden. Mithilfe der
+Freeze- und Start-Taste kann die durchgehende Aktualisierung des A-Scan-Bildes
+zudem angehalten und wieder gestartet werden.
+
+Mit der Time Gain Control kann die Verstärkung über die Parameter Treshhold, Wide,
+Slope und Start eingestellt weren. Die erstellte Grafik kann mit Export abgespeichert
+werden.
