@@ -125,8 +125,10 @@ plt.savefig('../Pics/Dämpfung.pdf')
 fehler = np.abs((params_c_d[1] + params_c[1]) / 2)
 dicke = peakdifferenzen * 10**(-6) * (c_gemessen + c_gemessen_d) / 4 ## s * meter / s = meter
 fehler_dicke = peakdifferenzen * 10**(-6) * fehler / 4
+dicke_lit = peakdifferenzen * 10**(-6) * c_acryl_lit / 2
 
 print('Dicke der Platten: ', dicke, fehler_dicke)
+print('Dicke mit Literaturwerten: ', dicke_lit)
 print('vermessene Werte der Platten: 6 mm, 9.9 mm')
 
 
