@@ -11,13 +11,13 @@ endif
 all: build
 
 build:
-		mkdir -p US1/{Tabellen,Pics,Python}
-		touch US1/{Auswertung.tex,US1.tex,Theorie.tex,lit.bib,Makefile}
-		touch US1/Pics/savedatei.txt
-		touch US1/Python/savedatei.txt
-		touch US1/Tabellen/savedatei.txt
-		cp -r Praeambel_prak.tex US1/
+		#mkdir -p V602_Roentgenemission/{Tabellen,Pics,Python}
+		#touch V602_Roentgenemission/{Auswertung.tex,V602_Roentgenemission.tex,Theorie.tex,lit.bib,Makefile}
+		#touch V602_Roentgenemission/Pics/savedatei.txt
+		#touch V602_Roentgenemission/Python/savedatei.txt
+		#touch V602_Roentgenemission/Tabellen/savedatei.txt
+		#cp -r Praeambel_prak.tex V602_Roentgenemission/
 
 clean:
-		rm -rf US1
+		#rm -rf V602_Roentgenemission
 .PHONY: clean all
