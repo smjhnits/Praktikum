@@ -1,0 +1,138 @@
+\input{../Praeambel_prak.tex}
+
+\subject{106}
+\title{Das gekoppelte Pendel}
+\author{Sebastian Pape \and Jonah Nitschke}
+\date{Durchführung: 25.10.2016}
+
+\begin{document}
+
+\maketitle
+
+\section{Theorie}
+
+In dem folgenden Versuch werden verschiedene Schwingungsarten von gekoppelten Pendeln betrachtet.
+Bei den verwendeten Pendeln handelt es sich um Fadenpendel mit der Fadenlänge $l$ und der Masse $m$.
+Bei einer Auslenkung des Pendels um den Winkel $\varphi$ wirkt auf das Massenstück ein durch die
+Gravitation verursachtes Drehmoment:
+
+\begin{equation}
+  M = D_p \cdot \varphi
+\end{equation}
+
+Für kleine Auslenkungen aus der Ruhelage ($\sin(\varphi) = \varphi$) kann mit dieser Kraft eine
+Bewegungsgleichung aufgestellt werden:
+
+\begin{equation}
+  J \cdot  \ddot{\varphi} + D_p \cdot \varphi = 0
+\end{equation}
+
+Bei $D_p$ handelt es sich dabei um die Winkelrichtgröße und bei $J$ um das Trägheitsmoment des Pendels.
+Bei der Lösung der Bewegungsgleichung handelt es sich um eine harmonische Schwingung mit folgender
+Frequenz:
+
+\begin{equation}
+  \omega = \sqrt{\frac{D_p}{J}} = \sqrt{\frac{g}{l}}
+\end{equation}
+
+Werden zwei identische Pendel nun mit einer Feder gekoppelt, schwingen sie nicht mehr unabhängig
+voneinander, da auf jedes Pendel eine zusätzliche Kraft wirkt. Somit ergeben sich zwei neue
+Bewegungsgleichung:
+
+\begin{align}
+  J \cdot  \ddot{\varphi_1} + D \cdot \varphi_1 &= D_F(\varphi_2 - \varphi_1) \\
+  J \cdot  \ddot{\varphi_2} + D \cdot \varphi_2 &= D_F(\varphi_1 - \varphi_2)
+\end{align}
+
+Diese beiden Differentialgleichungen können entkoppelt werden, so dass sich die Bewegung des Systems
+als Überlagerung von Eigenschwingungen darstellen lässt. Bei den lösungen handelt es sich dabei
+ebensfalls um harmonische Schwingungen. Für verschiedene Anfangsbedigungen ergeben
+sich daraus verschiedene Schwingungsarten.
+
+\subsection{Gleichphasige Schwingung: \texorpdfstring{$\alpha_1 = \alpha_2$}{}}
+
+Bei dieser Schwingung werden die beiden Pendel zu jedem Zeitpunkt um den gleichen Winkel
+$\alpha_1 = \alpha_2$ ausgelenkt. Resultierend daraus
+wird von der Kopplungsfeder keine Kraft auf die beiden Pendel ausgeübt und im idealisierten Fall
+entsteht somit keine Auslenkung der Feder. Da die rücktreibende Kraft der beiden Pendel alleine
+durch die Gewichtskraft ausgeübt wird, kann die Feder auch entfernt werden, ohne das sich die System-
+Schwingung verändern würde.
+
+Die Freqguenz des gekoppelten Pendels stimmt somit auch mit der Frequenz der ursprünglichen Pendel
+und kann mit
+
+\begin{equation}
+  \omega_+ = \sqrt{\frac{g}{l}}
+\end{equation}
+
+beschrieben werden. Die Schwingungsdauer ergibt sich dann anhand der Frequenz mit folgender Formel:
+
+\begin{equation}
+  T_+ = \frac{2\pi}{\omega_+} = 2\pi \cdot \sqrt{\frac{l}{g}}
+\end{equation}
+
+\subsection{Gegenphasige Schwingung: \texorpdfstring{$\alpha_1 = -\alpha_2$}{}}
+
+Bei der gegenphasigen Schwingung werden die beiden Pendel um den entgegengesetzten Winkel $\alpha_1 = -\alpha_2$
+ausgelenkt. Dabei wird von der Kopplungsfeder auf jede Masse die gleiche aber entgegen-
+gesetzte Kraft ausgeübt, so dass ein symmetrisches Schwingungssystem entsteht. Die resultierenden
+Formeln für die Schwingungsfrequenz und Schwingungsdauer lautet wie folgt:
+
+\begin{align}
+  \omega_-  &= \sqrt{\frac{g}{l} + \frac{2 K}{l}} \\
+  T_-       &= 2\pi \cdot \sqrt{\frac{l}{g + 2K}}
+\end{align}
+
+Bei $K$ handelt es sich hierbei um die Kopplungskonstante der Feder.
+
+\subsection{Gekoppelte Schwingung: \texorpdfstring{$\alpha_1 = 0, \alpha_2 \neq 0$}{}}
+
+Wird am Anfang nur ein Pendel $\alpha_1 \neq 0$ ausgelenkt, während das andere in der unausgelenkten
+Position verharrt $\alpha_2 = 0$, kommt es zu einer gekoppelten Schwingung. Wird nun das erste Pendel
+losgelassen, überträgt es seine Energie auf das zweite Pendel, so dass dieses anfängt zu schwingen.
+Sobald das erste Pendel stillsteht, kehrt sich dieser Prozeß wieder um. Die maximale Amplitude
+wird dabei immer erreicht, wenn das andere Pendel stillsteht. Die vollständige Energieübetragung
+wiederholt sich immer wieder.
+Den zeitlichen Abstand zwischen zwei Stillständen nennt man dabei Schwebung. Die Schwebefrquenz
+und Schwebungsdauer sind durch folgende Formeln definiert:
+
+\begin{align}
+   \omega_S &= \omega_+ - \omega_- \\
+   T_S      &= \frac{T_+ \cdot T_-}{T_+ - T_-}
+\end{align}
+
+Dabei entspricht $T_+$ der gleichphasigen und $T_-$ der gegenphasigen Schwingung. Die in den Formeln
+vorkommende Kopplungskonstante K kann entweder mit den Frequenzen oder mit
+den Schwingungsdauern der gleich- und gegenphasigen Schwingung bestimmt werden:
+
+\begin{equation}
+  K = \frac{\omega_-^2 - \omega_+^2}{\omega_-^2 + \omega_+^2}
+    = \frac{T_+^2 - T_-^2}{T_+^2 + T_-^2}
+\end{equation}
+
+\section{Durchführung}
+
+Als erstes werden die Gewichte am Pendel so verschoben, dass beide Pendel dieselbe Pendellänge
+besitzen. Dann wird mithilfe einer Stoppuhr erst die Schwingungdauer des ersten Pendels und danach
+die des zweiten Pendels gemessen. Dabei enthält eine Messreihe gemessene Werte von jeweils 5
+Schwingungen.
+
+Nachdem die einzelnen Schwingungsdauern bestimmt sind, werden die beiden Pendel mithilfe der Feder
+gekoppelt. Anschließend wird zuerst die Schwingungsdauer der gleichphasigen Schwingung gemessen, indem
+die Pendel so ausgelenkt werden, dass die Feder nicht gespannt wird. Für die zweite Messreihe werden die
+beiden Pendel dann exakt gegenphasig ausgelenkt. Eine Messung entspricht erneut jeweils 5 Schwingungen.
+
+Bei der letzten Messung wird nur ein Pendel ausgelenkt, während das andere in seiner Ruhelage
+verharrt. Zuerst werden 10 Werte der Dauer einer einzelnen Schwebung aufgenommen, indem die
+Zeit zwischen dem beschleunigen und dem erneuten Stillstand eines Pendels gemessen wird.
+Anschließend werden noch einmal die Zeiten von 5 Schwebungen gemessen.
+
+Alle Messungen werden anschließend für eine beliebige weitere Länge durchgeführt.
+
+
+
+
+
+
+
+\end{document}

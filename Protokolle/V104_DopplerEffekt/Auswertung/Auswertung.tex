@@ -1,0 +1,375 @@
+\input{"../Praeambel_prak.tex"}
+
+\subject{104}
+\title{Der Doppler-Effekt}
+\author{Sebastian Pape \and Jonah Nitschke}
+\date{Durchführung: 18.10.2016}
+
+\begin{document}
+
+\maketitle
+
+\input{"Theorie_Durchfuehrung.tex"}
+
+\section{Auswertung}
+\subsection{Einführung}
+In der folgenden Auswertung werden an verschiedenen Stellen statistische Größen berechnet,
+die meist mit einem zusätzlichen Fehler angegeben werden. Die verwendeten Formeln für die
+Berechnung dieser Größen soll in der folgenden Einleitung erläutet werden.\\
+Wird ein Messreihe mit mehreren Messwerten $(x_1, x_2, \ldots , x_N)$ für eine Messgröße angelegt,
+so wird ihr Mittelwert mit der Formel
+
+\begin{equation}
+  \overline{x} = \frac{1}{n} \sum_{i=1}^N x_i
+\end{equation}
+
+definiert. Des weiteren wird die Standardabweichung einer Messreihe durch
+
+\begin{equation}
+  \sigma_x = \sqrt{\frac{1}{n - 1} \sum_{i=1}^N (x_i - \overline{x})^2}
+\end{equation}
+
+errechnet. Mithilfe der Standardabweichung kann folgendermaßen der Fehler des Mittelwertes
+angegeben werden:
+
+\begin{equation}
+  \increment \overline{x} = \frac{\sigma_x}{\sqrt{n}}
+\end{equation}
+
+Da in vielen Formeln zur Berechnung von weiteren Größen ebenfalls die Fehler der eingehenden
+Messgrößen beachtet werden soll, nutz man zur Berechnung dieser Fehler die Gauß´sche
+Fehlerfortpflanzung, welche durch folgende Formel definiert ist:
+
+\begin{equation}
+  \increment f = \sqrt{ \sum_{i=1}^N (\frac{\partial f}{\partial y_i})^2 (\increment y_i)^2}
+\end{equation}
+
+Bei $\sfrac{\partial f}{\partial y_i}$ handelt es sich hierbei um die Ableitung der Formel nach
+der Messgröße $y_i$ und bei $\increment y_i$ handelt es sich um den Fehler von der jeweiligen Messgröße.
+
+\subsection{Bestimmung der Geschwindigkeit}
+Der für den Versuch bereitstehende Wagen mit dem montierten Lautsprecher lässt sich mit 10 unterschiedlichen
+Gangeinstellungen bewegen. Für die Bestimmung der jeweiligen Geschwindigkeiten wurden mithilfe des oben
+beschriebenen Aufbaus von dem Zeitbasisgenerator im Abstand von einer $\mu s$ Impulse abgesetzt. Durch
+die Einstellung des Untersetzers auf $10^3$ bzw. $10^2$ wurde die Impulsrate auf 1/$10^-3$ bzw. 1/$10^-4$
+reduziert. Die Geschwindigkeit ergibt sich dann aus der eingehenden Impulszahl und der vorher gemessenen
+Strecke zwischen den Lichtschranken folgendermaßen:
+
+\begin{equation}
+  v = \frac{s}{Impulse \cdot 10^-4 s}
+  \label{eqn:Ges}
+\end{equation}
+
+Die Länge der Strecke wurde vorher gemessen und beträgt $s = (0,202 \pm 0,001)m$. Pro Gangeinstellung
+wurden dafür 5 Messungen vorgenommen, aus denen jeweils zuerst der Mittelwert und dessen Fehler bestimmt
+wird. Mit der Formel \eqref{eqn:Ges} ergibt dich dann folgende Tabelle:
+
+\begin{table}
+  \centering
+  \caption{Geschwindigkeit in Abhänigkeit von der Gangeinstellung.}
+  \csvautobooktabular{Speed.csv}
+\end{table}
+
+Der Fehler der Geschwindigkeit folgt dabei mithilfe der Gauß´schen Fehlerfortpflanzung aus den
+Fehlern der Streckenmessung $\increment s$ und dem Fehler der Zeit $\increment t$:
+
+\begin{equation}
+  \increment v = \sqrt{\Bigl(\frac{\increment s}{t}\Bigr)^2 + \Bigl(\frac{s \cdot \increment t}{t^2}\Bigr)^2}
+\end{equation}
+
+\subsection{Bestimmung der Ruhefrequenz}
+Die Messung der Ruhefrequenz funktioniert ebenfalls mit der Schaltung der Messung c), jedoch
+wird hier das Low-Signal für den Flip-Flop manuell geschaltet. Der Untersetzter wurde auf $10^6$
+eingestellt, so dass die gemessene Zeitspanne genau einer Sekunde entspricht. Die gemessene Impulszahl
+entspricht somit genau der Ruhefrequenz. Die Ergebnisse der Messung sind in Tabelle 2 aufgelistet:
+
+\begin{table}
+  \centering
+  \caption{Werte der Ruhefrequenz.}
+  \begin{tabular}{ c | c }
+    \toprule Messung & $\nu_0$ [Hz] \\
+    \midrule
+    1 & 20742 \\
+    2 & 20742 \\
+    3 & 20742 \\
+    4 & 20742 \\
+    5 & 20742 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Ruhefrequenz entspricht bei allen fünf Messungen dem selben Wert und wird dehalb in der folgenden Auswertung
+als Fehlerfrei angenommen. Eine Fehlerbehaftung ist zwar auch hier nicht auszuschließen,
+allerdings dürfte der Fehler der vorliegenden Messung gegenüber den Fehlern anderer Messwerte vernachlässigbar
+gering sein.
+
+\subsection{Bestimmung der Wellenlänge}
+
+Zur Bestimmung der Wellenlänge wurden wie oben beschrieben Lissajous-Figuren auf dem Oszilloskop
+erzeugt. In der folgenden Tabelle ist die gemessene Strecke x [cm] in Abhängigkeit der vorhandenen
+Phasenverschiebung aufgetragen:
+
+\begin{table}
+ \centering
+ \caption{Gemessenen Strecken bei denen die Schwingungen in Phase sind.}
+  \begin{tabular}{c c}
+    \toprule
+    {Strecke[cm]} & {Phasenverschiebung} \\
+    \midrule
+    0.0  & 0     \\
+    0.9  & $\symup{\pi}$ \\
+    1.8  & 0     \\
+    2.7  & $\symup{\pi}$ \\
+    3.5  & 0     \\
+    4.4  & $\symup{\pi}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Differenz von zwei aufeinanderfolgenden Positionen entspricht hierbei immer der halben
+Wellenlänge (berechnete Werte Tabelle 4):
+
+\begin{table}
+ \centering
+ \caption{Berechnete Werte der Wellenlänge.}
+  \begin{tabular}{c c c}
+    \toprule
+    {Differenz der Positionen} & {$\frac{\lambda}{s}$ [cm]} & {$\lambda$ [cm]} \\
+    \midrule
+    2-1  & 0.09 & 0.18  \\
+    3-2  & 0.09 & 0.18  \\
+    4-3  & 0.09 & 0.18  \\
+    5-4  & 0.08 & 0.16  \\
+    6-5  & 0.09 & 0.18  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Der Mittelwert und dessen Fehler ergeben sich wie in der Einführung beschrieben:
+
+\begin{equation}
+  \overline{\lambda} = (0,0176 \pm 0,0018) m
+\end{equation}
+
+Aus der vorhandenen Wellenlänge lässt nun der Faktor $\sfrac{\nu_0}{c}$, mittels einer Umformung
+zu $\sfrac{1}{\lambda}$ über die Definition der Schallgeschwindkeit, ermitteln:
+
+\begin{align}
+  c                        &=  \lambda \cdot \nu_o \\
+  \implies \frac{\nu_0}{c} &=  \frac{1}{\lambda} = (56.818 \pm 5.811) \frac{1}{m}
+\end{align}
+
+Der Wert des Fehlers folgt hierbei mithilfe der Gauß´schen Fehlerfortpflanzung aus dem
+Fehler der Wellenlänge:
+
+\begin{equation}
+  \increment \frac{\nu_0}{c} = \frac{1}{\lambda^2} \increment \lambda
+\end{equation}
+
+\subsection{Bestimmung der Schallgeschwindigkeit $c$}
+
+Die Schallgeschwindigkeit kann nun mithilfe der gemessenen Ruhefrequenz und der oberhalb
+berechneten Wellenlänge ermittelt werden:
+
+\begin{equation}
+  c = \lambda \cdot \nu_0
+\end{equation}
+
+Der Fehler der Schallgeschwindigkeit wird somit durch
+
+\begin{equation}
+  \increment c = \increment \lambda \cdot \nu_0
+\end{equation}
+
+bestimmt. Wie oben erwähnt wird der Fehler der Ruhefrequenz dabei als verschwindend gering
+angesehen, sodass sich folgender Wert für die Schallgeschwindigkeit ergibt:
+
+\begin{equation}
+  c = (365.06 \pm 37.34) \frac{m}{s}
+\end{equation}
+
+\subsection{Abschätzung der Differenz von Formel 2 und 5}
+
+Mithilfe der Ruhefrequenz und den der Messung entnommenen Daten über die
+Geschwindigkeit des Wagens soll im Folgendem abgeschätzt werden, ob mit diesem Versuchsaufbau
+eine Geschwindigkeit erreicht wird, die eine Unterscheidung zwischen bewegter Quelle und
+bewegtem Empfänger sichtbar macht.
+
+Die Höchstgeschwindigkeit des Wagens in der Gangstufe 60 beträgt $v_{max} = 0,503 \frac{m}{s}$,
+die Schallgeschwindigkeit $c = 365.06 \frac{m}{s}$ und die Ruhefrequenz hat den Wert $\nu_0 = 20742 \, [Hz]$.
+Werden diese Werte nun in die Formeln für den bewegten Empfänger $\nu_E$ und die bewegte Quelle
+$\nu_Q$ eingesetzt, zeigt sich ein Unterschied beider Ergebnisse erst in der zweiten Nachkommastelle:
+
+\begin{align}
+  \nu_E &= 20770,579\\
+  \nu_Q &= 20770,619
+\end{align}
+
+Mit dem Ergebniss dieser Abschätzung kann der Unterschied zwischen den Formeln für $\nu_E$ und
+$\nu_Q$ als geringfügig und unbedeutend angenommen werden, da auch bei weiteren Messungen der
+Frequenzen eine höhere Genauigkeit nicht erreicht wird. Ersichtlich ist jedoch, dass für alle
+$v>0$ weiterhin $\nu_Q > \nu_E > \nu_0$ gilt.
+
+\subsection{Bestimmung von \texorpdfstring{$\frac{\nu_0}{c}$} aus der Messung der Frequenzänderung}
+\subsubsection{Bestimmung aus der indirekten Messung der Frequenzveränderung}
+
+Analog zu der oben beschriebenen Messung der Ruhefrequenz wurden die Frequenzen in Abhängigkeit
+der Geschwindigkeit des Wagens bestimmt. Indem man die Differenz beider Frequenzen nimmt, lässt
+sich die Frequenzänderung errechnen:
+
+\begin{equation}
+  \increment \nu = \nu_v - \nu_0
+\end{equation}
+
+In den folgenden Tabelle ist für jede Geschwindigkeit die jeweilig gemessene Frequenz und die
+Differenz zur Ruhefrequenz eingetragen.
+
+\begin{table}
+  \centering
+  \caption{Frequenzänderung bei "positiver Geschwindigkeit."}
+  \csvautobooktabular{Delta1.csv}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Frequenzänderung bei "negativer Geschwindigkeit."}
+  \csvautobooktabular{Delta2.csv}
+\end{table}
+
+\newpage
+
+Wird nun $\increment \nu$ gegen die Geschwindigkeit $v$ aufgetragen, so lässt sich mittels linearer
+Regressionsrechnung eine Gerade ermitteln, die als Steigung den Faktor $\frac{\nu_0}{c}$ besitzt.
+Somit ergibt sich für die Messung folgender Faktor:
+
+\begin{align}
+  \frac{\nu_0}{c} &= (56.818 \pm 5.812) \frac{1}{m} \\
+  a               &= (58.326 \pm 0.764) \frac{1}{m} \\
+  b               &= (0.418 \pm 0.220) Hz
+\end{align}
+
+Im Graph sichtbar wird hier, dass die Werte für die größten negativen Geschwindigkeiten etwas
+von der linearen Regression abweichen. Dies liegt daran, dass die Messstrecke bei den höheren
+Geschwindigkeiten nicht ausreichte, um alle Impulse zu zählen. Somit kamen ähnliche Werte für
+die Gänge 42 und 48 heraus und alle höheren Gänge wurden bei der Messung weggelassen, das sie
+das Ergebniss stark verfälschen würden.
+
+%\includegraphics[width=\textwidth]{plotC.pdf}
+
+\subsubsection{Berechnung aus der Messung mittel Schwebemethode}
+
+Wie im Aufbau schon beschrieben, gibt es für die Messung der Frequenzveränderung eine Alternative
+mit der Schwebungsmethode. Mit dieser wird im Gegensatz zu 1.7.1 die Frequenzveränderung direkt gemessen.
+
+Auffällig in Tabelle 7 ist, dass alle Werte für die Differenz zur Ruhefrequenz ca. doppelt so groß sind,
+wie bei der indirekten Messung der Frequenzveränderung. Die Ursache hierfür ist die Verwendung eines
+reflektors für die Messung. Das Signal muss die Strecke von Lautsprecher bis zum Reflektor zweimal durchlaufen
+bis das Signal beim Mikrophon ankommt. Die Strecke und somit auch die Frequenzveränderung ist
+dadurch doppelt so groß wie bei der Messung 1.7.1 . Für die Bestimmung des Faktors $\frac{\nu_0}{c}$ muss
+also der Faktor 2 noch aus der Frequenzdifferenz herausgezogen werden.
+
+\begin{table}
+  \centering
+  \caption{Frequenzänderung bei Messung mit der Schwebemethode.}
+  \csvautobooktabular{Schwebung.csv}
+\end{table}
+
+Mit der Schebungsmethode kann zudem immer nur der Betrag der Frequenzänderung ermittelt werden,
+die Ergebnisse für die Differenz müssen also im nachhinein mit verschiedenen Vorzeichen versehen werden,
+je nachdem auf welche Geschwindigkeit sie sich beziehen. Da die Messung bei der Bewegung des Wagens
+in Ausbreitungsrichtung keine Ergebnisse lieferte, sind in der obigen Tabelle nur die Werte für eine
+Bewegung entgegen der Ausbreitungsrichtung angegeben.
+
+Außerdem sind lediglich die Geschwindigkeiten bis zur Gangstufe 36 angegeben, da die
+Strecke nicht ausreichte, um bei weiteren Gangeinstellungen bis zum Ende Impulse empfangen zu können.
+Für alle Gangeinstellungen über 36 ergaben sich deshalb die gleichen Frequenzdifferenzen wie bei
+der Gangeinstellung 36.
+
+Analog zur Messung in 1.7.1 wird die Frequenzdifferenz gegen die Geschwindigkeit aufgetragen. Für die
+Steigung $a$ und den Y-Achsenabschnitt $b$ erhält man mittels einem linearen Fit mit Python
+folgende Werte:
+
+\begin{align}
+  a &= (109.911 \pm 10.356) \frac{1}{m} \\
+  b &= (0.466 \pm 2.040) Hz
+\end{align}
+
+Da wie oben beschrieben in der Steigung a der Faktor 2 enthalten ist, muss für $\frac{\nu_0}{c}$
+noch aus a der Faktor 2 gezogen werden:
+
+\begin{equation}
+  \frac{\nu_0}{c} = \frac{a}{2} = (54.955 \pm 5.178) \frac{1}{m}
+\end{equation}
+
+%\includegraphics[width=\textwidth]{plotCS.pdf}
+
+\subsection{Vergleich der Ergebnisse aus 1.4 und 1.7 mithilfe des Studentschen T-Tests}
+
+Der "Student´sche T-Test" ist ein Hypothesentest. Er dient zum Vergleich der Messmethoden
+bzw. gibt an, ob zwischen den Messmethoden A und B eine systematische Abweichung vorliegt.
+Dafür muss zuerst die Prüfgröße $t$ bestimmt werden, welche durch folgenden Formeln definiert
+wird:
+
+\begin{equation}
+  t := \frac{\overline{x_a} - \overline{x_b}}{S_D}
+\end{equation}
+
+$\overline{x_a}$ und $\overline{x_b}$ sind die Mittelwerte der Stichproben bzw. der Messreihen.
+$S_D$ ist die Standardabweichung und durch:
+
+\begin{equation}
+  S_D = \sqrt{ \frac{s_a^2(n_a-1) + s_b^2(n_b-1)}{n_a + nb - 2} \cdot \frac{n_a + n_b}{n_a \cdot n_b}}
+\end{equation}
+
+$s_a$ und $s_b$ sind dabei die Fehler der Stichproben und n ist die Anzahl an Messungen der jeweiligen
+Messreihen.\\
+Anschließend wird ein Signifikanzniveau $\alpha$ festgelegt, welches angibt, mit welcher Wahrscheinlichkeit
+die Hypothese bestätigt bzw. widerlegt werden soll. Zudem wird die Anzahl der Freiheitsgerade $f$ durch
+folgende Formel bestimmt:
+
+\begin{equation}
+  f = n_a + n_b -2
+\end{equation}
+
+Mit der Anzahl an Freiheitsgeraden und den Werten für $t$ kann in einer Vergleichstabelle nach Werten für
+ $\alpha$ gesucht werden, so dass für den ermittelten Wert $t$ gilt:
+
+\begin{equation}
+  \tilde{t} < \lvert t \rvert .
+\end{equation}
+
+Mit dieser Bedingung beträgt die Wahrscheinlichkeit, dass ein systematischer Fehler vorliegt, $1 - \alpha$.
+
+\begin{table}
+  \centering
+  \caption{Benötigte Werte für den T-Test}
+  \begin{tabular}{c | c c c}
+    \toprule
+    {} & {Mittelwert $\overline{x}$} & {Fehler $s$} & {Anzahl der Messungen $n$} \\
+    \midrule
+    Wellenlänge-Messung A & 56.818 & 5.811 & 5  \\
+    indirekte Messung B   & 58.326 & 0.764 & 18 \\
+    Schwebung C           & 54.955 & 5.178 & 6  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse des T-Test}
+  \begin{tabular}{c | c c c c c c}
+    \toprule
+    {Vergleich von} & {$S_D$}& {$t$} & {$\alpha$} & {$f$} & {$\tilde{t}$} & {Wahrscheinlichkeit} \\
+    \midrule
+    A und B & 1.361 & 1.108 & 0.15 & 21 & 1.063 & 85.0 \% \\
+    B und C & 1.206 & 2.762 & 0.01 & 22 & 2.508 & 99.9 \% \\
+    A und C & 3.311 & 0.563 & 0.30 & 9  & 0.543 & 70.0 \% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Wert für $\tilde{t}$ können aus Quelle [1] entnommen werden. Der "Student´sche T-Test" zeigt, dass mit hoher
+Wahrscheinlichkeit systematische Fehler zwischen denen jeder Messung bestehen. Zu sehen sind aber auch sehr
+hohe statistische Fehler besonders bei dem Messungsvergleich A und B sowie dem Vergleich A und C.
+
+\end{document}

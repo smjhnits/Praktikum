@@ -1,0 +1,53 @@
+\section{Der Doppler--Effekt}
+Der Doppler-Effekt tritt auf, sobald sich der Sender und der Empfänger einer Welle relativ zueinander bewegen.
+Wenn ein ruhender Sender eine Welle der Frequenz $f_0$ aussendet, nimmt ein relativ dazu bewegter Empfänger die Frequenz $f_E$ wahr. Hingegen empfängt ein ruhender Empfänger die ausgesendete Frequenz $f_0$. Diesen Frequenzunterschiede zwischen bewegten und ruhenden Empfänger bezeichnet man als Doppler-Effekt.
+Der Empfänger misst eine Frequenz von:
+ \begin{equation*}
+   f_E = f_0 + \frac{v}{\lambda_0}.
+ \end{equation*}
+\begin{description}
+    \item[$v$:] Geschwindigkeit, mit der sich der Empfänger bewegt
+    \item[$\lambda_0$:] Wellenlänge
+\end{description}
+
+Oder mit $c = f_0\lambda_0$ als Ausbreitungsgeschwindigkeit der Welle:
+\begin{equation}
+  f_E = f_0(1 + \frac{v}{c})
+  \label{eqn:E_Frequenz}
+\end{equation}
+Somit unterscheidet sich die gesendete Frequenz von empfangenen Frequenz um den Summanden $f_0\frac{v}{c}$.
+In dem Versuch werden Schallwellen untersucht, die sich in dem Medium Luft mit Schallgeschwindigkeit ausbreiten.
+
+Bewege sich nun die Quelle relativ zum Ausbreitungsmedium mit der Geschwindigkeit $v$. Ein ruhender Empfänger misst dann
+\begin{equation}
+  f_Q = f_0\frac{1}{1 - \frac{v}{c}} .
+  \label{eqn:Q_Frequenz}
+\end{equation}
+Entwickelt man \eqref{eqn:Q_Frequenz} nach Potenzen von $\frac{v}{c}$ erhält man
+\begin{equation*}
+  f_Q = f_0(1 + \frac{v}{c} + (\frac{v}{c})^2 + (\frac{v}{c})^3 + ...) = f_E + f_Q((\frac{v}{c})^2 + ...) .
+\end{equation*}
+Anhand der Entwicklung wird sofort ersichtlich, dass für $v > 0$ gilt
+\begin{equation*}
+  f_Q > f_E > f_0 .
+\end{equation*}
+Jedoch ist der Unterschied zwischen \eqref{eqn:E_Frequenz} und \eqref{eqn:Q_Frequenz} für $\lvert v \rvert \ll c$ beliebig klein.
+
+Die Frequenzänderung $\increment f = f_Q - f_0$ kann ebenfalls durch eine Schwebungsmethode beobachtet werden. Eine Schwebung entsteht durch die Überlagerung von Wellen mit unterschiedlichen Frequenzen. Wenn nun die Wellen eines ruhenden und eines bewegten Senders überlagert werden, entsteht eine solche Schwebung.
+\section{Durchführng}
+Anhand des Experiments soll insbesondere Formel \eqref{eqn:Q_Frequenz} überprüft werden. Dafür muss die Relativgeschwindigkeit $v$ zwischen Sender und Empfänger, die Ausbreitungsgeschwindigkeit $c$ der Welle, sowie die Frequenz $f_0$ und $f_Q$ bei $v = 0$ bzw. $v \neq 0$ ermittelt werden. Die Ausbreitungsgeschwindigkeit der Welle im Medium Luft ist die Schallgeschwindigkeit.
+\subsection{Bestimmen der Relativgeschwindigkeit zwischen Sender und Empfänger}
+Zur Bestimmung der Relativgeschwindigkeit zwischen Sender und Empfänger wird ein Lautsprecher auf einen Wagen montiert. Dieser fungiert in dem Experiment als Sender, der sich relativ zu einem fixiertem Mikrofon Vor- bzw. Rückwärts bewegen kann. Der Wagen wird durch einen Synchronmotor angetrieben, bei dem durch eine Zehngangschaltung verschiedene Geschwindigkeiten eingestellt werden können. Damit die Geschwindigkeit bestimmt werden kann benötigt man eine Zeit- und eine Streckenmessung. Deshalb fährt der Wagen über eine definierte Strecke, die vor Versuchsbeginn mit einem Maßband vermessen wurde. Die Laufzeitmessung wird durch zwei Lichtschranken am Anfang und am Ende der definierten Strecke realisiert. Sobald die Lichtschranke unterbrochen wird sendet sie einen \textbf{L}-Impuls, dieser wird durch einen Schmitt-Trigger an den $\bar{S}-$Eingang eines bistabilen Kippschalters (\textbf{Flip-Flop}) weitergegeben. Dadurch entsteht an dem $Q-$Ausgang ein \textbf{H}-Impuls, der in einem Und-Gatter mit dem \textbf{H}-Impuls, der aus einem Zeitbasisgenerator (\textbf{ZBG}) resultiert zusammengeführt wird. Der Ausgang des Und-Gatters ist mit dem Zählwerk verbunden, sodass solange die Impulse des ZBG gezählt werden bis die zweite Lichtschranke von dem Wagen durchfahren wird. Der \textbf{L}-Impuls aus der zweiten Lichtschranke wird durch einen weiteren Schmitt-Trigger an den $\bar{R}-$Eingang weitergegeben. Dies bewirkt, dass der $Q-$Ausgang ein \textbf{L}-Impuls an das Und-Gatter weiterleitet, wodurch dieses geschlossen wird. Die Zeitmessung ist dann beendet.
+Eine Zeitmessung wird fünf mal in jedem der zehn Gänge durchgeführt.
+\subsection{Messung der Schallgschwindigkeit $c$ über die Wellenlänge}
+Damit die Wellenlänge $\lambda$ gemessen werden kann, wird ein Lautsprecher, gegenüber eines fixierten Mikrofons auf einen Präzisionsschlitten montiert. Der Lautsprecher wird von einem frequenzstabilen Generator angesteuert. Der Generator und das Mikrofon werden an einem Oszilloskop angeschlossen. Die Signalspannung des Mikrofons wird auf die Y-Achse und die Generatorspannung wird auf die X-Achse des Oszilloskops gelegt. Zur Bestimmung der Wellenlänge wird der Lautsprecher solange auf dem Präzisionsschlitten verschoben, bis die beiden Spannungen in Phase sind. Dies kann mit Hilfe von Lissajous-Figuren überprüft werden. Der Verschiebungsweg des Lautsprechers entspricht der Wellenlänge $\lambda$.
+\subsection{Frequenzmessung}
+Der Lautsprecher wird erneut auf den Wagen montiert. Das Mikrofon wird an einen Verstärker angeschlossen, der widerum das Signal an einen Impulsformer weitergibt. Der Impulsformer formt die einkommenden Schwingungen in einen Rechtecksimpuls um. Über ein Und-Gatter werden zwei Impulse aneinander gekoppelt. Der eine kommt von dem Mikrofon und der andere resultiert aus dem Fototransistor einer Lichtschranke. Das Und-Gatter ist direkt mit dem Zählwerk verbunden. Der \textbf{L}-Impuls, den die Lichtschranke sendet, wenn sie unterbrochen wird gelangt über einen Schmitt-Trigger an den $\bar{S}-$Eingang eines bistabilen Kippschalters. Dadurch wird am $Q-$Ausgang ein \textbf{H}-Impuls weitergegeben, der letztendlich in dem Und-Gatter endet. Der \textbf{H}-Impuls aus dem Flip-Flop wird nicht nur an das Und-Gatter weitergeleitet, sonder auch noch ein weiteres Und-Gatter abgezweigt. Das weitere Und-Gatter empfängt Impulse von dem Flip-Flop und von dem ZBG. Dieses Und-Gatter leitet ankommende Impulse, seiner Logik entsprechend an einen Untersetzer weiter. Der Untersetzer hält die ankommenden Impulse auf, bis eine vorhereingestellte Impulsanzahl erreicht worden ist. In dem Versuch war der Untersetzer auf $10^6$ eingestellt. Nach Erreichen der Impulsanzahl im Untersetzer sendet dieser einen \textbf{H}-Impuls an den $T$-Eingang des Flip-Flops weiter. Sobald der $T$-Eingang ein \textbf{H}-Impuls empfängt wird der Zustand des $Q$-Ausgangs in jedem Fall geändert. Das bedeutet, dass der $Q$-Ausgang auf ein \textbf{L}-Impuls umgestellt wird, wodurch das mit dem Zählwerk verbundene Und-Gatter geschlossen wird und die Frequenzmessung abgeschlossen ist. Während der Messung wird der $\bar{R}$-Eingang durch ein konstates Signal auf \textbf{H} gehalten.
+\subsubsection{Bewegter Sender}
+Zunächst wird die Frequenz $f_Q$ für $v >0 $ gemessen. Der Sender bewegt sich also auf den Empfänger zu. Es werden für jeden der Zehn Gänge fünf Messungen durchgeführt.
+Danach wird die Frequenz $f_0$ für $v < 0$ gemessen. Nun bewegt sich der Sender von dem Empfänger weg. Erneut werden pro Gang fünf Messungen durchgeführt.
+\subsubsection{Ruhefrequenz}
+Nun muss die Ruhefrequenz $f_0$ bestimmt werden, damit man einen Referenzwert gegenüber den Messungen bei bewegten Sender hat. Dafür wird die Frequenz des vom Generator betriebenen Lautsprechers in Ruhe gemessen.
+\subsubsection{Schwebungsmethode}
+Bei der Schwebungsmethode wird anstelle eines Lautsprechers ein Reflektor auf den Wagen gestellt. Der Lautsprecher wird nun neben dem fixiertem Mikrofon aufgestellt und ebenfalls, in Richtung des Reflektors fixiert. Der Reflektor wirkt somit ebenfalls als Sender, ist aber hingegen zu dem Lautsprecher bewegt. Das Mikrofon nimmt somit die Überlagerung aus den emitierten Wellen des ruhenden und des bewegten Senders wahr.
+Damit $\increment f$ gemessen werden kann, muss die Spannung des Mikrofons verstärkt und gleichgerichtet werden. Danach läuft sie durch einen Tiefpass, der die Spannung gefiltert wiederum an einen Verstärker und Impedanzwandler durchgibt. Dieses Signal wird an den Frequenzzähler weitergegeben. Der Frequenzzähler ist der selbige, den man in dem voherigem Versuch für die Frequenzmessung benutzt hat.

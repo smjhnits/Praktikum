@@ -1,0 +1,134 @@
+\input{"../../Praeambel_doc.tex"}
+
+\usepackage{csvsimple}
+
+\csvset{
+  autotabularcenter/.style={
+    file=#1,
+    after head=\csv@pretable\begin{tabular}{|*{\csv@columncount}{c|}}\csv@tablehead,
+    table head=\hline\csvlinetotablerow\\\hline,
+    late after line=\\,
+    table foot=\\\hline,
+    late after last line=\csv@tablefoot\end{tabular}\csv@posttable,
+    command=\csvlinetotablerow},
+  autobooktabularcenter/.style={
+    file=#1,
+    after head=\csv@pretable\begin{tabular}{*{\csv@columncount}{c}}\csv@tablehead,
+    table head=\toprule\csvlinetotablerow\\\midrule,
+    late after line=\\,
+    table foot=\\\bottomrule,
+    late after last line=\csv@tablefoot\end{tabular}\csv@posttable,
+    command=\csvlinetotablerow},
+}
+
+\begin{document}
+
+Messung a) :
+
+\begin{table}
+ \centering
+ \csvautobooktabular{MessungA.csv}
+\end{table}
+
+Messung b) :
+
+\begin{table}
+ \centering
+  \begin{tabular}{c c}
+    \toprule
+    {Strecke[cm]} & {Phasenverschiebung} \\
+    \midrule
+    0.0  & 0     \\
+    0.9  & $\pi$ \\
+    1.8  & 0     \\
+    2.7  & $\pi$ \\
+    3.5  & 0     \\
+    4.4  & $\pi$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+ \centering
+  \begin{tabular}{c c c}
+    \toprule
+    {Differenz der Positionen} & {$\frac{\lambda}{s}$ [cm]} & {$\lambda$ [cm]} \\
+    \midrule
+    2-1  & 0.09 & 0.18  \\
+    3-2  & 0.09 & 0.18  \\
+    4-3  & 0.09 & 0.18  \\
+    5-4  & 0.08 & 0.16  \\
+    6-5  & 0.09 & 0.18  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{landscape}
+  Messung c) :
+
+  1) Entgegen der Ausbreitungsrichtung
+  \begin{table}
+    \csvautobooktabular{MessungC.csv}
+  \end{table}
+
+  2) Mit der Ausbreitungsrichtung
+  \begin{table}
+    \csvautobooktabular{MessungC2.csv}
+  \end{table}p
+\end{landscape}
+
+
+Nach dem Gang Nr. 42 mussten wir die Messreihe beenden, das die Strecke zu kurz wurde
+und immer entsprechend bei den Gängen 42, 48, 52 und 60 die gleichen Ergebnisse
+entstanden wie bei Gang 36 ( Vergleiche Gänge 36 und 42 in Tabelle c)).
+
+Schwebungsmethode:
+\\
+\\
+Für den Gang 30 haben wir 10 Werte gemesse:
+
+\begin{table}
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    {Messung} & {Impulsveränderung} \\
+    \midrule
+    1.  & 30 \\
+    2.  & 17 \\
+    3.  & 8  \\
+    4.  & 30 \\
+    5.  & 10 \\
+    6.  & 30 \\
+    7.  & 30 \\
+    8.  & 30 \\
+    9.  & 31 \\
+    10. & 30 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die restlichen Werte:
+
+\begin{table}
+ \centering
+ \csvautobooktabular{MessungCS.csv}
+\end{table}
+
+Die Geschwindigkeiten:
+
+\begin{table}
+  \centering
+  \csvautobooktabular{Speed.csv}
+\end{table}
+
+\begin{table}
+  \centering
+  \csvautobooktabular{Delta1.csv}
+\end{table}
+
+\begin{table}
+  \centering
+  \csvautobooktabular{Delta2.csv}
+\end{table}
+
+\end{document}
