@@ -134,14 +134,14 @@ print('vermessene Werte der Platten: 6 mm, 9.9 mm')
 c_linse = 2500 ## m / s
 c_glaskörper = 1410 ## m / s
 
-augen_peakdiff = auge * 10**(-6) / 2 ## peakdifferenzen in s
+augen_peakdiff = auge * 10**(-3) / 2 ## peakdifferenzen in ms
 
-hornhaut = augen_peakdiff[1, 0] * c_linse
-iris = augen_peakdiff[1, 1] * c_linse
-linse_eingang = augen_peakdiff[1, 2] * c_linse
-linse_ausgang = augen_peakdiff[1, 3] * c_linse
+hornhaut = 0
+iris = augen_peakdiff[0, 1] * c_glaskörper
+linse_eingang = iris + augen_peakdiff[0, 2] * c_linse
+linse_ausgang = linse_eingang + augen_peakdiff[0, 3] * c_linse
 retina = linse_ausgang + augen_peakdiff[0, 4] * c_glaskörper
 
-print('##Auge##',  'Hornhaut: ', hornhaut,  'Iris: ', iris,
+print('##Auge Abstände## ## in mm ##',  'Hornhaut: ', hornhaut,  'Iris: ', iris,
       'Linseneigang: ', linse_eingang,  'Linsenausgang: ', linse_ausgang,
       'Retina: ', retina)
