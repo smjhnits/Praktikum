@@ -122,17 +122,18 @@ plt.savefig('../Pics/Dämpfung.pdf')
 
 
 ### Spektrale Analyse und Cepstrum ###
-
+fehler = np.abs((params_c_d[1] + params_c[1]) / 2)
 dicke = peakdifferenzen * 10**(-6) * (c_gemessen + c_gemessen_d) / 4 ## s * meter / s = meter
+fehler_dicke = peakdifferenzen * 10**(-6) * fehler / 4
 
-print('Dicke der Platten: ', dicke)
+print('Dicke der Platten: ', dicke, fehler_dicke)
 print('vermessene Werte der Platten: 6 mm, 9.9 mm')
 
 
 ### Auge ###
-
-c_linse = 2500 ## m / s
-c_glaskörper = 1410 ## m / s
+fehler = np.abs((params_c_d[1] + params_c[1]) / 2)
+c_linse = ufloat(2500, fehler) ## m / s
+c_glaskörper = ufloat(1410, fehler) ## m / s
 
 augen_peakdiff = auge * 10**(-3) / 2 ## peakdifferenzen in ms
 
@@ -145,3 +146,9 @@ retina = linse_ausgang + augen_peakdiff[0, 4] * c_glaskörper
 print('##Auge Abstände## ## in mm ##',  'Hornhaut: ', hornhaut,  'Iris: ', iris,
       'Linseneigang: ', linse_eingang,  'Linsenausgang: ', linse_ausgang,
       'Retina: ', retina)
+
+
+### schcllageschdifferenz ###
+
+print(c_gemessen_d - c_gemessen, params_c_d[1] - params_c[1])
+print(c_acryl_lit - (c_gemessen_d + c_gemessen) / 2, (params_c_d[1] + params_c[1]) / 2)
