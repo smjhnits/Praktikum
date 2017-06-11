@@ -13,15 +13,11 @@ hatten die folgenden Längen. Dabei werden die Werte als fehlerfrei angenommen.
   \item[Zylinder 7] \SI{61,5}{\milli\meter}
 \end{description}
 
-Für die Messung mit Ultraschall wurde an dem Gerät der Literaturwert
-der Schallgeschwindigkeit in Acryl ($c\ua{Acyl, lit} = \SI{2730}{\meter\per\second}$\cite{lit})
-eingegeben. Damit wurde die Zeitachse auf diesen Wert kalibriert.
-
 \subsection{Bestimmung der Dämpfungskonstante und der Schallgeschwindigkeit mit dem Impuls--Echo--Verfahren}
 
 Die Dämpfungskonstante $\alpha$ aus \eqref{eqn:Intensität}
 lässt sich aus den genommenen Daten berechnen. Dafür werden die Messdaten
-in die Formel eingesetzt und nach es wird $\alpha$ aufgelöst.
+in die Formel \eqref{eqn:Intensität} eingesetzt und wie folgt nach $\alpha$ aufgelöst.
 
 \begin{equation}
   \label{eqn:dämpfung}
@@ -33,17 +29,17 @@ die Amplitude an der Stelle $x  = 0$.
 
 Die Messdaten sind in Tabelle \ref{tab:Messdaten} dargestellt.
 Die Werte für Zylinder 4 und den zusammengesetzten Zylinder mit dem
-achtem Messwert wurden für die Berechnung der Dämpfungskonstante nicht
+achten Messwert wurden für die Berechnung der Dämpfungskonstante nicht
 verwendet, weil die Peaks nur bei Verstärkug ausgemessen werden konnten.
 Auf das Herausrechnen des Verstärkunsfaktors wurde der Einfachheit halber verzichtet.
 Im Mittel ergibt sich die Dämpfungskontante zu:
 
 \begin{equation}
-  \alpha = \SI{21.257(301)}{\per\meter}
+  \alpha = \SI{21.257(301)}{\per\meter}.
 \end{equation}
 
 Der Fehler ist die Standardabweichung des Mittelwertes.
-Eine Darstellung der Dämpfung in Acryl ist in dem folgende Diagramm
+Eine Darstellung der Dämpfung in Acryl ist in dem Diagramm \ref{fig:Dämpfung}
 eizusehen. Dabei sind die Messdaten der Anfangs- und Endamplituden
 ebenfalls eingetragen.
 
@@ -57,7 +53,7 @@ ebenfalls eingetragen.
 
 Die Schallgeschwindigkeit ist aus den Laufzeiten zwischen den
 gemessenen Peaks und den vermessenen Zylinderlägen mithilfe von
-\eqref{eqn:Fehlstellen} zu berechnen. Dafür wurde mit dem
+\eqref{eqn:Fehlstelle} zu berechnen. Dafür wurde mit dem
 \emph{Python}-Packet \emph{curve\_fit} eine lineare Ausgleichsrechung
 durchgeführt. Der systematische Fehler der Sonde ist der Ordinaten-Abschnitt
 des Ausgleichgeraden und die Schallgeschwindigkeit ist in der Steigung
@@ -68,7 +64,7 @@ Die Werte ergeben sich zu:
 \begin{align}
   \label{eqn:schallgesch_echo}
   c\ua{Acryl, echo} &= \SI{2880.943}{\meter\per\second} \\
-  \Delta\ua{Sonde,echo} &= \SI{-3.862}{\meter\per\second}
+  \Delta\ua{Sonde,echo} &= \SI{-3.862}{\meter\per\second}.
 \end{align}
 
 Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
@@ -81,6 +77,7 @@ Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
 \end{figure}
 
 \input{Tabellen/Tabelle_Impuls-Echo.tex}
+\FloatBarrier
 
 \subsection{Bestimmung der Schallgeschwindigkeit mit dem Durchschallungsverfahren}
 
@@ -93,7 +90,7 @@ Die Werte ergeben sich zu:
 \begin{align}
   \label{eqn:schallgesch_durch}
   c\ua{Acryl, durch} &= \SI{2878.377}{\meter\per\second} \\
-  \Delta\ua{Sonde, durch} &= \SI{-2.946}{\meter\per\second}
+  \Delta\ua{Sonde, durch} &= \SI{-2.946}{\meter\per\second}.
 \end{align}
 
 Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
@@ -106,6 +103,7 @@ Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
 \end{figure}
 
 \input{Tabellen/Tabelle_Durchschallung.tex}
+\FloatBarrier
 
 \subsection{Spektrale Analyse und Cepstrum}
 
@@ -138,7 +136,7 @@ Diagramme sind im Folgendem dargestellt.
 \centering
 \begin{subfigure}{0.48\textwidth}
 \centering
-\includegraphics[height=3cm]{Pics/Z6_M3_S.bmp}
+\includegraphics[height=4.2cm]{Pics/Z6_M3_S.jpg}
 \caption{Aufgenommenes Spektrum.}
 \label{fig:Spektrum}
 \end{subfigure}
@@ -146,17 +144,17 @@ Diagramme sind im Folgendem dargestellt.
 {subfigure}{0.48\textwidth}
 \centering
 \includegraphics
-[height=3cm]{Pics/Z6_M3_C.bmp}
-\caption{Aufgenommnes Cepstrum.}
+[height=4.2cm]{Pics/Z6_M3_C.jpg}
+\caption{Aufgenommenes Cepstrum.}
 \label{fig:Cepstrum}
 \end{subfigure}
 \end{figure}
 
 \subsection{Biometrische Untersuchung eines Augenmodells}
 
-Es wurde eine Auge wie aus Abb. \ref{fig:Auge} untersucht.
-Insgesamt wurden fünf Peaks aufgenommen und dem Auge sind
-die folgenden Bestandteile zuzuordnen.
+Es wurde ein Auge wie aus Abb. \ref{fig:Auge} untersucht.
+Insgesamt wurden fünf Peaks aufgenommen die den folgenden Bestandteilen des Auges
+zuzuordnen sind.
 
 \begin{enumerate}
   \item Hornhaut
@@ -166,12 +164,12 @@ die folgenden Bestandteile zuzuordnen.
   \item Retina
 \end{enumerate}
 
-Die Peaks sind chronologisch den Bestandteilen zuzuordnen.
+Die Peaks spiegeln der Aufzählung entsprechend die Bestandteilen des Auges wieder.
 Für die Bereiche zwischen Hornhaut und Linseneingang, sowie
 Linsenausgang und Retina wurde die Schallgeschwindigkeit für
 Glaskörper verwendet ($c\ua{Glaskörper} = \SI{1410}{\meter\per\second}$
 \cite{anleitung01}).
-Für dem Bereich zwischen Linseneingang und Linsenausgang
+Für den Bereich zwischen Linseneingang und Linsenausgang
 wurde eine Schallgeschwindigkeit von $c\ua{Linse} = \SI{2500}{\meter\per\second}$
 angenommen.
 
@@ -185,24 +183,27 @@ Die Bestandteile des Auges haben die folgenden Tiefen.
   \item[Retina] $\SI{46.75(8)}{\milli\meter}$
 \end{description}
 
-Die dazugehörigen Fehler entstehen durch dem systematischen Fehler der Sonde.
+Die dazugehörigen Fehler entstehen durch den systematischen Fehler der Sonde.
 
-Die Messdaten sind in der folgenden Tabelle einzusehen.
+Die Messdaten sind in der Tabelle \ref{tab:Auge} einzusehen.
 
 \input{Tabellen/Tabelle_Auge.tex}
 
 \section{Diskussion}
 
+Als Literaturwert der Schallgeschwindigkeit in Acryl wurde
+$c\ua{Acyl, lit} = \SI{2730}{\meter\per\second}$\cite{lit} angenommen.
 Die Schallgeschwindigkeit in Acryl wurde über zwei verschiedenen
 Ultraschallverfahren ermittelt. Die berechneten Werte unterscheiden sich
-um $\Dealta\ua{c, gemessen} = \SI{1.740(917)}{\meter\per\second}$.
-Hingegen liegt der Unterschied zum Literaturwert bei $\SI{149.246(3404)}{\meter\per\second}$.
-Da beide Verfahren einen deutlich Unterschied zu Literaturwert aufweisen, aber untereinander kaum verschieden sind wird
+um $\Delta\ua{c, gemessen} = \SI{1.740(917)}{\meter\per\second}$.
+Hingegen liegt der Unterschied des gemittelten Wertes zum Literaturwert bei $\SI{149.246(3404)}{\meter\per\second}$.
+Da beide Verfahren einen deutlichen Unterschied zu dem Literaturwert aufweisen,
+aber untereinander kaum verschieden sind, wird
 ein weiterer systematischer Fehler, der von dem systematischen Fehler der
 Sonde verschieden ist angenommen.
 Die Dicke der Acrylplatten wurden einmal über eine Schieblehre und
 zum anderen über das Durchschallungsverfahren ermittelt.
-Die Dicken, die sich aus dem Durchschallungsverfahren ergeben sind
+Die Dicken, die sich aus dem Durchschallungsverfahren ergeben, sind
 ca. einen halben Millimeter größer als die ausgemessenen Werte.
 Mit dem Literaturwert für die Schallgeschwindigkeit von Acryl
 ergeben sich die Plattendicken zu:
@@ -215,10 +216,12 @@ ergeben sich die Plattendicken zu:
 Damit ist die Abweichung der Plattendicken auf den systematischen Fehler
 der Schallgeschwindigkeit zurückzuführen.
 
-Die Diagramme aus der Spektralen Analyse (\ref{fig:Spetrum}, \ref{fig:Cepstrum})
-sind nicht aussagekräftig. In dem Cepstrum sind nicht die Lagen der tatsächlich
-beobachteten Peaks erkenntlich, hingegen werden anstelle Peaks dargestellt, die
-nicht beobachtet wurden.
+Die Diagramme aus der Spektralen Analyse (\ref{fig:Spektrum}, \ref{fig:Cepstrum})
+werden im Folgendem diskutiert. In dem Diagramm des Cepstrum sind nicht die Lagen der tatsächlich
+beobachteten Peaks erkenntlich, hingegen werden Peaks dargestellt, die
+nicht beobachtet wurden. Das Spektrum zeigt einen Peak bei ca. $\SI{1.8}{\mega\hertz}$.
+Die Eingangsfrequenz betrug hingegen $\SI{2}{\mega\hertz}$. Die weiteren Peaks
+sind durch Reflexionen der Eingangswelle zu erklären.
 
 Die biometrische Untersuchung des Auges ergab Werte, die
 mit den Erwartungswerten übereinstimmen. Hierbei muss der
