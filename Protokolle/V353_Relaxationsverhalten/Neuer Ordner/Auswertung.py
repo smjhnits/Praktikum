@@ -31,10 +31,10 @@ params_a_u = 1/ufloat(params_a[0], error_params_a[0])
 
 plt.plot(Zeiten, yPlota, 'bx', label = r'$\mathrm{Messwerte}$')
 plt.plot(laufvariableA, FitMessungA(laufvariableA, *params_a), 'r-', label = r'$\mathrm{Regressionsgerade}$')
-plt.ylabel(r'$\mathrm{ln(U_0)}$')
+plt.ylabel(r'$\mathrm{ln(U/U_0)}$')
 plt.xlabel(r'$\mathrm{Frequenz}\, \mathrm{in} \,\mathrm{Hz}$')
 plt.legend(loc = 'best')
-#plt.savefig('Messunga.pdf')
+plt.savefig('Messunga.pdf')
 #plt.show()
 
 print('Parameter RC aus der Messung a',params_a_u)

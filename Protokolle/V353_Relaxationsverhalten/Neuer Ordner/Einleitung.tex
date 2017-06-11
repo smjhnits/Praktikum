@@ -18,7 +18,10 @@
 In dem Versuch V353 wurde das Relaxationsverhalten eines $RC$-Kreises untersucht.
 Relaxation bedeutet, dass ein System aus seinen Ruhezustand gebracht wird
 und nicht-oszillatiorisch in diesen zurückkehrt.
-Mit einem $RC$-Kreis ist solch ein Relaxationsverhalten zu erreichen.
+Mit einem $RC$-Kreis ist solch ein Relaxationsverhalten zu erreichen. Mit verschiedenen
+Messmethoden soll die RC-Konstante bestimmt werden, sodass diese miteinander
+verglichen werden können. Darüberhinaus soll die Eigenschaft des RC-Kreises als
+Integrator nachgewiesen werden.
 
 \subsection{Ent- und Aufladevorgang}
 
@@ -72,38 +75,39 @@ der Generatorspannung $U(t)$ eignet.
 
 \section{Durchführung}
 
-Zu Beginn des Versuches wurde der $RC$-Kreis aufgebaut. Eine Schaltplanskizze
+Zu Beginn des Versuches wird der $RC$-Kreis aufgebaut. Eine Schaltplanskizze
 ist in Abb. \ref{fig:Aufbau} zu sehen.
-Mit dieser Schaltung konnte der Auf- und Entladevorgangs des Kondensators
-über das Oszilloskop beobachtet werden. Dazu wurde der Generator auf den
+Mit dieser Schaltung kann der Auf- und Entladevorgangs des Kondensators
+über das Oszilloskop beobachtet werden. Dazu wird der Generator auf den
 Rechteckspannungsbetrieb eingestellt und das Oszilloskop so geregelt, dass
 die Lage des Spannungsnullpunktes zu sehen ist. Während des Suchvorganges des
-Spannungsnullpunktes wurde die Periodendauer der Rechteckspannung möglichst groß gewählt. Sobald eine geeignete Kurve gefunden wurde, konnte diese
+Spannungsnullpunktes wird die Periodendauer der Rechteckspannung möglichst groß gewählt.
+Sobald eine geeignete Kurve gefunden wurde, kann diese
 als Bild gespeichert werden.
 
-Danach wurde der Generator auf den Sinusspannunsbetrieb umgestellt, sodass
+Danach wird der Generator auf den Sinusspannunsbetrieb umgestellt, sodass
 der $RC$-Kreis bei variirender Frequenz untersucht werden konnte.
-Die Amplitude der Kondensatorspannung wurde bei insgesamt 15 verschiedenen
-Frequenzen beobachtet. Dabei wurden fünf Frequenzen aus dem nieder
+Die Amplitude der Kondensatorspannung wird bei insgesamt 15 verschiedenen
+Frequenzen beobachtet. Dabei werden fünf Frequenzen aus dem nieder
 frequenten Bereich zwischen $10$ bis $\SI{100}{\hertz}$ betrachtet. Die
-anderen zehn Frequenzen wurden aus dem Frequenzbereich zwischen $200$ bis
-$\SI{1100}{\hertz}$ in hunderter Schritten gewählt. Bei der Messung wurden
+anderen zehn Frequenzen werden aus dem Frequenzbereich zwischen $200$ bis
+$\SI{1100}{\hertz}$ in hunderter Schritten gewählt. Bei der Messung wird
 neben der Frequenz und Kondensatorspannung auch die Generatorspannungen betrachtet.
 
-Desweiteren wurde der Phasenunterschied zwischen Generator- und Kondensatorspannung
-in Abhängigkeit von der Frequenz gemessen. Dafür wurden die beiden Spannungen
-auf die Eingänge des Oszilloskops gelegt. Es wurde der Abstand der beiden
+Desweiteren wird der Phasenunterschied zwischen Generator- und Kondensatorspannung
+in Abhängigkeit von der Frequenz gemessen. Dafür werden die beiden Spannungen
+auf die Eingänge des Oszilloskops gelegt. Es werden der Abstand der beiden
 Nulldurchgänge, sowie die Periodendauer der Generatorspannung mit Hilfe
-des digitlen Periodendauermessgerät, welches in dem Oszilloskop integriert ist
+des digitalen Periodendauermessgerät, welches in dem Oszilloskop integriert ist
 gemessen.
 
-Abschließend wurde die Eigenschaft der Kondensatorspannung als Integrator
-der Generatorspannung untersucht. Dafür wurde die Frequenz minimal gereglt,
-sodass sie der Bedingung $\omega\ll \frac{1}{RC}$ genügt. Bei dem verwendeten
-Generator war die Minimalfrequenz bei ca. $\SI{4}{\hertz}$ erreicht.
-Nun wurde die Generatorspannung parallel zu der Kondensatorspannung auf dem
+Abschließend wird die Eigenschaft der Kondensatorspannung als Integrator
+der Generatorspannung untersucht. Dafür wird die Frequenz maximal geregelt,
+sodass sie der Bedingung $\omega$ >> $\frac{1}{RC}$ genügt. Bei dem verwendeten
+Generator ist die Minimalfrequenz bei ca. $\SI{4}{\hertz}$ erreicht.
+Nun wird die Generatorspannung parallel zu der Kondensatorspannung auf dem
 Oszilloskop ausgegeben und bei geeigneten Einstellungen als Bild gespeichert.
-Die Messung wurde mit eines Sinusspannung, einer Rechteckspannung und einer
+Die Messung wird mit einer Sinusspannung, einer Rechteckspannung und einer
 Dreieckspannung durchgeführt.\\
 
 \FloatBarrier
@@ -112,6 +116,15 @@ Dreieckspannung durchgeführt.\\
   \caption{Schaltplanskizze des verwendeten RC-Kreises}
   \label{fig:Aufbau}
 \end{figure}
+
+Der in Abbildung \ref{fig:Aufbau} dargestelle Schaltplan zeigt den verwendeten
+RC-Kreis. Die Spannung $U\ua{G}$ beschreibt die Generatorspannung. Der Widerstand
+R steht für den Innenwiderstand des Generators. Der verwendete Widerstand ist mit
+dem Buchstaben R und der Kondensator mit C gekennzeichnet. Die Spannung $U\ua{C}$
+symbolisiert die Kondensatorspannung. Die Eingänge des Oszillographen sind mit
+$Y\ua{A}$ und $Y\ua{B}$ dargestellt. Die Generatorspannung wird auf den
+$Y\ua{B}$-Eingang des Oszillographen gelegt und die Kondensatorspannung auf den
+$Y\ua{A}$-Eingang.
 
 \newpage
 
