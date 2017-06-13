@@ -2,23 +2,23 @@
 
 \subsection{Zielsetzung}
 
-In dem folgenden Versuch soll mithilfe der Öltröpchenmethode nach Millikan
+In dem folgenden Versuch soll mithilfe der Öltröpfchenmethode nach Millikan
 die Elementarladung $e\ua{0}$ bestimmt werden. Unter Verwendung der Faraday-Konstante
 kann dann anschließend die Avogadro-Konstante errechnet werden.
 
 \subsection{Theoretische Grundlagen}
 
-Bei dem Millikan-Versuch werden Öltröpchen in das vertikale Feld eines Platten-Kondensators
-gebracht. Da die Tröpchen bei der Zerstäubung mit einem ganzzahligen Vielfachen
+Bei dem Millikan-Versuch werden Öltröpfchen in das vertikale Feld eines Platten-Kondensators
+gebracht. Da die Tröpfchen bei der Zerstäubung mit einem ganzzahligen Vielfachen
 der Elementarladung geladen werden, kann aus dem Verhalten bei verschiedenen
 Feldeinstellungen die Elementarladung bestimmt werden.
 
-Bei einem deaktivierten äußeren Feld wirken auf das Öltröpchen sowohl die
+Bei einem deaktivierten äußeren Feld wirken auf das Öltröpfchen sowohl die
 Gewichtskraft $\vec{F}\ua{g} = m \vec{g}$ als auch die Stokesche Reibungskraft, durch die
 Viskosität $\eta\ua{L}$ der Luft $\vec{F}\ua{R} = -6\pi r\eta\ua{L} v\ua{o}$.
 Zusätzlich wird in den Formeln der Auftrieb durch die umgebende Luft beachtet,
 welcher allerdings normalerweise vernachlässigt werden kann, da die Dichte der
-Luft deutlich geringer ist als die des Öltröpchens. Für ein abgeschaltetes Feld
+Luft deutlich geringer ist als die des Öltröpfchens. Für ein abgeschaltetes Feld
 ergibt sich somit die folgende Kräftegleichung:
 
 \begin{equation}
@@ -27,7 +27,7 @@ ergibt sich somit die folgende Kräftegleichung:
 \end{equation}
 
 Aus der Kräftegleichung lässt sich durch Umstellen der Radius des
-Öltröpchens bestimmen:
+Öltröpfchens bestimmen:
 
 \begin{equation}
   r = \sqrt{ \frac{9\eta\ua{L}v\ua{0}}{2g(\rho\ua{Oel}-\rho\ua{L})}}.
@@ -35,7 +35,7 @@ Aus der Kräftegleichung lässt sich durch Umstellen der Radius des
 \end{equation}
 
 In Abbildung \ref{fig:Kräftegleichgewicht} sind die angreifenden Kräfte bei einem
-geladenen Öltröpchen eingezeichnet. Die linke Abbildung zeigt ein parallel zu
+geladenen Öltröpfchen eingezeichnet. Die linke Abbildung zeigt ein parallel zu
 Gravitationskraft gerichtetes Feld, während die rechte Abbildung ein der
 Gravitationskraft entgegengesetztes Feld zeigt. Wenn man die verschiedenen
 Kräfte nun in Relation setzt, lässt sich für beide Fälle eine Kräftegleichung
@@ -78,30 +78,31 @@ folgende Kräftegleichung ergibt:
 \end{align}
 
 Mit dem Radius nach Formel \eqref{eqn:Radius_Ohne} ergibt sich nach Umstellen
-der obigen Gleichung für die Ladung des Tröpchens die folgende Relation:
+der obigen Gleichung für die Ladung des Tröpfchens die folgende Relation:
 
 \begin{align}
+  \label{eqn:Ladung_bestimmt}
   q = \frac{4\pi}{3}r^3\rho\ua{Oel}g \cdot \frac{1}{E} = \frac{4\pi}{3}r^3\rho\ua{Oel}g \cdot \frac{d}{U\ua{Schweb}}.
 \end{align}
 
-Da die Stokesche Reibungskraft nur für Tröpchen gilt, deren Radius größer als
+Da die Stokesche Reibungskraft nur für Tröpchfen gilt, deren Radius größer als
 die mittlere freie Weglänge der Luft $\bar{l}$ ist, wird die Viskosität mit dem
-Cunningham-Korrekturterm (B = 6.17 $\cdot 10^{-3}$ $Torr\cdot cm$ erweitert:
+Cunningham-Korrekturterm ($B$ = 6,17 $\cdot 10^{-3}$ $Torr\cdot cm$ erweitert:
 
 \begin{align}
   \eta\ua{eff} = \eta\ua{L}  \cdot \left( \frac{1}{1 + A\frac{1}{r}} \right) = \eta\ua{L} \cdot \left( \frac{1}{1 + B\frac{1}{pr}} \right).
   \label{eqn:Viskosität_korrigiert}
 \end{align}
 
-\newpage
 
-Aufgrunf der umgekehrten Proportionalität zwischen $\bar{l}$ und dem Luftdruck
-$p$ folgt für die korrigierte Ladung:
+Der Radius muss ebenfalls mit einer Korrektur versehen werden.
 
-\begin{equation}
-  q^{\sfrac{2}{3}} = q\ua{0}^{\sfrac{2}{3}} \cdot \left( 1 + \frac{B}{pr} \right).
+\begin{align}
+  r\ua{korrigiert} = \sqrt{\left(\frac{B}{2p}\right) + \frac{9\eta\v_0}{2g\rho\ua{oel}}}
   \label{eqn:Ladung_korrigiert}
-\end{equation}
+\end{align}
+
+Mit dem korrigierten Radius ergibt sich die korrigierte Ladung aus \eqref{eqn:Ladung_bestimmt}.
 
 \section{Aufbau und Durchführung}
 
@@ -115,19 +116,19 @@ $p$ folgt für die korrigierte Ladung:
 
 Der experimentelle Aufbau ist in Abbildung \ref{fig:Aufbau} zu sehen. Die Platten des
 Kondensators haben einen Abstand von $d$ = $(7.6250 \pm 0.051)\si{mm}$. Durch eine
-Öffnung in der oberen Platte kann ein mit dem Zerstäuber erzeugtes Tröpchen in
+Öffnung in der oberen Platte kann ein mit dem Zerstäuber erzeugtes Tröpfchen in
 den Kondensator gelangen. Dort wird es durch eine Halogenlampe angestrahlt, damit
 die Bewegung unter einem Mikroskop besser verfolgt werden kann. Die Temperatur in
 dem Kondensator kann mit einem Thermowiderstand kontrolliert werden. Um die Ladung
-der Tröpchen zu verändern wird ein schwach radioaktives $\alpha$-Präparat($\ce{^{232}Th},
+der Tröpfchen zu verändern wird ein schwach radioaktives $\alpha$-Präparat($\ce{^{232}Th},
 8 \mu Ci$) in die untere Platte eingelassen. Es kan mit dem Hebel (4) abgeschirmt
 oder aktiviert werden. Bei der Mitteleinstellung ist das Shutter geöffnet und das
-Tröpchen kann in den Kondensator gelangen.
+Tröpfchen kann in den Kondensator gelangen.
 
 Die Ausrichtung der Apparatur kann mit der Libelle (9) überprüft werden. Mit einem
 Multimeter kann die angelegte Spannung gemessen werden und mit dem Hebel (7)
 kann die Ausrichtung des elektrischen Feldes bestimmt werden. Da sich die Luft
-aufgrund der Halogenlampe konstant erwärmt, wird der Widerstand des Thermistors
+aufgrund der Halogenlampe erwärmt, wird der Widerstand des Thermistors
 bei jeder Messung bestimmt, um mit einer Thermistor-Widerstandstabelle die
 Temperatur zu bestimmen.
 
@@ -139,20 +140,20 @@ auf das Millimeterpapier fokussiert wird.
 %War das wirklich so?
 
 Zuerst werden bei ausgeschaltetem elektrischen Feld Öltröpfchen in den Kondensator
-gegeben. Für die Messung der Geschwindigkeit wurde ein Strecke von $\SI{0,5}{mm}$
+gegeben. Für die Messung der Geschwindigkeit wird eine Strecke von $\SI{0,5}{mm}$
 betrachtet, bei der die Zurücklegung dieser Strecke optimalerweise in einem Zeitraum
 von $ 5 < t < 30 \, s$ geschehen soll. Somit werden nur Teilchen ausgewählt, deren
-Geschwindigkeit $v\ua{0}$ zwischen $\SI{0,0001}{\meter\per\second}$ und
-$\SI{0,000016}{\meter\per\second}$ liegt.
+Geschwindigkeit $v\ua{0}$ zwischen $\SI{100}{\mu\meter\per\second}$ und
+$\SI{16}{\mu\meter\per\second}$ liegt.
 
 Anschließend wird das elektrische
-Feld eingeschaltet, um die Ladung des Tröpchens zu überprüfen. Dafür wird das
-Verhalten des Tröpchens bei den verschiedenen Polungen des Kondensators betrachtet.
-Sollte das Tröpchen
+Feld eingeschaltet, um die Ladung des Tröpfchens zu überprüfen. Dafür wird das
+Verhalten des Tröpfchens bei den verschiedenen Polungen des Kondensators betrachtet.
+Sollte das Tröpfchen
 ungeladen sein, wird bei ausgeschaltetem elektrischen Feld kurzzeitig die Umgebungsluft
 mit der radioaktiven Quelle ionisiert, damit sich Elementarladungen auf dem
-Tröpchen absetzen.
+Tröpfchen absetzen.
 
 Sobald ein Tröpfchen mit passender Geschwindigkeit und Ladung gefunden wird, ist
-die Spannung des Kondensators so einzustellen, dass das Tröpchen ruht. Diese
+die Spannung des Kondensators so einzustellen, dass das Tröpfchen ruht. Diese
 Messung wird für insgesamt 30 verschiedene Öltröpfchen wiederholt.

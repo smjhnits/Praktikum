@@ -40,6 +40,8 @@ Widerstand = np.array([3.239, 3.118, 3.004, 2.897, 2.795, 2.7, 2.61, 2.526, 2.44
 
 params_temp, covariance_temp = curve_fit(poly, Widerstand, temp)
 
+print('Fitparameter Temperatur: ', 'ax**2 + bx + c', params_temp)
+
 temp_gemessen = poly(widerstand_gemessen, *params_temp)
 x_temp = np.linspace(1.65, 2, 1000)
 plt.clf()
@@ -77,14 +79,18 @@ p = Q_(1.01325, 'bar') ## Druck während der Messung
 B = Q_(6.17 * 10**(-3), 'torr * cm')
 korrektur = (1 + B / (p * r_oel))**(-3/2)  ## dimensionslos
 
+##korrigierter Radius ###
+r_korrigiert = (np.sqrt((B / (2 * p))**2 + 9 * visko_gemessen * v_0 / (2 * g * dichte_oel)) - B / (2 * p))
+r_oel = r_korrigiert.to('millimeter')
+
 E_feld = U_gleichgewicht / d_Kondensator
 
 
 ## Ladung bestimmen aus Kräftegleichgewicht
 
-q  = 4 * np.pi / 3 * dichte_oel * r_oel**3 * g * 1 / E_feld
+q  = 4 * np.pi / 3 * dichte_oel * r_korrigiert**3 * g * 1 / E_feld
 q = q.to('coulomb')
-q_korrigiert = q * korrektur
+q_korrigiert = q #* korrektur
 
 
 ## Ladungen im Vergleich zur Elementarladung
@@ -158,16 +164,18 @@ q_best = np.array([])
 
 for i in range(len(best_value)): ## ladung mit geringestem abstand ist der Kandidat für die elementarladung
     q_best = np.append(q_best, np.abs(np.around(best_value[i] / q_test) - best_value[i] / q_test))
+    #if q_best = 0.000916822140607
+    #print(i, q_best[i], best_value[i])
 
-print(len(q_best))
+print(len(q_best), len(best_value), len(q_test))
 print(best_value)
-print(q_best[np.argmin(q_best)], np.argmin(q_best), np.abs(np.around(best_value[3] / q_test[14]) - best_value[3] / q_test[14]))
-print(q_test[14], best_value[3])
+print(q_best[np.argmin(q_best)], np.argmin(q_best), np.abs(np.around(best_value[1] / q_test[13]) - best_value[1] / q_test[13]))
+print(q_test[13], best_value[1])
 
-print('bester wert für e_0:', q_test[14])
-print('absoluter Fehler: ', q_test[14] - const.e)
-print('relativer Fehler: ', np.abs(q_test[14] - const.e) / const.e)
-print(q_test[14] / e)
+print('bester wert für e_0:', q_test[13])
+print('absoluter Fehler: ', q_test[13] - const.e)
+print('relativer Fehler: ', np.abs(q_test[13] - const.e) / const.e)
+print(q_test[13] / e)
 #for i in range(len(noms(q_sortiert.magnitude))):
 #    best_value[i] = round_dist(q_sortiert, q_sortiert[i])
 #
@@ -175,7 +183,7 @@ print(q_test[14] / e)
 
 ### Avogadro-Konstante
 ## mit faradaykonstante
-N_a = 96485.33289 / q_test[14]
+N_a = 96485.33289 / q_test[13]
 print('Avogadro: ', N_a, const.N_A)
 print('absoluter Fehler: ', const.N_A - N_a)
 print('relativer Fehler: ', np.abs(N_a - const.N_A) / const.N_A)
