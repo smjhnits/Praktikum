@@ -31,7 +31,7 @@ Die Messdaten sind in Tabelle \ref{tab:Messdaten} dargestellt.
 Die Werte für Zylinder 4 und den zusammengesetzten Zylinder mit dem
 achten Messwert wurden für die Berechnung der Dämpfungskonstante nicht
 verwendet, weil die Peaks nur bei Verstärkug ausgemessen werden konnten.
-Auf das Herausrechnen des Verstärkunsfaktors wurde der Einfachheit halber verzichtet.
+Auf das Herausrechnen des Verstärkungsfaktors wurde der Einfachheit halber verzichtet.
 Im Mittel ergibt sich die Dämpfungskontante zu:
 
 \begin{equation}
@@ -40,23 +40,23 @@ Im Mittel ergibt sich die Dämpfungskontante zu:
 
 Der Fehler ist die Standardabweichung des Mittelwertes.
 Eine Darstellung der Dämpfung in Acryl ist in dem Diagramm \ref{fig:Dämpfung}
-eizusehen. Dabei sind die Messdaten der Anfangs- und Endamplituden
+einzusehen. Dabei sind die Messdaten der Anfangs- und Endamplituden
 ebenfalls eingetragen.
 
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{Pics/Dämpfung.pdf}
+  \includegraphics[width=\textwidth]{Pics/Daempfung.pdf}
   \caption{Darstellung der Dämpfung der Amplitude mit Zunahme der Strecke.}
   \label{fig:Dämpfung}
 \end{figure}
 
 Die Schallgeschwindigkeit ist aus den Laufzeiten zwischen den
-gemessenen Peaks und den vermessenen Zylinderlägen mithilfe von
+gemessenen Peaks und den vermessenen Zylinderlängen mithilfe von
 \eqref{eqn:Fehlstelle} zu berechnen. Dafür wurde mit dem
-\emph{Python}-Packet \emph{curve\_fit} eine lineare Ausgleichsrechung
+\emph{Python}-Packet \emph{curve\_fit} eine lineare Ausgleichsrechnung
 durchgeführt. Der systematische Fehler der Sonde ist der Ordinaten-Abschnitt
-des Ausgleichgeraden und die Schallgeschwindigkeit ist in der Steigung
+der Ausgleichgeraden und die Schallgeschwindigkeit ist in der Steigung
 wiederzufinden.
 
 Die Werte ergeben sich zu:
@@ -67,7 +67,7 @@ Die Werte ergeben sich zu:
   \Delta\ua{Sonde,echo} &= \SI{-3.862}{\meter\per\second}.
 \end{align}
 
-Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
+Das zugehörige Diagramm der Messung ist im Folgenden dargestellt.
 
 \begin{figure}
   \centering
@@ -93,7 +93,7 @@ Die Werte ergeben sich zu:
   \Delta\ua{Sonde, durch} &= \SI{-2.946}{\meter\per\second}.
 \end{align}
 
-Das zugehörige Diagramm der Messung ist im Folgendem dargestellt.
+Das zugehörige Diagramm der Messung ist im Folgenden dargestellt.
 
 \begin{figure}
   \centering
@@ -217,7 +217,7 @@ Damit ist die Abweichung der Plattendicken auf den systematischen Fehler
 der Schallgeschwindigkeit zurückzuführen.
 
 Die Diagramme aus der Spektralen Analyse (\ref{fig:Spektrum}, \ref{fig:Cepstrum})
-werden im Folgendem diskutiert. In dem Diagramm des Cepstrum sind nicht die Lagen der tatsächlich
+werden im Folgenden diskutiert. In dem Diagramm des Cepstrums sind nicht die Lagen der tatsächlich
 beobachteten Peaks erkenntlich, hingegen werden Peaks dargestellt, die
 nicht beobachtet wurden. Das Spektrum zeigt einen Peak bei ca. $\SI{1.8}{\mega\hertz}$.
 Die Eingangsfrequenz betrug hingegen $\SI{2}{\mega\hertz}$. Die weiteren Peaks
