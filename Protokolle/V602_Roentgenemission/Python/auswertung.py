@@ -27,15 +27,20 @@ plt.plot(WinkelA, RateA, 'bx', label = r'Gemessene Impulsrate')
 plt.ylabel(r'R in $\frac{\mathrm{Imp}}{\mathrm{s}}$')
 plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
 plt.axvline(WinkelA[MaximumA])
-plt.xlim(12.5, 15.5)
+plt.xlim(25.9, 30.1)
 #plt.show()
 plt.savefig('MessungA.pdf')
+
+print("bestimmter Winkel: ", WinkelA[MaximumA], '\n')
 
 # Messung b
 
 
-def G(x, A, x0, sigma1):
-    return A * np.exp(-(x-x0)**2/(2*sigma1**2)) #+  B * np.exp(-(x-x1)**2/(2*sigma2**2))
+def G(x, A, x0, sigma1):#, B, x1, sigma2):
+    return A * np.exp(-(x-x0)**2/(2*sigma1**2))# +  B * np.exp(-(x-x1)**2/(2*sigma2**2))
+
+def Untergrund(x, A, B, C, D):
+    return A*x**3 + B*x**2 + C*x + D
 
 x_plotB = np.linspace(0,27,1000)
 
@@ -43,21 +48,54 @@ x_plotB = np.linspace(0,27,1000)
 Winkel2B, RateB = np.genfromtxt('M_B_T.txt', unpack=True) #skip_header = 1, unpack=True)
 WinkelB = Winkel2B/2
 
+WinkelU = np.append(np.append(WinkelB[0:80], WinkelB[87:92]), WinkelB[97:11])
+RateU = np.append(np.append(RateB[0:80], RateB[87:92]), RateB[97:11])
+
 MaximumB1 = 81
 MaximumB2 = 93
 
 sigma_1 = np.std(WinkelB[70:91], ddof = 1) * 1 / len(WinkelB[70:91])
 sigma_2 = np.std(WinkelB[84:111], ddof = 1) * 1 / len(WinkelB[84:111])
 
-Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateB[70:91], p0 =[1, WinkelB[81], sigma_1])
-Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateB[84:111], p0 =[1, WinkelB[93], sigma_2])
+Params_U, covariance_U = curve_fit(Untergrund, WinkelU, RateU)
+RateBNeu = RateB - Untergrund(WinkelB, *Params_U)
 
-print(sigma_1)
-print(sigma_2)
+Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateBNeu[70:91], p0 =[1, WinkelB[81], sigma_1]) #1, WinkelB[93], sigma_2])
+Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateBNeu[84:111], p0 =[1, WinkelB[93], sigma_2])
+
+print(Params_MB1[1])
+print(Params_MB2[1], '\n')
+
+Maximum1 = Params_MB1[1]
+Maximum2 = Params_MB2[1]
+
+Wellenlänge_MB1 = Wellenlaenge(Maximum1/360*2*np.pi)
+Wellenlänge_MB2 = Wellenlaenge(Maximum2/360*2*np.pi)
+
+print(Wellenlänge_MB1)
+print(Wellenlänge_MB2, '\n')
+
+Energie_MB1 = Energie(Wellenlänge_MB1)
+Energie_MB2 = Energie(Wellenlänge_MB2)
+
+print(Energie_MB1)
+print(Energie_MB2, '\n')
+
+Z_CU = 29
+
+E_kb = Energie_MB1
+E_ka = Energie_MB2
+
+Abschirm_1 = Z_CU - np.sqrt(E_kb*10**3/Ryd)
+Abschirm_2 = Z_CU - np.sqrt(2*(E_kb-E_ka)*10**3/Ryd)
+
+print(Abschirm_1)
+print(Abschirm_2, '\n')
 
 plt.clf()
-plt.plot(WinkelB, RateB , 'rx', label = r'Gemessene Impulsrate')
+plt.plot(WinkelB, RateBNeu , 'rx', label = r'Gemessene Impulsrate')
 plt.plot(x_plotB, G(x_plotB, *Params_MB1) + G(x_plotB, *Params_MB2), 'r-', label = '2-facher Gauß Fit')
+#plt.plot(x_plotB, G(x_plotB, *Params_MB1), 'r-', label = '2-facher Gauß Fit')
 plt.ylabel(r'R in $\frac{\mathrm{Imp}}{\mathrm{s}}$')
 plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
 plt.axvline(WinkelB[MaximumB1], color='c', ls = '--', label = r'$K_{\mathrm{\beta}}$')
@@ -65,7 +103,7 @@ plt.axvline(WinkelB[MaximumB2], color='g', ls = '--', label = r'$K_{\mathrm{\alp
 plt.legend(loc = 'best')
 plt.xlim(3.5, 26.5)
 #plt.show()
-#plt.savefig('MessungB.pdf')
+plt.savefig('MessungB.pdf')
 
 
 # Messung c
@@ -176,6 +214,24 @@ print(Lambda_ZN)
 print(Energie_ZN)
 print(sigma_ZN, '\n')
 
+Energien_MC = np.sqrt(np.array([Energie_ZN, Energie_GE, Energie_BR, Energie_SR, Energie_ZR]))
+Ordnungszahlen = np.array([O_ZN, O_GE, O_BR, O_SR, O_ZR])
+
+def fit(x, A, B):
+    return A * x + B
+
+Params_Ryd, covariance_Ryd = curve_fit(fit, Ordnungszahlen, Energien_MC)
+errors_Ryd = np.sqrt(np.diag(covariance_Ryd))
+
+Z_plot = np.linspace(29,41,1000)
+
+plt.clf()
+plt.plot(Ordnungszahlen, Energien_MC, 'rx', label = 'bestimmte Energien')
+plt.plot(Z_plot, fit(Z_plot, *Params_Ryd), 'b-', label = 'linearer Fit')
+plt.grid()
+plt.show()
+
+print(Params_Ryd[0]**2, '\n')
 # Gold
 
 plt.clf()
