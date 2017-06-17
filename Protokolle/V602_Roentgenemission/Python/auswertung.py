@@ -31,7 +31,13 @@ plt.xlim(25.9, 30.1)
 #plt.show()
 plt.savefig('MessungA.pdf')
 
-print("bestimmter Winkel: ", WinkelA[MaximumA], '\n')
+WL_A = Wellenlaenge(WinkelA[MaximumA]/360*2*np.pi)
+E_A = Energie(WL_A)
+
+print("-----------------Messung A----------------- ")
+print("Winkel:      ", WinkelA[MaximumA])
+print("Wellenlänge: ", WL_A)
+print("Energie:     ", E_A, '\n', '\n')
 
 # Messung b
 
@@ -43,7 +49,6 @@ def Untergrund(x, A, B, C, D):
     return A*x**3 + B*x**2 + C*x + D
 
 x_plotB = np.linspace(0,27,1000)
-
 
 Winkel2B, RateB = np.genfromtxt('M_B_T.txt', unpack=True) #skip_header = 1, unpack=True)
 WinkelB = Winkel2B/2
@@ -63,34 +68,39 @@ RateBNeu = RateB - Untergrund(WinkelB, *Params_U)
 Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateBNeu[70:91], p0 =[1, WinkelB[81], sigma_1]) #1, WinkelB[93], sigma_2])
 Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateBNeu[84:111], p0 =[1, WinkelB[93], sigma_2])
 
-print(Params_MB1[1])
-print(Params_MB2[1], '\n')
-
 Maximum1 = Params_MB1[1]
 Maximum2 = Params_MB2[1]
 
-Wellenlänge_MB1 = Wellenlaenge(Maximum1/360*2*np.pi)
-Wellenlänge_MB2 = Wellenlaenge(Maximum2/360*2*np.pi)
+WL_MB1 = Wellenlaenge(Maximum1/360*2*np.pi)
+WL_MB2 = Wellenlaenge(Maximum2/360*2*np.pi)
 
-print(Wellenlänge_MB1)
-print(Wellenlänge_MB2, '\n')
+E_MB1 = Energie(WL_MB1)
+E_MB2 = Energie(WL_MB2)
 
-Energie_MB1 = Energie(Wellenlänge_MB1)
-Energie_MB2 = Energie(Wellenlänge_MB2)
-
-print(Energie_MB1)
-print(Energie_MB2, '\n')
 
 Z_CU = 29
 
-E_kb = Energie_MB1
-E_ka = Energie_MB2
+E_kb = E_MB1
+E_ka = E_MB2
 
 Abschirm_1 = Z_CU - np.sqrt(E_kb*10**3/Ryd)
 Abschirm_2 = Z_CU - np.sqrt(2*(E_kb-E_ka)*10**3/Ryd)
 
-print(Abschirm_1)
-print(Abschirm_2, '\n')
+print("-----------------Messung B----------------- ")
+print("Erster Piek (Kb): ")
+print("Winkel:            ", Maximum1)
+print("Wellenlänge:       ", WL_MB1)
+print("Energie:           ",  E_MB1)
+print("Abschirmkonstante: ", Abschirm_1, '\n')
+
+print("Zweiter Piek (Ka): ")
+print("Winkel:            ", Maximum2)
+print("Wellenlänge:       ", WL_MB2)
+print("Energie:           ", E_MB2)
+print("Abschirmkonstante: ", Abschirm_2, '\n')
+
+print("Energiedifferenz: ", E_MB2 - E_MB1, '\n')
+
 
 plt.clf()
 plt.plot(WinkelB, RateBNeu , 'rx', label = r'Gemessene Impulsrate')
@@ -107,6 +117,8 @@ plt.savefig('MessungB.pdf')
 
 
 # Messung c
+
+print("-----------------Messung C----------------- ")
 
 O_ZN = 30
 O_GE = 32
@@ -159,10 +171,11 @@ Lambda_GE = Wellenlaenge(Kante_GE/360*2*np.pi)
 Energie_GE = Energie(Lambda_GE) *10**3
 sigma_GE = Abschirm(Energie_GE, O_GE)
 
-print(Kante_GE)
-print(Lambda_GE)
-print(Energie_GE)
-print(sigma_GE, '\n')
+print("--------Germanium--------")
+print("Winkel           : ",Kante_GE)
+print("Wellenlänge      : ", Lambda_GE)
+print("Energie          : ", Energie_GE)
+print("Abschirmkonstante: ", sigma_GE, '\n')
 
 
 P_SR, Error_SR = Fit(Winkel_SR, Rate_SR, 18, 23, f)
@@ -172,10 +185,11 @@ Lambda_SR = Wellenlaenge(Kante_SR/360*2*np.pi)
 Energie_SR = Energie(Lambda_SR)*10**3
 sigma_SR = Abschirm(Energie_SR, O_SR)
 
-print(Kante_SR)
-print(Lambda_SR)
-print(Energie_SR)
-print(sigma_SR, '\n')
+print("--------Strontium--------")
+print("Winkel           : ",Kante_SR)
+print("Wellenlänge      : ",Lambda_SR)
+print("Energie          : ",Energie_SR)
+print("Abschirmkonstante: ",sigma_SR, '\n')
 
 
 P_ZR, Error_ZR = Fit(Winkel_ZR, Rate_ZR, 16, 22, f)
@@ -185,10 +199,11 @@ Lambda_ZR = Wellenlaenge(Kante_ZR/360*2*np.pi)
 Energie_ZR = Energie(Lambda_ZR)*10**3
 sigma_ZR = Abschirm(Energie_ZR, O_ZR)
 
-print(Kante_ZR)
-print(Lambda_ZR)
-print(Energie_ZR)
-print(sigma_ZR, '\n')
+print("--------Zirkonium--------")
+print("Winkel           : ",Kante_ZR)
+print("Wellenlänge      : ",Lambda_ZR)
+print("Energie          : ",Energie_ZR)
+print("Abschirmkonstante: ",sigma_ZR, '\n')
 
 P_BR, Error_BR = Fit(Winkel_BR, Rate_BR, 20, 25, f)
 Plot(Winkel_BR, Rate_BR, 20, 24, 'Impulsrate bei Brom', 'Brom')
@@ -197,10 +212,11 @@ Lambda_BR = Wellenlaenge(Kante_BR/360*2*np.pi)
 Energie_BR = Energie(Lambda_BR)*10**3
 sigma_BR = Abschirm(Energie_BR, O_BR)
 
-print(Kante_BR)
-print(Lambda_BR)
-print(Energie_BR)
-print(sigma_BR, '\n')
+print("--------Brom--------")
+print("Winkel           : ",Kante_BR)
+print("Wellenlänge      : ",Lambda_BR)
+print("Energie          : ",Energie_BR)
+print("Abschirmkonstante: ",sigma_BR, '\n')
 
 P_ZN, Error_ZN = Fit(Winkel_ZN, Rate_ZN, 14, 19, f)
 Plot(Winkel_ZN, Rate_ZN, 14, 18, 'Impulsrate bei Zink', 'Zink')
@@ -209,10 +225,11 @@ Lambda_ZN = Wellenlaenge(Kante_ZN/360*2*np.pi)
 Energie_ZN = Energie(Lambda_ZN)*10**3
 sigma_ZN = Abschirm(Energie_ZN, O_ZN)
 
-print(Kante_ZN)
-print(Lambda_ZN)
-print(Energie_ZN)
-print(sigma_ZN, '\n')
+print("--------Zink--------")
+print("Winkel           : ",Kante_ZN)
+print("Wellenlänge      : ",Lambda_ZN)
+print("Energie          : ",Energie_ZN)
+print("Abschirmkonstante: ",sigma_ZN, '\n')
 
 Energien_MC = np.sqrt(np.array([Energie_ZN, Energie_GE, Energie_BR, Energie_SR, Energie_ZR]))
 Ordnungszahlen = np.array([O_ZN, O_GE, O_BR, O_SR, O_ZR])
@@ -229,11 +246,15 @@ plt.clf()
 plt.plot(Ordnungszahlen, Energien_MC, 'rx', label = 'bestimmte Energien')
 plt.plot(Z_plot, fit(Z_plot, *Params_Ryd), 'b-', label = 'linearer Fit')
 plt.grid()
-plt.show()
+#plt.show()
 
-print(Params_Ryd[0]**2, '\n')
+Ryd_exp = (ufloat(Params_Ryd[0], errors_Ryd[0]))**2
+
+print("Bestimmte Rydbergenergie: ", Ryd_exp, '\n')
+
 # Gold
 
+O_AU = 79
 plt.clf()
 plt.plot(Winkel_AU, Rate_AU, 'rx', label = 'Impulsrate bei Gold', )
 plt.axvline(Winkel_AU[38], color = 'b', ls = '--', label = r'$\vartheta_{\mathrm{L2,min}}$')
@@ -251,13 +272,21 @@ Kante_AU_L2 = (Winkel_AU[43]+Winkel_AU[38])/2
 Kante_AU_L3 = (Winkel_AU[21]+Winkel_AU[18])/2
 Lambda_AU_L2 = Wellenlaenge(Kante_AU_L2/360*2*np.pi)
 Lambda_AU_L3 = Wellenlaenge(Kante_AU_L3/360*2*np.pi)
-Energie_AU_L2 = Energie(Lambda_AU_L2)
-Energie_AU_L3 = Energie(Lambda_AU_L3)
+Energie_AU_L2 = Energie(Lambda_AU_L2)*10**3
+Energie_AU_L3 = Energie(Lambda_AU_L3)*10**3
 
-print(Kante_AU_L2)
-print(Lambda_AU_L2)
-print(Energie_AU_L2, '\n')
+Energie_Delta = (Energie_AU_L3 - Energie_AU_L2)
+Abschirm_AU = O_AU - unp.sqrt((4/a * unp.sqrt(Energie_Delta/Ryd_exp) - 5 * Energie_Delta/Ryd_exp) * ( 1 + 19/32 * a**2 * Energie_Delta/Ryd_exp))
 
-print(Kante_AU_L3)
-print(Lambda_AU_L3)
-print(Energie_AU_L3, '\n')
+print("--------Gold--------", '\n')
+print("----L_2----")
+print("Winkel           : ",Kante_AU_L2)
+print("Wellenlänge      : ",Lambda_AU_L2)
+print("Energie          : ",Energie_AU_L2, '\n')
+
+print("----L_3----")
+print("Winkel           : ",Kante_AU_L3)
+print("Wellenlänge      : ",Lambda_AU_L3)
+print("Energie          : ",Energie_AU_L3, '\n')
+
+print("Abschirmkonstante L-Linie: ", Abschirm_AU)
