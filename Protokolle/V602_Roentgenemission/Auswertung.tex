@@ -1,5 +1,18 @@
 \section{Auswertung}
 
+Für die Berechnung
+der Wellenlängen und Energien werden die Formeln \eqref{eqn:Wellenlänge}
+und \eqref{eqn:Winkel} verwendet. Dabei werden sie in
+folgende Form umgestellt, wobei n aus Formeln \eqref{eqn:Lambda} das betrachtete
+Beugungsmaximum beschreibt (welches im Folgenden immer das 1. ist).
+
+\begin{align}
+  \label{eqn:Lambda}
+  \lambda\ua{min} &= 2 \cdot d \cdot \sin{\theta} \cdot \frac{1}{n} \\
+  \label{eqn:Energie}
+  E\ua{max} &= \frac{h \cdot c}{\lambda} \\
+\end{align}
+
 \subsection{Überprüfung der Bragg-Bedingung}
 
 Bei der Überprüfung der Bragg-Bedingung werden in dem verwendeten Messprogramm
@@ -8,17 +21,17 @@ $\alpha\ua{GM}$, den Winkelzuwachs $\increment\alpha$ sowie die Integrationszeit
 $\increment t$ gewählt:
 
 \begin{align*}
-  \vartheta        &= 14° \\
-  \increment\alpha &= 0.1° \\
+  \vartheta        &= 14 ° \\
+  \increment\alpha &= 0.1 ° \\
   \increment t     &= \SI{10}{s} \\
-  \alpha\ua{GM}    &\in [26°, 30°] .
+  \alpha\ua{GM}    &\in [26 °, 30 °] .
 \end{align*}
 
-Mithilfe von Python und der Daten aus Abbildung \ref{MessungA} wird dann das Maximum der
+Mithilfe von Python und der Daten aus Abbildung \ref{fig:MessungA} wird dann das Maximum der
 Impulsrate bestimmt. Der Winkel wird dann zuerst in die minimale Wellenlänge (Formel
-\eqref{}) sowie
-anschließend in die maximale Energie (Formel \eqref{}) umgerechnet, so dass sich folgende Werte
-ergeben:
+\eqref{eqn:Lambda}) sowie
+anschließend in die maximale Energie (Formel \eqref{eqn:Energie}) umgerechnet,
+so dass sich folgende Werte ergeben:
 
 \begin{align*}
   \vartheta\ua{3.1,max} &= 28.6 ° \\
@@ -43,29 +56,30 @@ Für die Untersuchung des Emissionsspektrums einer Cu-Röntgenröhre wurden in d
 2:1 Koppelmodus die folgenden Einstellungen gewählt:
 
 \begin{align*}
-  \vartheta        &\in [4°, 26°]  \\
-  \increment\vartheta &= 0.2° \\
+  \vartheta        &\in [4 °, 26 °]  \\
+  \increment\vartheta &= 0.2 ° \\
   \increment t     &= \SI{5}{s} .
 \end{align*}
 
 Die erhaltenen Daten sind in Abbildung \ref{fig:MessungB} dargestellt. Zur Bestimmung der
 $K\ua{\alpha}$- und $K\ua{\beta}$-Linie wird zuerst der Untergrund aus den Daten
-herausgerechnet. Dafür wird an die Werte in Tabelle \ref{} ein Polynom 3.Ordnung
+herausgerechnet. Dafür wird an die Werte in Tabelle \ref{tab:Untergrund} ein Polynom 3.Ordnung
 gefittet, für das sich die folgenden Parameter ergeben:
 
 \begin{align*}
   U(x) &= A\cdot x^3 + B\cdot x^2 + C\cdot x + D \\
-  A &=  (0.27 \pm 0.02) \si{\frac{Imp}{s\cdot \alpha^3}} \\
-  B &= (-12.2 \pm -0.7) \si{\frac{Imp}{s\cdot \alpha^2}} \\
-  C &= (170 \pm 9) \si{\frac{Imp}{s\cdot \alpha}} \\
-  D &= (-525 \pm 31) \si{\frac{Imp}{s}} .
+  A &=  (0.27 \pm 0.02) \, \si{\frac{Imp}{s\cdot \alpha^3}} \\
+  B &= (-12.2 \pm -0.7) \, \si{\frac{Imp}{s\cdot \alpha^2}} \\
+  C &= (170 \pm 9) \, \si{\frac{Imp}{s\cdot \alpha}} \\
+  D &= (-525 \pm 31) \, \si{\frac{Imp}{s}} .
 \end{align*}
 
-Des weiteren wird an die Daten aus Tabelle \ref{} und \ref{} jeweils eine Gauß-Funktion
-der Form \eqref{eqn:GaußFit} gefittet:
+Des weiteren wird an die Daten aus Tabelle \ref{Gauß1} und \ref{Gauß2} jeweils eine Gauß-Funktion
+der Form \eqref{eqn:GaußFit} gefittet (Formel \eqref{eqn:GaußFit}). Dabei werden mithilfe der
+Werte des Untergrunds noch die Daten der beiden Tabellen vor dem Fitten angepasst.
 
 \begin{equation}
-  G(x) = A \cdot \exp{ \frac{-(\vartheta-\vartheta_0)^2}{2\cdot s^2}} .
+  G(x) = A \cdot \exp{ \frac{-(\vartheta-\vartheta_0)^2}{2\cdot s^2}}
   \label{eqn:GaußFit}
 \end{equation}
 
@@ -74,20 +88,20 @@ Halbwertsbreite an. Damit ergeben sich für die $K\ua{\alpha}$-Linie die folgend
 Parameter:
 
 \begin{align*}
-  A\ua{K\ua{\alpha}} &= (4.7 \pm 0.3) \cdot 10^3 \si{\frac{Imp}{s}} \\
+  A\ua{K\ua{\alpha}} &= (4.7 \pm 0.3) \cdot 10^3 \, \si{\frac{Imp}{s}} \\
   \vartheta\ua{K\ua{\alpha}} &= \vartheta_0 =  (22.57 \pm 0.01) ° \\
-  \lambda\ua{K\ua{\alpha}} &= (1.5458 \pm 0.0008) \cdot 10^{-10} \si{m} \\
-  E\ua{K\ua{\alpha}} &= (8020 \pm 4) \si{eV} \\
+  \lambda\ua{K\ua{\alpha}} &= (1.5458 \pm 0.0008) \cdot 10^{-10} \, \si{m} \\
+  E\ua{K\ua{\alpha}} &= (8020 \pm 4) \, \si{eV} \\
   s\ua{K\ua{\alpha}} &= (0.19 \pm 0.1) ° .
 \end{align*}
 
 Analog ergeben sich für die $K\ua{\beta}$-Linie die folgenden Werte :
 
 \begin{align*}
-  A\ua{K\ua{\beta}} &= (1.62 \pm 0.04) \cdot 10^3 \si{\frac{Imp}{s}} \\
+  A\ua{K\ua{\beta}} &= (1.62 \pm 0.04) \cdot 10^3 \, \si{\frac{Imp}{s}} \\
   \vartheta\ua{K\ua{\beta}} &= \vartheta_0 =  (20.289 \pm 0.003) ° \\
-  \lambda\ua{K\ua{\beta}} &= (1.3967 \pm 0.0002) \cdot 10^{-10} \si{m} \\
-  E\ua{K\ua{\beta}} &= (8876 \pm 1) \si{eV} \\
+  \lambda\ua{K\ua{\beta}} &= (1.3967 \pm 0.0002) \cdot 10^{-10} \, \si{m} \\
+  E\ua{K\ua{\beta}} &= (8876 \pm 1) \, \si{eV} \\
   s\ua{K\ua{\beta}} &= (0.136 \pm 0.005) ° .
 \end{align*}
 
@@ -106,16 +120,25 @@ eine Güte des Versuches angegeben werden, dessen Optimalwert bei 1 liegt. Für
 den Versuch ergibt sich damit das folgende Auflösungsvermögen:
 
 \begin{align*}
-  E\ua{s\ua{K\ua{\alpha}}} &= (9.2 \pm 0.7) \cdot 10^2 \si{eV} \\
-  E\ua{s\ua{K\ua{\beta}}} &= (1.3 \pm 0.04) \cdot 10^3 \si{eV} \\
+  E\ua{s\ua{K\ua{\alpha}}} &= (9.2 \pm 0.7) \cdot 10^2 \, \si{eV} \\
+  E\ua{s\ua{K\ua{\beta}}} &= (1.3 \pm 0.04) \cdot 10^3 \, \si{eV} \\
   \phi &= \frac{E\ua{s\ua{K\ua{\beta}}}}{E\ua{s\ua{K\ua{\alpha}}}} = 1.41 \pm 0.11 .
 \end{align*}
 
 \begin{figure}
+  \centering
   \includegraphics[width = 0.8\textwidth]{Python/MessungB.pdf}
   \caption{Gemessene Impulsrate einer Cu-Röntgenröhre}
   \label{fig:MessungB}
 \end{figure}
+
+\input{"Tabellen/Untergrund.tex"}
+
+\input{"Tabellen/Gauss1.tex"}
+
+\input{"Tabellen/Gauss2.tex"}
+
+\newpage
 
 \subsection{Das Absorptionsspektrum}
 
@@ -123,31 +146,146 @@ Für die Untersuchung des Absorptionsspektrums verschiedener Materialien wurden 
 2:1 Koppelmodus die folgenden Einstellungen gewählt:
 
 \begin{align*}
-  \increment\vartheta &= 0.1° \\
+  \increment\vartheta &= 0.1 ° \\
   \increment t     &= \SI{20}{s} .
 \end{align*}
 
-Das Messintervall wurde dabei bei jedem Material unabhängig gewählt.
+Das Messintervall wurde dabei bei jedem Material unabhängig gewählt. Für die
+Berechnung der Abschirmkonstante wird Formel \eqref{eqn:Bindungsenergien} umgestellt,
+so dass sich die folgende Relation ergibt.  $\alpha$
+beschreibt dabei die Sommerfeldsche Feinstrukturkonstante.
+
+\begin{equation}
+  \sigma\ua{K} = Z - \sqrt{ \frac{E\ua{max}}{R\ua{\infty}} - \frac{\alpha^4 Z^4}{4}}
+  \label{eqn:Abschirmkonst}
+\end{equation}
 
 \subsubsection{Germanium}
 
-Bei Germanium wurde ein Messintervall von $\vartheta$ $\in$ [14°, 18°] gewählt.
-Mithilfe der Daten aus Tabelle \ref{} (grafisch siehe Abbildung \ref{fig:Germanium})
-kann für Germanium nun die Absorptionsenergie der K-Kante bestimmt werden sowie
-die daraus resultierende Abschirmkonstante nach Formel \eqref{}. Die für die Berechnung
+Bei Germanium wurde ein Messintervall von $\vartheta$ $\in$ [14 °, 18 °] gewählt.
+Mithilfe der Daten aus Tabelle \ref{tab:Germanium} (grafisch siehe Abbildung
+\ref{fig:Germanium})
+kann für Germanium nun die Absorptionsenergie (Formel \eqref{eqn:Energie})
+der K-Kante bestimmt werden sowie
+die daraus resultierende Abschirmkonstante nach Formel \eqref{eqn:Abschirmkonst}.
+Die für die Berechnung
 der Werte verwendete Ordnungszahl ist 32.
 
+\begin{align*}
+  \vartheta\ua{GE} &= 16.15 ° \\
+  \lambda\ua{GE,min} &= 1.12 \cdot 10^{-10} \, \si{m} \\
+  E\ua{GE,max} &= 11066 \, \si{eV} \\
+  \sigma\ua{GE} &= 3.72
+\end{align*}
+
 \begin{figure}
+  \centering
   \includegraphics[width = 0.8\textwidth]{Python/Germanium.pdf}
   \caption{Gemessenes Absorptionsspektrum bei Germanium.}
   \label{fig:Germanium}
 \end{figure}
 
-\begin{align*}
-  \vartheta\ua{GE} &= 16.15 ° \\
-  \lambda\ua{GE,min} &= 1.12 \cdot 10^{-10} \si{m} \\
-  E\ua{GE,max} &= 11066 \si{eV} \\
-  \sigma\ua{GE} &= 3.72
-\end{align*}
 
 \input{"Tabellen/Germanium.tex"}
+
+Da die Berechnung der Werte für alle Materialien gleich erfolgt, werden im Folgenden
+lediglich die Tabellen, Graphen sowie Ergebniss für Zink, Zirkonium, Strontium und
+Brom vorgestellt.
+
+\newpage
+
+\subsubsection{Brom}
+
+Für Brom wird ein Messintervall von $\vartheta$ $\in$ [11 °, 15 °] gewählt.
+Die Ordnungszahl ist 35. Die gemessenen Werte sind in Tabelle \ref{tab:Brom}
+sowie grafisch in Abbildung \ref{fig:Brom} dargestellt.
+
+\begin{align*}
+  \vartheta\ua{BR} &= 13.2 ° \\
+  \lambda\ua{BR,min} &= 9.20 \cdot 10^{-10} \, \si{m} \\
+  E\ua{BR,max} &= 13480 \, \si{eV} \\
+  \sigma\ua{BR} &= 3.84
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Python/Brom.pdf}
+  \caption{Gemessenes Absorptionsspektrum bei Brom.}
+  \label{fig:Brom}
+\end{figure}
+
+\input{"Tabellen/Brom.tex"}
+
+\newpage
+
+\subsubsection{Zirkonium}
+
+Das gewählte Messintervall von Zirkonium ist $\vartheta$ $\in$ [8 °, 12 °]. Die
+Ordnungszahl von Zirkonium ist 40. Alle Daten sind in Tabelle \ref{tab:Zirkonium}
+sowie Abbildung \ref{fig:Zirkonium} dargestellt.
+
+\begin{align*}
+  \vartheta\ua{ZR} &= 9.85 ° \\
+  \lambda\ua{ZR,min} &= 6.89 \cdot 10^{-11} \, \si{m} \\
+  E\ua{ZR,max} &= 17993 \, \si{eV} \\
+  \sigma\ua{ZR} &= 4.10
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Python/Zirkonium.pdf}
+  \caption{Gemessenes Absorptionsspektrum bei Zirkonium.}
+  \label{fig:Zirkonium}
+\end{figure}
+
+\input{"Tabellen/Zirkonium.tex"}
+
+\newpage
+
+\subsubsection{Strontium}
+
+Strontium besitzt die Ordnungszahl 38. Für die Messung wird ein Intervalle von
+$\vartheta$ $\in$ [9 °, 13 °] betrachtet. Die Ergebnisse sind in Tabelle \ref{tab:Strontium}
+und Abbildung \ref{fig:Strontium} dargestellt.
+
+\begin{align*}
+  \vartheta\ua{SR} &= 11.0 ° \\
+  \lambda\ua{SR,min} &= 7.69 \cdot 10^{-11} \, \si{m} \\
+  E\ua{SR,max} &= 16132 \, \si{eV} \\
+  \sigma\ua{SR} &= 3.96
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Python/Strontium.pdf}
+  \caption{Gemessenes Absorptionsspektrum bei Strontium.}
+  \label{fig:Strontium}
+\end{figure}
+
+\input{"Tabellen/Strontium.tex"}
+
+\newpage
+
+\subsubsection{Zink}
+
+Für Zink wird ein Messintervall von $\vartheta$ $\in$ [17 °, 21 °] gewählt. Die
+Ordnungszahl von Zink ist 30. Alle verwerteten Daten sind in Tabelle \ref{tab:Zink}
+sowie grafisch in Abbildung \ref{fig:Zink} dargestellt.
+
+\begin{align*}
+  \vartheta\ua{SR} &= 18.58 ° \\
+  \lambda\ua{SR,min} &= 1.28 \cdot 10^{-10} \, \si{m} \\
+  E\ua{SR,max} &= 9663 \, \si{eV} \\
+  \sigma\ua{SR} &= 3.55
+\end{align*}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Python/Zink.pdf}
+  \caption{Gemessenes Absorptionsspektrum bei Zink.}
+  \label{fig:Zink}
+\end{figure}
+
+\input{"Tabellen/Zink.tex"}
+
+\subsubsection{Rydbergenergie}

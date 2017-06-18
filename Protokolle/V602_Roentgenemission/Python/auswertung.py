@@ -57,8 +57,8 @@ x_plotB = np.linspace(0,27,1000)
 Winkel2B, RateB = np.genfromtxt('M_B_T.txt', unpack=True) #skip_header = 1, unpack=True)
 WinkelB = Winkel2B/2
 
-WinkelU = np.append(np.append(WinkelB[0:80], WinkelB[87:92]), WinkelB[97:11])
-RateU = np.append(np.append(RateB[0:80], RateB[87:92]), RateB[97:11])
+WinkelU = np.append(np.append(WinkelB[0:80], WinkelB[86:90]), WinkelB[97:11])
+RateU = np.append(np.append(RateB[0:80], RateB[86:90]), RateB[97:11])
 
 #WinkelU = np.append(WinkelB[0:80], WinkelB[97:11])
 #RateU = np.append(RateB[0:80], RateB[97:11])
@@ -148,7 +148,7 @@ plt.axvline(Params_MB2[1], color='g', ls = '--', label = r'$K_{\mathrm{\alpha}}$
 plt.legend(loc = 'best')
 plt.xlim(3.5, 26.5)
 #plt.show()
-#plt.savefig('MessungB.pdf')
+plt.savefig('MessungB.pdf')
 
 
 # Messung c
