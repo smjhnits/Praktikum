@@ -14,6 +14,9 @@ a = 7.297 * 10 **(-3)
 def Wellenlaenge(x):
     return 2 * d * np.sin(x)
 
+def WellenlaengeUNP(x):
+    return 2 * d * unp.sin(x)
+
 def Energie(x):
     return sc.h * sc.c / (x * 10**3 * sc.e)
 
@@ -41,6 +44,7 @@ print("Energie:     ", E_A, '\n', '\n')
 
 # Messung b
 
+print("-----------------Messung B----------------- ")
 
 def G(x, A, x0, sigma1):#, B, x1, sigma2):
     return A * np.exp(-(x-x0)**2/(2*sigma1**2))# +  B * np.exp(-(x-x1)**2/(2*sigma2**2))
@@ -56,6 +60,9 @@ WinkelB = Winkel2B/2
 WinkelU = np.append(np.append(WinkelB[0:80], WinkelB[87:92]), WinkelB[97:11])
 RateU = np.append(np.append(RateB[0:80], RateB[87:92]), RateB[97:11])
 
+#WinkelU = np.append(WinkelB[0:80], WinkelB[97:11])
+#RateU = np.append(RateB[0:80], RateB[97:11])
+
 MaximumB1 = 81
 MaximumB2 = 93
 
@@ -63,57 +70,85 @@ sigma_1 = np.std(WinkelB[70:91], ddof = 1) * 1 / len(WinkelB[70:91])
 sigma_2 = np.std(WinkelB[84:111], ddof = 1) * 1 / len(WinkelB[84:111])
 
 Params_U, covariance_U = curve_fit(Untergrund, WinkelU, RateU)
+errors_U = np.sqrt(np.diag(covariance_U))
 RateBNeu = RateB - Untergrund(WinkelB, *Params_U)
 
-Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateBNeu[70:91], p0 =[1, WinkelB[81], sigma_1]) #1, WinkelB[93], sigma_2])
+Untergrund_A = ufloat(Params_U[0], errors_U[0])
+Untergrund_B = ufloat(Params_U[1], errors_U[1])
+Untergrund_C = ufloat(Params_U[2], errors_U[2])
+Untergrund_D = ufloat(Params_U[3], errors_U[3])
+
+print("---Untergrund---")
+print("A: ", Untergrund_A)
+print("B: ", Untergrund_B)
+print("C: ", Untergrund_C)
+print("D: ", Untergrund_D, '\n')
+
+Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateBNeu[70:91], p0 =[1, WinkelB[81], sigma_1])
+errors_MB1 = np.sqrt(np.diag(covariance_MB1))
 Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateBNeu[84:111], p0 =[1, WinkelB[93], sigma_2])
+errors_MB2 = np.sqrt(np.diag(covariance_MB2))
 
-Maximum1 = Params_MB1[1]
-Maximum2 = Params_MB2[1]
+Amplitude_MB1 = ufloat(Params_MB1[0], errors_MB1[0])
+Amplitude_MB2 = ufloat(Params_MB2[0], errors_MB2[0])
 
-WL_MB1 = Wellenlaenge(Maximum1/360*2*np.pi)
-WL_MB2 = Wellenlaenge(Maximum2/360*2*np.pi)
+Maximum_MB1 = ufloat(Params_MB1[1], errors_MB1[1])
+Maximum_MB2 = ufloat(Params_MB2[1], errors_MB2[1])
 
-E_MB1 = Energie(WL_MB1)
-E_MB2 = Energie(WL_MB2)
+sigma_MB1 = ufloat(Params_MB1[2], errors_MB1[2])
+sigma_MB2 = ufloat(Params_MB2[2], errors_MB2[2])
 
+WL_MB1 = WellenlaengeUNP(Maximum_MB1/360*2*np.pi)
+WL_MB2 = WellenlaengeUNP(Maximum_MB2/360*2*np.pi)
+
+E_MB1 = Energie(WL_MB1) *10**3
+E_MB2 = Energie(WL_MB2) *10**3
+
+E_Sigma1 = Energie(WellenlaengeUNP(sigma_MB1/360*2*np.pi))
+E_Sigma2 = Energie(WellenlaengeUNP(sigma_MB2/360*2*np.pi))
 
 Z_CU = 29
 
 E_kb = E_MB1
 E_ka = E_MB2
 
-Abschirm_1 = Z_CU - np.sqrt(E_kb*10**3/Ryd)
-Abschirm_2 = Z_CU - np.sqrt(2*(E_kb-E_ka)*10**3/Ryd)
+Abschirm_1 = Z_CU - unp.sqrt(E_kb/Ryd)
+Abschirm_2 = Z_CU - unp.sqrt(2*(E_kb-E_ka)/Ryd)
 
-print("-----------------Messung B----------------- ")
 print("Erster Piek (Kb): ")
-print("Winkel:            ", Maximum1)
-print("Wellenlänge:       ", WL_MB1)
-print("Energie:           ",  E_MB1)
-print("Abschirmkonstante: ", Abschirm_1, '\n')
+print("Amplitude:              ", Amplitude_MB1)
+print("Winkel:                 ", Maximum_MB1)
+print("Wellenlänge:            ", WL_MB1)
+print("Energie:                ",  E_MB1)
+print("Halbbreite:             ", sigma_MB1)
+print("Energie der Halbbreite: ", E_Sigma1, '\n' )
 
 print("Zweiter Piek (Ka): ")
-print("Winkel:            ", Maximum2)
-print("Wellenlänge:       ", WL_MB2)
-print("Energie:           ", E_MB2)
-print("Abschirmkonstante: ", Abschirm_2, '\n')
+print("Amplitude:              ", Amplitude_MB2)
+print("Winkel:                 ", Maximum_MB2)
+print("Wellenlänge:            ", WL_MB2)
+print("Energie:                ", E_MB2)
+print("Halbbreite:             ", sigma_MB2)
+print("Energie der Halbbreite: ", E_Sigma2, '\n' )
 
-print("Energiedifferenz: ", E_MB2 - E_MB1, '\n')
+print("Energiedifferenz:   ", E_Sigma2 - E_Sigma1)
+print("Güte des Versuches: ", E_Sigma1 / E_Sigma2, '\n')
 
+print("Abschirmkonstante K-Kante: ", Abschirm_1)
+print("Abschirmkonstante L-Kante: ", Abschirm_2, '\n')
 
 plt.clf()
-plt.plot(WinkelB, RateBNeu , 'rx', label = r'Gemessene Impulsrate')
-plt.plot(x_plotB, G(x_plotB, *Params_MB1) + G(x_plotB, *Params_MB2), 'r-', label = '2-facher Gauß Fit')
+plt.plot(WinkelB, RateB , 'rx', label = r'Gemessene Impulsrate')
+plt.plot(x_plotB, G(x_plotB, *Params_MB1) + G(x_plotB, *Params_MB2) + Untergrund(x_plotB, *Params_U), 'r-', label = '2-facher Gauß Fit')
 #plt.plot(x_plotB, G(x_plotB, *Params_MB1), 'r-', label = '2-facher Gauß Fit')
 plt.ylabel(r'R in $\frac{\mathrm{Imp}}{\mathrm{s}}$')
 plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
-plt.axvline(WinkelB[MaximumB1], color='c', ls = '--', label = r'$K_{\mathrm{\beta}}$')
-plt.axvline(WinkelB[MaximumB2], color='g', ls = '--', label = r'$K_{\mathrm{\alpha}}$')
+plt.axvline(Params_MB1[1], color='c', ls = '--', label = r'$K_{\mathrm{\beta}}$')
+plt.axvline(Params_MB2[1], color='g', ls = '--', label = r'$K_{\mathrm{\alpha}}$')
 plt.legend(loc = 'best')
 plt.xlim(3.5, 26.5)
 #plt.show()
-plt.savefig('MessungB.pdf')
+#plt.savefig('MessungB.pdf')
 
 
 # Messung c
@@ -160,6 +195,9 @@ def Plot(Winkel, Rate, x1, x2, Beschriftung, Name):
     #plt.savefig(Name+'.pdf', format = 'pdf')
 
 def Abschirm(E,Z):
+    return Z - np.sqrt(E/Ryd - a**2 * Z**4 / 4)
+
+def AbschirmUNP(E,Z):
     return Z - np.sqrt(E/Ryd - a**2 * Z**4 / 4)
 
 
@@ -240,14 +278,26 @@ def fit(x, A, B):
 Params_Ryd, covariance_Ryd = curve_fit(fit, Ordnungszahlen, Energien_MC)
 errors_Ryd = np.sqrt(np.diag(covariance_Ryd))
 
-Z_plot = np.linspace(29,41,1000)
+Z_plot = np.linspace(27,43,1000)
 
 plt.clf()
-plt.plot(Ordnungszahlen, Energien_MC, 'rx', label = 'bestimmte Energien')
+plt.plot(Ordnungszahlen, Energien_MC, 'rx', label = 'bestimmte Bindungsenergien')
 plt.plot(Z_plot, fit(Z_plot, *Params_Ryd), 'b-', label = 'linearer Fit')
-plt.grid()
+plt.xlabel(r'Ordnungszahlen $Z$')
+plt.ylabel(r'Bindungsenergien $E_{\mathrm{n}}$')
+plt.legend(loc = 'best')
+plt.xlim(29, 41)
+plt.ylim(90,150 )
+#plt.grid()
 #plt.show()
+#plt.savefig('Rydberg.pdf')
 
+Ryd_A = ufloat(Params_Ryd[0], errors_Ryd[0])
+Ryd_B = ufloat(Params_Ryd[1], errors_Ryd[1])
+
+print("-------Rydberg Energie-------")
+print("Parameter A:              ", Ryd_A)
+print("Parameter B:              ", Ryd_B)
 Ryd_exp = (ufloat(Params_Ryd[0], errors_Ryd[0]))**2
 
 print("Bestimmte Rydbergenergie: ", Ryd_exp, '\n')
