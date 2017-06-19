@@ -46,8 +46,8 @@ print("Energie:     ", E_A, '\n', '\n')
 
 print("-----------------Messung B----------------- ")
 
-def G(x, A, x0, sigma1):#, B, x1, sigma2):
-    return A * np.exp(-(x-x0)**2/(2*sigma1**2))# +  B * np.exp(-(x-x1)**2/(2*sigma2**2))
+def G(x, A, x0, sigma1, B, x1, sigma2):
+    return A * np.exp(-(x-x0)**2/(2*sigma1**2)) +  B * np.exp(-(x-x1)**2/(2*sigma2**2))
 
 def Untergrund(x, A, B, C, D):
     return A*x**3 + B*x**2 + C*x + D
@@ -84,19 +84,22 @@ print("B: ", Untergrund_B)
 print("C: ", Untergrund_C)
 print("D: ", Untergrund_D, '\n')
 
-Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[70:91], RateBNeu[70:91], p0 =[1, WinkelB[81], sigma_1])
+Params_MB1, covariance_MB1 = curve_fit(G, WinkelB[60:111], RateBNeu[60:111], p0 =[1, WinkelB[81], sigma_1, 1, WinkelB[93], sigma_2])
 errors_MB1 = np.sqrt(np.diag(covariance_MB1))
-Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateBNeu[84:111], p0 =[1, WinkelB[93], sigma_2])
-errors_MB2 = np.sqrt(np.diag(covariance_MB2))
+#Params_MB2, covariance_MB2 = curve_fit(G, WinkelB[84:111], RateBNeu[84:111], p0 =[1, WinkelB[93], sigma_2])
+#errors_MB2 = np.sqrt(np.diag(covariance_MB2))
 
-Amplitude_MB1 = ufloat(Params_MB1[0], errors_MB1[0])
-Amplitude_MB2 = ufloat(Params_MB2[0], errors_MB2[0])
+Amplitude_MB2 = ufloat(Params_MB1[0], errors_MB1[0])
+Amplitude_MB1 = ufloat(Params_MB1[3], errors_MB1[3])
+#Amplitude_MB2 = ufloat(Params_MB2[0], errors_MB2[0])
 
-Maximum_MB1 = ufloat(Params_MB1[1], errors_MB1[1])
-Maximum_MB2 = ufloat(Params_MB2[1], errors_MB2[1])
+Maximum_MB2 = ufloat(Params_MB1[1], errors_MB1[1])
+Maximum_MB1 = ufloat(Params_MB1[4], errors_MB1[4])
+#Maximum_MB2 = ufloat(Params_MB2[1], errors_MB2[1])
 
-sigma_MB1 = ufloat(Params_MB1[2], errors_MB1[2])
-sigma_MB2 = ufloat(Params_MB2[2], errors_MB2[2])
+sigma_MB2 = ufloat(Params_MB1[2], errors_MB1[2])
+sigma_MB1 = ufloat(Params_MB1[5], errors_MB1[5])
+#sigma_MB2 = ufloat(Params_MB2[2], errors_MB2[2])
 
 WL_MB1 = WellenlaengeUNP(Maximum_MB1/360*2*np.pi)
 WL_MB2 = WellenlaengeUNP(Maximum_MB2/360*2*np.pi)
@@ -115,6 +118,10 @@ E_ka = E_MB2
 Abschirm_1 = Z_CU - unp.sqrt(E_kb/Ryd)
 Abschirm_2 = Z_CU - unp.sqrt(2*(E_kb-E_ka)/Ryd)
 
+E_Sigma = np.array([unp.nominal_values(E_Sigma1), unp.nominal_values(E_Sigma2)])
+
+Mittelwert = ufloat(np.mean(E_Sigma), np.std(E_Sigma, ddof = 1) * 1 / np.sqrt(len(E_Sigma)))
+
 print("Erster Piek (Kb): ")
 print("Amplitude:              ", Amplitude_MB1)
 print("Winkel:                 ", Maximum_MB1)
@@ -132,6 +139,7 @@ print("Halbbreite:             ", sigma_MB2)
 print("Energie der Halbbreite: ", E_Sigma2, '\n' )
 
 print("Energiedifferenz:   ", E_Sigma2 - E_Sigma1)
+print("Auflösungsvermögen: ", Mittelwert)
 print("Güte des Versuches: ", E_Sigma1 / E_Sigma2, '\n')
 
 print("Abschirmkonstante K-Kante: ", Abschirm_1)
@@ -139,16 +147,16 @@ print("Abschirmkonstante L-Kante: ", Abschirm_2, '\n')
 
 plt.clf()
 plt.plot(WinkelB, RateB , 'rx', label = r'Gemessene Impulsrate')
-plt.plot(x_plotB, G(x_plotB, *Params_MB1) + G(x_plotB, *Params_MB2) + Untergrund(x_plotB, *Params_U), 'r-', label = '2-facher Gauß Fit')
-#plt.plot(x_plotB, G(x_plotB, *Params_MB1), 'r-', label = '2-facher Gauß Fit')
+#plt.plot(x_plotB, G(x_plotB, *Params_MB1) + G(x_plotB, *Params_MB2) + Untergrund(x_plotB, *Params_U), 'r-', label = '2-facher Gauß Fit')
+plt.plot(x_plotB, G(x_plotB, *Params_MB1) + Untergrund(x_plotB, *Params_U), 'r-', label = '2-facher Gauß Fit')
 plt.ylabel(r'R in $\frac{\mathrm{Imp}}{\mathrm{s}}$')
 plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
-plt.axvline(Params_MB1[1], color='c', ls = '--', label = r'$K_{\mathrm{\beta}}$')
-plt.axvline(Params_MB2[1], color='g', ls = '--', label = r'$K_{\mathrm{\alpha}}$')
+plt.axvline(Params_MB1[4], color='c', ls = '--', label = r'$K_{\mathrm{\beta}}$')
+plt.axvline(Params_MB1[1], color='g', ls = '--', label = r'$K_{\mathrm{\alpha}}$')
 plt.legend(loc = 'best')
 plt.xlim(3.5, 26.5)
 #plt.show()
-plt.savefig('MessungB.pdf')
+#plt.savefig('MessungB.pdf')
 
 
 # Messung c
@@ -283,14 +291,14 @@ Z_plot = np.linspace(27,43,1000)
 plt.clf()
 plt.plot(Ordnungszahlen, Energien_MC, 'rx', label = 'bestimmte Bindungsenergien')
 plt.plot(Z_plot, fit(Z_plot, *Params_Ryd), 'b-', label = 'linearer Fit')
-plt.xlabel(r'Ordnungszahlen $Z$')
-plt.ylabel(r'Bindungsenergien $E_{\mathrm{n}}$')
+plt.xlabel(r'$Z$')
+plt.ylabel(r'$\sqrt{E_{\mathrm{n}}}$ in $\mathrm{eV}$')
 plt.legend(loc = 'best')
 plt.xlim(29, 41)
 plt.ylim(90,150 )
 #plt.grid()
 #plt.show()
-#plt.savefig('Rydberg.pdf')
+plt.savefig('Rydberg.pdf')
 
 Ryd_A = ufloat(Params_Ryd[0], errors_Ryd[0])
 Ryd_B = ufloat(Params_Ryd[1], errors_Ryd[1])
