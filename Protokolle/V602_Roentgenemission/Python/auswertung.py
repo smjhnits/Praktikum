@@ -97,8 +97,8 @@ Maximum_MB2 = ufloat(Params_MB1[1], errors_MB1[1])
 Maximum_MB1 = ufloat(Params_MB1[4], errors_MB1[4])
 #Maximum_MB2 = ufloat(Params_MB2[1], errors_MB2[1])
 
-sigma_MB2 = ufloat(Params_MB1[2], errors_MB1[2])
-sigma_MB1 = ufloat(Params_MB1[5], errors_MB1[5])
+sigma_MB2 = 2*ufloat(Params_MB1[2], errors_MB1[2])
+sigma_MB1 = 2*ufloat(Params_MB1[5], errors_MB1[5])
 #sigma_MB2 = ufloat(Params_MB2[2], errors_MB2[2])
 
 WL_MB1 = WellenlaengeUNP(Maximum_MB1/360*2*np.pi)
@@ -107,8 +107,13 @@ WL_MB2 = WellenlaengeUNP(Maximum_MB2/360*2*np.pi)
 E_MB1 = Energie(WL_MB1) *10**3
 E_MB2 = Energie(WL_MB2) *10**3
 
-E_Sigma1 = Energie(WellenlaengeUNP(sigma_MB1/360*2*np.pi))
-E_Sigma2 = Energie(WellenlaengeUNP(sigma_MB2/360*2*np.pi))
+E_Sigma1_1 = Energie(WellenlaengeUNP((Maximum_MB1-sigma_MB1)/360*2*np.pi)) *10**3
+E_Sigma1_2 = Energie(WellenlaengeUNP((Maximum_MB1+sigma_MB1)/360*2*np.pi)) *10**3
+E_Sigma1 = E_Sigma1_2 - E_Sigma1_1
+
+E_Sigma2_1 = Energie(WellenlaengeUNP((Maximum_MB2-sigma_MB2)/360*2*np.pi)) *10**3
+E_Sigma2_2 = Energie(WellenlaengeUNP((Maximum_MB2+sigma_MB2)/360*2*np.pi)) *10**3
+E_Sigma2 = E_Sigma2_2 - E_Sigma2_1
 
 Z_CU = 29
 

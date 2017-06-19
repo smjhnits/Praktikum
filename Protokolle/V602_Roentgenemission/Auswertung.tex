@@ -21,20 +21,21 @@ $\alpha\ua{GM}$, den Winkelzuwachs $\increment\alpha$ sowie die Integrationszeit
 $\increment t$ gewählt:
 
 \begin{align*}
-  \vartheta        &= 14 ° \\
-  \increment\alpha &= 0.1 ° \\
+  \vartheta        &= 14 \,° \\
+  \increment\alpha &= 0.1\, ° \\
   \increment t     &= \SI{10}{s} \\
-  \alpha\ua{GM}    &\in [26 °, 30 °] .
+  \alpha\ua{GM}    &\in [26\, °, 30\, °] .
 \end{align*}
 
-Mithilfe von Python und der Daten aus Abbildung \ref{fig:MessungA} wird dann das Maximum der
+Mithilfe von Python und der Daten aus Abbildung \ref{fig:MessungA} sowie Tabelle
+\ref{tab:Messung3.1} wird dann das Maximum der
 Impulsrate bestimmt. Der Winkel wird dann zuerst in die minimale Wellenlänge (Formel
 \eqref{eqn:Lambda}) sowie
 anschließend in die maximale Energie (Formel \eqref{eqn:Energie}) umgerechnet,
 so dass sich folgende Werte ergeben:
 
 \begin{align*}
-  \vartheta\ua{3.1,max} &= 28.6 ° \\
+  \vartheta\ua{3.1,max} &= 28.6\, ° \\
   \lambda\ua{3.1,min} &= \SI{1.93e-10}{m} \\
   E\ua{3.1, max} &= \SI{6.43}{eV} .
 \end{align*}
@@ -50,14 +51,16 @@ Im Vergleich mit dem Erwartungswert von $\vartheta$ = 14 ° ergibt sich eine
 Abweichung von $\increment\vartheta$ = 0.6 ° sowie prozentual eine Abweichung
 von $\increment\vartheta$ = 2.1 $\%$.
 
+\input{"Tabellen/MessungA.tex"}
+
 \subsection{Das Emissionsspektrum einer Cu-Röntgenröhre}
 
 Für die Untersuchung des Emissionsspektrums einer Cu-Röntgenröhre wurden in dem
 2:1 Koppelmodus die folgenden Einstellungen gewählt:
 
 \begin{align*}
-  \vartheta        &\in [4 °, 26 °]  \\
-  \increment\vartheta &= 0.2 ° \\
+  \vartheta        &\in [4 \,°, 26\, °]  \\
+  \increment\vartheta &= 0.2 \,° \\
   \increment t     &= \SI{5}{s} .
 \end{align*}
 
@@ -74,66 +77,78 @@ gefittet, für das sich die folgenden Parameter ergeben:
   D &= (-525 \pm 31) \, \si{\frac{Imp}{s}} .
 \end{align*}
 
-Des weiteren wird an die Daten aus Tabelle \ref{Gauß1} eine Gauß-Funktion
-der Form \eqref{eqn:GaußFit} gefittet (Formel \eqref{eqn:GaußFit}). Dabei werden mithilfe der
+Des weiteren wird an die Daten aus Tabelle \ref{tab:Gauß1} eine Gauß-Funktion
+der Form \eqref{eqn:GaußFit} gefittet. Dabei werden mithilfe der
 Werte des Untergrunds noch die Daten der Tabelle vor dem Fitten angepasst.
 
 \begin{equation}
-  G(x) = A \cdot \exp{ \frac{-(\vartheta-\vartheta_0)^2}{2\cdot s^2}}
+  G(x) = A\ua{K\ua{\alpha}} \cdot \exp{ \frac{-(\vartheta-\vartheta\ua{K\ua{\alpha}})^2}{2\cdot s\ua{K\ua{\alpha}}^2}}
+      + A\ua{K\ua{\beta}} \cdot \exp{ \frac{-(\vartheta-\vartheta\ua{K\ua{\beta}})^2}{2\cdot s\ua{K\ua{\beta}}^2}}
   \label{eqn:GaußFit}
 \end{equation}
 
-$\vartheta_0$ und $s$ geben dabei die Lage der jeweiligen Linie sowie die
-Halbwertsbreite an. Damit ergeben sich für die $K\ua{\alpha}$-Linie die folgenden
+$\vartheta_K$ und $s$ geben dabei die Lage der jeweiligen Linie sowie die
+Standardabweichung an. Damit ergeben sich für die $K\ua{\alpha}$-Linie die folgenden
 Parameter:
 
 \begin{align*}
   A\ua{K\ua{\alpha}} &= (4.7 \pm 0.2) \cdot 10^3 \, \si{\frac{Imp}{s}} \\
-  \vartheta\ua{K\ua{\alpha}} &= \vartheta_0 =  (22.568 \pm 0.008) ° \\
+  \vartheta\ua{K\ua{\alpha}} &= \vartheta_0 =  (22.568 \pm 0.008) \,° \\
   \lambda\ua{K\ua{\alpha}} &= (1.5459 \pm 0.0005) \cdot 10^{-10} \, \si{m} \\
   E\ua{K\ua{\alpha}} &= (8020 \pm 3) \, \si{eV} \\
-  s\ua{K\ua{\alpha}} &= (0.193 \pm 0.009) ° .
+  s\ua{K\ua{\alpha}} &= (0.39 \pm 0.02) \,° .
 \end{align*}
 
 Analog ergeben sich für die $K\ua{\beta}$-Linie die folgenden Werte :
 
 \begin{align*}
   A\ua{K\ua{\beta}} &= (1.6 \pm 0.3) \cdot 10^3 \, \si{\frac{Imp}{s}} \\
-  \vartheta\ua{K\ua{\beta}} &= \vartheta_0 =  (20.29 \pm 0.02) ° \\
+  \vartheta\ua{K\ua{\beta}} &= \vartheta_0 =  (20.29 \pm 0.02)\, ° \\
   \lambda\ua{K\ua{\beta}} &= (1.397 \pm 0.001) \cdot 10^{-10} \, \si{m} \\
   E\ua{K\ua{\beta}} &= (8877 \pm 8) \, \si{eV} \\
-  s\ua{K\ua{\beta}} &= (0.14 \pm 0.03) ° .
+  s\ua{K\ua{\beta}} &= (0.28 \pm 0.05) \,° .
 \end{align*}
 
-Mithilfe der Formeln \ref{} und \ref{} können dann die Abschirmkonstanten der K-Kante
-und der L-Kante bestimmt werden, für die sich die folgenden Werte ergeben:
+\begin{equation}
+  E\ua{K\ua{\alpha}} = R\ua{\infty} (z - \sigma\ua{1})^2 - R\ua{\infty} (z - \sigma\ua{2})^2 \cdot \frac{1}{2}.
+  \label{eqn:KundLKante}
+\end{equation}
+
+Mithilfe der Formeln \ref{eqn:KundLKante} können dann die Abschirmkonstanten der K-Kante
+und der L-Kante bestimmt werden, indem die Annahme getroffen wird, dass
+$E\ua{K\ua{\beta}} = E\ua{K}$ gilt. Somit ergeben sich die folgenden Werte:
 
 \begin{align*}
 \sigma\ua{K} &= (3.45 \pm 0.01) \\
 \sigma\ua{L} &= (17.78 \pm 0.06)
 \end{align*}
 
-Die beiden Halbwertsbreiten können nun ebenfalls in Energien umgerechnet werden.
+Die beiden Halbwertsbreiten können nun ebenfalls in Energien umgerechnet werden,
+indem die Differenz der Energien von Maximum plus Standardabweichung und Maximum
+minus Standardabweichung gebildet wird.
 Theoretisch sollten die beiden Energien dann exakt gleich sein. Da dies in der
 Praxis jedoch nicht der Fall ist, kann mithilfe des Quotienten der beiden Energien
-eine Güte des Versuches angegeben werden, dessen Optimalwert bei 1 liegt. Des weiteren
+eine Güte des Versuches angegeben werden, dessen Optimalwert bei 1 liegt.
+Des weiteren
 kann durch Betrachtung der bestimmten Halbwertsbreiten eine Aussage über das
 Auflösungsvermögen der Apparatur getroffen werden. Denn die aufgezeichneten
-Maxima sollten theoretisch nur Pieks infinitisimaler Ausbreitung sein. Mittelt
+Maxima sollten theoretisch nur Pieks infinitisimaler Ausbreitung sein. Somit können
+nur Linien differenziert werden, deren Energiedifferenz größer als das
+Auflösungsvermögen ist. Mittelt
 man die beiden Halbwertszeiten, kommt man für die Güte und das Auflösungsvermögen
 auf die folgenden Werte:
 
 \begin{align*}
-  E\ua{s\ua{K\ua{\alpha}}} &= (9.1 \pm 0.4) \cdot 10^2 \, \si{eV} \\
-  E\ua{s\ua{K\ua{\beta}}} &= (1.3 \pm 0.03) \cdot 10^3 \, \si{eV} \\
-  \bar{E\ua{s\ua{K}}} &= 
-  \phi &= \frac{E\ua{s\ua{K\ua{\beta}}}}{E\ua{s\ua{K\ua{\alpha}}}} = 1.4 \pm 0.3 .
+  E\ua{s\ua{K\ua{\alpha}}} &= (260 \pm 12)  \, \si{eV} \\
+  E\ua{s\ua{K\ua{\beta}}} &= (230 \pm 5) \cdot 10^3 \, \si{eV} \\
+  \bar{E\ua{s\ua{K}}} &= (246 \pm 14) \, \si{eV} \\
+  \phi &= \frac{E\ua{s\ua{K\ua{\beta}}}}{E\ua{s\ua{K\ua{\alpha}}}} = 0.9 \pm 0.2 .
 \end{align*}
 
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{Python/MessungB.pdf}
-  \caption{Gemessene Impulsrate einer Cu-Röntgenröhre}
+  \caption{Gemessene Impulsrate einer Cu-Röntgenröhre.}
   \label{fig:MessungB}
 \end{figure}
 
@@ -141,7 +156,7 @@ auf die folgenden Werte:
 
 \input{"Tabellen/Gauss1.tex"}
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
 \subsection{Das Absorptionsspektrum}
 
@@ -149,12 +164,12 @@ Für die Untersuchung des Absorptionsspektrums verschiedener Materialien wurden 
 2:1 Koppelmodus die folgenden Einstellungen gewählt:
 
 \begin{align*}
-  \increment\vartheta &= 0.1 ° \\
+  \increment\vartheta &= 0.1 \,° \\
   \increment t     &= \SI{20}{s} .
 \end{align*}
 
 Das Messintervall wurde dabei bei jedem Material unabhängig gewählt. Für die
-Berechnung der Abschirmkonstante wird Formel \eqref{eqn:Bindungsenergien} umgestellt,
+Berechnung der Abschirmkonstante wird Formel \eqref{eqn:Bindungsenergie} umgestellt,
 so dass sich die folgende Relation ergibt.  $\alpha$
 beschreibt dabei die Sommerfeldsche Feinstrukturkonstante.
 
@@ -162,6 +177,8 @@ beschreibt dabei die Sommerfeldsche Feinstrukturkonstante.
   \sigma\ua{K} = Z - \sqrt{ \frac{E\ua{max}}{R\ua{\infty}} - \frac{\alpha^4 Z^4}{4}}
   \label{eqn:Abschirmkonst}
 \end{equation}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
 \subsubsection{Germanium}
 
@@ -175,7 +192,7 @@ Die für die Berechnung
 der Werte verwendete Ordnungszahl ist 32.
 
 \begin{align*}
-  \vartheta\ua{GE} &= 16.15 ° \\
+  \vartheta\ua{GE} &= 16.15 \, ° \\
   \lambda\ua{GE,min} &= 1.12 \cdot 10^{-10} \, \si{m} \\
   E\ua{GE,max} &= 11066 \, \si{eV} \\
   \sigma\ua{GE} &= 3.72
@@ -195,7 +212,7 @@ Da die Berechnung der Werte für alle Materialien gleich erfolgt, werden im Folg
 lediglich die Tabellen, Graphen sowie Ergebniss für Zink, Zirkonium, Strontium und
 Brom vorgestellt.
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Brom}
 
@@ -204,7 +221,7 @@ Die Ordnungszahl ist 35. Die gemessenen Werte sind in Tabelle \ref{tab:Brom}
 sowie grafisch in Abbildung \ref{fig:Brom} dargestellt.
 
 \begin{align*}
-  \vartheta\ua{BR} &= 13.2 ° \\
+  \vartheta\ua{BR} &= 13.2 \,° \\
   \lambda\ua{BR,min} &= 9.20 \cdot 10^{-10} \, \si{m} \\
   E\ua{BR,max} &= 13480 \, \si{eV} \\
   \sigma\ua{BR} &= 3.84
@@ -219,7 +236,7 @@ sowie grafisch in Abbildung \ref{fig:Brom} dargestellt.
 
 \input{"Tabellen/Brom.tex"}
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Zirkonium}
 
@@ -228,7 +245,7 @@ Ordnungszahl von Zirkonium ist 40. Alle Daten sind in Tabelle \ref{tab:Zirkonium
 sowie Abbildung \ref{fig:Zirkonium} dargestellt.
 
 \begin{align*}
-  \vartheta\ua{ZR} &= 9.85 ° \\
+  \vartheta\ua{ZR} &= 9.85 \,° \\
   \lambda\ua{ZR,min} &= 6.89 \cdot 10^{-11} \, \si{m} \\
   E\ua{ZR,max} &= 17993 \, \si{eV} \\
   \sigma\ua{ZR} &= 4.10
@@ -243,7 +260,7 @@ sowie Abbildung \ref{fig:Zirkonium} dargestellt.
 
 \input{"Tabellen/Zirkonium.tex"}
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Strontium}
 
@@ -252,7 +269,7 @@ $\vartheta$ $\in$ [9 °, 13 °] betrachtet. Die Ergebnisse sind in Tabelle \ref{
 und Abbildung \ref{fig:Strontium} dargestellt.
 
 \begin{align*}
-  \vartheta\ua{SR} &= 11.0 ° \\
+  \vartheta\ua{SR} &= 11.0 \,° \\
   \lambda\ua{SR,min} &= 7.69 \cdot 10^{-11} \, \si{m} \\
   E\ua{SR,max} &= 16132 \, \si{eV} \\
   \sigma\ua{SR} &= 3.96
@@ -267,7 +284,7 @@ und Abbildung \ref{fig:Strontium} dargestellt.
 
 \input{"Tabellen/Strontium.tex"}
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Zink}
 
@@ -276,7 +293,7 @@ Ordnungszahl von Zink ist 30. Alle verwerteten Daten sind in Tabelle \ref{tab:Zi
 sowie grafisch in Abbildung \ref{fig:Zink} dargestellt.
 
 \begin{align*}
-  \vartheta\ua{SR} &= 18.58 ° \\
+  \vartheta\ua{SR} &= 18.58 \,° \\
   \lambda\ua{SR,min} &= 1.28 \cdot 10^{-10} \, \si{m} \\
   E\ua{SR,max} &= 9663 \, \si{eV} \\
   \sigma\ua{SR} &= 3.55
@@ -291,7 +308,7 @@ sowie grafisch in Abbildung \ref{fig:Zink} dargestellt.
 
 \input{"Tabellen/Zink.tex"}
 
-\newpage
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Rydbergenergie}
 
@@ -311,7 +328,7 @@ gewählt.
 
 \begin{figure}
   \centering
-  \includegraphics{Python/Rydberg.pdf}
+  \includegraphics[width = 0.8\textwidth]{Python/Rydberg.pdf}
   \caption{Abhängigkeit der Bindungsenergie von der Ordnungszahl}
   \label{}
 \end{figure}
@@ -326,6 +343,8 @@ folgende Werte:
   Ryd\ua{exp} &= A^2 = (12.94 \pm 0.11) \si{eV}
 \end{align*}
 
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
 \subsubsection{Betrachtung der L-Kanten von Gold}
 
 In dem letzten Teil des Experimentes werden noch einmal die $L\ua{II}$ und
@@ -338,7 +357,7 @@ Tabelle \ref{tab:Gold} sowie grafisch in Abbildung \ref{fig:Gold} dargestellt.
 
 \begin{figure}
   \centering
-  \includegraphics{Python/Gold.pdf}
+  \includegraphics[width = 0.8\textwidth]{Python/Gold.pdf}
   \caption{Gemessene Impulsrate bei Gold.}
   \label{fig:Gold}
 \end{figure}
@@ -368,12 +387,57 @@ Der angegebene Fehler entspringt dabei der hier verwendeten experimentell bestim
 Rydbergenergie (3.3.6) und wird durch die Gaußsche Fehlerfortpflanzung weitergegeben:
 
 \begin{equation}
-  \increment \sigma\ua{L} = \increment\ua{Ryd\ua{exp}} \cdot \frac{\partial \sigma\ua{L}}{\partial Ryd\ua{exp}} .
+  \increment \sigma\ua{L} = \increment\ua{Ryd\ua{exp}} \cdot \frac{\partial \sigma\ua{L}}{\partial \su{Ryd\ua{exp}}} .
 \end{equation}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Diskussion}
 
 In Tabelle \ref{tab:DiskussionEnergie} sind noch einmal alle bestimmten Energiewerte
-der verschiedenen Stoffe im Vergleich zum Literaturwert dargestellt.
+der verschiedenen Stoffe im Vergleich zum Literaturwert dargestellt. Dabei zeigt sich,
+dass die Abweichungen alle in einem relativ kleinen Bereich von maximal ca. 7 $\%$
+liegen.
 
 \input{"Tabellen/Diskussion1.tex"}
+
+In Abschnitt 3.2 wird das Auflösungsvermögen angesprochen. Die beiden K-Linien
+hier können aufgrund der Energiedifferent ihrer Lagen noch differenziert dargestellt
+werden. Im Vergleich mit der Theorie sieht man jedoch, dass das Auflösungsvermögen
+nicht mehr ausreicht, um die $L\ua{I}$ und $L\ua{II}$ getrennt darzustellen.
+
+In Abschnitt 3.2 wurde der Untergrund zudem nur durch ein Polynom 3.Grades genähert.
+Weitaus genauer wäre eine Berechnung mittels der Shirley- oder Tougaard-Näherung
+gewesen. Jedoch wurde aufgrund des hohen Aufwands auf die Anwendung dieser Methoden
+verzichtet. Eine weiter Verbesserungsmöglichkeit für die Genauigkeit des Experimentes
+wäre das Aufnehmen von mehr Messwerten im Bereich um das Impulmaximum gewesen.
+
+Der eigentlich Auftretende Bremsberg ist nach Herausrechnen des Untergrundes nicht
+mehr wirklich erkenntlich, was vor allem an der verwendeten Methode liegt. Somit
+lässt sich nicht wirklich eine Aussage über die Maximalenergie des Röntgenspektrums
+tätigen, da fehlende Anhaltspunkt fehlen.
+
+Dier verschiedenen errechneten Abschirmkonstanten in Kapitel 3.3 können nun noch
+mit den vorher berechneten Werten verglichen werden Tabelle \ref{tab:Abschirmkonstanten}.
+Da diese Werte jedoch mit
+Formel \eqref{eqn:Bindungsenergie_vereinfacht} bestimmt wurden, sind die experimentell
+bestimmten Werte als genauer anzusehen, da hier die Formel \eqref{eqn:Bindungsenergie}
+mit einer höheren Ordnung angewandt wurde. Bis auf die Werte von Zink zeigen sich
+starke Abweichungen, jedoch sind die bereits oben verglichenen Energien nahezu identisch,
+sodass diese Abweichungen auf die Rechenmethode zurückgeführt werden können.
+
+\input{"Tabellen/Diskussion2.tex"}
+
+Die in Abschnit 3.3.6 bestimmte Rydbergenergie weißt eine Abweichung von lediglich
+ca. 5 $\%$ zum Literaturwert auf. Somit scheint auch hier die Messung ziemlich
+genaue Messergebnisse zu liefern.
+
+Da in Abschnitt 3.1 bei der Untersuchung der Bragg-Bedingung schon eine Abweichung
+von 0.6 ° erkenntlich war, lassen sich der großteil der Abweichungen vermutlich
+auf diese Ungenauigkeit (bzw. systematischen Fehler) zurückführen. Um bessere
+Ergebnisse zu erzielen, müsste
+hier vermutlich die Feinjustierung verbessert werden.
+
+Abschließend lässt sich jedoch sagen, dass die verwendete Messapparatur alle
+signifikanten Charakteristika des untersuchten Themas aufzeigt und relativ
+kleine Fehler liefert.
