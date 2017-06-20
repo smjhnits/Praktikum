@@ -141,7 +141,7 @@ augen_peakdiff = auge * 10**(-3) / 2 ## peakdifferenzen in ms
 
 hornhaut = 0
 iris = augen_peakdiff[0, 1] * c_glaskörper
-linse_eingang = iris + augen_peakdiff[0, 2] * c_linse
+linse_eingang = iris + augen_peakdiff[0, 2] * c_glaskörper
 linse_ausgang = linse_eingang + augen_peakdiff[0, 3] * c_linse
 retina = linse_ausgang + augen_peakdiff[0, 4] * c_glaskörper
 
@@ -150,7 +150,7 @@ print('##Auge Abstände## ## in mm ##',  'Hornhaut: ', hornhaut,  'Iris: ', iris
       'Retina: ', retina)
 
 
-### schcllageschdifferenz ###
+### schallgesch.differenz ###
 
 print(c_gemessen_d - c_gemessen, params_c_d[1] - params_c[1])
 print(c_acryl_lit - (c_gemessen_d + c_gemessen) / 2, (params_c_d[1] + params_c[1]) / 2)
