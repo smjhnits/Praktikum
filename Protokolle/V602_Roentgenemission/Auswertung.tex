@@ -35,7 +35,7 @@ anschließend in die maximale Energie (Formel \eqref{eqn:Energie}) umgerechnet,
 so dass sich folgende Werte ergeben:
 
 \begin{align*}
-  \vartheta\ua{3.1,max} &= 28.6\, ° \\
+  \vartheta\ua{3.1,max} &= 28,6\, ° \\
   \lambda\ua{3.1,min} &= \SI{1.93e-10}{m} \\
   E\ua{3.1, max} &= \SI{6.43}{eV} .
 \end{align*}
@@ -47,7 +47,8 @@ so dass sich folgende Werte ergeben:
   \label{fig:MessungA}
 \end{figure}
 
-Im Vergleich mit dem Erwartungswert von $\vartheta$ = 14 ° ergibt sich eine
+Im Vergleich mit dem Erwartungswert von $\vartheta$ = 28 ° ergibt sich für den
+gemessenen Wert eine
 Abweichung von $\increment\vartheta$ = 0.6 ° sowie prozentual eine Abweichung
 von $\increment\vartheta$ = 2.1 $\%$.
 
@@ -132,7 +133,7 @@ eine Güte des Versuches angegeben werden, dessen Optimalwert bei 1 liegt.
 Des weiteren
 kann durch Betrachtung der bestimmten Halbwertsbreiten eine Aussage über das
 Auflösungsvermögen der Apparatur getroffen werden. Denn die aufgezeichneten
-Maxima sollten theoretisch nur Pieks infinitisimaler Ausbreitung sein. Somit können
+Maxima sollten theoretisch nur Peaks infinitesimaler Ausbreitung sein. Somit können
 nur Linien differenziert werden, deren Energiedifferenz größer als das
 Auflösungsvermögen ist. Gemittelt
 ergeben die beiden Halbwertszeiten für die Güte und das Auflösungsvermögen
@@ -140,7 +141,7 @@ die folgenden Werte:
 
 \begin{align*}
   E\ua{s\ua{K\ua{\alpha}}} &= (260 \pm 12)  \, \si{eV} \\
-  E\ua{s\ua{K\ua{\beta}}} &= (230 \pm 5) \cdot 10^3 \, \si{eV} \\
+  E\ua{s\ua{K\ua{\beta}}} &= (230 \pm 5) \, \si{eV} \\
   \bar{E\ua{s\ua{K}}} &= (246 \pm 14) \, \si{eV} \\
   \phi &= \frac{E\ua{s\ua{K\ua{\beta}}}}{E\ua{s\ua{K\ua{\alpha}}}} = 0.9 \pm 0.2 .
 \end{align*}
@@ -155,6 +156,52 @@ die folgenden Werte:
 \input{"Tabellen/Untergrund.tex"}
 
 \input{"Tabellen/Gauss1.tex"}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Zuletzt kann mithilfe der Daten in einem Winkelbereich von $\vartheta$ $\in$
+[4 °, 7 °] (Tabelle \ref{tab:Messung3.2}) noch die maximale Energie des
+Röntgenspektrums bestimmt werden. Dafür wird nur ein Teil der gemessenen
+Winkel ($\vartheta$ $\in$ [$\ang{4.8}$, $\ang{6.2}$]) verwendet,
+um einen linearen Fit gemäß Formel \eqref{eqn:FitEmax} durchzuführen. Der
+gesuchte Winkel ist der Anfang des Bremsberges. Das Ende des Bremsberges
+kann bei den gemessenen Daten nicht beobachtet werden. Die verwendeten Messdaten
+und die berechnete Nullstelle sind noch einmal in Abbildung \ref{fig:Emax}
+dargestellt.
+
+\begin{equation}
+  \vartheta(x) = A \cdot x + B
+  \label{eqn:FitEmax}
+\end{equation}
+
+Für die Parameter ergeben sich dabei die folgenden Werte:
+
+\begin{align*}
+  A &= (59 \pm 5) \, \si{\frac{Imp}{s\cdot \alpha}} \\
+  B &= (-255 \pm 27) \, \si{\frac{Imp}{s}}
+\end{align*}
+
+Aus den beiden Parametern kann dann der Winkel bestimmt werden, bei dem
+die Impulsrate den Wert 0 annimmt. Mithilfe von Formeln \eqref{eqn:Lambda}
+und \eqref{eqn:Energie} kann dann die maximale Energie des verwendeten
+Röntgenspektrums bestimmt werden.
+
+\begin{align*}
+  \vartheta\ua{E\ua{max}} &= - \frac{B}{A} = (4.3 \pm 0.6) \, ° \\
+  \lambda\ua{E\ua{max}} &= (3.1 \pm 0.4)  \cdot 10^{-11} \, \si{m} \\
+  E\ua{max} &= (4.1 \pm 0.5) \cdot 10^{4}\, \si{eV}
+\end{align*}
+
+\input{"Tabellen/EnergieSpektrum.tex"}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Python/SpektrumEnergie.pdf}
+  \caption{Messdaten zu Bestimmung der maximalen Energie}
+  \label{fig:Emax}
+\end{figure}
+
+
 
 \newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
@@ -178,7 +225,7 @@ beschreibt dabei die Sommerfeldsche Feinstrukturkonstante.
   \label{eqn:Abschirmkonst}
 \end{equation}
 
-\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
 \subsubsection{Germanium}
 
@@ -330,7 +377,7 @@ gewählt.
   \centering
   \includegraphics[width = 0.8\textwidth]{Python/Rydberg.pdf}
   \caption{Abhängigkeit der Bindungsenergie von der Ordnungszahl}
-  \label{}
+  \label{fig:Rydberg}
 \end{figure}
 
 Die lineare Regression ist noch einmal grafisch in Abbildung \ref{fig:Rydberg}
@@ -411,12 +458,25 @@ In Abschnitt 3.2 wurde der Untergrund zudem nur durch ein Polynom 3.Grades genä
 Weitaus genauer wäre eine Berechnung mittels der Shirley- oder Tougaard-Näherung
 gewesen. Jedoch wurde aufgrund des hohen Aufwands auf die Anwendung dieser Methoden
 verzichtet. Eine weiter Verbesserungsmöglichkeit für die Genauigkeit des Experimentes
-wäre das Aufnehmen von mehr Messwerten im Bereich um das Impulmaximum gewesen.
+wäre das Aufnehmen von mehr Messwerten im Bereich um das Impulsmaximum gewesen.
 
-Der eigentlich Auftretende Bremsberg ist nach Herausrechnen des Untergrundes nicht
-mehr wirklich erkenntlich, was vor allem an der verwendeten Methode liegt. Somit
-lässt sich nicht wirklich eine Aussage über die Maximalenergie des Röntgenspektrums
-tätigen, da fehlende Anhaltspunkt fehlen.
+Der bei dem Versuch auftretenden Bremsberg wurde verwendet, um die maximale
+Energie des verwendeten Röntgenspektrums zu bestimmen. Da nur durch wenige
+Werte gefittet wurde, ist der Fehler im Vergleich zu den anderen bestimmten
+Werten relativ groß.
+
+Der theoretische Wert für die maximale Energie wäre aufgrund der gewählten
+Beschleunigungsspannung $E\ua{max,lit}$ = $\SI{3.5e4}{eV}$. Dieser Wert liegt nicht
+in dem Fehlerintervall des experimentell bestimmten $E\ua{max}$. Die Abweichung
+ist einerseits statistischer bzw. systematischer Fehlernatur. Andererseits spielt
+jedoch auch die Fermi-Dirac-Verteilung eine kleine Rolle, da manche Elektronen
+nach dieser schon eine gewisse Anfangsenergie besitzen und anschließend noch
+beschleunigt werden.
+
+Der Bremsberg beginnt wie beschrieben bei $\vartheta\ua{E\ua{max}}$, jedoch ist
+das Ende des Bremsberges auf dem Graphen \ref{fig:MessungB} nicht mehr erkenntlich.
+Theoretisch wäre dies jedoch der Winkel, für den die Energie den Wert $\SI{0}{eV}$
+annimmt.
 
 Dier verschiedenen errechneten Abschirmkonstanten in Kapitel 3.3 können nun noch
 mit den vorher berechneten Werten verglichen werden Tabelle \ref{tab:Abschirmkonstanten}.

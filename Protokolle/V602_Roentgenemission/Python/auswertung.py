@@ -32,7 +32,7 @@ plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
 plt.axvline(WinkelA[MaximumA])
 plt.xlim(25.9, 30.1)
 #plt.show()
-plt.savefig('MessungA.pdf')
+#plt.savefig('MessungA.pdf')
 
 WL_A = Wellenlaenge(WinkelA[MaximumA]/360*2*np.pi)
 E_A = Energie(WL_A)
@@ -162,6 +162,43 @@ plt.legend(loc = 'best')
 plt.xlim(3.5, 26.5)
 #plt.show()
 #plt.savefig('MessungB.pdf')
+
+def Seb(x, A, B):
+    return A*x + B
+
+Winkel_Emax = WinkelB[0:15]
+Rate_Emax = RateB[0:15]
+
+Params_Emax, covariance_Emax = curve_fit(Seb, Winkel_Emax[5:13], Rate_Emax[5:13])
+errors_Emax =  np.sqrt(np.diag(covariance_Emax))
+Emax_plot = np.linspace(2, 8, 1000)
+
+Steigung_Emax = ufloat(Params_Emax[0], errors_Emax[0])
+Abschnitt_Emax = ufloat(Params_Emax[1], errors_Emax[1])
+
+Winkel_Null = - Abschnitt_Emax/Steigung_Emax
+Nullstelle = unp.nominal_values(Winkel_Null)
+
+Lambda_Null = WellenlaengeUNP(Winkel_Null/360*2*np.pi)
+Energie_Null = Energie(Lambda_Null) * 10 ** 3
+
+print("Parameter Fit: ", Steigung_Emax, Abschnitt_Emax)
+print("Winkel Nullstelle:      ", Winkel_Null)
+print("Wellenlänge Nullstelle: ", Lambda_Null)
+print("Maximale Energie:       ", Energie_Null, '\n')
+
+plt.clf()
+plt.plot(Winkel_Emax, Rate_Emax, 'rx', label = r'Gemessene Impulsrate')
+plt.plot(Emax_plot, Seb(Emax_plot, *Params_Emax), 'b-', label = r'linearer Fit')
+plt.plot(Nullstelle, 0, 'kx', label = r'$\vartheta_{\mathrm{Emax}}$')
+plt.ylabel(r'R in $\frac{\mathrm{Imp}}{\mathrm{s}}$')
+plt.xlabel(r'$\alpha$ in $\mathrm{DEG}$')
+plt.axhline(0, color = 'g', ls = '--')
+plt.legend(loc = 'best')
+plt.xlim(3.5, 8.0)
+plt.ylim(-5, 140)
+#plt.savefig('SpektrumEnergie.pdf')
+#plt.show()
 
 
 # Messung c
@@ -303,7 +340,7 @@ plt.xlim(29, 41)
 plt.ylim(90,150 )
 #plt.grid()
 #plt.show()
-plt.savefig('Rydberg.pdf')
+#plt.savefig('Rydberg.pdf')
 
 Ryd_A = ufloat(Params_Ryd[0], errors_Ryd[0])
 Ryd_B = ufloat(Params_Ryd[1], errors_Ryd[1])
