@@ -11,13 +11,13 @@ endif
 all: build
 
 build:
-		mkdir -p V27_Zeeman-Effekt/{Tabellen,Pics,Python}
-		touch V27_Zeeman-Effekt/{Auswertung.tex,V27_Zeeman-Effekt.tex,Theorie.tex,lit.bib,Makefile}
-		touch V27_Zeeman-Effekt/Pics/savedatei.txt
-		touch V27_Zeeman-Effekt/Python/savedatei.txt
-	  touch V27_Zeeman-Effekt/Tabellen/savedatei.txt
-		cp -r Praeambel_prak.tex V27_Zeeman-Effekt/
+		#mkdir -p V27_Zeeman-Effekt/{Tabellen,Pics,Python}
+		#touch V27_Zeeman-Effekt/{Auswertung.tex,V27_Zeeman-Effekt.tex,Theorie.tex,lit.bib,Makefile}
+		#touch V27_Zeeman-Effekt/Pics/savedatei.txt
+		#touch V27_Zeeman-Effekt/Python/savedatei.txt
+	  #touch V27_Zeeman-Effekt/Tabellen/savedatei.txt
+		#cp -r Praeambel_prak.tex V27_Zeeman-Effekt/
 
 clean:
-		rm -rf V27_Zeeman-Effekt
+		#rm -rf V27_Zeeman-Effektdqfw
 .PHONY: clean all
