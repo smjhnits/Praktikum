@@ -11,13 +11,13 @@ endif
 all: build
 
 build:
-		#mkdir -p V602_Roentgenemission/{Tabellen,Pics,Python}
-		#touch V602_Roentgenemission/{Auswertung.tex,V602_Roentgenemission.tex,Theorie.tex,lit.bib,Makefile}
-		#touch V602_Roentgenemission/Pics/savedatei.txt
-		#touch V602_Roentgenemission/Python/savedatei.txt
-		#touch V602_Roentgenemission/Tabellen/savedatei.txt
-		#cp -r Praeambel_prak.tex V602_Roentgenemission/
+		mkdir -p V27_Zeeman-Effekt/{Tabellen,Pics,Python}
+		touch V27_Zeeman-Effekt/{Auswertung.tex,V27_Zeeman-Effekt.tex,Theorie.tex,lit.bib,Makefile}
+		touch V27_Zeeman-Effekt/Pics/savedatei.txt
+		touch V27_Zeeman-Effekt/Python/savedatei.txt
+	  touch V27_Zeeman-Effekt/Tabellen/savedatei.txt
+		cp -r Praeambel_prak.tex V27_Zeeman-Effekt/
 
 clean:
-		#rm -rf V602_Roentgenemission
+		rm -rf V27_Zeeman-Effekt
 .PHONY: clean all
