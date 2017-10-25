@@ -1,0 +1,16 @@
+\newcounter{exercise}
+\newenvironment{exercise}
+[2]
+{\addtocounter{exercise}{1}{\bfseries{Aufgabe \arabic{exercise}:~#1}\hfill(#2 Punkte)}\newline}
+{\medskip}
+
+\setlength{\parindent}{0mm}
+\begin{document}
+{\large\bfseries \thesheet. Übungsblatt zur Vorlesung\hfill\thesemester}\\
+{\large\bfseries Theoretische Physik I\hfill\theprofessor}\\
+%{\large\bfseries Abgabe: bis \thehandover}\\
+{\large\bfseries Abgabe bis: 27.10.}\\
+\textbf{Webseite zur Vorlesung: \\}
+\url{https://moodle.tu-dortmund.de/course/view.php?id=9519} \\
+\rule{\columnwidth}{0.1ex}
+\medskip
