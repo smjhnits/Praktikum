@@ -5,6 +5,9 @@ entstehende Aufspaltung und Polarisation von emittierten Spektrallinien untersuc
 werden. Dies geschieht anhand der blauen und roten Spektrallinien einer
 Cadmium Lampe.
 
+Der Effekt ist benannt nach dem Holländer P.Zeeman (1865-1945), welcher diese
+Erscheinung 1896 erstmals am Licht eine Na-Lampe beobachtete.
+
 \subsection{Das magnetische Moment}
 
 Aufgrund der Quantenmechanik ist bekannt, dass jedes Hüllenelelektron eines Atoms
@@ -130,8 +133,9 @@ Die Zusatzenergie aufgrund des äußeren Feldes ergibt sich somit zu folgendem W
 \end{equation}
 
 \begin{figure}
-  %\includegraphics{/path/to/figure}
-  \caption{Aufspaltung der Energienievaus bei einem Atom mit J=2.}
+  \centering
+  \includegraphics[width=9cm]{Pics/AufspaltungJ2.png}
+  \caption{Aufspaltung der Energienievaus bei einem Atom mit J=2. \cite{anleitung01}}
   \label{fig:AufspaltungJ2}
 \end{figure}
 
@@ -194,7 +198,7 @@ beschreibt.
   \su{x}\ua{\alpha,\beta} &:= \int \su{x} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
   \su{y}\ua{\alpha,\beta} &:= \int \su{y} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
   \su{z}\ua{\alpha,\beta} &:= \int \su{z} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
-  \lvert \vec{S\ua{\alpha,\beta}} \rvert &= \left( \lvert x\ua{\alpha,\beta} \rvert^2
+  \lvert \vec{S}\ua{\alpha,\beta} \rvert &= \left( \lvert x\ua{\alpha,\beta} \rvert^2
   + \lvert y\ua{\alpha,\beta} \rvert^2 + \lvert z\ua{\alpha,\beta} \rvert^2 \right)
   \sin^2{\gamma}
   \label{eqn:Poynting}
@@ -230,8 +234,8 @@ In den Fällen $\increment m = \pm 1$ folgt beides mal $\su{z}\ua{\alpha,\beta}=
 wobei die x- und y-Komponenten folgenden Zusammenhang besitzen:
 
 \begin{align}
-  \su{x}\ua{\alpha,\beta} = -i\su{y}\ua{\alpha,\beta} \;\; (\increment m = -1) \\
-  \su{x}\ua{\alpha,\beta} = i\su{y}\ua{\alpha,\beta} \;\; (\increment m = +1).
+  \su{x}\ua{\alpha,\beta} &= -i\su{y}\ua{\alpha,\beta} \;\; (\increment m = -1) \\
+  \su{x}\ua{\alpha,\beta} &= i\su{y}\ua{\alpha,\beta} \;\; (\increment m = +1).
 \end{align}
 
 In beiden Fällen ergibt sich somit ein Phasenverschub von $\frac{\pi}{2}$ zwischen
@@ -256,9 +260,10 @@ besitzt. In Abbildung \ref{fig:normalerZeeman} ist diese Aufspaltung für die
 Fälle $J=1$ und $J=2$ beispielhaft dargestellt.
 
 \begin{figure}
-  %\includegraphics{/path/to/figure}
+  \centering
+  \includegraphics[width=12cm]{Pics/normalerZeeman.png}
   \caption{Aufspaltung und Polarisation der emittierten Spektrallinien beim
-  normalen Zeeman-Effekt.}
+  normalen Zeeman-Effekt. \cite{anleitung01}}
   \label{fig:normalerZeeman}
 \end{figure}
 
@@ -267,7 +272,8 @@ wobei innerhalb dieser Gruppen die Energiedifferenz konstant ist. Diese Aufspalt
 in 3 Komponenten wird auch \textbf{"Zeeman-Triplett"} genannt. Da die aufgrund des
 Übergangs mit $\increment m = 0$ hervorgerufene Strahlung parallel zur Magnetfeldrichtung
 linear polarisiert ist, lässt sie sich in voller Intensität nur senkrecht zur
-Feldrichtung beobachten, während sie parallel zur Feldrichtung nicht beobachtbar
+Feldrichtung (transversal) beobachten, während sie parallel zur Feldrichtung
+(longitudinal) nicht beobachtbar
 ist. Gemäß Formel \eqref{eqn:EdiffZeemanNormal} ist ihre
 Energie gegenüber dem feldfreien Fall nicht verändert. Sie wird als $\pi$-Komponente
 bezeichnet.
@@ -280,9 +286,10 @@ bezeichnet. Die beobachtbare Aufspaltung bei den zwei verschiedenen Betrachtungs
 ist in Abbildung \ref{fig:Betrachtungswinkel} noch einmal grob dargestellt.
 
 \begin{figure}
-  %\includegraphics{/path/to/figure}
+  \centering
+  \includegraphics[width=9cm, height=5.5cm]{Pics/Betrachtung.png}
   \caption{Sichtbare Aufspaltung bei transversaler und longitudinaler Betrachtung
-  der emittierten Spektrallinien.}
+  der emittierten Spektrallinien. \cite{anleitung01}}
   \label{fig:Betrachtungswinkel}
 \end{figure}
 
@@ -299,43 +306,23 @@ folgende Formel:
 \end{equation}
 
 Hier ist der Landé-Faktor abhängig von den Quantenzahlen $J, L $ und $S$, weswegen
-die Auspaltung linienreicher wird. In Abbildung \ref{fig:anomalerZeeman} ist diese
+die Auspaltung linienreicher wird. In Abbildung \ref{fig:AlkaliBeispiel} ist diese
 Aufspaltung anhand eines Alkali-Dubletts dargestellt.
 
 \begin{figure}
-  %\includegraphics{/path/to/figure}
-  \caption{Aufspaltung beim anomalen Zeeman-Effekt anhand eines Alkali-Dubletts.}
-  \label{}
+  \includegraphics[width=15cm]{Pics/Alkali.png}
+  \caption{Aufspaltung beim anomalen Zeeman-Effekt anhand eines Alkali-Dubletts. \cite{anleitung01}}
+  \label{fig:AlkaliBeispiel}
 \end{figure}
-
-\sectin{Versuchaufbau und Durchführung}
 
 \newpage
 
-\subsection{Aufbau}
+\subsection{Die Lummer-Gehrke-Platte}
 
 \begin{figure}
-  %\includegraphics{/path/to/figure}
-  \caption{Experimenteller Aufbau zur Untersuchung des Zeeman-Effektes.}
-  \label{fig:Aufbau}
-\end{figure}
-
-Der experimentelle Aufbau ist in Abbildung \ref{fig:Aufbau} zu sehen. Zur Betrachtung
-des Zeeman-Effektes wird bei diesem Versuch eine Cadmium-Lampe verwendet. Mit der
-roten Spektrallinie soll der normale und mit der blauen der anomale Zeeman-Effekt
-untersucht werden. Die Cd-Lampe befindet sich zwischen den Polschuhen eines Elektromagneten,
-welche von einem Generator versorgt wird. Durch ein Objektiv und ein Linsensystem
-aus zwei bündelden Linsen und einem Spalt wird das in transversale Richtung emittierte
-Licht kollimiert und anschließend auf ein Gradsichtprisma gebracht. Hier wird das
-Licht nach der Wellenlänge separiert, sodass man die zu untersuchende Spektrallinie
-anschließend mittels eine Spaltes abseparieren kann. Nach Durchlauf des Polarisationsfilters
-wird die Spektrallinie auf die Eintrittsfläche eine Lummer-Gehrke-Platte projeziert.
-Diese erzeugt dann ein Interferenzmuste, welches mit einer Digitalkamera aufgenommen
-wird.
-
-\begin{figure}
-  %\includegraphics{/path/to/figure}
-  \caption{Aufbau der Lummer-Gehrke-Platte.}
+  \centering
+  \includegraphics[width=10cm]{Pics/Lummer.png}
+  \caption{Aufbau der Lummer-Gehrke-Platte. \cite{anleitung01}}
   \label{fig:LummerGehrke}
 \end{figure}
 
@@ -373,6 +360,74 @@ Auflösungsvermögen definiert werden:
   \label{eqn:Auflösungsvermögen}
 \end{equation}
 
+
+\newpage
+
+\section{Versuchaufbau und Durchführung}
+
+\subsection{Aufbau}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm]{Pics/Aufbau.png}
+  \caption{Experimenteller Aufbau zur Untersuchung des Zeeman-Effektes. \cite{anleitung01}}
+  \label{fig:Aufbau}
+\end{figure}
+
+Der experimentelle Aufbau ist in Abbildung \ref{fig:Aufbau} zu sehen. Zur Betrachtung
+des Zeeman-Effektes wird bei diesem Versuch eine Cadmium-Lampe verwendet. Mit der
+roten Spektrallinie soll der normale und mit der blauen der anomale Zeeman-Effekt
+untersucht werden. Die Cd-Lampe befindet sich zwischen den Polschuhen eines Elektromagneten,
+welche von einem Generator versorgt wird. Durch ein Objektiv und ein Linsensystem
+aus zwei bündelden Linsen und einem Spalt wird das in transversale Richtung emittierte
+Licht kollimiert und anschließend auf ein Gradsichtprisma gebracht. Hier wird das
+Licht nach der Wellenlänge separiert, sodass man die zu untersuchende Spektrallinie
+anschließend mittels eine Spaltes abseparieren kann. Nach Durchlauf des Polarisationsfilters
+wird die Spektrallinie auf die Eintrittsfläche eine Lummer-Gehrke-Platte projeziert.
+Diese erzeugt dann ein Interferenzmuster, welches mit einer Digitalkamera aufgenommen
+wird.
+
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=10cm]{Pics/Lummer.png}
+%  \caption{Aufbau der Lummer-Gehrke-Platte. \cite{anleitung01}}
+%  \label{fig:LummerGehrke}
+%\end{figure}
+
+%Der Aufbau der Lummer-Gehrke-Platte ist in Abbildung \ref{fig:LummerGehrke} dargestellt.
+%Sie nutzt die Interferenz an planparallelen Platten. Das einfallende Licht wird
+%mittels eines Prismas in die Platte gelenkt und innerhalb dieser mehrfach
+%totalreflektiert. Jedoch transmittiert jedes Mal etwas Licht, da die Platte keine
+%perfekte Oberfläche besitzt. Die austretenden Strahlenbündel können dann miteinander
+%interferieren und konstruktive Interferenz erzeugen. Dafür muss jedoch die
+%Bedingung
+
+%\begin{equation}
+%  2 \cdot d \cdot \cos{\theta} = n \cdot \lambda
+%  \label{eqn:Bragg}
+%\end{equation}
+
+%mit der Plattendicke $d$ und der Wellenlänge $\lambda$ erfüllt sein. Bei
+%monochromatischem Licht werden Interferenzstreifen erzeugt, die genau die Wellenlänge
+%als Gangunterschied besitzen. Bei Einschalten des Magnetfeldes verändert sich die
+%Wellenlänge jedoch um $\delta\lambda$, sodass auch die Interferenzstreifen um
+%$\delta s$ verschoben werden. Um eine Überlagerung zweier Wellenlängen zu vermeiden,
+%muss die Differenz kleiner als
+
+%\begin{equation}
+%  \increment \lambda\ua{D} = \frac{\lambda^2}{2\cdot d} \cdot \sqrt{ \frac{1}{n^2-1}}
+%  \label{eqn:DispersionsLambda}
+%\end{equation}
+
+%sein (Dispersionsgebiet). Für die Lummer-Gehrke-Platte kann zudem abhänig vom
+%Brechungsindex n, der Länge L und der Wellenlänge des verwendeten Lichts ein
+%Auflösungsvermögen definiert werden:
+
+%\begin{equation}
+%  A = \frac{\lambda}{\increment\lambda} = \frac{L}{\lambda} \left( n^2-1 \right).
+%  \label{eqn:Auflösungsvermögen}
+%\end{equation}
+
 \subsection{Durchführung}
 
 Zu Beginn des Experimentes wird zuerst eine Hysterekurve des verwendeten Elektromagneten
@@ -397,7 +452,7 @@ Belichtungszeit aufgenommen werden.
 
 Zuerst wird Das Interferenzmuster bei ausgeschaltetem Magnetfeld und einer
 Belichtungszeit von 8 Sekunden aufgenommen. Anschließend wird der Polarisationsfilter
-so eingestellt, dass der Fall $\icrement m = \pm 1$ beobachtet werden kann. Das
+so eingestellt, dass der Fall $\increment m = \pm 1$ beobachtet werden kann. Das
 Magnetfeld wird solange aufgedreht, bis eine Aufspaltung der Spektrallinien
 beobachtbar ist. Anschließend wird der Polarisationsfilter um $\frac{\pi}{2}$ gedreht,
 sodass die Spektrallinie für $\increment m = 0$ aufgenommen werden kann.
@@ -409,7 +464,7 @@ verschoben, dass die hellblaue Spektrallinier herausgefiltert wird. Danach wird
 wie im vorherigen Verlauf die Lummer-Gehrke-Platte justiert. Zuerst wird eine
 Aufnahme des Interferenzmusters bei ausgeschaltetem Magnetfeld angefertigt.
 Durch Aufdrehen des Magnetfeldes und geeigneter Einstellung des Polarisationsfilters
-kann dann die Aufspaltung für den Fall $\icrement m = \pm 1$ beobachtet werden.
+kann dann die Aufspaltung für den Fall $\increment m = \pm 1$ beobachtet werden.
 Zuletzt wird der Polarisationsfilter wieder gedreht und die Stromstärke so lange
-erhöht, bis auch die Aufspaltung im Fall $\icrement m = 0$ sichtbar ist. Alles
+erhöht, bis auch die Aufspaltung im Fall $\increment m = 0$ sichtbar ist. Alles
 Aufnahmen werden ebenfalls mit einer Belichtungszeit von 8 Sekunden angefertigt.
