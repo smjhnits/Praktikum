@@ -47,7 +47,7 @@ einzelnen $\vec{l\ua{i}}$ untereinander so groß, dass sich
 ein Gesamtbahndrehimpuls $\vec{L}$ definieren lässt:
 
 \begin{equation}
-  \vec{L} = \sum \vec{l\ua{i}} \,\, mit \,\, \lvert\vec{L}\rvert=\sqrt{L(L+1)} \hbar.\\
+  \vec{L} = \sum \vec{l\ua{i}} \;\; \su{mit} \;\; \lvert\vec{L}\rvert=\sqrt{L(L+1)} \hbar.\\
 \end{equation}
 
 Da bei abgeschlossenen Schalen der Bahndrehimpuls stets Null ist, müssen hier nur
@@ -58,7 +58,7 @@ Besitzt das Atom ebenfalls eine nicht allzu hohe Ordnungszahl, dann lässt sich
 zudem ein Gesamptspin $\vec{S}$ definieren.
 
 \begin{equation}
-  \vec{S} = \sum \vec{s\ua{i}} \,\, mit \,\, \lvert\vec{S}\rvert=\sqrt{S(S+1)} \hbar\\
+  \vec{S} = \sum \vec{s\ua{i}} \;\; \su{mit} \;\; \lvert\vec{S}\rvert=\sqrt{S(S+1)} \hbar\\
 \end{equation}
 
 Somit ändert sich für beide auch das magnetische Moment:
@@ -69,7 +69,7 @@ Somit ändert sich für beide auch das magnetische Moment:
 \end{align}
 
 Aufgrund des in der relativistischen Betrachtung vom Proton erzeugtem Kreiststromes
-kommt es zu einer Spin-Bahn-Kopplung ($\textbf{LS-Kopplung}$), welche bei nicht
+kommt es zu einer Spin-Bahn-Kopplung (\textbf{LS-Kopplung}), welche bei nicht
 allzu hohen Feldstärken
 auch bestehen bleibt. Somit kann ein neuer Drehimpuls als Summe von Spin- und
 Bahndrehimpuls definiert werden:
@@ -89,7 +89,7 @@ Um die verschiedenen Größen zu notieren verwendet man folgende Schreibweise:
 Bei dem zweiten Grenzfall beobachtet man schwere Atome. Hier dominieren die Wechselwirkungen
 zwischen den $\vec{l\ua{i}}$ und den $\vec{s\ua{i}}$, sodass sich kein Gesamptspin
 und Gesamtdrehimpuls mehr definieren lassen. Deshalb bezeichnet man diese Fall auch
-als $\textbf{j-j-Kopplung}$. Für den Gesamtdrehimpuls ergibt sich daher folgendes:
+als \textbf{j-j-Kopplung}. Für den Gesamtdrehimpuls ergibt sich daher folgendes:
 
 \begin{equation}
   \vec{J} = \sum \vec{j\ua{i}} = \sum \vec{l\ua{i}} + \vec{s\ua{i}}.
@@ -98,3 +98,184 @@ als $\textbf{j-j-Kopplung}$. Für den Gesamtdrehimpuls ergibt sich daher folgend
 Zwischen beiden Fällen besteht ein fließender Übergang bei mittleren Kernladungszahlen.
 
 \subsection{Aufspaltung im homogenen Magnetfeld}
+
+Das zu J gehörende magnetische Moment ist die Summe der magnetischen Momente vo
+Spin- und Bahndrehimpuls. Da $\vec{\mu\ua{J}}$ und $\vec{J}$ im Allgemeinen nicht
+aufeinander fallen, lassen sich eine zu $\vec{J}$ senkrechte sowie eine parallele
+Komponente von $\vec{\mu}$ definieren. Im klassischen Sinne führt $\mu$ dabei eine
+Präzissionsbewegung um die Gesamtdrehimpulsachse aus, weswegen der Erwartungswert
+von $\vec{\mu\ua{\perp}}$ verschwindet. Für $\lvert \vec{\mu\ua{J}} \rvert$ ergibt sich
+somit folgende Formel:
+
+\begin{align}
+  \lvert \vec{\mu\ua{J}} \rvert &= \mu\ua{B}g\ua{J}\sqrt{J(J+1)} \\
+  g\ua{J} &= \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}.
+\end{align}
+
+$g\ua{J}$ ist dabei der Landé-Faktor des entsprechenden Atoms. Aufgrund der
+Quantenmechanik muss im Folgenden die sogenannte Richtungsquantelung beachtet werden.
+Sie besagt, dass die in Feldrichtung zeigende Komponente von $\lvert \vec{\mu\ua{J}} \rvert$
+ein ganzzahliges Vielfaches von $g\ua{J}\mu\ua{B}$ darstellt. Verknüpft wird dies
+mit dem Faktor m, welche auch Orientierungsquantenzahl genannt wird:
+
+\begin{equation}
+  \mu\ua{J\ua{z}} = - mg\ua{J}\mu\ua{B} \;\; \su{mit}  \;\; m \in [-J,-J+1,...,0,1,...,J].
+\end{equation}
+
+Somit existieren 2J+1 Einstellmöglichkeiten für $\vec{\mu}$ relativ zu $\vec{B}$.
+Die Zusatzenergie aufgrund des äußeren Feldes ergibt sich somit zu folgendem Wert:
+
+\begin{equation}
+  E\ua{mag} = m g\ua{J}\mu\ua{B}B .
+\end{equation}
+
+Da diese Aufspaltung auch bei angeregten Zuständen auftritt, wird bei dem Einschalten
+des Magnetfeldes auch eine Aufspaltung der emittierten Spektrallinien erwartet.
+Die Anzahl der aufgespalteten Linien wird dabei durch Auswahlregeln festgelegt,
+da Übergänge nicht zwischen allen Energieniveaus möglich sind.
+
+\subsection{Auswahlregeln für Energieübergänge}
+
+Die grundliegende Gleichung bei der Betrachtung mittels der Quantenmechanik ist
+die Schrödingergleichung. Aufgrund ihrer Linearität können mehrer Lösungen superponiert
+werden. Um die Auswahregeln zu bestimmen, geht man von einer Lösung mit zwei
+verschiedenen Wellenfunktionen aus:
+
+\begin{equation}
+  \Psi\ua{ges}(\vec{r},t) = C\ua{\alpha}\psi\ua{\alpha}(\vec{r})\exp{-\frac{i}{\hbar}E\ua{\alpha}t}
+  +  C\ua{\beta}\psi\ua{\beta}(\vec{r})\exp{-\frac{i}{\hbar}E\ua{\beta}t}.
+\end{equation}
+
+Im folgenden sollen nun die Energieübergänge zwischen diesen beiden Zuständen
+untersucht werden. Die Dichteverteilung dieser Wellenfunktion ist eine zeitabhängige
+Größe, welche ein Schwingung des Elektrons mit einer durch die Energiedifferenz
+festgelegten Frequenz $\nu\ua{\alpha,\beta}$ beschreibt.
+
+\begin{equation}
+  \nu\ua{\alpha,\beta} := \frac{E\ua{\alpha} - E\ua{\beta}}{2}
+\end{equation}
+
+Um die Intensität der emittierten Strahlung zu berechnen, muss man das durch die
+Schwingung hervorgerufenen Dipolmoment des Elektrons betrachten. Der Beitrag des
+Volumenelemts dV zu der X-Komponente des Dipols beträgt dabei
+
+\begin{equation}
+  - e\ua{0}\su{x}\psi^*\psi \su{dV}
+  \label{eqn:Dipol_X}
+\end{equation}
+
+wobei der Beitrag zu Y- und Z-Komponente analog ist. Um das gesamte Dipolmoment
+in diese Richtung zu berechnen, muss $\eqref{eqn:Dipol_X}$ über den gesamten
+Raum integriert werden. Durch verschiedene Rechenschritte lässt sich der Beitrag
+in X-Richtung zu folgender Form vereinfachen:
+
+\begin{equation}
+  D\ua{x} = - e\ua{0} \, \su{const} \, 2 \, \symbffrak{Re} \left( \int \su{x} \psi\ua{\beta}^*
+  \psi\ua{\alpha} \su{dV} \exp{2 \pi i \nu\ua{\alpha,\beta}t} \right).
+\end{equation}
+
+Der Term beschreibt einen mit der Frequenz $\nu\ua{\alpha,\beta}$ schwingenden
+Dipol der Quanten entsprechender Energie abstrahlt.
+Die Komponenten in die beiden anderen Raumrichtungen lassen sich analog berechnen.
+Um die Strahlungsemission zu berechnen wird der Poynting-Vektor mit den Matrixelementen
+$x\ua{\alpha,\beta}$, $y\ua{\alpha,\beta}$ und $z\ua{\alpha,\beta}$ bestimmt, wobei
+$\gamma$ den Winkel zwischen Ausbreitungsrichtung der Strahlung und Dipolmoment
+beschreibt.
+
+\begin{align}
+  \su{x}\ua{\alpha,\beta} &:= \int \su{x} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
+  \su{y}\ua{\alpha,\beta} &:= \int \su{y} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
+  \su{z}\ua{\alpha,\beta} &:= \int \su{z} \psi\ua{\alpha}^*\psi\ua{\beta} \su{dV} \\
+  \lvert \vec{S\ua{\alpha,\beta}} \rvert &= \left( \lvert x\ua{\alpha,\beta} \rvert^2
+  + \lvert y\ua{\alpha,\beta} \rvert^2 + \lvert z\ua{\alpha,\beta} \rvert^2 \right)
+  \sin^2{\gamma}
+  \label{eqn:Poynting}
+\end{align}
+
+Als Wellenfunktion für ein Atom im Magnetfeld wird der Ansatz
+
+\begin{equation}
+  \Psi = \frac{1}{\sqrt{2\pi}}\su{R(r)\Theta(\vartheta)} e^{im\varphi}
+\end{equation}
+
+gewählt. Das Magnetfeld ist in Richtung der z-Achse ausgerichtet. Untersucht man
+nun die einzelnen Komponenten des Dipols, ist erkenntlich, dass die z-Komponente
+nur dann nicht verschwindet, wenn $m\ua{\alpha}$ = $m\ua{\beta}$ gilt. Somit ist
+die erste Auswahlregel, dass für eine nicht verschwindende Komponente in z-Richtung
+die beiden Orientierungsquantenzahlen der Zustände $E\ua{\alpha}$ und $E\ua{\beta}$
+gleich sein müssen.
+
+Für die x- und y-Komponente erhält man analog zwei Auswahregeln, bei denen die
+Dipolkomponenten nicht verschwinden. Es muss entweder $m\ua{\beta}$ = $m\ua{\alpha}$
++ 1 ($\increment m = -1$) oder $m\ua{\beta}$ = $m\ua{\alpha}$ - 1 ($\increment m = +1$)
+gelten. Zusammengefasst tritt die Emission von Spektrallinien beim Zeeman-Effekt
+nur dann auf, wenn sich die Orientierungsquantenzahlen der beiden Zustände
+entweder gar nicht oder um ein Differenz von $\pm$1 unterscheiden.
+
+Gilt nun $\increment m = 0$, dann ist lediglich die z-Komponente des Dipols von
+Null verschieden. Der Dipol schwingt also parallel zur Magnetfeldrichtung und
+emittiert linear polarisiertes Licht. Zudem strahlt der Dipol aufgrund der Winkelabängigkeit
+in $\eqref{eqn:Poynting}$ nicht in Feldrichtung und besitzt seine stärkste Emission
+senkrecht zu dieser.
+
+In den Fällen $\increment m = \pm 1$ folgt beides mal $\su{z}\ua{\alpha,\beta}=0$,
+wobei die x- und y-Komponenten folgenden Zusammenhang besitzen:
+
+\begin{align}
+  \su{x}\ua{\alpha,\beta} = -i\su{y}\ua{\alpha,\beta} \;\; (\increment m = -1) \\
+  \su{x}\ua{\alpha,\beta} = i\su{y}\ua{\alpha,\beta} \;\; (\increment m = +1).
+\end{align}
+
+In beiden Fällen ergibt sich somit ein Phasenverschub von $\frac{\pi}{2}$ zwischen
+x- und y-Komponente. Bei der emittierten Strahlung handelt es sich also um zirkular-
+polarisiertes Licht wobei die beiden Fälle eine entgegensätzliche Drehrichtung besitzen.
+
+\subsection{Der normale Zeeman-Effekt}
+
+In den vorangegangenen Rechnungen wurde der Elektronenspin nicht berücksichtigt,
+so dass lediglich der Fall behandelt wird, bei dem für das
+Atom $S=0$ und somit $g\ua{J}=0$ gilt. Dieser Spezialfall wird historisch bedingt
+Zeeman-Effekt genannt. Hier ist die Verschiebung der Energieniveaus somit
+unabhängig von den Quantenzahlen L und J, so dass die Verschiebung stehts den
+Wert
+
+\begin{equation}
+  \increment E = m \mu\ua{B}B \;\; \su{für} \;\; -J \leq m \leq J
+  \label{eqn:EdiffZeemanNormal}
+\end{equation}
+
+besitzt. In Abbildung \ref{fig:normalerZeeman} ist diese Aufspaltung für die
+Fälle $J=1$ und $J=2$ beispielhaft dargestellt.
+
+\begin{figure}
+  %\includegraphics{/path/to/figure}
+  \caption{Aufspaltung und Polarisation der emittierten Spektrallinien beim
+  normalen Zeeman-Effekt}
+  \label{fig:normalerZeeman}
+\end{figure}
+
+Alle Übergänge mit gleichem $\increment m$ werden in eine Liniengruppe zusammegefasst,
+wobei innerhalb dieser Gruppen die Energiedifferenz konstant ist. Diese Aufspaltung
+in 3 Komponenten wird auch \textbf{"Zeeman-Triplett"} genannt. Da die aufgrund des
+Übergangs mit $\increment m = 0$ hervorgerufene Strahlung parallel zur Magnetfeldrichtung
+linear polarisiert ist, lässt sie sich in voller Intensität nur senkrecht zur
+Feldrichtung beobachten, während sie parallel zur Feldrichtung nicht beobachtbar
+ist. Gemäß Formel \eqref{eqn:EdiffZeemanNormal} ist ihre
+Energie gegenüber dem feldfreien Fall nicht verändert. Sie wird als $\pi$-Komponente
+bezeichnet.
+
+Die beiden zirkular poloarisierten Linien mit $\increment m = \pm 1$ erscheinen
+bei der transversalen Betrachtung linear polarisiert und können deswegen nicht
+unterschieden werden. Die Linien besitzen immer ein Energiedifferenz von
+$\mu\ua{B}B$ bezogen auf die unverschobenen Linien und werden als $\sigma$-Komponente
+bezeichnet. Die beobachtbare Aufspaltung bei den zwei verschiedenen Betrachtungswinkeln
+ist in Abbildung \ref{fig:Betrachtungswinkel} noch einmal grob dargestellt.
+
+\begin{figure}
+  %\includegraphics{/path/to/figure}
+  \caption{Sichtbare Aufspaltung bei transversaler und longitudinaler Betrachtung
+  der emittierten Spektrallinien}
+  \label{fig:Betrachtungswinkel}
+\end{figure}
+
+\subsection{Der anomale Zeeman-Effekt}
