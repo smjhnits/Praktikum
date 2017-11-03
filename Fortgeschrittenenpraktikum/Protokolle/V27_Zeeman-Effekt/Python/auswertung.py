@@ -5,6 +5,7 @@ import uncertainties.unumpy as unp
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from PIL import Image
+import scipy.misc
 
 ## Wellenlängen in nm
 
@@ -180,3 +181,34 @@ for i in range(0, 10, 1):
 
 print(del_S_r)
 del_S_r = ufloat(np.mean(del_S_r), np.std(del_S_r, ddof = 1))
+
+### Auswertung ROT ###
+
+rot_01_sw = scipy.misc.imread("../Pics/IMG_0733-LAB.png", flatten=True, mode=None)
+rot_02_sw = scipy.misc.imread("../Pics/IMG_0734-LAB.png", flatten=True, mode=None)
+rot_03_sw = scipy.misc.imread("../Pics/IMG_0735-LAB.png", flatten=True, mode=None)
+
+plt.clf()
+plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
+plt.plot(range(0, 4000), rot_02_sw[450], 'g-', linewidth = 0.5, label = '$I = 9.2$A')
+#plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, Pol = 0')
+plt.xlim(460, 4000)
+#plt.ylim(60, 160)
+plt.xlabel('$x$/px')
+plt.ylabel('Helligkeit')
+plt.legend(loc='best')
+plt.grid()
+plt.savefig('plots/rot_sigma_intensitaet.pdf')
+
+
+plt.clf()
+plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
+#plt.plot(range(0, 4000), rot_02_sw[450], 'g-', linewidth = 0.5, label = '$I = 9.2$A')
+plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, Pol = 0')
+plt.xlim(460, 4000)
+#plt.ylim(60, 160)
+plt.xlabel('$x$/px')
+plt.ylabel('Helligkeit')
+plt.legend(loc='best')
+plt.grid()
+plt.savefig('plots/rot_pi_intensitaet.pdf')
