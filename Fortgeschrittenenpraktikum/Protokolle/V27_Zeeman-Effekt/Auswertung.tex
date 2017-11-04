@@ -1,0 +1,60 @@
+\section{Auswertung}
+
+Im Folgenden werden die erhobenen Messdaten ausgewertet, mit dem Ziel
+die Lande-Faktoren der aufgespalteten roten und blauen Spektrallinie bei verschiedener
+Polarisation zu bestimmen.
+
+\subsection{Hysterese}
+
+Der aufsteigenden Hysteresekurve wurde eine Polynomgleichung dritten Gerades zugesprochen,
+welche die folgenden Einträge hat.
+\begin{equation}
+  \label{eqn:Hysterese_fit}
+  A_1 \cdot x^3 + A_2 \cdot x^2 + A_3 \cdot x + A_4
+\end{equation}
+\begin{description}
+  \item[$A_1$] $\SI{-0.082(7)}{\milli\tesla\per\ampere^3}$
+  \item[$A_2$] $\SI{1.757(236)}{\milli\tesla\per\ampere^2}$
+  \item[$A_3$] $\SI{49.121(2104)}{\milli\tesla\per\ampere}$
+  \item[$A_4$] $\SI{14.152(4984)}{\milli\tesla}$
+\end{description}
+
+Für die absteigende Hysteresekurve wurde ebenfalls eine Augleichsrechnung an die
+Gleichung \eqref{eqn:Hysterese_fit} betrieben.
+\begin{description}
+  \item[$A_1$] $\SI{-0.067(6)}{\milli\tesla\per\ampere^3}$
+  \item[$A_2$] $\SI{1.217(191)}{\milli\tesla\per\ampere^2}$
+  \item[$A_3$] $\SI{54.665(1703)}{\milli\tesla\per\ampere}$
+  \item[$A_4$] $\SI{6.666(4033)}{\milli\tesla}$
+\end{description}
+
+Die Ausgleichsrechnungen wurden mit Hilfe des \emph{Python}-Paketes
+\emph{SciPy-curve_fit} durchgeführt.
+
+Die Ausgleichsfunktionen sind im Folgenden graphisch dargestellt.
+
+\begin{figure}
+  \center
+  \includegraphics[width=\textwidth]{/Python/Hysterese.pdf}
+  \caption{Messdaten der Hysteresekurve mit eingetragenen Ausgleichsfunktionen.
+  Dabei wurde die gemessene B-Feldstärke in mT gegenüber dem Strom I in A aufgetragen}
+  \label{fig:Hysterese}
+\end{figure}
+\begin{figure}
+  \includegraphics[width=\textwidth]{/Python/Hysterese_Messdaten.pdf }
+  \caption{Messdaten der gemessenen B-Feldstärke in Abhängigkeit von der Stromstärke}
+  \label{fig:Hysterese_Messdaten}
+\end{figure}
+
+Die in den Grafiken verwendeten Daten sind in Tabelle \ref{tab:Hysterese} dargestellt.
+
+\subsection{Auswertung der roten Spektrallinie}
+
+
+
+\section{Messdaten}
+
+Die gemessenen Daten zur Erstellung der Hysteresekurve sind in der folgenden Tabelle
+dargestellt.
+
+\input{/Tabelle/Tabelle_Hysterese.tex}

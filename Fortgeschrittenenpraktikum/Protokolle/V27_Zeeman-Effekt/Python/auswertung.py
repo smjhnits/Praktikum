@@ -11,6 +11,11 @@ import scipy.misc
 
 lambda_r = 643.2
 lambda_b = 480.0
+n_r = 1.4567
+n_b = 1.4635
+
+dispsgebiet_r = lambda_r**2 / (2 * 2 * 10**(-6)) * np.sqrt(1 / (n_r**2 - 1))
+dispsgebiet_b = lambda_b**2 / (2 * 2 * 10**(-6)) * np.sqrt(1 / (n_b**2 - 1))
 
 ## Fit Polynom 3. Grades
 
@@ -28,7 +33,7 @@ B_ab = np.array([7, 57, 120, 180, 251, 306, 361, 428,
 993, 1020, 1050, 1072])
 
 I = np.linspace(0, 21, 22)
-I_fit = np.linspace(+1, 22, 24)
+I_fit = np.linspace(-1, 22, 24)
 
 ## Plot + Fit Hysterese
 
@@ -36,17 +41,38 @@ params_B_auf, covariance_B_auf = curve_fit(poly, I, B_auf)
 params_B_ab, covariance_B_ab = curve_fit(poly, I, B_ab)
 
 plt.clf()
+plt.subplot(2, 1, 1)
 plt.plot(I, B_auf, "gx", label=r"Messdaten B_auf")
 plt.plot(I_fit, poly(I_fit, *params_B_auf), "g-", label=r"Fit B_auf")
+plt.xlabel('Stromstärke in A')
+plt.ylabel('Magnetfeldstärke in mT')
+plt.xlim(-0.5, 21.5)
+plt.ylim(-10, 1090)
+plt.legend(loc='best')
+plt.subplot(2, 1, 2)
 plt.plot(I, B_ab, "bx", label=r'Messdaten B_ab')
 plt.plot(I_fit, poly(I_fit, *params_B_ab), "b-", label=r"Fit B_ab")
 plt.xlabel('Stromstärke in A')
 plt.ylabel('Magnetfeldstärke in mT')
-plt.xlim(+0.5, 21.5)
-plt.ylim(+10, 1090)
+plt.xlim(-0.5, 21.5)
+plt.ylim(-10, 1090)
 plt.legend(loc='best')
 plt.tight_layout()
 plt.savefig('Hysterese.pdf')
+#
+#plt.clf()
+#plt.plot(I, B_auf, "kx", label=r"Messdaten B_auf")
+#plt.plot(I, B_ab, "k+", label=r'Messdaten B_ab')
+#plt.xlabel('Stromstärke in A')
+#plt.ylabel('Magnetfeldstärke in mT')
+#plt.xlim(-0.5, 21.5)
+#plt.ylim(-10, 1090)
+#plt.legend(loc='best')
+#plt.tight_layout()
+#plt.savefig('Hysterese_Messdaten.pdf')
+
+print('fit auf',params_B_auf, np.sqrt(np.diag(covariance_B_auf)))
+print('fit ab',params_B_ab, np.sqrt(np.diag(covariance_B_ab)))
 
 #### ROT ####
 
@@ -72,6 +98,7 @@ plt.savefig('Hysterese.pdf')
 #img_01 = Image.open("../Pics/IMG_0735.JPG")
 #plt.imshow(img_01)
 #plt.show()
+
 
 
 ## Pixelbreiten der 2 bis 11 Linie ROT
@@ -181,6 +208,8 @@ for i in range(0, 10, 1):
 
 print(del_S_r)
 del_S_r = ufloat(np.mean(del_S_r), np.std(del_S_r, ddof = 1))
+
+deltalambda_r_pol_0 =  pixel_01_r - pixel_03_r
 
 ### Auswertung ROT ###
 
