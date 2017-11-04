@@ -1,18 +1,27 @@
 import numpy as np
 from scipy.stats import sem
+import scipy.constants as const
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from PIL import Image
 import scipy.misc
+from pint import UnitRegistry
+
+u = UnityRegistry()
+Q_ = u.Quantity
 
 ## Wellenlängen in nm
 
-lambda_r = 643.2
-lambda_b = 480.0
+lambda_r = Q_(643.2, 'nanometer)
+lambda_b = Q_(480.0, 'nanometer')
 n_r = 1.4567
 n_b = 1.4635
+h = Q_(const.h, 'joule * second')
+e_0 = Q_(const.e, 'coulomb')
+mu_bohr = -1 / 2 * e_0 * h / 2*np.pi / const.m_e
 
 dispsgebiet_r = lambda_r**2 / (2 * 2 * 10**(-6)) * np.sqrt(1 / (n_r**2 - 1))
 dispsgebiet_b = lambda_b**2 / (2 * 2 * 10**(-6)) * np.sqrt(1 / (n_b**2 - 1))
@@ -194,23 +203,32 @@ for i in range(0, len(pixel_01_r) - 1, 1):
     delta_S_r[i] = pixel_01_r[i + 1] - pixel_01_r[i]
 
 
-delta_S_r = ufloat(np.mean(delta_S_r), np.std(delta_S_r, ddof = 1))
+#delta_S_r = ufloat(np.mean(delta_S_r), np.std(delta_S_r, ddof = 1))
 
 print(delta_S_r)
 
-del_S_r = np.zeros(10)
-n = 0
+del_S_r = np.zeros(9)
+n = 1
 
-for i in range(0, 10, 1):
+for i in range(0, 9, 1):
     del_S_r[i] = pixel_02_r[n + 1] - pixel_02_r[n]
     n += 2
 
 
 print(del_S_r)
-del_S_r = ufloat(np.mean(del_S_r), np.std(del_S_r, ddof = 1))
+#del_S_r = ufloat(np.mean(del_S_r), np.std(del_S_r, ddof = 1))
 
-deltalambda_r_pol_0 =  pixel_01_r - pixel_03_r
+print(len(del_S_r), len(delta_S_r))
+del_lambda_r = 1 / 2 * del_S_r / delta_S_r * dispsgebiet_r
 
+del_lambda_r = ufloat(np.mean(del_lambda_r), np.std(del_lambda_r, ddof=1))
+
+delta_E_r = Q_(h * del_lambda_r).to('eV')
+print(delta_E_r)
+B_auf_rot = Q_(ufloat(poly(9.2, *params_B_auf), poly(9.2, *np.sqrt(np.diag(covariance_B_auf)))), 'millietesla')
+lande_r_sigma = np.abs(delta_E_r / (mu_bohr * B_auf_rot))
+
+print(lande_r_sigma)
 ### Auswertung ROT ###
 
 rot_01_sw = scipy.misc.imread("../Pics/IMG_0733-LAB.png", flatten=True, mode=None)
