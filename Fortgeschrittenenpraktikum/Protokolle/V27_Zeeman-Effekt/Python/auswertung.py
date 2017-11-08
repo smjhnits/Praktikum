@@ -10,12 +10,12 @@ from PIL import Image
 import scipy.misc
 from pint import UnitRegistry
 
-u = UnityRegistry()
+u = UnitRegistry()
 Q_ = u.Quantity
 
 ## Wellenlängen in nm
 
-lambda_r = Q_(643.2, 'nanometer)
+lambda_r = Q_(643.2, 'nanometer')
 lambda_b = Q_(480.0, 'nanometer')
 n_r = 1.4567
 n_b = 1.4635
@@ -156,9 +156,9 @@ pixel_02_b_1 = np.array([(1419 + 1060) / 2, (1728 + 1419) / 2, (1973
 2435) / 2, (2816 + 2638) / 2, (3013 + 2816) / 2, (3176 + 3010) / 2, (3342 +
 3176) / 2])
 
-pixel_02_b_2 = np.array([(745 + 501) / 2, (1170 + 983) / 2, (1494 +
-1339) / 2, (1776 + 1657) / 2, (2035 + 1910) / 2, (2273 + 2154) / 2, (2478 + 2377) / 2,
-(2677 + 2582) / 2, (2873 + 2769) / 2, (3045 + 2959) / 2])
+pixel_02_b_2 = np.array([(745 - 501), (1170 - 983), (1494 -
+1339), (1776 - 1657), (2035 - 1910), (2273 - 2154), (2478 - 2377),
+(2677 - 2582), (2873 - 2769), (3045 - 2959)])
 
 ## Neue Messung BLAU
 
@@ -221,11 +221,11 @@ print(del_S_r)
 print(len(del_S_r), len(delta_S_r))
 del_lambda_r = 1 / 2 * del_S_r / delta_S_r * dispsgebiet_r
 
-del_lambda_r = ufloat(np.mean(del_lambda_r), np.std(del_lambda_r, ddof=1))
+del_lambda = Q_(ufloat(np.mean(del_lambda_r), np.std(del_lambda_r, ddof=1)), 'dimensionless')
 
 delta_E_r = Q_(h * del_lambda_r).to('eV')
 print(delta_E_r)
-B_auf_rot = Q_(ufloat(poly(9.2, *params_B_auf), poly(9.2, *np.sqrt(np.diag(covariance_B_auf)))), 'millietesla')
+B_auf_rot = Q_(ufloat(poly(9.2, *params_B_auf), poly(9.2, *np.sqrt(np.diag(covariance_B_auf)))), 'millitesla')
 lande_r_sigma = np.abs(delta_E_r / (mu_bohr * B_auf_rot))
 
 print(lande_r_sigma)

@@ -29,7 +29,7 @@ Gleichung \eqref{eqn:Hysterese_fit} betrieben.
 \end{description}
 
 Die Ausgleichsrechnungen wurden mit Hilfe des \emph{Python}-Paketes
-\emph{SciPy-$curve_fit$} durchgeführt.
+\emph{SciPy-$curve\_fit$} durchgeführt.
 
 Die Ausgleichsfunktionen sind im Folgenden graphisch dargestellt.
 
@@ -50,8 +50,121 @@ Die Ausgleichsfunktionen sind im Folgenden graphisch dargestellt.
 
 Die in den Grafiken verwendeten Daten sind in Tabelle \ref{tab:Hysterese} dargestellt.
 
+\newpage
+
 \subsection{Auswertung der roten Spektrallinie}
 
+Von der Cadnium Spektrallampe wird die rote Spektrallinie
+untersucht.
+Die Kenngrößen der Lummer-Gehrcke für rotes Licht, sowie
+die Wellenlänge $\lambda\ua{r}$ vom rotem Licht sind wie folgt.
+
+\begin{table}
+\centering
+\caption{Kenngrößen für die rote Spektrallinie\cite{anleitung01}}
+\label{tab:Kenngrößen_ROT}
+\begin{tabular}{S S S }
+\toprule
+{Brechungsindex  $n\ua{r}$} & {Dicke $\frac{d}{\si{\milli\meter}}$} & {Wellenlänge $\frac{\lambda\ua{r}}{\si{\nano\meter}}$}  \\
+\midrule
+ 1.4567  & 4  & 643.2\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Im Folgenden sind die aufgenommenen Bilder
+der untersuchten Interferenzmuster gezeigt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width= 8cm, height = 5cm]{Pics/ROT_zusammengefügt.pdf}
+  \caption{Untersuchten Aufnahmen der roten Spektrallinie.
+  Das obere Bild wurde bei I = 0A aufgenommen. Das mittlere Bild wurde bei 9,2 A aufgenommen und zeigt die $\sigma$-Aufspaltung.
+  Das untere Bild wurde ebenfalls bei I = 9,2 A aufgenommen und zeigt die $\pi$-Aufspaltung.}
+  \label{fig:ROT_Bilder}
+\end{figure}
+
+\subsubsection{Sigma--Aufspaltung der roten Spektrallinie}
+
+Die Abstände der Intensitätsmaxima des mittleren Bildes von
+Abbildung \ref{fig:ROT_Bilder} sind in Tabelle \ref{tab:}
+dargestellt.
+
+Mit den erhobenen Messdaten ergibt sich über \eqref{eqn:}
+der Lande-Faktor zu $g\ua{r,\sigma} = \num{1.14(4)}$.
+
+\subsubsection{Pi--Aufspaltung der roten Spektrallinie}
+
+Die Abstände der Intensitätsmaxima des unteren Bildes von
+Abbildung \ref{fig:ROT_Bilder} sind in Tabelle \ref{tab:}
+dargestellt.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Mit den erhobenen Messdaten ergibt sich
+%der Lande-Faktor zu $g\ua{r,\pi} = \num{1.14(4)}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Auswertung der blauen Spektrallinie}
+
+Methodisch gleich, wie die rote Spektrallinie wird die blaue Spektrallinie
+der Cadnium Lampe ausgewertet.
+Die Wellenlänge und der Brechungsindex der
+Lummer-Gehrcke-Platte für blaues Licht sind in Tabelle
+\ref{tab:Kenngrößen_BLAU} aufgeführt.
+
+\begin{table}
+\centering
+\caption{Kenngrößen für die rote Spektrallinie\cite{anleitung01}}
+\label{tab:Kenngrößen_BLAU}
+\begin{tabular}{S S}
+\toprule
+{Brechungsindex $n\ua{b}$} &  {Wellenlänge $\frac{\lambda\ua{b}}{\si{\nano\meter}}$}  \\
+\midrule
+ 1.4635 & 480.0\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Sigma--Aufspaltung der blauen Spektrallinie}
+
+Die zur Auswertung der $\sigma$-Linie verwendeten Bilder sind
+in Abb. \ref{fig:BLAU_sigma_Bilder} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width= 8cm, height = 5cm]{Pics/BLAU_zusammengefügt_sigma.pdf}
+  \caption{Untersuchten Aufnahmen der blauen Spektrallinie.
+  Das obere Bild wurde bei I = 0A aufgenommen.
+  Das untere Bild wurde bei 5,6 A aufgenommen und zeigt die $\sigma$-Aufspaltung.}
+  \label{fig:BLAU_sigma_Bilder}
+\end{figure}
+
+Die erhobenen Messdaten zu den Intensitätsmaximaabständen
+sind in Tabelle \ref{tab:} dargestellt.
+Mit den Daten aus \ref{tab:Kenngrößen_BLAU} und \ref{tab:}
+ergibt sich der Lande-Faktor über \eqref{eqn:} zu
+$g\ua{b,\sigma} = \num{1.82(19)}$.
+
+\subsubsection{Pi--Aufspaltung der blauen Spektrallinie}
+
+Die ausgewerteten Bilder der $\pi$-Aufspaltung der blauen
+Spektrallinie sind in Abb. \ref{fig:BLAU_pai_Bilder} abgebildet.
+
+\begin{figure}
+  \centering
+  \includegraphics[width= 8cm, height = 5cm]{Pics/BLAU_zusammengefügt_pi.pdf}
+  \caption{Untersuchten Aufnahmen der blauen Spektrallinie.
+  Das obere Bild wurde bei I = 0A aufgenommen.
+  Das untere Bild wurde bei 21,0 A aufgenommen und zeigt die $\pi$-Aufspaltung.}
+  \label{fig:BLAU_pi_Bilder}
+\end{figure}
+
+
+Die erhobenen Messdaten zu den Intensitätsmaximaabständen
+sind in Tabelle \ref{tab:} dargestellt.
+Mit den Daten aus \ref{tab:Kenngrößen_BLAU} und \ref{tab:}
+ergibt sich der Lande-Faktor über \eqref{eqn:} zu
+$g\ua{b,\sigma} = \num{1.82(19)}$.
 
 
 \section{Messdaten}
