@@ -395,21 +395,32 @@ Zur Vorbereitung des Versuches werden die Termschemata für die rote (\ce{^{1}P_
 $\leftrightarrow$ \ce{^{1}D_{2}}) und die blaue (\ce{^{3}S_{1}} $\leftrightarrow$ \ce{^{3}P_{1}})
 genauer Untersucht. Das Termschema der roten Spektrallinie zur Betrachtung des
 normalen Zeeman-Effektes ist in Abbildung \ref{fig:TermschemaRot} dargestellt.
-Zudem sollten die Landé-Faktoren der Übergänge sowie die Energiedifferenz mithilfe
-von Formel \eqref{eqn:EdiffZeemanNormal} und \eqref{eqn:LandeNormal} berechnet werden
-(Tabelle \ref{tab:LandeRot})
+Zudem werden die Landé-Faktoren der Übergänge mithilfe
+von Formel \eqref{eqn:LandeNormal} berechnet (Tabelle \ref{tab:LandeRot}).
+Unter der Annahme, dass S=0
+und somit J=L gilt, vereinfacht sich diese Formel zu einem konstanten Wert
+von $g_J = 1$.
+Der Landé-Faktor des Überganges ist durch die folgende Formel gegeben:
+
+\begin{equation}
+  g\ua{12} = m_1g_1 - m_2g_2.
+  \label{eqn:landekomplett}
+\end{equation}
+
+Bei der roten Spektrallinie vereinfacht sich dies zu $g\ua{12} = m_1 - m_2$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=10cm]{Pics/termschema_rot.pdf}
-  \caption{Termschema zum Übergang \ce{^{1}P_{1}} $\leftrightarrow$ \ce{^{1}D_{2}}.}
+  \includegraphics[width=0.7\textwidth]{Pics/termschema_rot.pdf}
+  \caption{Termschema zum Übergang \ce{^{1}P_{1}} $\leftrightarrow$ \ce{^{1}D_{2}}
+          \cite{luckyjosh}.}
   \label{fig:TermschemaRot}
 \end{figure}
 
 \begin{table}
 	\centering
-  \caption{Landé-Faktoren für den Übergang $^1P_1\leftrightarrow ^1\!\!D_2$.  Berechnet mit Gleichung \eqref{eq:lande_faktor}.}
-	\label{tab:Landerot}
+  \caption{Landé-Faktoren für den Übergang \ce{^{1}P_{1}} $\leftrightarrow$ \ce{^{1}D_{2}}.}
+	\label{tab:LandeRot}
 	\begin{tabular}{cccccc}
 		\toprule
 		{} & \multicolumn{2}{c}{${}^1P_1$}  & \multicolumn{2}{c}{${}^1D_2$}  & $^1P_1\leftrightarrow ^1\!\!D_2$ \\
@@ -428,8 +439,60 @@ von Formel \eqref{eqn:EdiffZeemanNormal} und \eqref{eqn:LandeNormal} berechnet w
 		$\sigma$ & -1 & 1 & 0 & 1 & -1\\
 		& -2 & 1 & -1 & 1 & -1\\\bottomrule
 	\end{tabular}
-
 \end{table}
+
+Für die blaue Spektrallinie (\ce{^3S_1} $\leftrightarrow$ \ce{^3P_1}) werden die
+Landé-Faktoren ebenfalls mit Formel \eqref{eqn:LandeNormal} berechnet, jedoch wird
+bei dem anomalen Zeeman-Effekt der Spin beachtet, sodass sich diese Formel nicht
+weiter vereinfachen lässt (Tabelle \ref{tab:Lande_blau}). Das zugehörige Termschema
+ist in Abbildung \ref{fig:termschema_blau} zu sehen. Der gemischte Landé-Faktor
+ergibt sich hier nach Formel \eqref{eqn:landekomplett}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Pics/termschema_blau.pdf}
+  \caption{Termschema für den Übergang \ce{^3S_1} $\leftrightarrow$ \ce{^3P_1} \cite{luckyjosh}.}
+  \label{fig:termschema_blau}
+\end{figure}
+
+\begin{table}
+
+  \caption{Landé-Faktoren für den Übergang \ce{^3S_1} $\leftrightarrow$ \ce{^3P_1}. }
+	\label{tab:Lande_blau}
+	\centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{cccccc}
+		\toprule
+    & \multicolumn{2}{c}{${}^3S_1$}  & \multicolumn{2}{c}{${}^3P_2$} \\
+		\midrule
+    Übergang & $m_1$  & $g_{1}$ & $m_2$ & $ g_2$ & $g_{12}$\\
+		\midrule
+		$\sigma$ & +1 & 2 & 0 & $\frac{3}{2}$& 2\\
+		& 0 & 2 & -1 & $\frac{3}{2}$ & $\frac{3}{2}$\\
+		\midrule
+		& +1 & 2 & +1 & $\frac{3}{2}$ & $\frac{1}{2}$\\
+		$\pi$ & 2 & 2 & 0 & $\frac{3}{2}$ & 0 \\
+		& -1 & 2 & -1 & $\frac{3}{2}$ & -$\frac{1}{2}$\\
+		\midrule
+		& 0 & 2 & 1 & $\frac{3}{2}$ & -$\frac{3}{2}$\\
+		$\sigma$ & -1 & 2 & 0 & $\frac{3}{2}$& -2\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Die Energiedifferenz der aufgespalteten Linien lässt sich dann mit
+$\increment E = g\ua{12} \mu\ua{B} B$ berechnen.
+
+Im letzten Teil der Vorbereitung wird noch das Auflösungsvermögen sowie
+das Dispersionsgebiet beider Übergänge mit den Formeln \eqref{eqn:DispersionsLambda}
+und \eqref{eqn:Auflösungsvermögen} berechnet.
+
+\begin{align}
+  & \ce{^{1}P_{1}} \leftrightarrow \ce{^{1}D_{2}}: \quad \quad \lambda=\SI{643.8}{\nano\meter} \notag\\
+  & A \approx 209128.6, \quad \Delta \lambda \approx \SI{4.98e-11}{\meter}  \\ % (\SI{643.8}{\nano\meter})
+  & \ce{^3S_1} \leftrightarrow \ce{^3P_1}: \quad \quad \lambda=\SI{480.0}{\nano\meter}\notag \\
+  & A \approx 285458, \quad \Delta \lambda \approx \SI{2.7e-11}{\meter}. % (\SI{480.0}{\nano\meter})
+\end{align}
 
 
 \subsection{Durchführung}
