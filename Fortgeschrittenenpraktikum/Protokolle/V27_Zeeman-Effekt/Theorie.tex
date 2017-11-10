@@ -113,6 +113,7 @@ somit folgende Formel:
 \begin{align}
   \lvert \vec{\mu\ua{J}} \rvert &= \mu\ua{B}g\ua{J}\sqrt{J(J+1)} \\
   g\ua{J} &= \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}.
+  \label{eqn:LandeNormal}
 \end{align}
 
 $g\ua{J}$ ist dabei der Landé-Faktor des entsprechenden Atoms. Aufgrund der
@@ -303,6 +304,7 @@ folgende Formel:
 
 \begin{equation}
   E = \left\{ m\ua{1}g(L\ua{1},S\ua{1},J\ua{1}) - m\ua{2}g(L\ua{2},S\ua{2},J\ua{2}) \right\} \mu\ua{B}+E\ua{0}.
+  \label{eqn:EdiffZeemanAnomal}
 \end{equation}
 
 Hier ist der Landé-Faktor abhängig von den Quantenzahlen $J, L $ und $S$, weswegen
@@ -387,46 +389,48 @@ wird die Spektrallinie auf die Eintrittsfläche eine Lummer-Gehrke-Platte projez
 Diese erzeugt dann ein Interferenzmuster, welches mit einer Digitalkamera aufgenommen
 wird.
 
-%\begin{figure}
-%  \centering
-%  \includegraphics[width=10cm]{Pics/Lummer.png}
-%  \caption{Aufbau der Lummer-Gehrke-Platte. \cite{anleitung01}}
-%  \label{fig:LummerGehrke}
-%\end{figure}
+\subsection{Vorbereitende Berechnungen}
 
-%Der Aufbau der Lummer-Gehrke-Platte ist in Abbildung \ref{fig:LummerGehrke} dargestellt.
-%Sie nutzt die Interferenz an planparallelen Platten. Das einfallende Licht wird
-%mittels eines Prismas in die Platte gelenkt und innerhalb dieser mehrfach
-%totalreflektiert. Jedoch transmittiert jedes Mal etwas Licht, da die Platte keine
-%perfekte Oberfläche besitzt. Die austretenden Strahlenbündel können dann miteinander
-%interferieren und konstruktive Interferenz erzeugen. Dafür muss jedoch die
-%Bedingung
+Zur Vorbereitung des Versuches werden die Termschemata für die rote (\ce{^{1}P_{1}}
+$\leftrightarrow$ \ce{^{1}D_{2}}) und die blaue (\ce{^{3}S_{1}} $\leftrightarrow$ \ce{^{3}P_{1}})
+genauer Untersucht. Das Termschema der roten Spektrallinie zur Betrachtung des
+normalen Zeeman-Effektes ist in Abbildung \ref{fig:TermschemaRot} dargestellt.
+Zudem sollten die Landé-Faktoren der Übergänge sowie die Energiedifferenz mithilfe
+von Formel \eqref{eqn:EdiffZeemanNormal} und \eqref{eqn:LandeNormal} berechnet werden
+(Tabelle \ref{tab:LandeRot})
 
-%\begin{equation}
-%  2 \cdot d \cdot \cos{\theta} = n \cdot \lambda
-%  \label{eqn:Bragg}
-%\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{Pics/termschema_rot.pdf}
+  \caption{Termschema zum Übergang \ce{^{1}P_{1}} $\leftrightarrow$ \ce{^{1}D_{2}}.}
+  \label{fig:TermschemaRot}
+\end{figure}
 
-%mit der Plattendicke $d$ und der Wellenlänge $\lambda$ erfüllt sein. Bei
-%monochromatischem Licht werden Interferenzstreifen erzeugt, die genau die Wellenlänge
-%als Gangunterschied besitzen. Bei Einschalten des Magnetfeldes verändert sich die
-%Wellenlänge jedoch um $\delta\lambda$, sodass auch die Interferenzstreifen um
-%$\delta s$ verschoben werden. Um eine Überlagerung zweier Wellenlängen zu vermeiden,
-%muss die Differenz kleiner als
+\begin{table}
+	\centering
+  \caption{Landé-Faktoren für den Übergang $^1P_1\leftrightarrow ^1\!\!D_2$.  Berechnet mit Gleichung \eqref{eq:lande_faktor}.}
+	\label{tab:Landerot}
+	\begin{tabular}{cccccc}
+		\toprule
+		{} & \multicolumn{2}{c}{${}^1P_1$}  & \multicolumn{2}{c}{${}^1D_2$}  & $^1P_1\leftrightarrow ^1\!\!D_2$ \\
+		\midrule
+		 Übergang &   $m_1$  & $g_{1}$ & $m_2$ & $ g_2$  & $g_{12}$  \\
+		\midrule
+		& 2 & 1 & 1 & 1 & 1\\
+		$\sigma$& 1 & 1 & 0 & 1 & 1\\
+		& 0 & 1 & -1 & 1 & 1\\
+		\midrule
+		& 1 & 1 & 1 & 1 & 0\\
+		$\pi$ & 0 & 1 & 0 & 1 & 0\\
+		& -1 & 1 & -1 & 1 & 0\\
+		\midrule
+		& 0 & 1 & 1 & 1 & -1\\
+		$\sigma$ & -1 & 1 & 0 & 1 & -1\\
+		& -2 & 1 & -1 & 1 & -1\\\bottomrule
+	\end{tabular}
 
-%\begin{equation}
-%  \increment \lambda\ua{D} = \frac{\lambda^2}{2\cdot d} \cdot \sqrt{ \frac{1}{n^2-1}}
-%  \label{eqn:DispersionsLambda}
-%\end{equation}
+\end{table}
 
-%sein (Dispersionsgebiet). Für die Lummer-Gehrke-Platte kann zudem abhänig vom
-%Brechungsindex n, der Länge L und der Wellenlänge des verwendeten Lichts ein
-%Auflösungsvermögen definiert werden:
-
-%\begin{equation}
-%  A = \frac{\lambda}{\increment\lambda} = \frac{L}{\lambda} \left( n^2-1 \right).
-%  \label{eqn:Auflösungsvermögen}
-%\end{equation}
 
 \subsection{Durchführung}
 
