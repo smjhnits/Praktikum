@@ -1,7 +1,7 @@
 \section{Auswertung}
 
 Im Folgenden werden die erhobenen Messdaten ausgewertet, mit dem Ziel
-die Lande-Faktoren der aufgespalteten roten und blauen Spektrallinie bei verschiedener
+die Landé-Faktoren der aufgespalteten roten und blauen Spektrallinie bei verschiedener
 Polarisation zu bestimmen.
 
 \subsection{Hysterese}
@@ -52,12 +52,50 @@ Die in den Grafiken verwendeten Daten sind in Tabelle \ref{tab:Hysterese} darges
 
 \newpage
 
+\subsection{Vorgehnsweise zur Auswertung der Spektrallinien}
+
+Die Auswertung wird gemäß der in \cite{anleitung01} beschrieben Vorgehensweise durchgeführt.
+Prinzipiell werden die Landé-Faktoren der Spektrallinien über die Formel
+\eqref{eqn:EdiffZeemanAnomal} bestimmt. Dafür werden Bilder der aufgespalteten
+Linien aufgenommen, um die Distanz der Aufspaltung ($\delta S$) in Pixeln zu bestimmen.
+Danach wird aus den Bilder bei $\symup{B} = \SI{0}{\milli\tesla}$ der Abstand der
+unaufgespaltenen Linien $\Delta S$ in Pixeln bestimmt.
+Aus diesen Daten wird die Wellenlängenveränderung $\delta\lambda$ über die Gleichung
+\eqref{eqn:del_lambda} ermittelt.
+
+\begin{equation}
+  \label{eqn:del_lambda}
+  \delta\lambda = \frac{1}{2}\frac{\delta S}{\Delta S}\cdot \Delta\lambda\ua{D}
+\end{equation}
+
+Dabei ist $\Delta\lambda\ua{D}$ über den Zusammenhang \eqref{eqn:DispersionsLambda}
+gegeben.
+
+Die Verschiebung in der Wellenlänge $\Delta\lambda$ entspricht
+der Verschiebung in der Frequenz $\Delta\nu$, sodass der Zusammenhang
+\eqref{eqn:energie_frequenz} aufgestellt werden kann.
+
+\begin{equation}
+  \label{eqn:energie_frequenz}
+  \Delta E = h\cdot \Delta\nu = \frac{h\cdot c}{\delta\lambda^2}
+\end{equation}
+
+Der Landé-Faktor bestimmt sich durch die Gleichung \eqref{eqn:Landé}.
+
+\begin{equation}
+  \label{eqn:Landé}
+  g = \frac{\Delta E}{\mu\ua{B} \cdot \symup{B(I)}}
+\end{equation}
+
+Dabei ist $\symup{B(I)}$ die B-Feldstärke in Abhängigkeit
+von dem anliegenden Strom $\symup{I}$.
+
 \subsection{Auswertung der roten Spektrallinie}
 
 Von der Cadmium Spektrallampe wird die rote Spektrallinie
 untersucht.
 Die Kenngrößen der Lummer-Gehrcke für rotes Licht, sowie
-die Wellenlänge $\lambda\ua{r}$ vom rotem Licht sind wie folgt.
+die Wellenlänge $\lambda\ua{r}$ vom rotem Licht sind in Tabelle \ref{tab:Kenngrößen_ROT}.
 
 \begin{table}
 \centering
@@ -72,8 +110,8 @@ die Wellenlänge $\lambda\ua{r}$ vom rotem Licht sind wie folgt.
 \end{tabular}
 \end{table}
 
-Im Folgenden sind die aufgenommenen Bilder
-der untersuchten Interferenzmuster gezeigt.
+In Abbildung \ref{fig:ROT_Bilder} sind die aufgenommenen Bilder der untersuchten
+Interferenzmuster der roten Spektrallinie gezeigt.
 
 \begin{figure}
   \centering
@@ -90,8 +128,8 @@ Die Abstände der Intensitätsmaxima des mittleren Bildes von
 Abbildung \ref{fig:ROT_Bilder} sind in Tabelle \ref{tab:rot_sigma}
 dargestellt.
 
-Mit den erhobenen Messdaten ergibt sich über \eqref{eqn:}
-der Lande-Faktor zu $g\ua{r,\sigma} = \num{1.14(4)}$.
+Mit den erhobenen Messdaten ergibt sich über \eqref{eqn:Landé}
+der Landé-Faktor zu $g\ua{r,\sigma} = \num{1.14(4)}$.
 
 \input{Tabellen/Tabelle_ROT_sigma.tex}
 
@@ -99,11 +137,12 @@ der Lande-Faktor zu $g\ua{r,\sigma} = \num{1.14(4)}$.
 
 Die $\pi$-Komponente der roten Spektrallinie spaltet nicht auf.
 Dies ist in dem unteren Bild von Abb. \ref{fig:ROT_Bilder} dargestellt.
+Somit ist der Landé-Faktor gleich $g\ua{r,\pi} = \num{0}$.
 
 
 \subsection{Auswertung der blauen Spektrallinie}
 
-Methodisch gleich, wie die rote Spektrallinie wird die blaue Spektrallinie
+Methodisch gleich wie die rote Spektrallinie, wird die blaue Spektrallinie
 der Cadmium Lampe ausgewertet.
 Die Wellenlänge und der Brechungsindex der
 Lummer-Gehrcke-Platte für blaues Licht sind in Tabelle
@@ -121,7 +160,7 @@ Lummer-Gehrcke-Platte für blaues Licht sind in Tabelle
 \bottomrule
 \end{tabular}
 \end{table}
-
+\FloatBarrier
 
 \subsubsection{Sigma--Komponente der blauen Spektrallinie}
 
@@ -138,9 +177,9 @@ in Abb. \ref{fig:BLAU_sigma_Bilder} dargestellt.
 \end{figure}
 
 Die erhobenen Messdaten zu den Intensitätsmaximaabständen
-sind in Tabelle \ref{tab:blau_sigma} dargestellt.
+sind in Tabelle \ref{tab:blau_sigma} angegeben.
 Mit den Daten aus \ref{tab:Kenngrößen_BLAU} und \ref{tab:blau_sigma}
-ergibt sich der Lande-Faktor über \eqref{eqn:} zu
+ergibt sich der Landé-Faktor über \eqref{eqn:Landé} zu
 $g\ua{b,\sigma} = \num{1.82(19)}$.
 
 \input{Tabellen/Tabelle_BLAU_sigma.tex}
@@ -163,7 +202,7 @@ Spektrallinie sind in Abb. \ref{fig:BLAU_pi_Bilder} abgebildet.
 Die erhobenen Messdaten zu den Intensitätsmaximaabständen
 sind in Tabelle \ref{tab:blau_pi} dargestellt.
 Mit den Daten aus \ref{tab:Kenngrößen_BLAU} und \ref{tab:blau_pi}
-ergibt sich der Lande-Faktor über \eqref{eqn:} zu
+ergibt sich der Landé-Faktor über \eqref{eqn:Landé} zu
 $g\ua{b,\sigma} = \num{0.56(4)}$.
 
 \input{Tabellen/Tabelle_BLAU_pi.tex}
@@ -172,23 +211,23 @@ $g\ua{b,\sigma} = \num{0.56(4)}$.
 
 Im Folgenden werden die ausgewerteten Messdaten und Ergebnisse mit den
 berechneten Werten verglichen und bezüglich ihrer Aussagekraft interpretiert.
-Die Ergebnisse und die berechneten Werte sind in Tab. \ref{tab:Ergebnisse} dargestellt.
-Die Fehlerintervalle der Lande-Faktoren entstehen durch die Ausgleichsrechnung für
+Die Ergebnisse und die berechneten Werte sind in Tab. \ref{tab:Ergebnisse} aufgeführt.
+Die Fehlerintervalle der Landé-Faktoren entstehen durch die Ausgleichsrechnung für
 die B-Feldstärke.
 Es wurden keine Ablesefehler bei der Aufnahme des Stromes angenommen, was im
 Hinblick auf den Versuch die Aussagekraft der Ergebnisse mindert.
-Der gemessenen Lande-Faktor der blauen $\sigma$-Komponente liegt im Fehlerbereich.
+Der gemessenen Landé-Faktor der roten $\sigma$-Komponente liegt nahzu Fehlerbereich und
+stellt unter Berücksichtigung des vernachlässigten Ablesefehlers des Stroms
+keine maßgebliche Abweichung da.
 Die gemessene $\pi$-Komponente der blauen Spektrallinie ist lediglich $\num{0,06(4)}$
-von dem berechneten Wert verschieden, welches unter Berücksichtigung der
+von dem berechneten Wert verschieden, welches ebenso unter Berücksichtigung der
 vernachlässigten Ableseungenauigkeit des Stromes keine maßgebliche Abweichung darstellt.
 
-Der Lande-Faktor der gemessenen $\sigma$-Komponente der roten Spektrallinie ist ebenso
-nahezu gleich dem berechneten Lande-Faktors und unter Einbeziehung des vernachlässigten
-Ablesefehlers als gleich anzusehen.
+Der Landé-Faktor der gemessenen $\sigma$-Komponente der blauen Spektrallinie liegt im
+Fehlerbereich des berechneten Wertes und ist somit experimentell bestätigt worden.
 
-Somit konnten in dem Verusch die theoretischen Werte der Lande-Faktoren der
-roten und blauen Spektrallinie der Cadmium Lampe bestätigt werden.
-
+Somit konnten in dem Verusch die theoretischen Werte der Landé-Faktoren der
+roten und blauen Spektrallinie der Cadmium Lampe nahezu bestätigt werden.
 
 
 \input{Tabellen/Tabelle_Ergebnisse.tex}
