@@ -1,0 +1,70 @@
+% document class
+\documentclass{scrartcl}
+
+% encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% language
+\usepackage[ngerman]{babel}
+
+% math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{isomath}
+\usepackage{mathtools}
+
+% physics
+\usepackage{tensor}
+\usepackage{slashed}
+\usepackage{braket}
+\usepackage[strict, separate-uncertainty, sticky-per]{siunitx}
+
+% fonts
+\usepackage{enumerate}
+\usepackage{microtype}
+\usepackage{fourier}
+\usepackage{tgheros}
+\usepackage{tgcursor}
+\usepackage{tgpagella}
+
+% tikz
+\usepackage{tikz}
+
+% margins
+\usepackage[top=2.5cm]{geometry}
+
+% variables
+\newcommand{\thehandover}{Freitag, den 24.\,November 2017 12:00 Uhr}
+\newcommand{\thesheet}{1}
+\newcommand{\thesemester}{WS 17/18}
+\newcommand{\theprofessor}{Priv.-Doz.~U.~Löw}
+
+% enumeration
+\renewcommand{\labelenumi}{(\alph{enumi})} % alphabetic tasks
+\renewcommand{\theenumi}{(\alph{enumi})} % alphabetic tasks
+\usepackage{enumitem} % allows to continue lists with [resume]
+
+% clickable links and '\url' command
+\usepackage[hidelinks]{hyperref}
+
+% macros
+\newcounter{exercise}
+\newenvironment{exercise}
+[2]
+{\addtocounter{exercise}{1}{\bfseries{Aufgabe \arabic{exercise}:~#1}\hfill(#2 Punkte)}\newline}
+{\medskip}
+
+\setlength{\parindent}{0mm}
+\begin{document}
+{\large\bfseries 5. Übungsblatt zur Vorlesung\hfill\thesemester}\\
+{\large\bfseries Theoretische Physik I\hfill\theprofessor}\\
+{\large\bfseries Abgabe: bis \thehandover}\\
+\textbf{Webseite zur Vorlesung: \\}
+\url{https://moodle.tu-dortmund.de/course/view.php?id=9519}\\
+\rule{\columnwidth}{0.1ex}
+\medskip
+
+\input{Blatt06.tex}
