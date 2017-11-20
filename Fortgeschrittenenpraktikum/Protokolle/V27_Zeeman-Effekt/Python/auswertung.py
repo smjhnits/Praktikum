@@ -193,69 +193,43 @@ pixel_04_b = np.array([(395 + 287) / 2, (568 + 468) / 2, (735 +
 
 #peaks_01 = findpeaks(pixels_01[0])
 
+
+### Strom zu B-Feldstärke ###
+
+print('I = 0, B = ', poly(0, *params_B_auf))
+print('I = 9.2 A, B = ', poly(9.2, *params_B_auf))
+print('I = 5.6 A, B = ', poly(5.6, *params_B_auf))
+print('I = 21 A, B = ', poly(21, *params_B_auf))
+
 #print(pixels_01)
 
 ### Auswertung ROT ###
 
-delta_S_r = np.zeros(len(pixel_01_r) - 1)
-
-for i in range(0, len(pixel_01_r) - 1, 1):
-    delta_S_r[i] = pixel_01_r[i + 1] - pixel_01_r[i]
-
-
-#delta_S_r = ufloat(np.mean(delta_S_r), np.std(delta_S_r, ddof = 1))
-
-print(delta_S_r)
-
-del_S_r = np.zeros(9)
-n = 1
-
-for i in range(0, 9, 1):
-    del_S_r[i] = pixel_02_r[n + 1] - pixel_02_r[n]
-    n += 2
-
-
-print(del_S_r)
-#del_S_r = ufloat(np.mean(del_S_r), np.std(del_S_r, ddof = 1))
-
-print(len(del_S_r), len(delta_S_r))
-del_lambda_r = 1 / 2 * del_S_r / delta_S_r * dispsgebiet_r
-
-del_lambda = Q_(ufloat(np.mean(del_lambda_r), np.std(del_lambda_r, ddof=1)), 'dimensionless')
-
-delta_E_r = Q_(h * del_lambda_r).to('eV')
-print(delta_E_r)
-B_auf_rot = Q_(ufloat(poly(9.2, *params_B_auf), poly(9.2, *np.sqrt(np.diag(covariance_B_auf)))), 'millitesla')
-lande_r_sigma = np.abs(delta_E_r / (mu_bohr * B_auf_rot))
-
-print(lande_r_sigma)
-### Auswertung ROT ###
-
-rot_01_sw = scipy.misc.imread("../Pics/IMG_0733-LAB.png", flatten=True, mode=None)
-rot_02_sw = scipy.misc.imread("../Pics/IMG_0734-LAB.png", flatten=True, mode=None)
-rot_03_sw = scipy.misc.imread("../Pics/IMG_0735-LAB.png", flatten=True, mode=None)
-
-plt.clf()
-plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
-plt.plot(range(0, 4000), rot_02_sw[450], 'g-', linewidth = 0.5, label = '$I = 9.2$A')
-#plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, Pol = 0')
-plt.xlim(460, 4000)
-#plt.ylim(60, 160)
-plt.xlabel('$x$/px')
-plt.ylabel('Helligkeit')
-plt.legend(loc='best')
-plt.grid()
-plt.savefig('plots/rot_sigma_intensitaet.pdf')
-
-
-plt.clf()
-plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
+#rot_01_sw = scipy.misc.imread("../Pics/IMG_0733-LAB.png", flatten=True, mode=None)
+#rot_02_sw = scipy.misc.imread("../Pics/IMG_0734-LAB.png", flatten=True, mode=None)
+#rot_03_sw = scipy.misc.imread("../Pics/IMG_0735-LAB.png", flatten=True, mode=None)
+#
+#plt.clf()
+#plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
 #plt.plot(range(0, 4000), rot_02_sw[450], 'g-', linewidth = 0.5, label = '$I = 9.2$A')
-plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, Pol = 0')
-plt.xlim(460, 4000)
-#plt.ylim(60, 160)
-plt.xlabel('$x$/px')
-plt.ylabel('Helligkeit')
-plt.legend(loc='best')
-plt.grid()
-plt.savefig('plots/rot_pi_intensitaet.pdf')
+##plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, #Pol = 0')
+#plt.xlim(460, 4000)
+##plt.ylim(60, 160)
+#plt.xlabel('$x$/px')
+#plt.ylabel('Helligkeit')
+#plt.legend(loc='best')
+#plt.grid()
+#plt.savefig('plots/rot_sigma_intensitaet.pdf')
+
+
+#plt.clf()
+#plt.plot(range(0, 4000), rot_01_sw[450], 'r-', linewidth = 0.5, label = '$I = 0$')
+##plt.plot(range(0, 4000), rot_02_sw[450], 'g-', linewidth = 0.5, label = '$I = 9.2$A')
+#plt.plot(range(0, 4000), rot_03_sw[450], 'b-', linewidth = 0.5, label = '$I = 9,2$A, #Pol = 0')
+#plt.xlim(460, 4000)
+##plt.ylim(60, 160)
+#plt.xlabel('$x$/px')
+#plt.ylabel('Helligkeit')
+#plt.legend(loc='best')
+#plt.grid()
+#plt.savefig('plots/rot_pi_intensitaet.pdf')
