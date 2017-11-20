@@ -1,6 +1,6 @@
 \section{Theorie}
 
-In dem Folgenden Versuch sollen die bei Einwirken eines Magnetfeldes auf ein Atom
+In dem folgenden Versuch soll die bei Anlegen eines äußeren Magnetfeldes an einem Atom
 entstehende Aufspaltung und Polarisation von emittierten Spektrallinien untersucht
 werden. Dies geschieht anhand der blauen und roten Spektrallinien einer
 Cadmium Lampe.
@@ -25,7 +25,7 @@ Aufgrund der Ladung des Elektrons lässt sich mit dem Bahndrehimpuls ein magneti
 Moment $\vec{\mu\ua{l}}$ verknüpfen. Mithilfe des Stern-Gerlach-Experimentes wurde
 zudem nachgewiesen, dass aufgrund des Spins ebenfalls ein magnetisches Moment
 $\vec{\mu\ua{s}}$ definiert werden kann. Beide Momente sind neben dem Betrag der
-Impulse auch Abhängig von $\hbar$ sowie dem Bohrschen Magneton $\mu\ua{B}$ abhängig.
+Impulse auch von $\hbar$ sowie dem Bohrschen Magneton $\mu\ua{B}$ abhängig.
 
 \begin{align}
   \mu\ua{B} &:= - \frac{1}{2} e\ua{0} \frac{\hbar}{m\ua{0}} \\
@@ -33,7 +33,8 @@ Impulse auch Abhängig von $\hbar$ sowie dem Bohrschen Magneton $\mu\ua{B}$ abh�
   \vec{\mu\ua{s}} &= - g\ua{s}\mu\ua{B} \frac{\vec{s}}{\hbar} = - g\ua{s}\mu\ua{B}\sqrt{s(s+1)}\vec{s\ua{e}}
 \end{align}
 
-Beide Momente besitzen zudem den Landé-Faktor g, welcher beim Bahndrehipmuls 1 und
+Beide Momente besitzen zudem den Landé-Faktor g, welcher für ein freies Elektron
+beim Bahndrehipmuls 1 und
 beim Spin 2 ist. Aufgrund dessen ist bei s=l $\vec{\mu\ua{s}}$ doppelt so groß wie
 $\vec{\mu\ua{l}}$, was auch als magnetomechanische Anomalie bezeichnet wird.
 
@@ -66,14 +67,14 @@ lässt sich zudem ein Gesamptspin $\vec{S}$ definieren.
 Somit ändert sich für beide Drehimpulse auch das magnetische Moment:
 
 \begin{align}
-  \lvert\vec{\mu\ua{B}}\rvert &= \mu\ua{L}\sqrt{L(L+1)} \\
-  \lvert\vec{\mu\ua{B}}\rvert &= g\ua{S}\mu\ua{S}\sqrt{S(S+1)}.
+  \lvert\vec{\mu\ua{L}}\rvert &= \mu\ua{L}\sqrt{L(L+1)} \\
+  \lvert\vec{\mu\ua{S}}\rvert &= g\ua{S}\mu\ua{S}\sqrt{S(S+1)}.
 \end{align}
 
-Aufgrund des in der relativistischen Betrachtung vom Proton erzeugtem Kreiststromes
-kommt es zu einer Spin-Bahn-Kopplung (\textbf{LS-Kopplung}), welche bei nicht
+Aufgrund des in der relativistischen Betrachtung vom Proton erzeugten Kreiststromes
+kommt es zu einer \textbf{LS-Kopplung}, welche bei nicht
 zu hohen Feldstärken bestehen bleibt. Somit kann ein neuer Drehimpuls als Summe von
-Spin- und Bahndrehimpuls definiert werden:
+Gesamtspin- und Gesamtbahnahndrehimpuls definiert werden:
 
 \begin{align}
   \vec{J} &= \vec{L} + \vec{S} \\
@@ -241,20 +242,21 @@ wobei die x- und y-Komponenten folgenden Zusammenhang besitzen:
 \end{align}
 
 In beiden Fällen ergibt sich somit ein Phasenverschub von $\frac{\pi}{2}$ zwischen
-x- und y-Komponente. Bei der emittierten Strahlung handelt es sich also um zirkular-
-polarisiertes Licht wobei die beiden Fälle eine entgegensätzliche Drehrichtung besitzen.
+x- und y-Komponente. Bei der emittierten Strahlung handelt es sich also um um die
+B-Feld-Achse zirkular-
+polarisiertes Licht, wobei die beiden Fälle eine entgegensätzliche Drehrichtung besitzen.
 
 \subsection{Der normale Zeeman-Effekt}
 
 In den vorangegangenen Rechnungen wurde der Elektronenspin nicht berücksichtigt,
 so dass lediglich der Fall behandelt wird, bei dem für das
-Atom $S=0$ und somit $g\ua{J}=0$ gilt. Dieser Spezialfall wird historisch bedingt
-Zeeman-Effekt genannt. Hier ist die Verschiebung der Energieniveaus somit
+Atom $S=0$ und somit $g\ua{J}=1$ gilt. Dieser Spezialfall wird historisch bedingt
+normaler Zeeman-Effekt genannt. Hier ist die Verschiebung der Energieniveaus somit
 unabhängig von den Quantenzahlen L und J, so dass die Verschiebung stehts den
 Wert
 
 \begin{equation}
-  \increment E = m \mu\ua{B}B \;\; \su{für} \;\; -J \leq m \leq J
+  \increment E = m \mu\ua{B}B \;\; \text{für} \;\; -J \leq m \leq J
   \label{eqn:EdiffZeemanNormal}
 \end{equation}
 
@@ -281,7 +283,7 @@ Energie gegenüber dem feldfreien Fall nicht verändert. Sie wird als $\pi$-Komp
 bezeichnet.
 
 Die beiden zirkular poloarisierten Linien mit $\increment m = \pm 1$ erscheinen
-bei der transversalen Betrachtung linear polarisiert und können deswegen nicht
+bei der transversalen Betrachtung linear polarisiert (senkrecht zu $\vec{B}$) und können deswegen nicht
 unterschieden werden. Die Linien besitzen immer ein Energiedifferenz von
 $\mu\ua{B}B$ bezogen auf die unverschobenen Linien und werden als $\sigma$-Komponente
 bezeichnet. Die beobachtbare Aufspaltung bei den zwei verschiedenen Betrachtungswinkeln
@@ -335,15 +337,10 @@ mittels eines Prismas in die Platte gelenkt und innerhalb dieser mehrfach
 totalreflektiert. Jedoch transmittiert jedes Mal etwas Licht, da die Platte keine
 perfekte Oberfläche besitzt. Die austretenden Strahlenbündel können dann miteinander
 interferieren und konstruktive Interferenz erzeugen. Dafür muss jedoch die
-Bedingung
-
-\begin{equation}
-  2 \cdot d \cdot \cos{\theta} = n \cdot \lambda
-  \label{eqn:Bragg}
-\end{equation}
-
-mit der Plattendicke $d$ und der Wellenlänge $\lambda$ erfüllt sein. Bei
-monochromatischem Licht werden Interferenzstreifen erzeugt, die genau die Wellenlänge
+Bragg-Bedingung erfüllt sein, welche die
+Plattendicke $d$ und die Wellenlänge $\lambda$ abhängt. Bei
+monochromatischem Licht werden Interferenzstreifen erzeugt, die ein ganzzahliges
+vielfaches der Wellenlänge
 als Gangunterschied besitzen. Bei Einschalten des Magnetfeldes verändert sich die
 Wellenlänge jedoch um $\delta\lambda$, sodass auch die Interferenzstreifen um
 $\delta s$ verschoben werden. Um eine Überlagerung zweier Wellenlängen zu vermeiden,
@@ -394,7 +391,7 @@ wird.
 
 Zur Vorbereitung des Versuches werden die Termschemata für die rote (\ce{^{1}P_{1}}
 $\leftrightarrow$ \ce{^{1}D_{2}}) und die blaue (\ce{^{3}S_{1}} $\leftrightarrow$ \ce{^{3}P_{1}})
-genauer Untersucht. Das Termschema der roten Spektrallinie zur Betrachtung des
+Spektrallinie genauer Untersucht. Das Termschema der roten Spektrallinie zur Betrachtung des
 normalen Zeeman-Effektes ist in Abbildung \ref{fig:TermschemaRot} dargestellt.
 Zudem werden die Landé-Faktoren der Übergänge mithilfe
 von Formel \eqref{eqn:LandéNormal} berechnet (Tabelle \ref{tab:LandéRot}).
@@ -446,7 +443,7 @@ Für die blaue Spektrallinie (\ce{^3S_1} $\leftrightarrow$ \ce{^3P_1}) werden di
 Landé-Faktoren ebenfalls mit Formel \eqref{eqn:LandéNormal} berechnet, jedoch wird
 bei dem anomalen Zeeman-Effekt der Spin beachtet, sodass sich diese Formel nicht
 weiter vereinfachen lässt (Tabelle \ref{tab:Landé_blau}). Das zugehörige Termschema
-ist in Abbildung \ref{fig:termschema_blau} zu sehen. Der gemischte Landé-Faktor
+ist in Abbildung \ref{fig:termschema_blau} zu sehen. Der Landé-Faktor des Übergangs
 ergibt sich hier nach Formel \eqref{eqn:Landékomplett}.
 
 \begin{figure}[h]
