@@ -36,7 +36,7 @@ beschrieben wird.
 
 
 
-\section{Durchführung}
+\section{Versuchsaufbau}
 
 Damit die Lebensdauer von Myonen bestimmt werden kann, dürfen nur
 Myonen gemessen werden, von denen die Einlaufzeit in den Versuchsaufbau bekannt ist
@@ -66,15 +66,54 @@ als down bezeichnet.
 Wenn ein up aus der Koinzidenz (vgl. Abb. \ref{fig:Aufbau}), deren Funktion im
 Verlauf der Durchfürhung noch erklärt wird, in die untere Schaltung einläuft
 wird zunächst der rechte Eingang des 1. und 2. UND-Gatter auf up gesetzt.
+Das aus der Koinzidenz stammende
+up wird mit einer Verzögerung von $\SI{30}{\nano\second}$ an den Univibrator
+abgegeben. An dem einen Ausgang des Univibrators, der mit dem 1. UND verbunden
+ist liegt im down Zustand ein up an. Der zweite Ausgang ist mit dem 2. UND verbunden
+und gibt im down Zusant des Univibrators ein down weiter.
 Somit sind an dem 1. UND beide Eingänge mit einem up belegt und das Startsignal wird
 an einen Zeit-Amplituden-Konverter und Impulszähler gegeben. Der Impulszähler
 zählt lediglich die Anzahl der eintreffenden Startsignale.
 Der Zeit-Amplituden-Konverter wandelt die vergehende Zeit zwischen einem
 up an dem Starteingang und einem up an dem Stopeingang in eine
-dazu proportionalen Impuls. DIe Zeit wird in der Höhe des Impulses
+dazu proportionalen Impuls. Die Zeit wird in der Höhe des Impulses
 kodiert.
-Weiter zur logischen Schaltung. Das anfänglich aus der Koinzidenz stammende
-up wird über eine Verzögerung von $\SI{30}{\nano\second}$   
+Ein einlaufendes up in den Univibrator kehrt die up und down Signale an
+den Ausgängen um.
+Nach einer einegstellten Zeit $T\ua{s}$ geht der Monoflop in seinen Grundzustand
+zurück. $T\ua{s}$ stellt die Suchzeit des Intervalls einer Myonenlebensdauermessung
+dar. In dem Versuch wurde $T\ua{s} = \SI{10}{\micro\second}$ gewählt.
+Der linke Eingang des 2. UND-Gatters nimmt empfängt nachdem
+der Monoflop ein up erhalten hat ebenfalls ein up, welches für
+die eingestellte Zeit $T\ua{s}$ anliegt. Wird in diesem
+Zeitraum ein weiteres Signal von der Koinzidenz an den rechten Eingang des
+2. UND-Gatters wird ein up an den Stop-Eingang des Zeit-Impuls-Konverters gegeben
+und die Zeitmessung ist abgeschlossen. Die in einem Impuls kodierte Zerfallszeit
+wird in ein Vielkanalanalysator gegeben, welcher mit einem Computer
+verbunden ist, der das Signal mit der geeigneten Software verarbeiten kann.
+
+Durch thermische Prozesse werden in dem Szintillatormaterial statischtisch Verteilt
+Elektronen gelöst, welche von den SEV als Myonenereignisse interpretiert werden.
+Um dieses thermische Rauschen zu unterdrücken gibt es zwei parallel angewendete
+Mechanismen. Die thermischen Störungen lösen in der Regel eine niederige
+Spannung als die Myonenereignisse aus. Durch einen Diskriminator werden nur
+Ereignisse durchgelassen, die einen einstellbaren Schwellenwert $U_0$ übersteigen
+durchgelassen. Damit können thermische Ereignisse signifikant unterdrückt werden.
+Zudem werden die Ereignisse die den Schwellenwert des Diskriminatros übersteigen
+mit einheitlicher Spannungsamplitude weitergeleitet.
+Vor den Diskriminatoren sind Verzögerungen angebracht, damit Materialeigenschaften
+der Diskriminatoren kompensiert werden können.
+
+Der zweite rauschunterdrückende Mechanismus ist die Koinzidenz.
+Diese lässt nur nahzu gleichzeitig einlaufende Signale passieren.
+Die einlaufenden Signale dürfen einen Zeitversatz von $\Delta t\ua{k}\approx
+\SI{4}{\nano\second}$ besitzen.
+Die thermisch gelösten Elektronen entstehen örtlich Verteilt in dem
+Szintillator und sind deutlich langsamer als durch Myonen entstehende Ereignisse und
+erreichen die Koinzidenz mit nur einer geringen Wahrscheinlichkeit in dem
+Zeitintervall $\Delta t\ua{k}$.
+
+
 
 
 \begin{figure}[h]
@@ -88,6 +127,12 @@ Der Versuch wird mit dem Aufbau aus Abb. \ref{fig:Aufbau} durchgeführt. In
 dem realen Aufbau ist ein weiterer Verzögerer vor dem rechten Diskriminator angebracht,
 sodass eine Verzögerung der beiden Messkanäle relativ zu einander eingestellt werden kann.
 
+Der in Abb. \ref{fig:Aufbau} dargestellte Doppelimpulsgenerator wird
+für die Zeiteichung des Vielkanalanalysators verwendet, worauf in der
+Durchführung näherdrauf eingegangen wird.
+
 In dem Versuch wird ein organischer Szintillator verwendet, da dieser
 im Vergleich zu einem anorganischen Szintillator eine kürzere
 Totzeit besitzt. Insgesamt fasst der Szintillator 50l und ist mit Toluol befüllt.
+
+\subsection{Durchführung}
