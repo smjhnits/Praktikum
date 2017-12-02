@@ -1,26 +1,39 @@
 \section{Zielsetzung}
 
 Der vorliegende Versuch behandelt die Ermittelung der Lebensdauer
-von kosmischen Myonen.
+kosmischer Myonen. Zu Beginn wird in die Theorie des Versuches eingeleitet.
+Daraufhin wird die Messapparatur und die Durchführung der Messung beschrieben.
 
-\seciton{Theorie}
+\section{Theorie}
 
 Myonen $\mu$ sind Leptonen der zweiten Generation und besitzen eine Masse
 von $\approx \SI{106}{\mega\eV}$.
 Sie entstehen zum Großteil in der oberen Atmosphäre durch Pion-Zerfälle und
-besitzen eine hohe kinetische Energie.
+besitzen, resultierend aus dem Zerfall eine hohe kinetische Energie.
 
-\begin{equation}
+\begin{align}
   \label{eqn:pion+ nach myon}
-  \ce{\pi^+ -> \mu^+ + \nu\ua{\mu}}\\
+  \ce{\pi^+ &-> \mu^+ + \nu\ua{\mu}}\\
   \label{eqn:pion- nach myon}
-  \ce{\pi^- -> \mu^- + \bar{\nu}\ua{\mu}}
-\end{equation}
+  \ce{\pi^- &-> \mu^- + \bar{\nu}\ua{\mu}}
+\end{align}
+
+Myonen sind ca. 207 mal so schwer wie eine Elektron und Elektronen sind die leichtesten
+Leptonen. Somit ist klar, dass Myonen nicht stabil sein können.
+
+Myonen zerfallen nach den folgenden Zerfallsgleichungen.
+
+\begin{align}
+  \label{eqn:myon+ nach e+}
+  \ce{\mu^+ &-> \symup{e}^+ + \nu\ua{e} + \bar{\nu}\ua{\mu}}\\
+  \label{eqn:moyn- nach e-}
+  \ce{\mu^- &-> \symup{e}^- + \bar{\nu}\ua{e} + \nu\ua{\mu}}
+\end{align}
 
 \subsection{Lebensdauer}
 
 Die Lebensdauer $\tau$ eines instabilen Teilchens beschreibt die Zeit,
-nachder eine Teilchenpopulation auf $\frac{1}{\exp}$ ihrer ursprünglichen
+nachder eine Teilchenpopulation auf $\frac{1}{\symup{e}}$ ihrer ursprünglichen
 Anzahl abgefallen ist.
 Der Zerfall eines Teilchens ist ein stochastischer Prozess, der durch
 ein Exponentialgesetz der Form:
@@ -30,7 +43,8 @@ ein Exponentialgesetz der Form:
   N(t) = N_0\cdot\exp{-\frac{t}{\tau}}
 \end{equation}
 
-beschrieben wird.
+beschrieben wird. Die Zerfallskonstante $\lambda$ entspricht der reziproken
+Lebensdauer.
 
 
 
@@ -69,8 +83,9 @@ wird zunächst der rechte Eingang des 1. und 2. UND-Gatter auf up gesetzt.
 Das aus der Koinzidenz stammende
 up wird mit einer Verzögerung von $\SI{30}{\nano\second}$ an den Univibrator
 abgegeben. An dem einen Ausgang des Univibrators, der mit dem 1. UND verbunden
-ist liegt im down Zustand ein up an. Der zweite Ausgang ist mit dem 2. UND verbunden
-und gibt im down Zusant des Univibrators ein down weiter.
+ist, liegt im down Zustand ein up an (vgl \ref{fig:Aufbau}; $\bar{\text{OUT}}$).
+Der zweite Ausgang ist mit dem 2. UND verbunden
+und gibt im down Zusant des Univibrators ein down weiter (OUT).
 Somit sind an dem 1. UND beide Eingänge mit einem up belegt und das Startsignal wird
 an einen Zeit-Amplituden-Konverter und Impulszähler gegeben. Der Impulszähler
 zählt lediglich die Anzahl der eintreffenden Startsignale.
@@ -82,17 +97,18 @@ Ein einlaufendes up in den Univibrator kehrt die up und down Signale an
 den Ausgängen um.
 Nach einer einegstellten Zeit $T\ua{s}$ geht der Monoflop in seinen Grundzustand
 zurück. $T\ua{s}$ stellt die Suchzeit des Intervalls einer Myonenlebensdauermessung
-dar. In dem Versuch wurde $T\ua{s} = \SI{10}{\micro\second}$ gewählt.
-Der linke Eingang des 2. UND-Gatters nimmt empfängt nachdem
+dar. In dem Versuch wird $T\ua{s} = \SI{10}{\micro\second}$ gewählt.
+Der linke Eingang des 2. UND-Gatters empfängt nachdem
 der Monoflop ein up erhalten hat ebenfalls ein up, welches für
 die eingestellte Zeit $T\ua{s}$ anliegt. Wird in diesem
 Zeitraum ein weiteres Signal von der Koinzidenz an den rechten Eingang des
-2. UND-Gatters wird ein up an den Stop-Eingang des Zeit-Impuls-Konverters gegeben
+2. UND-Gatters geleitet wird ein up an den Stop-Eingang des Zeit-Impuls-Konverters gegeben
 und die Zeitmessung ist abgeschlossen. Die in einem Impuls kodierte Zerfallszeit
 wird in ein Vielkanalanalysator gegeben, welcher mit einem Computer
-verbunden ist, der das Signal mit der geeigneten Software verarbeiten kann.
+verbunden ist. Der Rechner verarbeitet das Signal mit der geeigneten Software.
 
-Durch thermische Prozesse werden in dem Szintillatormaterial statischtisch Verteilt
+In dem Versuch sollen nur die durch Myonen erzeugten Ereignisse behandelt werden.
+Jedoch werden durch thermische Prozesse in dem Szintillatormaterial statischtisch Verteilt
 Elektronen gelöst, welche von den SEV als Myonenereignisse interpretiert werden.
 Um dieses thermische Rauschen zu unterdrücken gibt es zwei parallel angewendete
 Mechanismen. Die thermischen Störungen lösen in der Regel eine niederige
@@ -118,7 +134,7 @@ Zeitintervall $\Delta t\ua{k}$.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=9cm, angle=90]{Pics/Aufbau.png}
+  \includegraphics[width=\textwidth, angle=90]{Pics/Aufbau.png}
   \caption{Schematischer Versuchsaufbau \cite{anleitung01}}
   \label{fig:Aufbau}
 \end{figure}
@@ -131,8 +147,48 @@ Der in Abb. \ref{fig:Aufbau} dargestellte Doppelimpulsgenerator wird
 für die Zeiteichung des Vielkanalanalysators verwendet, worauf in der
 Durchführung näherdrauf eingegangen wird.
 
-In dem Versuch wird ein organischer Szintillator verwendet, da dieser
+Es wird ein organischer Szintillator verwendet, da dieser
 im Vergleich zu einem anorganischen Szintillator eine kürzere
 Totzeit besitzt. Insgesamt fasst der Szintillator 50l und ist mit Toluol befüllt.
 
 \subsection{Durchführung}
+
+Zu Beginn des Versuches wird der Versuchsaufbau gemäß \ref{fig:Aufbau} aufgebaut.
+Dabei wird der Aufbau während des Aufbauens mit einem Zwei-Kanal-Oszilloskop
+auf seine Funktionsfähigkeit überprüft.
+Die Schwellenwerte $U_0$ der Diskriminatoren werden so eingestellt, dass
+die Impulsrate der aus beiden Kanälen ungefähr übereinstimmt. Für das Zählen der
+Impulsrate werden die Messkanäle an den Impulszähler angeschlossen.
+Die Impulsrate sollte zwischen 20 und 40 Impulsen pro Sekunde liegen.
+Falls der aufgenommene Wert nicht in diesem Intervall liegt, kann die
+Schewellenspannung $U_0$ variiert werden, bis die Impulsrate den Anforderungen genügt.
+
+Weiterhin gilt es die Verzögerer, die vor dem Diskriminatoren montiert sind
+ab zu gleichen, sodass die materialbedingte Verzögerung der Diskriminatoren
+kompensiert wird. Dies ist essentiell für die arbeitsweise der Koinzidenz.
+Dafür werden jeweils fünf Messwerte für die Einstellungsmöglichkeit der Verzögerer genommen.
+Währenddessen wird die Impulsrate mittels des angeschlossenen Impulszählers, welcher hinter
+der Koinzidenz liegt aufgenommen.
+Die Verzögerung, bei der die Impulsrate maximal ist, ist die von nun an einzustellende.
+
+Die Koinzidenzapparatur kann durch Vergleich der Anzahl der vor ihr liegenden
+Impulse mit der hinter ihr überprüfen. Stimmen beide Werte überein, ist
+die Funktion als Rauschunterdrücker nicht gewährleistet und die Einstellungen müssen
+verändert werden.
+
+Der Zeit-Amplituden-Konverter kann überprüft werden, indem vor die Koinzidenz ein
+Doppelimpulsgenerator angeschlossen wird. Der zeitliche Abstand der
+Doppelimpulse kann in Stufen von $\SI{1e-1}{\micro\second}$ variiert werden.
+Die funktionsfähigkeit des Doppelimpulsgenerator kann mit Hilfe des
+Zwei-Kanal-Oszilloskopen überprüft werden.
+Der Zeit-Amplituden-Konverter arbeitet einwandfrei, wenn an seinem
+Ausgang Spannungsimpulse entstehen, die proportional zu der
+eingestellten Zeit des Doppelimpulsgenerators sind. Mit dem Zwei-Kanal-Oszilloskop
+ist die Arbeitsfähitsfähigkeit des Zeit-Amplituden-Konverter zu überprüfen.
+
+Der Vielkanalanalysator wird justiert durch eine Kalibirerungsmessung.
+Dafür werden mit dem Doppelimpulsgenerator Spannungsimpulse erzeugt.
+Es werden soviele Werte aufgenommen, bis sich auf dem Rechner deutlich
+erkennbare Balken in den Kanälen entstanden sind.
+Die Zeit der aufeinanderfolgenden Doppelimpulse wird in Schritten von $\SI{1}{\micro\second}$
+erhöht von 0 bis auf $\approx \SI{10}{\micro\second}$.
