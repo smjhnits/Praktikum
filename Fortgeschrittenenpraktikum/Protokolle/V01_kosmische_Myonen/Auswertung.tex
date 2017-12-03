@@ -79,20 +79,29 @@ zeitlichen Abstand an.
 
 
 \begin{table}
+  \centering
   \caption{Belegte Kanäle bei der Kalibrierung mit eingestelltem Dopppelimpulsabstand.}
   \label{tab:Kalibrierung}
   \begin{tabular}{c c c c c c c c c c c c}
     \toprule
-    $\increment t\ua{DI}$ in $\su{ns}$ & 0.3 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+    $\increment t\ua{DI}$ in $\su{ns}$ & 0.3 & 1 & 2 & 3 & 4 & 5 \\
     \midrule
-    Kanal & 14 & 45*/46 & 90 & 135 & 179*/180 & 224 & 269 & 314 & 358/359* & 403 & 444 \\
+    Kanal & 14 & 45*/46 & 90 & 135 & 179*/180 & 224\\
+    Impulse & 3295 & 1096/6716 & 4560 & 7319 & 1128/7332 & 7247 \\
+    \midrule
+    \midrule
+    $\increment t\ua{DI}$ in $\su{ns}$ & 6 & 7 & 8 & 9 & 10 \\
+    \midrule
+    Kanal & 269 & 314 & 358*/359 & 403 & 444 \\
+    Impulse & 8216 & 5595 & 255/5993 & 5455 & 7892 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 Bei einigen Abständen wurden mehrere Kanäle belegt. Eigentlich muss hierfür eine
 Fehlerrechnung durchgeführt werden, im folgenden wird jedoch die Zuordnung von
-Impulsen bei der Kalibrierung in die mit einem Sternchen markierten Kanäle ignoriert.
+Impulsen bei der Kalibrierung in die mit einem Sternchen markierten Kanäle ignoriert
+und der Kanal mit den meisten Impulsen verwendet.
 Somit wird eine fehlerlose Zuteilung der Kanäle zu den entsprechenden Zeiten
 angenommen, weshalb im folgenden keine Fehlerrechnung durchgeführt wird.
 Die Ergebniss sind noch einmal grafisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
@@ -124,7 +133,10 @@ In dem letzten Abschnitt der Auswertung wird die Lebensdauer der Myonen bestimmt
 Die Messung wurde über einen Zeitraum von $T\ua{ges} = 81591$ $\su{s}$ durchgeführt.
 Dabei wurden $N\ua{Start} = 1444133$ Startimpulse registriert sowie $N\ua{Stop} =
 4255$ Stopimpulse. Die eingestellte Suchzeit beträgt $T\ua{Search} = 10 \, \su{\mu s}$.
-Mit diesen Werten lässt der Untergrung berechnen.
+Mit diesen Werten lässt der Untergrung berechnen. Der Untergrung etnsteht aufgrund
+der Suchzeit. Sollte innerhalb der Suchzeit ein zweites Myon in den Szintillator
+eintreten, wird ein eigentlich nicht vorhandener Zerfall registriert. Im folgenden
+wird dieser Untergrund bestimmt.
 
 \begin{align}
   R &= \frac{N\ua{Start}}{T\ua{ges}} = 17.7 \,\, \frac{\su{Impulse}}{\su{s}}
@@ -184,6 +196,45 @@ Lebensdauer $\tau$ der Myonen bestimmen:
 \end{equation}
 
 \section{Diskussion}
+
+Die bestimmten Werte sind in Tabelle \ref{tab:ErgebnisseU} und \ref{tab:ErgebnissTau}
+zu sehen. In der Auswertung wurde der Untergrund auf zwei verschiedene Arten
+bestimmt, wobei der eine ungefähr doppelt so groß ist. Beim Vergleich der bestimmten
+Lebensdauer ist ein Abweichung von ca. 18 $\%$ gegenüber dem Literaturwert zu sehen.
+Der Literaturwert liegt zudem nicht im Fehlerintervall des bestimmten Wertes.
+
+Für diese Abweichung gibt es mehrere mögliche Ursachen. Einerseits hat sich schon
+in der Kalibrierung gezeigt, dass einige Zeiten mehreren Kanälen zugeordnet
+werden. Um dieses Fehler zu berücksichtigen hätte auch hier eine Fehlerrechnung
+durchgeführt werden müssen, worauf in dieser Auswertung jedoch verzichtet wurde.
+Eine weitere Fehlerquelle sind die Anti-Myonen, welche sich mit den Szintillator-Atomen
+zu einem angeregten myonischen Atom verbinden.
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse für den Untergrund}
+  \label{tab:ErgebnisseU}
+  \begin{tabular}{c c c c c}
+    \toprule
+    $U\ua{1}$ & $\increment$ $U\ua{1}$ & $U\ua{2}$ & $\increment$ $U\ua{2}$ & $\frac{U\ua{1}}{U\ua{2}}$ \\
+    \midrule
+    0.499 & & 1.02 & 0.13 & 0.49 $\pm$ 0.06 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Ergebniss für den Untergrund und Vergleich mit dem Literaturwert. \cite{Taulit}}
+  \label{tab:ErgebnissTau}
+  \begin{tabular}{c c c c}
+    \toprule
+    $\tau\ua{\mu,exp}$ & $\tau\ua{\mu,lit}$ & $\frac{\tau\ua{\mu,exp}}{\tau\ua{\mu,lit}}$ \\
+    \midrule
+    1.79 $\pm$ 0.06 & 2.20 $\pm$ 0 & 0.82 $\pm$ 0.03 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 
 \section{Messwerte}

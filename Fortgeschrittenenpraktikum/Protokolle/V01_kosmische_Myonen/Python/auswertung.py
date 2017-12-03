@@ -164,3 +164,9 @@ plt.xlabel(r'$t$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
 #plt.savefig('Spektrum_klein.pdf')
 #plt.show()
+
+print(U_Search/U_fit)
+
+LD_Lit = 2.20
+
+print(LD/LD_Lit)
