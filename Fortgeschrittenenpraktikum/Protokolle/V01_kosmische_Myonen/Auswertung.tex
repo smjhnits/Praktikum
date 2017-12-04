@@ -1,9 +1,9 @@
 \section{Auswertung}
 
 In dem folgenden Abschnitt sollen mithilfe der aufgenommenen Daten die Lebensdauer
-der Myonen bestimmt werden. Die Fehlerberechnung wird im folgenden mit dem
-Package $\textit{uncertainties}$ in $\textit{Python}$ durchgeführt. Da die Werte
-bei Berechnung des Plateaus sowie Ermittlung der Lebensdauer Fehlerbehaftet sind,
+der Myonen bestimmt werden. Die Fehlerberechnung wird mit dem
+Paket $\textit{uncertainties}$ in $\textit{Python}$ durchgeführt. Da die Werte
+bei Berechnung des Plateaus sowie Ermittlung der Lebensdauer fehlerbehaftet sind,
 wird für die Regression ein gewichteter Fit mit der Funktion \textit{curve\_fit}
 durchgeführt.
 
@@ -12,14 +12,14 @@ durchgeführt.
 Um die abgegebenen Signale der Koinzidenzapparatur zu maximieren, wird während
 der Kalibrierung des Versuches die Verzögerungszeit $T\ua{VZ}$ varriert. Die am
 Ausgang der Apparatur gemessene Anzahl an Signalen wird in Tabelle \ref{tab:Verzögerung}
-wiedergegeben und ist in Abbildung \ref{fig:Plateau}graphisch dargestellt.
+wiedergegeben und ist in Abbildung \ref{fig:Plateau} graphisch dargestellt.
 In den interessanteren Bereichen wurden mehrere Messwerte genommen, allerdings
 ist in Tabelle \ref{tab:Verzögerung} immer nur der gemittelte
 Wert eingetragen. Die jeweiligen Zeiten sind mit einem Sternchen markiert. Ein
 negatives Vorzeichen bei der Verzögerungszeit entspricht einer Verzögerung bei
 dem linken SEV und ein positives Vorzeichen dementsprechend einer Verzägerun
-bei dem rechten SEV. Da es sich um eine Anzahl handelt, sind die Zahlen auf
-die 1er Potenz gerundet. Als Fehler wird für den Wert $n$ immer $\sqrt{n}$
+bei dem rechten SEV. Es handelt sich um Anzahlen, deshalb sind die Zahlen auf
+natürliche Zahlen gerundet. Als Fehler wird für den Wert $n$ immer $\sqrt{n}$
 angenommen.
 
 \begin{figure}
@@ -99,12 +99,12 @@ zeitlichen Abstand an.
 \end{table}
 
 Bei einigen Abständen wurden mehrere Kanäle belegt. Eigentlich muss hierfür eine
-Fehlerrechnung durchgeführt werden, im folgenden wird jedoch die Zuordnung von
+Fehlerrechnung durchgeführt werden, im Folgendem wird jedoch die Zuordnung von
 Impulsen bei der Kalibrierung in die mit einem Sternchen markierten Kanäle ignoriert
 und der Kanal mit den meisten Impulsen verwendet.
 Somit wird eine fehlerlose Zuteilung der Kanäle zu den entsprechenden Zeiten
-angenommen, weshalb im folgenden keine Fehlerrechnung durchgeführt wird.
-Die Ergebniss sind noch einmal grafisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
+angenommen, weshalb keine Fehlerrechnung durchgeführt wird.
+Die Ergebniss sind graphisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
 
 \begin{figure}
   \centering
@@ -114,12 +114,12 @@ Die Ergebniss sind noch einmal grafisch in Abbildung \ref{fig:Kalibrierung} darg
 \end{figure}
 
 \begin{equation}
-  T(K) = A*K + B
+  T(K) = A\cdot K + B
   \label{eqn:Kalibrierung_Fit}
 \end{equation}
 
 Mithilfe von Formel \eqref{eqn:Kalibrierung_Fit} wird eine lineare Regression
-durchgeführt, um zu ermitteln, zu welchem Kanal welcher zeitliche Abstand gehört.
+durchgeführt, damit ermitteln werden kann, zu welchem Kanal welcher zeitliche Abstand gehört.
 Für die Parameter A und B ergeben sich dabei folgende Wert:
 
 \begin{align}
@@ -133,10 +133,10 @@ In dem letzten Abschnitt der Auswertung wird die Lebensdauer der Myonen bestimmt
 Die Messung wurde über einen Zeitraum von $T\ua{ges} = 81591$ $\su{s}$ durchgeführt.
 Dabei wurden $N\ua{Start} = 1444133$ Startimpulse registriert sowie $N\ua{Stop} =
 4255$ Stopimpulse. Die eingestellte Suchzeit beträgt $T\ua{Search} = 10 \, \su{\mu s}$.
-Mit diesen Werten lässt der Untergrung berechnen. Der Untergrung etnsteht aufgrund
+Mit diesen Werten lässt sich der Untergrund berechnen. Der Untergrund entsteht aufgrund
 der Suchzeit. Sollte innerhalb der Suchzeit ein zweites Myon in den Szintillator
-eintreten, wird ein eigentlich nicht vorhandener Zerfall registriert. Im folgenden
-wird dieser Untergrund bestimmt.
+eintreten, kann ein eigentlich nicht auftretender Zerfall von der Apparatur
+felhinterpretiert werden. Der Untergrund ergibt sich wie folgt.
 
 \begin{align}
   R &= \frac{N\ua{Start}}{T\ua{ges}} = 17.7 \,\, \frac{\su{Impulse}}{\su{s}}
@@ -171,7 +171,7 @@ Stopsignale auf die Kanäle ist in Tabelle \ref{tab:Spektrum} dargestellt. Für 
 Auswertung wurden
 dabei alle Kanäle vernachlässigt, deren gemessener Wert 0 ist. Jedem Kanal mit
 der Anzahl $n$ wird als Fehler $\sqrt{n}$ zugeteilt. Da hier ein gewichteter
-Fit durchgeführt wird, würden dabei Werte mit Fehler 0 eine Singularität hervorrufen.
+Fit durchgeführt wird, rufen Werte mit Fehler 0 dabei eine Singularität hervor.
 
 \begin{equation}
   N(t) = N\ua{0} \cdot \exp{-\lambda \cdot t} + U\ua{2}
@@ -179,8 +179,7 @@ Fit durchgeführt wird, würden dabei Werte mit Fehler 0 eine Singularität herv
 \end{equation}
 
 Für die Auswertung der in Abbildung \ref{fig:Spek_groß} dargestellten Werte wird an die Funktion
-\eqref{eqn:Exponentiell} gefittet. Für die Parameter ergeben sich somit folgende
-Werte:
+\eqref{eqn:Exponentiell} gefittet. Für die Parameter ergeben sich zu:
 
 \begin{align}
   N\ua{0} &= (42 \pm 1) \\
@@ -208,7 +207,8 @@ in der Kalibrierung gezeigt, dass einige Zeiten mehreren Kanälen zugeordnet
 werden. Um dieses Fehler zu berücksichtigen hätte auch hier eine Fehlerrechnung
 durchgeführt werden müssen, worauf in dieser Auswertung jedoch verzichtet wurde.
 Eine weitere Fehlerquelle sind die Anti-Myonen, welche sich mit den Szintillator-Atomen
-zu einem angeregten myonischen Atom verbinden.
+zu einem angeregten myonischen Atom verbinden und nicht innerhalb der
+Suchzeit zerfallen.
 
 \begin{table}
   \centering

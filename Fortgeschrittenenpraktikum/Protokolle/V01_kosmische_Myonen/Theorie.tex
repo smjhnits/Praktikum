@@ -3,6 +3,7 @@
 Der vorliegende Versuch behandelt die Ermittelung der Lebensdauer
 kosmischer Myonen. Zu Beginn wird in die Theorie des Versuches eingeleitet.
 Daraufhin wird die Messapparatur und die Durchführung der Messung beschrieben.
+Anschleißend werden die gemessenen Ergebnisse ausgewertet und abschließend diskutiert.
 
 \section{Theorie}
 
@@ -18,8 +19,8 @@ besitzen, resultierend aus dem Zerfall eine hohe kinetische Energie.
   \ce{\pi^- &-> \mu^- + \bar{\nu}\ua{\mu}}
 \end{align}
 
-Myonen sind ca. 207 mal so schwer wie eine Elektron und Elektronen sind die leichtesten
-Leptonen. Somit ist klar, dass Myonen nicht stabil sein können.
+Myonen sind ca. 207 mal so schwer wie eine Elektron. Elektronen sind die leichtesten
+Leptonen, somit ist klar, dass Myonen nicht stabil sein können.
 
 Myonen zerfallen nach den folgenden Zerfallsgleichungen.
 
@@ -33,7 +34,7 @@ Myonen zerfallen nach den folgenden Zerfallsgleichungen.
 \subsection{Lebensdauer}
 
 Die Lebensdauer $\tau$ eines instabilen Teilchens beschreibt die Zeit,
-nachder eine Teilchenpopulation auf $\frac{1}{\symup{e}}$ ihrer ursprünglichen
+nach der eine Teilchenpopulation auf $\frac{1}{\symup{e}}$ ihrer ursprünglichen
 Anzahl abgefallen ist.
 Der Zerfall eines Teilchens ist ein stochastischer Prozess, der durch
 ein Exponentialgesetz der Form:
@@ -59,23 +60,23 @@ Somit sind nur Myonen, die auch in dem Versuchsaufbau zerfallen relevant
 für die Messung. Im Folgenden wird der verwendete Versuchsaufbau beschrieben,
 der das herausfiltern dieser relevanten Ereignisse ermöglicht.
 
-Grundlegend wird für die dedektion von Teilchen ist ein Szintillator.
+Grundlegend wird für die dedektion von Teilchen ist ein Szintillator verwendet.
 Geladene Teilchen, die den Szintillator durchqueren wechselwirken mit den Atomen
 im Szintillatormaterial. Durch diese Wechselwirkung können
-die Atome im Szintillator in einen angeregten Zustand überführen werden.
+die Atome im Szintillator in einen angeregten Zustand überführt werden.
 Myonen haben eine hohe kinetische Energie und können mehrere MeV ihrer kinetischen Energie
 an das Szintillatormaterial abgeben. Die angeregten Szintillatoratome geben
 bei dem Übergang von dem angeregten Zustand in den Grundzustand einen Lichtquant
 ab, der von einer optisch an den Szintillator gekoppelten Photokathode
-dedektiert werden kann.
-An der Photokathodeliegt ein sekundärer Elektronenvervielfältiger (SEV) an.
+registriert werden kann.
+An der Photokathode liegt ein sekundärer Elektronenvervielfältiger (SEV) an.
 Der SEV verstärkt die Signale aus der Photokathode, damit sie dedektiert werden
 können.
 
-Das Filtern der Ereignisse von Myonen, die auch in dem Szintillator zerfallen
+Das Filtern der Ereignisse von Myonen, die auch in dem Szintillator zerfallen,
 geschieht durch eine logische Schaltung. Diese Schaltung ist in Abb. \ref{fig:Aufbau}
 durch die beiden AND-Gatter und den Monoflop/Univibrator realisiert.
-Anliegende Spannungen werden im Folgenden als up und das fehlen von Spannungen
+Anliegende Spannungen werden im Folgenden als up und das Fehlen von Spannungen
 als down bezeichnet.
 Wenn ein up aus der Koinzidenz (vgl. Abb. \ref{fig:Aufbau}), deren Funktion im
 Verlauf der Durchfürhung noch erklärt wird, in die untere Schaltung einläuft
@@ -85,7 +86,7 @@ up wird mit einer Verzögerung von $\SI{30}{\nano\second}$ an den Univibrator
 abgegeben. An dem einen Ausgang des Univibrators, der mit dem 1. UND verbunden
 ist, liegt im down Zustand ein up an (vgl \ref{fig:Aufbau}; $\bar{\text{OUT}}$).
 Der zweite Ausgang ist mit dem 2. UND verbunden
-und gibt im down Zusant des Univibrators ein down weiter (OUT).
+und gibt im down Zustand des Univibrators ein down weiter (OUT).
 Somit sind an dem 1. UND beide Eingänge mit einem up belegt und das Startsignal wird
 an einen Zeit-Amplituden-Konverter und Impulszähler gegeben. Der Impulszähler
 zählt lediglich die Anzahl der eintreffenden Startsignale.
@@ -102,19 +103,19 @@ Der linke Eingang des 2. UND-Gatters empfängt nachdem
 der Monoflop ein up erhalten hat ebenfalls ein up, welches für
 die eingestellte Zeit $T\ua{s}$ anliegt. Wird in diesem
 Zeitraum ein weiteres Signal von der Koinzidenz an den rechten Eingang des
-2. UND-Gatters geleitet wird ein up an den Stop-Eingang des Zeit-Impuls-Konverters gegeben
+2. UND-Gatters geleitet wird ein up an den Stopeingang des Zeit-Impuls-Konverters gegeben
 und die Zeitmessung ist abgeschlossen. Die in einem Impuls kodierte Zerfallszeit
 wird in ein Vielkanalanalysator gegeben, welcher mit einem Computer
-verbunden ist. Der Rechner verarbeitet das Signal mit der geeigneten Software.
+verbunden ist. Der Rechner verarbeitet das Signal mit geeigneter Software.
 
-In dem Versuch sollen nur die durch Myonen erzeugten Ereignisse behandelt werden.
+In dem Versuch sollen nur die durch myonenerzeugten Ereignisse behandelt werden.
 Jedoch werden durch thermische Prozesse in dem Szintillatormaterial statischtisch Verteilt
 Elektronen gelöst, welche von den SEV als Myonenereignisse interpretiert werden.
 Um dieses thermische Rauschen zu unterdrücken gibt es zwei parallel angewendete
 Mechanismen. Die thermischen Störungen lösen in der Regel eine niederige
 Spannung als die Myonenereignisse aus. Durch einen Diskriminator werden nur
-Ereignisse durchgelassen, die einen einstellbaren Schwellenwert $U_0$ übersteigen
-durchgelassen. Damit können thermische Ereignisse signifikant unterdrückt werden.
+Ereignisse durchgelassen, die einen einstellbaren Schwellenwert $U_0$ übersteigen.
+Damit können thermische Ereignisse signifikant unterdrückt werden.
 Zudem werden die Ereignisse die den Schwellenwert des Diskriminatros übersteigen
 mit einheitlicher Spannungsamplitude weitergeleitet.
 Vor den Diskriminatoren sind Verzögerungen angebracht, damit Materialeigenschaften
@@ -126,7 +127,7 @@ Die einlaufenden Signale dürfen einen Zeitversatz von $\Delta t\ua{k}\approx
 \SI{4}{\nano\second}$ besitzen.
 Die thermisch gelösten Elektronen entstehen örtlich Verteilt in dem
 Szintillator und sind deutlich langsamer als durch Myonen entstehende Ereignisse und
-erreichen die Koinzidenz mit nur einer geringen Wahrscheinlichkeit in dem
+erreichen die Koinzidenz mit einer geringen Wahrscheinlichkeit in dem
 Zeitintervall $\Delta t\ua{k}$.
 
 
@@ -145,7 +146,7 @@ sodass eine Verzögerung der beiden Messkanäle relativ zu einander eingestellt 
 
 Der in Abb. \ref{fig:Aufbau} dargestellte Doppelimpulsgenerator wird
 für die Zeiteichung des Vielkanalanalysators verwendet, worauf in der
-Durchführung näherdrauf eingegangen wird.
+Durchführung näher eingegangen wird.
 
 Es wird ein organischer Szintillator verwendet, da dieser
 im Vergleich zu einem anorganischen Szintillator eine kürzere
@@ -155,9 +156,9 @@ Totzeit besitzt. Insgesamt fasst der Szintillator 50l und ist mit Toluol befüll
 
 Zu Beginn des Versuches wird der Versuchsaufbau gemäß \ref{fig:Aufbau} aufgebaut.
 Dabei wird der Aufbau während des Aufbauens mit einem Zwei-Kanal-Oszilloskop
-auf seine Funktionsfähigkeit überprüft.
+auf seine Funktionsfähigkeit überprüft werden.
 Die Schwellenwerte $U_0$ der Diskriminatoren werden so eingestellt, dass
-die Impulsrate der aus beiden Kanälen ungefähr übereinstimmt. Für das Zählen der
+die Impulsrate aus beiden Kanälen ungefähr übereinstimmt. Für das Zählen der
 Impulsrate werden die Messkanäle an den Impulszähler angeschlossen.
 Die Impulsrate sollte zwischen 20 und 40 Impulsen pro Sekunde liegen.
 Falls der aufgenommene Wert nicht in diesem Intervall liegt, kann die
@@ -192,3 +193,7 @@ Es werden soviele Werte aufgenommen, bis sich auf dem Rechner deutlich
 erkennbare Balken in den Kanälen entstanden sind.
 Die Zeit der aufeinanderfolgenden Doppelimpulse wird in Schritten von $\SI{1}{\micro\second}$
 erhöht von 0 bis auf $\approx \SI{10}{\micro\second}$.
+
+Abschließend wird die Messapparatur für insgesamt $\approx \SI{20}{\hour}$
+angeschaltet. Dabei ist zu beachten, dass die beiden Eingänge des Impulszählers
+gleichzeitig gestartet und beendet werden.
