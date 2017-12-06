@@ -1,9 +1,9 @@
 \section{Zielsetzung}
 
-Der vorliegende Versuch behandelt die Ermittelung der Lebensdauer
+Der vorliegende Versuch behandelt die Ermittlung der Lebensdauer
 kosmischer Myonen. Zu Beginn wird in die Theorie des Versuches eingeleitet.
 Daraufhin wird die Messapparatur und die Durchführung der Messung beschrieben.
-Anschleißend werden die gemessenen Ergebnisse ausgewertet und abschließend diskutiert.
+Anschließend werden die gemessenen Ergebnisse ausgewertet und abschließend diskutiert.
 
 \section{Theorie}
 
@@ -58,11 +58,11 @@ Myonen gemessen werden, von denen die Einlaufzeit in den Versuchsaufbau bekannt 
 und weiterhin deren Zerfallszeit nach eindringen gemessen wurde.
 Somit sind nur Myonen, die auch in dem Versuchsaufbau zerfallen relevant
 für die Messung. Im Folgenden wird der verwendete Versuchsaufbau beschrieben,
-der das herausfiltern dieser relevanten Ereignisse ermöglicht.
+der das Herausfiltern dieser relevanten Ereignisse ermöglicht.
 
-Grundlegend wird für die dedektion von Teilchen ist ein Szintillator verwendet.
-Geladene Teilchen, die den Szintillator durchqueren wechselwirken mit den Atomen
-im Szintillatormaterial. Durch diese Wechselwirkung können
+Grundlegend wird für die Detektion von Teilchen ein Szintillator verwendet.
+Geladene Teilchen, die den Szintillator durchqueren, wechselwirken mit den Atomen
+des Szintillatormaterials. Durch diese Wechselwirkung können
 die Atome im Szintillator in einen angeregten Zustand überführt werden.
 Myonen haben eine hohe kinetische Energie und können mehrere MeV ihrer kinetischen Energie
 an das Szintillatormaterial abgeben. Die angeregten Szintillatoratome geben
@@ -70,7 +70,7 @@ bei dem Übergang von dem angeregten Zustand in den Grundzustand einen Lichtquan
 ab, der von einer optisch an den Szintillator gekoppelten Photokathode
 registriert werden kann.
 An der Photokathode liegt ein sekundärer Elektronenvervielfältiger (SEV) an.
-Der SEV verstärkt die Signale aus der Photokathode, damit sie dedektiert werden
+Der SEV verstärkt die Signale aus der Photokathode, damit sie detektiert werden
 können.
 
 Das Filtern der Ereignisse von Myonen, die auch in dem Szintillator zerfallen,
@@ -99,8 +99,8 @@ den Ausgängen um.
 Nach einer einegstellten Zeit $T\ua{s}$ geht der Monoflop in seinen Grundzustand
 zurück. $T\ua{s}$ stellt die Suchzeit des Intervalls einer Myonenlebensdauermessung
 dar. In dem Versuch wird $T\ua{s} = \SI{10}{\micro\second}$ gewählt.
-Der linke Eingang des 2. UND-Gatters empfängt nachdem
-der Monoflop ein up erhalten hat ebenfalls ein up, welches für
+Der linke Eingang des 2. UND-Gatters empfängt, nachdem
+der Monoflop ein up erhalten hat, ebenfalls ein up, welches für
 die eingestellte Zeit $T\ua{s}$ anliegt. Wird in diesem
 Zeitraum ein weiteres Signal von der Koinzidenz an den rechten Eingang des
 2. UND-Gatters geleitet wird ein up an den Stopeingang des Zeit-Impuls-Konverters gegeben
@@ -108,12 +108,13 @@ und die Zeitmessung ist abgeschlossen. Die in einem Impuls kodierte Zerfallszeit
 wird in ein Vielkanalanalysator gegeben, welcher mit einem Computer
 verbunden ist. Der Rechner verarbeitet das Signal mit geeigneter Software.
 
-In dem Versuch sollen nur die durch myonenerzeugten Ereignisse behandelt werden.
-Jedoch werden durch thermische Prozesse in dem Szintillatormaterial statischtisch Verteilt
+In dem Versuch sollen nur die durch Myonen erzeugten Ereignisse behandelt werden.
+Jedoch werden durch thermische Prozesse in dem Photkathoden statischtisch verteilt
 Elektronen gelöst, welche von den SEV als Myonenereignisse interpretiert werden.
 Um dieses thermische Rauschen zu unterdrücken gibt es zwei parallel angewendete
-Mechanismen. Die thermischen Störungen lösen in der Regel eine niederige
-Spannung als die Myonenereignisse aus. Durch einen Diskriminator werden nur
+Mechanismen. Die thermischen Störungen lösen in der Regel eine niederigere
+Spannung als die Myonenereignisse aus, je nachdem an welcher Dynode des Photomultipliers
+das Elektron ausgelöst wird. Durch einen Diskriminator werden nur
 Ereignisse durchgelassen, die einen einstellbaren Schwellenwert $U_0$ übersteigen.
 Damit können thermische Ereignisse signifikant unterdrückt werden.
 Zudem werden die Ereignisse die den Schwellenwert des Diskriminatros übersteigen
@@ -122,13 +123,15 @@ Vor den Diskriminatoren sind Verzögerungen angebracht, damit Materialeigenschaf
 der Diskriminatoren kompensiert werden können.
 
 Der zweite rauschunterdrückende Mechanismus ist die Koinzidenz.
-Diese lässt nur nahzu gleichzeitig einlaufende Signale passieren.
+Diese lässt nur nahezu gleichzeitig einlaufende Signale passieren.
 Die einlaufenden Signale dürfen einen Zeitversatz von $\Delta t\ua{k}\approx
 \SI{4}{\nano\second}$ besitzen.
-Die thermisch gelösten Elektronen entstehen örtlich Verteilt in dem
-Szintillator und sind deutlich langsamer als durch Myonen entstehende Ereignisse und
-erreichen die Koinzidenz mit einer geringen Wahrscheinlichkeit in dem
-Zeitintervall $\Delta t\ua{k}$.
+Die thermisch gelösten Elektronen entstehen in einer Phtotkathode bzw. SEV, somit gibt
+es in der Regel kein zeitgleiches Signal des anderen SEV. So kann das
+thermische Rauschen mithilfe der Koinzidenz ebenfalls unterdrückt werden.
+%nd sind deutlich langsamer als durch Myonen entstehende Ereignisse und
+%erreichen die Koinzidenz mit einer geringen Wahrscheinlichkeit in dem
+%Zeitintervall $\Delta t\ua{k}$.
 
 
 
@@ -164,28 +167,28 @@ Die Impulsrate sollte zwischen 20 und 40 Impulsen pro Sekunde liegen.
 Falls der aufgenommene Wert nicht in diesem Intervall liegt, kann die
 Schewellenspannung $U_0$ variiert werden, bis die Impulsrate den Anforderungen genügt.
 
-Weiterhin gilt es die Verzögerer, die vor dem Diskriminatoren montiert sind
-ab zu gleichen, sodass die materialbedingte Verzögerung der Diskriminatoren
-kompensiert wird. Dies ist essentiell für die arbeitsweise der Koinzidenz.
+Weiterhin gilt es, die Verzögerer die vor dem Diskriminatoren montiert sind
+abzugleichen, sodass die materialbedingte Verzögerung der Diskriminatoren
+kompensiert wird. Dies ist essentiell für die Arbeitsweise der Koinzidenz.
 Dafür werden jeweils fünf Messwerte für die Einstellungsmöglichkeit der Verzögerer genommen.
 Währenddessen wird die Impulsrate mittels des angeschlossenen Impulszählers, welcher hinter
 der Koinzidenz liegt aufgenommen.
 Die Verzögerung, bei der die Impulsrate maximal ist, ist die von nun an einzustellende.
 
-Die Koinzidenzapparatur kann durch Vergleich der Anzahl der vor ihr liegenden
-Impulse mit der hinter ihr überprüfen. Stimmen beide Werte überein, ist
+Die Koinzidenzapparatur kann durch Vergleich der vor und hinter der Koinzidenz
+registrierten Impulse überprüft werden. Stimmen beide Werte überein ist
 die Funktion als Rauschunterdrücker nicht gewährleistet und die Einstellungen müssen
 verändert werden.
 
 Der Zeit-Amplituden-Konverter kann überprüft werden, indem vor die Koinzidenz ein
-Doppelimpulsgenerator angeschlossen wird. Der zeitliche Abstand der
+Doppelimpulsgenerator geschaltet wird. Der zeitliche Abstand der
 Doppelimpulse kann in Stufen von $\SI{1e-1}{\micro\second}$ variiert werden.
-Die funktionsfähigkeit des Doppelimpulsgenerator kann mit Hilfe des
+Die Funktionsfähigkeit des Doppelimpulsgenerators kann mit Hilfe des
 Zwei-Kanal-Oszilloskopen überprüft werden.
 Der Zeit-Amplituden-Konverter arbeitet einwandfrei, wenn an seinem
 Ausgang Spannungsimpulse entstehen, die proportional zu der
 eingestellten Zeit des Doppelimpulsgenerators sind. Mit dem Zwei-Kanal-Oszilloskop
-ist die Arbeitsfähitsfähigkeit des Zeit-Amplituden-Konverter zu überprüfen.
+ist die Arbeitsfähigkeit des Zeit-Amplituden-Konverters zu überprüfen.
 
 Der Vielkanalanalysator wird justiert durch eine Kalibirerungsmessung.
 Dafür werden mit dem Doppelimpulsgenerator Spannungsimpulse erzeugt.
@@ -194,6 +197,6 @@ erkennbare Balken in den Kanälen entstanden sind.
 Die Zeit der aufeinanderfolgenden Doppelimpulse wird in Schritten von $\SI{1}{\micro\second}$
 erhöht von 0 bis auf $\approx \SI{10}{\micro\second}$.
 
-Abschließend wird die Messapparatur für insgesamt $\approx \SI{20}{\hour}$
+Abschließend wird die Messapparatur für insgesamt $\approx \SI{22}{\hour}$
 angeschaltet. Dabei ist zu beachten, dass die beiden Eingänge des Impulszählers
 gleichzeitig gestartet und beendet werden.
