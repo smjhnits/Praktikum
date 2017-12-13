@@ -1,0 +1,48 @@
+\section{Theorie}
+
+In dem folgenden Versuch soll mithilfe eines präziesen Verfahrens die Zeeman-Aufspaltung
+von \ce{^{85}Rb} und \ce{^{87}Rb} untersucht werden. Dafür wird das Verfahren des
+optischen Pumpens verwendet.
+Die Elektronenhülle eines isolierten Atoms besitzt diskrete Energieniveaus, wobei
+nach dem die Nievaus der innersten Schalen vollständig mit Elektronen besetzt sind
+(gemäß dem Pauli-Ausschlussprinzips). Für die äußeren Schalen ist bekannt, dass die
+Niveaus mit einer höheren Energie schwächer besetzt sind, wobei die zwei Niveaus
+mit Energien $W\ua{1}$ und $W\ua{2}$ ($W\ua{1}$ < $W\ua{2}$ ) und Besetzungszahlen
+$N\ua{1}$ und $N\ua{2}$ gemäß der folgenden Relation miteinander verknüpft sind.
+
+\begin{equation}
+  \frac{N\ua{2}}{N\ua{1}} = \frac{g\ua{2}}{g\ua{1}} \frac{\exp{(-W\ua{2}/kt)}}{\exp{(-W\ua{1}/kt)}}
+  \label{eqn:NRelation}
+\end{equation}
+
+Durch das Verfahren des optischen Pumpens kann nun eine Inversion erzeugt werden,
+bei der $N\ua{1}$ < $N\ua{2}$ gilt. Durch hinterher induzierte Strahlungsübergänge
+kann die Energie der emittierten Quanten präzise ausgemessen werden. In dem
+folgenden Versuch sollen somit durch Untersuchung der Zeeman-Aufspaltung verschiedene
+Größen der Rubidium-Isotope bestimmt werden.
+
+\subsection{Magnetische Momente}
+
+Sowohl der Bahndrehimpuls $\vec{L}$ als auch der Spin $\vec{S}$ besitzen beide
+ein magnetisches Moment, welches Abhängig vom Betrag der Größe sowie der g-Faktor
+und dem Bohrschen Magneton ist. Da die beiden Größen zu einem Gesamtdrehimpuls
+$\vec{J}$ kann dementsprechend auch ein magnetisches Moment $\vec{\mu}\ua{J}$
+definiert werden.
+
+\begin{align}
+  |\vec{\mu}\ua{L}| &= \mu\ua{B} \sqrt{L(L+1)} \\
+  |\vec{\mu}\ua{S}| &= g\ua{S} \mu\ua{B} \sqrt{S(S+1)} \\
+  \implies & \vec{\mu}\ua{J} = \vec{\mu}\ua{L} + \vec{\mu}\ua{S} \\
+  & |\vec{\mu}\ua{J}| = g\ua{J} \mu\ua{B} \sqrt{J(J+1)}
+\end{align}
+
+$\vec{\mu}\ua{J}$ führt dabei eine Präzessionsbewegung um die $\vec{J}$-Richtung
+aus, wodurch der senkrechte Anteil im zeitlichen Mittel verschwindet und als
+magnetisches Moment nur der parallele Anteil eine Rolle spielt. Durch vektorielle
+Betrachtung von $\vec{L}$, $\vec{S}$ und $\vec{J}$ lässt sich nun auch eine
+Formel für $g\ua{J}$ bestimmen:
+
+\begin{equation}
+  g\ua{J} \approx \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}
+  \label{eqn:LandeJ}
+\end{equation}

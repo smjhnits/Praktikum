@@ -11,13 +11,13 @@ endif
 all: build
 
 build:
-		mkdir -p V21_Optisches_Pumpen/{Tabellen,Pics,Python}
-		touch V21_Optisches_Pumpen/{Auswertung.tex,V21_main.tex,Theorie.tex,lit.bib,Makefile}
-		touch V21_Optisches_Pumpen/Pics/savedatei.txt
-		touch V21_Optisches_Pumpen/Python/savedatei.txt
-	  touch V21_Optisches_Pumpen/Tabellen/savedatei.txt
-		cp -r Praeambel_prak.tex V21_Optisches_Pumpen/
+		#mkdir -p V21_Optisches_Pumpen/{Tabellen,Pics,Python}
+		#touch V21_Optisches_Pumpen/{Auswertung.tex,V21_main.tex,Theorie.tex,lit.bib,Makefile}
+		#touch V21_Optisches_Pumpen/Pics/savedatei.txt
+		#touch V21_Optisches_Pumpen/Python/savedatei.txt
+	  #touch V21_Optisches_Pumpen/Tabellen/savedatei.txt
+		#cp -r Praeambel_prak.tex V21_Optisches_Pumpen/
 
 clean:
-		rm -rf V21_Optisches_Pumpen
+		#rm -rf V21_Optisches_Pumpen
 .PHONY: clean all
