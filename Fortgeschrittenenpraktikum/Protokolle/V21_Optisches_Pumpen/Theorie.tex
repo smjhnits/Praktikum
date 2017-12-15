@@ -22,6 +22,7 @@ folgenden Versuch sollen somit durch Untersuchung der Zeeman-Aufspaltung verschi
 Größen der Rubidium-Isotope bestimmt werden.
 
 \subsection{Magnetische Momente}
+\label{subsec:MagMo}
 
 Sowohl der Bahndrehimpuls $\vec{L}$ als auch der Spin $\vec{S}$ besitzen beide
 ein magnetisches Moment, welches Abhängig vom Betrag der Größe sowie der g-Faktor
@@ -46,3 +47,130 @@ Formel für $g\ua{J}$ bestimmen:
   g\ua{J} \approx \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}
   \label{eqn:LandeJ}
 \end{equation}
+
+Unter Einfluss eines äußeren Magnetfeldes ändern sich aufgrund der Wechselwirkung
+mit dem magnetischen Moment die Energieniveaus. Da $\vec{mu}\ua{J}$ ebenfalls eine
+Präzessionsbewegung um $\vec{B}$ ausführt, hat nur die zu $\vec{B}$ parallele
+Komponente einen Einfluss auf die Energeiniveaus. Aufgrund der Richtungsquantelung
+können die Energieniveaus nur ganzzahlige Vielfache von $g\ua{J}\mu\ua{B}B$
+annehmen, verknüpft durch die die Orientierungsquantenzahl $M\ua{J}$.
+
+\begin{equation}
+  U\ua{mag} = M\ua{J}g\ua{J}\mu\ua{B}B, \qquad M\ua{J} \in [-J,...,J]
+  \label{eqn:EdiffJ}
+\end{equation}
+
+Die Energieniveaus spalten somit in $2J+1$ Unternivaus auf.
+
+\subsection{Einfluss des Kernspins}
+\label{subsec:Kern}
+
+Beide Rubidium-Isotope besitzen einen Kernspin ungleich Null, weshalb man eine
+weitere Aufspaltung beachten muss, die Hyperfeinstruktur.
+Sie entsteht durch die Kopplung von Gesamtdrehimpuls und Kernspin:
+
+\begin{equation}
+  \vec{F} = \vec{J} + \vec{I}
+\end{equation}
+
+Die Quantenzahl F läuft somit von $I+J$ bis $|I-J|$ und spaltet in $2J+1$ oder
+$2J+1$, je nachdem ob $J<I$ oder $J>I$ ist. Legt man hier nun ein zusätzliches
+äußeres Magnetfeldan, welches nicht zu hoch ist, dann spalten alle Hyperfeinstrukturniveaus
+erneut in $2F+1$ Unterniveaus auf, charakterisiert durch die Quantenzahl $M\ua{F}$.
+Die einzelnen Zeeman-Niveaus sind äquidistant mit folgender Energiedifferenz:
+
+\begin{equation}
+  U\ua{HF} = g\ua{F}\mu\ua{B}B
+  \label{eqn:EdiffF}
+\end{equation}
+
+%\begin{figure}
+%  \includegraphics{/path/to/figure}
+%  \caption{}
+%  \label{}
+%\end{figure}
+
+Durch eine ähnliche Vektorenbetrachtung wie in \ref{subsec:MagMo} lässt sich nun unter
+Betrachtung von $|\mu\ua{F}| = \sqrt{F(F+1)}g\ua{F}\mu\ua{B}$ der entsprechende
+Landé-Faktor bestimmen:
+
+\begin{equation}
+  g\ua{F} = g\ua{J} \frac{F(F+1)+J(J+1)-I(I+1)}{2F(F+1)}
+\end{equation}
+
+\subsection{Optisches Pumpen}
+\label{subsec:OptP}
+
+Wie in der Einleitung beschrieben, muss für die Vermessung der Zeeman-Niveaus erst
+eine Inversion der Niveaus erzeugt werden. Im folgenden wird zur Erklärung des
+Prinzips die vereinfachende Annahme getroffen, dass das zu betrachtende Alkali-Atom
+keinen Kern mit Drehimpuls besitzt. Betrachtet man den Grundzustand \ce{^{2}S_{1/2}}
+sowie die beiden ersten angeregten Zustände \ce{^{2}P_{1/2}} und \ce{^{2}P_{-1/2}},
+so ergibt sich das D1-D2-Dublett (siehe Abbildung \ref{fig:D1D2}).
+
+%\begin{figure}
+%  \includegraphics{/path/to/figure}
+%  \caption{}
+%  \label{}
+%\end{figure}
+
+Bei allen Zuständen ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
+oder $-\frac{1}{2}$ annehmen.
+Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref{eqn:Zeemanohne}).
+
+%\begin{figure}
+%  \includegraphics{/path/to/figure}
+%  \caption{}
+%  \label{}
+%\end{figure}
+
+Gemäß der Auswahlregeln für Strahlungsübergänge lassen sich 3 Übergänge unterscheiden,
+die durch ihre Energie und ihren Polarisationszustand charakterisiert werden.
+
+\begin{enumerate}
+  \item[a)] $\sigma^{+},\increment M\ua{J}=+1$: \\
+    Das Licht ist rechtszirkular polarisiert, somit steht der Spin antiparallel
+    zur Ausbreitungsrichtung.
+  \item[b)] $\sigma^{-},\increment M\ua{J}=-1$: \\
+    Das Licht ist linkszirkular polarisiert, somit steht der Spin parallel zur
+    Ausbreitungsrichtung.
+  \item[c)] $\pi, \increment M\ua{J}=0$: \\
+    Das Licht ist linear polarisiert, parallel zu dem angelegten $\vec{B}$-Feld.
+\end{enumerate}
+
+Aufgrund des Dipolcharakters erscheinen die $\sigma$-Übergänge in allen zu $\vec{B}$
+senkrechten Richtungen linear polarisiert.
+
+Befindet sich in der Dampfkammer nun ein Gas aus den voher angesprochenen Alkali-Atome,
+so kann mithilfe des optischen Pumpens eine Inversion der $M\ua{J}$ Niveaus des
+$\ce{^{2}S_{1/2}}$ Zustandes erzeugt werden. Das $M\ua{J}=\frac{1}{2}$ Niveau ist
+anfangs schwächer besetzt als das $M\ua{J}=-\frac{1}{2}$ Nivaeau. Durch Einstrahlen
+von D1-Licht werden nun $\increment M\ua{J} = +1$ Übergänge angeregt. Somit ist
+lediglich der Übergang von $\ce{^{2}S_{1/2}}$,$M\ua{J}=-\frac{1}{2}$ zu $\ce{^{2}P_{1/2}}$,
+$M\ua{J}=\frac{1}{2}$ möglich. Durch spontane Emmsion geht der angeregte Zustand
+nach ca. $10^{-8}$ s wieder in den Grundzustand über, wobei allerdings beide Niveaus
+des Grundzustandes bevölkert werden.
+Aufgrund der Auswahlregel kann jedoch kein Übergang von $\ce{^{2}S_{1/2}}$,
+$M\ua{J}=\frac{1}{2}$ zu $\ce{^{2}P_{1/2}}$,$M\ua{J}=\frac{1}{2}$ stattfinden,
+wodurch sich dieses Niveau anreichert, während das $M\ua{J}=-\frac{1}{2}$ Niveau
+langsam entleert wird. Somit lässt sich zumindest in der Theorie eine komplette
+Inversion der beiden Zustände erzeugen.
+In der Realität ist es jedoch so, dass durch Zusammenstöße der Gasatome untereinander
+die Elektronenspins umklappen können, so dass ein Übergang im Grundzustand vom
+$M\ua{J}=\frac{1}{2}$ Niveau zum $M\ua{J}=-\frac{1}{2}$ entsteht. Dies lässt sich
+durch ein zusätzliches Puffergas in der Dampfkammer verhindern, wobei meistens ein
+Edelgas gewählt wird.
+
+Der Vorgang kann durch Beobachten der Intensität des am Ende der Dampfkammer
+austretenden D1-Lichtes überprüft werden. Dafür wird ein Lichtdetektor hinter der
+Zelle montiert (siehe Kapitel \ref{sec:Aufbau}, Abbildung \ref{fig:Aufbau}).
+ Durch die Entleerung des $M\ua{J}=-\frac{1}{2}$
+Niveaus wird mit der Zeit immer weniger Licht von dem Gas absorbiert, weswegen
+die Transparenz der Kammer immer weiter zunimmt und sich asymptotisch der vollkommenen
+Transparenz annähert (siehe Abbildung \ref{fig:Transparenz1})
+
+%\begin{figure}
+%  \includegraphics{/path/to/figure}
+%  \caption{}
+%  \label{}
+%\end{figure}
