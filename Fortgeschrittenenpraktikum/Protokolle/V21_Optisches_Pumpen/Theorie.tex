@@ -111,7 +111,7 @@ so ergibt sich das D1-D2-Dublett (siehe Abbildung \ref{fig:D1D2}).
 %\begin{figure}
 %  \includegraphics{/path/to/figure}
 %  \caption{}
-%  \label{}
+%  \label{fig:D1D2}
 %\end{figure}
 
 Bei allen Zuständen ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
@@ -121,7 +121,7 @@ Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref
 %\begin{figure}
 %  \includegraphics{/path/to/figure}
 %  \caption{}
-%  \label{}
+%  \label{fig:Zeemanohne}
 %\end{figure}
 
 Gemäß der Auswahlregeln für Strahlungsübergänge lassen sich 3 Übergänge unterscheiden,
@@ -172,5 +172,89 @@ Transparenz annähert (siehe Abbildung \ref{fig:Transparenz1})
 %\begin{figure}
 %  \includegraphics{/path/to/figure}
 %  \caption{}
-%  \label{}
+%  \label{fig:Transparenz1}
 %\end{figure}
+
+\subsection{Präzisionsmessung der Zeeman-Aufspaltung}
+\label{subsec:Praezission}
+
+Im Allgemeinen kann bei dem Rückgang eines angeregten Atoms in den Grundzustand
+zwischen zwei verschiedenen Prozessen unterschieden werden (siehe Abbildung
+\ref{fig:Emission} a) + b) ). Bei der spontanen Emission
+emittiert ein angeregtes Atom ohne äußere Einflüsse ein Photon und geht so in den
+Grundzustand über. Bei der induzierten Emission wird von außen ein Lichtquant eingestrahlt,
+welches als Energie genau die Energiedifferenz der beiden Niveaus besitzen muss.
+Dadurch treten hinterher zwei Photonen aus, die genau die selbe Energie, Ausbreitungsrichtung
+und Polarisation besitzen.
+
+%\begin{figure}
+%  \includegraphics{/path/to/figure}
+%  \caption{}
+%  \label{fig:Emission}
+%\end{figure}
+
+Beide Prozesse laufen nebeneinander ab, wobei der dominierende Prozess von der
+Energie des emittierten Photons abhängt bzw. von der Frequenz, wie im folgenden
+nun hergeleitet wird.
+
+\begin{equation}
+  h\nu = W\ua{2} - W\ua{1}
+  \label{eqn:Ediff}
+\end{equation}
+
+Im folgenden wird ein Gas mit $N\ua{1}$ Atomen im Zustand $W\ua{1}$ und $N\ua{2}$
+Atomen im energetisch höheren Zustand $W\ua{2}$ betrachtet, welches sich bei der
+Temperatur $T$ im thermischen Gleichgewicht befindet, betrachtet. Die Anzahl der
+spontanen Emissionen pro Zeiteinheit lässt sich dann wie folgt berechnen, wobei
+$A\ua{21}$ die Übergangswahrscheinlichkeit von Niveau $W\ua{2}$ in $W\ua{1}$ darstellt:
+
+\begin{equation}
+  n\ua{spon} = N\ua{2}A\ua{21}.
+  \label{eqn:Nspon}
+\end{equation}
+
+Die Anzahl induzierter Emissionen pro Zeiteinheit ist mit $N\ua{2}$ über den
+Einstein-Koeffizienten $B\ua{21}$ sowie der Quantendichte $u(\nu)$ verbunden:
+
+\begin{equation}
+  n\ua{ind} = N\ua{2}B\ua{21}u(\nu).
+  \label{eqn:Nind}
+\end{equation}
+
+Durch eine ähnliche Relation lässt sich auch die Anzahl absorbierter Quanten pro
+Zeiteinheit bestimmen:
+
+\begin{equation}
+  n\ua{abs} = N\ua{1}B\ua{12}u(\nu).
+  \label{eqn:Nabs}
+\end{equation}
+
+Da im thermischen Gleichgewicht die mittlere Besetzungszahl aller Zustände gleich
+bleiben muss, muss die Anzahl emittierter Quanten in Summation gleich der Anzahl
+absorbierter Quanten sein. Unter der Annahme, dass beide Niveaus nicht entartet
+sind ($g\ua{1}=g\ua{2}$), gilt $B\ua{12} = B\ua{21}$. Somit lässt sich nun
+$A\ua{21}$ bestimmen, so dass sich folgende Abhängigkeit ergibt:
+
+\begin{equation}
+  A\ua{21} = \frac{8\pi h}{c^3}B\ua{12}\nu^3.
+  \label{eqn:A21}
+\end{equation}
+
+$B\ua{21}$ kann aufgrund seiner ausschließlichen Abhängigkeit von der Gestalt der
+Wellenfunktionen als konstant betrachtet werden. Somit wird in Formel \eqref{eqn:A21}
+aufgrund der $\nu^3$ Abhängigkeit deutlich, dass spontane Emission nur bei hohen
+Frequenzen der dominierende Prozess ist. Um dies deutlich zu machen, kann die
+Übergangswahrscheinlichkeit für spontane Emssion bei Rubidium betrachtet werden.
+Für das Verhältniss der Übergangswahrscheinlichkeiten zwischen angeregtem Zustand
+und Grundzustand ($\nu$
+$\approx$ 380 THz) sowie dem Übergang zwischen zwei Zeeman-Niveaus ($\nu$
+$\approx$ 1 MHz) ergibt sich $A\ua{21}(380\,THz)/A\ua{21}(1\,MHz)=5.4\cdot10^25$.
+Somit ist die induzierte Emission im Bereich der Zeeman-Aufspaltung der dominierende
+Prozess.
+
+Mit den obigen Überlegungen lassen sich nun die Abstände zwischen den Zeeman-Niveaus
+unter Verwendung der induzierten Emission präzise vermessen. Liegt zu Beginn noch
+kein Magnetfeld an, so ist das optische Pumpen nicht möglich und die Transparenz
+der Dampfkammer sollte ungefähr bei 0 liegen. Im Allgemeinen ist diese jedoch
+aufgrund des Magnetfeldes der Erde nicht der Fall, wodurch sich diese Anhand der
+Abweichung.
