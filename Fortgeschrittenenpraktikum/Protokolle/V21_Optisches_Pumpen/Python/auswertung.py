@@ -6,7 +6,6 @@ import uncertainties.unumpy as unp
 from uncertainties.unumpy import (nominal_values as noms, std_devs as stds)
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-from PIL import Image
 import scipy.misc
 from pint import UnitRegistry
 
@@ -40,7 +39,7 @@ I_vertical = Q_(2.28 * 0.1, 'A')
 
 ### Messdaten aus Messprogramm c.) ###
 
-frequenz_dimlos = np.array([101, 210, 300, 400, 502, 600, 700, 800, 904, 1001])
+
 frequenz = Q_(np.array([101, 210, 300, 400, 502, 600, 700, 800, 904, 1001]), 'kHz')
 
 I_sweep_1 = Q_(np.array([5.4, 3.75, 5.53, 4.71, 1.13, 1.77, 0.92, 3.55, 3.97, 5.17]) * 0.1, 'A')
@@ -74,20 +73,23 @@ B_ten_horizontal_2 = B_Helmholtz(I_ten_horizontal_2, N_horizontal, R_horizontal)
 ### g_F bestimmen. g_F = a in poly ###
 
 def poly (x, a, b):
-    return 4 * np.pi * m_0 * 1 /(a * e_0) * x + b
+    return a * x + b
 
 ### Sweep Lande sind die, die zu den Übergängen gehören
-params_lande_sweep_1, covariance_B_sweep_1 = curve_fit(poly, B_sweep_1, frequenz_dimlos)
-params_lande_sweep_2, covariance_B_sweep_2 = curve_fit(poly, B_sweep_2, frequenz_dimlos)
+params_lande_sweep_1, covariance_B_sweep_1 = curve_fit(poly, frequenz.magnitude, B_sweep_1.magnitude)
+params_lande_sweep_2, covariance_B_sweep_2 = curve_fit(poly, frequenz.magnitude, B_sweep_2.magnitude)
 
-params_lande_seven_horizontal, covariance_B_seven_horizontal = curve_fit(poly, B_seven_horizontal, frequenz_dimlos[0: 6])
-params_lande_ten_horizontal_1, covariance_B_ten_horizontal_1 = curve_fit(poly, B_ten_horizontal_1, frequenz_dimlos[6: 9])
-params_lande_ten_horizontal_2, covariance_B_ten_horizontal_2 = curve_fit(poly, B_ten_horizontal_2, frequenz_dimlos[6: 9])
+print(frequenz[0:7], len(B_ten_horizontal_1))
 
-print(len(frequenz_dimlos[8: 9]), len(B_ten_horizontal_1))
+params_lande_seven_horizontal, covariance_B_seven_horizontal = curve_fit(poly, frequenz.magnitude[0:7], B_seven_horizontal.magnitude)
+params_lande_ten_horizontal_1, covariance_B_ten_horizontal_1 = curve_fit(poly, frequenz.magnitude[7:10], B_ten_horizontal_1.magnitude)
+params_lande_ten_horizontal_2, covariance_B_ten_horizontal_2 = curve_fit(poly, frequenz.magnitude[7:10], B_ten_horizontal_2.magnitude)
+
 #plt.clf()
-#plt.plot(frequenz_dimlos, poly(frequenz_dimlos, *params_lande_sweep_1), "gx", label=r"")
-##plt.plot(frequenz_dimlos, 4 * np.pi * m_0_dimlos * 1 / (e_0_dimlos) * B_sweep_1, "kx", label=r"")
+#plt.plot(frequenz.magnitude, poly(frequenz.magnitude, *params_lande_sweep_1), "gx", #label=r"")
+##plt.plot(frequenz.magnitude, 4 * np.pi * m_0.magnitude * 1 / (e_0.magnitude) * #B_sweep_1.magnitude, "kx", label=r"")
+#plt.plot(frequenz.magnitude, poly(frequenz.magnitude, *params_lande_sweep_2), "gx", #label=r"")
+##plt.plot(frequenz.magnitude, 4 * np.pi * m_0.magnitude * 1 / (e_0.magnitude) * #B_sweep_2.magnitude, "kx", label=r"")
 #plt.xlabel('Frequenz in kHz')
 #plt.ylabel('Magnetfeldstärke in mT')
 #plt.legend(loc='best')
@@ -95,10 +97,11 @@ print(len(frequenz_dimlos[8: 9]), len(B_ten_horizontal_1))
 #plt.show()
 
 ### Ermitteln des Kernspins ### ?????????
+print(params_lande_sweep_2[1], params_lande_sweep_2[1])
 
 g_J = (3.0023 * J * (J + 1) + 1.0023 * (S * (S + 1) - L * (L + 1))) / (2 * J * (J * 1))
 
-Kernspin_1 = 1 / 2 * (g_J / params_lande_sweep_1[0] - 1)
-Kernspin_2 = 1 / 2 * (g_J / params_lande_sweep_2[0] - 1)
+Kernspin_1 = 1 / 2 * (g_J / (1 / params_lande_sweep_1[0] *  4 * np.pi * m_0.magnitude / e_0.magnitude) - 1)
+Kernspin_2 = 1 / 2 * (g_J / (1 / params_lande_sweep_2[0] *  4 * np.pi * m_0.magnitude / e_0.magnitude) - 1)
 
-print(Kernspin_1, Kernspin_2)
+print(Kernspin_1, Kernspin_2, g_J)
