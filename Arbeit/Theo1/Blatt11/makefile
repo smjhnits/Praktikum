@@ -8,15 +8,15 @@ else
   translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: build6/TheoBlatt6.pdf
+all: build11/TheoBlatt11.pdf
 
-build6/TheoBlatt6.pdf: Praeambel_Theo.tex Theo_Header.tex  Aufgaben3.tex  Blatt06.tex TheoBlatt6.tex| build6
-		lualatex --output-directory=build6 TheoBlatt6.tex
-		lualatex --output-directory=build6 TheoBlatt6.tex
+build11/TheoBlatt11.pdf: Praeambel_Theo.tex Theo_Header.tex   Navier_Stokes.tex TheoBlatt11.tex| build11
+		lualatex --output-directory=build11 TheoBlatt11.tex
+		lualatex --output-directory=build11 TheoBlatt11.tex
 
 build6:
-		mkdir -p build6
+		mkdir -p build11
 
 clean:
-		rm -rf build6
+		rm -rf build11
 .PHONY: clean all
