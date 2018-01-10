@@ -10,11 +10,11 @@ endif
 
 all: build11/TheoBlatt11.pdf
 
-build11/TheoBlatt11.pdf: Praeambel_Theo.tex Theo_Header.tex   Navier_Stokes.tex TheoBlatt11.tex| build11
+build11/TheoBlatt11.pdf: Praeambel_Theo.tex Theo_Header.tex Aufgaben_Jonah.tex Navier_Stokes.tex TheoBlatt11.tex| build11
 		lualatex --output-directory=build11 TheoBlatt11.tex
 		lualatex --output-directory=build11 TheoBlatt11.tex
 
-build6:
+build11:
 		mkdir -p build11
 
 clean:
