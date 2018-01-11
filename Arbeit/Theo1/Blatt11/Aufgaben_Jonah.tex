@@ -1,14 +1,16 @@
 \begin{exercise}{Verengtes Rohr}{10}
-  Ein Zylinderförmiges Rohr mit einem Durchmesser von $R_{1}=50$ mm ist auf
-  einem Zwischenstück verengt und besitzt dort nur noch einen Radius von
-  $R_{2}=25$ mm. An der verengten Stelle ist von unten ein weiteres Rohr mit
-  einem Radius von $R_{3}=10$ mm angeschlossen, dessen Ende sich in einem
-  Wasserbecken befindet. Durch das Rohr flie\ss en 6 L Wasser pro Sekunde.
+  Ein Zylinderförmiges Rohr mit einem Durchmesser $d_{1}=50$mm ist auf
+  einem Zwischenstück verengt und besitzt dort nur noch einen Durchmesser von
+  $d_{2}=25$mm. An der verengten Stelle ist von unten ein weiteres Rohr mit
+  einem Durchmesser von $d_{3}=10$mm angeschlossen, dessen Ende sich in einem
+  Wasserbecken befindet. Durch das Rohr flie\ss en 6 L Wasser pro Sekunde
+  (siehe Abbildung \ref{fig:Verengtes_Rohr}). Vernachlässigen Sie dabei, dass von
+  oben Wasser in das angeschlossene Rohr gelangen kann.
 
   \begin{enumerate}
-    \item [a)] Welcher Unterdruck entsteht an der verengten Stelle?
-    \item [b)] Kann durch das senkrechte Rohr das untere Wasser 1 m hoch gezogen
-    werden?
+    \item [a)] Wie gro\ss ist die Druckdifferenz der beiden Stellen mit unterschiedlichem
+               Durchmesser?
+    \item [b)] Wie hoch steigt das Wasser in dem angeschlossenen Rohr?
   \end{enumerate}
 \end{exercise}
 
@@ -17,6 +19,8 @@
   \begin{figure}[h]
     \centering
     \includegraphics[width = 0.5\textwidth]{Rohr.jpg}
+    \caption{Verengtes Rohr}
+    \label{fig:Verengtes_Rohr}
   \end{figure}
 
 \input{Navier_Stokes.tex}
@@ -26,12 +30,17 @@
 
 \begin{exercise}{Zusatzaufgabe}{+10}
   \begin{enumerate}
-    \item [a)] Bestimmen Sie das elektrische Feld eines unendlich langen Drahtes.
-    \item [b)] Bestimmen Sie das magnetische Feld eines unendlich langen Drahtes
-               mit dem Durchmesser $R_{0}$. Betrachten Sie dabei auch das Feld
+    \item [a)] Bestimmen Sie das elektrische Feld eines unendlich langen geladenen Drahtes
+               mit der Linienladungsdichte $\lambda$.
+    \item [b)] Bestimmen Sie das magnetische Feld eines unendlich langen
+               stromdurchflossenen Drahtes
+               mit dem Radius $r_{0}$ und dem Strom I. Betrachten Sie dabei auch das Feld
                innerhalb des Leiters.
-    \item [c)] Bestimmen Sie das magnetische Feld einer Torroidspule mit innerem
-               Radius $r_{1}$ und äu\ss erem Radius $r_{2}$. Betrachten Sie dabei
-               alle Bereiche (r<$r_{1}$,$r_{1}$<r<$r_{2}$,r>$r_{2}$).
+    \item [c)] Bestimmen Sie das magnetische Feld einer stromdurchflossenen
+               Toroidspule mit innerem
+               Radius $r_{1}$ und äu\ss erem Radius $r_{2}$. Die Spule hat N
+               Windungen und wird vom Strom I durchflossen.
+               Betrachten Sie dabei
+               alle Bereiche (r<$r_{1}$,$r_{1}\leq r \leq r_{2}$,r>$r_{2}$).
   \end{enumerate}
 \end{exercise}
