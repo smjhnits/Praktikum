@@ -46,19 +46,23 @@ Luft_Fehler = np.sqrt(Luft_Werte)
 Luft_Real = np.array([ufloat(n, Luft_Fehler[i]) for i,n in enumerate(Luft_Werte)])
 Luft_Rate = Luft_Real/Luft_Zeiten
 
-print(Alu_Rate)
+# Bestimmung der Itensitäten
+I_Alu = np.array([unp.log(n/Alu_Rate[i]) for i,n in enumerate(Luft_Rate)])
+I_Blei = np.array([unp.log(n/Blei_Rate[i]) for i,n in enumerate(Luft_Rate)])
+I_Unb = np.array([unp.log(n/Unb_Rate[i]) for i,n in enumerate(Luft_Rate)])
 
-I_Alu = np.array([n/Alu_Rate[i] for i,n in enumerate(Luft_Rate)])
-I_Blei = np.array([n/Blei_Rate[i] for i,n in enumerate(Luft_Rate)])
-I_Unb = np.array([n/Unb_Rate[i] for i,n in enumerate(Luft_Rate)])
-print(I_Alu)
+
 Alu_t = np.transpose(np.array([I_Alu]))
 Blei_t = np.transpose(np.array([I_Blei]))
 Unb_t = np.transpose(np.array([I_Unb]))
 
-#print(Alu_Rate)
-#Alu_t = np.transpose(np.array([Alu_Rate]))
-#print(Alu_t)
-print((inv(A_t*A)*A_t)*Alu_t)
-print(inv(A_t*A)*A_t*Blei_t)
-print(inv(A_t*A)*A_t*Unb_t)
+#Bestimmung der Koeffizienten
+
+mu_Alu = (inv(A_t*A)*A_t)*Alu_t
+mu_Blei= (inv(A_t*A)*A_t)*Blei_t
+mu_Unb = (inv(A_t*A)*A_t)*Unb_t
+
+print(np.mean(mu_Alu), '\n')
+print(np.mean(mu_Blei), '\n')
+print(mu_Unb, '\n')
+#mu_Alu_f = ufloat(np.mean(mu_Alu), unp.std(mu_Alu, ddof=1))
