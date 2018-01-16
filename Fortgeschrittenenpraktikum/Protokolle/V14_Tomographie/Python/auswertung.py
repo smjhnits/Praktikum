@@ -50,44 +50,44 @@ Luft_Real = np.array([ufloat(n, Luft_Fehler[i]) for i,n in enumerate(Luft_Werte)
 Luft_Rate = Luft_Real/Luft_Zeiten
 Luft_Rate_2 = Luft_Werte/Luft_Zeiten
 
-V_Al_N = np.matrix([[Alu_Fehler[0]**2,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,Alu_Fehler[1]**2,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,Alu_Fehler[2]**2,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,Alu_Fehler[3]**2,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,Alu_Fehler[4]**2,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,Alu_Fehler[5]**2,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,Alu_Fehler[6]**2,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,Alu_Fehler[7]**2,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,Alu_Fehler[8]**2,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,Alu_Fehler[9]**2,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,Alu_Fehler[10]**2,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,Alu_Fehler[11]**2]])
+V_Al_N = np.matrix([[(Alu_Fehler[0]/Alu_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,(Alu_Fehler[1]/Alu_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,(Alu_Fehler[2]/Alu_Zeiten[2])**2,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,(Alu_Fehler[3]/Alu_Zeiten[3])**2,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,(Alu_Fehler[4]/Alu_Zeiten[4])**2,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,(Alu_Fehler[5]/Alu_Zeiten[5])**2,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,(Alu_Fehler[6]/Alu_Zeiten[6])**2,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,(Alu_Fehler[7]/Alu_Zeiten[7])**2,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,(Alu_Fehler[8]/Alu_Zeiten[8])**2,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,(Alu_Fehler[9]/Alu_Zeiten[9])**2,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,(Alu_Fehler[10]/Alu_Zeiten[10])**2,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,(Alu_Fehler[11]/Alu_Zeiten[11])**2]])
 
-V_Pb_N = np.matrix([[Blei_Fehler[0]**2,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,Blei_Fehler[1]**2,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,Blei_Fehler[2]**2,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,Blei_Fehler[3]**2,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,Blei_Fehler[4]**2,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,Blei_Fehler[5]**2,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,Blei_Fehler[6]**2,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,Blei_Fehler[7]**2,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,Blei_Fehler[8]**2,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,Blei_Fehler[9]**2,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,Blei_Fehler[10]**2,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,Blei_Fehler[11]**2]])
+V_Pb_N = np.matrix([[(Blei_Fehler[0]/Blei_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,(Blei_Fehler[1]/Blei_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,(Blei_Fehler[2]/Blei_Zeiten[2])**2,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,(Blei_Fehler[3]/Blei_Zeiten[3])**2,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,(Blei_Fehler[4]/Blei_Zeiten[4])**2,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,(Blei_Fehler[5]/Blei_Zeiten[5])**2,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,(Blei_Fehler[6]/Blei_Zeiten[6])**2,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,(Blei_Fehler[7]/Blei_Zeiten[7])**2,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,(Blei_Fehler[8]/Blei_Zeiten[8])**2,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,(Blei_Fehler[9]/Blei_Zeiten[9])**2,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,(Blei_Fehler[10]/Blei_Zeiten[10])**2,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,(Blei_Fehler[11]/Blei_Zeiten[11])**2]])
 
-V_Unb_N = np.matrix([[Unb_Fehler[0]**2,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,Unb_Fehler[1]**2,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,Unb_Fehler[2]**2,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,Unb_Fehler[3]**2,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,Unb_Fehler[4]**2,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,Unb_Fehler[5]**2,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,Unb_Fehler[6]**2,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,Unb_Fehler[7]**2,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,Unb_Fehler[8]**2,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,Unb_Fehler[9]**2,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,Unb_Fehler[10]**2,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,Unb_Fehler[11]**2]])
+V_Unb_N = np.matrix([[(Unb_Fehler[0]/Unb_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,(Unb_Fehler[1]/Unb_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,(Unb_Fehler[2]/Unb_Zeiten[2])**2,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,(Unb_Fehler[3]/Unb_Zeiten[3])**2,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,(Unb_Fehler[4]/Unb_Zeiten[4])**2,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,(Unb_Fehler[5]/Unb_Zeiten[5])**2,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,(Unb_Fehler[6]/Unb_Zeiten[6])**2,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,(Unb_Fehler[7]/Unb_Zeiten[7])**2,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,(Unb_Fehler[8]/Unb_Zeiten[8])**2,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,(Unb_Fehler[9]/Unb_Zeiten[9])**2,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,(Unb_Fehler[10]/Unb_Zeiten[10])**2,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,(Unb_Fehler[11]/Unb_Zeiten[11])**2]])
 
 
 # Bestimmung der Itensitäten
@@ -113,11 +113,17 @@ Unb_t_2 = np.transpose(np.array([I_Unb_2]))
 V_Al_mu = inv(A_t*inv(V_Al_N)*A)
 Al_mu_2 = inv(A_t*inv(V_Al_N)*A) * A_t*inv(V_Al_N)*Alu_t_2
 
+print(np.sqrt(np.diag(V_Al_mu)),'\n')
+
 V_Pb_mu = inv(A_t*inv(V_Pb_N)*A)
 Pb_mu_2 = inv(A_t*inv(V_Pb_N)*A) * A_t*inv(V_Pb_N)*Blei_t_2
 
+print(np.sqrt(np.diag(V_Pb_mu)),'\n')
+
 V_Unb_mu = inv(A_t*inv(V_Unb_N)*A)
 Unb_mu_2 = inv(A_t*inv(V_Unb_N)*A) * A_t*inv(V_Unb_N)*Unb_t_2
+
+print(np.sqrt(np.diag(V_Unb_mu)),'\n')
 
 print(np.mean(Al_mu_2),'\n')
 print(np.mean(Pb_mu_2),'\n')
