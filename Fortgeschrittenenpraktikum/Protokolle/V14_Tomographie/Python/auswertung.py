@@ -50,31 +50,37 @@ Luft_Real = np.array([ufloat(n, Luft_Fehler[i]) for i,n in enumerate(Luft_Werte)
 Luft_Rate = Luft_Real/Luft_Zeiten
 Luft_Rate_2 = Luft_Werte/Luft_Zeiten
 
-V_Al_N = np.matrix([[(Alu_Fehler[0]/Alu_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,(Alu_Fehler[1]/Alu_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,(Alu_Fehler[2]/Alu_Zeiten[2])**2,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,(Alu_Fehler[3]/Alu_Zeiten[3])**2,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,(Alu_Fehler[4]/Alu_Zeiten[4])**2,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,(Alu_Fehler[5]/Alu_Zeiten[5])**2,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,(Alu_Fehler[6]/Alu_Zeiten[6])**2,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,(Alu_Fehler[7]/Alu_Zeiten[7])**2,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,(Alu_Fehler[8]/Alu_Zeiten[8])**2,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,(Alu_Fehler[9]/Alu_Zeiten[9])**2,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,(Alu_Fehler[10]/Alu_Zeiten[10])**2,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,(Alu_Fehler[11]/Alu_Zeiten[11])**2]])
+delta_y_Alu = np.array([np.sqrt( (1/unp.nominal_values(Luft_Rate[i]))**2*n**2 + (1/unp.nominal_values(Alu_Rate[i]))**2*unp.std_devs(Alu_Rate[i])) for i,n in enumerate(unp.std_devs(Luft_Rate))])
+print("Fehler delta Alu :", delta_y_Alu, '\n')
 
-V_Pb_N = np.matrix([[(Blei_Fehler[0]/Blei_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
-                    [0,(Blei_Fehler[1]/Blei_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
-                    [0,0,(Blei_Fehler[2]/Blei_Zeiten[2])**2,0,0,0,0,0,0,0,0,0],
-                    [0,0,0,(Blei_Fehler[3]/Blei_Zeiten[3])**2,0,0,0,0,0,0,0,0],
-                    [0,0,0,0,(Blei_Fehler[4]/Blei_Zeiten[4])**2,0,0,0,0,0,0,0],
-                    [0,0,0,0,0,(Blei_Fehler[5]/Blei_Zeiten[5])**2,0,0,0,0,0,0],
-                    [0,0,0,0,0,0,(Blei_Fehler[6]/Blei_Zeiten[6])**2,0,0,0,0,0],
-                    [0,0,0,0,0,0,0,(Blei_Fehler[7]/Blei_Zeiten[7])**2,0,0,0,0],
-                    [0,0,0,0,0,0,0,0,(Blei_Fehler[8]/Blei_Zeiten[8])**2,0,0,0],
-                    [0,0,0,0,0,0,0,0,0,(Blei_Fehler[9]/Blei_Zeiten[9])**2,0,0],
-                    [0,0,0,0,0,0,0,0,0,0,(Blei_Fehler[10]/Blei_Zeiten[10])**2,0],
-                    [0,0,0,0,0,0,0,0,0,0,0,(Blei_Fehler[11]/Blei_Zeiten[11])**2]])
+delta_y_Pb = np.array([np.sqrt( (1/unp.nominal_values(Luft_Rate[i]))**2*n**2 + (1/unp.nominal_values(Blei_Rate[i]))**2*unp.std_devs(Blei_Rate[i])) for i,n in enumerate(unp.std_devs(Luft_Rate))])
+print("Fehler delta Blei :", delta_y_Pb, '\n')
+
+V_Al_N = np.matrix([[delta_y_Alu[0]**2,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,delta_y_Alu[1]**2,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,delta_y_Alu[2]**2,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,delta_y_Alu[3]**2,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,delta_y_Alu[4]**2,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,delta_y_Alu[5]**2,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,delta_y_Alu[6]**2,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,delta_y_Alu[7]**2,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,delta_y_Alu[8]**2,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,delta_y_Alu[9]**2,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,delta_y_Alu[10]**2,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,delta_y_Alu[11]**2]])
+
+V_Pb_N = np.matrix([[delta_y_Pb[0]**2,0,0,0,0,0,0,0,0,0,0,0],
+                    [0,delta_y_Pb[1]**2,0,0,0,0,0,0,0,0,0,0],
+                    [0,0,delta_y_Pb[2]**2,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,delta_y_Pb[3]**2,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,delta_y_Pb[4]**2,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,delta_y_Pb[5]**2,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,delta_y_Pb[6]**2,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,delta_y_Pb[7]**2,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,delta_y_Pb[8]**2,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,delta_y_Pb[9]**2,0,0],
+                    [0,0,0,0,0,0,0,0,0,0,delta_y_Pb[10]**2,0],
+                    [0,0,0,0,0,0,0,0,0,0,0,delta_y_Pb[11]**2]])
 
 V_Unb_N = np.matrix([[(Unb_Fehler[0]/Unb_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
                     [0,(Unb_Fehler[1]/Unb_Zeiten[1])**2,0,0,0,0,0,0,0,0,0,0],
@@ -88,7 +94,6 @@ V_Unb_N = np.matrix([[(Unb_Fehler[0]/Unb_Zeiten[0])**2,0,0,0,0,0,0,0,0,0,0,0],
                     [0,0,0,0,0,0,0,0,0,(Unb_Fehler[9]/Unb_Zeiten[9])**2,0,0],
                     [0,0,0,0,0,0,0,0,0,0,(Unb_Fehler[10]/Unb_Zeiten[10])**2,0],
                     [0,0,0,0,0,0,0,0,0,0,0,(Unb_Fehler[11]/Unb_Zeiten[11])**2]])
-
 
 # Bestimmung der Itensitäten
 
@@ -113,21 +118,21 @@ Unb_t_2 = np.transpose(np.array([I_Unb_2]))
 V_Al_mu = inv(A_t*inv(V_Al_N)*A)
 Al_mu_2 = inv(A_t*inv(V_Al_N)*A) * A_t*inv(V_Al_N)*Alu_t_2
 
-print(np.sqrt(np.diag(V_Al_mu)),'\n')
+print("Fehler Alu: ", np.sqrt(np.diag(V_Al_mu)), '\n')
 
 V_Pb_mu = inv(A_t*inv(V_Pb_N)*A)
 Pb_mu_2 = inv(A_t*inv(V_Pb_N)*A) * A_t*inv(V_Pb_N)*Blei_t_2
 
-print(np.sqrt(np.diag(V_Pb_mu)),'\n')
+print("Fehler Blei: ", np.sqrt(np.diag(V_Pb_mu)),'\n')
 
 V_Unb_mu = inv(A_t*inv(V_Unb_N)*A)
 Unb_mu_2 = inv(A_t*inv(V_Unb_N)*A) * A_t*inv(V_Unb_N)*Unb_t_2
 
-print(np.sqrt(np.diag(V_Unb_mu)),'\n')
+print("Fehler Unbekannt: ", np.sqrt(np.diag(V_Unb_mu)),'\n')
 
-print(np.mean(Al_mu_2),'\n')
-print(np.mean(Pb_mu_2),'\n')
-print(Unb_mu_2, '\n')
+print("Alu: ", np.mean(Al_mu_2),'\n')
+print("Blei: ", np.mean(Pb_mu_2),'\n')
+print("Unbekannt: ", Unb_mu_2, '\n')
 
 mu_Alu = (inv(A_t*A)*A_t)*Alu_t
 mu_Blei= (inv(A_t*A)*A_t)*Blei_t
