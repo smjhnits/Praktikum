@@ -1,0 +1,85 @@
+\section{Auswertung}
+
+Für die Auswertung wird zur Berechnung der verschiedenen Werte das Programm
+\emph{Python} mit dem Packet \emph{numpy} verwendet. Am Ende wird zur Berechnung
+des Mittelwertes der Absorptionskoeffizienten die automatische Fehlerrechnung mit
+dem Packet \emph{uncertainties} durchgeführt. In den Abschnitten, in denen die
+Fehler per Hand mithilfe der Gauß´schen Fehlerfortpflanzung (\ref{eqn:Gauß})
+berechnet werden, ist die verwendete Fehlerformel mit angegeben.
+
+\begin{equation}
+  \sigma y = \sqrt{ \sum_{i} \left(\frac{\partial y}{\partial x_i} \cdot \sigma x_i\right)^2 }
+  \label{eqn:Gauß}
+\end{equation}
+
+Für die Auswertung werden bei den einzelnen Messungen nur die Counts in einem
+bestimmten Intervall verwendet. Die verwendeten Intervalle sowie die Anzahl
+an Counts, deren Fehler und die Messzeit sind in Kapitel \label{subsec:Absorption}
+in den Tabellen \ref{tab:Luft} bis \ref{tab:Unbekannt} dargestellt. Als Fehler
+wird dabei immer die Wurzel der gemessenen Counts verwendet.
+
+\subsection{Spektrum von \ce{^{137}Cs}}
+
+In Abbildung \ref{fig:Spektrum} ist das aufgenommene Spektrum bei der Messung
+der Projektion $I_6$ des mit Luft gefüllten Würfels dargestellt. Es ist deutlich
+ein Plateau zwischen den Kanälen ?? und ?? zu erkennen.
+
+% Hier fehlt noch das Spektrum
+
+\subsection{Bestimmung der Absorptionskoeffizienten}
+\label{subsec:Absorption}
+
+Um die Intensität der einzelnen Projektionen zu bestimmen, werden die gemessenen
+Counts bei jeder Projektion mittels der Messzeit normiert. Der Fehler der
+Rate ergibt sich dann über Gauß'sche Fehlerfortpflanzung. Die Messzeit wird
+hierbei als Fehlerfrei angenommen.
+
+\begin{align}
+   I\ua{j} &= \frac{N\ua{j}}{T\ua{j}} \\
+   \sigma\ua{I\ua{j}} &= \frac{1}{T\ua{j}} \cdot \sigma\ua{N\ua{j}} .
+\end{align}
+
+Über die Rate lässt sich dann auch die wie folgt definierte Größe $y$ bestimmen:
+
+\begin{align}
+  y\ua{j} &= \su{ln}\left(\frac{I\ua{0}}{I\ua{j}}\right)  \\
+  \sigma\ua{y\ua{j}} &= \sqrt{ \left( \frac{\sigma\ua{I}}{I}\right)^2 + \left(\frac{\sigma\ua{I\ua{0}}}{I\ua{0}}\right)^2} .
+\end{align}
+
+Der Fehler ergibt sich dabei ebenfalls aus der Gauß'schen Fehlerfortpflanzung. Mit
+$I\ua{0}$ ist hierbei die gemessene Rate bei einem leeren Würfel gemeint. Diese
+wurde für jede Art von Projektion einmal gemessen ($I\ua{2}$, $I\ua{3}$ und $I\ua{6}$).
+
+\input{Tabellen/Luft.tex}
+\input{Tabellen/Alu.tex}
+\input{Tabellen/Blei.tex}
+\input{Tabellen/Unbekannt.tex}
+
+\newpage
+
+Gemäß der Formel \eqref{eqn:kovarianz_I} lässt sich nun die Varianzmatrix $V[\vec{y}]$
+bestimmen. Mit ihr wird gemäß Formel \eqref{eqn:kovarianz_mu} die Varianzmatrix
+der Absoprtionskoeffizienten bestimmt. Mit den Einträgen auf der Diagonale
+lassen sich die Fehler der einzelnen Absorptionskoeffizienten bestimmen.
+Zudem werden über Formel \eqref{eqn:mu} die Absorptionskoeffizienten bestimmt. Die
+Fehler der einzelnen Koeffizienten lassen sich aus den Diagonalelementen von
+$V[\vec{\mu}]$ entnehmen.
+Bei Aluminum und Blei wird mithilfe der automatischen Fehlerrechnung von Python
+der Mittelwert der Absorptionskoeffizienten bestimmt. In Tabelle \ref{tab:AluUndBlei}
+sind die bestimmten Koeffizienten, deren Fehler sowie die Abweichung zu dem
+Literaturwert zu sehen.
+
+\input{Tabellen/AluUndBlei.tex}
+
+Für den Würfel unbekannter Zusammensetzung ergeben sich so ebenfalls die einzelnen
+Absorptionskoeffizienten. Um die einzelnen Würfel einem bestimmten Material zuzuordnen
+sind in Tabelle \ref{tab:UnbekanntErgebnis} die Absorptionskoeffizienten sowie deren
+absolute Abweichung
+zu den Experimentell bestimmten Werten und den Literaturwerten eingetragen. Die Abweichung
+wird dabei durch $\increment M$ bezeichnet, wobei $M$ immer der zum Abgleich gezogenen
+Koeffizient ist. Die Fehler der Abweichung sind hier nicht von interesse und werden
+deswegen nicht mit angegeben.
+
+\input{Tabellen/UnbekanntErgebnis.tex}
+
+\section{Diskussion}
