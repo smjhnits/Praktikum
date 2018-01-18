@@ -14,7 +14,7 @@ berechnet werden, ist die verwendete Fehlerformel mit angegeben.
 
 Für die Auswertung werden bei den einzelnen Messungen nur die Counts in einem
 bestimmten Intervall verwendet. Die verwendeten Intervalle sowie die Anzahl
-an Counts, deren Fehler und die Messzeit sind in Kapitel \label{subsec:Absorption}
+an Counts, deren Fehler und die Messzeit sind in Kapitel \ref{subsec:Absorption}
 in den Tabellen \ref{tab:Luft} bis \ref{tab:Unbekannt} dargestellt. Als Fehler
 wird dabei immer die Wurzel der gemessenen Counts verwendet.
 
@@ -32,7 +32,7 @@ ein Plateau zwischen den Kanälen ?? und ?? zu erkennen.
 Um die Intensität der einzelnen Projektionen zu bestimmen, werden die gemessenen
 Counts bei jeder Projektion mittels der Messzeit normiert. Der Fehler der
 Rate ergibt sich dann über Gauß'sche Fehlerfortpflanzung. Die Messzeit wird
-hierbei als Fehlerfrei angenommen.
+hierbei als fehlerfrei angenommen.
 
 \begin{align}
    I\ua{j} &= \frac{N\ua{j}}{T\ua{j}} \\
@@ -58,26 +58,27 @@ wurde für jede Art von Projektion einmal gemessen ($I\ua{2}$, $I\ua{3}$ und $I\
 \newpage
 
 Gemäß der Formel \eqref{eqn:kovarianz_I} lässt sich nun die Varianzmatrix $V[\vec{y}]$
-bestimmen. Mit ihr wird gemäß Formel \eqref{eqn:kovarianz_mu} die Varianzmatrix
+bestimmen. Mit ihr wird mit Formel \eqref{eqn:kovarianz_mu} die Varianzmatrix
 der Absoprtionskoeffizienten bestimmt. Mit den Einträgen auf der Diagonale
 lassen sich die Fehler der einzelnen Absorptionskoeffizienten bestimmen.
-Zudem werden über Formel \eqref{eqn:mu} die Absorptionskoeffizienten bestimmt. Die
+Zudem werden über Formel \eqref{eqn:mu} die Absorptionskoeffizienten berechnet. Die
 Fehler der einzelnen Koeffizienten lassen sich aus den Diagonalelementen von
 $V[\vec{\mu}]$ entnehmen.
-Bei Aluminum und Blei wird mithilfe der automatischen Fehlerrechnung von Python
+Bei Aluminum und Blei wird mithilfe von \emph{uncertainties}
 der Mittelwert der Absorptionskoeffizienten bestimmt. In Tabelle \ref{tab:AluUndBlei}
 sind die bestimmten Koeffizienten, deren Fehler sowie die Abweichung zu dem
 Literaturwert zu sehen.
 
 \input{Tabellen/AluUndBlei.tex}
 
-Für den Würfel unbekannter Zusammensetzung ergeben sich so ebenfalls die einzelnen
-Absorptionskoeffizienten. Um die einzelnen Würfel einem bestimmten Material zuzuordnen
-sind in Tabelle \ref{tab:UnbekanntErgebnis} die Absorptionskoeffizienten sowie deren
+Für den Würfel unbekannter Zusammensetzung wird gleich Verfahren, um die einzelnen
+Absorptionskoeffizienten zu ermitteln. Damit die einzelnen Würfel einem bestimmten Material
+zugeordnet werden können,
+sind in Tabelle \ref{tab:UnbekanntErgebnis} die Absorptionskoeffizienten, sowie deren
 absolute Abweichung
-zu den Experimentell bestimmten Werten und den Literaturwerten eingetragen. Die Abweichung
-wird dabei durch $\increment M$ bezeichnet, wobei $M$ immer der zum Abgleich gezogenen
-Koeffizient ist. Die Fehler der Abweichung sind hier nicht von interesse und werden
+zu den experimentell bestimmten Werten und den Literaturwerten eingetragen. Die Abweichung
+wird durch $\increment M$ bezeichnet, wobei $M$ immer der zum Abgleich gezogenen
+Koeffizient ist. Die Fehler der Abweichung sind nicht von Interesse und werden
 deswegen nicht mit angegeben.
 
 \input{Tabellen/UnbekanntErgebnis.tex}
