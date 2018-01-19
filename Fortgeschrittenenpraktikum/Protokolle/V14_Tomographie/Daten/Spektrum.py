@@ -9,12 +9,13 @@ from numpy.linalg import inv
 
 Werte = np.genfromtxt('Messungen.txt', unpack=True)
 Fehler = np.sqrt(Werte)
-Fehler_Komplett = np.array([Fehler[0:100], Fehler[0:100]])
+Fehler_Komplett = np.array([Fehler[25:80], Fehler[25:80]])
 
 Kanäle = np.linspace(0,511,512)
 
-plt.errorbar(Kanäle[0:100], Werte[0:100], yerr = Fehler_Komplett, fmt = 'x', color = 'k', label = r'$\#$ Counts')
+plt.errorbar(Kanäle[25:80], Werte[25:80], yerr = Fehler_Komplett, fmt = 'x', color = 'k', label = r'$\#$ Counts')
 plt.ylabel(r'Anzahl Counts')
-plt.xlabel(r'Kanal')
+plt.xlabel(r'Kanal (~Energie)')
 plt.legend(loc = 'best')
+plt.savefig('Spektrum.pdf')
 plt.show()

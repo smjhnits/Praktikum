@@ -8,7 +8,7 @@ Fehler per Hand mithilfe der Gauß´schen Fehlerfortpflanzung (\ref{eqn:Gauß})
 berechnet werden, ist die verwendete Fehlerformel mit angegeben.
 
 \begin{equation}
-  \sigma y = \sqrt{ \sum_{i} \left(\frac{\partial y}{\partial x_i} \cdot \sigma x_i\right)^2 }
+  \sigma\ua{y} = \sqrt{ \sum_{i} \left(\frac{\partial y}{\partial x_i} \cdot \sigma x_i\right)^2 }
   \label{eqn:Gauß}
 \end{equation}
 
@@ -21,10 +21,37 @@ wird dabei immer die Wurzel der gemessenen Counts verwendet.
 \subsection{Spektrum von \ce{^{137}Cs}}
 
 In Abbildung \ref{fig:Spektrum} ist das aufgenommene Spektrum bei der Messung
-der Projektion $I_6$ des mit Luft gefüllten Würfels dargestellt. Es ist deutlich
-ein Plateau zwischen den Kanälen ?? und ?? zu erkennen.
+der Projektion $I_6$ des mit Luft gefüllten Würfels dargestellt.
 
-% Hier fehlt noch das Spektrum
+Der Anfangsbereich, in dem keine Zählrate angezeigt wird, entsteht durch den
+vorgeschlossenen Diskriminator. Dadurch werden erst Stromstärken über einem
+gewissen Schwellenwert registriert, wodurch auch bei Aufnahme des Spektrums
+unter einem gewissen Energiewert keine im Szintillator ausgelösten Lichtblitze
+registriert werden. Bei dem kleineren Peak handelt es sich um einen Rückstreupeak,
+welcher durch die Rückstreuung aufgrund von Compton-Stößen außerhalb es
+Szintillators entsteht.
+
+Der flache Bereich ist das Compton-Kontinuum, welches durch die Streuung des
+Photons an den Elektronen des Szintillatormaterials. Dabei wird jedoch nicht die
+ganze Energie des Photons abgegeben, so dass der Energierest im Szintillator registriert wird.
+Die abgegebene Energie ist dabei nach der Compton-Formel (\eqref{eqn:Compton})
+abhängig vom Streuwinkel. Dies erklärt auch die Kante bzw. den Einbruch der
+Zählrate vor dem Fotopeak, bei dem ein Streuwinkel von 180° vorhanden ist.
+
+\begin{equation}
+  E\ua{C} = E\ua{Ph} - \frac{E\ua{Ph}}{1 + \frac{E\ua{Ph}}{E\ua{c,0}} \cdot (1 - cos(\theta))}
+\end{equation}
+
+Bei dem rechten großen Peak handelt es sich schließlich um den Photopeak des
+Caesium-Präparates. Hier ist die Energie groß genug um im Szintillatormaterial
+zum Fotoeffekt zu führen. Dieser Peak bzw. die Intensität wird im folgenden auch
+als Messwert für die Abschirmung bei den verschiedenen Projektionen verwendet.
+
+\begin{figure}[h]
+  \includegraphics[width = \textwidth]{Daten/Spektrum.pdf}
+  \caption{Spektrum der 137 Caesium Quelle bei einem leeren Würfel}
+  \label{fig:Spektrum}
+\end{figure}
 
 \subsection{Bestimmung der Absorptionskoeffizienten}
 \label{subsec:Absorption}
@@ -63,8 +90,13 @@ der Absoprtionskoeffizienten bestimmt. Mit den Einträgen auf der Diagonale
 lassen sich die Fehler der einzelnen Absorptionskoeffizienten bestimmen.
 Zudem werden über Formel \eqref{eqn:mu} die Absorptionskoeffizienten berechnet. Die
 Fehler der einzelnen Koeffizienten lassen sich aus den Diagonalelementen von
-$V[\vec{\mu}]$ entnehmen.
-Bei Aluminum und Blei wird mithilfe von \emph{uncertainties}
+$V[\vec{\mu}]$ entnehmen:
+
+\begin{equation}
+  \sigma\ua{\mu} = \sqrt{V[\vec{\mu}]\ua{ii}}.
+\end{equation}
+
+Bei Aluminum und Blei wird mithilfe der automatischen Fehlerrechnung von Python
 der Mittelwert der Absorptionskoeffizienten bestimmt. In Tabelle \ref{tab:AluUndBlei}
 sind die bestimmten Koeffizienten, deren Fehler sowie die Abweichung zu dem
 Literaturwert zu sehen.
@@ -84,3 +116,24 @@ deswegen nicht mit angegeben.
 \input{Tabellen/UnbekanntErgebnis.tex}
 
 \section{Diskussion}
+
+In Tabelle \ref{tab:UnbekanntErgebnis} ist zu erkennen, dass sich sowohl bei
+Vergleich der Koeffizienten mit den experimentell bestimmten Werten als auch den
+Literaturwerten für Aluminium und Blei der gleiche Aufbau für den unbekannten
+Würfel ergibt.
+
+Zudem ergab eine Rechnung mit dem Packet \emph{uncertainties} ohne Verwendung der
+Varianzmatrizen ähnliche Werte. Lediglich bei sehr geringen Absorptionskoeffizient
+ist eine deutliche Abweichung vorhanden, da diese meist in der 2. Nachkommastelle
+auftritt.
+
+Eine Fehlerquelle bei diesem Versuch ist unter anderem die Ausdehnung des Strahles,
+welcher auch teilweise in benachbarten Blöcken absorbiert wird, wodurch es eine
+stärkere Absorption gibt als eigentlich der Fall wäre. Wichtig ist hierbei auch
+die Positionierung des Blockes. Gerade bei Messung der Diagonalen ist eine Abweichung
+von der theoretischen Projektion schlecht vermeidbar.
+
+Eine weitere Fehlerquelle ist der umgebende Aluminiumkörper. Zwar wird am Anfang
+des Experimentes der Körper einmal alleine vermessen um diese reduzierte Intensiät
+als Referenzwert $I\ua{0}$ zu verwenden. Jedoch ist die Dicke des Aluminiummantels
+nicht überall gleich, wodurch die Ergebnisse verfälscht werden.

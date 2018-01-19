@@ -122,33 +122,33 @@ Die gewählten Projektionen erzeugen ein Gleichungssystem der Form:
 Aufrund der Überbestimmtheit von \eqref{eqn:LGS_ausgeschrieben} wird die
 "Methode der kleinsten Quadrate" verwendet, wodurch \eqref{eqn:LGS_ausgeschrieben}
 in eine Normalengleichung der Form $\left(\underline{\underline{A}}^T\underline{\underline{A}}\right)
-\cdot \vec{\mu} = \left(\underline{\underline{A}}^T\cdot\vec{I}\right)$ überführt wird.
+\cdot \vec{\mu} = \left(\underline{\underline{A}}^T\cdot\vec{y}\right)$ überführt wird.
 Umgestellt nach $\vec{\mu}$ ergibt:
 
 \begin{equation}
   \vec{\mu} = \left(\underline{\underline{A}}^T\underline{\underline{A}}\right)^{-1}
-  \underline{\underline{A}}^T\cdot \vec{I}.
+  \underline{\underline{A}}^T\cdot \vec{y}.
   \label{eqn:mu_umgestellt}
 \end{equation}
 
-Die Varianz des Vektors $\vec{I}$ ist durch eine Diagonalmatrix gegeben (vgl. \eqref{eqn:kovarianz_I}).
+Die Varianz des Vektors $\vec{y}$ ist durch eine Diagonalmatrix gegeben (vgl. \eqref{eqn:kovarianz_I}).
 
 \begin{equation}
-  \symup{V}[\vec{I}] = \text{diag}\left(\sigma_{I_1}^2, \sigma_{I_2}^2, ... , \sigma_{I_{12}}^2\right)
+  \symup{V}[\vec{y}] = \text{diag}\left(\sigma_{y_1}^2, \sigma_{y_2}^2, ... , \sigma_{y_{12}}^2\right)
   \label{eqn:kovarianz_I}
 \end{equation}
 
 Daraus ergibt sich die Kovarianzmatrix von $\vec{\mu}$ zu:
 
 \begin{equation}
-  \symup{V}[\vec{\mu}] = \left(\underline{\underline{A}}^T \symup{V}^{-1}[\vec{I}] \underline{\underline{A}}\right)^{-1}.
+  \symup{V}[\vec{\mu}] = \left(\underline{\underline{A}}^T \symup{V}^{-1}[\vec{y}] \underline{\underline{A}}\right)^{-1}.
   \label{eqn:kovarianz_mu}
 \end{equation}
 
 Damit muss $\vec{\mu}$ umgeschrieben werden zu:
 
 \begin{equation}
-  \vec{\mu} = \symup{V}[\vec{\mu}] \underline{\underline{A}}^T \symup{V}^{-1}[\vec{I}] \cdot \vec{I}.
+  \vec{\mu} = \symup{V}[\vec{\mu}] \underline{\underline{A}}^T \symup{V}^{-1}[\vec{y}] \cdot \vec{y}.
   \label{eqn:mu}
 \end{equation}
 
@@ -161,6 +161,13 @@ Software verarbeitet.
 Eine Abbildung des verwendeten Aufbaus ist in \ref{fig:Aufbau} dargestellt.
 Auf der Abbildung fehlen die Bleiabschirmungen, die geeignet den Versuch positioniert werden,
 sodass die Sicherheit vor Streuustrahlung gewährleistet ist.\\
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Pics/Aufbau.png}
+  \caption{Verwendeter Veruschsaufbau. Nahaufnahme der Messaparatur.\cite{anleitung}}
+  \label{fig:aufbau}
+\end{figure}
 
 Als $\gamma$-Strahlungsquelle wurde das Caesium-Isotop 137 $(\ce{^137Cs})$
 verwendet, welches $\gamma$-Strahlung mit einer Energie von $E_{\gamma}\approx \SI{0.6617}{\mega\eV}$
@@ -200,11 +207,7 @@ $\leq 3\%$ ist. Dies entspricht ca. $\num{1200}$ Ereignissen,
 da $\frac{\sqrt{N}}{N} = 3\%$ für $N = \num{1200}$ realisiert ist.
 Dabei ist $N$ die Anzahl der Ereignisse.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{Pics/Aufbau.png}
-  \caption{Verwendeter Veruschsaufbau. Nahaufnahme der Messaparatur.\cite{anleitung}}
-  \label{fig:aufbau}
-\end{figure}
+
+\FloatBarrier
 
 \newpage
