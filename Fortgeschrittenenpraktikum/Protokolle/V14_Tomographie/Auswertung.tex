@@ -34,12 +34,13 @@ Szintillators entsteht.
 Der flache Bereich ist das Compton-Kontinuum, welches durch die Streuung des
 Photons an den Elektronen des Szintillatormaterials. Dabei wird jedoch nicht die
 ganze Energie des Photons abgegeben, so dass der Energierest im Szintillator registriert wird.
-Die abgegebene Energie ist dabei nach der Compton-Formel (\eqref{eqn:Compton})
+Die abgegebene Energie ist dabei nach der Compton-Formel (\eqref{eqn:Compton}, \cite{Compton})
 abhängig vom Streuwinkel. Dies erklärt auch die Kante bzw. den Einbruch der
 Zählrate vor dem Fotopeak, bei dem ein Streuwinkel von 180° vorhanden ist.
 
 \begin{equation}
   E\ua{C} = E\ua{Ph} - \frac{E\ua{Ph}}{1 + \frac{E\ua{Ph}}{E\ua{c,0}} \cdot (1 - cos(\theta))}
+  \label{eqn:Compton}
 \end{equation}
 
 Bei dem rechten großen Peak handelt es sich schließlich um den Photopeak des
@@ -126,6 +127,15 @@ Zudem ergab eine Rechnung mit dem Packet \emph{uncertainties} ohne Verwendung de
 Varianzmatrizen ähnliche Werte. Lediglich bei sehr geringen Absorptionskoeffizient
 ist eine deutliche Abweichung vorhanden, da diese meist in der 2. Nachkommastelle
 auftritt.
+
+Obwohl bei der Anzahl an Counts ein Fehler von $\sqrt{N}$ angenommen wurde, sind
+die daraus resultierenden Fehler bei den Absorptionskoeffizienten ziemlich gering.
+
+Bei der verwendeten Messmethode wurden durch die Mehrfachmessung jedes Würfels
+die Absorptionskoeffizienten in Abhängigkeit voneinander bestimmt. Sichtbar ist
+dies an der Kovarianzmatrix, in der auch die nicht auf der Hauptdiagonale liegenden
+Elemente ungleich Null sind. Diese Abhängigkeit untereinander kann unter anderem
+die teilweise starken Abweichungen zu den Literaturwerten erklären.
 
 Eine Fehlerquelle bei diesem Versuch ist unter anderem die Ausdehnung des Strahles,
 welcher auch teilweise in benachbarten Blöcken absorbiert wird, wodurch es eine
