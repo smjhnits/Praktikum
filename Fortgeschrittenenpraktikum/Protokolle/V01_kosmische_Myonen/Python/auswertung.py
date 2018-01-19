@@ -89,19 +89,37 @@ fit_x = np.linspace(-25,25,1000)#Plateau_x[9],Plateau_x[18],100)
 def PlateauFit(x, b):
     return 0*x+b
 
+def Flankenfit(x, A, b):
+    return A*x + b
+
+LinksParams, LinksCovariance = curve_fit(Flankenfit, Plateau_x[3:10], unp.nominal_values(Plateau[3:10]))
+RechtsParams, RechtsCovariance = curve_fit(Flankenfit, Plateau_x[19:24], unp.nominal_values(Plateau[19:24]))
+Links_errors = np.sqrt(np.diag(LinksCovariance))
+Rechts_errors = np.sqrt(np.diag(RechtsCovariance))
+
 fitParams, fitCovariance = curve_fit(PlateauFit, Plateau_x[9:19], unp.nominal_values(Plateau[9:19]), sigma = unp.std_devs(Plateau[9:19]), absolute_sigma = True )
 Plateau_errors = np.sqrt(np.diag(fitCovariance))
 Höhe = ufloat(fitParams[0], Plateau_errors[0])
 
+
+A_L = ufloat(LinksParams[0], Links_errors[0])
+A_R = ufloat(RechtsParams[0], Rechts_errors[0])
+B_L = ufloat(LinksParams[1], Links_errors[1])
+B_R = ufloat(RechtsParams[1], Rechts_errors[1])
+
+x_L = (Höhe/2-B_L)/A_L
+x_R = (Höhe/2-B_R)/A_R
+
+
 plt.errorbar(Plateau_x, unp.nominal_values(Plateau), xerr= 0, yerr = unp.std_devs(Plateau), fmt = 'kx', label = r'Messwerte')
 plt.plot(fit_x, PlateauFit(fit_x, *fitParams), 'r-', label = r'linearer Fit')
-plt.axvline(-17, color = 'r', linestyle = '--', label = r'$T_{\mathrm{VZ,links}}$')
-plt.axvline(17, color = 'r', linestyle = '--', label = r'$T_{\mathrm{VZ,rechts}}$')
+plt.axvline(unp.nominal_values(x_L), color = 'r', linestyle = '--', label = r'$T_{\mathrm{VZ,links}}$')
+plt.axvline(unp.nominal_values(x_R), color = 'r', linestyle = '--', label = r'$T_{\mathrm{VZ,rechts}}$')
 plt.ylabel(r'N(t)')
 plt.xlabel(r'$T_{\mathrm{VZ}}$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
 #plt.savefig('Plateau.pdf')
-#plt.show()
+plt.show()
 
 print("Bestimmte Höhe des Plateaus: ", Höhe, '\n')
 
@@ -134,8 +152,70 @@ def Lebensdauer(x, N0, LB, U):
 
 Zeiten = Kalibrierung(Channels, *KParams)
 
-Counts_fusch = np.array([n for n in Counts_M if n != 0])
-Zeiten_fusch = np.array([Zeiten[i] for i,n in enumerate(Counts_M) if n != 0])
+
+Zeiten_neu = np.linspace(0,0,512)
+Counts_neu = np.linspace(0,0,512)
+
+Counts_r = np.array([n for n in Counts_M])
+Zeiten_r = np.array([n for n in Zeiten])
+
+#print(Counts_M)
+
+Counts_M[0] = 1
+Counts_M[1] = 1
+Counts_M[2] = 1
+
+for i,n in enumerate(Counts_M):
+    #print("Schlaufe", i, Counts_M[i-1:i+2])
+    k = i
+    #print(i)
+    if Counts_M[i]!=0:
+        Counts_neu[i] = Counts_M[i]
+        Zeiten_neu[i] = Zeiten[i]
+        #print(i,n,"--------------")
+    elif Counts_M[i]==0:
+        if Counts_M[i-1]!=0 and Counts_M[i+1]!=0:
+            print(i,0)
+            Zeiten_neu[i-1] = (Zeiten[i]+Zeiten[i-1])/2
+            Counts_neu[i] = Counts_M[i+1]
+            Zeiten_neu[i] = Zeiten[i+1]
+            #print("nächster", Counts_M[k+1])
+            while k < 510:
+                Counts_M[k] = Counts_M[k+1]
+                Zeiten[k] = Zeiten[k+1]
+                k=k+1
+            #print(Counts_M[i:i+10])
+        elif Counts_M[i-1]!=0 and Counts_M[i+1]==0 and Counts_M[i+2]!=0:
+            print(i, 00)
+            Zeiten_neu[i-1] = (Zeiten[i]+Zeiten[i-1])/2
+            Counts_neu[i] = Counts_M[i+2]
+            Zeiten_neu[i] = (Zeiten[i+1]+Zeiten[i+2])/2
+            while k <= 509:
+                Counts_M[k] = Counts_M[k+2]
+                Zeiten[k] = Zeiten[k+2]
+                k=k+1
+        elif Counts_M[i-1]==0:
+            print(i, i-1, i+1, "Abbruch")
+            break
+        else:
+            print(i,Counts_M[i-3:i+2], "Abbruch")
+            break
+
+for i,n in enumerate(Counts_neu):
+    if n == 0:
+        print("Fehler", i)
+        break
+#print(Counts_neu[0:378])
+
+Counts_M = Counts_r
+Zeiten = Zeiten_r
+
+Counts_neu[0] = 0
+Counts_neu[1] = 0
+Counts_neu[2] = 0
+
+Counts_fusch = np.array([n for n in Counts_neu if n != 0]) # mach aus Counts_M Counts_neu
+Zeiten_fusch = np.array([Zeiten_neu[i] for i,n in enumerate(Counts_neu) if n != 0]) # mach aus Counts_M Counts_neu und Zeiten
 Errors_fusch = np.sqrt(Counts_fusch)
 
 LD_Params, LD_Covariance = curve_fit(Lebensdauer, Zeiten_fusch, Counts_fusch,  sigma = Errors_fusch, absolute_sigma = True)
@@ -163,7 +243,7 @@ plt.ylabel(r'N(t)')
 plt.xlabel(r'$t$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
 #plt.savefig('Spektrum_klein.pdf')
-#plt.show()
+plt.show()
 
 print(U_Search/U_fit)
 
