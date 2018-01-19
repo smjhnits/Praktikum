@@ -2,15 +2,15 @@
 
 Der vorliegende Versuch behandelt die Ermittlung der Lebensdauer
 kosmischer Myonen. Zu Beginn wird in die Theorie des Versuches eingeleitet.
-Daraufhin wird die Messapparatur und die Durchführung der Messung beschrieben.
-Anschließend werden die gemessenen Ergebnisse ausgewertet und abschließend diskutiert.
+Anschließend wird die Messapparatur und die Durchführung der Messung beschrieben.
+Abschließend werden die gemessenen Ergebnisse ausgewertet und abschließend diskutiert.
 
 \section{Theorie}
 
 Myonen $\mu$ sind Leptonen der zweiten Generation und besitzen eine Masse
 von $\approx \SI{106}{\mega\eV}$.
 Sie entstehen zum Großteil in der oberen Atmosphäre durch Pion-Zerfälle und
-besitzen, resultierend aus dem Zerfall eine hohe kinetische Energie.
+besitzen resultierend aus dem Zerfall, eine hohe kinetische Energie.
 
 \begin{align}
   \label{eqn:pion+ nach myon}
@@ -19,9 +19,7 @@ besitzen, resultierend aus dem Zerfall eine hohe kinetische Energie.
   \ce{\pi^- &-> \mu^- + \bar{\nu}\ua{\mu}}
 \end{align}
 
-Myonen sind ca. 207 mal so schwer wie eine Elektron. Elektronen sind die leichtesten
-Leptonen, somit ist klar, dass Myonen nicht stabil sein können.
-
+Myonen sind ca. 207 mal so schwer wie Elektronen.
 Myonen zerfallen nach den folgenden Zerfallsgleichungen.
 
 \begin{align}
@@ -41,15 +39,22 @@ ein Exponentialgesetz der Form:
 
 \begin{equation}
   \label{eqn:Lebensdauer}
-  N(t) = N_0\cdot\exp{-\frac{t}{\tau}}
+  N(t) = N_0\cdot\exp{\left(-\frac{t}{\tau}\right)}
 \end{equation}
 
 beschrieben wird. Die Zerfallskonstante $\lambda$ entspricht der reziproken
 Lebensdauer.
 
+Die Funktion \ref{eqn:Lebensdauer} ist die Lösung der folgenden Differentailgleichung.
 
+\begin{equation}
+  \label{eqn:herleitung_lebensdauer}
+  \frac{\symup{d}N}{\symup{d}t} = -\lamdba\cdot N
+\end{equation}
 
-
+Dabei wird angesetzt, dass die Anzahl der Teilchen $N$ pro Zeit $t$
+proportional zu der Zerfallskosntante $\lambda$ ist. Das Vorzeichen erklärt sich dadurch,
+dass die Anzahl aufgrund des Zerfallsprozesses mit der Zeit abnimmt.
 
 \section{Versuchsaufbau}
 
@@ -61,7 +66,7 @@ für die Messung. Im Folgenden wird der verwendete Versuchsaufbau beschrieben,
 der das Herausfiltern dieser relevanten Ereignisse ermöglicht.
 
 Grundlegend wird für die Detektion von Teilchen ein Szintillator verwendet.
-Geladene Teilchen, die den Szintillator durchqueren, wechselwirken mit den Atomen
+Ionisierende Teilchen, die den Szintillator durchqueren, wechselwirken mit den Atomen
 des Szintillatormaterials. Durch diese Wechselwirkung können
 die Atome im Szintillator in einen angeregten Zustand überführt werden.
 Myonen haben eine hohe kinetische Energie und können mehrere MeV ihrer kinetischen Energie
@@ -76,34 +81,34 @@ können.
 Das Filtern der Ereignisse von Myonen, die auch in dem Szintillator zerfallen,
 geschieht durch eine logische Schaltung. Diese Schaltung ist in Abb. \ref{fig:Aufbau}
 durch die beiden AND-Gatter und den Monoflop/Univibrator realisiert.
-Anliegende Spannungen werden im Folgenden als up und das Fehlen von Spannungen
-als down bezeichnet.
-Wenn ein up aus der Koinzidenz (vgl. Abb. \ref{fig:Aufbau}), deren Funktion im
+Anliegende Spannungen werden im Folgenden als HIGH und das Fehlen von Spannungen
+als LOW bezeichnet.
+Wenn ein HIGH aus der Koinzidenz (vgl. Abb. \ref{fig:Aufbau}), deren Funktion im
 Verlauf der Durchfürhung noch erklärt wird, in die untere Schaltung einläuft
-wird zunächst der rechte Eingang des 1. und 2. UND-Gatter auf up gesetzt.
+wird zunächst der rechte Eingang des 1. und 2. UND-Gatter auf HIGH gesetzt.
 Das aus der Koinzidenz stammende
-up wird mit einer Verzögerung von $\SI{30}{\nano\second}$ an den Univibrator
+HIGH wird mit einer Verzögerung von $\SI{30}{\nano\second}$ an den Univibrator
 abgegeben. An dem einen Ausgang des Univibrators, der mit dem 1. UND verbunden
-ist, liegt im down Zustand ein up an (vgl \ref{fig:Aufbau}; $\bar{\text{OUT}}$).
+ist, liegt im LOW Zustand ein HIGH an (vgl. Abb. \ref{fig:Aufbau}; $\bar{\text{OUT}}$).
 Der zweite Ausgang ist mit dem 2. UND verbunden
-und gibt im down Zustand des Univibrators ein down weiter (OUT).
-Somit sind an dem 1. UND beide Eingänge mit einem up belegt und das Startsignal wird
+und gibt im LOW Zustand des Univibrators ein LOW weiter (OUT).
+Somit sind an dem 1. UND beide Eingänge mit einem HIGH belegt und das Startsignal wird
 an einen Zeit-Amplituden-Konverter und Impulszähler gegeben. Der Impulszähler
 zählt lediglich die Anzahl der eintreffenden Startsignale.
 Der Zeit-Amplituden-Konverter wandelt die vergehende Zeit zwischen einem
-up an dem Starteingang und einem up an dem Stopeingang in eine
+HIGH an dem Starteingang und einem HIGH an dem Stoppeingang in eine
 dazu proportionalen Impuls. Die Zeit wird in der Höhe des Impulses
 kodiert.
-Ein einlaufendes up in den Univibrator kehrt die up und down Signale an
+Ein einlaufendes HIGH in den Univibrator kehrt die HIGH und LOW Signale an
 den Ausgängen um.
 Nach einer einegstellten Zeit $T\ua{s}$ geht der Monoflop in seinen Grundzustand
 zurück. $T\ua{s}$ stellt die Suchzeit des Intervalls einer Myonenlebensdauermessung
 dar. In dem Versuch wird $T\ua{s} = \SI{10}{\micro\second}$ gewählt.
 Der linke Eingang des 2. UND-Gatters empfängt, nachdem
-der Monoflop ein up erhalten hat, ebenfalls ein up, welches für
+der Monoflop ein HIGH erhalten hat, ebenfalls ein HIGH, welches für
 die eingestellte Zeit $T\ua{s}$ anliegt. Wird in diesem
 Zeitraum ein weiteres Signal von der Koinzidenz an den rechten Eingang des
-2. UND-Gatters geleitet wird ein up an den Stopeingang des Zeit-Impuls-Konverters gegeben
+2. UND-Gatters geleitet wird ein HIGH an den Stoppeingang des Zeit-Impuls-Konverters gegeben
 und die Zeitmessung ist abgeschlossen. Die in einem Impuls kodierte Zerfallszeit
 wird in ein Vielkanalanalysator gegeben, welcher mit einem Computer
 verbunden ist. Der Rechner verarbeitet das Signal mit geeigneter Software.
@@ -148,16 +153,16 @@ dem realen Aufbau ist ein weiterer Verzögerer vor dem rechten Diskriminator ang
 sodass eine Verzögerung der beiden Messkanäle relativ zu einander eingestellt werden kann.
 
 Der in Abb. \ref{fig:Aufbau} dargestellte Doppelimpulsgenerator wird
-für die Zeiteichung des Vielkanalanalysators verwendet, worauf in der
+für die Kalibration des Vielkanalanalysators verwendet, worauf in der
 Durchführung näher eingegangen wird.
 
 Es wird ein organischer Szintillator verwendet, da dieser
 im Vergleich zu einem anorganischen Szintillator eine kürzere
-Totzeit besitzt. Insgesamt fasst der Szintillator 50l und ist mit Toluol befüllt.
+Totzeit besitzt. Insgesamt fasst der Szintillatortank 50l und ist in Toluol gelöst.
 
 \subsection{Durchführung}
 
-Zu Beginn des Versuches wird der Versuchsaufbau gemäß \ref{fig:Aufbau} aufgebaut.
+Zu Beginn des Versuches wird der Versuchsaufbau gemäß Abb. \ref{fig:Aufbau} aufgebaut.
 Dabei wird der Aufbau während des Aufbauens mit einem Zwei-Kanal-Oszilloskop
 auf seine Funktionsfähigkeit überprüft werden.
 Die Schwellenwerte $U_0$ der Diskriminatoren werden so eingestellt, dass
