@@ -1,10 +1,10 @@
 \section{Auswertung}
 
-Für die Auswertung wird zur Berechnung der verschiedenen Werte das Programm
-\emph{Python} mit dem Packet \emph{numpy} verwendet. Am Ende wird zur Berechnung
-des Mittelwertes der Absorptionskoeffizienten die automatische Fehlerrechnung mit
+Für die Rechnungen der Auswertung wird das Programm 
+\emph{Python} mit dem Packet \emph{numpy} verwendet. Zur Berechnung
+des Mittelwertes der Absorptionskoeffizienten wird die automatische Fehlerrechnung mit
 dem Packet \emph{uncertainties} durchgeführt. In den Abschnitten, in denen die
-Fehler per Hand mithilfe der Gauß´schen Fehlerfortpflanzung (\ref{eqn:Gauß})
+Fehler per Hand mithilfe der Gauß'schen Fehlerfortpflanzung (\ref{eqn:Gauß})
 berechnet werden, ist die verwendete Fehlerformel mit angegeben.
 
 \begin{equation}
@@ -13,10 +13,10 @@ berechnet werden, ist die verwendete Fehlerformel mit angegeben.
 \end{equation}
 
 Für die Auswertung werden bei den einzelnen Messungen nur die Counts in einem
-bestimmten Intervall verwendet. Die verwendeten Intervalle sowie die Anzahl
+bestimmten Intervall verwendet. Die verwendeten Intervalle, sowie die Anzahl
 an Counts, deren Fehler und die Messzeit sind in Kapitel \ref{subsec:Absorption}
-in den Tabellen \ref{tab:Luft} bis \ref{tab:Unbekannt} dargestellt. Als Fehler
-wird dabei immer die Wurzel der gemessenen Counts verwendet.
+in den Tabellen \ref{tab:Luft} bis \ref{tab:Unbekannt} dargestellt. Die Messdaten sind Poissonverteilt,
+weshalb als Fehler immer die Wurzel der Anzahl der Count verwendet wird.
 
 \subsection{Spektrum von \ce{^{137}Cs}}
 
@@ -32,20 +32,20 @@ welcher durch die Rückstreuung aufgrund von Compton-Stößen außerhalb es
 Szintillators entsteht.
 
 Der flache Bereich ist das Compton-Kontinuum, welches durch die Streuung des
-Photons an den Elektronen des Szintillatormaterials. Dabei wird jedoch nicht die
-ganze Energie des Photons abgegeben, so dass der Energierest im Szintillator registriert wird.
-Die abgegebene Energie ist dabei nach der Compton-Formel (\eqref{eqn:Compton}, \cite{Compton})
+Photons an den Elektronen des Szintillatormaterials. Dabei wird nicht die
+ganze Energie des Photons abgegeben, so dass der Energierest im Szintillator registriert werden kann.
+Die abgegebene Energie ist nach der Compton-Formel (\eqref{eqn:Compton}, \cite{Compton})
 abhängig vom Streuwinkel. Dies erklärt auch die Kante bzw. den Einbruch der
-Zählrate vor dem Fotopeak, bei dem ein Streuwinkel von 180° vorhanden ist.
+Zählrate vor dem Photopeak, bei dem ein Streuwinkel von 180° vorhanden ist.
 
 \begin{equation}
   E\ua{C} = E\ua{Ph} - \frac{E\ua{Ph}}{1 + \frac{E\ua{Ph}}{E\ua{c,0}} \cdot (1 - cos(\theta))}
   \label{eqn:Compton}
 \end{equation}
 
-Bei dem rechten großen Peak handelt es sich schließlich um den Photopeak des
+Bei dem rechten großen Peak handelt es sich um den Photopeak des
 Caesium-Präparates. Hier ist die Energie groß genug um im Szintillatormaterial
-zum Fotoeffekt zu führen. Dieser Peak bzw. die Intensität wird im folgenden auch
+zum Photoeffekt zu führen. Dieser Peak bzw. die Intensität wird im Folgenden auch
 als Messwert für die Abschirmung bei den verschiedenen Projektionen verwendet.
 
 \begin{figure}[h]
@@ -74,7 +74,7 @@ hierbei als fehlerfrei angenommen.
   \sigma\ua{y\ua{j}} &= \sqrt{ \left( \frac{\sigma\ua{I}}{I}\right)^2 + \left(\frac{\sigma\ua{I\ua{0}}}{I\ua{0}}\right)^2} .
 \end{align}
 
-Der Fehler ergibt sich dabei ebenfalls aus der Gauß'schen Fehlerfortpflanzung. Mit
+Der Fehler ergibt sich ebenfalls aus der Gauß'schen Fehlerfortpflanzung. Mit
 $I\ua{0}$ ist hierbei die gemessene Rate bei einem leeren Würfel gemeint. Diese
 wurde für jede Art von Projektion einmal gemessen ($I\ua{2}$, $I\ua{3}$ und $I\ua{6}$).
 
@@ -86,7 +86,7 @@ wurde für jede Art von Projektion einmal gemessen ($I\ua{2}$, $I\ua{3}$ und $I\
 \newpage
 
 Gemäß der Formel \eqref{eqn:kovarianz_I} lässt sich nun die Varianzmatrix $V[\vec{y}]$
-bestimmen. Mit ihr wird mit Formel \eqref{eqn:kovarianz_mu} die Varianzmatrix
+bestimmen. Mit ihr wird über Formel \eqref{eqn:kovarianz_mu} die Varianzmatrix
 der Absoprtionskoeffizienten bestimmt. Mit den Einträgen auf der Diagonale
 lassen sich die Fehler der einzelnen Absorptionskoeffizienten bestimmen.
 Zudem werden über Formel \eqref{eqn:mu} die Absorptionskoeffizienten berechnet. Die
@@ -119,7 +119,7 @@ deswegen nicht mit angegeben.
 \section{Diskussion}
 
 In Tabelle \ref{tab:UnbekanntErgebnis} ist zu erkennen, dass sich sowohl bei
-Vergleich der Koeffizienten mit den experimentell bestimmten Werten als auch den
+Vergleich der Koeffizienten mit den experimentell bestimmten Werten, als auch den
 Literaturwerten für Aluminium und Blei der gleiche Aufbau für den unbekannten
 Würfel ergibt.
 
@@ -128,8 +128,8 @@ Varianzmatrizen ähnliche Werte. Lediglich bei sehr geringen Absorptionskoeffizi
 ist eine deutliche Abweichung vorhanden, da diese meist in der 2. Nachkommastelle
 auftritt.
 
-Obwohl bei der Anzahl an Counts ein Fehler von $\sqrt{N}$ angenommen wurde, sind
-die daraus resultierenden Fehler bei den Absorptionskoeffizienten ziemlich gering.
+Obwohl bei der Anzahl $N$ der Counts ein Fehler von $\sqrt{N}$ angenommen wurde, sind
+die daraus resultierenden Fehler bei den Absorptionskoeffizienten gering.
 
 Bei der verwendeten Messmethode wurden durch die Mehrfachmessung jedes Würfels
 die Absorptionskoeffizienten in Abhängigkeit voneinander bestimmt. Sichtbar ist
@@ -140,10 +140,10 @@ die teilweise starken Abweichungen zu den Literaturwerten erklären.
 Eine Fehlerquelle bei diesem Versuch ist unter anderem die Ausdehnung des Strahles,
 welcher auch teilweise in benachbarten Blöcken absorbiert wird, wodurch es eine
 stärkere Absorption gibt als eigentlich der Fall wäre. Wichtig ist hierbei auch
-die Positionierung des Blockes. Gerade bei Messung der Diagonalen ist eine Abweichung
-von der theoretischen Projektion schlecht vermeidbar.
+die Positionierung des Blockes. Bei Messung der Diagonalen ist eine Abweichung
+von der theoretischen Projektion nur schwer vermeidbar.
 
 Eine weitere Fehlerquelle ist der umgebende Aluminiumkörper. Zwar wird am Anfang
-des Experimentes der Körper einmal alleine vermessen um diese reduzierte Intensiät
+des Experimentes der Körper vermessen um diese reduzierte Intensiät
 als Referenzwert $I\ua{0}$ zu verwenden. Jedoch ist die Dicke des Aluminiummantels
 nicht überall gleich, wodurch die Ergebnisse verfälscht werden.
