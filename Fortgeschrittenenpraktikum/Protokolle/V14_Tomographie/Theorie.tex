@@ -13,7 +13,7 @@ Die Anfangsintensität $I_0$ und Endintensität $I_{\symup{f}}$ werden vermessen
 $\mu$ des durchdrungenen Materials bestimmt werden kann.\\
 
 In dem Versuch wird ausschließlich $\gamma$-Strahlung verwendet. Diese wechselwirkt
-mit Materie über drei Prozesse, der Photoeffekt, der Compton-Effekt und die Paarbildung.
+mit Materie über drei Prozesse, den Photoeffekt, den Compton-Effekt und der Paarbildung.
 Die Wirkungsquerschnitte der Prozesse sind abhängig von der Photonenenergie
 der $\gamma$-Strahlung, sodass gilt $\sigma_i = \sigma_i\left(E_{\gamma}\right)$.
 Eine exemplarische Darstellung der Wirkungsquerschnitte der drei Effekte ist in
@@ -31,14 +31,14 @@ Die Intensitäten der materialdurchdringenden Photonen hängen über einen expon
 Absorptionskonstate und der Materialdicke $d$ zusammen.
 
 \begin{equation}
-  I_{\symup{f}} = I_0 \exp{-\sum_i\mu\cdot d_i}
+  I_{\symup{f}} = I_0 \exp{\left(-\sum_i\mu\cdot d_i\right)}
   \label{eqn:absorption}
 \end{equation}
 
 Die Absorptionskonstate ist materialspezifisch, weshalb aufgrund ihres Wertes
 auf das Material zurückgeschlossen werden kann.
 Das einmaligen Durchführen des Verfahren gibt lediglich einen Eindruck von einem
-Querschnittes des Objektes. Deshalb ist eine mehrfach Ausführung
+Querschnitt des Objektes. Deshalb ist eine mehrfach Ausführung
 mit verschiedenen Durchdringungsrichtungen notwendig, um das Gesamtobjekt zu vermessen.
 
 Die Gleichung \eqref{eqn:absorption} kann umgestellt werden, sodass ein
@@ -49,10 +49,12 @@ Gleichungssystem der Form:
   \label{eqn:LGS}
 \end{equation}
 
+entsteht.
+
 In dem Versuch wird ein $3 \times 3 \times 3$ Würfel untersucht.
-Deshalb ist die Dicke der einzelnen Würfel $d_i$ gleich $d = \SI{1}{\centi\meter}$
+Deshalb ist die Dicke der einzelnen Würfel $d_i$ gleich, $d = \SI{1}{\centi\meter}$
 für alle Einheitswürfel.
-Das bedeutet, dass es insgesamt neun verschiedene Absorptionskonstanten $\mu_1, \mu_2, ... , \mu_9$
+Das bedeutet, dass insgesamt neun verschiedene Absorptionskonstanten $\mu_1, \mu_2, ... , \mu_9$
 in einer Ebene des Würfels vorliegen. Dementsprechend werden mindestend neun
 verschiedene Projektionen benötigt, um das Gleichungssytem \eqref{eqn:LGS}
 zu lösen. Das Messverfahren wird durch eine Überbestimmung des
@@ -158,7 +160,7 @@ Die Durchführung des Versuches benötigt eine $\gamma$-Strahlungsquelle,
 einen Szintillationsdetektor, einen Vielkanalanalysator, Bleiabschrimungen und
 einen Computer, der die Daten des Vielkanalanalysators aufnimmt und mit geeigneter
 Software verarbeitet.
-Eine Abbildung des verwendeten Aufbaus ist in \ref{fig:Aufbau} dargestellt.
+Eine Abbildung des verwendeten Aufbaus ist in \ref{fig:aufbau} dargestellt.
 Auf der Abbildung fehlen die Bleiabschirmungen, die geeignet den Versuch positioniert werden,
 sodass die Sicherheit vor Streuustrahlung gewährleistet ist.\\
 
@@ -169,10 +171,10 @@ sodass die Sicherheit vor Streuustrahlung gewährleistet ist.\\
   \label{fig:aufbau}
 \end{figure}
 
-Als $\gamma$-Strahlungsquelle wurde das Caesium-Isotop 137 $(\ce{^137Cs})$
+Als $\gamma$-Strahlungsquelle wurde das Caesium-Isotop $\ce{^137Cs}$
 verwendet, welches $\gamma$-Strahlung mit einer Energie von $E_{\gamma}\approx \SI{0.6617}{\mega\eV}$
-besitzt. Die Photonenenergie ist kleiner als die Energie, bei der der Effekt
-der Parrbildung auftritt. Damit sind die beiden relevanten Prozesse der Photonenwechselwirkung
+besitzt. Die Photonenenergie ist kleiner als die Energie, bei
+der Paarbildung auftritt. Damit sind die beiden relevanten Prozesse der Photonenwechselwirkung
 mit Materie der Photoeffekt und der Compton-Effekt.\\
 
 Die untersuchten Objekte sind die bereits erwähnten $3 \times 3 \times 3$ Würfel,
@@ -195,7 +197,7 @@ $I_1$ von dem Photonenstrahl hin zum Detektor realisiert wird.
 Die weiteren Projektionen können durch Drehen und Kalibrieren der Halterung eingestellt
 werden.
 Die anderen Proben werden im gleichen Verfahren in der Reihenfolge $\symup{P}_3,
-symup{P}_1$ und $\symup{P}_4$ ausgemessen.
+\symup{P}_1$ und $\symup{P}_4$ ausgemessen.
 
 Bei den Proben $\symup{P}_1$ und $\symup{P}_4$ werden solange Messwert genommen,
 bis in einem Bereich von 10 bis 14 Kanälen um den Peak herum im Vielkanalanalysator
@@ -204,8 +206,8 @@ $\num{12500}$ bis $\num{15000}$ Ereignisse sind.
 Die Proben $\symup{P}_2$ und $\symup{P}_3$ werden nur solange vermessen, bis die
 statistische Unsicherheit in 5 bis 7 Kanälen um den Peak herum
 $\leq 3\%$ ist. Dies entspricht ca. $\num{1200}$ Ereignissen,
-da $\frac{\sqrt{N}}{N} = 3\%$ für $N = \num{1200}$ realisiert ist.
-Dabei ist $N$ die Anzahl der Ereignisse.
+da $\frac{\sqrt{N}}{N} = 3\%$ für $N = \num{1200}$ realisiert ist,
+dabei ist $N$ die Anzahl der Ereignisse.
 
 
 \FloatBarrier
