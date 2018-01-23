@@ -1,8 +1,8 @@
 \section{Einleitung}
 
 Der Versuch V14 umfasst die Anwendung des Verfahrens der Tomographie mittels
-$\gamma -$Strahlung. Das Ziel des Versuches ist es die materielle Zusammensetzung
-zwei bekannter, sowie einem unbekannten Objekt zu untersuchen.
+$\gamma -$Strahlung. Das Ziel des Versuches ist es, die materielle Zusammensetzung
+zwei bekannter sowie eines unbekannten Objektes zu untersuchen.
 
 \section{Theorie}
 
@@ -55,10 +55,10 @@ In dem Versuch wird ein $3 \times 3 \times 3$ Würfel untersucht.
 Deshalb ist die Dicke der einzelnen Würfel $d_i$ gleich, $d = \SI{1}{\centi\meter}$
 für alle Einheitswürfel.
 Das bedeutet, dass insgesamt neun verschiedene Absorptionskonstanten $\mu_1, \mu_2, ... , \mu_9$
-in einer Ebene des Würfels vorliegen. Dementsprechend werden mindestend neun
-verschiedene Projektionen benötigt, um das Gleichungssytem \eqref{eqn:LGS}
-zu lösen. Das Messverfahren wird durch eine Überbestimmung des
-Gleichungssytems erhöht, weshalb anstelle der nötigen neun Projektionen
+in einer Ebene des Würfels vorliegen. Dementsprechend werden mindestens neun
+verschiedene Projektionen benötigt, um das Gleichungssystem \eqref{eqn:LGS}
+zu lösen. Die Messgenauigkeit wird durch eine Überbestimmung des
+Gleichungssystems erhöht, weshalb anstelle der nötigen neun Projektionen
 zwölf Projektionen gewählt werden.
 Eine Darstellung der gewählten Projektionen ist in Abb. \ref{fig:projektionen}
 zu sehen.
@@ -105,27 +105,29 @@ Die gewählten Projektionen erzeugen ein Gleichungssystem der Form:
     \end{pmatrix}
     =
     \begin{pmatrix}
-      I_1 \\
-      I_2 \\
-      I_3 \\
-      I_4 \\
-      I_5 \\
-      I_6 \\
-      I_7 \\
-      I_8 \\
-      I_9 \\
-      I_{10} \\
-      I_{11} \\
-      I_{12} \\
-    \end{pmatrix}.
+      y_1 \\
+      y_2 \\
+      y_3 \\
+      y_4 \\
+      y_5 \\
+      y_6 \\
+      y_7 \\
+      y_8 \\
+      y_9 \\
+      y_{10} \\
+      y_{11} \\
+      y_{12} \\
+    \end{pmatrix}
     \label{eqn:LGS_ausgeschrieben}
 \end{align}
 
+,wobei die Größe $y$ gemäß Formel \eqref{eqn:y} aus der Anfangsintensität sowie
+der berechneten Intensität der jeweiligen Projektion bestimmt wird.
 Aufrund der Überbestimmtheit von \eqref{eqn:LGS_ausgeschrieben} wird die
 "Methode der kleinsten Quadrate" verwendet, wodurch \eqref{eqn:LGS_ausgeschrieben}
 in eine Normalengleichung der Form $\left(\underline{\underline{A}}^T\underline{\underline{A}}\right)
 \cdot \vec{\mu} = \left(\underline{\underline{A}}^T\cdot\vec{y}\right)$ überführt wird.
-Umgestellt nach $\vec{\mu}$ ergibt:
+Umgestellt nach $\vec{\mu}$ ergibt sich:
 
 \begin{equation}
   \vec{\mu} = \left(\underline{\underline{A}}^T\underline{\underline{A}}\right)^{-1}
@@ -157,12 +159,13 @@ Damit muss $\vec{\mu}$ umgeschrieben werden zu:
 \section{Durchführung}
 
 Die Durchführung des Versuches benötigt eine $\gamma$-Strahlungsquelle,
-einen Szintillationsdetektor, einen Vielkanalanalysator, Bleiabschrimungen und
+einen Szintillationsdetektor, einen Vielkanalanalysator, Bleiabschirmungen und
 einen Computer, der die Daten des Vielkanalanalysators aufnimmt und mit geeigneter
 Software verarbeitet.
 Eine Abbildung des verwendeten Aufbaus ist in \ref{fig:aufbau} dargestellt.
-Auf der Abbildung fehlen die Bleiabschirmungen, die geeignet den Versuch positioniert werden,
-sodass die Sicherheit vor Streuustrahlung gewährleistet ist.\\
+Auf der Abbildung fehlen die Bleiabschirmungen, die geeignet um
+den Versuch positioniert werden,
+sodass die Sicherheit vor Streustrahlung gewährleistet ist.\\
 
 \begin{figure}[h]
   \centering
@@ -173,7 +176,7 @@ sodass die Sicherheit vor Streuustrahlung gewährleistet ist.\\
 
 Als $\gamma$-Strahlungsquelle wurde das Caesium-Isotop $\ce{^137Cs}$
 verwendet, welches $\gamma$-Strahlung mit einer Energie von $E_{\gamma}\approx \SI{0.6617}{\mega\eV}$
-besitzt. Die Photonenenergie ist kleiner als die Energie, bei
+beim Photopeak abgibt. Die Photonenenergie ist kleiner als die Energie, bei
 der Paarbildung auftritt. Damit sind die beiden relevanten Prozesse der Photonenwechselwirkung
 mit Materie der Photoeffekt und der Compton-Effekt.\\
 

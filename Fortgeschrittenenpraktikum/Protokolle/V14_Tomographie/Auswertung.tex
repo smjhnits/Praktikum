@@ -1,6 +1,6 @@
 \section{Auswertung}
 
-Für die Rechnungen der Auswertung wird das Programm 
+Für die Rechnungen der Auswertung wird das Programm
 \emph{Python} mit dem Packet \emph{numpy} verwendet. Zur Berechnung
 des Mittelwertes der Absorptionskoeffizienten wird die automatische Fehlerrechnung mit
 dem Packet \emph{uncertainties} durchgeführt. In den Abschnitten, in denen die
@@ -70,7 +70,8 @@ hierbei als fehlerfrei angenommen.
 Über die Rate lässt sich dann auch die wie folgt definierte Größe $y$ bestimmen:
 
 \begin{align}
-  y\ua{j} &= \su{ln}\left(\frac{I\ua{0}}{I\ua{j}}\right)  \\
+  y\ua{j} &= \su{ln}\left(\frac{I\ua{0}}{I\ua{j}}\right)
+  \label{eqn:y}  \\
   \sigma\ua{y\ua{j}} &= \sqrt{ \left( \frac{\sigma\ua{I}}{I}\right)^2 + \left(\frac{\sigma\ua{I\ua{0}}}{I\ua{0}}\right)^2} .
 \end{align}
 
