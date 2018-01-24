@@ -145,10 +145,10 @@ def qzeeman(B, g_F, M_F , dE):
     quad = lin**2 * (1 - 2 * M_F) / dE
     return lin, quad
 
-hyperfine_lin_1 ,hyperfine_quad_1 = qzeeman(np.mean(B_Resonanz_1.to('tesla')), g_F_1, 2, 4.53*10**(-24))
-hyperfine_lin_2 ,hyperfine_quad_2 = qzeeman(np.mean(B_Resonanz_2.to('tesla')), g_F_2, 3, 2.01*10**(-24))
+hyperfine_lin_1 ,hyperfine_quad_1 = qzeeman(max(B_Resonanz_1.to('tesla')), g_F_1, 2, 4.53*10**(-24))
+hyperfine_lin_2 ,hyperfine_quad_2 = qzeeman(max(B_Resonanz_2.to('tesla')), g_F_2, 3, 2.01*10**(-24))
 
-print('B-Feldstärken: ', np.mean(B_Resonanz_1.to('tesla')), np.mean(B_Resonanz_2.to('tesla')))
+print('B-Feldstärken: ', max(B_Resonanz_1.to('tesla')), max(B_Resonanz_2.to('tesla')))
 
 print('Hyperfeinstruktur_1: ', hyperfine_lin_1, hyperfine_quad_1, hyperfine_quad_1 / hyperfine_lin_1)
 print('Hyperfeinstruktur_2: ', hyperfine_lin_2, hyperfine_quad_2, hyperfine_quad_2 / hyperfine_lin_2)
