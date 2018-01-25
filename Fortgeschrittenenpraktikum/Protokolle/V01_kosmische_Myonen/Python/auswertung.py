@@ -21,10 +21,12 @@ print("Gemessene Startimpulse: ", C_Start)
 print("Gemessene Stopimpulse: ", C_Stop, '\n')
 Time_Search = 10 *10**(-6)
 
-Rate = C_Start/Time_ges
+C_Start_r = ufloat(C_Start, np.sqrt(C_Start))
+
+Rate = C_Start_r/Time_ges
 N_Search = Time_Search*Rate
 
-W = N_Search * np.exp(N_Search)
+W = N_Search * unp.exp(N_Search)
 U_Search = W*C_Start/512
 
 print("Rate pro Sekunde: ", Rate)
@@ -110,6 +112,10 @@ B_R = ufloat(RechtsParams[1], Rechts_errors[1])
 x_L = (Höhe/2-B_L)/A_L
 x_R = (Höhe/2-B_R)/A_R
 
+print("zeiten: ", x_L, x_R, '\n')
+print("Links: ", Plateau_x[3:10], A_L, B_L, '\n')
+print("rechts: ", Plateau_x[19:24], A_R, B_R, '\n')
+
 
 plt.errorbar(Plateau_x, unp.nominal_values(Plateau), xerr= 0, yerr = unp.std_devs(Plateau), fmt = 'kx', label = r'Messwerte')
 plt.plot(fit_x, PlateauFit(fit_x, *fitParams), 'r-', label = r'linearer Fit')
@@ -118,8 +124,8 @@ plt.axvline(unp.nominal_values(x_R), color = 'r', linestyle = '--', label = r'$T
 plt.ylabel(r'N(t)')
 plt.xlabel(r'$T_{\mathrm{VZ}}$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
-#plt.savefig('Plateau.pdf')
-plt.show()
+plt.savefig('Plateau.pdf')
+#plt.show()
 
 print("Bestimmte Höhe des Plateaus: ", Höhe, '\n')
 
@@ -175,7 +181,7 @@ for i,n in enumerate(Counts_M):
         #print(i,n,"--------------")
     elif Counts_M[i]==0:
         if Counts_M[i-1]!=0 and Counts_M[i+1]!=0:
-            print(i,0)
+            #print(i,0)
             Zeiten_neu[i-1] = (Zeiten[i]+Zeiten[i-1])/2
             Counts_neu[i] = Counts_M[i+1]
             Zeiten_neu[i] = Zeiten[i+1]
@@ -186,7 +192,7 @@ for i,n in enumerate(Counts_M):
                 k=k+1
             #print(Counts_M[i:i+10])
         elif Counts_M[i-1]!=0 and Counts_M[i+1]==0 and Counts_M[i+2]!=0:
-            print(i, 00)
+            #print(i, 00)
             Zeiten_neu[i-1] = (Zeiten[i]+Zeiten[i-1])/2
             Counts_neu[i] = Counts_M[i+2]
             Zeiten_neu[i] = (Zeiten[i+1]+Zeiten[i+2])/2
@@ -195,10 +201,10 @@ for i,n in enumerate(Counts_M):
                 Zeiten[k] = Zeiten[k+2]
                 k=k+1
         elif Counts_M[i-1]==0:
-            print(i, i-1, i+1, "Abbruch")
+            #print(i, i-1, i+1, "Abbruch")
             break
         else:
-            print(i,Counts_M[i-3:i+2], "Abbruch")
+            #print(i,Counts_M[i-3:i+2], "Abbruch")
             break
 
 for i,n in enumerate(Counts_neu):
@@ -237,13 +243,14 @@ plt.clf()
 plt.errorbar(Zeiten_fusch, Counts_fusch, xerr = 0, yerr = Errors_fusch, fmt = 'kx', label = r'Messwerte')
 plt.plot(Zeiten_x, Lebensdauer(Zeiten_x, *LD_Params), 'r-', label = r'Exponentieller Fit')
 plt.xlim(-0.5,11.5)
-plt.ylim(-2, 65)
+#plt.ylim(-2, 65)
 plt.axvline(0, color = 'b', linestyle = '-', label = r'$t=0$')
 plt.ylabel(r'N(t)')
+plt.yscale('log')
 plt.xlabel(r'$t$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
-#plt.savefig('Spektrum_klein.pdf')
-plt.show()
+#plt.savefig('Spektrum_klein_log.pdf')
+#plt.show()
 
 print(U_Search/U_fit)
 

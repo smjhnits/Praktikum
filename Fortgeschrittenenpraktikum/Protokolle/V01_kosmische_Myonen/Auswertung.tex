@@ -9,15 +9,16 @@ durchgeführt.
 
 \subsection{Einstellung der Verzögerungszeit}
 
-Um die abgegebenen Signale der Koinzidenzapparatur zu maximieren, wird während
+Um die Zählrate der Koinzidenzapparatur zu maximieren, wird während
 der Kalibrierung des Versuches die Verzögerungszeit $T\ua{VZ}$ varriert. Die am
 Ausgang der Apparatur gemessene Anzahl an Signalen wird in Tabelle \ref{tab:Verzögerung}
 wiedergegeben und ist in Abbildung \ref{fig:Plateau} graphisch dargestellt.
-In den interessanteren Bereichen wurden mehrere Messwerte genommen, allerdings
+In den Bereichen, bei denen die Zählrate stark erhöht war
+wurden mehrere Messwerte genommen, allerdings
 ist in Tabelle \ref{tab:Verzögerung} immer nur der gemittelte
 Wert eingetragen. Die jeweiligen Zeiten sind mit einem Sternchen markiert. Ein
 negatives Vorzeichen bei der Verzögerungszeit entspricht einer Verzögerung bei
-dem linken SEV und ein positives Vorzeichen dementsprechend einer Verzägerun
+dem linken SEV und ein positives Vorzeichen dementsprechend einer Verzögerung
 bei dem rechten SEV. Es handelt sich um Anzahlen, deshalb sind die Zahlen auf
 natürliche Zahlen gerundet. Als Fehler wird für den Wert $n$ immer $\sqrt{n}$
 angenommen.
@@ -66,9 +67,35 @@ Durch die Werte im Intervall $T\ua{VZ} \in \{-6,8\}$ wird ein linearer Fit
 ohne Steigung gelegt, so dass sich gemäß Formel \eqref{eqn:FitPlateau} ein
 Maximalwert von $N\ua{max} = (174 \pm 2)$ Impulsen pro Sekunde ergibt.
 
-In Abbildung \ref{fig:Plateau} ist erkenntlich, dass sich das Plateau über
-eine Verzögerungzeit von ca. $34 \su{ns}$ erstreckt, also ungefähr der
-doppelten Breite der Impulslängen der einzelnen Impulse.
+Um die Breite des Plateaus zu beschreiben wird die Halbwertsbreite verwendet.
+Dafür wird durch die Werte im Intervall $T\ua{VZ} \in \{-18,-6\}$ sowie
+$T\ua{VZ} \in \{8, 18\}$ ein linearer Fit der Form \ref{eqn:linFit} verwendet.
+
+\begin{equation}
+  N(T\ua{VZ}) = A * T\ua{VZ} + B.
+  \label{eqn:linFit}
+\end{equation}
+
+Damit ergeben sich für die linke und rechte Seite des Plateaus folgende Parameter:
+
+\begin{align}
+  A_L &= (13.8 \pm 0.7) \, \su{\frac{1}{ns}} \\
+  B_L &= (256 \pm 9) \\
+  A_R &= (18 \pm 2) \, \su{\frac{1}{ns}} \\
+  B_R &= (325 \pm 21). \\
+\end{align}
+
+Für die Halbwertbreite werden die Zeiten berechnet, bei der genau $N\ua{max}/2$
+Counts gezählt werden. Damit ergeben sich folgende Wert:
+
+\begin{align}
+  T\ua{VZ,links} &= (-12.2 \pm 0.9) \, \su{ns} \\
+  T\ua{VZ,rechts} &= (13.2 \pm 1.6) \, \su{ns}. \\
+\end{align}
+
+Für das Plateau ergibt sich somit eine Breite von ca. 25.4 $\su{ns}$, was ungefähr
+der doppelten Breite der Impulslänge entspricht. Für die weiteren Messungen wurde
+eine Verzögerungszeit von $T\ua{VZ}$ = -4 ns eingestellt.
 
 \subsection{Kalibrierung des Vielkanalanalysators}
 
@@ -98,7 +125,7 @@ zeitlichen Abstand an.
   \end{tabular}
 \end{table}
 
-Bei einigen Abständen wurden mehrere Kanäle belegt. Eigentlich muss hierfür eine
+Bei einigen Abständen wurden mehrere Kanäle gefüllt. Eigentlich muss hierfür eine
 Fehlerrechnung durchgeführt werden, im Folgendem wird jedoch die Zuordnung von
 Impulsen bei der Kalibrierung in die mit einem Sternchen markierten Kanäle ignoriert
 und der Kanal mit den meisten Impulsen verwendet.
@@ -114,7 +141,7 @@ Die Ergebniss sind graphisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
 \end{figure}
 
 \begin{equation}
-  T(K) = A\cdot K + B
+  t(K) = A\cdot K + B
   \label{eqn:Kalibrierung_Fit}
 \end{equation}
 
@@ -133,29 +160,30 @@ In dem letzten Abschnitt der Auswertung wird die Lebensdauer der Myonen bestimmt
 Die Messung wurde über einen Zeitraum von $T\ua{ges} = 81591$ $\su{s}$ durchgeführt.
 Dabei wurden $N\ua{Start} = 1444133$ Startimpulse registriert sowie $N\ua{Stop} =
 4255$ Stopimpulse. Die eingestellte Suchzeit beträgt $T\ua{Search} = 10 \, \su{\mu s}$.
-Mit diesen Werten lässt sich der Untergrund berechnen. Der Untergrund entsteht aufgrund
-der Suchzeit. Sollte innerhalb der Suchzeit ein zweites Myon in den Szintillator
+Mit diesen Werten lässt sich der Untergrund berechnen. Sollte innerhalb der
+Suchzeit ein zweites Myon in den Szintillator
 eintreten, kann ein eigentlich nicht auftretender Zerfall von der Apparatur
-felhinterpretiert werden. Der Untergrund ergibt sich wie folgt.
+felhinterpretiert werden. Somit ist der Untergrund proportional zur eingestellten
+Suchzeit und ergibt sich wie folgt:
 
 \begin{align}
-  R &= \frac{N\ua{Start}}{T\ua{ges}} = 17.7 \,\, \frac{\su{Impulse}}{\su{s}}
+  R &= \frac{N\ua{Start}}{T\ua{ges}} = 17,7 \,\, \frac{\su{Impulse}}{\su{s}}
   \label{eqn:Rate} \\
   N\ua{Search} &= R \cdot T\ua{Search}
   \label{eqn:Nnull}\\
-  W(1) &= N\ua{Search} \cdot \exp{N\ua{Search}}
+  W(1) &= N\ua{Search} \cdot \exp{\left(N\ua{Search}\right)}
   \label{eqn:w1}\\
-  U\ua{ges} &= W(1) \cdot N\ua{Start}
+  U\ua{ges} &= W(1) \cdot N\ua{Start}.
   \label{eqn:U1}
 \end{align}
 
 Zuerst wird die Rate der pro Sekunde ausgelösten Startsignale bestimmt \eqref{eqn:Rate},
 mit der dann die Anzahl von in der Suchzeit ausgelösten Signale \eqref{eqn:Nnull}
-bestimmt wird. In der Versuchsanleitung wurde angegeben, dass die Wahrscheinlichkeit,
-dass k Myonen in der Suchzeit eintreffen gemäß einer Poisson-Verteilung gegeben ist.
-Somit ergibt sich für die Wahrscheinlichkeit, dass ein Myon eintrifft W = 0.00018 $\%$.
+bestimmt wird. Die Wahrscheinlichkeit,
+dass k Myonen in der Suchzeit eintreffen ist gemäß einer Poisson-Verteilung gegeben.
+Somit ergibt sich für die Wahrscheinlichkeit, dass ein weiteres Myon eintrifft W = 0.00018 $\%$.
 Gemäß Formel \eqref{eqn:U1} lässt sich dann die Anzahl der dem Untergrund zuzuordnenden
-Signale berechnen. Da sich die Untergrund Signale gleich auf jeden Kanal verteilen,
+Startsignale berechnen. Da sich die Untergrund Signale gleich auf jeden Kanal verteilen,
 ergeben sich pro Kanal $U\ua{1} = 0.499$ Signale.
 
 \begin{figure}
@@ -165,13 +193,27 @@ ergeben sich pro Kanal $U\ua{1} = 0.499$ Signale.
   \label{fig:Spek_groß}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/Spektrum_klein_log.pdf}
+  \caption{Gemessene Anzahl an Impulsen pro Kanal in logarithmischer Darstellung.}
+  \label{fig:Spek_log}
+\end{figure}
+
 Im folgenden wird dieser Wert jedoch nicht verwendet, sondern lediglich mit einem
 durch die Regression ermittelten Wert verglichen. Die gemessene Verteilung der
-Stopsignale auf die Kanäle ist in Tabelle \ref{tab:Spektrum} dargestellt. Für die
-Auswertung wurden
-dabei alle Kanäle vernachlässigt, deren gemessener Wert 0 ist. Jedem Kanal mit
-der Anzahl $n$ wird als Fehler $\sqrt{n}$ zugeteilt. Da hier ein gewichteter
-Fit durchgeführt wird, rufen Werte mit Fehler 0 dabei eine Singularität hervor.
+Stopsignale auf die Kanäle ist in Tabelle \ref{tab:Spektrum} dargestellt.
+
+Bei der Auswertung wurden unbefüllte Kanäle mit dem benachbarten Kanal
+zusammengefasst. Dafür wurden die beiden Zeiten der Kanäle gemittelt und als
+neue Zeit verwendet. Bei der Regression wurden zudem nur die Kanäle 1 bis 405
+beachtet. Ab Kanal 405 sind teilweise 3 oder mehr benachbarte Kanäle
+nicht befüllt, womit durch die obige Methode ein zu großer Fehler erzeugt werden
+würde.
+
+Jedem Kanal mit der Anzahl $n$ wird als Ungenauigkeit $\sqrt{n}$ zugeteilt.
+Da hier ein gewichteter
+Fit durchgeführt wird, rufen Kanäle ohne gemessenen Count dabei eine Singularität hervor.
 
 \begin{equation}
   N(t) = N\ua{0} \cdot \exp{-\lambda \cdot t} + U\ua{2}
@@ -183,16 +225,18 @@ Für die Auswertung der in Abbildung \ref{fig:Spek_groß} dargestellten Werte wi
 
 \begin{align}
   N\ua{0} &= (42 \pm 1) \\
-  \lambda &= (0.558 \pm 0.018) \cdot 10^{6}\, \frac{1}{\su{s}} \\
-  U\ua{2} &= (1.02 \pm 0.13)
+  \lambda &= (0,550 \pm 0,028) \cdot 10^{6}\, \frac{1}{\su{s}} \\
+  U\ua{2} &= (0,9 \pm 0,2)
 \end{align}
 
 Durch die bestimmte Zerfallskonstante $\lambda$ lässt sich dann die mittlere
 Lebensdauer $\tau$ der Myonen bestimmen:
 
 \begin{equation}
-  \tau = \frac{1}{\lambda} = (1.79 \pm 0.06) \, \su{\mu s}.
+  \tau = \frac{1}{\lambda} = (1.82 \pm 0.07) \, \su{\mu s}.
 \end{equation}
+
+\newpage
 
 \section{Diskussion}
 
@@ -206,7 +250,7 @@ Für diese Abweichung gibt es mehrere mögliche Ursachen. Einerseits hat sich sc
 in der Kalibrierung gezeigt, dass einige Zeiten mehreren Kanälen zugeordnet
 werden. Um dieses Fehler zu berücksichtigen hätte auch hier eine Fehlerrechnung
 durchgeführt werden müssen, worauf in dieser Auswertung jedoch verzichtet wurde.
-Eine weitere Fehlerquelle sind die Anti-Myonen, welche sich mit den Szintillator-Atomen
+Eine weitere Ungenauigkeit wird dadurch hervorgerugen, dass Myonen sich mit den Szintillator-Atomen
 zu einem angeregten myonischen Atom verbinden und nicht innerhalb der
 Suchzeit zerfallen.
 
@@ -218,7 +262,7 @@ Suchzeit zerfallen.
     \toprule
     $U\ua{1}$ & $\increment$$U\ua{1}$ & $U\ua{2}$ & $\increment$$U\ua{2}$ & $\frac{U\ua{1}}{U\ua{2}}$ \\
     \midrule
-    0.499 & / & 1.02 & 0.13 & 0.49 $\pm$ 0.06 \\
+    0,4993 & 0,0004 & 1,02 & 0,13 & 0,49 $\pm$ 0,06 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -231,7 +275,7 @@ Suchzeit zerfallen.
     \toprule
     $\tau\ua{\mu,exp}$ & $\tau\ua{\mu,lit}$ & $\frac{\tau\ua{\mu,exp}}{\tau\ua{\mu,lit}}$ \\
     \midrule
-    1.79 $\pm$ 0.06 & 2.20 $\pm$ 0 & 0.82 $\pm$ 0.03 \\
+    1.,9 $\pm$ 0,06 & 2,20 $\pm$ 0 & 0,82 $\pm$ 0,03 \\
     \bottomrule
   \end{tabular}
 \end{table}
