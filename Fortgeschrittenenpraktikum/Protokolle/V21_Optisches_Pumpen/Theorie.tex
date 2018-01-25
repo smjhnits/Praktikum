@@ -1,35 +1,38 @@
 \section{Theorie}
 
-In dem folgenden Versuch soll mithilfe eines präziesen Verfahrens die Zeeman-Aufspaltung
+In dem folgenden Versuch soll mithilfe eines präzisen Verfahrens die Zeeman-Aufspaltung
 von \ce{^{85}Rb} und \ce{^{87}Rb} untersucht werden. Das verwendete Verfahren wird
 als optisches Pumpen bezeichnet.
+
 Die Elektronenhülle eines isolierten Atoms besitzt diskrete Energieniveaus, wobei
 die Nievaus der innersten Schalen vollständig mit Elektronen besetzt sind
 (gemäß dem Pauli-Ausschlussprinzips). Für die äußeren Schalen ist bekannt, dass die
 Niveaus mit einer höheren Energie schwächer besetzt sind. Zwei Niveaus
 mit den Energien $W\ua{1}$ und $W\ua{2}$ ($W\ua{1}$ < $W\ua{2}$) und Besetzungszahlen
-$N\ua{1}$ und $N\ua{2}$ sind gemäß der folgenden Relation miteinander verknüpft.
+$N\ua{1}$ und $N\ua{2}$ sind gemäß der Boltzmann-Verteilung miteinander verknüpft:
 
 \begin{equation}
-  \frac{N\ua{2}}{N\ua{1}} = \frac{g\ua{2}}{g\ua{1}} \frac{\exp{(-W\ua{2}/kt)}}{\exp{(-W\ua{1}/kt)}}
+  \frac{N\ua{2}}{N\ua{1}} = \frac{g\ua{2}}{g\ua{1}} \frac{\exp{(-W\ua{2}/k\ua{B}T)}}{\exp{(-W\ua{1}/k\ua{B}T)}}
   \label{eqn:NRelation}
 \end{equation}
 
+, wobei es sich bei $k\ua{B}$ um die Boltzmann-Konstante und bei $T$ um die Temperatur
+handelt.
 Hierbei sind die $g\ua{i}$ die zugehörigen statistischen Gewichte.
 Durch das Verfahren des optischen Pumpens kann nun eine Inversion der Besetzung
 erzeugt werden,
 bei der $N\ua{1}$ < $N\ua{2}$ gilt. Durch nachfolgende induzierte Strahlungsübergänge
 kann die Energie der emittierten Quanten präzise ausgemessen werden. Somit lassen
 sich durch Untersuchung der Zeeman-Aufspaltung verschiedene
-Größen der Rubidium-Isotope bestimmt werden.
+Größen der Rubidium-Isotope bestimmt werden. Dazu gehören unter anderem die Landé-Faktoren
+der beiden Isotope sowie das Isotopenverhältniss in der Dampfzelle.
 
 \subsection{Magnetische Momente}
 \label{subsec:MagMo}
 
 Sowohl der Bahndrehimpuls $\vec{L}$ als auch der Spin $\vec{S}$ besitzen
-ein magnetisches Moment, welches Abhängig vom Betrag der Größe ($|\vec{L}|$ bzw.
-$|\vec{S}|$), dem g-Faktor
-und dem Bohrschen Magneton ist. Da die beiden Größen zu einem Gesamtdrehimpuls
+ein magnetisches Moment, welches Abhängig vom Betrag $|\vec{L}|$ bzw.
+$|\vec{S}|$ sowie dem g-Faktor ist. Da die beiden Größen zu einem Gesamtdrehimpuls
 $\vec{J}$ koppeln, kann dementsprechend auch ein magnetisches Moment $\vec{\mu}\ua{J}$
 definiert werden.
 
@@ -52,25 +55,26 @@ Formel für $g\ua{J}$ bestimmen:
 \end{equation}
 
 Unter Einfluss eines äußeren Magnetfeldes ändern sich aufgrund der Wechselwirkung
-mit dem magnetischen Moment die Energieniveaus. Da $\vec{mu}\ua{J}$ ebenfalls eine
+mit dem magnetischen Moment die Energieniveaus. Da $\vec{\mu}\ua{J}$ ebenfalls eine
 Präzessionsbewegung um $\vec{B}$ ausführt, hat nur die zu $\vec{B}$ parallele
 Komponente einen Einfluss auf die Energeiniveaus. Aufgrund der Richtungsquantelung
 können die Energieniveaus nur ganzzahlige Vielfache von $g\ua{J}\mu\ua{B}B$
 annehmen, verknüpft durch die Orientierungsquantenzahl $M\ua{J}$.
 
 \begin{equation}
-  U\ua{mag} = M\ua{J}g\ua{J}\mu\ua{B}B, \qquad M\ua{J} \in [-J,...,J]
+  U\ua{mag} = M\ua{J}g\ua{J}\mu\ua{B}B \qquad M\ua{J} \in [-J,...,J]
   \label{eqn:EdiffJ}
 \end{equation}
 
-Die Energieniveaus spalten somit in $2J+1$ Unternivaus auf.
+Die Energieniveaus spalten somit in $2J+1$ Unternivaus auf. Diese Aufspaltung
 
 \subsection{Einfluss des Kernspins}
 \label{subsec:Kern}
 
 Beide Rubidium-Isotope besitzen einen Kernspin ungleich Null, weshalb eine
 weitere Aufspaltung beachtet werden muss, die Hyperfeinstruktur.
-Sie entsteht durch die Kopplung von Gesamtdrehimpuls und Kernspin:
+Sie entsteht durch die Kopplung von Gesamtdrehimpuls $\vec{J}$ der Elektronenhülle
+und Kernspin $I$:
 
 \begin{equation}
   \vec{F} = \vec{J} + \vec{I}
@@ -79,7 +83,7 @@ Sie entsteht durch die Kopplung von Gesamtdrehimpuls und Kernspin:
 Die Quantenzahl $F$ läuft somit von $I+J$ bis $|I-J|$ und spaltet in $2J+1$ oder
 $2I+1$, je nachdem ob $J<I$ oder $J>I$ ist. Wird hier zusätzliches
 ein nicht zu hohes, äußeres Magnetfeld angelegt, spalten alle Hyperfeinstrukturniveaus
-erneut in $2F+1$ Unterniveaus auf. Diese lassen sich charakterisiert durch die
+in $2F+1$ Unterniveaus auf. Diese lassen sich charakterisiert durch die
 Quantenzahl $M\ua{F}$ (siehe Abbildung \ref{fig:ZeemanKern}).
 Die einzelnen Zeeman-Niveaus sind äquidistant mit folgender Energiedifferenz:
 
@@ -91,7 +95,7 @@ Die einzelnen Zeeman-Niveaus sind äquidistant mit folgender Energiedifferenz:
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{Pics/ZeemanKern.png}
-  \caption{Hyperfeinstruktur und Zeeman-Aufspaltung bei einem Alkali-Atom
+  \caption{Feinstruktur, Hyperfeinstruktur und Zeeman-Aufspaltung bei einem Alkali-Atom
   mit Kernspin I = $\frac{3}{2}$. \cite{Anleitung}}
   \label{fig:ZeemanKern}
 \end{figure}
@@ -109,10 +113,11 @@ Landé-Faktor bestimmen:
 \label{subsec:OptP}
 
 Wie in der Einleitung beschrieben, muss für die Vermessung der Zeeman-Niveaus erst
-eine Inversion der Besetzungszahlen erzeugt werden. Im Folgenden wird zur Erklärung des
+eine Inversion der elektronischen Besetzungszahlen erzeugt werden. Im Folgenden
+wird zur Erklärung des
 Prinzips die vereinfachende Annahme getroffen, dass das zu betrachtende Alkali-Atom
 einen Kern mit verschwindenden Drehimpuls besitzt. Wird der Grundzustand \ce{^{2}S_{1/2}},
-sowie die beiden ersten angeregten Zustände \ce{^{2}P_{1/2}} und \ce{^{2}P_{-1/2}}
+sowie die beiden ersten angeregten Zustände \ce{^{2}P_{1/2}} und \ce{^{2}P_{3/2}}
 betrachtet, ergibt sich das $\symup{D}_1-\symup{D}_2$-Dublett (siehe Abbildung \ref{fig:D1D2}).
 
 \begin{figure}[h]
@@ -123,7 +128,7 @@ betrachtet, ergibt sich das $\symup{D}_1-\symup{D}_2$-Dublett (siehe Abbildung \
   \label{fig:D1D2}
 \end{figure}
 
-Bei allen Zuständen ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
+Bei allen Zuständen in Abbildung \ref{fig:D1D2} ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
 oder $-\frac{1}{2}$ annehmen.
 Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref{fig:Zeemanohne}).
 
@@ -140,31 +145,29 @@ die durch ihre Energie und ihren Polarisationszustand charakterisiert werden
 (siehe Abbildung \ref{fig:Zeemanohne}).
 
 \begin{enumerate}
-  \item[a)] $\sigma^{+},\increment M\ua{J}=+1$: \\
-    Das Licht ist rechtszirkular polarisiert, somit steht der Spin antiparallel
+  \item[1)] $\increment M\ua{J}=+1$: \\
+    Das Licht ist rechtszirkular polarisiert ($\sigma^{+}$), somit steht der Spin antiparallel
     zur Ausbreitungsrichtung.
-  \item[b)] $\sigma^{-},\increment M\ua{J}=-1$: \\
-    Das Licht ist linkszirkular polarisiert, somit steht der Spin parallel zur
+  \item[2)] $\increment M\ua{J}=-1$: \\
+    Das Licht ist linkszirkular polarisiert ($\sigma^{-}$), somit steht der Spin parallel zur
     Ausbreitungsrichtung.
-  \item[c)] $\pi, \increment M\ua{J}=0$: \\
-    Das Licht ist linear polarisiert, parallel zu dem angelegten $\vec{B}$-Feld.
+  \item[3)] $\increment M\ua{J}=0$: \\
+    Das Licht ist linear polarisiert ($\pi$), parallel zu dem angelegten $\vec{B}$-Feld.
 \end{enumerate}
 
-Aufgrund des Dipolcharakters erscheinen die $\sigma$-Übergänge in allen zu $\vec{B}$
-senkrechten Richtungen linear polarisiert.
-
-Befindet sich in der Dampfkammer ein Gas aus den voher angesprochenen Alkali-Atome,
-so kann mithilfe des optischen Pumpens eine Inversion der $M\ua{J}$ Niveaus des
-$\ce{^{2}S_{1/2}}$ Zustandes erzeugt werden. Das $M\ua{J}=+\frac{1}{2}$ Niveau ist
-anfangs schwächer besetzt als das $M\ua{J}=-\frac{1}{2}$ Niveau. Durch Einstrahlen
-von $\symup{D}_1$-Licht werden nun $\increment M\ua{J} = +1$ Übergänge angeregt. Somit ist
+Befindet sich in einer Dampfkammer ein Gas aus den soeben beschriebenen, hypotethischen Alkali-Atome,
+so kann mithilfe des optischen Pumpens eine Inversion in den $M\ua{J}$ Niveaus des
+$\ce{^{2}S_{1/2}}$ Zustandes erzeugt werden (siehe Abbildung \ref{fig:Transparenz1}).
+Das energetisch höhere $M\ua{J}=+\frac{1}{2}$ Niveau ist
+anfangs schwächer mit Elektronen besetzt als das $M\ua{J}=-\frac{1}{2}$ Niveau. Durch Einstrahlen
+von rechtszirkularem $\symup{D}_1$-Licht werden nun $\increment M\ua{J} = +1$ Übergänge angeregt. Somit ist
 lediglich der Übergang von $\ce{^{2}S_{1/2}}$ mit $M\ua{J}=-\frac{1}{2}$ zu $\ce{^{2}P_{1/2}}$ mit
 $M\ua{J}=+\frac{1}{2}$ möglich. Durch spontane Emission geht der angeregte Zustand
 nach ca. $10^{-8}$ s wieder in den Grundzustand über, wobei beide Niveaus
 des Grundzustandes gleichwahrscheinlich bevölkert werden.
 Aufgrund der Auswahlregel kann kein Übergang von $\ce{^{2}S_{1/2}}$ mit
 $M\ua{J}=+\frac{1}{2}$ zu $\ce{^{2}P_{1/2}}$ mit $M\ua{J}=+\frac{1}{2}$ stattfinden,
-wodurch sich die Besetzungen in diesem Niveau akkumulieren, während das $M\ua{J}=-\frac{1}{2}$ Niveau
+wodurch sich die Elektronen in diesem Niveau akkumulieren, während das $M\ua{J}=-\frac{1}{2}$ Niveau
 entleert wird. Damit lässt sich theoretisch eine komplette Inversion der beiden Zustände erzeugen.
 In der Realität ist es jedoch so, dass durch Zusammenstöße der Gasatome untereinander
 die Elektronenspins umklappen können, so dass ein Übergang im Grundzustand vom
@@ -173,10 +176,9 @@ durch ein zusätzliches Puffergas in der Dampfkammer minimieren, wobei meistens 
 Edelgas gewählt wird.
 
 Der Vorgang kann durch Beobachten der Intensität des am Ende der Dampfkammer
-austretenden $\symup{D}_1$-Lichtes überprüft werden. Dafür wird ein Lichtdetektor hinter der
-Zelle montiert (siehe Kapitel \ref{subsec:Aufbau}, Abbildung \ref{fig:Aufbau}).
+austretenden $\symup{D}_1$-Lichtes überprüft werden.
 Durch die Entleerung des $M\ua{J}=-\frac{1}{2}$
-Niveaus wird mit der Zeit immer weniger Licht von dem Gas absorbiert, weswegen
+Grundzustandes wird mit der Zeit immer weniger Licht von dem Gas absorbiert, weswegen
 die Transparenz der Kammer immer weiter zunimmt und sich asymptotisch der vollkommenen
 Transparenz annähert (siehe Abbildung \ref{fig:Transparenz1}).
 
@@ -193,7 +195,7 @@ Transparenz annähert (siehe Abbildung \ref{fig:Transparenz1}).
 
 Im Allgemeinen kann bei dem Rückgang eines angeregten Atoms in den Grundzustand
 zwischen zwei verschiedenen Prozessen unterschieden werden (siehe Abbildung
-\ref{fig:Emission} a.) und b.) ). Bei der spontanen Emission
+\ref{fig:Emission} a und b ). Bei der spontanen Emission
 emittiert ein angeregtes Atom ohne äußere Einflüsse ein Photon und geht so in den
 Grundzustand über. Bei der induzierten Emission wird von außen ein Lichtquant eingestrahlt,
 welches als Energie genau die Energiedifferenz der beiden Niveaus besitzen muss.
@@ -210,16 +212,17 @@ und Polarisation besitzen.
 
 Beide Prozesse laufen parallel ab, wobei der dominierende Prozess von der
 Energie des emittierten Photons abhängt bzw. von der Frequenz, wie im Folgenden
-nun hergeleitet wird.
+nun hergeleitet wird. Die Energie des Photons entspricht dabei der Energiedifferenz
+der beiden Zustände, zwischen denen der Übergang stattfindet.
 
 \begin{equation}
   h\nu = W\ua{2} - W\ua{1}
   \label{eqn:Ediff}
 \end{equation}
 
-Nun wird ein Gas mit $N\ua{1}$ Atomen im Zustand $W\ua{1}$ und $N\ua{2}$
-Atomen im energetisch höheren Zustand $W\ua{2}$ betrachtet, welches sich bei der
-Temperatur $T$ im thermischen Gleichgewicht befindet. Die Anzahl der
+Wird ein Gas mit $N\ua{1}$ Atomen im Zustand $W\ua{1}$ und $N\ua{2}$
+Atomen im energetisch höheren Zustand $W\ua{2}$ betrachtet, welches sich
+im thermischen Gleichgewicht befindet. Die Anzahl der
 spontanen Emissionen pro Zeiteinheit lässt sich dann wie folgt berechnen, wobei
 $A\ua{21}$ die Übergangswahrscheinlichkeit von Niveau $W\ua{2}$ in $W\ua{1}$ darstellt:
 
@@ -256,23 +259,23 @@ $A\ua{21}$ bestimmen, so dass sich folgende Abhängigkeit ergibt:
 \end{equation}
 
 $B\ua{21}$ kann aufgrund seiner ausschließlichen Abhängigkeit von der Gestalt der
-Wellenfunktionen als konstant betrachtet werden. Somit wird in Formel \eqref{eqn:A21}
+Wellenfunktionen als konstant betrachtet werden. Somit wird in Gleichung \eqref{eqn:A21}
 aufgrund der $\nu^3$ Abhängigkeit deutlich, dass spontane Emission nur bei hohen
 Frequenzen ein relevanter Prozess ist. Um dies deutlich zu machen, kann die
-Übergangswahrscheinlichkeit für spontane Emission bei Rubidium betrachtet werden.
+Übergangswahrscheinlichkeit für spontane Emission betrachtet werden.
 Für das Verhältniss der Übergangswahrscheinlichkeiten zwischen angeregtem Zustand
 und Grundzustand ($\nu$
 $\approx$ 380 THz) sowie dem Übergang zwischen zwei Zeeman-Niveaus ($\nu$
-$\approx$ 1 MHz) ergibt sich $A\ua{21}(380\,THz)/A\ua{21}(1\,MHz)=5.4\cdot10^25$.
+$\approx$ 1 MHz) ergibt sich $A\ua{21}(380\,THz)/A\ua{21}(1\,MHz)=5.4\cdot10^{25}$.
 Somit ist die induzierte Emission im Bereich der Zeeman-Aufspaltung der dominierende
 Prozess.
 
 Mit den obigen Überlegungen lassen sich die Abstände zwischen den Zeeman-Niveaus
 unter Verwendung der induzierten Emission präzise vermessen. Liegt zu Beginn noch
 kein Magnetfeld an, so ist das optische Pumpen nicht möglich und die Transparenz
-der Dampfkammer liegt ungefähr bei 0. Im Allgemeinen ist diese jedoch
-aufgrund des Magnetfeldes der Erde nicht der Fall, wodurch sich dieses anhand der
-Abweichung bestimmen lässt (siehe Abbildung \ref{fig:Transparenz2}).
+der Dampfkammer ist minimal. Im Allgemeinen ist dies jedoch
+aufgrund des Magnetfeldes der Erde nicht der Fall. Dadurch kann dieses anhand der
+beobachtbaren Abweichung bestimmt werden(siehe Abbildung \ref{fig:Transparenz2}).
 Dafür kann durch Kompensations mittels eines
 vertikalen Ausgleichsfeldes die Linienbreite minimiert werden.
 
@@ -286,8 +289,8 @@ vertikalen Ausgleichsfeldes die Linienbreite minimiert werden.
 
 Außerhalb der Dampfzelle wird ein frequenzvariables Hochfrequenzfeld (weiter RF)
 angelegt, womit später die induzierte Emission hervorgerufen wird. Aufgrund der
-durch \ref{eqn:NuB} gegebenen Relation kann der Wert des anderen horizontalen
-Magnetfeldes bestimmt werden,
+durch \ref{eqn:NuB} gegebenen Relation kann dadurch die Magnetfeldstärke des anderen horizontalen
+Magnetfeldes bestimmt werden (Formel \eqref{eqn:Bm}),
 bei dem durch das angelegte RF mit der festen Frequenz $\nu$ induzierte Emission
 auftritt:
 
@@ -298,10 +301,13 @@ auftritt:
   \label{eqn:Bm}
 \end{align}
 
+Die Gleichung (\eqref{eqn:NuB}) wird auch als Resonanzgleichung bezeichnet, da hier
+die Energie der durch den RF erzeugten EM-Welle der Enrgiedifferenz der beiden
+Zustände entspricht (Formel \eqref{eqn:NuB}).
 Durch die auftretende Emission wird das $\ce{^{2}P_{1/2}}$,$M\ua{J}=+\frac{1}{2}$
 wieder entleert und das D1-Licht kann wieder absorbiert werden. Die Transparenz
 der Dampfzelle nimmt also im Resonanzfall wieder ab und die Magnetfeldstärke $B\ua{m}$
-kann am Generator abgelesen werden (siehe Abbildung \ref{fig:Transparenz2}).
+kann in Abhängigkeit von der Frequenz des RF-Feldes bestimmt werden (siehe Abbildung \ref{fig:Transparenz2}).
 
 Die Hochfrequenz-Spektroskopie ermöglicht dabei diesen Versuch erst, da mit rein
 optischen Methoden aufgrund der Begrenzung des Auflösungsvermögens die
@@ -322,9 +328,9 @@ den Zeeman-Übergang anschließend zu vermessen.
 \subsection{Quadratischer Zeeman-Effekt}
 \label{subsec:Zeeman2}
 
-Bei einer Erhöhung der Flussdichte des Magnetfeldes müssen bei Berechnung der
-Energiedifferenz zwischen zwei Zeeman-Niveaus noch Terme höherer Ordnung
-betrachtet werden. Durch Lösen der Schrödinger-Gleichung des vorhandenen Systems
+Bei einer Erhöhung der Flussdichte des Magnetfeldes $B$ müssen bei Berechnung der
+Energiedifferenz zwischen zwei Zeeman-Niveaus zusätzlich Terme höherer Ordnung
+von $B$ betrachtet werden. Durch Lösen der Schrödinger-Gleichung des vorhandenen Systems
 ergibt sich für die Energie $U\ua{HF}$ noch ein zusätzlicher Term, welcher
 propotional zu $B^2$ ist:
 
@@ -334,7 +340,7 @@ propotional zu $B^2$ ist:
 \end{equation}
 
 $\increment E\ua{Hy}$ ist hierbei die Hyperfeinstrukturaufspaltung zwischen zwei
-verschiedenen Niveaus. Somit ist die Zeeman-Energie hier auch von der Quantenzahl
+verschiedenen Niveaus. Somit ist die Zeeman-Energie nun auch von der Quantenzahl
 $M\ua{F}$ abhängig, weswegen die vorliegenden Übergänge unterschiedliche
 Energien besitzen (quadratischer Zeeman-Effekt).
 
@@ -352,7 +358,7 @@ Energien besitzen (quadratischer Zeeman-Effekt).
 \end{figure}
 
 In Abbildung \ref{fig:Aufbau} ist die verwendete Apparatur dargestellt. Als Lichtquelle
-wird hier ein mit Rubidium-Gas befüllte Spektrallampe verwendet. Das erzeugte Licht
+wird hier ein mit Rubidium-Dampflampe verwendet. Das erzeugte Licht
 wird mithilfe einer Sammellinse kollimiert, sodass anschließend mithilfe eines
 Filters das $\symup{D}_1$-Licht heraussepariert wird. Durch einen Linearpolarisator sowie
 ein $\frac{\lambda}{4}$-Plättchen wird das Licht dann zirkular-polarisiert.
@@ -363,8 +369,8 @@ wird. Sichtbar werden die Schwankungen der Intensität durch eine Y-Auslenkung d
 Elektronenstrahles.
 
 Wie schon in Kapitel \ref{subsec:Praezission} beschrieben, werden bei dem Aufbau
-drei Helmholtz-Spulenpaare verwendet. Zwei der Spulen sind Horizontal ausgerichtet
-und eine Vertikal. Die Horizontalfeld-Spule besitzt $N = 154$ Windungen und hat einen
+drei Helmholtz-Spulenpaare verwendet. Zwei der Spulen sind horizontal ausgerichtet
+und eine vertikal. Die Horizontalfeld-Spule besitzt $N = 154$ Windungen und hat einen
 Radius von $R = 15.79\, \su{cm}$. Die Sweep-Spule (ebenfalls horizontal) besitzt einen
 Radius von $R = 16.39\, \su{cm}$ sowie $N = 11$ Windungen je Spule. Die Vertikalfeld-Spule
 besitzt $N=20$ Windungen sowie einen Radius von $R = 11.735\, \su{cm}$.
@@ -378,13 +384,13 @@ $0.3\,\su{A}$ Schritten variiert werden kann.
 
 Die Messaparatur wird so ausgerichtet, dass der Verlauf des Strahles parallel
 zur Nord-Süd-Richtung ist. So muss lediglich die parallele Komponente des Erdmagnetfeldes
-betrachtet werden, welche in der Auswertung leichter zu Berücksichtigen ist.
+betrachtet werden, welche in der Auswertung leichter zu berücksichtigen ist.
 
-Um die Resonanzstelle zu bestimmen wird bei fester Frequenz am RF die Horizontalfeldspule
-über das Sweep-Feld variiert und dabei die Transparenz der Dampfzelle
-mithilfe des Oszilloskopes beobachtet. Da die Reichweite des Sweep-Feldes jedoch
+Um Resonanzstellen zu bestimmen wird bei fester Frequenz des RF die horizontale
+Feldstärke mit Hilfe Sweep-Spule variiert und dabei die Transparenz der Dampfzelle
+mithilfe des Oszilloskopes beobachtet. Da die Stärke des Sweep-Feldes jedoch
 nicht komplett ausreicht, wird bei Frequenzen ab ca. 300 Hz ein zusätzliches
-Horizontalfeld (Modulationsfeld) hinzugeschaltet. Das an der Photozelle
+Horizontalfeld hinzugeschaltet. Das an der Photozelle
 eintreffende Licht wird dann
 am Oszilloskop per XY-Betrieb in Abhängigkeit der Sweep-Feldstärke dargestellt,
 um die Resonanzstellen sichtbar zu machen.
@@ -423,7 +429,7 @@ auszugleichen. Danach wird der
 Versuchsaufbau mithilfe eines Kompasses so ausgerichtet, dass der Strahlenverlauf
 entlang der Nord-Süd-Richtung verläuft.
 
-Im letzetn Abschnitt des Experimentes werden die Resonanzfeldstärken gemessen.
+Als erster Teil des Experimentes werden die Resonanzfeldstärken gemessen.
 Dafür wird am RF eine Frequenz von 100 kHz eingestellt. Mithilfe des Oszilloskopes
 wird ein Foto der sichtbaren Peaks aufgenommen, um hinterher das Isotopenverhältniss
 bestimmen zu können. Danach werden in Intervallschritten von 100 kHz bis zu einer
