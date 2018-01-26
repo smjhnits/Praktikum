@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		#mkdir -p V14_Tomograhie/Tabellen
-		#mkdir -p V14_Tomograhie/Pics
-		#mkdir -p V14_Tomograhie/Python
-		#touch V14_Tomograhie/Auswertung.tex
-		#touch V14_Tomograhie/V14_main.tex
-		#touch V14_Tomograhie/Theorie.tex
-		#touch V14_Tomograhie/lit.bib
-		#touch V14_Tomograhie/Makefile
-		#touch V14_Tomograhie/Pics/savedatei.txt
-		#touch V14_Tomograhie/Python/savedatei.txt
-	  #touch V14_Tomograhie/Tabellen/savedatei.txt
-		#cp -r Praeambel_prak.tex V14_Tomograhie/
+		#mkdir -p V61_HeNe_Laser/Tabellen
+		#mkdir -p V61_HeNe_Laser/Pics
+		#mkdir -p V61_HeNe_Laser/Python
+		#touch V61_HeNe_Laser/Auswertung.tex
+		#touch V61_HeNe_Laser/V61_main.tex
+		#touch V61_HeNe_Laser/Theorie.tex
+		#touch V61_HeNe_Laser/lit.bib
+		#touch V61_HeNe_Laser/Makefile
+		#touch V61_HeNe_Laser/Pics/savedatei.txt
+		#touch V61_HeNe_Laser/Python/savedatei.txt
+	  #touch V61_HeNe_Laser/Tabellen/savedatei.txt
+		#cp -r Praeambel_prak.tex V61_HeNe_Laser/
 
 clean:
-		#rm -rf V14_Tomograhie
+		#rm -rf V61_HeNe_Laser
 .PHONY: clean all
