@@ -19,7 +19,7 @@ def erste_angeregte_Mode(d, I_1, d_1, omega_1, I_2, d_2, omega_2):
     return I_1 * np.exp(-2 * ((d - d_1) / omega_1)**2) + I_2 * np.exp(-2 * ((d - d_2) / omega_2)**2)
 
 def Wellenlänge(g, L, n, d):
-    return g * np.sin(np.arctan(d / L)) / n
+    return g * unp.sin(unp.arctan(d / L)) / n
 
 ### FITFUNKTIONEN ###
 
@@ -145,15 +145,17 @@ a = Q_(1 / 100, 'mm').to('cm') # Gitterkonstante Drähte pro mm
 abstand = Q_(75.7, 'cm') #in cm, Abstand Gitter-Schirm
 # Abstand des zentralen Hauptmaxima zu den anderen Hauptmaxima
 
-H_m2 = Q_(9.8, 'cm') #cm
-H_m1 = Q_(4.9, 'cm') #cm
-H_p1 = Q_(5.1, 'cm') #cm
-H_p2 = Q_(9.7, 'cm') #cm
+H_m2 = Q_(ufloat(9.8, 0.05), 'cm') #cm
+H_m1 = Q_(ufloat(4.9, 0.05), 'cm') #cm
+H_p1 = Q_(ufloat(5.1, 0.05), 'cm') #cm
+H_p2 = Q_(ufloat(9.7, 0.05), 'cm') #cm
+
 
 wellenlänge = np.array([Wellenlänge(a, abstand, 2, H_m2).to('nanometer').magnitude, Wellenlänge(a, abstand, 1,
 H_m1).to('nanometer').magnitude,
 Wellenlänge(a, abstand, 1, H_p1).to('nanometer').magnitude, Wellenlänge(a, abstand, 2, H_p2).to('nanometer').magnitude])
 
+print('Wellenlängenmessung (Mittelwert) in nm: (Hm2 Hm1 Hp1 Hp2) ', wellenlänge, '\n')
 print('Wellenlängenmessung (Mittelwert) in nm: ', np.mean(wellenlänge), '\n')
 
 ### Stabilitätsmessung ###
@@ -196,7 +198,7 @@ L_außen_anfang_kp = Q_(68.8, 'cm') #in cm
 
 L_konkav_planar = Q_(np.array([68.8, 72.8, 78.0, 83.0, 88.0]) - L_linse.magnitude, 'cm')
 
-I_konkav_planar = Q_(np.array([2.57, 2.40, 1.83, 1.48, 1.40]), 'mA') #in muA
+I_konkav_planar = Q_(np.array([2.57, 2.40, 1.83, 1.48, 1.40]), 'microampere') #in muA
 
 params_kp, covariance_kp = curve_fit(lin, L_konkav_planar.magnitude, I_konkav_planar.magnitude)
 
