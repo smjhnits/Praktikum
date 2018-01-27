@@ -47,7 +47,7 @@ plt.plot(winkel_fit, Polarisationsmessung(winkel_fit, *params_pol), 'r-', label=
 plt.plot(winkel.to('rad'), I_pol.magnitude, 'bx', label=r'Messdaten')
 plt.xlabel('$\phi$ in rad')
 plt.xlim(-0.1, 5 / 3 * np.pi)
-plt.ylabel('$I(\phi) in mA$')
+plt.ylabel('$I(\phi)$ in mA')
 plt.xticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 5 / 3 * np.pi],
            [r"$0$", r"$\frac{1}{2}\pi$", r"$\pi$", r"$\frac{3}{2}\pi$", r"$\frac{5}{3}\pi$"])
 plt.tight_layout()
