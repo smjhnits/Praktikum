@@ -1,10 +1,10 @@
 \section{Auswertung}
 
 In dem folgenden Abschnitt sollen mithilfe der aufgenommenen Daten die Lebensdauer
-der Myonen bestimmt werden. Die Fehlerberechnung wird mit dem
+der Myonen bestimmt werden. Die Fehlerrechnung wird mit dem
 Paket $\textit{uncertainties}$ in $\textit{Python}$ durchgeführt. Da die Werte
 bei Berechnung des Plateaus sowie Ermittlung der Lebensdauer fehlerbehaftet sind,
-wird für die Regression ein gewichteter Fit mit der Funktion \textit{curve\_fit}
+wird für die Regression ein gewichteter Fit mit dem Packet \textit{curve\_fit}
 durchgeführt.
 
 \subsection{Einstellung der Verzögerungszeit}
@@ -72,11 +72,11 @@ Dafür wird durch die Werte im Intervall $T\ua{VZ} \in \{-18,-6\}$ sowie
 $T\ua{VZ} \in \{8, 18\}$ ein linearer Fit der Form \ref{eqn:linFit} verwendet.
 
 \begin{equation}
-  N(T\ua{VZ}) = A * T\ua{VZ} + B.
+  N(T\ua{VZ}) = A \cdot T\ua{VZ} + B.
   \label{eqn:linFit}
 \end{equation}
 
-Damit ergeben sich für die linke und rechte Seite des Plateaus folgende Parameter:
+Es ergeben sich für die linke und rechte Seite des Plateaus folgende Parameter:
 
 \begin{align}
   A_L &= (13.8 \pm 0.7) \, \su{\frac{1}{ns}} \\
@@ -93,7 +93,7 @@ Counts gezählt werden. Damit ergeben sich folgende Wert:
   T\ua{VZ,rechts} &= (13.2 \pm 1.6) \, \su{ns}. \\
 \end{align}
 
-Für das Plateau ergibt sich somit eine Breite von ca. 25.4 $\su{ns}$, was ungefähr
+Für das Plateau ergibt sich eine Breite von ca. 25.4 $\su{ns}$, was ungefähr
 der doppelten Breite der Impulslänge entspricht. Für die weiteren Messungen wurde
 eine Verzögerungszeit von $T\ua{VZ}$ = -4 ns eingestellt.
 
@@ -129,7 +129,7 @@ Bei einigen Abständen wurden mehrere Kanäle gefüllt. Eigentlich muss hierfür
 Fehlerrechnung durchgeführt werden, im Folgendem wird jedoch die Zuordnung von
 Impulsen bei der Kalibrierung in die mit einem Sternchen markierten Kanäle ignoriert
 und der Kanal mit den meisten Impulsen verwendet.
-Somit wird eine fehlerlose Zuteilung der Kanäle zu den entsprechenden Zeiten
+Somit wird eine fehlerfreie Zuteilung der Kanäle zu den entsprechenden Zeiten
 angenommen, weshalb keine Fehlerrechnung durchgeführt wird.
 Die Ergebniss sind graphisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
 
@@ -147,7 +147,7 @@ Die Ergebniss sind graphisch in Abbildung \ref{fig:Kalibrierung} dargestellt.
 
 Mithilfe von Formel \eqref{eqn:Kalibrierung_Fit} wird eine lineare Regression
 durchgeführt, damit ermitteln werden kann, zu welchem Kanal welcher zeitliche Abstand gehört.
-Für die Parameter A und B ergeben sich dabei folgende Wert:
+Für die Parameter A und B ergeben sich folgende Wert:
 
 \begin{align}
   A &= (0.02247 \pm 0.00005) \,\, \su{\mu s} \\
@@ -158,8 +158,8 @@ Für die Parameter A und B ergeben sich dabei folgende Wert:
 
 In dem letzten Abschnitt der Auswertung wird die Lebensdauer der Myonen bestimmt.
 Die Messung wurde über einen Zeitraum von $T\ua{ges} = 81591$ $\su{s}$ durchgeführt.
-Dabei wurden $N\ua{Start} = 1444133$ Startimpulse registriert sowie $N\ua{Stop} =
-4255$ Stopimpulse. Die eingestellte Suchzeit beträgt $T\ua{Search} = 10 \, \su{\mu s}$.
+Dabei sind $N\ua{Start} = 1444133$ Startimpulse, sowie $N\ua{Stop} =
+4255$ Stopimpulse registriert worden. Die eingestellte Suchzeit beträgt $T\ua{Search} = 10 \, \su{\mu s}$.
 Mit diesen Werten lässt sich der Untergrund berechnen. Sollte innerhalb der
 Suchzeit ein zweites Myon in den Szintillator
 eintreten, kann ein eigentlich nicht auftretender Zerfall von der Apparatur
@@ -167,7 +167,7 @@ felhinterpretiert werden. Somit ist der Untergrund proportional zur eingestellte
 Suchzeit und ergibt sich wie folgt:
 
 \begin{align}
-  R &= \frac{N\ua{Start}}{T\ua{ges}} = 17,7 \,\, \frac{\su{Impulse}}{\su{s}}
+  R = \frac{N\ua{Start}}{T\ua{ges}} &= 17,7 \,\, \frac{\su{Impulse}}{\su{s}}
   \label{eqn:Rate} \\
   N\ua{Search} &= R \cdot T\ua{Search}
   \label{eqn:Nnull}\\
@@ -177,10 +177,10 @@ Suchzeit und ergibt sich wie folgt:
   \label{eqn:U1}
 \end{align}
 
-Zuerst wird die Rate der pro Sekunde ausgelösten Startsignale bestimmt \eqref{eqn:Rate},
-mit der dann die Anzahl von in der Suchzeit ausgelösten Signale \eqref{eqn:Nnull}
+Zuerst wird die Rate der pro Sekunde ausgelösten Startsignale bestimmt (vgl. \eqref{eqn:Rate}),
+mit der dann die Anzahl von in der Suchzeit ausgelösten Signale (vgl. \eqref{eqn:Nnull})
 bestimmt wird. Die Wahrscheinlichkeit,
-dass k Myonen in der Suchzeit eintreffen ist gemäß einer Poisson-Verteilung gegeben.
+dass $k$ Myonen in der Suchzeit eintreffen ist gemäß einer Poisson-Verteilung gegeben.
 Somit ergibt sich für die Wahrscheinlichkeit, dass ein weiteres Myon eintrifft W = 0.00018 $\%$.
 Gemäß Formel \eqref{eqn:U1} lässt sich dann die Anzahl der dem Untergrund zuzuordnenden
 Startsignale berechnen. Da sich die Untergrund Signale gleich auf jeden Kanal verteilen,
@@ -200,15 +200,15 @@ ergeben sich pro Kanal $U\ua{1} = 0.499$ Signale.
   \label{fig:Spek_log}
 \end{figure}
 
-Im folgenden wird dieser Wert jedoch nicht verwendet, sondern lediglich mit einem
+Im Folgenden wird dieser Wert jedoch nicht verwendet, sondern lediglich mit einem
 durch die Regression ermittelten Wert verglichen. Die gemessene Verteilung der
 Stopsignale auf die Kanäle ist in Tabelle \ref{tab:Spektrum} dargestellt.
 
 Bei der Auswertung wurden unbefüllte Kanäle mit dem benachbarten Kanal
 zusammengefasst. Dafür wurden die beiden Zeiten der Kanäle gemittelt und als
-neue Zeit verwendet. Bei der Regression wurden zudem nur die Kanäle 1 bis 405
+neue Zeit verwendet. Bei der Regression wurden zudem die Kanäle 1 bis 405
 beachtet. Ab Kanal 405 sind teilweise 3 oder mehr benachbarte Kanäle
-nicht befüllt, womit durch die obige Methode ein zu großer Fehler erzeugt werden
+nicht befüllt, womit durch die obige Methode ein großer Fehler erzeugt werden
 würde.
 
 Jedem Kanal mit der Anzahl $n$ wird als Ungenauigkeit $\sqrt{n}$ zugeteilt.
@@ -221,12 +221,12 @@ Fit durchgeführt wird, rufen Kanäle ohne gemessenen Count dabei eine Singulari
 \end{equation}
 
 Für die Auswertung der in Abbildung \ref{fig:Spek_groß} dargestellten Werte wird an die Funktion
-\eqref{eqn:Exponentiell} gefittet. Für die Parameter ergeben sich zu:
+\eqref{eqn:Exponentiell} gefittet. Die Parameter ergeben sich zu:
 
 \begin{align}
   N\ua{0} &= (42 \pm 1) \\
   \lambda &= (0,550 \pm 0,028) \cdot 10^{6}\, \frac{1}{\su{s}} \\
-  U\ua{2} &= (0,9 \pm 0,2)
+  U\ua{2} &= (0,9 \pm 0,2).
 \end{align}
 
 Durch die bestimmte Zerfallskonstante $\lambda$ lässt sich dann die mittlere
@@ -249,10 +249,10 @@ Der Literaturwert liegt zudem nicht im Fehlerintervall des bestimmten Wertes.
 Für diese Abweichung gibt es mehrere mögliche Ursachen. Einerseits hat sich schon
 in der Kalibrierung gezeigt, dass einige Zeiten mehreren Kanälen zugeordnet
 werden. Um dieses Fehler zu berücksichtigen hätte auch hier eine Fehlerrechnung
-durchgeführt werden müssen, worauf in dieser Auswertung jedoch verzichtet wurde.
+durchgeführt werden müssen, worauf in der Auswertung jedoch verzichtet wurde.
 Eine weitere Ungenauigkeit wird dadurch hervorgerugen, dass Myonen sich mit den Szintillator-Atomen
 zu einem angeregten myonischen Atom verbinden und nicht innerhalb der
-Suchzeit zerfallen.
+Suchzeit zerfallen, was im Rahmen der Auswertung ebenfalls nicht berücksichtigt wurde.
 
 \begin{table}
   \centering
