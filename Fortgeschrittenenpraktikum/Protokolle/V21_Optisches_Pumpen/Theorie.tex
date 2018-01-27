@@ -32,15 +32,15 @@ der beiden Isotope sowie das Isotopenverhältniss in der Dampfzelle.
 
 Sowohl der Bahndrehimpuls $\vec{L}$ als auch der Spin $\vec{S}$ besitzen
 ein magnetisches Moment, welches Abhängig vom Betrag $|\vec{L}|$ bzw.
-$|\vec{S}|$ sowie dem g-Faktor ist. Da die beiden Größen zu einem Gesamtdrehimpuls
+$|\vec{S}|$ sowie dem $g$-Faktor ist. Da die beiden Größen zu einem Gesamtdrehimpuls
 $\vec{J}$ koppeln, kann dementsprechend auch ein magnetisches Moment $\vec{\mu}\ua{J}$
 definiert werden.
 
 \begin{align}
   |\vec{\mu}\ua{L}| &= \mu\ua{B} \sqrt{L(L+1)} \\
   |\vec{\mu}\ua{S}| &= g\ua{S} \mu\ua{B} \sqrt{S(S+1)} \\
-  \implies & \vec{\mu}\ua{J} = \vec{\mu}\ua{L} + \vec{\mu}\ua{S} \\
-  & |\vec{\mu}\ua{J}| = g\ua{J} \mu\ua{B} \sqrt{J(J+1)}
+  \implies  \vec{\mu}\ua{J} &= \vec{\mu}\ua{L} + \vec{\mu}\ua{S} \\
+  |\vec{\mu}\ua{J}| &= g\ua{J} \mu\ua{B} \sqrt{J(J+1)}
 \end{align}
 
 $\vec{\mu}\ua{J}$ führt dabei eine Präzessionsbewegung um die $\vec{J}$-Richtung
@@ -50,7 +50,7 @@ Betrachtung von $\vec{L}$, $\vec{S}$ und $\vec{J}$ lässt sich eine
 Formel für $g\ua{J}$ bestimmen:
 
 \begin{equation}
-  g\ua{J} \approx \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}
+  g\ua{J} \approx \frac{3J(J+1)+S(S+1)-L(L+1)}{2J(J+1)}.
   \label{eqn:LandeJ}
 \end{equation}
 
@@ -66,7 +66,7 @@ annehmen, verknüpft durch die Orientierungsquantenzahl $M\ua{J}$.
   \label{eqn:EdiffJ}
 \end{equation}
 
-Die Energieniveaus spalten somit in $2J+1$ Unternivaus auf. Diese Aufspaltung
+Die Energieniveaus spalten somit in $2J+1$ Unterniveaus auf.
 
 \subsection{Einfluss des Kernspins}
 \label{subsec:Kern}
@@ -77,10 +77,10 @@ Sie entsteht durch die Kopplung von Gesamtdrehimpuls $\vec{J}$ der Elektronenhü
 und Kernspin $I$:
 
 \begin{equation}
-  \vec{F} = \vec{J} + \vec{I}
+  \vec{F} = \vec{J} + \vec{I}.
 \end{equation}
 
-Die Quantenzahl $F$ läuft somit von $I+J$ bis $|I-J|$ und spaltet in $2J+1$ oder
+Die Quantenzahl $F$ läuft von $I+J$ bis $|I-J|$ und spaltet in $2J+1$ oder
 $2I+1$, je nachdem ob $J<I$ oder $J>I$ ist. Wird hier zusätzliches
 ein nicht zu hohes, äußeres Magnetfeld angelegt, spalten alle Hyperfeinstrukturniveaus
 in $2F+1$ Unterniveaus auf. Diese lassen sich charakterisiert durch die
@@ -113,12 +113,12 @@ Landé-Faktor bestimmen:
 \label{subsec:OptP}
 
 Wie in der Einleitung beschrieben, muss für die Vermessung der Zeeman-Niveaus erst
-eine Inversion der elektronischen Besetzungszahlen erzeugt werden. Im Folgenden
+eine Inversion der Besetzungszahlen der Elektronen erzeugt werden. Im Folgenden
 wird zur Erklärung des
 Prinzips die vereinfachende Annahme getroffen, dass das zu betrachtende Alkali-Atom
 einen Kern mit verschwindenden Drehimpuls besitzt. Wird der Grundzustand \ce{^{2}S_{1/2}},
 sowie die beiden ersten angeregten Zustände \ce{^{2}P_{1/2}} und \ce{^{2}P_{3/2}}
-betrachtet, ergibt sich das $\symup{D}_1-\symup{D}_2$-Dublett (siehe Abbildung \ref{fig:D1D2}).
+betrachtet, ergibt sich das $\symup{D}_1$-$\symup{D}_2$-Dublett (siehe Abbildung \ref{fig:D1D2}).
 
 \begin{figure}[h]
   \centering
@@ -127,6 +127,7 @@ betrachtet, ergibt sich das $\symup{D}_1-\symup{D}_2$-Dublett (siehe Abbildung \
   werden. \cite{Anleitung}}
   \label{fig:D1D2}
 \end{figure}
+\FloatBarrier
 
 Bei allen Zuständen in Abbildung \ref{fig:D1D2} ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
 oder $-\frac{1}{2}$ annehmen.
@@ -134,7 +135,7 @@ Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{Pics/Zeemanohne.png}
+  \includegraphics[width=0.7\textwidth]{Pics/Zeemanohne.png}
   \caption{Zeeman-Aufspaltung bei einem Alkali-Atom ohne Kernspin, sowie die
   verschiedenen Übergänge. \cite{Anleitung}}
   \label{fig:Zeemanohne}
@@ -172,7 +173,7 @@ entleert wird. Damit lässt sich theoretisch eine komplette Inversion der beiden
 In der Realität ist es jedoch so, dass durch Zusammenstöße der Gasatome untereinander
 die Elektronenspins umklappen können, so dass ein Übergang im Grundzustand vom
 $M\ua{J}=+\frac{1}{2}$ Niveau zum $M\ua{J}=-\frac{1}{2}$ entsteht. Dies lässt sich
-durch ein zusätzliches Puffergas in der Dampfkammer minimieren, wobei meistens ein
+durch ein zusätzliches Puffergas in der Dampfkammer minimieren, wobei bevorzugt ein
 Edelgas gewählt wird.
 
 Der Vorgang kann durch Beobachten der Intensität des am Ende der Dampfkammer
@@ -195,12 +196,13 @@ Transparenz annähert (siehe Abbildung \ref{fig:Transparenz1}).
 
 Im Allgemeinen kann bei dem Rückgang eines angeregten Atoms in den Grundzustand
 zwischen zwei verschiedenen Prozessen unterschieden werden (siehe Abbildung
-\ref{fig:Emission} a und b ). Bei der spontanen Emission
+\ref{fig:Emission} a und b). Bei der spontanen Emission
 emittiert ein angeregtes Atom ohne äußere Einflüsse ein Photon und geht so in den
 Grundzustand über. Bei der induzierten Emission wird von außen ein Lichtquant eingestrahlt,
 welches als Energie genau die Energiedifferenz der beiden Niveaus besitzen muss.
 Dadurch treten zwei Photonen aus, die genau die selbe Energie, Ausbreitungsrichtung
-und Polarisation besitzen.
+und Polarisation besitzen. Zudem sind die Phasenbeziehung der beiden Photonen
+zueinander zeitlich konstant.
 
 \begin{figure}[h]
   \centering
@@ -213,6 +215,7 @@ und Polarisation besitzen.
 Beide Prozesse laufen parallel ab, wobei der dominierende Prozess von der
 Energie des emittierten Photons abhängt bzw. von der Frequenz, wie im Folgenden
 nun hergeleitet wird. Die Energie des Photons entspricht dabei der Energiedifferenz
+(vgl. \eqref{eqn:Ediff})
 der beiden Zustände, zwischen denen der Übergang stattfindet.
 
 \begin{equation}
@@ -248,7 +251,7 @@ Zeiteinheit bestimmen:
 \end{equation}
 
 Da im thermischen Gleichgewicht die mittlere Besetzungszahl aller Zustände gleich
-bleiben muss, muss die Anzahl emittierter Quanten in Summation gleich der Anzahl
+bleiben muss, muss die Anzahl emittierter Quanten in Summe gleich der Anzahl
 absorbierter Quanten sein. Unter der Annahme, dass beide Niveaus nicht entartet
 sind ($g\ua{1}=g\ua{2}$), gilt $B\ua{12} = B\ua{21}$. Somit lässt sich nun
 $A\ua{21}$ bestimmen, so dass sich folgende Abhängigkeit ergibt:
@@ -289,7 +292,7 @@ vertikalen Ausgleichsfeldes die Linienbreite minimiert werden.
 
 Außerhalb der Dampfzelle wird ein frequenzvariables Hochfrequenzfeld (weiter RF)
 angelegt, womit später die induzierte Emission hervorgerufen wird. Aufgrund der
-durch \ref{eqn:NuB} gegebenen Relation kann dadurch die Magnetfeldstärke des anderen horizontalen
+durch \eqref{eqn:NuB} gegebenen Relation kann dadurch die Magnetfeldstärke des anderen horizontalen
 Magnetfeldes bestimmt werden (Formel \eqref{eqn:Bm}),
 bei dem durch das angelegte RF mit der festen Frequenz $\nu$ induzierte Emission
 auftritt:
@@ -301,7 +304,7 @@ auftritt:
   \label{eqn:Bm}
 \end{align}
 
-Die Gleichung (\eqref{eqn:NuB}) wird auch als Resonanzgleichung bezeichnet, da hier
+Die Gleichung \eqref{eqn:NuB} wird auch als Resonanzgleichung bezeichnet, da
 die Energie der durch den RF erzeugten EM-Welle der Enrgiedifferenz der beiden
 Zustände entspricht (Formel \eqref{eqn:NuB}).
 Durch die auftretende Emission wird das $\ce{^{2}P_{1/2}}$,$M\ua{J}=+\frac{1}{2}$
@@ -318,8 +321,8 @@ Wird das angesprochene Verfahren auf ein Atom mit Kernspin $I > 0$ verallgemeine
 so treten grunsätzlich keine neuen Phänomene auf. Lediglich die Aufspaltung wird
 aufgrund der in Kapitel \ref{subsec:Kern} angesprochenen Kopplung verstärkt.
 Anhand von Abbildung \ref{fig:ZeemanKern} wird zum Beispiel deutlich, dass durch
-optisches Pumpen keine Emission von $F$=2,$M\ua{F}$=+2 im Grundzustand in einen
-angeregten Zustand möglich ist, da kein Niveau mit $M\ua{F}$=+3 vorhanden ist.
+optisches Pumpen keine Emission von $F=2$,$M\ua{F}=+2$ im Grundzustand in einen
+angeregten Zustand möglich ist, da kein Niveau mit $M\ua{F}=+3$ vorhanden ist.
 Die Besetzungszahl dieses Niveaus würde also durch optisches Pumpen zunehmen. Also
 kann auch in diesem Fall durch zirkular-polarisiertes eine Inversion erzeugt werden.
 Ebenso lässt sich mittels der RF-Quanten wieder induzierte Emission erzeugen um
@@ -358,11 +361,11 @@ Energien besitzen (quadratischer Zeeman-Effekt).
 \end{figure}
 
 In Abbildung \ref{fig:Aufbau} ist die verwendete Apparatur dargestellt. Als Lichtquelle
-wird hier ein mit Rubidium-Dampflampe verwendet. Das erzeugte Licht
+wird hier eine Spektrallampe verwendet. Das erzeugte Licht
 wird mithilfe einer Sammellinse kollimiert, sodass anschließend mithilfe eines
 Filters das $\symup{D}_1$-Licht heraussepariert wird. Durch einen Linearpolarisator sowie
-ein $\frac{\lambda}{4}$-Plättchen wird das Licht dann zirkular-polarisiert.
-Die Dampfzelle wird durch einen Ofen geheizt, damit ein optimaler Rb-Dampfdruck
+ein $\frac{\lambda}{4}$-Plättchen wird das Licht zirkular-polarisiert.
+Die Dampfzelle wird durch einen Ofen geheizt, damit ein optimaler $\ce{Rb}$-Dampfdruck
 herrscht. Mittels einer weiteren Linse hinter der Dampfkammer wird das austretende
 Licht auf ein SI-Photoelement fokussiert, welches mit einem Oszilloskop augewertet
 wird. Sichtbar werden die Schwankungen der Intensität durch eine Y-Auslenkung des
@@ -371,9 +374,9 @@ Elektronenstrahles.
 Wie schon in Kapitel \ref{subsec:Praezission} beschrieben, werden bei dem Aufbau
 drei Helmholtz-Spulenpaare verwendet. Zwei der Spulen sind horizontal ausgerichtet
 und eine vertikal. Die Horizontalfeld-Spule besitzt $N = 154$ Windungen und hat einen
-Radius von $R = 15.79\, \su{cm}$. Die Sweep-Spule (ebenfalls horizontal) besitzt einen
-Radius von $R = 16.39\, \su{cm}$ sowie $N = 11$ Windungen je Spule. Die Vertikalfeld-Spule
-besitzt $N=20$ Windungen sowie einen Radius von $R = 11.735\, \su{cm}$.
+Radius von $R\ua{horizontal} = \SI{15.79}{\centi\meter}$. Die Sweep-Spule (ebenfalls horizontal) besitzt einen
+Radius von $R\ua{sweep} = \SI{16.39}{\centi\meter}$ sowie $N = 11$ Windungen je Spule. Die Vertikalfeld-Spule
+besitzt $N=20$ Windungen sowie einen Radius von $R\ua{vertikal} = \SI{11.735}{\centi\meter}$.
 
 Alle drei Spulen können separat über ein Kontrollgerät gesteuert werden, an dem
 auch die für das Sweep-Feld nötigen Werte (Startwert, Range und Dauer) eingestellt
