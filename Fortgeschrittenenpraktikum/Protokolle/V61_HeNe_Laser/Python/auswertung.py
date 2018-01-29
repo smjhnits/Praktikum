@@ -31,7 +31,7 @@ def quad(x, a, b, c):
 
 ### Polarisationsmessung ###
 
-winkel = Q_(np.linspace(0, 290, 37), 'degree') #in deg
+winkel = Q_(np.linspace(0, 360, 37), 'degree') #in deg
 
 I_pol = Q_(np.array([0.116, 0.067, 0.034, 0.011, 0.001, 0.004, 0.020, 0.049, 0.086,
 0.137, 0.187, 0.238, 0.281, 0.307, 0.308, 0.288, 0.251, 0.198, 0.137, 0.083, 0.040,
@@ -40,16 +40,16 @@ I_pol = Q_(np.array([0.116, 0.067, 0.034, 0.011, 0.001, 0.004, 0.020, 0.049, 0.0
 
 params_pol, covariance_pol = curve_fit(Polarisationsmessung, winkel.to('rad').magnitude, I_pol.magnitude)
 
-winkel_fit = np.linspace(-0.1, 5 / 3 * np.pi, 1000)
+winkel_fit = np.linspace(-0.1, 2 * np.pi + 0.1, 1000)
 
 plt.clf()
 plt.plot(winkel_fit, Polarisationsmessung(winkel_fit, *params_pol), 'r-', label=r'Fit')
 plt.plot(winkel.to('rad'), I_pol.magnitude, 'bx', label=r'Messdaten')
 plt.xlabel('$\phi$ in rad')
-plt.xlim(-0.1, 5 / 3 * np.pi)
+plt.xlim(-0.1, 2 * np.pi + 0.1)
 plt.ylabel('$I(\phi)$ in mA')
-plt.xticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 5 / 3 * np.pi],
-           [r"$0$", r"$\frac{1}{2}\pi$", r"$\pi$", r"$\frac{3}{2}\pi$", r"$\frac{5}{3}\pi$"])
+plt.xticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 2 * np.pi],
+           [r"$0$", r"$\frac{1}{2}\pi$", r"$\pi$", r"$\frac{3}{2}\pi$", r"$2\pi$"])
 plt.tight_layout()
 plt.legend(loc = 'best')
 #plt.show()
