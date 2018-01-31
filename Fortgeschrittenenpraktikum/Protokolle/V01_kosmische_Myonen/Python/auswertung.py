@@ -162,6 +162,15 @@ Zeiten = Kalibrierung(Channels, *KParams)
 Zeiten_neu = np.linspace(0,0,512)
 Counts_neu = np.linspace(0,0,512)
 
+
+Zählstruktur = np.linspace(0,255,256)
+Counts_neu_1 = np.array([Counts_M[2*i]+Counts_M[2*i+1] for i,n in enumerate(Zählstruktur)])
+Zeiten_neu_1 = np.array([(Zeiten[2*i]+Zeiten[2*i+1])/2 for i,n in enumerate(Zählstruktur)])
+
+for i,n in enumerate(Counts_neu_1):
+    if n == 0:
+        print("Index von 0:", i)
+
 Counts_r = np.array([n for n in Counts_M])
 Zeiten_r = np.array([n for n in Zeiten])
 
@@ -220,8 +229,13 @@ Counts_neu[0] = 0
 Counts_neu[1] = 0
 Counts_neu[2] = 0
 
-Counts_fusch = np.array([n for n in Counts_neu if n != 0]) # mach aus Counts_M Counts_neu
-Zeiten_fusch = np.array([Zeiten_neu[i] for i,n in enumerate(Counts_neu) if n != 0]) # mach aus Counts_M Counts_neu und Zeiten
+
+#Counts_fusch = np.array([n for n in Counts_neu if n != 0]) # mach aus Counts_M Counts_neu
+#Zeiten_fusch = np.array([Zeiten_neu[i] for i,n in enumerate(Counts_neu) if n != 0]) # mach aus Counts_M Counts_neu und Zeiten
+#Errors_fusch = np.sqrt(Counts_fusch)
+
+Counts_fusch = Counts_neu_1[1:184]
+Zeiten_fusch = Zeiten_neu_1[1:184]
 Errors_fusch = np.sqrt(Counts_fusch)
 
 LD_Params, LD_Covariance = curve_fit(Lebensdauer, Zeiten_fusch, Counts_fusch,  sigma = Errors_fusch, absolute_sigma = True)
