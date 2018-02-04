@@ -263,11 +263,11 @@ plt.ylabel(r'N(t)')
 plt.yscale('log')
 plt.xlabel(r'$t$ in $\mathrm{ns}$')
 plt.legend(loc = 'best')
-#plt.savefig('Spektrum_klein_log.pdf')
-#plt.show()
+plt.savefig('Spektrum_klein_log.pdf')
+plt.show()
 
-print(U_Search/U_fit)
+print("Verhältnisse Untergrund:", U_Search/U_fit)
 
 LD_Lit = 2.20
 
-print(LD/LD_Lit)
+print("Verhältniss Lebensdaier:", LD/LD_Lit)

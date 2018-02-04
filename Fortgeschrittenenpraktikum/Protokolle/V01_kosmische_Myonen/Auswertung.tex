@@ -204,12 +204,11 @@ Im Folgenden wird dieser Wert jedoch nicht verwendet, sondern lediglich mit eine
 durch die Regression ermittelten Wert verglichen. Die gemessene Verteilung der
 Stopsignale auf die Kanäle ist in Tabelle \ref{tab:Spektrum} dargestellt.
 
-Bei der Auswertung wurden unbefüllte Kanäle mit dem benachbarten Kanal
-zusammengefasst. Dafür wurden die beiden Zeiten der Kanäle gemittelt und als
-neue Zeit verwendet. Bei der Regression wurden zudem die Kanäle 1 bis 405
-beachtet. Ab Kanal 405 sind teilweise 3 oder mehr benachbarte Kanäle
-nicht befüllt, womit durch die obige Methode ein großer Fehler erzeugt werden
-würde.
+In der Auswertung werden immer zwei benachbarte Kanäle zu einem Kanal zusammengefasst,
+um bei dem gewichteten Fit keine Singularitäten zu erzeugen. Dabei ist die
+Zeit des neuen Kanals die gemittelte Zeit aus den beiden Einzelzeiten. Zudem
+werden von den neuen Werte nur die ersten 184 Kanäle verwendet, da danach auch
+hier mehrere Kanäle ohne Counts auftreten.
 
 Jedem Kanal mit der Anzahl $n$ wird als Ungenauigkeit $\sqrt{n}$ zugeteilt.
 Da hier ein gewichteter
@@ -224,16 +223,16 @@ Für die Auswertung der in Abbildung \ref{fig:Spek_groß} dargestellten Werte wi
 \eqref{eqn:Exponentiell} gefittet. Die Parameter ergeben sich zu:
 
 \begin{align}
-  N\ua{0} &= (42 \pm 1) \\
-  \lambda &= (0,550 \pm 0,028) \cdot 10^{6}\, \frac{1}{\su{s}} \\
-  U\ua{2} &= (0,9 \pm 0,2).
+  N\ua{0} &= (81 \pm 2) \\
+  \lambda &= (0,477 \pm 0,019) \cdot 10^{6}\, \frac{1}{\su{s}} \\
+  U\ua{2} &= (0,3 \pm 0,5).
 \end{align}
 
 Durch die bestimmte Zerfallskonstante $\lambda$ lässt sich dann die mittlere
 Lebensdauer $\tau$ der Myonen bestimmen:
 
 \begin{equation}
-  \tau = \frac{1}{\lambda} = (1.82 \pm 0.07) \, \su{\mu s}.
+  \tau = \frac{1}{\lambda} = (2.10 \pm 0.08) \, \su{\mu s}.
 \end{equation}
 
 \newpage
@@ -262,20 +261,20 @@ Suchzeit zerfallen, was im Rahmen der Auswertung ebenfalls nicht berücksichtigt
     \toprule
     $U\ua{1}$ & $\increment$$U\ua{1}$ & $U\ua{2}$ & $\increment$$U\ua{2}$ & $\frac{U\ua{1}}{U\ua{2}}$ \\
     \midrule
-    0,4993 & 0,0004 & 1,02 & 0,13 & 0,49 $\pm$ 0,06 \\
+    0,4993 & 0,0004 & 0,3 & 0,5 & 1.7 $\pm$ 2,6 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \begin{table}
   \centering
-  \caption{Ergebniss für den Untergrund und Vergleich mit dem Literaturwert. \cite{Taulit}}
+  \caption{Ergebniss für die Lebensdauer und Vergleich mit dem Literaturwert. \cite{Taulit}}
   \label{tab:ErgebnissTau}
   \begin{tabular}{c c c c}
     \toprule
     $\tau\ua{\mu,exp}$ & $\tau\ua{\mu,lit}$ & $\frac{\tau\ua{\mu,exp}}{\tau\ua{\mu,lit}}$ \\
     \midrule
-    1.,9 $\pm$ 0,06 & 2,20 $\pm$ 0 & 0,82 $\pm$ 0,03 \\
+    2,10 $\pm$ 0,08 & 2,20 $\pm$ 0 & 0,95 $\pm$ 0,04 \\
     \bottomrule
   \end{tabular}
 \end{table}
