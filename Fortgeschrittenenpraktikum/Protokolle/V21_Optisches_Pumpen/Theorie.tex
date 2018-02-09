@@ -12,12 +12,11 @@ mit den Energien $W\ua{1}$ und $W\ua{2}$ ($W\ua{1}$ < $W\ua{2}$) und Besetzungsz
 $N\ua{1}$ und $N\ua{2}$ sind gemäß der Boltzmann-Verteilung miteinander verknüpft:
 
 \begin{equation}
-  \frac{N\ua{2}}{N\ua{1}} = \frac{g\ua{2}}{g\ua{1}} \frac{\exp{(-W\ua{2}/k\ua{B}T)}}{\exp{(-W\ua{1}/k\ua{B}T)}}
+  \frac{N\ua{2}}{N\ua{1}} = \frac{g\ua{2}}{g\ua{1}} \frac{\exp{(-W\ua{2}/k\ua{B}T)}}{\exp{(-W\ua{1}/k\ua{B}T)}}.
   \label{eqn:NRelation}
 \end{equation}
 
-, wobei es sich bei $k\ua{B}$ um die Boltzmann-Konstante und bei $T$ um die Temperatur
-handelt.
+Bei $k\ua{B}$ handelt es sich um die Boltzmann-Konstante und bei $T$ um die Temperatur.
 Hierbei sind die $g\ua{i}$ die zugehörigen statistischen Gewichte.
 Durch das Verfahren des optischen Pumpens kann nun eine Inversion der Besetzung
 erzeugt werden,
@@ -30,6 +29,8 @@ der beiden Isotope sowie das Isotopenverhältniss in der Dampfzelle.
 \subsection{Magnetische Momente}
 \label{subsec:MagMo}
 
+Die im folgenden Versuch zu untersuchenden Energieniveaus werden durch die
+magnetischen Momente definiert.
 Sowohl der Bahndrehimpuls $\vec{L}$ als auch der Spin $\vec{S}$ besitzen
 ein magnetisches Moment, welches Abhängig vom Betrag $|\vec{L}|$ bzw.
 $|\vec{S}|$ sowie dem $g$-Faktor ist. Da die beiden Größen zu einem Gesamtdrehimpuls
@@ -37,10 +38,11 @@ $\vec{J}$ koppeln, kann dementsprechend auch ein magnetisches Moment $\vec{\mu}\
 definiert werden.
 
 \begin{align}
+  \vec{\mu}\ua{J} &= \vec{\mu}\ua{L} + \vec{\mu}\ua{S} \\
+  |\vec{\mu}\ua{J}| &= g\ua{J} \mu\ua{B} \sqrt{J(J+1)} \\
+  \su{mit}: \\
   |\vec{\mu}\ua{L}| &= \mu\ua{B} \sqrt{L(L+1)} \\
   |\vec{\mu}\ua{S}| &= g\ua{S} \mu\ua{B} \sqrt{S(S+1)} \\
-  \implies  \vec{\mu}\ua{J} &= \vec{\mu}\ua{L} + \vec{\mu}\ua{S} \\
-  |\vec{\mu}\ua{J}| &= g\ua{J} \mu\ua{B} \sqrt{J(J+1)}
 \end{align}
 
 $\vec{\mu}\ua{J}$ führt dabei eine Präzessionsbewegung um die $\vec{J}$-Richtung
@@ -66,7 +68,8 @@ annehmen, verknüpft durch die Orientierungsquantenzahl $M\ua{J}$.
   \label{eqn:EdiffJ}
 \end{equation}
 
-Die Energieniveaus spalten somit in $2J+1$ Unterniveaus auf.
+Die Energieniveaus spalten somit in $2J+1$ Unterniveaus auf. Diese Aufspaltung
+wird auch als "Zeeman-Effekt" bezeichnet.
 
 \subsection{Einfluss des Kernspins}
 \label{subsec:Kern}
@@ -129,7 +132,7 @@ betrachtet, ergibt sich das $\symup{D}_1$-$\symup{D}_2$-Dublett (siehe Abbildung
 \end{figure}
 \FloatBarrier
 
-Bei allen Zuständen in Abbildung \ref{fig:D1D2} ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
+Bei allen Zuständen in Abbildung \ref{fig:Zeemanohne} ist $J=\frac{1}{2}$, somit kann $M\ua{J}$ nur die Werte $+\frac{1}{2}$
 oder $-\frac{1}{2}$ annehmen.
 Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref{fig:Zeemanohne}).
 
@@ -141,7 +144,7 @@ Jedes Niveau spaltet somit in zwei Zeeman-Unterniveaus auf (siehe Abbildung \ref
   \label{fig:Zeemanohne}
 \end{figure}
 
-Gemäß der Auswahlregeln für Strahlungsübergänge lassen sich 3 Übergänge unterscheiden,
+Gemäß der Auswahlregeln für Strahlungsübergänge lassen sich 3 Arten von Übergängen unterscheiden,
 die durch ihre Energie und ihren Polarisationszustand charakterisiert werden
 (siehe Abbildung \ref{fig:Zeemanohne}).
 
