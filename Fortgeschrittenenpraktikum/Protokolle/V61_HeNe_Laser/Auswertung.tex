@@ -24,12 +24,12 @@ dargestellt.
 \centering
 \caption{Parameter der Ausgleichsrechnung zu \eqref{eqn:Pol}}
 \label{tab:aus_pol}
-\begin{tabular}{S S S}
+\begin{tabular}{S S @{${}\pm{}$} S}
 \toprule
-{Parameter} & {Wert} & {Fehler} \\
+{Parameter} & \multicolumn{2}{c}{Wert} \\
 \midrule
-$I_\text{0}$  & 0.26\text{mA} & 0.019 \\
-$\varphi$ & 0.14\text{rad} & 0.067 \\
+$I_\text{0}$  & \text{(}0.29 & 0.037\text{)}\text{mA} \\
+$\varphi_\text{0}$ & \text{(}0.75 & 0.011\text{)}\text{rad} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -52,10 +52,14 @@ Die Daten der Grundmode sind an eine Gaußfunktion der Form:
 
 \begin{equation}
   \label{eqn:gauß}
-  I_{(0, 0)} = I_0\exp\left(-2\left(\frac{\Delta L - d_0}{\omega}\right)^2\right)
+  I_{(0, 0)}(L) = I_0\exp\left(-2\left(\frac{L - d_0}{\omega}\right)^2\right)
 \end{equation}
 
 gefittet worden.
+Dabei sind $I_0$, $d_0$ und $\omega$ freie Parameter, die aus dem Fit bestimmt werden.
+$I_0$ stellt dabei die Maximalintensität, $d_0$ die Verschiebung in positive Richtung der Abszisse
+und $\omega$ den Radius der Fundamentalmode der Gaußverteilung dar. Der Parameter
+$L$ ist die Verschiebung der Photodiode senkrecht zur Strahlebene.
 
 \begin{figure}[h]
   \centering
@@ -64,16 +68,19 @@ gefittet worden.
   \label{fig:Grundmode}
 \end{figure}
 
-Hingegen sind die Daten der TEM$_{(0,1)}$ an eine doppelte Gaußkurve
-für asymmetrische Knotenlinien gefittet worden.
+Hingegen sind die Daten der TEM$_{(0,1)}$ an eine doppelte asymmetrische Gaußkurve
+für veschiedene Peakintensitäten $I\ua{0,i}$ gefittet worden.
 Die Ausgleichsfunktion besitzt folgenden Gestalt:
 
 \begin{equation}
   \label{eqn:doppelter_gauß}
-  I_{(0, 1)} = I_{0,1}\exp\left(-2\left(\frac{\Delta L - d_{0,1}}{\omega_1}\right)^2\right)
-  + I_{0,2}\exp\left(-2\left(\frac{\Delta L - d_{0,2}}{\omega_2}\right)^2\right).
+  I_{(0, 1)}(L) = I_{0,1}\exp\left(-2\left(\frac{L - d_{0,1}}{\omega_1}\right)^2\right)
+  + I_{0,2}\exp\left(-2\left(\frac{L - d_{0,2}}{\omega_2}\right)^2\right).
 \end{equation}
 
+Die Parameter $I\ua{0,i}$, $d\ua{0,i}$ und $\omega\ua{i}$ haben dabei dieselbe Bedeutung,
+wie bei der Grundmode. Dabei sind alle Parameter mit i $ = 1$ auf das erste und alle
+parameter mit i $ = 2$ auf das zweite Maxima bezogen.
 Die Parameter der Ausgleichsrechnungen sind in Tab. \ref{tab:moden} aufgeführt.
 
 \begin{table}
@@ -85,13 +92,13 @@ Die Parameter der Ausgleichsrechnungen sind in Tab. \ref{tab:moden} aufgeführt.
 {Parameter} & {Wert} & {Fehler} \\
 \midrule
 $I_\text{0}$  & 6.08\text{ mA} & 0.079\text{ mA} \\
-$\Delta L_\text{0}$ & 10.77\text{ mm} & 0.063\text{ mm} \\
+$\text{$d$}_\text{0}$ & 10.77\text{ mm} & 0.063\text{ mm} \\
 $\omega$ & 8.396\text{ mm} & 0.13\text{ mm} \\
 $I_\text{0,1}$ & 0.65\text{ }$\mu$\text{A} & 0.035\text{ }$\mu$\text{A} \\
-$\Delta L_\text{0,1}$ & 4.68\text{ mm} & 0.175\text{ mm} \\
+$\text{$d$}_\text{0,1}$ & 4.68\text{ mm} & 0.175\text{ mm} \\
 $\omega_\text{1}$ & 5.63\text{ mm} & 0.375\text{ mm} \\
 $I_\text{0,2}$ & 0.45\text{ }$\mu$\text{A} & 0.011\text{ }$\mu$\text{A} \\
-$\Delta L_\text{0,2}$ & 18.61\text{ mm} & 0.089\text{ mm} \\
+$\text{$d$}_\text{0,2}$ & 18.61\text{ mm} & 0.089\text{ mm} \\
 $\omega_\text{2}$ & 6.46\text{ mm} & 0.189\text{ mm} \\
 \bottomrule
 \end{tabular}
@@ -171,7 +178,7 @@ sind an eine quadratische Funktion mit den Paramtern $a, b$ und $c$ gefittet (vg
 
 \begin{equation}
   \label{eqn:quad}
-  I\ua{quad}\left(\Delta L\right) = a\cdot\left(\Delta L\right)^2 + b\cdot\Delta L + c
+  I\ua{quad}\left(L\right) = a\cdot L^2 + b\cdot L + c
 \end{equation}
 
 Aus der Ausgleichsrechnung ergeben sich die Parameter zu:
@@ -188,7 +195,7 @@ an eine lineare Funktion mit den Parametern $a$ und $b$ gefittet (vgl. \eqref{eq
 
 \begin{equation}
   \label{eqn:lin}
-  I\ua{lin}\left(\Delta L\right) = a\cdot\Delta L + b
+  I\ua{lin}\left(L\right) = a\cdot L + b
 \end{equation}
 
 Die Parameter der Ausgleichsrechnung der Funktion \eqref{eqn:lin} ergeben sich zu:
@@ -219,9 +226,15 @@ dargestellt.
 \section{Diskussion}
 
 In diesem Kapitel werden die Messergebnisse diskutiert.
-Der Zusammenhang der Polarisationsmessung mit einer
+Für die Polarisationsmessung wird ein $\sin^2(\varphi)$-Verlauf erwartet, da
+das Licht, welches von dem Laser emitiert wird bereits linearpolarisiert ist.
+Linear polarisiertes Licht wird durch eine Sinusfunktion beschrieben. Dieses wird
+durch einen linearen Polarisationsfilter gestrahlt, wodurch eine weitere
+Sinusfunktion auf das Licht angewendet wird. Die beiden erwähnten Sinusfunktionen
+multiplizieren sich auf.
+Der Zusammenhang der Polarisationsmessung mit dieser
 quadrierten Sinusfunktion ist deutlich erkennbar. Somit konnte die Erwartung durch
-die Messung bestätigt  werden.
+die Messung bestätigt werden.
 Weiterhin sind die Grundmode und die erste angeregte Mode ausgemessen worden.
 Die Grundmode konnte der Erwartung entsprechend durch eine Gaußfunktion präzise beschrieben werden.
 Die erste angeregte Mode wird hingegen durch eine asymmetrische doppelte Gaußfunktion
@@ -231,25 +244,38 @@ Schatten, der das Maximum deutlich absenkt.
 
 Die Wellenlängenmessung ergibt $\lambda\ua{He-Ne} = \SI{648.9(26)}{\nano\meter}$.
 Dieser Wert liegt im roten Bereich des sichtbaren Lichtes. Der Literaturwert wird
-mit $\lambda\ua{lit} = \SI{632,82}{\nano\meter}$. Die Diskrepanz der beiden Werte liegt
+mit $\lambda\ua{lit} = \SI{632,82}{\nano\meter}$ angegeben. Die Diskrepanz der beiden Werte liegt
 nicht im Fehlerintervall des experimentell bestimmten Wertes. Dies kann dadurch erklärt
-werden, dass der Schirm, auf den die Hauptmaxima projeziert werden, schief gestanden
-haben könnte. Außerdem ist die Vermessung und Rechnung im Nanometer Bereich anfällig
-für Ablesefehler. Daher wird die Diskrepanz auf einen systematischen Fehler
+werden, dass zu wenige Messdaten aufgenommen wurden, um einen präzisen Wert zu bestimmen.
+Außerdem ist nicht sichergestellt, dass die angegebene Gitterkonstante
+$a = \frac{1}{100}\si{\milli\meter}$ bei dem verwendeten Gitter richtig ist.
+Daher wird die Diskrepanz auf einen systematischen Fehler und die wenigen Messdaten
 zurückgeführt.
 
-Die Stabilitätsmessung ergab, dass ein Zusammenhang zwischen der konkav-konkav
-Resonatorspiegelkombination und einer quadratischen Gleichung hergestellt werden
-konnte. Die Parameter der Auslgeichsrechnung haben große statistische
-Unsicherheiten, der Zusammenhang wird jedoch trotzdem ersichtlich.
-Ebenso ist der lineare Zusammenhang der konkav-planar Resonatorspiegelkombination
-in dem Kapitel \ref{sec:stabilitätsmessung} aufgeführt worde.
-Das konkav-planar System stellt bei der Vermessung deutlich Probleme dar, weil
+Der Vergleich des theoretischen Verlaufes der Stabilitätsmessung und dem gemessenen
+Verlauf der konkav-konkav Resonatorspiegelkombination zeigt keine Ähnlichkeit.
+Die Intensität des Lasers sollte mit zunehmender Resonantorlänge abnehmen und nicht
+wie gemessen zunehmen. Der Verlauf lässt sich nicht durch einen systematischen
+Fehler erklären. Die Stabilitätsmessung des konkav-konkaven Spiegelsystems ist
+nicht repräsentativ, um die Thoerie zu überprüfen.
+
+Der Verlauf der konkav-planar Resonatorspiegelkombination stimmt hingegen mit der theoretischen
+Vorhersage überein.
+Das konkav-planar System brachte bei der Vermessung deutliche Probleme mit sich, weil
 der $\ce{He-Ne}$-Laser schon bei kleinen Spiegelveränderungen aufgehört hat zu lasern.
 Die Messung wurde mehrfach durchgeführt, da teilweise nur 2 Messpunkte aufgenommen
 werden konnten, bevor der Laser nicht mehr zum lasern gebracht werden konnte.
 Letztendlich sind nur fünf Messpunkte aufgenommen worden, weshalb das
-Ergebnis starke statistische Unsicherheiten aufweist.
+Ergebnis starke statistische Unsicherheiten aufweist. Damit ist die Messung ebenfalls
+nicht repräsentativ, um diese mit dem theoretischen Verlauf zu vergleichen.
+
+Die Intensität des Lasers nach der Justage war deutlich
+unter $\SI{1}{\milli\ampere}$ und ist bei einigen Messungen auf unter $\SI{1}{\micro\ampere}$
+abgefallen. Deshalb wird auf einen systematischen Fehler des Aufbaus geschlossen.
+Die niederige Intensität könnte durch die Photodiode hervorgerufen worden sein,
+da nicht sichergestellt war, dass der Laserstrahl exakt auf diese eingefallen ist.
+Obwohl der Strahlengang mehrfach überprüft wurde, kann es dabei zu dem
+systematischen Fehler gekommen sein.
 
 \section{Messdaten}
 
