@@ -1,7 +1,7 @@
 \section{Theorie}
 \label{sev:Theorie}
 
-In dem folgenden Versuch geht es darum, einerseits die Funktionsweise und Inbetriebnahme
+In dem folgenden Versuch geht es darum, die Funktionsweise und Inbetriebnahme
 eines Helium-Neon-Lasers experimentell nachzuvollziehen. Anschließend werden durch
 weitere Messungen mehrere Eigenschaften des Lasers untersucht. Dazu gehören die
 Stabilitätsbedingungen, die Polarisation, die Wellenlänge sowie eine Untersuchung
@@ -9,14 +9,13 @@ der TEM-Moden (transverse electromagnetic mode).
 
 Laser (\textbf{L}ight \textbf{A}mplification by \textbf{S}timulated \textbf{E}mission of \textbf{R}adiation)
 sind unter anderem aufgrund ihrer hohen Intensität sowie der langen
-Köhärenzlänge (ca. 11 km) interessant für verschiedene Bereiche der Medizin sowie
+Köhärenzlänge (ca. 11 km bei einem HeNe-Laser) interessant für verschiedene Bereiche der Medizin sowie
 allgemein als Grundlage verschiedener Messmethoden.
 
 Ein Laser besteht allgemein aus 3 grundlegenden Komponente. Dem aktiven Lasermedium,
-dem Resonator sowie einer Pumpquelle, da zur Erzeugung das Prinzip des Optischen
-Pumpens verwendet wird. Das Lasermedium wird dabei mithilfe der Resonatoren sowie
+dem Resonator sowie einer Pumpquelle. Das Lasermedium wird dabei mithilfe des Resonators sowie
 des optischen Pumpens so manipuliert, dass es zu einer Verstärkung des einfallenden
-Lichtes kommt. Dieses Prinzip wird auch als selbsterregenden Oszillator bezeichnet.
+Lichtes kommt. Dieses Prinzip wird auch als selbsterregender Oszillator bezeichnet.
 
 \subsection{Grundprinzip des Laserns}
 \label{sub:GrundLaser}
@@ -99,16 +98,18 @@ die Besetzung des Grundzustandes. Für die zum Lasern benötigte dauerhafte Vers
 des Strahlungsfeldes muss die induzierte Emission deutlich häufiger auftreten als
 die spontane Emission. Dafür ist eine höhere Besetzung des angeregten Zustandes
 nötig, welche auch als Besetzungsinversion bezeichnet wird. Diese wird durch das
-optisches Pumpen realisiert.
+optische Pumpen realisiert.
 
 Die Besetzungsinversion ist allerdings in einem reinen 2-Niveau-System wie es hier
 verwendet wurde nicht realisierbar. Dies ergibt sich relativ schnell aus Gleichung
 \eqref{eqn:NRelation}. Liegen nicht entarteten Zuständen vor, kann lediglich
-die Temperatur als Parameter beeinflusst werden. Selbst beim Limes T $\leftarrow$ $\infty$
+die Temperatur als Parameter beeinflusst werden. Selbst beim Limes T $\rightarrow$ $\infty$
 kann lediglich ein Verhältniss von 50:50 erreicht werden. Zudem kann es auch damit
 erklärt werden, dass bei einem Zwei-Nievau-System irgendwann die Wahrscheinlichkeit
 für die induzierte Emission genauso hoch ist wie die für die Absorption, genau dann
 wenn $n\ua{1}$ = $n\ua{2}$ gilt (siehe \eqref{eqn:Nind} und \eqref{eqn:Nabs}).
+Berücksichtigt man anschließend auch noch die spontane Emission, so lässt sich
+eine Gleichbesetzung gar nicht erzeugen und es gilt immer $n\ua{1}$ > $n\ua{2}$
 
 
 \subsection{Besetzungsinversion beim HeNe-Laser}
@@ -118,9 +119,9 @@ von 5 zu 1 bei einem Druck von ca. 133 Pascal. Die Besetzungsinversion wird übe
 elektrische Entladung erzeugt, wobei sie nicht direkt beim Lasermedium Neon erzeugt wird.
 Stattdessen wird das Pumpgas Helium vom Grundzustand in einen angeregten, metastabilen
 Zustand gehoben.
-Da die Energiedifferenz zwischen den $2^1S\ua{0}$ und $2^3S\ua{1}$ Niveaus des Heliums
-ungefähr der Differenz zwischen $3s$ und $2s$ Niveaus des Neons enstpricht, kann dieses
-durch Stöße 2.Art in einen angeregten Zustand gehoben werde. Das Helium geht dabei
+Da die Energien der $2^1S\ua{0}$ und $2^3S\ua{1}$ Niveaus des Heliums
+ungefähr den Energien der $3s$ und $2s$ Niveaus des Neons enstprechen, kann dieses
+durch Stöße 2.Art in die beiden angeregten Zustände gehoben werden. Das Helium geht dabei
 wieder in den Grundzustand über und kann anschließend erneut angeregt werden.
 Somit kann eine Besetzungsinversion beim Neon erzeugt werden (siehe Abbildung \ref{fig:Inversion}).
 Die intensivste der auftretenden Spektrallinien ist die rote Linie mit $\lambda$
@@ -183,7 +184,7 @@ ist in Abbildung \ref{fig:g1g2}.
 Im Allgemeinen ist die Resonatorlänge deutlich größer als die Wellenlänge $\lambda$
 des emittierten Lichtes. Somit können mehrere Moden auftauchen. Die Anzahl q der
 Wellenlängen im Resonator wird als longitudinale Mode bezeichnet. Aufgrund von
-Unebenheiten der Spiegeloberflächen tuach zusätzliche transversale Moden auf,
+Unebenheiten der Spiegeloberflächen treten zusätzlich auch transversale Moden auf,
 die im folgenden als $TEM\ua{lp}$ (transverse electromagnetic mode) bezeichnet werden.
 Bei l handelt es sich dabei um die Anzahl der auftretenden Knoten in x-Richtung und bei p
 dementsprechend um die Anzahl der Knoten in y-Richtung. Da höhere Moden auch
@@ -220,13 +221,15 @@ doppelte Gauß-Funktion als Intensitätsverteilung:
 \subsection{Brewster-Fenster}
 \label{sub:Brewster}
 
-Zum Auskoppeln des Strahls aus dem Resonator wird ein Brewester-Fenster verwendet.
-Im Grunde handelt es sich um mehrere Platten die schräg in den Strahlengang gebracht
-werde. Bei dem Winkel zwischen Strahl und Platte handelt es sich um den Brewster-Winkel,
+Zum Auskoppeln des Strahls aus der HeNe-Röhre wird ein Brewster-Fenster verwendet.
+Im Gegensatz zu Abbildung \ref{fig:Brewster} befindet bei diesem Versuch auf beiden
+Seiten der HeNe-Röhre nur eine Platte.
+Bei dem Winkel zwischen Strahl und Platte handelt es sich um den Brewster-Winkel,
 bei dem ausschließlich das zur Einfallsebenen senkrecht polarisierte Licht
-reflektiert wird. Somit lässt sich durch mehrere Platten das senkrecht polarisierte
-Licht nahezu verlustfrei
-herausfiltern, so dass der resultierende Strahl nur noch parallel polarisiert ist.
+reflektiert wird. Das parallel polarisierte Licht kann jedoch nahezu verlustfrei
+in die HeNe-Röhre eintreten bzw. aus der Röhre austreten. Bei zwei senkrechten
+Fenstern hingegen wären die Verluste durch Reflektion zu hoch, um einen selbsterregenden
+Oszillator zu realisieren.
 
 \begin{figure}
   \centering
@@ -242,21 +245,22 @@ Der komplette Versuch wird auf einer optischen Schiene aufgebaut. Der Justierlas
 von $P\ua{red}$ = 0,2 mW betrieben. Der Strahl des Justierlasers geht durch eine
 Blende, auf deren Rückseite sich ein Fadenkreuz zur Justierung der Spiegel befindet.
 Neben dem Justierlaser befindet sich der
-eigentliche Aufbau des $\ce{HeNe}$-Lasers, bestehend aus zwei hochreflektierenden
-und einem Laserrohr mit dem Helium-Neon-Gemisch. Zusammen bilden diese den
-Laserresonator. Das Laserrohr hat eine Länge von l = 408 mm und einen Durchmesser
-von $d\ua{HeNe}$ = 1,1 mm. In dem Laserrohr befinden sich die ELektroden, mit denen
-das Helium über elektrische Entladungen angeregt wird, um die Besetzungsinversion zu
-erzeugen. Am Ende des Laserrohrs befindet sich
-ein Brewster-Fenster (siehe Abschnitt \ref{sub:Brewster}) zum Herausfiltern einer
-bestimmten Polarisationsrichtung. Die zur Verfügung stehenden Spiegel haben alle
+eigentliche Aufbau des $\ce{HeNe}$-Lasers, bestehend aus zwei hochreflektierenden Spiegeln
+und einem Laserrohr mit dem Helium-Neon-Gemisch, welche zusammen den Laserresonator
+bilden. Das Laserrohr hat eine Länge von l = 408 mm und einen Durchmesser
+von $d\ua{HeNe}$ = 1,1 mm. In dem Laserrohr befinden sich die Elektroden, mit denen
+das Helium über elektrische Entladungen angeregt wird, um über Stöße 2. Art
+die Besetzungsinversion im Neon zu
+erzeugen. Am beiden Enden des Laserrohrs befindet sich
+ein Brewster-Fenster (siehe Abschnitt \ref{sub:Brewster}).
+Die zur Verfügung stehenden Spiegel haben alle
 einen Durchmesser von $d\ua{Spiegel}$ = 12,7 mm.
 
 Zum Vermessen der verschiedenen Eigenschaften stehen entsprechende Komponenten
 neben der Apparatur bereit, welche bei der entsprechenden Messung auf die optische
 Schiene montiert werden können. Dazu gehören eine Photodiode, ein Polarisator, ein
 Wolfram-Draht und ein Gitter. Die Komponenten sind alle an Halterungen angebracht,
-welche sich zum Teil mittels Mikrometerschrauben im Strahlengang verschoben werden
+welche zum Teil mittels Mikrometerschrauben im Strahlengang verschoben werden
 können.
 
 \begin{figure}
@@ -282,20 +286,23 @@ Danach wird zuerst die $TEM\ua{00}$-Mode vermessen. Dafür wird der Strahl mitte
 einer Linse aufgefächert, sodass mit der Photodiode die Intensität vermessen werden kann.
 Die Photodiode wird dabei von einer Kante des Strahls in 1 mm Schritten bis zur
 anderen Kante der Strahls gefahren.
-Anschließend wird der Wolfram-Draht in den Strahlengang gebracht, um die $TEM\ua{01}$-Mode
+Anschließend wird der Wolfram-Draht innerhalb des Resonators zwischen die HeNe-Röhre
+und den auskoppelnden Spiegel in den Strahlengang
+gebracht, um die $TEM\ua{01}$-Mode
 sichtbar zu mache. Der "Wellenbauch" bzw. das Intensitätsmaximum der $TEM\ua{00}$-Mode
 befindet sich in der Mitte des Strahles, weswegen dort der Wolfram-Draht platziert
 wird. Anschließend wird wie schon bei der vorherigen Mode beschrieben die Intensität
 des Strahles vermessen, ebenfalls in 1 mm Schritten.
-Danach werden mithilfe eines Spaltes die Beugunsmaxima verschiedener
+Danach werden mithilfe eines Gitters die Beugunsmaxima verschiedener
 Ordnungen auf einem Schirm sichtbar gemacht und die jeweiligen Abstände zum
 Maximum 0. Ordnung mittels eines Maßbandes vermessen.
 
 Zum Schluss wird dann die Stabilitätsbedingung für den Laser überprüft. Dafür wird
 der Abstand zwischen den beiden Spiegeln in 10 cm Schritten vergrößert und jedes
-mal nach Einjustieren die Intensität mittels der Leuchtdiode vermessen.
+mal nach Einjustieren die Intensität mittels der Photodiode vermessen.
 
-Anschließend wird der vordere konkave Spiegel ausgetauscht und ein planparalleler
+Anschließend wird der konkave Spiegel zwischen Justierlaser und Laserrohr
+ausgetauscht und ein planparalleler
 Spiegel eingesetz. Dafür muss die Apparatur auch noch einmal komplett neu
 justiert werden. Anschließend wird die Stabilitätsbedingung im selben
 Muster wie bei dem vorherigem Aufbau durchgeführt.
