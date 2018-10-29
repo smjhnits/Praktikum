@@ -11,18 +11,18 @@ endif
 all: build
 
 build:
-		mkdir -p V41_Molwärme/Tabellen
-		mkdir -p V41_Molwärme/Pics
-		mkdir -p V41_Molwärme/Python
-		touch V41_Molwärme/Auswertung.tex
-		touch V41_Molwärme/V61_main.tex
-		touch V41_Molwärme/Theorie.tex
-		touch V41_Molwärme/lit.bib
-		touch V41_Molwärme/Makefile
-		touch V41_Molwärme/Pics/savedatei.txt
-		touch V41_Molwärme/Python/savedatei.txt
-	  touch V41_Molwärme/Tabellen/savedatei.txt
-		cp -r Praeambel_prak.tex V41_Molwärme/
+		#mkdir -p V41_Molwärme/Tabellen
+		#mkdir -p V41_Molwärme/Pics
+		#mkdir -p V41_Molwärme/Python
+		#touch V41_Molwärme/Auswertung.tex
+		#touch V41_Molwärme/V61_main.tex
+		#touch V41_Molwärme/Theorie.tex
+		#touch V41_Molwärme/lit.bib
+		#touch V41_Molwärme/Makefile
+		#touch V41_Molwärme/Pics/savedatei.txt
+		#touch V41_Molwärme/Python/savedatei.txt
+	  #touch V41_Molwärme/Tabellen/savedatei.txt
+		#cp -r Praeambel_prak.tex V41_Molwärme/
 
 clean:
 		#rm -rf V41_Molwärme
