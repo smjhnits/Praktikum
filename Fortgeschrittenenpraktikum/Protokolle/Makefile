@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		#mkdir -p V61_HeNe_Laser/Tabellen
-		#mkdir -p V61_HeNe_Laser/Pics
-		#mkdir -p V61_HeNe_Laser/Python
-		#touch V61_HeNe_Laser/Auswertung.tex
-		#touch V61_HeNe_Laser/V61_main.tex
-		#touch V61_HeNe_Laser/Theorie.tex
-		#touch V61_HeNe_Laser/lit.bib
-		#touch V61_HeNe_Laser/Makefile
-		#touch V61_HeNe_Laser/Pics/savedatei.txt
-		#touch V61_HeNe_Laser/Python/savedatei.txt
-	  #touch V61_HeNe_Laser/Tabellen/savedatei.txt
-		#cp -r Praeambel_prak.tex V61_HeNe_Laser/
+		mkdir -p V41_Molwärme/Tabellen
+		mkdir -p V41_Molwärme/Pics
+		mkdir -p V41_Molwärme/Python
+		touch V41_Molwärme/Auswertung.tex
+		touch V41_Molwärme/V61_main.tex
+		touch V41_Molwärme/Theorie.tex
+		touch V41_Molwärme/lit.bib
+		touch V41_Molwärme/Makefile
+		touch V41_Molwärme/Pics/savedatei.txt
+		touch V41_Molwärme/Python/savedatei.txt
+	  touch V41_Molwärme/Tabellen/savedatei.txt
+		cp -r Praeambel_prak.tex V41_Molwärme/
 
 clean:
-		#rm -rf V61_HeNe_Laser
+		#rm -rf V41_Molwärme
 .PHONY: clean all
