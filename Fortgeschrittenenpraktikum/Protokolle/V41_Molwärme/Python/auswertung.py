@@ -69,7 +69,7 @@ print("\n", "###################################################################
 print('C_p: ', C_p_cu)
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_p_cu, r'T $\cdot$ K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_p_cu, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
 
 ################## C_V bestimmen ##################
 # Dafür erst alpha(T) bestimmen
@@ -82,8 +82,8 @@ x_max = 305
 x = np.linspace(x_min, x_max)
 
 plt.clf()
-plot(data.alpha[1], data.alpha[0], r'T $\cdot$ K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Gegebene Daten", "bx")
-plot(x, poly_3(x, *params_alpha), r'T $\cdot$ K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Fit", 'r-')
+plot(data.alpha[1], data.alpha[0], r'T / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Gegebene Daten", "bx")
+plot(x, poly_3(x, *params_alpha), r'T / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Fit", 'r-')
 
 
 alpha_von_T = Q_(poly_3(T(R_probe.magnitude), *params_alpha) / 10**6, '1 / kelvin')
@@ -95,7 +95,7 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu), np.std(C_V_cu))
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_V_cu, r'T $\cdot$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_V_cu, r'T $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
 
 
 ################## omega_debye bestimmen ##################
@@ -133,7 +133,7 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu_korrektur), np.std(C_V_cu_korrektur))
 
 plt.clf()
-plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'T $\cdot$ K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
+plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
 
 plt.clf()
-plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'T $\cdot$ K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
+plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
