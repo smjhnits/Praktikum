@@ -58,8 +58,9 @@ time = Q_(np.array(data.time_min) * 60 + np.array(data.time_sec), 's')
 
 delta_t = Q_(time.magnitude[1:] - time.magnitude[:len(time.magnitude) - 1], 's')
 
-delta_T_probe = Q_(T(R_probe.magnitude[1:] - R_probe.magnitude[:len(R_probe.magnitude) - 1]), 'kelvin')
-delta_T_zylinder = Q_(T(R_zylinder.magnitude[1:] - R_zylinder.magnitude[:len(R_zylinder.magnitude) - 1]), 'kelvin')
+
+delta_T_probe = Q_(T(R_probe.magnitude[1:]) - T(R_probe.magnitude[:len(R_probe.magnitude) - 1]), 'kelvin')
+delta_T_zylinder = Q_(T(R_zylinder.magnitude[1:]) - T(R_zylinder.magnitude[:len(R_zylinder.magnitude) - 1]), 'kelvin')
 
 ################## C_p bestimmen ##################
 

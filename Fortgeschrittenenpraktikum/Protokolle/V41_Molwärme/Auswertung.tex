@@ -2,38 +2,62 @@
 \label{sec:auswertung}
 
 In dem Versuch wird die Molwärme $C\ua{p}$ nach Formel \eqref{eq:c_p}
-bestimmt. Tabelle \ref{tab:c_p} zeigt die Ergebnisse der
-Wärmekapazität $C\ua{p}$ für verschiedene Temperaturen.
+bestimmt. Die in Kapitel \ref{sec:tabellen} enthaltene Tabelle \ref{tab: c_p}
+zeigt die Ergebnisse der Wärmekapazität $C\ua{p}$ für verschiedene Temperaturen.
 
-
-\import{Tabellen/C_p.tex}
-
-\section{Wärmekapazität $C\ua{V}$}
+\subsection{Wärmekapazität $C\ua{V}$}
 
 Aus der Wärmekapazität bei konstantem Druck $C\ua{p}$ kann
 durch den Zusammenhang \eqref{eqn:c_p-c_v} berechnet werden.
 Der Verlauf der aus den Messdaten errechneten Wärmekapazität $C\ua{V}$
 für verschiedene Temperaturen $T$ ist in Abb. \ref{fig:c_v} dargestellt.
+Für das Kompressionsmodul $\kappa$ wird der Wert $\kappa = \SI{140}{\giga\pascal}$
+angenommen~\cite{kompression}.
 
 \begin{figure}
   \centering
-  \includegraphics{Plots/C_V.pdf}
+  \includegraphics[width = 0.8\textwidth]{Plots/C_V.pdf}
   \caption{Daten der Wärmekapazität für steigende Temperaturen.}
   \label{fig:c_v}
 \end{figure}
 
 Es wird ersichtlich, dass in Abb. \ref{fig:c_v} Werte auftauchen, die sehr
 stark erwarteten Trend abweichen.
-Diese Abweichung wird auf zwei vermutlich fehlerhafte Messdaten zurückgeführt.
+Diese Abweichung wird auf zwei vermutlich fehlerhafte Messdaten in der Zeitmessung zurückgeführt.
 Eine Darstellung von $C\ua{V}$ ohne diese beiden Messdaten ist in Abb. \ref{fig:c_v_korrektur}
 einzusehen.
 
 \begin{figure}
   \centering
-  \includegraphics{Plots/C_V_korrektur.pdf}
+  \includegraphics[width = 0.8\textwidth]{Plots/C_V_korrektur.pdf}
   \caption{Angepasste Daten der Wärmekapazität für steigende Temperaturen.}
   \label{fig:c_v_korrektur}
 \end{figure}
 
+\subsection{Debye-Funktion}
+
+\subsection{Berechnung von $\omega\ua{D}$ und $\Theta\ua{D}$}
+
+Die Debye-Frequenz $\omega\ua{D}$ wird wie in dem Abschnitt zu Formel \eqref{eqn:omega_D}
+beschrieben errechnet.
+Für die einzelnen Größen ergeben sich die folgenden Werte.
+
+\begin{align*}
+  m\ua{Probe} &= \SI{342}{\gram} \text{~\cite{anleitung}}\\
+  M\ua{Cu} &= \SI{63.55}{\dalton}\cdot N\ua{A} \text{~\cite{cu_mass}}\\
+  v\ua{l} &= \SI{4.7}{\meter\per\second}\\
+  v\ua{t} &= \SI{2.26}{\meter\per\second}\\
+  N_L &= \num{3.24e24} \\
+  V &= L^3 = V_0\cdot\frac{m}{M}\approx \SI{0.382}{\centi\meter^3}\\
+  \omega\ua{D} &\approx \SI{43.5e12}{\per\second}\\
+  \Theta\ua{D} &\approx \SI{322.21}{\kelvin}
+\end{align*}
+
 \section{Diskussion}
 \label{sec:diskussion}
+
+\newpage
+\section{Tabellen}
+\label{sec:tabellen}
+\pagestyle{empty}
+\input{Tabellen/C_p.tex}
