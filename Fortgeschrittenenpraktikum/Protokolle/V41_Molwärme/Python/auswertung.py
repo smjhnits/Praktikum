@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import scipy.constants as const
 from pint import UnitRegistry
 from scipy.optimize import curve_fit
+import scipy.integrate as integrate
 import data
 u = UnitRegistry()
 Q_ = u.Quantity
@@ -51,8 +52,16 @@ delta_T_zylinder = Q_(T(R_zylinder.magnitude[1:] - R_zylinder.magnitude[:len(R_z
 
 C_p_cu = Q_(C_p_cu(U.magnitude, I.magnitude, delta_t.magnitude, delta_T_probe.magnitude).magnitude, 'volt * ampere * s / kelvin / mol').to('joule / kelvin / mol')
 
-print('C_p Mittelwert, STD: ', np.mean(C_p_cu), np.std(C_p_cu))
+print("\n", "###############################################################################", "\n", "\n",'C_p Mittelwert, STD: ', np.mean(C_p_cu), np.std(C_p_cu))
 print('C_p: ', C_p_cu)
+
+plt.clf()
+plt.plot(T(R_probe.magnitude)[1:], C_p_cu, "bx", label = r"$C_p(T)$")
+plt.xlim(min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3)
+plt.xlabel(r'T $\cdot$ K', fontsize = 'large')
+plt.ylabel(r"$C_p(T)\cdot$ K $\cdot$ mol / J", fontsize = 'x-large')
+plt.legend(loc = 'best', fontsize = 'large')
+plt.savefig('../Plots/C_p.pdf')
 
 ################## C_V bestimmen ##################
 # Dafür erst alpha(T) bestimmen
@@ -75,15 +84,31 @@ plt.savefig('../Plots/alpha_T.pdf')
 
 alpha_von_T = Q_(poly_3(T(R_probe.magnitude), *params_alpha) / 10**6, '1 / kelvin')
 
-C_V_cu = C_v_cu(C_p_cu, alpha_von_T[:len(alpha_von_T) - 1], Q_(T(R_probe.magnitude)[:len(T(R_probe.magnitude)) - 1], 'kelvin'))
+C_V_cu = C_v_cu(C_p_cu, alpha_von_T[1:], Q_(T(R_probe.magnitude)[1:], 'kelvin'))
 
-print('C_V: ', C_V_cu)
+print("\n", "###############################################################################", "\n", "\n", 'C_V: ', C_V_cu)
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu), np.std(C_V_cu))
 
 plt.clf()
-plt.plot(T(R_probe.magnitude)[:len(T(R_probe.magnitude)) - 1], C_V_cu, "bx", label = r"$C_V(T)$")
+plt.plot(T(R_probe.magnitude)[1:], C_V_cu, "bx", label = r"$C_V(T)$")
 plt.xlim(min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3)
 plt.xlabel(r'T $\cdot$ K', fontsize = 'large')
 plt.ylabel(r"$C_V(T)\cdot$ K $\cdot$ mol / J", fontsize = 'x-large')
 plt.legend(loc = 'best', fontsize = 'large')
 plt.savefig('../Plots/C_V.pdf')
+
+
+################## omega_debye bestimmen ##################
+
+N_L = m_probe / M_cu * const.N_A * u('1 / mol')
+V = V_0 * m_probe / M_cu
+v_long = Q_(4.7, 'km / s').to('m / s')
+v_trans = Q_(2.26, 'km / s').to('m / s')
+
+omega_debye = (18 * np.pi**2 * N_L / V / (1 / v_long**3 + 2 / v_trans**3))**(1 / 3)
+
+T_debye = Q_(const.hbar, 'J * s') * omega_debye / Q_(const.k, 'J / kelvin')
+
+print("\n", "###############################################################################",
+"\n", "\n", 'omega_debye: ', omega_debye)
+print('T_debye: ', T_debye)
