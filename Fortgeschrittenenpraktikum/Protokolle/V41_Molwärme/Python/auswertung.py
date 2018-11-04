@@ -30,6 +30,7 @@ def T(R):
 def C_p_cu(U, I, dt, dT):
     return M_cu / m_probe * (U * I * dt) / dT
 
+
 def C_v_cu(C_p, alpha, T):
     return C_p - 9 * alpha**2 * kappa * V_0 * T
 
@@ -64,13 +65,20 @@ delta_T_zylinder = Q_(T(R_zylinder.magnitude[1:]) - T(R_zylinder.magnitude[:len(
 
 ################## C_p bestimmen ##################
 
-C_p_cu = Q_(C_p_cu(U.magnitude, I.magnitude, delta_t.magnitude, delta_T_probe.magnitude).magnitude, 'volt * ampere * s / kelvin / mol').to('joule / kelvin / mol')
+C_p_cu = C_p_cu(U, I, delta_t, delta_T_probe).to('joule / kelvin / mol')
 
 print("\n", "###############################################################################", "\n", "\n",'C_p Mittelwert, STD: ', np.mean(C_p_cu), np.std(C_p_cu))
 print('C_p: ', C_p_cu)
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_p_cu, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_p_cu, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
+
+################## Temperaturen plotten ##################
+
+plt.clf()
+plot(time.magnitude, T(R_probe.magnitude), r'$t$ / s', r"$T$ / K", [min(time.magnitude)-3, max(time.magnitude) + 3], '../Plots/temp.pdf', r"$T_{Probe}$", "bx")
+plt.yticks([80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300])
+plot(time.magnitude, T(R_zylinder.magnitude), r'$t$ / s', r"$T$ / K", [min(time.magnitude)- 100, max(time.magnitude) + 100], '../Plots/temp.pdf', r"$T_{Zylinder}$", "rx")
 
 ################## C_V bestimmen ##################
 # Dafür erst alpha(T) bestimmen
@@ -83,8 +91,8 @@ x_max = 305
 x = np.linspace(x_min, x_max)
 
 plt.clf()
-plot(data.alpha[1], data.alpha[0], r'T / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Gegebene Daten", "bx")
-plot(x, poly_3(x, *params_alpha), r'T / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Fit", 'r-')
+plot(data.alpha[1], data.alpha[0], r'$T$ / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Gegebene Daten", "bx")
+plot(x, poly_3(x, *params_alpha), r'$T$ / K', r"$\alpha\cdot 10^{-6} \cdot$K", [x_min, x_max], '../Plots/alpha_T.pdf', "Fit", 'r-')
 
 
 alpha_von_T = Q_(poly_3(T(R_probe.magnitude), *params_alpha) / 10**6, '1 / kelvin')
@@ -96,7 +104,7 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu), np.std(C_V_cu))
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_V_cu, r'T $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_V_cu, r'$T$ $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
 
 
 ################## omega_debye bestimmen ##################
@@ -134,7 +142,7 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu_korrektur), np.std(C_V_cu_korrektur))
 
 plt.clf()
-plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
+plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
 
 plt.clf()
-plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'T / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
+plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
