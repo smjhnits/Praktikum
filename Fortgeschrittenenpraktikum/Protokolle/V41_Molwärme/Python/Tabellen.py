@@ -25,7 +25,7 @@ class Latexdocument(object):
             f.write(len(spalten) * 'S ')
             f.write('} \n\\toprule  \n')
             f.write(header + '  \\\ \n')
-            f.write('\\midrule  \n ')
+            f.write('\\midrule  \n')
             for i in range(0, len(spalten[0])):
                 for j in range(0, len(spalten)):
                     if j == len(spalten) - 1:
@@ -35,4 +35,7 @@ class Latexdocument(object):
             f.write('\\bottomrule \n\\end{tabular} \n\\end{table}')
 
 
-Latexdocument('C_p.tex').tabular([a.C_p_cu.magnitude, a.U.magnitude, a.I.magnitude * 10**3, a.delta_t.magnitude, a.delta_T_probe.magnitude], '{$C_p / \si{\joule \per \kelvin \per \mol}$} & {$U / \si{\\volt}$} & {$ I / \si{\milli\\ampere}$} & {$ \increment t / \si{\s}$} & {$ \increment T / \si{\kelvin}$}', [2, 2, 2, 0, 2], caption = 'Messdaten zu der Wärmekapazität $C_p$', label = 'c_p')
+#Latexdocument('C_p.tex').tabular([a.C_p_cu.magnitude, a.U.magnitude, a.I.magnitude * 10**3, a.delta_t.magnitude, a.delta_T_probe.magnitude], {$C_p / \si{\joule \per \kelvin \per \mol}$} & {$U / \si{\\volt}$} & {$ I / \si{\milli\\ampere}$} & {$ \increment t / \si{\s}$} & {$ \increment T / \si{\kelvin}$}', [2, 2, 2, 0, 2], caption = 'Messdaten zu der Wärmekapazität $C_p$', label = 'c_p')
+#Latexdocument('C_V.tex').tabular([a.C_V_cu.magnitude, a.alpha_von_T.magnitude * 1e6], '{$C_V / \si{\joule \per \kelvin \per \mol}$} & {$ \\alpha / \si{\per1e6\kelvin}$}', [2, 2], caption = 'Ergebnisse der Wärmekapazität $C_V$.', label = 'c_v')
+
+Latexdocument('T_debye.tex').tabular([a.debye_experimentell.magnitude, a.C_V_cu_debye.magnitude, a.T_probe_bis170K[1:].magnitude], '{$\Theta_{\symup{D}} / \si{\kelvin}$} & {$C_V / \si{\joule \per \kelvin \per \mol}$} & {$T / \si{\kelvin}$}', [2, 2, 2], caption = 'Gefundene Werte von $\Theta_{\symup{D}}$', label = 'debye')

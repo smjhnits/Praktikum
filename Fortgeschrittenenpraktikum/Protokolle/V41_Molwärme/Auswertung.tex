@@ -1,18 +1,49 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-In dem Versuch wird die Molwärme $C\ua{p}$ nach Formel \eqref{eq:c_p}
-bestimmt. Die in Kapitel \ref{sec:tabellen} enthaltene Tabelle \ref{tab: c_p}
+In dem Versuch wird die Molwärme $C\ua{p}$ nach Formel~\eqref{eqn:c_p}
+bestimmt. Die in Kapitel~\ref{sec:tabellen} enthaltene Tabelle~\ref{tab: c_p}
 zeigt die Ergebnisse der Wärmekapazität $C\ua{p}$ für verschiedene Temperaturen.
+
+\subsection{Verlauf der Temperaturen}
+
+Der Zylinder und die Probe werden durch zwei seperate Heizungen erwärmt.
+Im Idealfall sind die beiden Temperaturen gleich, sodass die Wärmestrahlung der
+Probe durch die Wärmestrahlung des Zylinders kompensiert wird. Experimentell ergeben
+sich jedoch Abweichungen der Temperaturen.
+Der Verlauf der beiden Temperaturen ist in Abb.~\ref{fig:temp}
+dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Plots/temp.pdf}
+  \caption{Temperaturverläufe des Zylinders und der Probe gegenüber der Zeit.
+  Häufig Überlappen die Probentemperatur $\T_{Probe}$ und die Zylindertemperature $\T_{Zylinder}$,
+  sodass nur $\T_{Zylinder}$ abgebildet wird.}
+  \label{fig:temp}
+\end{figure}
+
 
 \subsection{Wärmekapazität $C\ua{V}$}
 
 Aus der Wärmekapazität bei konstantem Druck $C\ua{p}$ kann
-durch den Zusammenhang \eqref{eqn:c_p-c_v} berechnet werden.
-Der Verlauf der aus den Messdaten errechneten Wärmekapazität $C\ua{V}$
-für verschiedene Temperaturen $T$ ist in Abb. \ref{fig:c_v} dargestellt.
+durch den Zusammenhang~\eqref{eqn:c_p-c_v} die Wärmekapazität bei
+konstantem Volumen $C\ua{V}$ berechnet werden.
 Für das Kompressionsmodul $\kappa$ wird der Wert $\kappa = \SI{140}{\giga\pascal}$
 angenommen~\cite{kompression}.
+Für den Ausdehnungskoeffizienten $\alpha(T)$ sind Werte in Quelle~cite{anleitung}
+gegeben. Diese werden durch eine Ausgeichsrechnung an ein Polynom dritten Grades
+angenähert. Der Verlauf der Ausgeichsfunktion mit den Daten aus Quelle~\cite{anleitung}
+ist in Abb.~\ref{fig:alpha} dargestellt.
+Der Verlauf der aus den Messdaten errechneten Wärmekapazität $C\ua{V}$
+für verschiedene Temperaturen $T$ ist in Abb.~\ref{fig:c_v} erkenntlich.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Plots/alpha_T.pdf}
+  \caption{Ausgeichsfunktion des Ausdehnungskoeffizienten für steigende Temperaturen.}
+  \label{fig:alpha}
+\end{figure}
 
 \begin{figure}
   \centering
@@ -20,11 +51,11 @@ angenommen~\cite{kompression}.
   \caption{Daten der Wärmekapazität für steigende Temperaturen.}
   \label{fig:c_v}
 \end{figure}
-
-Es wird ersichtlich, dass in Abb. \ref{fig:c_v} Werte auftauchen, die sehr
+\FloatBarrier
+Es wird ersichtlich, dass in Abb.~\ref{fig:c_v} Werte auftauchen, die sehr
 stark erwarteten Trend abweichen.
 Diese Abweichung wird auf zwei vermutlich fehlerhafte Messdaten in der Zeitmessung zurückgeführt.
-Eine Darstellung von $C\ua{V}$ ohne diese beiden Messdaten ist in Abb. \ref{fig:c_v_korrektur}
+Eine Darstellung von $C\ua{V}$ ohne diese beiden Messdaten ist in Abb.~\ref{fig:c_v_korrektur}
 einzusehen.
 
 \begin{figure}
@@ -36,9 +67,24 @@ einzusehen.
 
 \subsection{Debye-Funktion}
 
+In Quelle~\cite{anleitung} sind die Werte der Funktion $C\ua{V} = f\left(\frac{\Theta\ua{D}}{T}\right)$
+angegeben. Die ermittelten Wärmekapazitäten $C\ua{V}(T)$ können
+mit den Daten der Wertetabelle verglichen werden, sodass
+der zugehörige $\left(\frac{\Theta\ua{D}}{T}\right)$--Wert nach Multiplikation
+mit der Temperatur $T$ die Debye-Temperatur ergibt.
+Die gefundenen Debye-Temperaturen sind in Tab.~\ref{tab:debye} angegeben.
+Es werden nur Wärmekapazitäten bis zu $T = \SI{170}{\kelvin}$ berücksichtigt.\\
+Der experimentelle Wert der Debye-Temperatur $\Theta\ua{D, exp}$ ergibt sich aus dem Mittelwert
+der Daten aus Tabelle~\ref{tab:debye}.
+
+\begin{equation}
+  \label{eqn:debye}
+  \Theta\ua{D, exp} = \SI{279.21(6811)}{\kelvin}
+\end{equation}
+
 \subsection{Berechnung von $\omega\ua{D}$ und $\Theta\ua{D}$}
 
-Die Debye-Frequenz $\omega\ua{D}$ wird wie in dem Abschnitt zu Formel \eqref{eqn:omega_D}
+Die Debye-Frequenz $\omega\ua{D}$ wird wie in dem Abschnitt zu Formel~\eqref{eqn:omega_D}
 beschrieben errechnet.
 Für die einzelnen Größen ergeben sich die folgenden Werte.
 
@@ -53,11 +99,16 @@ Für die einzelnen Größen ergeben sich die folgenden Werte.
   \Theta\ua{D} &\approx \SI{322.21}{\kelvin}
 \end{align*}
 
+Der Mittelwert der experimentell gefundenen Debye-Temperaturen $\Theta\ua{D, exp}$ ist ca. $\num{13.34}\,\%$ kleiner als der Theoriewert $\Theta\ua{D}$.
+
 \section{Diskussion}
 \label{sec:diskussion}
 
-\newpage
+
+
 \section{Tabellen}
 \label{sec:tabellen}
 \pagestyle{empty}
 \input{Tabellen/C_p.tex}
+\input{Tabellen/C_V.tex}
+\input{Tabellen/T_debye.tex}

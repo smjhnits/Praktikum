@@ -146,3 +146,23 @@ plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'$T$ / K', r"$C_p(T)
 
 plt.clf()
 plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
+
+################## Debye-Temperatur bestimmen ##################
+
+# nur T Werte bis 170K
+
+T_probe_bis170K = Q_(T(R_probe.magnitude)[T(R_probe.magnitude)<=170], 'kelvin')
+
+delta_T_probe_bis170K = T_probe_bis170K[1:] - T_probe_bis170K[:len(T_probe_bis170K) - 1]
+
+C_V_cu_debye = C_V_cu[:len(T_probe_bis170K) - 1]
+
+debye_experimentell = data.debye_tabelle * T_probe_bis170K[1:]
+print(len(T_probe_bis170K), len(debye_experimentell), len(C_V_cu_debye))
+
+print("\n", "###############################################################################", "\n", "\n", 'C_V: ', C_V_cu_debye)
+print("\n", "###############################################################################", "\n", "\n", 'T: ', T_probe_bis170K)
+print("\n", "###############################################################################", "\n", "\n", 'T_debye experimentell: ', debye_experimentell)
+print('T_debye experimentell Mittelwert, STD: ', np.mean(debye_experimentell), np.std(debye_experimentell))
+
+print(len(T_probe_bis170K), len(debye_experimentell), len(C_V_cu_debye))
