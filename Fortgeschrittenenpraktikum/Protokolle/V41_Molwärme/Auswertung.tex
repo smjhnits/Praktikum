@@ -18,8 +18,8 @@ dargestellt.
   \centering
   \includegraphics[width = 0.8\textwidth]{Plots/temp.pdf}
   \caption{Temperaturverläufe des Zylinders und der Probe gegenüber der Zeit.
-  Häufig Überlappen die Probentemperatur $\T_{Probe}$ und die Zylindertemperature $\T_{Zylinder}$,
-  sodass nur $\T_{Zylinder}$ abgebildet wird.}
+  Häufig Überlappen die Probentemperatur $T_{Probe}$ und die Zylindertemperature $T_{Zylinder}$,
+  sodass nur $T_{Zylinder}$ abgebildet wird.}
   \label{fig:temp}
 \end{figure}
 
@@ -37,6 +37,10 @@ angenähert. Der Verlauf der Ausgeichsfunktion mit den Daten aus Quelle~\cite{an
 ist in Abb.~\ref{fig:alpha} dargestellt.
 Der Verlauf der aus den Messdaten errechneten Wärmekapazität $C\ua{V}$
 für verschiedene Temperaturen $T$ ist in Abb.~\ref{fig:c_v} erkenntlich.
+Es wird ersichtlich, dass in Abb.~\ref{fig:c_v} Werte auftauchen, die sehr
+stark erwarteten Trend abweichen.
+Diese Abweichung wird auf zwei vermutlich fehlerhafte Messdaten in der Zeitmessung zurückgeführt.
+Diese sind in Abb.~\ref{fig:c_v} rot makiert.
 
 \begin{figure}[h]
   \centering
@@ -44,71 +48,70 @@ für verschiedene Temperaturen $T$ ist in Abb.~\ref{fig:c_v} erkenntlich.
   \caption{Ausgeichsfunktion des Ausdehnungskoeffizienten für steigende Temperaturen.}
   \label{fig:alpha}
 \end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width = 0.8\textwidth]{Plots/C_V.pdf}
-  \caption{Daten der Wärmekapazität für steigende Temperaturen.}
-  \label{fig:c_v}
-\end{figure}
 \FloatBarrier
-Es wird ersichtlich, dass in Abb.~\ref{fig:c_v} Werte auftauchen, die sehr
-stark erwarteten Trend abweichen.
-Diese Abweichung wird auf zwei vermutlich fehlerhafte Messdaten in der Zeitmessung zurückgeführt.
-Eine Darstellung von $C\ua{V}$ ohne diese beiden Messdaten ist in Abb.~\ref{fig:c_v_korrektur}
-einzusehen.
-
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{Plots/C_V_korrektur.pdf}
-  \caption{Angepasste Daten der Wärmekapazität für steigende Temperaturen.}
-  \label{fig:c_v_korrektur}
+  \caption{Daten der Wärmekapazität für steigende Temperaturen. Rot eingefärbte Punte symbolisieren die vermuteten fehlerhaften Messdaten.}
+  \label{fig:c_v}
 \end{figure}
 
 \subsection{Debye-Funktion}
 
-In Quelle~\cite{anleitung} sind die Werte der Funktion $C\ua{V} = f\left(\frac{\Theta\ua{D}}{T}\right)$
+In Quelle~\cite{anleitung} sind die Werte der Funktion $C\ua{V} = f\left(\frac{\theta\ua{D}}{T}\right)$
 angegeben. Die ermittelten Wärmekapazitäten $C\ua{V}(T)$ können
 mit den Daten der Wertetabelle verglichen werden, sodass
-der zugehörige $\left(\frac{\Theta\ua{D}}{T}\right)$--Wert nach Multiplikation
+der zugehörige $\left(\frac{\theta\ua{D}}{T}\right)$--Wert nach Multiplikation
 mit der Temperatur $T$ die Debye-Temperatur ergibt.
 Die gefundenen Debye-Temperaturen sind in Tab.~\ref{tab:debye} angegeben.
 Es werden nur Wärmekapazitäten bis zu $T = \SI{170}{\kelvin}$ berücksichtigt.\\
-Der experimentelle Wert der Debye-Temperatur $\Theta\ua{D, exp}$ ergibt sich aus dem Mittelwert
+Der experimentelle Wert der Debye-Temperatur $\theta\ua{D, exp}$ ergibt sich aus dem Mittelwert
 der Daten aus Tabelle~\ref{tab:debye}.
 
 \begin{equation}
   \label{eqn:debye}
-  \Theta\ua{D, exp} = \SI{279.21(6811)}{\kelvin}
+  \theta\ua{D, exp} = \SI{279.21(6811)}{\kelvin}
 \end{equation}
 
-\subsection{Berechnung von $\omega\ua{D}$ und $\Theta\ua{D}$}
+\subsection{Berechnung von $\omega\ua{D}$ und $\theta\ua{D}$}
 
-Die Debye-Frequenz $\omega\ua{D}$ wird wie in dem Abschnitt zu Formel~\eqref{eqn:omega_D}
-beschrieben errechnet.
+Die Debye-Frequenz $\omega\ua{D}$ wird wie in dem Abschnitt~\ref{sec:debye} beschrieben mit Formel~\eqref{eqn:omega_D}
+errechnet.
 Für die einzelnen Größen ergeben sich die folgenden Werte.
 
 \begin{align*}
   m\ua{Probe} &= \SI{342}{\gram} \text{~\cite{anleitung}}\\
-  M\ua{Cu} &= \SI{63.55}{\dalton}\cdot N\ua{A} \text{~\cite{cu_mass}}\\
+  M\ua{Cu} &= \num{63.55}\su{u}\cdot N\ua{A} \text{~\cite{cu_mass}}\\
   v\ua{l} &= \SI{4.7}{\meter\per\second}\\
   v\ua{t} &= \SI{2.26}{\meter\per\second}\\
   N_L &= \num{3.24e24} \\
   V &= L^3 = V_0\cdot\frac{m}{M}\approx \SI{0.382}{\centi\meter^3}\\
   \omega\ua{D} &\approx \SI{43.5e12}{\per\second}\\
-  \Theta\ua{D} &\approx \SI{322.21}{\kelvin}
+  \theta\ua{D} &\approx \SI{322.21}{\kelvin}
 \end{align*}
-
-Der Mittelwert der experimentell gefundenen Debye-Temperaturen $\Theta\ua{D, exp}$ ist ca. $\num{13.34}\,\%$ kleiner als der Theoriewert $\Theta\ua{D}$.
 
 \section{Diskussion}
 \label{sec:diskussion}
 
+In diesem Kapitel werden die Messergebnisse diskutiert und Abweichungen zu den Theoriewerten untersucht.
+Der Mittelwert der experimentell gefundenen Debye-Temperaturen $\theta\ua{D, exp}$ ist ca.
+$\num{13.34}\,\%$ kleiner als der Theoriewert $\theta\ua{D}$.
+Diese Abweichung lässt sich durch die nicht immer gleichbleibende Temperatur von Probe und Zylinder
+erklärt werden. Somit ist nich gewährleistet, dass die abgestrahlte Wärme der Probe nicht gleich der
+zurückgestrahlten Wärme des Zylinders ist.
+Darüberhinaus ist nicht gewährleistet, dass weitere Wärmeverluste durch Konvektion oder
+Wärmeleitung über Halterungen der Probe ausgeschlossen sind.
+Es fällt auf, dass zwei Messdaten von $C\ua{V}$ den Dulong-Petit-Wert von
+$3R \approx \SI{24.942}{\joule\per\kelvin\per\mol}$ überschreiten.
+Das asymptotische Verhalten der Wärmekapazität $C\ua{V}$ gegen den
+Dulong-Petit-Wert in Abb. \ref{fig:c_v} ist dennoch zu erkennen. 
 
-
+Bessere Messwerte könnten beispielsweise durch langsameres Aufheizen der Probe und des Zylinders und
+erhöhte Datennahme erreicht werden.
+\newpage
+\pagestyle{empty}
 \section{Tabellen}
 \label{sec:tabellen}
-\pagestyle{empty}
 \input{Tabellen/C_p.tex}
 \input{Tabellen/C_V.tex}
 \input{Tabellen/T_debye.tex}
