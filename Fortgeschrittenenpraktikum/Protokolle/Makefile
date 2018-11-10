@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		#mkdir -p V41_Molwärme/Tabellen
-		#mkdir -p V41_Molwärme/Pics
-		#mkdir -p V41_Molwärme/Python
-		#touch V41_Molwärme/Auswertung.tex
-		#touch V41_Molwärme/V61_main.tex
-		#touch V41_Molwärme/Theorie.tex
-		#touch V41_Molwärme/lit.bib
-		#touch V41_Molwärme/Makefile
-		#touch V41_Molwärme/Pics/savedatei.txt
-		#touch V41_Molwärme/Python/savedatei.txt
-	  #touch V41_Molwärme/Tabellen/savedatei.txt
-		#cp -r Praeambel_prak.tex V41_Molwärme/
+		mkdir -p V49_gepulste_NMR/Tabellen
+		mkdir -p V49_gepulste_NMR/Pics
+		mkdir -p V49_gepulste_NMR/Python
+		touch V49_gepulste_NMR/Auswertung.tex
+		touch V49_gepulste_NMR/V61_main.tex
+		touch V49_gepulste_NMR/Theorie.tex
+		touch V49_gepulste_NMR/lit.bib
+		touch V49_gepulste_NMR/Makefile
+		touch V49_gepulste_NMR/Pics/savedatei.txt
+		touch V49_gepulste_NMR/Python/savedatei.txt
+	  touch V49_gepulste_NMR/Tabellen/savedatei.txt
+		cp -r Praeambel_prak.tex V49_gepulste_NMR/
 
 clean:
-		#rm -rf V41_Molwärme
+		#rm -rf V49_gepulste_NMR
 .PHONY: clean all
