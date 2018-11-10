@@ -11,18 +11,18 @@ endif
 all: build
 
 build:
-		mkdir -p V49_gepulste_NMR/Tabellen
-		mkdir -p V49_gepulste_NMR/Pics
-		mkdir -p V49_gepulste_NMR/Python
-		touch V49_gepulste_NMR/Auswertung.tex
-		touch V49_gepulste_NMR/V61_main.tex
-		touch V49_gepulste_NMR/Theorie.tex
-		touch V49_gepulste_NMR/lit.bib
-		touch V49_gepulste_NMR/Makefile
-		touch V49_gepulste_NMR/Pics/savedatei.txt
-		touch V49_gepulste_NMR/Python/savedatei.txt
-	  touch V49_gepulste_NMR/Tabellen/savedatei.txt
-		cp -r Praeambel_prak.tex V49_gepulste_NMR/
+		# mkdir -p V49_gepulste_NMR/Tabellen
+		# mkdir -p V49_gepulste_NMR/Pics
+		# mkdir -p V49_gepulste_NMR/Python
+		# touch V49_gepulste_NMR/Auswertung.tex
+		# touch V49_gepulste_NMR/V61_main.tex
+		# touch V49_gepulste_NMR/Theorie.tex
+		# touch V49_gepulste_NMR/lit.bib
+		# touch V49_gepulste_NMR/Makefile
+		# touch V49_gepulste_NMR/Pics/savedatei.txt
+		# touch V49_gepulste_NMR/Python/savedatei.txt
+	  # touch V49_gepulste_NMR/Tabellen/savedatei.txt
+		# cp -r Praeambel_prak.tex V49_gepulste_NMR/
 
 clean:
 		#rm -rf V49_gepulste_NMR
