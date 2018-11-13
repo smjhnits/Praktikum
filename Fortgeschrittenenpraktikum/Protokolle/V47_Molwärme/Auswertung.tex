@@ -2,8 +2,14 @@
 \label{sec:auswertung}
 
 In dem Versuch wird die Molwärme $C\ua{p}$ nach Formel~\eqref{eqn:c_p}
-bestimmt. Die in Kapitel~\ref{sec:tabellen} enthaltene Tabelle~\ref{tab: c_p}
+bestimmt. Die in Kapitel~\label{sec:wärmekapazität} enthaltene Tabelle~\ref{tab:c_p}
 zeigt die Ergebnisse der Wärmekapazität $C\ua{p}$ für verschiedene Temperaturen.
+Damit für die Temperaturdifferenzen $\increment T$ und Zeitdifferenzen $\increment t$
+in Formel~\eqref{eqn:c_p}
+Werte für die Spannung $U$ und des Stroms $I$ über das betrachtete Intervall
+verwendet werden,
+werden die über das jeweilige Intervall gemittelte Werte $\bar{U}$ und $\bar{I}$
+verwendet.
 
 \subsection{Verlauf der Temperaturen}
 
@@ -18,20 +24,22 @@ dargestellt.
   \centering
   \includegraphics[width = 0.8\textwidth]{Plots/temp.pdf}
   \caption{Temperaturverläufe des Zylinders und der Probe gegenüber der Zeit.
-  Häufig Überlappen die Probentemperatur $T_{Probe}$ und die Zylindertemperature $T_{Zylinder}$,
+  Häufig Überlappen die Probentemperatur $T_{Probe}$ und die Zylindertemperatur $T_{Zylinder}$,
   sodass nur $T_{Zylinder}$ abgebildet wird.}
   \label{fig:temp}
 \end{figure}
 
 
 \subsection{Wärmekapazität $C\ua{V}$}
+\label{sec:wärmekapazität}
 
 Aus der Wärmekapazität bei konstantem Druck $C\ua{p}$ kann
 durch den Zusammenhang~\eqref{eqn:c_p-c_v} die Wärmekapazität bei
 konstantem Volumen $C\ua{V}$ berechnet werden.
+
 Für das Kompressionsmodul $\kappa$ wird der Wert $\kappa = \SI{140}{\giga\pascal}$
 angenommen~\cite{kompression}.
-Für den Ausdehnungskoeffizienten $\alpha(T)$ sind Werte in Quelle~cite{anleitung}
+Für den Ausdehnungskoeffizienten $\alpha(T)$ sind Werte in Quelle~\cite{anleitung}
 gegeben. Diese werden durch eine Ausgeichsrechnung an ein Polynom dritten Grades
 angenähert. Der Verlauf der Ausgeichsfunktion mit den Daten aus Quelle~\cite{anleitung}
 ist in Abb.~\ref{fig:alpha} dargestellt.
@@ -48,11 +56,14 @@ Diese sind in Abb.~\ref{fig:c_v} rot makiert.
   \caption{Ausgeichsfunktion des Ausdehnungskoeffizienten für steigende Temperaturen.}
   \label{fig:alpha}
 \end{figure}
+
+\input{Tabellen/C_p.tex}
+
 \FloatBarrier
 \begin{figure}
   \centering
   \includegraphics[width = 0.8\textwidth]{Plots/C_V_korrektur.pdf}
-  \caption{Daten der Wärmekapazität für steigende Temperaturen. Rot eingefärbte Punte symbolisieren die vermuteten fehlerhaften Messdaten.}
+  \caption{Daten der Wärmekapazität für steigende Temperaturen. Rot eingefärbte Punkte symbolisieren die vermuteten fehlerhaften Messdaten.}
   \label{fig:c_v}
 \end{figure}
 
@@ -70,7 +81,7 @@ der Daten aus Tabelle~\ref{tab:debye}.
 
 \begin{equation}
   \label{eqn:debye}
-  \theta\ua{D, exp} = \SI{279.21(6811)}{\kelvin}
+  \theta\ua{D, exp} = \SI{313(19)}{\kelvin}
 \end{equation}
 
 \subsection{Berechnung von $\omega\ua{D}$ und $\theta\ua{D}$}
@@ -95,12 +106,14 @@ Für die einzelnen Größen ergeben sich die folgenden Werte.
 
 In diesem Kapitel werden die Messergebnisse diskutiert und Abweichungen zu den Theoriewerten untersucht.
 Der Mittelwert der experimentell gefundenen Debye-Temperaturen $\theta\ua{D, exp}$ ist ca.
-$\num{13.34}\,\%$ kleiner als der Theoriewert $\theta\ua{D}$.
-Diese Abweichung lässt sich durch die nicht immer gleichbleibende Temperatur von Probe und Zylinder
-erklärt werden. Somit ist nicht gewährleistet, dass die abgestrahlte Wärme der Probe nicht gleich der
-zurückgestrahlten Wärme des Zylinders ist.
-Darüberhinaus ist nicht gewährleistet, dass weitere Wärmeverluste durch Konvektion oder
-Wärmeleitung über Halterungen der Probe ausgeschlossen sind.
+$\num{5.9}\,\%$ kleiner als der Theoriewert $\theta\ua{D}$.
+Diese Abweichung kann durch eine ungleiche Wärmeabstrahlung von Probe und Zylinder
+erklärt werden, welche darauf beruhen könnte, dass beispielsweise das Kupfer
+des Zlinders eine dickere Oxiedschicht besitzt. Damit wäre die Emissivität ungleich
+der Probenemissivität, sodass die abgestrahlte Wärme der Probe ungleich der
+zurückgestrahlten Wärme des Zylinders wäre.
+Darüberhinaus ist nicht sichergestellt, dass Wärmeverluste durch
+Wärmeleitung über die Halterungen der Probe ausgeschlossen sind.
 Es fällt auf, dass zwei Messdaten von $C\ua{V}$ den Dulong-Petit-Wert von
 $3R \approx \SI{24.942}{\joule\per\kelvin\per\mol}$ überschreiten.
 Das asymptotische Verhalten der Wärmekapazität $C\ua{V}$ gegen den
@@ -112,6 +125,5 @@ erhöhte Datennahme erreicht werden.
 \pagestyle{empty}
 \section{Tabellen}
 \label{sec:tabellen}
-\input{Tabellen/C_p.tex}
 \input{Tabellen/C_V.tex}
 \input{Tabellen/T_debye.tex}

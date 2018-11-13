@@ -71,7 +71,7 @@ print("\n", "###################################################################
 print('C_p: ', C_p_cu)
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_p_cu, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_p_cu, r'$T_{Probe}$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_p.pdf', r"$C_p(T)$", "bx")
 
 ################## Temperaturen plotten ##################
 
@@ -104,7 +104,7 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu), np.std(C_V_cu))
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_V_cu, r'$T$ $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_V_cu, r'$T_{Probe}$ $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V.pdf', r"$C_V(T)$", "bx")
 
 ################## omega_debye bestimmen ##################
 
@@ -141,11 +141,11 @@ print("\n", "###################################################################
 print('C_V Mittelwert, STD: ', np.mean(C_V_cu_korrektur), np.std(C_V_cu_korrektur))
 
 plt.clf()
-plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'$T$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
+plot(temp_korrektur.magnitude, C_p_cu_korrektur.magnitude, r'$T_{Probe}$ / K', r"$C_p(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_p_korrektur.pdf', r"$C_p(T)$", "bx")
 
 plt.clf()
-plot(T(R_probe.magnitude)[1:], C_V_cu, r'$T$ $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V_korrektur.pdf', r"", "rx")
-plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'$T$ / K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
+plot(T(R_probe.magnitude)[1:], C_V_cu, r'$T_{Probe}$ $/$ K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(T(R_probe.magnitude))-3, max(T(R_probe.magnitude)) + 3], '../Plots/C_V_korrektur.pdf', r"", "rx")
+plot(temp_korrektur.magnitude, C_V_cu_korrektur.magnitude, r'$T_{Probe}$ / K', r"$C_V(T)\cdot$ K $\cdot$ mol / J", [min(temp_korrektur.magnitude)-3, max(temp_korrektur.magnitude) + 3], '../Plots/C_V_korrektur.pdf', r"$C_V(T)$", "bx")
 
 ################## Debye-Temperatur bestimmen ##################
 
@@ -164,5 +164,4 @@ print("\n", "###################################################################
 print("\n", "###############################################################################", "\n", "\n", 'T: ', T_probe_bis170K)
 print("\n", "###############################################################################", "\n", "\n", 'T_debye experimentell: ', debye_experimentell)
 print('T_debye experimentell Mittelwert, STD: ', np.mean(debye_experimentell), np.std(debye_experimentell))
-
-print(len(T_probe_bis170K), len(debye_experimentell), len(C_V_cu_debye))
+print('T_debye Abweichung: ', 1 - np.mean(debye_experimentell) / np.mean(T_debye))
