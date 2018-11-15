@@ -36,6 +36,14 @@ with open('meiboom_gill.csv') as csvfile:
 T2U_max = []
 T2tau_max = []
 
+T2tau_CP = []
+T2U_CP = []
+with open('scope_4.csv') as csvfile:
+     CP = csv.reader(csvfile, delimiter = ',', quoting=csv.QUOTE_NONNUMERIC)
+     for row in CP:
+         T2tau_CP.append(row[0])
+         T2U_CP.append(row[1])
+
 # Bestimmung von T2
 
 for n in range(5,96):
@@ -124,17 +132,30 @@ print('Die verschiedenen Radien lauten:' , '\n', 'Viskositätsradius: ', RadV , 
 
 # Plot T1
 
-t1 = np.linspace(0, 10, 1000)
+t1 = np.linspace(0, 15, 10000)
 plt.plot(T1_tau, T1_U, 'rx', label = 'T1 Werte')
 plt.plot(t1, FitT1(t1, paramsT1[0], paramsT1[1], paramsT1[2]), 'g-', label = 'Fit')
 plt.legend(loc = 'best')
-plt.ylabel(r'$U$ in $V$')
-plt.xlabel(r'$log(t)$ in $s$')
+plt.xlim(0.6*10**(-3), 15)
+plt.ylabel(r'$U$ / $V$')
+plt.xlabel(r'$t$ / $s$')
 plt.xscale('log')
 plt.savefig('../Plots2/T1.pdf')
 #plt.show()
 
 # Plot T2
+
+# Plot der Carr-Purcells Burstsequenz
+
+plt.clf()
+plt.plot(T2tau_CP, T2U_CP, 'b-', label = 'Signalhöhe')
+plt.xlabel(r'$t$ / $s$')
+plt.ylabel(r'$U$ / $V$')
+plt.legend(loc = 'best')
+plt.xlim(np.min(T2tau_CP), np.max(T2tau_CP) )
+#plt.savefig('../Plots2/T2CP.pdf')
+#plt.show()
+
 
 t2 = np.linspace(0,2,100)
 plt.clf()
@@ -144,7 +165,7 @@ plt.plot(t2, FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2]), 'g-', label = 'Fi
 plt.legend(loc = 'best')
 plt.ylabel(r'$U$ in $V$')
 plt.xlabel(r'$t$ in $s$')
-plt.savefig('../Plots2/T2.pdf')
+#plt.savefig('../Plots2/T2.pdf')
 #plt.show()
 
 # Log Plot T2
@@ -155,7 +176,7 @@ plt.plot(t2, FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2]), 'g-', label = 'Fi
 plt.yscale('log')
 plt.xlabel(r'$t$ in $s$')
 plt.ylabel(r'$log(U)$ in $V$')
-plt.savefig('../Plots2/T2Log.pdf')
+#plt.savefig('../Plots2/T2Log.pdf')
 #plt.show()
 
 # Plot D
@@ -166,5 +187,5 @@ plt.plot(D_tau, D_U, 'rx', label = 'Messwerte')
 plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2], paramsD[3]), 'g-', label = 'Fit')
 plt.ylabel(r'$U$ in $mV$')
 plt.xlabel(r'$t$ in  $ms$')
-plt.savefig('../Plots2/TD.pdf')
+#plt.savefig('../Plots2/TD.pdf')
 #plt.show()

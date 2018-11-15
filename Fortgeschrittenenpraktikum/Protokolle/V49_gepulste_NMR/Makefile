@@ -10,7 +10,7 @@ endif
 
 all: build/v49_main.pdf
 
-build/v49_main.pdf: Praeambel_prak.tex Theorie.tex v49_main.tex Auswertung.tex lit.bib | build
+build/v49_main.pdf: Praeambel_prak.tex Theorie.tex Tabellen/* Plots2/* v49_main.tex Auswertung.tex lit.bib | build
 		lualatex --output-directory=build v49_main.tex
 
 full: Praeambel_prak.tex Theorie.tex v49_main.tex Auswertung.tex lit.bib | build
