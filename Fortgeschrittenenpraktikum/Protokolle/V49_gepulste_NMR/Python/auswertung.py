@@ -26,7 +26,7 @@ T1_U = T1_U * 10 **(-3)
 T2_tau = []
 T2_U = []
 
-t12 = np.mean(D_t12)*10**(-6)
+t12 = ufloat(np.mean(D_t12)*10**(-6), np.std(D_t12)*10**(-6))
 
 with open('meiboom_gill.csv') as csvfile:
      T2 = csv.reader(csvfile, delimiter = ',', quoting=csv.QUOTE_NONNUMERIC)
@@ -95,6 +95,7 @@ print('Parameter für TD:', '\n', 'M0 = ', M0, ' mV', '\n',
 
 # Bestimmung der Diffusionskonstante
 
+print('t12: ', t12, '\n')
 G = 8.8 / (r * gamma * t12)
 D = 3 * d * 10**9/ (G**2 * gamma**2)
 print('Parameter für die Diffusionskonstante: ', '\n', 'G = ', G, '\n', 'D = ', D,'\n')
@@ -140,7 +141,7 @@ plt.xlim(0.6*10**(-3), 15)
 plt.ylabel(r'$U$ / $V$')
 plt.xlabel(r'$t$ / $s$')
 plt.xscale('log')
-plt.savefig('../Plots2/T1.pdf')
+#plt.savefig('../Plots2/T1.pdf')
 #plt.show()
 
 # Plot T2
@@ -157,7 +158,7 @@ plt.xlim(np.min(T2tau_CP), np.max(T2tau_CP) )
 #plt.show()
 
 
-t2 = np.linspace(0,2,100)
+t2 = np.linspace(-0.5,2,100)
 plt.clf()
 plt.plot(T2_tau, T2_U, 'b-', label = 'Meiboom Gill')
 plt.plot(T2tau_max[2::2], T2U_max[2::2], 'rx', label = 'maxima')
@@ -165,17 +166,19 @@ plt.plot(t2, FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2]), 'g-', label = 'Fi
 plt.legend(loc = 'best')
 plt.ylabel(r'$U$ in $V$')
 plt.xlabel(r'$t$ in $s$')
+plt.xlim(T2_tau[0], T2_tau[-1])
 #plt.savefig('../Plots2/T2.pdf')
 #plt.show()
 
 # Log Plot T2
 
 plt.clf()
-plt.plot(T2tau_max[2::2], T2U_max[2::2], 'rx', label = 'maxima')
-plt.plot(t2, FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2]), 'g-', label = 'Fit')
-plt.yscale('log')
-plt.xlabel(r'$t$ in $s$')
-plt.ylabel(r'$log(U)$ in $V$')
+plt.plot(T2tau_max[2::2], np.log(T2U_max[2::2]), 'rx', label = 'maxima')
+plt.plot(t2, np.log(FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2])), 'g-', label = 'Fit')
+plt.xlabel(r'$t\, / \,s$')
+plt.ylabel(r'$\log{(U \,/\, V)}$')
+plt.xlim(-0.1,2)
+plt.legend()
 #plt.savefig('../Plots2/T2Log.pdf')
 #plt.show()
 
@@ -189,3 +192,5 @@ plt.ylabel(r'$U$ in $mV$')
 plt.xlabel(r'$t$ in  $ms$')
 #plt.savefig('../Plots2/TD.pdf')
 #plt.show()
+
+np.savetxt('T2ExD.txt', np.column_stack([T2tau_max, T2U_max]))

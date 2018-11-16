@@ -39,13 +39,56 @@ Für die verschiedenen Parameter ergeben sich damit folgende Werte:
 Um die transversale Relaxationszeit $T\ua{2}$ zu bestimmen wird das Meiboom-Gill Verfahren
 verwendet. Zudem ist in Abbildung \ref{fig:T2CP} einmal die Burstsequenz mit dem
 Carr-Purcell-Verfahren dargestellt.
-
 \begin{figure}\centering
-  \includegraphics[width=\textwidth]{Plots2/T2CP.pdf}
+  \includegraphics[width=0.8\textwidth]{Plots2/T2CP.pdf}
   \caption{Signale der transversalen Magnetisierung mit der Carr-Purcell-Methode
-  bei einem Pulsabstan von $\tau = \SI{2}{ms}$. }
+  bei einem Pulsabstand von $\tau = \SI{2}{ms}$. }
   \label{fig:T2CP}
 \end{figure}
-
 In Abbildung \ref{fig:T2} ist die Burstsequenz mit der Meiboom-Gill Methode
-dargestellt. Die verwendeten 
+dargestellt. Um $T\ua{2}$ zu bestimmen, werden alle Spannungsamplitudem bei
+ganzzahligen Vielfachen von $2\tau$ verwendet. Die verwendeten Peaks sind als
+rot gefärbte Datenpunkte markiert. Mit den in Tabelle \ref{tab:T2Ex} eingetragenen
+extrahierten Daten wird ein Fit der Form
+\begin{equation}
+  M(t) = M\ua{0}\cdot\exp{(-\frac{t}{T\ua{2}})}+M\ua{1}
+\end{equation}
+durchgeführt.
+Für die verschiedenen Parameter ergeben sich dabei folgende Werte:
+\begin{align}
+  M\ua{0} &= (0.59\pm0.02)\,\si{V}\\
+  M\ua{1} &= (0.04\pm0.03)\,\si{V}\\
+  T\ua{2} &= (1.54\pm0.12)\,\si{s}.
+\end{align}
+Die extrahierten Messwerte sowie der FIt sind noch einmal in Abbildung \ref{fig:T2Log} mit
+logarithmierter Y-Achse dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Plots2/T2.pdf}
+  \caption{Die aufgenommenen Spannungsamplituden unter Verwendung der
+  Meiboom-Gill-Methode bei einem Pulsabstand von $\tau = \SI{2}{ms}$.}
+  \label{fig:T2}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Plots2/T2Log.pdf}
+  \caption{Darstellung der extrahierten Punkte mit logarithmierter Y-Achse.}
+  \label{fig:T2Log}
+\end{figure}
+\input{Tabellen/T2Ex.tex}
+\newpage
+\subsection{Bestimmung der Diffusionskonstante}
+
+Bevor die Diffusionskonstante bestimmt werden kann, muss vorher der Feldgradient
+bestimmt werden. Dafür wurden bei der Messung der Echos für die Bestimmung
+der Diffusionskonstante ebenfalls die Halbwertsbreiten bestimmt. Dei verwendeten
+Daten sind in Tabelle \ref{tab:D} eingetragen. Für die gemittelte
+Halbwertsbreite ergibt sich dabei $t\ua{1/2} = (0.9\pm0.3)\,\si{ms}$.
+Die Gravitationskonstante lässt sich anschließend gemäß der folgenden Formel
+bestimmen:
+\begin{equation}
+  G = \frac{8.8}{d\ua{P}\gamma t\ua{1/2}}.
+\end{equation}
+Dabei handelt es sich bei $d\ua{P} = \SI{4.4}{mm}$ um den Probendurchmesser
+und bei $gamma = \SI{2.68E8}{\frac{rad}{sT}}$ um das gyromagnetische
+Verhältnis von Protonen \cite{Gyro}.
