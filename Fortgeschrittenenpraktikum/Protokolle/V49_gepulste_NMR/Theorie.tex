@@ -27,8 +27,8 @@ $\braket{\text{\textbf{I}}\ua{z}}$ wird gemäß
 
 \begin{equation}
   \label{eqn:erwartung_I}
-  \braket{\text{\textbf{I}}\ua{z}} = \frac{\sum^\text{\textbf{I}}_{m = -\text{\textbf{I}}}
-  \hbar m \exp{\left(-m\beta(T)\gamma B_0 \hbar\right)}}{\sum^\text{\textbf{I}}_{m = -\text{\textbf{I}}}
+  \braket{\text{\textbf{I}}\ua{z}} = \frac{\sum_{m = -\text{\textbf{I}}}^\text{\textbf{I}}
+  \hbar m \exp{\left(-m\beta(T)\gamma B_0 \hbar\right)}}{\sum_{m = -\text{\textbf{I}}}^\text{\textbf{I}}
   \exp{\left(-m\beta(T)\gamma B_0 \hbar\right)}}
 \end{equation}
 
@@ -39,8 +39,8 @@ Exponentialfunktion in Formel~\ref{eqn:erwartung_I} gerechtfertigt ist.
 Eine Darstellung der Energieniveaus ist in Abbildung~\ref{fig:proton} zu finden.
 
 \begin{figure}
-  \centeing
-  \includegraphics[width = \textwidth]{Pics/aufspaltungE}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/aufspaltungE}
   \caption{Energiezustände eines Protons ($\text{\textbf{I}} = \frac{1}{2}$) im Magnetfeld $B_0$.}
   \label{fig:proton}
 \end{figure}
@@ -69,7 +69,7 @@ ergibt sich der folgende Zusammenhang.
 
 \begin{equation}
   \label{eqn:mag_diff}
-  \frac{\su{d}\vec{M}}{\su{d}t} = \gamma\vec{M}\timesB_0\vec{e}_z
+  \frac{\su{d}\vec{M}}{\su{d}t} = \gamma\vec{M}\times B_0\vec{e}_z
 \end{equation}
 
 Dabei ist $\vec{e}_z$ der Einheitsrichtungsvektor des Magnetfeldes.
@@ -115,9 +115,9 @@ mathematisch wie folgt beschreiben
 Die in den Gleichungen auftretenden Zeitkonstanten $T_1$ und $T_2$ sind
 verschiedene Relaxationszeiten.
 \begin{description}
-  \item[Spin-Gitter-Relaxationszeit/longitudinal:]Relaxationszeit parallel zur Magnetfeldrichtung.
+  \item[Spin-Gitter-Relaxationszeit/longitudinal:]Relaxationszeit parallel zur Magnetfeldrichtung $T_1$.
   Charakteristische Übergangszeit von Energie des Kernspins in Gitterschwingungen und umgekehrt.
-  \item[Spin-Spin-Relaxationszeit/transversal:]Relaxationszeit senkrecht zur Magnetfeldrichtung.
+  \item[Spin-Spin-Relaxationszeit/transversal:]Relaxationszeit senkrecht zur Magnetfeldrichtung $T_2$.
   Hauptsächlich durch Spinwechselwirkungen mit den nächsten Nachbarn hervorgerufen. Es können
   aber auch Spin-Gitter-Relaxationsprozesse zu $T_2$ beitragen.
 \end{description}

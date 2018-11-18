@@ -91,12 +91,13 @@ text-greek=default,
  %\norm{\symbf{y}}
 
  % Für Physik IV und Quantenmechanik
- \DeclarePairedDelimiter{\bra}{\langle}{\rvert}
- \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
- % <name> <#arguments> <left> <right> <body>
- \DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{
- #1 \delimsize| #2
- }
+ \usepackage{braket}
+ % \DeclarePairedDelimiter{\bra}{\langle}{\rvert}
+ % \DeclarePairedDelimiter{\ket}{\lvert}{\rangle}
+ % % <name> <#arguments> <left> <right> <body>
+ % \DeclarePairedDelimiterX{\braket}[2]{\langle}{\rangle}{
+ % #1 \delimsize| #2
+ % }
 
 \setlength{\delimitershortfall}{-1sp}
 

@@ -8,15 +8,15 @@ else
   translate = $(shell echo '$1' | sed 's/:/;/g')
 endif
 
-all: build/v49_main.pdf
+all: build/V49_main.pdf
 
-build/v49_main.pdf: Praeambel_prak.tex Theorie.tex Tabellen/* Plots2/* v49_main.tex Auswertung.tex lit.bib | build
-		lualatex --output-directory=build v49_main.tex
+build/V49_main.pdf: Praeambel_prak.tex Theorie.tex Tabellen/* Plots2/* V49_main.tex Auswertung.tex lit.bib | build
+		lualatex --output-directory=build V49_main.tex
 
-full: Praeambel_prak.tex Theorie.tex v49_main.tex Auswertung.tex lit.bib | build
-		lualatex --output-directory=build v49_main.tex
-		biber build/v49_main.bcf
-		lualatex --output-directory=build v49_main.tex
+full: Praeambel_prak.tex Theorie.tex V49_main.tex Auswertung.tex lit.bib | build
+		lualatex --output-directory=build V49_main.tex
+		biber build/V49_main.bcf
+		lualatex --output-directory=build V49_main.tex
 
 
 build:
