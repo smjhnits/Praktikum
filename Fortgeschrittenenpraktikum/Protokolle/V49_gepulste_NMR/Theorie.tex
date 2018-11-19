@@ -41,7 +41,7 @@ Eine Darstellung der Energieniveaus ist in Abbildung~\ref{fig:proton} zu finden.
 \begin{figure}
   \centering
   \includegraphics[width = 0.7\textwidth]{Pics/aufspaltungE}
-  \caption{Energiezustände eines Protons ($\text{\textbf{I}} = \frac{1}{2}$) im Magnetfeld $B_0$.}
+  \caption{Energiezustände eines Protons ($\text{\textbf{I}} = \frac{1}{2}$) im Magnetfeld $B_0$\cite{anleitung}.}
   \label{fig:proton}
 \end{figure}
 
@@ -121,3 +121,116 @@ verschiedene Relaxationszeiten.
   Hauptsächlich durch Spinwechselwirkungen mit den nächsten Nachbarn hervorgerufen. Es können
   aber auch Spin-Gitter-Relaxationsprozesse zu $T_2$ beitragen.
 \end{description}
+
+\subsection{Einstrahlung von HF-Strahlungsquanten}
+
+Die Funktion der Strahlungsquanten ist, wie bereits erwähnt das Auslenken der
+Probenmagnetisierung aus der Gleichgewichtslage.
+Das hochfrequente Strahlungsfeld ist so ausgerichtet, dass es senkrecht zu dem Magnetfeld
+$\vec{B_0}$ und somit senkrecht zu $\vec{e}_z$ steht.
+\begin{equation}
+  \label{eqn:hochfrequent}
+  \vec{B}\ua{HF} = 2\vec{B}_1 \cos{(\omega t)}
+\end{equation}
+
+Eine Transformation in ein mit $\omega$ um die $\vec{e}_z$-Achse
+bewegtes Koordinatensystem führt dazu, die Zeitabhängigkeit
+in $\vec{B}_1$ zu eliminieren. Die Zeitabhängigkeit wird
+somit in den Einheitsvektoren eingebunden, sodass ein Übergang
+von $\left\{\vec{e}_x, \vec{e}_y, \vec{e}_z\right\}$ in
+$\left\{\vec{e}'_x, \vec{e}'_y, \vec{e}'_z\right\}$ statt findet.
+Die zeitliche Änderung der Magnetisierung transformiert sich zu
+\begin{equation}
+  \label{eqn:mag_trafo}
+  \frac{\su{d}\vec{M}}{\su{d}t} = \gamma\left\{\vec{M}\times\left(\vec{B} + \frac{\vec{\omega}}{\gamma}\right)\right\}.
+\end{equation}
+Das Einführen eines effektiven Magnetfeldes $\vec{B}\ua{eff} = \vec{B}_0 + \vec{B}_1 + \frac{\vec{\omega}}{\gamma}$
+vereinfacht Gleichung~\ref{eqn:mag_trafo} wie folgt.
+\begin{equation}
+  \label{eqn:B_eff}
+  \frac{\su{d}\vec{M}}{\su{d}t} =\gamma\left(\vec{M}\times\vec{B}\ua{eff}\right)
+\end{equation}
+Der Resonanzfall der Störung tritt auf, wenn die Einstrahlfrequenz $\omega$
+gleich der Lamorfrequenz $\omega\ua{L}$ ist.
+Da $\vec{\oemga}$ antiparallel zu $\vec{e}_z$ steht, ist
+das effektive Magnetfeld $\vec{B}\ua{eff} = \vec{B}_1$.
+Das bedeutet, die Magnetisierung präzediert um die $\vec{B}$- Achse.
+
+Soll die Magnetisierung $\vec{M}$ um 90° aus der $\vec{e}_z$-Achse
+herausgedreht werden muss die Einstrahlungszeit
+\begin{equation}
+  \label{eqn:90grad}
+  \Delta t_{90} = \frac{\pi}{2\gamma B_1}
+\end{equation}
+betragen. Eine Drehung um 180° bedarf einer Einstrahlzeit von
+$2\cdot\Delta t_{90}$.
+Im Folgenden wird eine Drehung um 90° als 90°-Puls und eine
+Drehung um 180° als 180°-Puls bezeichnet.
+
+\subsection{Messmethoden für $T_2$}
+
+Grundlegend wird für die Messung von $T_2$ ein Versuchsaufbau nach
+Abbildung~\ref{fig:aufbau} benötigt. Die Polschuhe gehören zu einem
+Permanentmagneten, der ein homogenes Magnetfeld $B_0\vec{e}_z$
+bereitstellt. Eine Spule umschließt die Probe.
+Diese Spule ist mit einem Sender und einem Empfänger gekoppelt.
+Der Sender speißt Strom in die Spule ein um die
+hochfrequenten Strahlungsquanten zu erzeugen.
+Der Empfänger registriert die von den präzedierenden Kernspins
+hervorgerufenen Magnetisierung.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/aufbau.pdf}
+  \caption{Grundlegender Versuchsaufbau zur Bestimmung von $T_2$\cite{anleitung}.}
+  \label{fig:aufbau}
+\end{figure}
+Der Abbau der Magnetisierung wird als freier Induktionszerfall (FID)
+bezeichnet. Dieser kann prinzipiell durch Aufzeichnen der
+Empfängersignale dargestellt werden.
+Aufgrund von Nachbar-Spinwechselwirkungen und Inhomogenität in dem Magnetfeld des
+Permanentmagneten treten Dephasierungsprozesse der Kernspins auf.
+Aus diesem Grund fächert die Präzessionsbewegung der Spins
+auf. Für die messbare Relaxationszeit $T*_2$ gilt
+\begin{equation}
+  \label{eqn:T*}
+  \frac{1}{T*_2} = \frac{1}{T_2} + \frac{1}{T_{\Delta B}}.
+\end{equation}
+Dabei ist $T_{\Delta B}$ eine apparative Zeitkonstante in der
+Größenordnung von $\frac{1}{\gamma d G}$, wobei $d$ der Probendurchmesser
+und $G$ der Gradient der Permanentmagnetfeldes.
+Der freie Induktionszerfall zeigt bei dem Auftreten von mehreren
+Resonanzstellen eine äußerst komplexe Struktur, die von der erwarteten
+exponentiellen Form abweicht.
+Ist das Permanentmagnetenfeld hinreichend homogen ist
+$T_{\Delta B}$ vernachlässigbar. In Fällen wo $T_{\Delta B} < T_2$
+ist, ist die Bestimmung von $T_2$ durch die FID Methode nicht mehr möglich.
+
+\subsubsection{Spin-Echo-Verfahren}
+Die apparativ bedingten Effekte auf $T_2$ können eliminiert werden,
+wenn diese Effekte zeitlich konstant sind. Das Spin-Echo-Verfahren
+arbeitet mit zwei Pulsen. Der erste Puls ist ein 90°-Puls, mit
+dem die Spins aus der $\vec{e}_z$-Achse gedreht werden.
+Werden zwei Spins betrachtet, die aufgrund von Feldinhomogenitäten verschiedene Lamorfrequenzen
+$\omega\ua{L, i}$ besitzen. Dabei sei o.B.d.A. $\omega\ua{L, 1} > \omega$ und
+$\omega\ua{L, 2} < \omega$. Der Spin zu $\omega\ua{L, 1}$
+dreht somit im Uhrzeigersinn in der $\vec{e}'_x-\vec{e}'_y$-Ebene.
+Der zweite Spin läuft in selben Ebene gegensinnig.
+Das Spin-Echo-Verfahren ist zur Veranschaulichung in Abb.~\ref{eqn:spin_flip}
+dargestellt.
+Nach der Zeit $\tau$ kommt der zweite Puls. Dieser ist ein
+180°-Puls mit dem der Spin um die $\vec{e}'_x$ gedreht wird.
+Aus diesem Grund laufen die dephasierten Spins aufeinander zu, sodass
+sie zum Zeitpunkt $2\tau$ in die selbe Richtung zeigen.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/spin.pdf}
+  \caption{Zeitliche Phasen des Spin-Echo-Verfahren~\cite{anleitung}.}
+  \label{eqn:spin_flip}
+\end{figure}
+Das Verfahren produziert das folgende Signal.
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.7\textwidth]{Pics/signalverlauf.pdf}
+  \caption{Signalverlauf des Spin-Echo-Verfahrens~\cite{anleitung}.}
+  \label{eqn:signal}
+\end{figure}
