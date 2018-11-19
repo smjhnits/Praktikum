@@ -78,11 +78,11 @@ $\vec{e}_x, \vec{e}_y, \vec{e}_z$ führt auf drei Differentialgleichungen.
 
 \begin{align}
   \label{eqn:M_x}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_x}{\su{d}t} &= \gamma B_0 \vec{M}\cdot \vec{e}_y, \\
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_x &= \gamma B_0 \vec{M}\cdot \vec{e}_y, \\
   \label{eqn:M_y}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_y}{\su{d}t} &= -\gamma B_0 \vec{M}\cdot \vec{e}_x, \\
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_y &= -\gamma B_0 \vec{M}\cdot \vec{e}_x, \\
   \label{eqn:M_z}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_z}{\su{d}t} &= 0
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_z &= 0
 \end{align}
 
 Die Gleichungen~\ref{eqn:M_x}~bis~\ref{eqn:M_z} werden gelöst durch
@@ -105,11 +105,11 @@ mathematisch wie folgt beschreiben
 
 \begin{align}
   \label{eqn:M_x_relax}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_x}{\su{d}t} &= \gamma B_0 \vec{M}\cdot \vec{e}_y-\frac{1}{T_2}\vec{M}\cdot \vec{e}_x, \\
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_x &= \gamma B_0 \vec{M}\cdot \vec{e}_y-\frac{1}{T_2}\vec{M}\cdot \vec{e}_x, \\
   \label{eqn:M_y_relax}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_y}{\su{d}t} &= -\gamma B_0 \vec{M}\cdot \vec{e}_x-\frac{1}{T_2}\vec{M}\cdot \vec{e}_y, \\
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_y &= -\gamma B_0 \vec{M}\cdot \vec{e}_x-\frac{1}{T_2}\vec{M}\cdot \vec{e}_y, \\
   \label{eqn:M_z_relax}
-  \frac{\su{d}\vec{M}\cdot \vec{e}_z}{\su{d}t} &= \frac{1}{T_1}\left(M_0 - \vec{M}\cdot \vec{e}_z\right).
+  \frac{\su{d}\vec{M}}{\su{d}t}\cdot \vec{e}_z &= \frac{1}{T_1}\left(M_0 - \vec{M}\cdot \vec{e}_z\right).
 \end{align}
 
 Die in den Gleichungen auftretenden Zeitkonstanten $T_1$ und $T_2$ sind
@@ -221,16 +221,157 @@ Nach der Zeit $\tau$ kommt der zweite Puls. Dieser ist ein
 180°-Puls mit dem der Spin um die $\vec{e}'_x$ gedreht wird.
 Aus diesem Grund laufen die dephasierten Spins aufeinander zu, sodass
 sie zum Zeitpunkt $2\tau$ in die selbe Richtung zeigen.
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width = 0.5\textwidth]{Pics/spin.pdf}
-  \caption{Zeitliche Phasen des Spin-Echo-Verfahren~\cite{anleitung}.}
+  \caption{Zeitliche Phasen des Spin-Echo-Verfahren\cite{anleitung}.}
   \label{eqn:spin_flip}
 \end{figure}
 Das Verfahren produziert das folgende Signal.
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width = 0.7\textwidth]{Pics/signalverlauf.pdf}
-  \caption{Signalverlauf des Spin-Echo-Verfahrens~\cite{anleitung}.}
+  \caption{Signalverlauf des Spin-Echo-Verfahrens\cite{anleitung}.}
   \label{eqn:signal}
 \end{figure}
+Neben den revesiblen Desphasierungsprozessen, welche mit dem Spin-Echo-Verfahren
+handhabar sind, gibt es irreversible Dephasierungsprozesse, die auf Wechselwirkungen
+der Spins mit ihrer Umgebung basieren.
+Daher nehmen nicht alle Spins am Echosignal teil, sodass bei zu groß gewählter Zeit $\tau$
+die Amplitude des Echos signifikant kleiner wird.
+Die Höhe der Spinechos klingt exponentiell ab.
+Eine Veranschaulichung dieses Phänomens ist in Abb.~\ref{fig:dephase}
+zu finden.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.6\textwidth]{Pics/echo.pdf}
+  \caption{Verkleinerung der Signalamplitude aufgrund von irreversiblen Dephasierungsprozessen
+  für große $\tau$\cite{anleitung}.}
+  \label{fig:dephase}
+\end{figure}
+
+\subsubsection{Carr-Purcell-Methode}
+Die Carr-Purcell-Methode ermöglicht durch Refokussierung das Vermessen von mehreren Spinechos
+hintereinander. Dafür werden nach den beiden Pulsen des FID weitere 180°-Pulse
+im Abstand von $2\tau$ eingespeist. Durch das Einstellen einer nicht exakten Länge
+der Pulse, werden die Pulse nicht mehr in die $x$-$y$-Ebene gedreht, sonder
+liegen um einen Winkel $\delta$ außerhalb dieser.
+Durch mehrfaches hintereinander ausführen der fehlerhaften Pulslängen wird
+der Fehler verstärkt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.8\textwidth]{Pics/carr_purcell.pdf}
+  \caption{Signalverlauf der Carr-Purcell-Methode\cite{anleitung}.}
+  \label{eqn:carr_purcell}
+\end{figure}
+
+\subsubsection{Meiboom-Gill-Methode}
+Die Verstärkung der Fehler wird in der Meiboom-Gill-Methode durch eine spezielle
+Vorrichtung verhindert. Die Phase des 180°-Pulses wird um 90° gegenüber des
+90°-Pulses Phasenverschoben. Alle $4\tau$ sind die Spins refokussiert in der
+$y$-Richtung. Die Bewegung der Spins bei der beschriebenen Methode ist in
+Abb.~\ref{fig:meiboom_gill} dargestellt.
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.5\textwidth]{Pics/meiboom.pdf}
+  \caption{Bewegung der Spins bei der Meiboom-Gill-Methode\cite{anleitung}.}
+  \label{fig:meiboom_gill}
+\end{figure}
+
+\subsection{Messmethode für $T_1$}
+
+Die longitudinale Relaxationszeit $T_1$ wird ebenfalls mittels einer Pulsmethode
+gemessen. Ein 180°-Puls dreht die Probenmagnetisierung aus ihrer Gleichgewichtslage
+in die $-\vec{e}_z$-Richtung. Nach einer Zeit $\tau$ dreht ein 90°-Puls
+den $\vec{e}_z$ Anteil der teilweise relaxierte Probenmagnetisierung
+in die $x$-$y$-Ebene. Die Magnetisierung induziert in einer Spule eine Storm,
+welcher proportional zu $\vec{M}(\tau)\cdot\vec{e}_y$ ist.
+Die Blochschen Gleichungen~\eqref{eqn:M_x_relax}~bis~\eqref{eqn:M_z_relax}
+ergeben für die Anfangsbedingungen $\vec{M}\cdot\vec{e}_x = \vec{M}\cdot\vec{e}_y = 0$
+und $\vec{M}\cdot\vec{e}_z = -M_0$
+
+\begin{equation}
+  \label{eqn:zeit_mag}
+  \vec{M}(\tau)\cdot\vec{e}_z = M_0\left(1-2\exp{\left(-\frac{\tau}{T_1}\right)}\right).
+\end{equation}
+
+Die Relaxationszeit $T_1$ kann durch Variation der Zeitkonstante $\tau$
+aus einem Diagramm $\log{\left(\frac{M_0 - \vec{M}(\tau)\cdot\vec{e}_z}{2M_0}\right)}$
+entnommen werden.
+
+\subsection{Diffusion in einer flüssigen Probe}
+Aufgrund der Brownschen Molekularbewegung diffundieren die
+Kernspins in der flüssigen Probe umher, sodass sie aufgrund des inhomogenen
+Magnetfeldes unterschiedliche Feldstärken unterliegen.
+Dies hat zur Folge, dass die Lamor-Frequenz eine Funktion von der Zeit wird.
+Explizite Rechnungen (vgl. \cite{anleitung}) führen darauf, dass die Magnetisierungsamplitude
+der Spin-Echos exponentiell mit der Zeitkonstante
+\begin{equation}
+  \label{eqn:diffusion}
+  T_{D} = \frac{3}{D\gamma^2G^2\tau^2}
+\end{equation}
+abnimmt.
+In Formel~\eqref{eqn:diffusion} ist $D$ die Diffusionskonstante und $G$
+der Magnetfeldgradient.
+Für die zeitabhängige Magnetisierung ergibt sich
+\begin{equation}
+  \label{eqn:mag_diffusion}
+  \vec{M}\cdot\vec{e}_y = M_0\exp{\left(\frac{-t}{T_2}\right)}\exp{\left(\frac{-t^3}{4T_{D}}\right)}.
+\end{equation}
+
+\subsection{Molekülradius}
+Der Radius der Probenmoleküle kann mittels der Stokschen Formel
+\begin{equation}
+  D = \frac{1}{6\beta\pi\eta r}
+\end{equation}
+berechnet werden. Die Viskosität $\eta$ der Probe wird mit Hilfe eines Kappilar-Viskosimeters
+bei Normaldruck und Raumtemperatur bestimmt.
+
+\section{Durchführung}
+\subsection{Justage der Apparatur}
+Zur Justage der Apparatur wird die Wasserprobe mit paramagnetischen Zentren (Kupfersulfat)
+versetzt, sodass die Relaxationszeit verkürzt wird. Im Anschluss werden die Parameter
+für den freien Induktionszerfall eingestellt.
+Die Parameter werden iterativ gefunden. Die gefundenen geeigneten Parameter für die
+Justageprobe ergeben sich zu
+\begin{enumerate}
+  \item A: $\SI{5,6}{\micro\second}$
+  \item B: $\SI{10,12}{\micro\second}$
+  \item $\omega$: $\SI{21,70806}{\mega\hertz}$
+  \item $x$: -1,93
+  \item $y$: -5,45
+  \item $z$: 3,94
+  \item $z^2$: -2,65
+  \item Phase: 155°.
+\end{enumerate}
+Für die Probe des bidestillierten Wassers wurden die Parameter wie folgt angepasst.
+\begin{enumerate}
+  \item A: $\SI{5,2}{\micro\second}$
+  \item B: $\SI{10,2}{\micro\second}$
+  \item $\omega$: $\SI{21,70788}{\mega\hertz}$
+\end{enumerate}
+
+\subsection{Bestimmung von $T_1$}
+
+Zunächst werden die Pulslängen A und B so eingestellt, dass zuerst der 180°-Puls und im
+Anschluss erst der 90°-Puls auftritt. Es werden mehrere Werte im logarithmischen Abstand
+genommen und die Spannungsmaxima des Signals auf einem Oszilloskop abgelesen.
+
+\subsection{Meiboom-Gill-Methode}
+
+An der Apparatur wird der Schalter auf MG umgelegt. Die Anzahl der 180°-Pulse
+wird ausreichend groß eingestllt, sodass der abklingende Signalverlauf der Spin-Echos
+deutlich sichtibar ist. Die Abstände $\tau$ werden hinreichend klein gewählt, damit
+der Einfluss der Diffusion minimiert wird.
+Das Signal der Meiboom-Gill-Methode wird auf einem Oszilloskop abgebildet und mittels
+eines USB-Sticks gespeichert.
+Einen Signalverlauf der Carr-Purcell-Methode kann durch Abschalten des Schalters MG
+sichtbar gemacht werden. Die Signalfolge wird ebenfalls auf einem USB-Stick gespeichert.
+
+\subsection{Bestimmung der Diffusionskonstante}
+Die Amplituden der Spin-Echos werden für verschiedene Zeiten $\tau$ bestimmt, wobei
+darauf zu achten ist, die Wiederholungszeit auf ein Vielfaches von $T_1$ einzustellen.
+Desweiteren wird die Halbwertsbreite $t_{\frac{1}{2}}$ der Spin-Echos bestimmt, damit der
+Feldgradient bestimmt werden kann.
