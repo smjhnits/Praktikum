@@ -13,11 +13,11 @@ eingetragen sowie in Abbildung \ref{fig:T1} grafisch dargestellt.
 
 \input{../Tabellen/T1.tex}
 
-Um $T1$ zu bestimmen werden die experimentellen Daten an eine Exponentialfunktion
+Um $T\ua{1}$ zu bestimmen werden die experimentellen Daten an eine Exponentialfunktion
 der folgenden Form gefittet:
 
 \begin{equation}
-  M(t) = M\ua{0}(1-2\exp{(-\frac{t}{T_1})})+M\ua{1}.
+  U(t) = M\ua{0}(1-2\exp{(-\frac{t}{T_1})})+M\ua{1}.
 \end{equation}
 
 Für die verschiedenen Parameter ergeben sich damit folgende Werte:
@@ -35,6 +35,7 @@ Für die verschiedenen Parameter ergeben sich damit folgende Werte:
 \end{figure}
 
 \subsection{Bestimmung der transversalen Relaxationszeit $T\ua{2}$}
+\label{subsec:T2}
 
 Um die transversale Relaxationszeit $T\ua{2}$ zu bestimmen wird das Meiboom-Gill Verfahren
 verwendet. Zudem ist in Abbildung \ref{fig:T2CP} einmal die Burstsequenz mit dem
@@ -51,15 +52,15 @@ ganzzahligen Vielfachen von $2\tau$ verwendet. Die verwendeten Peaks sind als
 rot gefärbte Datenpunkte markiert. Mit den in Tabelle \ref{tab:T2Ex} eingetragenen
 extrahierten Daten wird ein Fit der Form
 \begin{equation}
-  M(t) = M\ua{0}\cdot\exp{(-\frac{t}{T\ua{2}})}+M\ua{1}
+  U(t) = M\ua{0}\cdot\exp{(-\frac{t}{T\ua{2}})}+M\ua{1}
 \end{equation}
 durchgeführt.
 Für die verschiedenen Parameter ergeben sich dabei folgende Werte:
-\begin{align}
+\begin{align*}
   M\ua{0} &= (0.59\pm0.02)\,\si{V}\\
   M\ua{1} &= (0.04\pm0.03)\,\si{V}\\
   T\ua{2} &= (1.54\pm0.12)\,\si{s}.
-\end{align}
+\end{align*}
 Die extrahierten Messwerte sowie der FIt sind noch einmal in Abbildung \ref{fig:T2Log} mit
 logarithmierter Y-Achse dargestellt.
 \begin{figure}
@@ -75,20 +76,88 @@ logarithmierter Y-Achse dargestellt.
   \caption{Darstellung der extrahierten Punkte mit logarithmierter Y-Achse.}
   \label{fig:T2Log}
 \end{figure}
+
 \input{Tabellen/T2Ex.tex}
+
 \newpage
 \subsection{Bestimmung der Diffusionskonstante}
 
 Bevor die Diffusionskonstante bestimmt werden kann, muss vorher der Feldgradient
 bestimmt werden. Dafür wurden bei der Messung der Echos für die Bestimmung
-der Diffusionskonstante ebenfalls die Halbwertsbreiten bestimmt. Dei verwendeten
+der Diffusionskonstante ebenfalls die Halbwertsbreiten bestimmt. Die verwendeten
 Daten sind in Tabelle \ref{tab:D} eingetragen. Für die gemittelte
-Halbwertsbreite ergibt sich dabei $t\ua{1/2} = (0.9\pm0.3)\,\si{ms}$.
-Die Gravitationskonstante lässt sich anschließend gemäß der folgenden Formel
+Halbwertsbreite ergibt sich dabei $t\ua{1/2} = (0.9\pm0.3)\,\si{\milli\second}$.
+Der Feldgradient lässt sich anschließend gemäß der folgenden Formel
 bestimmen:
 \begin{equation}
-  G = \frac{8.8}{d\ua{P}\gamma t\ua{1/2}}.
+  G = \frac{8.8}{d\ua{P}\gamma t\ua{1/2}}
 \end{equation}
 Dabei handelt es sich bei $d\ua{P} = \SI{4.4}{mm}$ um den Probendurchmesser
-und bei $gamma = \SI{2.68E8}{\frac{rad}{sT}}$ um das gyromagnetische
-Verhältnis von Protonen \cite{Gyro}.
+und bei $gamma = \SI{2.68E8}{rad\per\second\per\tesla}$ um das gyromagnetische
+Verhältnis von Protonen \cite{Gyro}. Mit der gemessenen Halbwerstbreite ergibt
+sich für den Feldgradienten somit
+\begin{equation*}
+  G = (80\pm3)\,\si{\milli\tesla\per\meter}
+\end{equation*}
+
+Die aufgenommenen Messwerte für die Bestimmung der Diffusionskonstante $D$ sind in
+Tabelle \ref{tab:D} eingetragen und in Abbildung \ref{fig:D} grafisch dargestellt.
+Um $D$ zu bestimmen wird ein Fit gemäß der folgenden Funktion durchgeführt:
+\begin{equation}
+  U(t) = M\ua{0}\cdot\exp{(-\frac{tb}{T\ua{2}})}\exp{(-2t^3d)}+M\ua{1}.
+\end{equation}
+Für $T\ua{2}$ wird der in Abschnitt \ref{subsec:T2} bestimmte Wert verwendet.
+Dabei ergeben sich folgende Parameter:
+\begin{align*}
+  M\ua{0} &= (-0.67\pm0.03)\,\si{\milli\volt}\\
+  M\ua{1} &= (-0.04\pm0.03)\,\si{\milli\volt}\\
+  b &= (0.008\pm0.006)\\
+  d &= (0.00029\pm0.00004)\,\si{\per\milli\second\cubed}.
+\end{align*}
+Die Diffusionskonstante ergibt aus Gleichung ??:
+\begin{equation*}
+  D = (1.9\pm0.3)\cdot10^{-5}\,\si{\second}.
+\end{equation*}
+
+\input{Tabellen/D.tex}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{Plots2/TD.pdf}
+  \caption{Spannungsamplituden der Echos bei verschiedenen Pulsabständen.}
+  \label{fig:D}
+\end{figure}
+
+
+\newpage
+\subsection{Bestimmung der Viskosität und des Molekülradius}
+
+Die Viskosität des destillierten Wassers lässt sich über
+\begin{equation}
+  \eta(T) = \alpha\rho(t-\delta)
+\end{equation}
+bestimmen, wobei $\alpha = 1.024\cdot10^{-9}\,\si{\meter\squared\per\second\squared}$
+die Eichkonstante der Apparatur, $\delta = 0.5\, \si{\second}$ ein Korrekturglied
+und $\rho = 997\,\si{\kilogram\per\meter\cubed}$ die Dichte des Wassers ist.
+Für die gemessene Zeit von $t=898\,\si{\second}$ ergibt sich somit
+\begin{equation*}
+  \eta(20°C) = 0.92\,\si{\milli\pascal\second}
+\end{equation*}
+Mithilfe der Diffusionskonstante lässt sich nun der Molekülradius
+gemäß folgender Formel bestimmen:
+\begin{equation}
+  r\ua{D} = \frac{k\ua{B}T}{6\pi\eta D}.
+\end{equation}
+Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte sowie
+mithilfe des Van-der-Waal Kovolumens \cite{VdW} bestimmt werden:
+\begin{align}
+  r_{\text{Molekül}} = \left(\frac{3}{4\pi}\cdot0.74\cdot\frac{M}{\rho N\ua{A}}\right)^{1/3}\\
+  r\ua{VdW} = \left(\frac{3}{4\pi}\cdot V\ua{Ko}\right)^{1/3}.
+\end{align}
+Für den Molekülradius erhält man mit den verschiedenen Formeln folgende
+Ergebnisse:
+\begin{align*}
+  r\ua{D} &= (1.24\pm0.17)\,\si{\angstrom} \\
+  r_{\text{Molekül}} &= 1.74\,\si{\angstrom} \\
+  r\ua{VdW} &= 1.45\,\si{\angstrom}
+\end{align*}
