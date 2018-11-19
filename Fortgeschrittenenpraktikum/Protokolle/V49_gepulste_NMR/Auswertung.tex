@@ -1,40 +1,35 @@
 \section{Auswertung}
 
 In der folgenden Auswertung werden zuerst die beiden Relaxationszeiten $T\ua{1}$
-sowie $T\ua{2}$ bestimmt. Mithilfe von kann dann die Diffusionskonstante $D$ sowie
+sowie $T\ua{2}$ bestimmt. Mithilfe von $T\ua{2}$ kann dann die Diffusionskonstante $D$ sowie
 der Molekülradius bestimmt werden. Der Molekülradius wird am Ende zudem mit
 den Radien verglichen, die sich aus dem Molekulargewicht und dem Van-der-Waals-Kovolumen
 ergeben.
 
-\subsection{Bestimmung der longitudinalen Relaxationszeit $T\ua{1}$}
+\subsection{Bestimmung der longitudinalen Relaxationszeit}% \text{$T\ua{1}$}}
 
 Die aufgenommenen Daten für die Bestimmung von $T\ua{1}$ sind Tabelle \ref{tab:T1}
 eingetragen sowie in Abbildung \ref{fig:T1} grafisch dargestellt.
-
 \input{../Tabellen/T1.tex}
-
 Um $T\ua{1}$ zu bestimmen werden die experimentellen Daten an eine Exponentialfunktion
 der folgenden Form gefittet:
-
 \begin{equation}
   U(t) = M\ua{0}(1-2\exp{(-\frac{t}{T_1})})+M\ua{1}.
 \end{equation}
-
 Für die verschiedenen Parameter ergeben sich damit folgende Werte:
 \begin{align}
   M\ua{0} &= (0.73\pm0.02)\,\si{V} \\
   M\ua{1} &= (0.04\pm0.03)\,\si{V} \\
   T\ua{1} &= (1.54\pm0.12)\,\si{s}
 \end{align}
-
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{Plots2/T1.pdf}
+  \includegraphics[width=0.8\textwidth]{Plots2/T1.pdf}
   \caption{Gemessene Signalhöhe des Echos gegen den zeitlichen Abstand der beiden Pulse.}
   \label{fig:T1}
 \end{figure}
 
-\subsection{Bestimmung der transversalen Relaxationszeit $T\ua{2}$}
+\subsection{Bestimmung der transversalen Relaxationszeit}% \text{$T\ua{2}$}}
 \label{subsec:T2}
 
 Um die transversale Relaxationszeit $T\ua{2}$ zu bestimmen wird das Meiboom-Gill Verfahren
@@ -76,7 +71,6 @@ logarithmierter Y-Achse dargestellt.
   \caption{Darstellung der extrahierten Punkte mit logarithmierter Y-Achse.}
   \label{fig:T2Log}
 \end{figure}
-
 \input{Tabellen/T2Ex.tex}
 
 \newpage
@@ -161,3 +155,8 @@ Ergebnisse:
   r_{\text{Molekül}} &= 1.74\,\si{\angstrom} \\
   r\ua{VdW} &= 1.45\,\si{\angstrom}
 \end{align*}
+
+\newpage
+\section{Diskussion}
+
+Anfangs war nur Gott

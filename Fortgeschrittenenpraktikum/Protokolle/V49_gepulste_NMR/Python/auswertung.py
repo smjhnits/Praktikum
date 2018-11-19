@@ -173,13 +173,13 @@ plt.xlim(T2_tau[0], T2_tau[-1])
 # Log Plot T2
 
 plt.clf()
-plt.plot(T2tau_max[2::2], np.log(T2U_max[2::2]), 'rx', label = 'maxima')
+plt.plot(T2tau_max[2::2], np.log(T2U_max[2::2]), 'rx', label = r'$U(2n\tau)$')
 plt.plot(t2, np.log(FitT2(t2, paramsT2[0], paramsT2[1], paramsT2[2])), 'g-', label = 'Fit')
 plt.xlabel(r'$t\, / \,s$')
 plt.ylabel(r'$\log{(U \,/\, V)}$')
 plt.xlim(-0.1,2)
 plt.legend()
-#plt.savefig('../Plots2/T2Log.pdf')
+plt.savefig('../Plots2/T2Log.pdf')
 #plt.show()
 
 # Plot D
@@ -194,4 +194,4 @@ plt.xlim(0,16)
 plt.savefig('../Plots2/TD.pdf')
 #plt.show()
 
-np.savetxt('T2ExD.txt', np.column_stack([T2tau_max, T2U_max]))
+np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))
