@@ -251,6 +251,7 @@ zu finden.
 \end{figure}
 
 \subsubsection{Carr-Purcell-Methode}
+\vspace{-10pt}
 Die Carr-Purcell-Methode ermöglicht durch Refokussierung das Vermessen von mehreren Spinechos
 hintereinander. Dafür werden nach den beiden Pulsen des FID weitere 180°-Pulse
 im Abstand von $2\tau$ eingespeist. Durch das Einstellen einer nicht exakten Länge
@@ -258,30 +259,28 @@ der Pulse, werden die Pulse nicht mehr in die $x$-$y$-Ebene gedreht, sonder
 liegen um einen Winkel $\delta$ außerhalb dieser.
 Durch mehrfaches hintereinander ausführen der fehlerhaften Pulslängen wird
 der Fehler verstärkt.
-
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{Pics/carr_purcell.pdf}
+  \includegraphics[width = 0.75\textwidth]{Pics/carr_purcell.pdf}
   \caption{Signalverlauf der Carr-Purcell-Methode\cite{anleitung}.}
   \label{eqn:carr_purcell}
 \end{figure}
-
+\vspace{-10pt}
 \subsubsection{Meiboom-Gill-Methode}
+\vspace{-15pt}
 Die Verstärkung der Fehler wird in der Meiboom-Gill-Methode durch eine spezielle
 Vorrichtung verhindert. Die Phase des 180°-Pulses wird um 90° gegenüber des
 90°-Pulses Phasenverschoben. Alle $4\tau$ sind die Spins refokussiert in der
 $y$-Richtung. Die Bewegung der Spins bei der beschriebenen Methode ist in
 Abb.~\ref{fig:meiboom_gill} dargestellt.
-
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
-  \includegraphics[width = 0.4\textwidth]{Pics/meiboom.pdf}
+  \includegraphics[width = 0.45\textwidth]{Pics/meiboom.pdf}
   \caption{Bewegung der Spins bei der Meiboom-Gill-Methode\cite{anleitung}.}
   \label{fig:meiboom_gill}
 \end{figure}
-
+\FloatBarrier
 \subsection{Messmethode für $T_1$}
-
 Die longitudinale Relaxationszeit $T_1$ wird ebenfalls mittels einer Pulsmethode
 gemessen. Ein 180°-Puls dreht die Probenmagnetisierung aus ihrer Gleichgewichtslage
 in die $-\vec{e}_z$-Richtung. Nach einer Zeit $\tau$ dreht ein 90°-Puls
@@ -291,12 +290,10 @@ welcher proportional zu $\vec{M}(\tau)\cdot\vec{e}_y$ ist.
 Die Blochschen Gleichungen~\eqref{eqn:M_x_relax}~bis~\eqref{eqn:M_z_relax}
 ergeben für die Anfangsbedingungen $\vec{M}\cdot\vec{e}_x = \vec{M}\cdot\vec{e}_y = 0$
 und $\vec{M}\cdot\vec{e}_z = -M_0$
-
 \begin{equation}
   \label{eqn:zeit_mag}
   \vec{M}(\tau)\cdot\vec{e}_z = M_0\left(1-2\exp{\left(-\frac{\tau}{T_1}\right)}\right).
 \end{equation}
-
 Die Relaxationszeit $T_1$ kann durch Variation der Zeitkonstante $\tau$
 aus einem Diagramm $\log{\left(\frac{M_0 - \vec{M}(\tau)\cdot\vec{e}_z}{2M_0}\right)}$
 entnommen werden.
