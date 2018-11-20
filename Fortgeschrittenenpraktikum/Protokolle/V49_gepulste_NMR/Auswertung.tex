@@ -20,7 +20,7 @@ Für die verschiedenen Parameter ergeben sich damit folgende Werte:
 \begin{align}
   M\ua{0} &= (0.73\pm0.02)\,\si{V} \\
   M\ua{1} &= (0.04\pm0.03)\,\si{V} \\
-  T\ua{1} &= (1.54\pm0.12)\,\si{s}
+  T\ua{1} &= (1.54\pm0.12)\,\si{s}.
 \end{align}
 \begin{figure}
   \centering
@@ -108,9 +108,9 @@ Dabei ergeben sich folgende Parameter:
   b &= (0.008\pm0.006)\\
   d &= (0.00029\pm0.00004)\,\si{\per\milli\second\cubed}.
 \end{align*}
-Die Diffusionskonstante ergibt aus Gleichung ??:
+Die Diffusionskonstante ergibt sich aus Gleichung \eqref{eqn:diffusion}:
 \begin{equation*}
-  D = (1.9\pm0.3)\cdot10^{-5}\,\si{\second}.
+  D = (1.9\pm0.3)\cdot10^{-9}\,\si{\meter\squared\per\second}.
 \end{equation*}
 
 \input{Tabellen/D.tex}
@@ -145,18 +145,50 @@ gemäß folgender Formel bestimmen:
 Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte sowie
 mithilfe des Van-der-Waal Kovolumens \cite{VdW} bestimmt werden:
 \begin{align}
-  r_{\text{Molekül}} = \left(\frac{3}{4\pi}\cdot0.74\cdot\frac{M}{\rho N\ua{A}}\right)^{1/3}\\
+  r_{\text{MG}} = \left(\frac{3}{4\pi}\cdot0.74\cdot\frac{M}{\rho N\ua{A}}\right)^{1/3}\\
   r\ua{VdW} = \left(\frac{3}{4\pi}\cdot V\ua{Ko}\right)^{1/3}.
 \end{align}
 Für den Molekülradius erhält man mit den verschiedenen Formeln folgende
 Ergebnisse:
 \begin{align*}
   r\ua{D} &= (1.24\pm0.17)\,\si{\angstrom} \\
-  r_{\text{Molekül}} &= 1.74\,\si{\angstrom} \\
+  r_{\text{MG}} &= 1.74\,\si{\angstrom} \\
   r\ua{VdW} &= 1.45\,\si{\angstrom}
 \end{align*}
 
 \newpage
 \section{Diskussion}
 
-Anfangs war nur Gott
+Bei den Messungen der transversalen und der longitudinalen Relaxationszeiten lassen
+sich beides Mal die aufgenommenen Datenpunkte sehr gut durch die verwendeten
+Fitfunktionen beschreiben (vergleiche Abblidungen \ref{fig:T1} und \ref{fig:T2}).
+Für beide Zeiten ergeben sich relativ geringe Fehler:
+\begin{align*}
+T\ua{1} &= (1.54\pm0.12)\,\si{s} \\
+T\ua{2} &= (1.54\pm0.12)\,\si{s}.
+\end{align*}
+Auch bei der Bestimmung des Diffusionskoeffizienten zeigen sich nur geringe Abweichungen
+von der verwendeten Fitfunktion. Zur Bestimmung des für den Koeffizienten
+benötigte Halbwertsbreite wurde mehrfach bestimmt. Gegenüber des Literaturwertes
+\cite{D}
+für den Diffusionskoeffizienten von Sauerstoff in Wasser bei $\SI{25}{\celsius}$
+ergibt sich eine geringe Abweichung von $\increment D = 9.5\,\%$:
+\begin{align*}
+  D &= (1.9\pm0.3)\cdot10^{-9}\,\si{\meter\squared\per\second} \\
+  D\ua{lit} &= 2.1 \cdot10^{-9}\,\si{\meter\squared\per\second}.
+\end{align*}
+Es muss jedoch beachtet werden, dass dieses Experiment bei einer Temperatur
+von $\SI{20}{\celsius}$ durchgeführt wurde. Zudem wurde schon bei Durchführung
+des Experimentes deutlich, dass auch durch Ungenauigkeiten der verwendeten
+Apparatur Abweichungen entstehen. Zum Beispiel schwankten die Werte für die
+Halbwertbreite zwischen $\SI{95}{\milli\second}$ und $\SI{89}{\milli\second}$,
+obwohl dieser Wert eigentlich konstant sein sollte.
+Für die bestimmten Molekülradien zeigen sich vergleichsweise große Abweichungen
+zwischen den einzelnen Methoden von bis zu $29\%$(zw. $r\ua{D}$ und $r_{\text{MG}}$):
+\begin{align*}
+  r\ua{D} &= (1.24\pm0.17)\,\si{\angstrom} \\
+  r_{\text{MG}} &= 1.74\,\si{\angstrom} \\
+  r\ua{VdW} &= 1.45\,\si{\angstrom}.
+\end{align*}
+Die verwendten Werte liegen jedoch alle im selben Größenbereich und passen gut zu
+den Literaturwerten für die einzelnen Molekülradien von Wasserstoff und Sauerstoff.

@@ -179,7 +179,7 @@ plt.xlabel(r'$t\, / \,s$')
 plt.ylabel(r'$\log{(U \,/\, V)}$')
 plt.xlim(-0.1,2)
 plt.legend()
-plt.savefig('../Plots2/T2Log.pdf')
+#plt.savefig('../Plots2/T2Log.pdf')
 #plt.show()
 
 # Plot D
@@ -191,7 +191,8 @@ plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2], paramsD[3]), 'g-', lab
 plt.ylabel(r'$U\,/\,mV$')
 plt.xlabel(r'$t\,/\,ms$')
 plt.xlim(0,16)
-plt.savefig('../Plots2/TD.pdf')
+plt.legend()
+#plt.savefig('../Plots2/TD.pdf')
 #plt.show()
 
 np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))
