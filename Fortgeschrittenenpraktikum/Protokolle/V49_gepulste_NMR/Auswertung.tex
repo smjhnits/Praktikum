@@ -1,14 +1,15 @@
 \section{Auswertung}
 
-In der folgenden Auswertung werden zuerst die beiden Relaxationszeiten $T\ua{1}$
-sowie $T\ua{2}$ bestimmt. Mithilfe von $T\ua{2}$ kann dann die Diffusionskonstante $D$ sowie
-der Molekülradius bestimmt werden. Der Molekülradius wird am Ende zudem mit
-den Radien verglichen, die sich aus dem Molekulargewicht und dem Van-der-Waals-Kovolumen
+In der folgenden Auswertung werden zuerst die beiden Relaxationszeiten $T\ua{1}$,
+sowie $T\ua{2}$ bestimmt. Wie in den vohrigen Kapiteln erläutert
+kann mit Hilfe von $T\ua{2}$ die Diffusionskonstante $D$ sowie
+der Molekülradius bestimmt werden. Der Molekülradius wird am Ende mit
+den Radien verglichen, die sich aus dem Molekulargewicht und dem Van-der-Waals Kovolumen
 ergeben.
 
 \subsection{Bestimmung der longitudinalen Relaxationszeit}% \text{$T\ua{1}$}}
 
-Die aufgenommenen Daten für die Bestimmung von $T\ua{1}$ sind Tabelle \ref{tab:T1}
+Die aufgenommenen Daten zur Bestimmung von $T\ua{1}$ sind in Tabelle \ref{tab:T1}
 eingetragen sowie in Abbildung \ref{fig:T1} grafisch dargestellt.
 \input{../Tabellen/T1.tex}
 Um $T\ua{1}$ zu bestimmen werden die experimentellen Daten an eine Exponentialfunktion
@@ -16,11 +17,11 @@ der folgenden Form gefittet:
 \begin{equation}
   U(t) = M\ua{0}(1-2\exp{(-\frac{t}{T_1})})+M\ua{1}.
 \end{equation}
-Für die verschiedenen Parameter ergeben sich damit folgende Werte:
+Für die verschiedenen Parameter ergeben sich damit folgenden Werte:
 \begin{align}
-  M\ua{0} &= (0.73\pm0.02)\,\si{V} \\
-  M\ua{1} &= (0.04\pm0.03)\,\si{V} \\
-  T\ua{1} &= (1.54\pm0.12)\,\si{s}.
+  M\ua{0} &= \SI{0.73(2)}{\volt} \\
+  M\ua{1} &= \SI{0.04(3)}{\volt} \\
+  T\ua{1} &= \SI{1.54(12)}{\second}.
 \end{align}
 \begin{figure}
   \centering
@@ -33,15 +34,16 @@ Für die verschiedenen Parameter ergeben sich damit folgende Werte:
 \label{subsec:T2}
 
 Um die transversale Relaxationszeit $T\ua{2}$ zu bestimmen wird das Meiboom-Gill Verfahren
-verwendet. Zudem ist in Abbildung \ref{fig:T2CP} einmal die Burstsequenz mit dem
+verwendet. Zudem ist in Abbildung \ref{fig:T2CP} einmal der Signalverlauf des
 Carr-Purcell-Verfahren dargestellt.
-\begin{figure}\centering
+\begin{figure}[h]
+  \centering
   \includegraphics[width=0.8\textwidth]{Plots2/T2CP.pdf}
   \caption{Signale der transversalen Magnetisierung mit der Carr-Purcell-Methode
-  bei einem Pulsabstand von $\tau = \SI{2}{ms}$. }
+  bei einem Pulsabstand von $\tau = \SI{2}{ms}$.}
   \label{fig:T2CP}
 \end{figure}
-In Abbildung \ref{fig:T2} ist die Burstsequenz mit der Meiboom-Gill Methode
+In Abbildung \ref{fig:T2} ist die Burstsequenz der Meiboom-Gill Methode
 dargestellt. Um $T\ua{2}$ zu bestimmen, werden alle Spannungsamplitudem bei
 ganzzahligen Vielfachen von $2\tau$ verwendet. Die verwendeten Peaks sind als
 rot gefärbte Datenpunkte markiert. Mit den in Tabelle \ref{tab:T2Ex} eingetragenen
@@ -52,23 +54,23 @@ extrahierten Daten wird ein Fit der Form
 durchgeführt.
 Für die verschiedenen Parameter ergeben sich dabei folgende Werte:
 \begin{align*}
-  M\ua{0} &= (0.59\pm0.02)\,\si{V}\\
-  M\ua{1} &= (0.04\pm0.03)\,\si{V}\\
-  T\ua{2} &= (1.54\pm0.12)\,\si{s}.
+  M\ua{0} &= \SI{0.59(2)}{\volt}\\
+  M\ua{1} &= \SI{0.04(3)}{\volt}\\
+  T\ua{2} &= \SI{1.54(12)}{\second}.
 \end{align*}
-Die extrahierten Messwerte sowie der FIt sind noch einmal in Abbildung \ref{fig:T2Log} mit
-logarithmierter Y-Achse dargestellt.
-\begin{figure}
+Die extrahierten Messwerte sowie der Fit sind in Abbildung \ref{fig:T2Log} mit
+logarithmierter $y$-Achse dargestellt.
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{Plots2/T2.pdf}
   \caption{Die aufgenommenen Spannungsamplituden unter Verwendung der
-  Meiboom-Gill-Methode bei einem Pulsabstand von $\tau = \SI{2}{ms}$.}
+  Meiboom-Gill-Methode bei einem Pulsabstand von $\tau = \SI{2}{\milli\second}$.}
   \label{fig:T2}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{Plots2/T2Log.pdf}
-  \caption{Darstellung der extrahierten Punkte mit logarithmierter Y-Achse.}
+  \caption{Darstellung der extrahierten Punkte mit logarithmierter $y$-Achse.}
   \label{fig:T2Log}
 \end{figure}
 \input{Tabellen/T2Ex.tex}
@@ -80,18 +82,18 @@ Bevor die Diffusionskonstante bestimmt werden kann, muss vorher der Feldgradient
 bestimmt werden. Dafür wurden bei der Messung der Echos für die Bestimmung
 der Diffusionskonstante ebenfalls die Halbwertsbreiten bestimmt. Die verwendeten
 Daten sind in Tabelle \ref{tab:D} eingetragen. Für die gemittelte
-Halbwertsbreite ergibt sich dabei $t\ua{1/2} = (0.9\pm0.3)\,\si{\milli\second}$.
+Halbwertsbreite ergibt sich dabei $t\ua{1/2} = \SI{0.9(3)}{\milli\second}$.
 Der Feldgradient lässt sich anschließend gemäß der folgenden Formel
 bestimmen:
 \begin{equation}
-  G = \frac{8.8}{d\ua{P}\gamma t\ua{1/2}}
+  G = \frac{8,8}{d\ua{P}\gamma t\ua{1/2}}
 \end{equation}
 Dabei handelt es sich bei $d\ua{P} = \SI{4.4}{mm}$ um den Probendurchmesser
-und bei $gamma = \SI{2.68E8}{rad\per\second\per\tesla}$ um das gyromagnetische
+und bei $\gamma = \SI{2.68E8}{rad\per\second\per\tesla}$ um das gyromagnetische
 Verhältnis von Protonen \cite{Gyro}. Mit der gemessenen Halbwerstbreite ergibt
 sich für den Feldgradienten somit
 \begin{equation*}
-  G = (80\pm3)\,\si{\milli\tesla\per\meter}
+  G = \SI{80(3)}{\milli\tesla\per\meter}
 \end{equation*}
 
 Die aufgenommenen Messwerte für die Bestimmung der Diffusionskonstante $D$ sind in
@@ -103,14 +105,14 @@ Um $D$ zu bestimmen wird ein Fit gemäß der folgenden Funktion durchgeführt:
 Für $T\ua{2}$ wird der in Abschnitt \ref{subsec:T2} bestimmte Wert verwendet.
 Dabei ergeben sich folgende Parameter:
 \begin{align*}
-  M\ua{0} &= (-0.67\pm0.03)\,\si{\milli\volt}\\
-  M\ua{1} &= (-0.04\pm0.03)\,\si{\milli\volt}\\
-  b &= (0.008\pm0.006)\\
-  d &= (0.00029\pm0.00004)\,\si{\per\milli\second\cubed}.
+  M\ua{0} &= \SI{-0.67(3)}{\milli\volt}\\
+  M\ua{1} &= \SI{-0.04(3)}{\milli\volt}\\
+  b &= \num{8(6)e-3}\\
+  d &= \SI{29(4)e-5}{\per\milli\second\cubed}.
 \end{align*}
 Die Diffusionskonstante ergibt sich aus Gleichung \eqref{eqn:diffusion}:
 \begin{equation*}
-  D = (1.9\pm0.3)\cdot10^{-9}\,\si{\meter\squared\per\second}.
+  D = \SI{1.9(3)e-9}{\meter\squared\per\second}.
 \end{equation*}
 
 \input{Tabellen/D.tex}
@@ -130,20 +132,20 @@ Die Viskosität des destillierten Wassers lässt sich über
 \begin{equation}
   \eta(T) = \alpha\rho(t-\delta)
 \end{equation}
-bestimmen, wobei $\alpha = 1.024\cdot10^{-9}\,\si{\meter\squared\per\second\squared}$
-die Eichkonstante der Apparatur, $\delta = 0.5\, \si{\second}$ ein Korrekturglied
+bestimmen, wobei $\alpha = 1,024\cdot10^{-9}\,\si{\meter\squared\per\second\squared}$
+die Eichkonstante der Apparatur, $\delta = 0,5\, \si{\second}$ ein Korrekturglied
 und $\rho = 997\,\si{\kilogram\per\meter\cubed}$ die Dichte des Wassers ist.
 Für die gemessene Zeit von $t=898\,\si{\second}$ ergibt sich somit
 \begin{equation*}
   \eta(20°C) = 0.92\,\si{\milli\pascal\second}
 \end{equation*}
 Mithilfe der Diffusionskonstante lässt sich nun der Molekülradius
-gemäß folgender Formel bestimmen:
+gemäß~\eqref{eqn:diffkonst} bestimmen:
 \begin{equation}
   r\ua{D} = \frac{k\ua{B}T}{6\pi\eta D}.
 \end{equation}
-Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte sowie
-mithilfe des Van-der-Waal Kovolumens \cite{VdW} bestimmt werden:
+Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte
+mithilfe des Van-der-Waal Kovolumens~\cite{VdW} berechnet werden:
 \begin{align}
   r_{\text{MG}} = \left(\frac{3}{4\pi}\cdot0.74\cdot\frac{M}{\rho N\ua{A}}\right)^{1/3}\\
   r\ua{VdW} = \left(\frac{3}{4\pi}\cdot V\ua{Ko}\right)^{1/3}.
@@ -151,31 +153,31 @@ mithilfe des Van-der-Waal Kovolumens \cite{VdW} bestimmt werden:
 Für den Molekülradius erhält man mit den verschiedenen Formeln folgende
 Ergebnisse:
 \begin{align*}
-  r\ua{D} &= (1.24\pm0.17)\,\si{\angstrom} \\
-  r_{\text{MG}} &= 1.74\,\si{\angstrom} \\
-  r\ua{VdW} &= 1.45\,\si{\angstrom}
+  r\ua{D} &= \SI{1.24(17)}{\angstrom} \\
+  r_{\text{MG}} &= \SI{1.74}{\angstrom} \\
+  r\ua{VdW} &= \SI{1.45}{\angstrom}
 \end{align*}
 
 \newpage
 \section{Diskussion}
 
 Bei den Messungen der transversalen und der longitudinalen Relaxationszeiten lassen
-sich beides Mal die aufgenommenen Datenpunkte sehr gut durch die verwendeten
+sich beide Male die aufgenommenen Datenpunkte sehr gut durch die verwendeten
 Fitfunktionen beschreiben (vergleiche Abblidungen \ref{fig:T1} und \ref{fig:T2}).
-Für beide Zeiten ergeben sich relativ geringe Fehler:
+Für beide Zeiten ergeben sich geringe Fehler:
 \begin{align*}
-T\ua{1} &= (1.54\pm0.12)\,\si{s} \\
-T\ua{2} &= (1.54\pm0.12)\,\si{s}.
+T\ua{1} &= \SI{1.54(12)}{s} \\
+T\ua{2} &= \SI{1.54(12)}{s}.
 \end{align*}
 Auch bei der Bestimmung des Diffusionskoeffizienten zeigen sich nur geringe Abweichungen
 von der verwendeten Fitfunktion. Zur Bestimmung des für den Koeffizienten
 benötigte Halbwertsbreite wurde mehrfach bestimmt. Gegenüber des Literaturwertes
 \cite{D}
 für den Diffusionskoeffizienten von Sauerstoff in Wasser bei $\SI{25}{\celsius}$
-ergibt sich eine geringe Abweichung von $\increment D = 9.5\,\%$:
+ergibt sich eine geringe Abweichung von $\increment D = 9,5\,\%$:
 \begin{align*}
-  D &= (1.9\pm0.3)\cdot10^{-9}\,\si{\meter\squared\per\second} \\
-  D\ua{lit} &= 2.1 \cdot10^{-9}\,\si{\meter\squared\per\second}.
+  D &= \SI{1.9(3)e-9}{\meter\squared\per\second} \\
+  D\ua{lit} &= \SI{2.1e-9}{\meter\squared\per\second}.
 \end{align*}
 Es muss jedoch beachtet werden, dass dieses Experiment bei einer Temperatur
 von $\SI{20}{\celsius}$ durchgeführt wurde. Zudem wurde schon bei Durchführung
@@ -186,9 +188,9 @@ obwohl dieser Wert eigentlich konstant sein sollte.
 Für die bestimmten Molekülradien zeigen sich vergleichsweise große Abweichungen
 zwischen den einzelnen Methoden von bis zu $29\%$(zw. $r\ua{D}$ und $r_{\text{MG}}$):
 \begin{align*}
-  r\ua{D} &= (1.24\pm0.17)\,\si{\angstrom} \\
-  r_{\text{MG}} &= 1.74\,\si{\angstrom} \\
-  r\ua{VdW} &= 1.45\,\si{\angstrom}.
+  r\ua{D} &= \SI{1.24(17)}{\angstrom} \\
+  r_{\text{MG}} &= \SI{1.74}{\angstrom} \\
+  r\ua{VdW} &= \SI{1.45}{\angstrom}.
 \end{align*}
 Die verwendten Werte liegen jedoch alle im selben Größenbereich und passen gut zu
 den Literaturwerten für die einzelnen Molekülradien von Wasserstoff und Sauerstoff.
