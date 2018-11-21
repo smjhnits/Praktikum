@@ -4,12 +4,8 @@
 In dem Versuch wird die Molwärme $C\ua{p}$ nach Formel~\eqref{eqn:c_p}
 bestimmt. Die in Kapitel~\label{sec:wärmekapazität} enthaltene Tabelle~\ref{tab:c_p}
 zeigt die Ergebnisse der Wärmekapazität $C\ua{p}$ für verschiedene Temperaturen.
-Damit für die Temperaturdifferenzen $\increment T$ und Zeitdifferenzen $\increment t$
-in Formel~\eqref{eqn:c_p}
-Werte für die Spannung $U$ und des Stroms $I$ über das betrachtete Intervall
-verwendet werden,
-werden die über das jeweilige Intervall gemittelte Werte $\bar{U}$ und $\bar{I}$
-verwendet.
+Für den Strom $I$ wird ein Fehler von $\Delta_I = \SI{0.1}{\milli\ampere}$ und
+für die Spannung $U$ ein Fehler von $\Delta_U = \SI{0.01}{\volt}$ angenommen.
 
 \subsection{Verlauf der Temperaturen}
 
@@ -57,7 +53,7 @@ Diese sind in Abb.~\ref{fig:c_v} rot makiert.
   \label{fig:alpha}
 \end{figure}
 
-\input{Tabellen/C_p.tex}
+\input{Tabellen/C_p_err.tex}
 
 \FloatBarrier
 \begin{figure}
@@ -75,13 +71,15 @@ mit den Daten der Wertetabelle verglichen werden, sodass
 der zugehörige $\left(\frac{\theta\ua{D}}{T}\right)$--Wert nach Multiplikation
 mit der Temperatur $T$ die Debye-Temperatur ergibt.
 Die gefundenen Debye-Temperaturen sind in Tab.~\ref{tab:debye} angegeben.
-Es werden nur Wärmekapazitäten bis zu $T = \SI{170}{\kelvin}$ berücksichtigt.\\
+Es wird angenommen, dass das Verhältnis von $\frac{\theta_{\symup{D}}}{T}$
+bis auf $\pm 0,3$ bekannt ist.
+Dabei werden nur Wärmekapazitäten bis zu $T = \SI{170}{\kelvin}$ berücksichtigt.\\
 Der experimentelle Wert der Debye-Temperatur $\theta\ua{D, exp}$ ergibt sich aus dem Mittelwert
 der Daten aus Tabelle~\ref{tab:debye}.
 
 \begin{equation}
   \label{eqn:debye}
-  \theta\ua{D, exp} = \SI{313(19)}{\kelvin}
+  \theta\ua{D, exp} = \SI{313(22)}{\kelvin}
 \end{equation}
 
 \subsection{Berechnung von $\omega\ua{D}$ und $\theta\ua{D}$}
@@ -120,11 +118,9 @@ $3R \approx \SI{24.942}{\joule\per\kelvin\per\mol}$ überschreiten.
 Das asymptotische Verhalten der Wärmekapazität $C\ua{V}$ gegen den
 Dulong-Petit-Wert in Abb. \ref{fig:c_v} ist dennoch zu erkennen.
 
-Bessere Messwerte könnten beispielsweise durch langsameres Aufheizen der Probe und des Zylinders und
-erhöhte Datennahme erreicht werden.
 \newpage
 \pagestyle{empty}
 \section{Tabellen}
 \label{sec:tabellen}
-\input{Tabellen/C_V.tex}
-\input{Tabellen/T_debye.tex}
+\input{Tabellen/C_V_err.tex}
+\input{Tabellen/T_debye_err.tex}
