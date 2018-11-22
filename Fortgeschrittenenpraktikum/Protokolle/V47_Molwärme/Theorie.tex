@@ -10,8 +10,8 @@ verglichen.
 \subsection{Das klassische Modell}
 
 Nach dem Äquipartitionsprinzip wird die einem Körper zugeführte Wärmemenge
-gleichmäßig auf alle Bewegungsfreiheitsgrade der Atome verteilt. Die mittlere
-Energie eines einzelnen Atoms beträgt dabei $\frac{1}{2}k\ua{B}T$. Die Atome in
+gleichmäßig auf alle Bewegungsfreiheitsgrade der Atome verteilt. Die mittlere kinetische
+Energie eines einzelnen Atoms beträgt dabei $\frac{1}{2}k\ua{B}T$ pro Freiheitsgrad. Die Atome in
 einem Festkörper sind an festen Gitterplätzen lokalisiert, um die sie eine Schwingung
 in drei senkrecht aufeinander stehende Richtungen ausführen können. Da bei harmonischen
 Schwingungen die potentielle Energie gleich der kinetischen Energie ist, ergibt
@@ -65,13 +65,18 @@ asymptotisches Verhalten mit
 Im Gegensatz zum klassischen Modell wird hier somit die Abnahme der Molwärme mit
 abnehmender Temperatur beschrieben. Jedoch zeigen sich insbesondere bei tiefen
 Temperaturen Abweichungen zur experimentellen Kurve.
-
+Für geringe Temperaturen ist der Verlauf der Molwärme im Einstein-Modell durch
+eine Exponentialfunktion gegeben
+\begin{equation}
+  \lim\limits_{T \rightarrow 0} \propto \exp{(-\Theta\ua{E}/T)} \rightarrow 0,
+\end{equation}
+mit der Einstein-Temperatur $\Theta\ua{E} = \frac{\hbar\omega\ua{E}}{k\ua{B}}$.
 \subsection{Debye-Modell}
 \label{sec:debye}
 
-Im Debye-Modell wird im Gegensatz zum Einstein-Modell beachtet, dass die verschiedenen
-Atome mit unterschiedlichen Frequenzen $\omega$ schwingen. Statt der singulären
-Einstein-Frequenz wird hier die spektrale Verteilung der Eigenschwingungen $Z(\omega)$
+Im Debye-Modell wird im Gegensatz zum Einstein-Modell beachtet, dass die Frequenzen der
+verschiedenen Atome gemäß der spektralen Verteilung $Z(\omega)$ verteilt sind.
+Statt der singulären Einstein-Frequenz wird hier $Z(\omega)$
 in die Rechnung mit einbezogen. Die Funktion kann jedoch sehr kompliziert sein,
 weshalb auch im Debye-Modell eine Näherung eingeführt wird. Es wird angenommen,
 dass die Phasengeschwindigkeit einer elastischen Welle weder von der Ausbreitungsrichtung
@@ -178,7 +183,7 @@ Anschließend wird über die Heliumflasche Helium in den Rezipienten geleitet un
 umliegende Dewar-Gefäß mit Stickstoff gefüllt, um die Probe sowie den Kupferzylinder
 auf eine Temperatur von $\SI{80}{K}$ abzukühlen. Durch das Helium kann verhindert
 werden, dass sich innerhalb des Rezipienten verschiedene Bestandteile der Luft
-verflüssigen oder kristalliesieren. Sobald die Probe und der Zylinder auf $\SI{80}{K}$
+verflüssigen oder kristaliesieren. Sobald die Probe und der Zylinder auf $\SI{80}{K}$
 abgekühlt sind, wird das Ventil zur Vakuumpumpe wieder geöffnet und der Rezipient
 erneut evakuiert. Anschließend werden langsam die Temperatur der Probe und des
 Zylinders erhöht. Dafür wird bei dem Konstantstromgerät der Heizwicklung für die
