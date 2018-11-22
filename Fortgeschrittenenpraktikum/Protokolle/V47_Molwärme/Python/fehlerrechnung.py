@@ -170,7 +170,7 @@ delta_T_probe_bis170K = T_probe_bis170K[1:] - T_probe_bis170K[:len(T_probe_bis17
 C_V_cu_debye = C_V_cu[:len(T_probe_bis170K) - 1]
 
 debye_experimentell = data.debye_tabelle * T_probe_bis170K[1:]
-debye_err  = np.ones(len(data.debye_tabelle)) * 0.03 * T_probe_bis170K[1:]
+debye_err  = np.ones(len(data.debye_tabelle)) * 0.1 * T_probe_bis170K[1:]
 
 print("\n", "###############################################################################", "\n", "\n", 'C_V: ', C_V_cu_debye)
 print("\n", "###############################################################################", "\n", "\n", 'T: ', T_probe_bis170K)
@@ -179,5 +179,4 @@ print('T_debye experimentell Mittelwert, STD: ', np.mean(debye_experimentell), n
 print('T_debye Abweichung: ', 1 - np.mean(debye_experimentell) / np.mean(T_debye))
 print(f'T_debye Fehler: {debye_err}, {np.mean(debye_err)}')
 
-np.average(debye_experimentell, weights=1 / debye_err)
 print(np.average(debye_experimentell, weights=1 / debye_err))
