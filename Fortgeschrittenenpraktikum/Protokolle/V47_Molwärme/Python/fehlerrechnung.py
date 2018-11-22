@@ -178,3 +178,6 @@ print("\n", "###################################################################
 print('T_debye experimentell Mittelwert, STD: ', np.mean(debye_experimentell), np.std(debye_experimentell))
 print('T_debye Abweichung: ', 1 - np.mean(debye_experimentell) / np.mean(T_debye))
 print(f'T_debye Fehler: {debye_err}, {np.mean(debye_err)}')
+
+np.average(debye_experimentell, weights=1 / debye_err)
+print(np.average(debye_experimentell, weights=1 / debye_err))
