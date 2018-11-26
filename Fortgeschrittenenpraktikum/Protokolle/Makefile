@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		# mkdir -p V49_gepulste_NMR/Tabellen
-		# mkdir -p V49_gepulste_NMR/Pics
-		# mkdir -p V49_gepulste_NMR/Python
-		# touch V49_gepulste_NMR/Auswertung.tex
-		# touch V49_gepulste_NMR/V61_main.tex
-		# touch V49_gepulste_NMR/Theorie.tex
-		# touch V49_gepulste_NMR/lit.bib
-		# touch V49_gepulste_NMR/Makefile
-		# touch V49_gepulste_NMR/Pics/savedatei.txt
-		# touch V49_gepulste_NMR/Python/savedatei.txt
-	  # touch V49_gepulste_NMR/Tabellen/savedatei.txt
-		# cp -r Praeambel_prak.tex V49_gepulste_NMR/
+		# mkdir -p V46_Faraday/Tabellen
+		# mkdir -p V46_Faraday/Pics
+		# mkdir -p V46_Faraday/Python
+		# touch V46_Faraday/Auswertung.tex
+		# touch V46_Faraday/V46_main.tex
+		# touch V46_Faraday/Theorie.tex
+		# touch V46_Faraday/lit.bib
+		# touch V46_Faraday/Makefile
+		# touch V46_Faraday/Pics/savedatei.txt
+		# touch V46_Faraday/Python/savedatei.txt
+	  # touch V46_Faraday/Tabellen/savedatei.txt
+		# cp -r Praeambel_prak.tex V46_Faraday/
 
 clean:
-		#rm -rf V49_gepulste_NMR
+		#rm -rf V46_Faraday
 .PHONY: clean all
