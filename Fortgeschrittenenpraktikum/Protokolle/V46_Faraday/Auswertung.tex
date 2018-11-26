@@ -1,9 +1,17 @@
 \section{Auswertung}
 \label{sec:auswertung}
 
-\input{Tabellen/hr_GaAs.tex}
-\input{Tabellen/Probe1.tex}
-\input{Tabellen/Probe2.tex}
+Im Folgenden wird die gemessene Magnetfeldstärke für verschiedene
+Tiefen der Hall-Sonde in den Elektromagneten visualisiert, sowie die
+effektive Masse von Elektronen in GaAs bestimmt.
+Die Auswertung ist mit Hilfe der \textit{python}-Pakete
+\textit{scipy\_curvefit} und \textit{numpy} bewerkstelligt worden.
+
+\subsection{Magnetfeld}
+
+Die gemessenen Werte des $B$-Feldes sind in Abbildung~\ref{fig:B} dargestellt.
+Auf eine Ausgleichrechnung für die Ermittlung von $B\ua{max}$ wird verzichtet,
+da in dem Bereich um den Hochpunkt von $B(s)$ ausreichend viele Messpunkte vorliegen.
 
 \begin{figure}
   \centering
@@ -19,9 +27,24 @@
   \label{fig:hr}
 \end{figure}
 
+\input{Tabellen/hr_GaAs.tex}
+
 \begin{figure}
   \centering
   \includegraphics[width = 0.9\textwidth]{Plots/dotiert_GaAs.pdf}
   \caption{Differenz der normierten Faraday-Rotationswinkel der dotierten GaAs Probe und der reinen GaAs Probe für verschiedene Wellenlängen $\lambda$.}
   \label{fig:dot}
 \end{figure}
+
+\input{Tabellen/Probe1.tex}
+\input{Tabellen/Probe2.tex}
+
+\begin{equation}
+  \label{eqn:eff_m_1}
+  m^*_1 = \SI{6.3e-32(15)}
+\end{equation}
+
+\begin{equation}
+  \label{eqn:eff_m_2}
+  m^*_2 = \SI{7.2e-32(20)}
+\end{equation}
