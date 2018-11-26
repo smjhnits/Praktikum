@@ -55,8 +55,8 @@ theta_2_2 = winkel(data.theta_2_grad_2 + data.theta_1_min_2 / 60)
 theta_2 = np.abs(1 / 2 * (theta_1_2 - theta_2_2))
 theta_2_norm = theta_2 / d_2
 
-probe_1_fit, covariance_1 = curve_fit(fit_fkt, _lambda**2, theta_1_norm)
-probe_2_fit, covariance_2 = curve_fit(fit_fkt, _lambda**2, theta_2_norm)
+probe_1_fit, covariance_1 = curve_fit(fit_fkt, _lambda**2, theta_1_norm - hr_theta_norm)
+probe_2_fit, covariance_2 = curve_fit(fit_fkt, _lambda**2, theta_2_norm - hr_theta_norm)
 #hr_probe_fit, hr_covariance_2 = curve_fit(fit_fkt, _lambda**2, hr_theta_norm)
 
 probe_1_err = np.sqrt(np.diag(covariance_1))
@@ -64,8 +64,8 @@ probe_2_err = np.sqrt(np.diag(covariance_2))
 
 x = np.linspace(0.8, 2.7)
 plt.clf()
-plt.plot(_lambda**2, theta_1_norm, '.', color='C0', label=r'Probe 1', ms=10)
-plt.plot(_lambda**2, theta_2_norm, '.', color='C1', label=r'Probe 2', ms=10)
+plt.plot(_lambda**2, theta_1_norm - hr_theta_norm, '.', color='C0', label=r'Probe 1', ms=10)
+plt.plot(_lambda**2, theta_2_norm - hr_theta_norm, '.', color='C1', label=r'Probe 2', ms=10)
 plt.plot(x, fit_fkt(x, *probe_1_fit), '-', color='C0', label=r'Fit Probe 1')
 plt.plot(x, fit_fkt(x, *probe_2_fit), '-', color='C1', label=r'Fit Probe 2')
 plt.xlabel(r'$\lambda^2 / \mu m^2$')
