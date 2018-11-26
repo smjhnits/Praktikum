@@ -1,0 +1,51 @@
+\section{Theorie}
+
+In dem folgenden Versuch soll die effektive Masse von Elektronen in GaAs bestimmt
+werden. Eine mögliche Methode basiert dabei auf dem Faraday-Effekt. Als Faraday-Effekt
+bezeichnet man die Drehung der Polarisationsebene von linear polarisiertem
+Licht bei der Transmission in Materie. Die Grundlagen dieses Effektes und die
+daraus folgende Bestimmung der effektiven Masse sollen im folgenden bestimmt werden.
+
+\subsection{Effektive Masse}
+
+% Für die Dicke D einstzen
+Die Badstruktur eines Kristalles besitzt im Allgemeinen eine sehr komplizierte
+Struktur. Für die Beschreibung einiger Eigenschaften reicht es jedoch, lediglich
+den Verlauf der Energiedispersionsrelation $\varepsilon(\vec{k})$ an der unteren
+Bandkante des Leitungsbandes zu kennen. Entwickelt man die Energiedispersionsrelation
+um das Leitungsbandminimum bei $k=0$, ergibt sich unter Vergleich mit der
+Energie eines freien Elektrons die Definition der effektiven Masse:
+\begin{equation}
+  \frac{1}{m^*} := \frac{1}{\hbar^2}\left\{\frac{\partial^2\varepsilon}{\partial\varepsilon^2}\right\}_{k=0}.
+  \label{eqn:effMass}
+\end{equation}
+Die Energiedispersionsrelation enthält somit die folgenden Terme:
+\begin{equation}
+  \varepsilon(\vec{k}) = \varepsilon(0) + \frac{\hbar^2k_x^2}{2m^*_1}  + \frac{\hbar^2k_y^2}{2m^*_2} + \frac{\hbar^2k_z^2}{2m^*_3}.
+  \label{eqn:Energie}
+\end{equation}
+Für unterschiedliche $m^*_i$ ergibt sich im k-Raum somit ein Ellipsoid für Flächen
+konstanter Energie und im Fall gleich großer Massen eine kugelförmige Fläche.
+Es handelt sich dabei um die Energieeigenwerte der Schrödinger-Gleichung für
+freie Elektronen, weshalb bei den folgenden Rechnungen die Quantenmechanik
+freier Teilchen verwendet werden kann. Der Einfluss des periodischen Potentials
+wird somit in der Schrödinger-Gleichung komplett durch die effektive Masse
+berücksichtigt. Beim Anlegen äußerer Felder lässt sich das Verhalten gemäß
+des Newtonschen Kraftgesetztes
+\begin{equation}
+  \vec{F} = m\cdot\vec{a},
+  \label{eqn:Newton2}
+\end{equation}
+weshalb die Berechnung der Faraday-Rotation nach den Gesetzen der klassichen
+Mechanik berechnet werden kann.
+
+\subsection{Zirkulare Doppelbrechung}
+
+Die zirkulare Doppelbrechung beschreibt die Fähigkeit eines Materials, die Polarisationsebene
+von linear polarisiertem Licht bei der Transmission zu drehen. Zur Erklärung dieses
+Effektes wird im folgenden eine linear polarisierte Lichtwelle betrachtet, welche
+in einen linkszirkularen und einen rechtszirkularen Anteil zerlegt wird:
+\begin{equation}
+  E(z) = \frac{1}{2}(E\ua{R}(z)+E\ua{L}(z)) \; \text{mit} \; k\ua{R}\neq k\ua{L}.
+  \label{eqn:Zirkular}
+\end{equation}

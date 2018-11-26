@@ -195,4 +195,6 @@ plt.legend()
 #plt.savefig('../Plots2/TD.pdf')
 #plt.show()
 
-np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))
+np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))#
+
+# Korrektur
