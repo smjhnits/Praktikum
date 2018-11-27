@@ -122,7 +122,7 @@ möglichen Wellenzahlen
 \end{equation}
 ergeben sich somit auch zwei verschiedene Phasengeschwindigkeiten:
 \begin{equation}
-  v\ua{Ph,R} = \frac{c}{\sqrt{1+\chi\ua{xx}+\chi\ua{xy}}} \; \text{und} \;
+  v\ua{Ph,R} = \frac{c}{\sqrt{1+\chi\ua{xx}+\chi\ua{xy}}} \;\; \text{und} \;\;
   v\ua{Ph,L} = \frac{c}{\sqrt{1+\chi\ua{xx}-\chi\ua{xy}}}
   \label{eqn:PhasenV}
 \end{equation}
@@ -230,6 +230,7 @@ die Airysche Funktion beschrieben:
 Der Verlauf der Kurve ist für drei verschiedene Reflexionskoeffizienten in
 Abbildung \ref{fig:Airy} dargestellt.
 \begin{figure}
+  \centering
   \includegraphics[width=\textwidth]{Pics/Airy.pdf}
   \caption{Verlauf der Transmissionskurve eines Interferenzfilter für verschiedene
   Reflexionskoeffizienten. \cite{anleitung}}
@@ -262,3 +263,55 @@ nur für $E\ua{y}=0$ lösen. Somit handelt es sich hier um eine linear polarisie
 Welle. Analog ergibt sich $E\ua{x}=0$, wenn man zuerst $E\ua{y}\neq 0$ wählt.
 Es handelt sich also um eine Aufspaltung in zwei Strahlen, die aufgrund unterschiedlicher
 Phasengeschwindigkeiten senkrecht zueinander polarisiert sind.
+Bei der allgemeinen Lösung der Wellengleichung ergibt sich für den außerordentlichen
+Strahl eine Richtungsabhängigkeit. Die Achse, entlang derer
+der Brechungsindex für beide Strahlen gleich ist und somit keine Doppelbrechung
+auftritt, wird auch optische Achse genannt.
+
+Zur Trennung der beiden Strahlen
+wird ein doppelbrechender Kristall parallel zu seiner optischen Achse zerschnitten
+(siehe Abbildung \ref{fig:GTP}).
+Trifft der Lichtstrahl im richtigen Winkel auf die Grenzfläche zur Luftschicht,
+wird aufgrund der unterschiedlichen Brechungsindizes lediglich der ordentliche
+Strahl totalreflektiert, während der außerordentliche Strahl transmittiert.
+Im Falle von $n\ua{ao}<n\ua{o}$ gilt für den Winkel $\alpha$ dann folgende
+Ungleichung:
+\begin{equation}
+  \frac{1}{n\ua{o}} < \sin{(\alpha)} < \frac{1}{n\ua{ao}}
+  \label{eqn:Alpha}
+\end{equation}
+\begin{figure}
+  \centering
+  \includegraphics{Pics/GTP.pdf}
+  \caption{Schematischer Aufbau eines Glan-Thompson-Prismas (GTP)\cite{anleitung}.}
+  \label{fig:GTP}
+\end{figure}
+
+\newpage
+\section{Aufbau und Durchführung}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/Aufbau.pdf}
+  \caption{Schematischer Aufbau des Experimentes\cite{anleitung}.}
+  \label{fig:Aufbau}
+\end{figure}
+
+Der grundlegende Aufbau des Experimentes ist in Abbildung \ref{fig:Aufbau}
+dargestellt. Als Lichtquelle wird eine Halogen-Lampe verwendet, deren Lichtstrahlen
+mittels einer Kondensorlinse parallelisiert werden. Darauf folgt ein Lichtzerhacker,
+der das Licht mit einer einstellbaren Frequeuz modelliert. Als nächstes durchläuft
+der Strahl das erste GTP, welches mittels eines Goniometers gedreht werden kann.
+Mit dem GTP wird das für die Messung notwendige linear-polarisierte Licht erzeugt.
+Anschließend folgt ein Elektromagnet, in dessen Innerem sich die betrachtete
+Probe befindet. Aufgrund des relativ geringen Homogenitätbereiches wird eine
+scheibenförmige Probe verwendet, die über einen seitlichen Einlass in das
+Magnetfeld gebracht werden kann. Um eine bestimmte Wellenlänge des Lichtstrahls
+zu filtern, befindet sich hinter dem Magneten ein Interferenzfilter.
+
+Bei diesem Experiment wird zur genaueren Bestimmung des Rotationswinkels das
+sogenannte Zweistrahlverfahren verwendet. Dafür wird der resultierende Strahl
+nach dem Interferenzfilter in zwei Strahlen aufgeteilt, die von zwei verschiedenen
+Photodioden detektiert werden. Mittels eines Differenzverstärkers wird dann die
+Differenz der beiden Signale bestimmt und anschließend über ein Oszillographen
+angezeigt.
