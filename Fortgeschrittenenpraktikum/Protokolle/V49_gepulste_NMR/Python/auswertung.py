@@ -133,6 +133,9 @@ RadVdW = (3/(4*np.pi)*b/(4*Na))**(1/3)
 print('Die verschiedenen Radien lauten:' , '\n', 'Viskositätsradius: ', RadV , '\n',
         'Molekülgewicht: ' , RadMol, '\n', 'Van der Waal: ', RadVdW, '\n')
 
+D_lit = 2.1 *10**(-9)
+print('Abweichung der Diffusionskoeffizienten: ', 1-D/D_lit, '\n')
+
 # Plot T1
 
 t1 = np.linspace(0, 15, 10000)
@@ -152,7 +155,7 @@ plt.xscale('log')
 
 plt.clf()
 plt.plot(T2tau_CP, T2U_CP, 'b-', label = 'Signalhöhe')
-plt.xlabel(r'$\tau$ / $s$')
+plt.xlabel(r'$t$ / $s$')
 plt.ylabel(r'$U$ / $V$')
 plt.legend(loc = 'best')
 plt.xlim(np.min(T2tau_CP), np.max(T2tau_CP) )
@@ -192,10 +195,10 @@ plt.plot(D_tau, D_U, 'rx', label = 'Messwerte')
 #plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2], paramsD[3]), 'g-', label = 'Fit')
 plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2]), 'g-', label = 'Fit')
 plt.ylabel(r'$U\,/\,mV$')
-plt.xlabel(r'$t\,/\,ms$')
+plt.xlabel(r'$\tau\,/\,ms$')
 plt.xlim(0,16)
 plt.legend()
-plt.savefig('../Plots2/TD.pdf')
+#plt.savefig('../Plots2/TD.pdf')
 #plt.show()
 
 np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))#
