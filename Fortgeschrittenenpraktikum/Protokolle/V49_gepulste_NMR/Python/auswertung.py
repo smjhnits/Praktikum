@@ -81,17 +81,19 @@ print('Parameter für T1:', '\n', 'M0 = ', M0, ' V', '\n',
 
 # Bestimmung von TD
 
-def FitD(t, M0, M1, b, d):
-    return M0*np.exp(-t*b/T2)*np.exp(-t**3*2*d) + M1
+def FitD(t, M0, M1, d):
+    return M0*np.exp(-t/(T2*1000))*np.exp(-t**3*2*d) + M1
 
-paramsD, covarianceD = curve_fit(FitD, D_tau, D_U, p0=[-800, 120, 0.023, 0.0003])
+paramsD, covarianceD = curve_fit(FitD, D_tau, D_U, p0=[-800, 100, 0.0004])
 errorsD = np.sqrt(np.diag(covarianceD))
 M0 = ufloat( paramsD[0], errorsD[0])
 M1 = ufloat( paramsD[1], errorsD[1])
-b = ufloat( paramsD[2], errorsD[2])
-d = ufloat( paramsD[3], errorsD[3])
+d = ufloat( paramsD[2], errorsD[2])
+#b = ufloat( paramsD[2], errorsD[2])
+#d = ufloat( paramsD[3], errorsD[3])
 print('Parameter für TD:', '\n', 'M0 = ', M0, ' mV', '\n',
-     'M1 = ', M1, ' mV', '\n', 'b = ', b, '\n', 'd = ', d, ' 1/ms^3',  '\n')
+      'M1 = ', M1, '\n', 'd = ', d, ' 1/ms^3',  '\n')
+
 
 # Bestimmung der Diffusionskonstante
 
@@ -150,7 +152,7 @@ plt.xscale('log')
 
 plt.clf()
 plt.plot(T2tau_CP, T2U_CP, 'b-', label = 'Signalhöhe')
-plt.xlabel(r'$t$ / $s$')
+plt.xlabel(r'$\tau$ / $s$')
 plt.ylabel(r'$U$ / $V$')
 plt.legend(loc = 'best')
 plt.xlim(np.min(T2tau_CP), np.max(T2tau_CP) )
@@ -187,12 +189,13 @@ plt.legend()
 td = np.linspace(0,16)
 plt.clf()
 plt.plot(D_tau, D_U, 'rx', label = 'Messwerte')
-plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2], paramsD[3]), 'g-', label = 'Fit')
+#plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2], paramsD[3]), 'g-', label = 'Fit')
+plt.plot(td, FitD(td, paramsD[0], paramsD[1], paramsD[2]), 'g-', label = 'Fit')
 plt.ylabel(r'$U\,/\,mV$')
 plt.xlabel(r'$t\,/\,ms$')
 plt.xlim(0,16)
 plt.legend()
-#plt.savefig('../Plots2/TD.pdf')
+plt.savefig('../Plots2/TD.pdf')
 #plt.show()
 
 np.savetxt('T2ExD.txt', np.column_stack([T2tau_max[2::2], T2U_max[2::2]]))#

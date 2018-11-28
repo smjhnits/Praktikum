@@ -56,7 +56,7 @@ Für die verschiedenen Parameter ergeben sich dabei folgende Werte:
 \begin{align*}
   M\ua{0} &= \SI{0.59(2)}{\volt}\\
   M\ua{1} &= \SI{0.04(3)}{\volt}\\
-  T\ua{2} &= \SI{1.54(12)}{\second}.
+  T\ua{2} &= \SI{2.00(12)}{\second}.
 \end{align*}
 Die extrahierten Messwerte sowie der Fit sind in Abbildung \ref{fig:T2Log} mit
 logarithmierter $y$-Achse dargestellt.
@@ -82,7 +82,7 @@ Bevor die Diffusionskonstante bestimmt werden kann, muss vorher der Feldgradient
 bestimmt werden. Dafür wurden bei der Messung der Echos für die Bestimmung
 der Diffusionskonstante ebenfalls die Halbwertsbreiten bestimmt. Die verwendeten
 Daten sind in Tabelle \ref{tab:D} eingetragen. Für die gemittelte
-Halbwertsbreite ergibt sich dabei $t\ua{1/2} = \SI{0.9(3)}{\milli\second}$.
+Halbwertsbreite ergibt sich dabei $t\ua{1/2} = \SI{93(3)}{\micro\second}$.
 Der Feldgradient lässt sich anschließend gemäß der folgenden Formel
 bestimmen:
 \begin{equation}
@@ -100,20 +100,20 @@ Die aufgenommenen Messwerte für die Bestimmung der Diffusionskonstante $D$ sind
 Tabelle \ref{tab:D} eingetragen und in Abbildung \ref{fig:D} grafisch dargestellt.
 Um $D$ zu bestimmen wird ein Fit gemäß der folgenden Funktion durchgeführt:
 \begin{equation}
-  U(t) = M\ua{0}\cdot\exp{(-\frac{tb}{T\ua{2}})}\exp{(-2t^3d)}+M\ua{1}.
+  U(t) = M\ua{0}\cdot\exp{(-\frac{t}{T\ua{2}})}\exp{(-2t^3d)}+M\ua{1}.
 \end{equation}
 Für $T\ua{2}$ wird der in Abschnitt \ref{subsec:T2} bestimmte Wert verwendet.
 Dabei ergeben sich folgende Parameter:
 \begin{align*}
-  M\ua{0} &= \SI{-0.67(3)}{\milli\volt}\\
-  M\ua{1} &= \SI{-0.04(3)}{\milli\volt}\\
-  b &= \num{8(6)e-3}\\
-  d &= \SI{29(4)e-5}{\per\milli\second\cubed}.
+  M\ua{0} &= \SI{-642(15)}{\milli\volt}\\
+  M\ua{1} &= \SI{-57(14)}{\milli\volt}\\
+  d &= \SI{323(18)e-5}{\per\milli\second\cubed}.
 \end{align*}
 Die Diffusionskonstante ergibt sich aus Gleichung \eqref{eqn:diffusion}:
-\begin{equation*}
-  D = \SI{1.9(3)e-9}{\meter\squared\per\second}.
-\end{equation*}
+\begin{align*}
+  d &= \frac{DG^2\gamma^2}{3} \;\; \Leftrightarrow \;\; D = \frac{3d}{G^2\gamma^2}\\
+  D &= \SI{2.11(19)e-9}{\meter\squared\per\second}.
+\end{align*}
 
 \input{Tabellen/D.tex}
 
@@ -144,16 +144,16 @@ gemäß~\eqref{eqn:diffkonst} bestimmen:
 \begin{equation}
   r\ua{D} = \frac{k\ua{B}T}{6\pi\eta D}.
 \end{equation}
-Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte
-mithilfe des Van-der-Waal Kovolumens~\cite{VdW} berechnet werden:
+Zudem kann der Molekülradius aus dem Molekülgewicht und der Dichte~\cite{Wasser} und
+mithilfe des Van-der-Waal Kovolumens~\cite{VdW2} berechnet werden:
 \begin{align}
   r_{\text{MG}} = \left(\frac{3}{4\pi}\cdot0.74\cdot\frac{M}{\rho N\ua{A}}\right)^{1/3}\\
-  r\ua{VdW} = \left(\frac{3}{4\pi}\cdot V\ua{Ko}\right)^{1/3}.
+  r\ua{VdW} = \left(\frac{3}{4\pi}\cdot V\ua{Ko}\right)^{1/3} \cite{VdW},.
 \end{align}
 Für den Molekülradius erhält man mit den verschiedenen Formeln folgende
 Ergebnisse:
 \begin{align*}
-  r\ua{D} &= \SI{1.24(17)}{\angstrom} \\
+  r\ua{D} &= \SI{1.11(10)}{\angstrom} \\
   r_{\text{MG}} &= \SI{1.74}{\angstrom} \\
   r\ua{VdW} &= \SI{1.45}{\angstrom}
 \end{align*}
@@ -166,8 +166,8 @@ sich beide Male die aufgenommenen Datenpunkte sehr gut durch die verwendeten
 Fitfunktionen beschreiben (vergleiche Abblidungen \ref{fig:T1} und \ref{fig:T2}).
 Für beide Zeiten ergeben sich geringe Fehler:
 \begin{align*}
-T\ua{1} &= \SI{1.54(12)}{s} \\
-T\ua{2} &= \SI{1.54(12)}{s}.
+T\ua{1} &= \SI{1.54(12)}{\second} \\
+T\ua{2} &= \SI{1.54(12)}{\second}.
 \end{align*}
 Auch bei der Bestimmung des Diffusionskoeffizienten zeigen sich nur geringe Abweichungen
 von der verwendeten Fitfunktion. Zur Bestimmung des für den Koeffizienten
