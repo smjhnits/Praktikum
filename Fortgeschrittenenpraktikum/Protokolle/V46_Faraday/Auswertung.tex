@@ -4,23 +4,42 @@
 Im Folgenden wird die gemessene Magnetfeldstärke für verschiedene
 Tiefen der Hall-Sonde in den Elektromagneten visualisiert, sowie die
 effektive Masse von Elektronen in GaAs bestimmt.
+Dafür wird der Faraday-Rotationswinkel in hochreinen GaAs bestimmt, sodass
+das Einwirken der gebundenen Elektronen in GaAs auf den Rotationswinkel bekannt ist.
+Weiterhin werden die Faraday-Rotationswinkel in zwei dotierten Proben
+gemessen, sodass der Einfluss von freien Eletronen auf den Rotationswinkel
+ermittelt werden können.
 Die Auswertung ist mit Hilfe der \textit{python}-Pakete
 \textit{scipy\_curvefit} und \textit{numpy} bewerkstelligt worden.
+Konstanten wie die Elektronenmasse $m_e$ oder die dielektrische Konstante $\epsilon_0$
+sind dem \textit{python}-Paket \textit{scipy\_constants} entnommen.
 
 \subsection{Magnetfeld}
 
 Die gemessenen Werte des $B$-Feldes sind in Abbildung~\ref{fig:B} dargestellt.
 Auf eine Ausgleichrechnung für die Ermittlung von $B\ua{max}$ wird verzichtet,
 da in dem Bereich um den Hochpunkt von $B(s)$ ausreichend viele Messpunkte vorliegen.
-
-\begin{figure}
+An der Stelle des maximalen Magnetfeldes wird die Probe eingesetzt.
+Das maximale $B$-Feld ergibt sich zu
+\begin{equation}
+  \label{eqn:b_max}
+  B\ua{max} = \SI{426}{\milli\tesla}.
+\end{equation}
+\vspace{-10pt}
+\begin{figure}[h]
   \centering
-  \includegraphics[width = 0.9\textwidth]{Plots/B.pdf}
+  \includegraphics[width = 0.8\textwidth]{Plots/B.pdf}
   \caption{Gemessene Werte des Magnetfeldes $B$ für verschiedene Tiefen der Hall-Sonde.}
   \label{fig:B}
 \end{figure}
-
-\begin{figure}
+\FloatBarrier
+\subsection{Hochreines GaAs}
+Der Faraday-Rotationswinkel der hochreine GaAs-Probe wird bestimmt, damit
+dieser als Referenzwert für den Einfluss der gebundenen Kristallelektronen
+bekannt ist. Die gemessenen Rotationswinkel $\theta$ sind in Abb.~\ref{fig:hr}
+dargestellt.
+Tabelle~\ref{tab:hr} enthält die aufgezeichneten Daten.
+\begin{figure}[h]
   \centering
   \includegraphics[width = 0.9\textwidth]{Plots/hr_GaAs.pdf}
   \caption{Normierte Faraday-Rotationswinkel der reinen GaAs Probe für verschiedene Wellenlängen $\lambda$.}
@@ -28,23 +47,82 @@ da in dem Bereich um den Hochpunkt von $B(s)$ ausreichend viele Messpunkte vorli
 \end{figure}
 
 \input{Tabellen/hr_GaAs.tex}
+\FloatBarrier
+\subsection{Dotiertes GaAs}
+Im Folgenden wird die effektive Masse von freien Elektronen in GaAs kann bestimmt.
+Die Tabellen~\ref{tab:probe1} und~\ref{tab:probe2}
+enthalten die ermittelten Daten zu den dotierten Proben.
+In Abbildung~\ref{fig:dot} sind die normierten und von dem
+Referenzwinkel subtrahierten Faraday-Rotationswinkel
+$\Delta\theta\ua{Norm}$
+gegenüber $\lambda^2$ aufgetragen.
+Die Ausgleichgeraden sind im Ursprung fixiert und haben somit
+die Gestalt
+\begin{equation}
+  \label{eqn:fit}
+  \Delta\theta\ua{Norm}\left(\lambda^2\right) = a\cdot\lambda^2
+\end{equation}
+Die Regressionsparameter zu~\eqref{eqn:fit} der einzelnen Proben
+in Abb.~\ref{fig:dot} sind
 
+Probe 1:
+\begin{equation}
+  \label{eqn:fit_1}
+  a_1 = \SI{147(21)e-1}{\radian\per\nm^3}\\
+\end{equation}
+Probe 2:
+\begin{equation}
+  \label{eqn:fit_2}
+  a_2 = \SI{210(25)e-1}{\radian\per\nm^3}.\\
+\end{equation}
 \begin{figure}
   \centering
-  \includegraphics[width = 0.9\textwidth]{Plots/dotiert_GaAs.pdf}
-  \caption{Differenz der normierten Faraday-Rotationswinkel der dotierten GaAs Probe und der reinen GaAs Probe für verschiedene Wellenlängen $\lambda$.}
+  \includegraphics[width = \textwidth]{Plots/dotiert_GaAs.pdf}
+  \caption{Differenz der normierten Faraday-Rotationswinkel der dotierten GaAs
+  Probe und der reinen GaAs Probe für verschiedene Wellenlängen $\lambda$.}
   \label{fig:dot}
 \end{figure}
-
+\FloatBarrier
+\newpage
 \input{Tabellen/Probe1.tex}
 \input{Tabellen/Probe2.tex}
-
+\FloatBarrier
+Die effektive Elektronenmasse $m^*$ von freien Elektronen wird mitteld Formel~\eqref{eqn:m_eff}
+berechnet. Dabei wird die Formel nach $m$ aufgelöst und $m$ wird durch $m^*$ ersetzt.
+Es ergibt sich
 \begin{equation}
+  \label{eqn:m_eff_real}
+  m^* = \sqrt{\frac{e_0**3}{8\pi^2\epsilon_0c^3n\ua{GaAs}}d\cdot B\ua{max}N\frac{\lambda^2}{\theta}}.
+\end{equation}
+Dabei wird der Brechungsindex für GaAs $n\ua{GaAs} = \num{3.4}$ aus Quelle~\cite{semiconductors}
+entnommen.
+Aus Formel~\eqref{eqn:m_eff_real} ergeben sich für die dotierten GaAs Proben
+die folgenden effektiven Massen.
+\begin{align}
   \label{eqn:eff_m_1}
-  m^*_1 = \SI{6.3e-32(15)}
-\end{equation}
+  m^*\ua{dick} &= \SI{6.3(15)e-32}{\kg}\\
+  \label{eqn:meff_1/m_e}
+  \frac{m^*\ua{dick}}{m_e} &= \num{0.069(16)}
+\end{align}
 
-\begin{equation}
+\begin{align}
   \label{eqn:eff_m_2}
-  m^*_2 = \SI{7.2e-32(20)}
-\end{equation}
+  m^*\ua{dünn} &= \SI{7.2(20)e-32}{\kg}\\
+  \label{eqn:meff_2/m_e}
+  \frac{m^*\ua{dünn}}{m_e} &= \num{0.079(22)}
+\end{align}
+
+\section{Diskussion}
+Die relativ große Messunsicherheit der effektiven Massen in~\eqref{eqn:eff_m_1}
+und~\eqref{eqn:eff_m_2} werden anhand von Abbildung~\ref{fig:dot}
+ersichtlich.
+Der lineare Zusammenhang zwischen dem Faraday-Rotationswinkel und dem
+Quadrat der Wellenlänge ist grob erkenntlich. Einige der gemessenen
+Datenpunkte weichen deutlich von der Ausgleichgeraden ab.
+Die statischtischen Fehler könnten durch das Ausmessen für mehr Wellenlängen
+reduziert werden. Zudem könnten die auftretenden Abweichungn möglicherweise durch eine bessere
+Rauschunterdrückung, also besseres Abstimmen der Lichtzerhackerfrequenz und des
+Seleftivverstärkers, erziwlt werden.
+Die effektive Masse von Elektronen in GaAs wird in der Literatur mit
+$m^*\ua{GaAs} = \num{0.067}\cdot m_e$~\cite{semiconductors} angegeben.
+Somit liegen die ermittelten effektiven Massen in dem angegebene Fehlerintervall.

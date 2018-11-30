@@ -22,6 +22,7 @@ def eff_masse(wellenlänge, N, d, theta):
 e_0 = Q_(const.elementary_charge, 'C')
 epsilon_0 = Q_(const.epsilon_0, 'A * s / (V * m)')
 c = Q_(const.c, 'm / s')
+m_e = Q_(const.m_e, 'kg')
 n = 3.4 # siehe Protokoll S&S
 
 _lambda = Q_(data._lambda, 'nm').to('micrometer'). magnitude
@@ -110,13 +111,16 @@ print(f'Probe 2: {probe_2_fit} + {probe_2_err} \n')
 #  effektive Masse
 
 m_eff_probe_1 = eff_masse(_lambda_einheit, N_1, d_1, np.abs(theta_1_norm - hr_theta_norm) * u('mm'))
-m_eff_1 = ufloat(np.mean(m_eff_probe_1.magnitude), np.std(m_eff_probe_1.magnitude))
+m_eff_1 = ufloat(np.mean(m_eff_probe_1.magnitude), np.std(m_eff_probe_1.magnitude)) * u('kg')
 m_eff_probe_2 = eff_masse(_lambda_einheit, N_2, d_2, np.abs(theta_2_norm - hr_theta_norm) * u('mm'))
-m_eff_2 = ufloat(np.mean(m_eff_probe_2.magnitude), np.std(m_eff_probe_2.magnitude))
+m_eff_2 = ufloat(np.mean(m_eff_probe_2.magnitude), np.std(m_eff_probe_2.magnitude)) * u('kg')
 
 
 print('\n',"-" * 100, '\n \n effektive Masse\n\n')
 print(f'Messung mit Probe 1: m_eff = {m_eff_probe_1}\n')
-print(f'Mittelwert m_eff_1 = {m_eff_1}\n\n')
+print(f'Mittelwert m_eff_1 = {m_eff_1}\n')
+print(f'm_eff_1 / m_e = {m_eff_1 / m_e}\n\n')
 print(f'Messung mit Probe 2: m_eff = {m_eff_probe_2}\n')
-print(f'Mittelwert m_eff_2 = {m_eff_2}\n\n')
+print(f'Mittelwert m_eff_2 = {m_eff_2}\n')
+print(f'm_eff_2 / m_e = {m_eff_2 / m_e}\n\n')
+
