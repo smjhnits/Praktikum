@@ -3,22 +3,22 @@
 
 In dem folgenden Versuch soll die effektive Masse von Elektronen in GaAs bestimmt
 werden. Eine mögliche Methode basiert dabei auf dem Faraday-Effekt. Als Faraday-Effekt
-bezeichnet man die Drehung der Polarisationsebene von linear polarisiertem
-Licht bei der Transmission in Materie. Die Grundlagen dieses Effektes und die
+wird die Drehung der Polarisationsebene von linear polarisiertem
+Licht bei der Transmission in Materie bezeichnet. Die Grundlagen dieses Effektes und die
 daraus folgende Bestimmung der effektiven Masse sollen im folgenden bestimmt werden.
 
 \subsection{Effektive Masse}
 \label{subsec:Masse}
 
 % Für die Dicke D einstzen
-Die Badstruktur eines Kristalles besitzt im Allgemeinen eine sehr komplizierte
+Die Badstruktur eines Kristalls besitzt im Allgemeinen eine sehr komplizierte
 Struktur. Für die Beschreibung einiger Eigenschaften reicht es jedoch, lediglich
 den Verlauf der Energiedispersionsrelation $\varepsilon(\vec{k})$ an der unteren
-Bandkante des Leitungsbandes zu kennen. Entwickelt man die Energiedispersionsrelation
-um das Leitungsbandminimum bei $k=0$, ergibt sich unter Vergleich mit der
+Bandkante des Leitungsbandes zu kennen. Wird die Energiedispersionsrelation
+um das Leitungsbandminimum bei $k=0$ entwickelt, ergibt sich unter Vergleich mit der
 Energie eines freien Elektrons die Definition der effektiven Masse:
 \begin{equation}
-  \frac{1}{m^*} := \frac{1}{\hbar^2}\left\{\frac{\partial^2\varepsilon}{\partial\varepsilon^2}\right\}_{k=0}.
+  \frac{1}{m^*} := \frac{1}{\hbar^2}\left\{\frac{\partial^2\varepsilon}{\partial k_i^2}\right\}_{k=0}, \qquad\text{mit }i = x, y, z.
   \label{eqn:effMass}
 \end{equation}
 Die Energiedispersionsrelation enthält somit die folgenden Terme:
@@ -35,10 +35,10 @@ wird somit in der Schrödinger-Gleichung komplett durch die effektive Masse
 berücksichtigt. Beim Anlegen äußerer Felder lässt sich das Verhalten gemäß
 des Newtonschen Kraftgesetztes
 \begin{equation}
-  \vec{F} = m\cdot\vec{a},
+  \vec{F} = m\cdot\vec{a}
   \label{eqn:Newton2}
 \end{equation}
-weshalb die Berechnung der Faraday-Rotation nach den Gesetzen der klassichen
+beschreiben, weshalb die Berechnung der Faraday-Rotation nach den Gesetzen der klassichen
 Mechanik berechnet werden kann.
 
 \subsection{Zirkulare Doppelbrechung}
@@ -46,36 +46,36 @@ Mechanik berechnet werden kann.
 
 Die zirkulare Doppelbrechung beschreibt die Fähigkeit eines Materials, die Polarisationsebene
 von linear polarisiertem Licht bei der Transmission zu drehen. Zur Erklärung dieses
-Effektes wird im folgenden eine linear polarisierte Lichtwelle betrachtet, welche
+Effektes wird im Folgenden eine linear polarisierte Lichtwelle betrachtet, welche
 in einen linkszirkularen und einen rechtszirkularen Anteil zerlegt wird:
 \begin{equation}
   E(z) = \frac{1}{2}(E\ua{R}(z)+E\ua{L}(z)) \; \text{mit} \; k\ua{R}\neq k\ua{L}.
   \label{eqn:Zirkular}
 \end{equation}
-Wird nun die Transmission der Welle durch den Kristall betrachtet, erhält man
+Wird nun die Transmission der Welle durch den Kristall betrachtet, ergibt sich
 für die Welle in Abhängigkeit von der durchlaufenen Länge mithilfe der Eulerschen
 Formel folgende Gestalt:
 \begin{equation}
-  E(L) = E\ua{0}e^{i\Psi}(\cos{(\theta)}\vec{x}\ua{0}+\sin{(\theta)}\vec{y}\ua{0})
+  E(L) = E\ua{0}e^{i\Psi}(\cos{(\Theta)}\vec{x}\ua{0}+\sin{(\Theta)}\vec{y}\ua{0})
   \label{eqn:Trans}
 \end{equation}
-Die Abkürzungen $\Psi$ und $\theta$ sind dabei wie folgt definiert:
+Die Abkürzungen $\Psi$ und $\Theta$ sind dabei wie folgt definiert:
 \begin{align}
   \Psi &:= \frac{L}{2}(k\ua{R}+k\ua{L}),
   \label{eqn:psi} \\
-  \theta&:= \frac{L}{2}(k\ua{R}-k\ua{L}).
+  \Theta&:= \frac{L}{2}(k\ua{R}-k\ua{L}).
   \label{eqn:theta}
 \end{align}
 Mithilfe der Beziehungen $v\ua{Ph} = \omega/k$ sowie $n = c/v\ua{Ph}$ kann der
 Winkel $\theta$ zudem über die Phasengeschwindigkeit und den Brechungsindex
 ausgedrückt werden:
 \begin{equation}
-  \theta = \frac{L\omega}{2} \left\{ \frac{1}{v\ua{Ph,R}}-\frac{1}{v\ua{Pg,L}} \right\}
+  \theta = \frac{L\omega}{2} \left\{ \frac{1}{v\ua{Ph,R}}-\frac{1}{v\ua{Ph,L}} \right\}
   = \frac{L\omega}{2c}(n\ua{R}-n\ua{L}).
   \label{eqn:thetavn}
 \end{equation}
 Die zirkulare Doppelbrechung lässt sich auf die induzierten Dipole innerhalb eines
-Kristalles zurückführen. Die Dipole werden dabei einerseits durch die an den
+Kristalls zurückführen. Die Dipole werden dabei einerseits durch die an den
 Gitterplätzen sitzenden Atome erzeugt sowie durch die Wechselwirkung der Elektronen
 mit den Atomrüpfen. Die Dipole erzeugen dann eine makroskopische Polarisation
 des Kristalls, welche unter anderem über die dielektrische Suszeptibilität $\chi$
@@ -104,7 +104,7 @@ Der ($\chi$)-Tensor hat dabei im einfachsten Fall die Form
     \chi\ua{xx} & i\chi\ua{xy} & 0  \\
     -i\chi\ua{yx} & \chi\ua{xx} & 0  \\
     0 & 0 & \chi\ua{zz}  \\
-  \end{array}\right)
+  \end{array}\right).
   \label{eqn:chiIso}
 \end{equation}
 Unter Verwendung der Wellengleichung in Kombination mit der dielektrischen Verschiebung
@@ -123,7 +123,7 @@ möglichen Wellenzahlen
 ergeben sich somit auch zwei verschiedene Phasengeschwindigkeiten:
 \begin{equation}
   v\ua{Ph,R} = \frac{c}{\sqrt{1+\chi\ua{xx}+\chi\ua{xy}}} \;\; \text{und} \;\;
-  v\ua{Ph,L} = \frac{c}{\sqrt{1+\chi\ua{xx}-\chi\ua{xy}}}
+  v\ua{Ph,L} = \frac{c}{\sqrt{1+\chi\ua{xx}-\chi\ua{xy}}}.
   \label{eqn:PhasenV}
 \end{equation}
 Unter der im Allgemeinen zutreffenden Annahme, dass $\chi\ua{xy} << 1 + \chi\ua{xx}$
@@ -133,7 +133,7 @@ gilt, ergibt sich gemäß Formel \eqref{eqn:theta} der Zusammenhang
   = \frac{L\omega}{2c^2}v\ua{Ph}\chi\ua{xy} = \frac{l\omega}{2cn}\chi\ua{xy},
   \label{eqn:ThetaXxy}
 \end{equation}
-wobei es es sich bei $v\ua{Ph}$ um die Phasengeschwindigkeit mit $\chi\ua{xy}=0$
+wobei es sich bei $v\ua{Ph}$ um die Phasengeschwindigkeit mit $\chi\ua{xy}=0$
 handelt.
 
 \subsection{Bestimmung des Rotationswinkels \theta}
@@ -141,7 +141,7 @@ handelt.
 
 In dem folgenden Kapitel soll gezeigt werden, dass optisch inaktive Materie
 unter Einwirkung eines äußeren Magnetfeldes die Polarisationsebene von parallel
-zur Feldrichtung verlaufenden Lichtes dreht. Hierbei werden nun gebundene Elektronen
+zur Feldrichtung verlaufenden Licht dreht. Hierbei werden gebundene Elektronen
 betrachtet, welche der Bewegungsgleichung
 \begin{equation}
   m\frac{\su{d^2}\vec{r}}{\su{d}t^2} + K\vec{r} = -e\ua{0}\vec{E}(r)- e\ua{0}\frac{\su{d}\vec{r}}{\su{d}t}
@@ -154,9 +154,9 @@ Einflusses vernachlässigt. Aufgrund der exponentiellen Zeitabhängigkeit des
 elektrischen Feldes lässt sich unter mit Hinzunahme der Polarisation die
 Formel \eqref{eqn:BewGl} in drei Komponenten zerlegen:
 \begin{align}
-  (-m\omega^2+K)P\ua{x} &= N e\ua{0^2}E\ua{x} + i e\ua{0}\omega P\ua{y}B
+  (-m\omega^2+K)P\ua{x} &= N e\ua{0}^2E\ua{x} + i e\ua{0}\omega P\ua{y}B
   \label{eqn:Kompx}\\
-  (-m\omega^2+K)P\ua{y} &= N e\ua{0^2}E\ua{y} + i e\ua{0}\omega P\ua{x}B
+  (-m\omega^2+K)P\ua{y} &= N e\ua{0}^2E\ua{y} + i e\ua{0}\omega P\ua{x}B
   \label{eqn:Kompy}\\
   (-m\omega^2+K)P\ua{z} &= N e\ua{0}^2 E\ua{z}.
   \label{eqn:Kompz}
@@ -167,19 +167,19 @@ imaginäre Einträge existieren. Nach Zerlegung von \eqref{eqn:Kompx} in Real-
 und Imaginärteil ergibt sich zwischen den beiden nicht-diagonalen Komponenten
 der Zusammenhang
 \begin{equation}
-  \chi\ua{xy}=-\chi\ua{yx}.
   \label{eqn:RelationChiNonDiag}
+  \chi\ua{xy}=-\chi\ua{yx}.
 \end{equation}
-Die Tensorkomponenten $\chi\ua{xy}$ lässt sich aus den voherigen Gleichungen
+Die Tensorkomponente $\chi\ua{xy}$ lässt sich aus den voherigen Gleichungen
 bestimmen (vgl. \cite{Anleitung}), sodass sich für den Rotationswinkel nach
 Formel \eqref{eqn:ThetaXxy} der folgende Zusammenhang ergibt:
 \begin{equation}
-  \theta = \frac{e\ua{0}^3}{e\varepsilon\ua{0}c}\frac{\omega^2}{(-m\omega^2+K^2)^2 - (e\ua{0}\omega B)^2}\frac{NBL}{n}.
+  \theta = \frac{e\ua{0}^3}{2\varepsilon\ua{0}c}\frac{\omega^2}{(-m\omega^2+K^2)^2 - (e\ua{0}\omega B)^2}\frac{NBL}{n}.
   \label{eqn:thetafinal}
 \end{equation}
 Der Rotationswinkel \theta ist somit proportional zu Flussdichte B, der Probenlänge L
 und der Anzahl Ladungsträger N pro Volumeneinheit.
-Um die kompliziertere Frequenzabhängigkeit zu betrachten werden die Frequenzen
+Um die komplizierte Frequenzabhängigkeit zu betrachten werden die Frequenzen
 $\omega\ua{0} = \sqrt{K/m}$ und $\omega\ua{c} = B e\ua{0}/m$ eingeführt. Bei
 $\omega\ua{0}$ handelt es sich um die Resonanzfrequenz und bei $\omega\ua{c}$ um
 die Zyklotronfrequenz. Für $B\approx 1T$ liegt $\omega\ua{c}$ im Bereich von
@@ -210,7 +210,7 @@ Rotationswinkel $\theta$ die effektive Masse bestimmt werden.
 
 Da die im Aufbau verwendete Halogen-Lampe mehrere Wellenlängen emittiert, muss
 zur Selektion einzelner Wellenlängen ein Interferenzfilter verwendet werden. Dieser
-besteht grundlegen aus einem optissch transparenten Dielektrikum mit Brechungsindex
+besteht grundlegend aus einem optissch transparenten Dielektrikum mit Brechungsindex
 n sowie zwei semitransparenten Beschichtungen. Einfallende Lichtstrahlen werden
 aufgrund der reflektierenden Beschichtungen im Inneren des Filters mehrfach
 reflektiert, sodass es zu Interferenzen kommt. Dabei ensteht konstruktive
@@ -226,7 +226,7 @@ Durchlasskurve hat somit eine endliche Breit, welche stark vom Reflexionskoeffiz
 abhängt. Die Transmission in Abhänhigkeit der Wellenlänge wird dabei durch
 die Airysche Funktion beschrieben:
 \begin{equation}
-  T(\lambda) = \frac{1}{1+\frac{4R}{(-1R)^2}\sin^2(\frac{2\pi nd}{\lambda})}.
+  T(\lambda) = \frac{1}{1+\frac{4R}{(1-R)^2}\sin^2(\frac{2\pi nd}{\lambda})}.
 \end{equation}
 Der Verlauf der Kurve ist für drei verschiedene Reflexionskoeffizienten in
 Abbildung \ref{fig:Airy} dargestellt.
@@ -234,13 +234,13 @@ Abbildung \ref{fig:Airy} dargestellt.
   \centering
   \includegraphics[width=\textwidth]{Pics/Airy.pdf}
   \caption{Verlauf der Transmissionskurve eines Interferenzfilter für verschiedene
-  Reflexionskoeffizienten. \cite{anleitung}}
+  Reflexionskoeffizienten. \cite{Anleitung}}
   \label{fig:Airy}
 \end{figure}
 
 \subsubsection{Glan-Thompson-Prisma}
 
-Als Polarisatoren werden in diesem Experiment Glan-Thompson-Prisma verwendet.
+Als Polarisatoren werden in diesem Experiment Glan-Thompson-Prismen (GTP's) verwendet.
 Es handelt sich dabei um doppelbrechende Kristalle, bei denen die Diagonalelemente
 der dielektrischen Suszeptibilität unterschiedlich sind. Analog zu Kapitel
 \ref{subsec:Doppelbrechung} können zur Bestimmung der Phasengschwindigkeit
@@ -254,14 +254,14 @@ drei Komponentegleichungen formuliert werden:
   \label{eqn:GTPz}
 \end{align}
 Aus Formel \eqref{eqn:GTPz} folgt erneut $E\ua{z} = 0$. Für $E\ua{x}\neq 0$ ergibt
-sich erneut
+sich
 \begin{equation}
   v\ua{Ph,1} = \frac{c}{\sqrt{1+\chi\ua{xx}}}.
   \label{eqn:vPhx}
 \end{equation}
 Unter dieser Annahme lässt sich Gleichung \eqref{eqn:GTPy} wegen $\chi\ua{xx}\neq\chi\ua{yy}$
 nur für $E\ua{y}=0$ lösen. Somit handelt es sich hier um eine linear polarisierte
-Welle. Analog ergibt sich $E\ua{x}=0$, wenn man zuerst $E\ua{y}\neq 0$ wählt.
+Welle. Analog ergibt sich $E\ua{x}=0$, wenn zuerst $E\ua{y}\neq 0$ gewählt wird.
 Es handelt sich also um eine Aufspaltung in zwei Strahlen, die aufgrund unterschiedlicher
 Phasengeschwindigkeiten senkrecht zueinander polarisiert sind.
 Bei der allgemeinen Lösung der Wellengleichung ergibt sich für den außerordentlichen
@@ -272,9 +272,9 @@ auftritt, wird auch optische Achse genannt.
 Zur Trennung der beiden Strahlen
 wird ein doppelbrechender Kristall parallel zu seiner optischen Achse zerschnitten
 (siehe Abbildung \ref{fig:GTP}).
-Trifft der Lichtstrahl im richtigen Winkel auf die Grenzfläche zur Luftschicht,
+Trifft der Lichtstrahl im Brewsterwinkel auf die Grenzfläche zur Luftschicht,
 wird aufgrund der unterschiedlichen Brechungsindizes lediglich der ordentliche
-Strahl totalreflektiert, während der außerordentliche Strahl transmittiert.
+Strahl totalreflektiert, während der außerordentliche Strahl transmittiert wird.
 Im Falle von $n\ua{ao}<n\ua{o}$ gilt für den Winkel $\alpha$ dann folgende
 Ungleichung:
 \begin{equation}
@@ -294,17 +294,17 @@ Ungleichung:
 \begin{figure}
   \centering
   \includegraphics[width = \textwidth]{Pics/Aufbau.pdf}
-  \caption{Schematischer Aufbau des Experimentes\cite{anleitung}.}
+  \caption{Schematischer Aufbau des Experimentes\cite{Anleitung}.}
   \label{fig:Aufbau}
 \end{figure}
 
-Der grundlegende Aufbau des Experimentes ist in Abbildung \ref{fig:Aufbau}
+Der grundlegende Aufbau des Experiments ist in Abbildung \ref{fig:Aufbau}
 dargestellt. Als Lichtquelle wird eine Halogen-Lampe verwendet, deren Lichtstrahlen
 mittels einer Kondensorlinse parallelisiert werden. Darauf folgt ein Lichtzerhacker,
 der das Licht mit einer einstellbaren Frequeuz modelliert. Als nächstes durchläuft
 der Strahl das erste GTP, welches mittels eines Goniometers gedreht werden kann.
 Mit dem GTP wird das für die Messung notwendige linear-polarisierte Licht erzeugt.
-Anschließend folgt ein Elektromagnet, in dessen Innerem sich die betrachtete
+Anschließend folgt ein Elektromagnet, in dessen Inneren sich die betrachtete
 Probe befindet. Aufgrund des relativ geringen Homogenitätbereiches wird eine
 scheibenförmige Probe verwendet, die über einen seitlichen Einlass in das
 Magnetfeld gebracht werden kann. Um eine bestimmte Wellenlänge des Lichtstrahls
@@ -317,7 +317,7 @@ Photodioden detektiert werden. Mittels eines Differenzverstärkers wird dann die
 Differenz der beiden Signale bestimmt und anschließend über ein Oszillographen
 angezeigt. Der Oszillograph hat bei geeigneter Orientierung der GTP die Funktion
 eines Nulldetektors. Zur Minimierung von Hintegrundrauschen wird zusätzlich ein Selektivverstärker
-zwischengeschaltet. Dieser wird auf die selbe Frequenz wie der Lichtzerhacker
+zwischengeschaltet. Dieser wird auf dieselbe Frequenz wie der Lichtzerhacker
 eingestellt, so dass nur das mit dieser Frequenz modulierte Signale gemessen werden.
 
 Vor dem Experiment muss die Apparatur justiert werden. Dafür wird zuerst die Funktion
@@ -328,16 +328,16 @@ des Selektivverstärkers wird der Lichtzerhacker eingeschaltet und die Frequenz
 am Selektivverstärker variiert, bis das Signal auf dem Oszilloskop maximal ist.
 Zum Abschluss der Justierung wird mit eingesetzter Probe und Interferenzfilter
 überprüft, ob wirklich das Nullsignal erreicht wird. Dafür werden alternierend
-das erste GTP sowie die Zeitkonstante des Photowiderstandes variiert.
+das erste GTP und die Zeitkonstante des Photowiderstandes variiert.
 
 Zu Beginn der eigentlichen Messreihe wird mittels einer Hallsonde die Magnetfeldstärke
-vermesse. Dafür wird das Magnetfeld auf den maximalen Strom eingestellt und in einem
-Bereich von einigen Zentimetern um die Probenstelle das Feld vermessen. Anschließend
+vermessen. Dafür wird das Magnetfeld auf den maximalen Strom eingestellt und in einem
+Bereich von einigen Zentimetern um die Probenstelle, das Feld vermessen. Anschließend
 wird für eine hochreine GaAs-Probe die Faraday-Rotation vermessen. Dafür wird
 bei maximalem Feld das erste GTP so gedreht, dass das Signal am Oszilloksop
 minimiert ist. Danach wird das Feld einmal umgepolt und das GTP erneut so gedreht,
 dass das Signal am Oszilloskop minimal wird. Die beiden Winkel werden notiert und
-die selbe Messung wird dann für insgesamt 8 verschiedene Interferenzfilter
+die selbe Messung wird für insgesamt 8 verschiedene Interferenzfilter
 durchgeführt. Bei den beiden Filtern mit der höchsten Wellenlänge wird zudem
 die angelegte Spannung an der Halogen-Lampe etwas reduziert. Die Messreihe wird
 anschließend noch mit zwei verschiedenen dotierten GaAs-Proben wiederholt.
