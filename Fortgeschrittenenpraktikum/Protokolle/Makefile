@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		# mkdir -p V46_Faraday/Tabellen
-		# mkdir -p V46_Faraday/Pics
-		# mkdir -p V46_Faraday/Python
-		# touch V46_Faraday/Auswertung.tex
-		# touch V46_Faraday/V46_main.tex
-		# touch V46_Faraday/Theorie.tex
-		# touch V46_Faraday/lit.bib
-		# touch V46_Faraday/Makefile
-		# touch V46_Faraday/Pics/savedatei.txt
-		# touch V46_Faraday/Python/savedatei.txt
-	  # touch V46_Faraday/Tabellen/savedatei.txt
-		# cp -r Praeambel_prak.tex V46_Faraday/
+		# mkdir -p V18_Germaniumdetektor/Tabellen
+		# mkdir -p V18_Germaniumdetektor/Pics
+		# mkdir -p V18_Germaniumdetektor/Python
+		# touch V18_Germaniumdetektor/Auswertung.tex
+		# touch V18_Germaniumdetektor/V18_main.tex
+		# touch V18_Germaniumdetektor/Theorie.tex
+		# touch V18_Germaniumdetektor/lit.bib
+		# touch V18_Germaniumdetektor/Makefile
+		# touch V18_Germaniumdetektor/Pics/savedatei.txt
+		# touch V18_Germaniumdetektor/Python/savedatei.txt
+	  # touch V18_Germaniumdetektor/Tabellen/savedatei.txt
+		# cp -r Praeambel_prak.tex V18_Germaniumdetektor/
 
 clean:
-		#rm -rf V46_Faraday
+		# rm -rf V18_Germaniumdetektor
 .PHONY: clean all
