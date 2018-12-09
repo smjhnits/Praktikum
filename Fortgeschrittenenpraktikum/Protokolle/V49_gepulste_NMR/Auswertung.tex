@@ -100,19 +100,19 @@ Die aufgenommenen Messwerte für die Bestimmung der Diffusionskonstante $D$ sind
 Tabelle \ref{tab:D} eingetragen und in Abbildung \ref{fig:D} grafisch dargestellt.
 Um $D$ zu bestimmen wird ein Fit gemäß der folgenden Funktion durchgeführt:
 \begin{equation}
-  U(t) = M\ua{0}\cdot\exp{(-\frac{t}{T\ua{2}})}\exp{(-2t^3d)}+M\ua{1}.
+  U(t) = M\ua{0}\cdot\exp{(-\frac{2\tau}{T\ua{2}})}\exp{(-2\tau^3d)}+M\ua{1}.
 \end{equation}
 Für $T\ua{2}$ wird der in Abschnitt \ref{subsec:T2} bestimmte Wert verwendet.
 Dabei ergeben sich folgende Parameter:
 \begin{align*}
-  M\ua{0} &= \SI{-642(15)}{\milli\volt}\\
-  M\ua{1} &= \SI{-57(14)}{\milli\volt}\\
-  d &= \SI{323(18)e-5}{\per\milli\second\cubed}.
+  M\ua{0} &= \SI{-646(17)}{\milli\volt}\\
+  M\ua{1} &= \SI{-54(18)}{\milli\volt}\\
+  d &= \SI{318(18)e3}{\per\second\cubed}.
 \end{align*}
 Die Diffusionskonstante ergibt sich aus Gleichung \eqref{eqn:diffusion}:
 \begin{align*}
   d &= \frac{DG^2\gamma^2}{3} \;\; \Leftrightarrow \;\; D = \frac{3d}{G^2\gamma^2}\\
-  D &= \SI{2.11(19)e-9}{\meter\squared\per\second}.
+  D &= \SI{2.08(18)e-9}{\meter\squared\per\second}.
 \end{align*}
 
 \input{Tabellen/D.tex}
@@ -153,7 +153,7 @@ mithilfe des Van-der-Waal Kovolumens~\cite{VdW2},\cite{VdW} berechnet werden:
 Für den Molekülradius erhält man mit den verschiedenen Formeln folgende
 Ergebnisse:
 \begin{align*}
-  r\ua{D} &= \SI{1.11(10)}{\angstrom} \\
+  r\ua{D} &= \SI{1.13(10)}{\angstrom} \\
   r_{\text{MG}} &= \SI{1.74}{\angstrom} \\
   r\ua{VdW} &= \SI{1.45}{\angstrom}
 \end{align*}
@@ -174,9 +174,9 @@ von der verwendeten Fitfunktion. Zur Bestimmung des für den Koeffizienten
 benötigte Halbwertsbreite wurde mehrfach bestimmt. Gegenüber des Literaturwertes
 \cite{D}
 für den Diffusionskoeffizienten von Sauerstoff in Wasser bei $\SI{25}{\celsius}$
-ergibt sich eine geringe Abweichung von $\increment D = 0,5\,\%$:
+ergibt sich eine geringe Abweichung von $\increment D = 1\,\%$:
 \begin{align*}
-  D\ua{exp} &= \SI{2.11(19)e-9}{\meter\squared\per\second}. \\
+  D\ua{exp} &= \SI{2.08(19)e-9}{\meter\squared\per\second}. \\
   D\ua{lit} &= \SI{2.1e-9}{\meter\squared\per\second}.
 \end{align*}
 Es muss jedoch beachtet werden, dass dieses Experiment bei einer Temperatur
@@ -186,9 +186,9 @@ Apparatur Abweichungen entstehen. Zum Beispiel schwankten die Werte für die
 Halbwertbreite zwischen $\SI{95}{\milli\second}$ und $\SI{89}{\milli\second}$,
 obwohl dieser Wert eigentlich konstant sein sollte.
 Für die bestimmten Molekülradien zeigen sich vergleichsweise große Abweichungen
-zwischen den einzelnen Methoden von bis zu $57\%$(zw. $r\ua{D}$ und $r_{\text{MG}}$):
+zwischen den einzelnen Methoden von bis zu $35\%$(zw. $r\ua{D}$ und $r_{\text{MG}}$):
 \begin{align*}
-  r\ua{D} &= \SI{1.11(10)}{\angstrom} \\
+  r\ua{D} &= \SI{1.13(10)}{\angstrom} \\
   r_{\text{MG}} &= \SI{1.74}{\angstrom} \\
   r\ua{VdW} &= \SI{1.45}{\angstrom}.
 \end{align*}

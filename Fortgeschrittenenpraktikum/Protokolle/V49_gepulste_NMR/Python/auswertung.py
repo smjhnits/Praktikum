@@ -82,7 +82,7 @@ print('Parameter für T1:', '\n', 'M0 = ', M0, ' V', '\n',
 # Bestimmung von TD
 
 def FitD(t, M0, M1, d):
-    return M0*np.exp(-t/(T2*1000))*np.exp(-t**3*2*d) + M1
+    return M0*np.exp(-2*t/(T2*1000))*np.exp(-t**3*2*d) + M1
 
 paramsD, covarianceD = curve_fit(FitD, D_tau, D_U, p0=[-800, 100, 0.0004])
 errorsD = np.sqrt(np.diag(covarianceD))
