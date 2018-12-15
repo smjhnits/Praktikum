@@ -8,7 +8,7 @@ import scipy.integrate as integrate
 from uncertainties import ufloat
 from uncertainties import unumpy as unp
 from uncertainties.unumpy import nominal_values as nomval
-
+from uncertainties.unumpy import std_devs as std
 # Loading experimental data and results of further calculations
 
 r = 0.5*45*10**(-3)
@@ -49,13 +49,17 @@ plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:4000]), 1))),
          bins=unp.nominal_values(Energy(np.linspace(0, len(Spektrum[0:4000]), len(Spektrum[0:4000])))),
          weights=Spektrum[0:4000], label='Spektrum')
 plt.yscale('log')
-for n in Peaks[0]:
-    plt.axvline(nomval(Energy(n)), color = 'r')
+plt.plot(nomval(Energy(Peaks[0][:])), Spektrum[Peaks[0][:]], '.',
+         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+plt.xlim(0,1500)
+plt.ylabel('Zählungen pro Energie')
+plt.xlabel('E / keV')
+plt.legend()
 plt.show()
+#plt.savefig('Plots/unbekannt2.pdf')
 
 Peaks_Energy = Energy(Peaks[0][:])
-Energy_ba = np.array([80.997, 160.61, 276.398, 302.85, 356.02, 383.85 ])
-#print(Peaks_Energy-Energy_ba)
+Energy_co = np.array([1173.237, 1332.501])
 
 Params_u2 = []
 errors_u2 = []
@@ -75,7 +79,7 @@ for i,n in enumerate(Peaks[0]):
             weights=Spektrum[n-30:n+30], label='Spektrum')
     Channel_Gauss = np.linspace(n-30,n+30,1000)
     plt.plot(unp.nominal_values(Energy(Channel_Gauss)), Gauss(Channel_Gauss,*Params_u2[i]))
-    plt.show()
+    #plt.show()
 
 Peaks_mittel = np.round(np.asarray(Params_u2)[:,1],0)
 Amplitudes = np.asarray(Params_u2)[:,0]
@@ -85,20 +89,31 @@ sigmas_ufloat =  np.asarray([ufloat(n, np.asarray(errors_u2)[i,2]) for i,n in en
 Area_Params = np.array([[n,sigmas[i]] for i,n in enumerate(Amplitudes)])
 Area_params_ufloat = np.array([[n,sigmas_ufloat[i]] for i,n in enumerate(Amplitudes_ufloat)])
 
+print("--- Find Peaks and gaussian fit---")
+print(f"Channel Peaks: {np.round(Peaks_mittel,0)}")
+print(f"Energy Peaks: {Energy(np.round(Peaks_mittel,0))}")
+print(f"Energy Literature: {Energy_co}", '\n')
+
 Area = AreaGaus(Area_Params[:,0], Area_Params[:,1])
 Area_ufloat = AreaGaus(Area_params_ufloat[:,0], Area_params_ufloat[:,1])
 Area_norm = Area/tges
 Area_norm_ufloat = Area_ufloat/tges
 
+print("--- Calculating the activity ---")
+
 r = 0.5*45*10**(-3)
 L = (73.5+15)*10**(-3)
 Omega = 0.5 * ( 1- L/np.sqrt(L**2+r**2))
 
-print(Area_norm)
-
 W = np.asarray([0.999736, 0.999856])
 Q = Efficiency(Peaks_Energy)
-print(Q)
-
 Aktivität = np.array([Area_norm[i]/(W[i]*n*Omega) for i,n in enumerate(Q)])
-print(Aktivität)
+
+print(f"emission probability: {W}")
+print(f"Area under Gaussian Fit: {Area_ufloat}")
+print(f"Efficiency: {Q}", '\n')
+print(f"resulting acitivity: {Aktivität}")
+
+A_all = sum(Aktivität)/len(Aktivität)#ufloat(np.mean(nomval(Aktivität)),np.std(std(Aktivität)))
+
+print(f"Mean with all values: {nomval(A_all)}, {std(A_all)}")
