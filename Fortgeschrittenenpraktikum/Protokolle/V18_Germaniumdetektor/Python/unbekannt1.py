@@ -56,7 +56,7 @@ plt.xlim(0,500)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
-plt.savefig('Plots/unbekannt1.pdf')
+#plt.savefig('Plots/unbekannt1.pdf')
 
 Peaks_Energy = Energy(Peaks[0][:])
 Energy_ba = np.array([80.997,  276.398, 302.85, 356.02, 383.85 ]) # den 2. 160.61 Peak entfernt

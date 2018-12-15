@@ -8,6 +8,7 @@ import scipy.integrate as integrate
 from uncertainties import ufloat
 from uncertainties import unumpy as unp
 from uncertainties.unumpy import nominal_values as nomval
+from uncertainties.unumpy import std_devs as std
 
 # Loading experimental data and results of further calculations
 
@@ -46,12 +47,6 @@ Spektrum = C_Ca[:4000]
 tges = 3066
 Peaks = find_peaks(Spektrum, height = 1000)
 
-plt.hist(range(0, len(Spektrum), 1),
-         bins=np.linspace(0, len(Spektrum), len(Spektrum)),
-         weights=Spektrum, label='Spektrum')
-plt.yscale('log')
-plt.legend()
-# plt.show()
 
 # Like before, the full energy peaks will be fitted with a gaussian function to calculate
 # the radioactivity
@@ -77,7 +72,12 @@ plt.hist(unp.nominal_values(Energy(np.arange(l_u, l_o, 1))),
          bins=unp.nominal_values(Energy(np.linspace(l_u, l_o, len(Spektrum[n-30:n+30])))),
          weights=Spektrum[n-30:n+30], label='Spektrum')
 Channel_FWHM = np.linspace(n-30,n+30,1000)
-plt.plot(unp.nominal_values(Energy(Channel_FWHM)), Gauss(Channel_FWHM,*params_Ca))
+plt.xlim(654,668)
+plt.plot(unp.nominal_values(Energy(Channel_FWHM)), Gauss(Channel_FWHM,*params_Ca), label = 'Gauß-Fit')
+plt.xlabel("E / keV")
+plt.ylabel("Zählungen pro Energie")
+plt.legend()
+#plt.savefig('Plots/Caesium_Gauß.pdf')
 #plt.show()
 
 # Full Width Half Maximum and Full Wisth at a tenth of maximum
@@ -89,13 +89,20 @@ FWHM_Channel = Channel_FWHM[np.abs(Gauswerte-0.5*params_Ca[0]) < 20]
 FWZM_Channel = Channel_FWHM[np.abs(Gauswerte-0.1*params_Ca[0]) < 5]
 FWHM = Energy(FWHM_Channel[1])-Energy(FWHM_Channel[0])
 FWZM = Energy(FWZM_Channel[1])-Energy(FWZM_Channel[0])
-print("----- FWHM and FWZM -----",'\n')
-print(f"FWHM: {FWHM}")
-print(f"FWZM: {FWZM}", '\n')
+print("----- FWHM and FWZM from Bins -----",'\n')
+
+Channel_Bins = Channels[n-30:n+30]
+Bins_FWHM = Channel_Bins[np.abs(Spektrum[n-30:n+30]-0.5*params_Ca[0])<248]
+Bins_FWZM = Channel_Bins[np.abs(Spektrum[n-30:n+30]-0.1*params_Ca[0])<117]
+print(Energy(Bins_FWHM))
+print(Energy(Bins_FWZM))
+FWHM = Energy(Bins_FWHM[0])-Energy(Bins_FWHM[1])
+FWZM = Energy(Bins_FWZM[0])-Energy(Bins_FWZM[3])
+print(f"x1/2: {FWHM}")
+print(f"x1/10: {FWZM}")
 
 # comparison between FWHM and FWZM
-print("----- Quotient of FWZM/FWHM -----", '\n')
-print(f"FWZM/FWHM: {FWZM/FWHM}", '\n')
+print(f"Quotient: {nomval(FWZM/FWHM)}, {std(FWZM/FWHM)}", '\n')
 
 # Calculation of both parameters with the variance of the gaussian fit
 
@@ -140,6 +147,16 @@ print("----- Energy of Compton Edge and Backscatter Peak -----",'\n')
 print(f"backscatter peak: {Energy(Peak_bs[0])}")
 print(f"compton edge: {Energy(Peak_ce[0])}",'\n')
 
+# Theoretical Calculations of the backscatter peak and the compton Edge
+
+eps = E_y*10**(-3)/511
+Theo_bs = E_y*10**(-3)*1/(1+2*eps)
+Theo_ce = E_y*10**(-3)*2*eps/(1+2*eps)
+print(f"-- Theoretical Calculations --")
+print(f"backscatter peak: {Theo_bs}")
+print(f"Compton Edge: {Theo_ce}", '\n')
+
+
 # Calculation of the absorption probability
 
 mu_compton = ufloat(0.37, 0.01)*100
@@ -151,39 +168,71 @@ P_photo = (1 - unp.exp(-mu_photo*d))*100
 
 print("----- Probabilities -----", '\n')
 print(f"Compton: {P_compton}")
-print(f"Photo: {P_photo}", '\n')
+print(f"Photo: {P_photo}")
+print(f"Quotient: {P_compton/P_photo}", '\n')
 
 # comparison of the areas under the full energy peak and under the compton continuum
 
 print("----- Interaction comparison -----")
 
-E_photo = E_y * 10**(-3)
-eps = nomval(E_photo/511)
-E_el = Energy(Peak_ce[0]-2)
-Factor = Spektrum[np.int(Peak_ce[0])-2]*eps**2/(2 + (E_el/(E_photo-E_el))**2*(1/eps**2 + (E_photo-E_el)/E_photo - 2/eps*((E_photo-E_el)/E_photo) ) )
+
 E_photo = nomval(E_y) * 10**(-3)
 
-print(f"Factor of fit function: {Factor}",'\n')
+def compton(E, A, eps):
+    return A * 1/eps**2 *(2 + (E/(E_photo-E))**2*(1/eps**2 + (E_photo-E)/E_photo - 2/eps*((E_photo-E)/E_photo) ) )
 
-def compton(E):
-    return nomval(Factor) * 1/eps**2 *(2 + (E/(E_photo-E))**2*(1/eps**2 + (E_photo-E)/E_photo - 2/eps*((E_photo-E)/E_photo) ) )
+params_compton, covariance_compton = curve_fit(compton, nomval(Energy(Channels[1000:np.int(Peak_ce[0]-2)])), Spektrum[1000:np.int(Peak_ce[0]-2)])
+erros_compton = np.sqrt(np.diag(covariance_compton))
+
+def compton_integrate(E):
+    A = params_compton[0]
+    eps = params_compton[1]
+    return A * 1/eps**2 *(2 + (E/(E_photo-E))**2*(1/eps**2 + (E_photo-E)/E_photo - 2/eps*((E_photo-E)/E_photo) ) )
+
+print("-- Compton Kontinuum Fit --")
+print(f"Fitted A: {params_compton[0]}, {erros_compton[0]}")
+print(f"Fitted eps: {params_compton[1]}, {erros_compton[1]}", '\n')
 
 plt.clf()
-plt.plot(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), Spektrum[60:np.int(Peak_ce[0]-2)], 'b-')
-plt.plot(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), nomval(compton(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])))), 'r-')
+plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:np.int(Peak_ce[0]+200)]), 1))),
+         bins=unp.nominal_values(Energy(np.linspace(0, len(Spektrum[0:np.int(Peak_ce[0]+200)]), len(Spektrum[0:np.int(Peak_ce[0]+200)])))),
+         weights=Spektrum[0:np.int(Peak_ce[0]+200)], label='Spektrum')
+plt.plot(nomval(Energy(np.int(np.round(Peak_bs)))), Spektrum[np.int(np.round(Peak_bs))], '.',
+         markersize=2, label='Rückstreupeak', color='C1', alpha=0.8)
+plt.plot(nomval(Energy(np.int(np.round(Peak_ce)))), Spektrum[np.int(np.round(Peak_ce))], '.',
+         markersize=2, label='Compton Kante', color='C4', alpha=0.8)
+plt.plot(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), nomval(compton(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), *params_compton)), 'k-', label = 'Compton Kontinuum Fit')
+plt.ylabel('Zählungen pro Energie')
+plt.xlabel('E / keV')
+plt.legend()
+#plt.savefig('Plots/Caesium_Compton.pdf')
 #plt.show()
 
-Area_c = integrate.quad(compton, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
-Area_compton = ufloat(Area_c[0], Area_c[1])/tges
-Area_photo = AreaGaus(params_Ca[0], params_Ca[2])/tges
+Area_c = integrate.quad(compton_integrate, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
+Area_compton = ufloat(Area_c[0], Area_c[1])
+Area_photo = AreaGaus(params_Ca[0], params_Ca[2])
 C_Ca_fehler = np.array([ufloat(n, np.sqrt(n)) for n in C_Ca])
-Area_compton2 = sum(C_Ca_fehler[60:np.int(Peak_ce[0]-2)])/tges
+Area_compton2 = sum(C_Ca_fehler[60:np.int(Peak_ce[0]-2)])
 
 print("-- Different Areas --")
 print(f"Area_compton with integrate: {Area_compton}")
-print(f"Area_compton with sum: {Area_compton2}")
+print(f"Area_compton with sum: {nomval(Area_compton2)},{std(Area_compton2)} ")
 print(f"Area_photon: {Area_photo}",'\n')
 
 print("-- Quotient of both areas --")
 print(f"Area_compton/Area_photo: {Area_compton/Area_photo}")
 print(f"Area_compton/Area_photo: {Area_compton2/Area_photo}")
+
+plt.clf()
+plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum), 1))),
+         bins=unp.nominal_values(Energy(np.linspace(0, len(Spektrum), len(Spektrum)))),
+         weights=Spektrum, label='Spektrum')
+plt.yscale('log')
+plt.plot(nomval(Energy(np.int(np.round(Peaks[0],0)))), Spektrum[np.int(np.round(Peaks[0],0))], '.',
+         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+plt.ylabel('Zählungen pro Energie')
+plt.xlabel('E / keV')
+plt.xlim(0,800)
+plt.legend()
+#plt.savefig('Plots/Caesium.pdf')
+#plt.show()
