@@ -77,7 +77,7 @@ plt.plot(unp.nominal_values(Energy(Channel_FWHM)), Gauss(Channel_FWHM,*params_Ca
 plt.xlabel("E / keV")
 plt.ylabel("Zählungen pro Energie")
 plt.legend()
-#plt.savefig('Plots/Caesium_Gauß.pdf')
+plt.savefig('Plots/Caesium_Gauß.pdf')
 #plt.show()
 
 # Full Width Half Maximum and Full Wisth at a tenth of maximum
@@ -205,7 +205,7 @@ plt.plot(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), nomval(compton(nomva
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
-#plt.savefig('Plots/Caesium_Compton.pdf')
+plt.savefig('Plots/Caesium_Compton.pdf')
 #plt.show()
 
 Area_c = integrate.quad(compton_integrate, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
@@ -234,5 +234,5 @@ plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.xlim(0,800)
 plt.legend()
-#plt.savefig('Plots/Caesium.pdf')
+plt.savefig('Plots/Caesium.pdf')
 #plt.show()

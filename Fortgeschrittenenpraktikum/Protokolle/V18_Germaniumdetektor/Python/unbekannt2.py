@@ -55,7 +55,7 @@ plt.xlim(0,1500)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
-plt.show()
+#plt.show()
 #plt.savefig('Plots/unbekannt2.pdf')
 
 Peaks_Energy = Energy(Peaks[0][:])
@@ -84,6 +84,7 @@ for i,n in enumerate(Peaks[0]):
 Peaks_mittel = np.round(np.asarray(Params_u2)[:,1],0)
 Amplitudes = np.asarray(Params_u2)[:,0]
 Amplitudes_ufloat = np.asarray([ufloat(n, np.asarray(errors_u2)[i,0]) for i,n in enumerate(np.asarray(Params_u2)[:,0])])
+Means_ufloat = np.asarray([ufloat(n, np.asarray(errors_u2)[i,1]) for i,n in enumerate(np.asarray(Params_u2)[:,1])])
 sigmas = np.asarray(Params_u2)[:,2]
 sigmas_ufloat =  np.asarray([ufloat(n, np.asarray(errors_u2)[i,2]) for i,n in enumerate(np.asarray(Params_u2)[:,2])])
 Area_Params = np.array([[n,sigmas[i]] for i,n in enumerate(Amplitudes)])
@@ -98,6 +99,11 @@ Area = AreaGaus(Area_Params[:,0], Area_Params[:,1])
 Area_ufloat = AreaGaus(Area_params_ufloat[:,0], Area_params_ufloat[:,1])
 Area_norm = Area/tges
 Area_norm_ufloat = Area_ufloat/tges
+
+print("-- Fit Parameter --")
+print(f"Amplituden: {Amplitudes_ufloat}")
+print(f"Means: {Energy(Means_ufloat)}")
+print(f"Sigmas: {sigmas_ufloat}", '\n')
 
 print("--- Calculating the activity ---")
 
