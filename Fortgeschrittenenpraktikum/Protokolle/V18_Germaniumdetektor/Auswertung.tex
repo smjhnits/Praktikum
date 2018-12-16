@@ -1,0 +1,61 @@
+\section{Auswertung}
+
+In der folgenden Auswertung werden die verschiedenen aufgenommenen Spektren
+ausgewertet, um die Eigenschaften des Detektors zu bestimmen so zwei verschiedene
+unbekannte Quellen zu klassifizieren. Dafür werden verschiedene \textsc{Python}-Pakete
+verwendet. Es handelt sich um die Pakete \textsc{uncertainties} für die Fehlerrechnung,
+\textsc{scipy.optimize} für die Bestimmung der verschiedenen Peaks sowie
+\textsc{curve\_{fit}} für die Ausgleichsrechnungen.
+
+\subsection{Kalibrierung des Detektors mit $^{152}\ce{Eu}$}
+
+Zu Beginn des Experimentes wird eine Kalibrierung des Detektors mithilfe
+einer $^{152}\ce{Eu}$-Probe durchgeführt. Anhand des Spektrums werden dann mithilfe
+bekannter Energien des Gamma-Spektrums die Transformation der Kanäle in die
+entsprechenden Energien sowie die Parameter für die Effizienz in Abhängigkeit
+der Energie bestimmt. Die Messung wurde in einem Zeitraum von
+$t\ua{ges} = \SI{3393}{\second}$ durchgeführt.
+
+\subsubsection{Bestimmung der Energie-Transformation}
+
+In Abbildung \ref{fig:EuSpek} ist das aufgenommene Spektrum für
+$^{152}\ce{Eu}$ dargstellt. Um den einzelnen Kanälen eine Energie zuordnen
+zu können, werden die Kanäle der verschiedenen Peaks mit \textsc{scipy.optimize.find\_{peaks}}
+bestimmt. Anschließend wird jeweils in einem Bereich von $\pm \num{30}$ Kanälen
+um die bestimmten Kanäle eine
+Anpassung mit der folgenden Gauß-Funktion durchgeführt:
+\begin{equation}
+  N(x) = A\cdot exp{\left( \frac{x-\mu}{\sigma}\right)^2} + B.
+\end{equation}
+Die einzelnen Parameter sind in Tabelle \ref{tab:EuGauß} eingetragen. Jedem
+Peak wird dabei eine der charakteristischen Energien aus dem Gamma-Spektrum
+von $^{152}\ce{Eu}$ zugeordnet. Mithilfe der gefitteten Mittelwerte $\mu$ kann
+nun die Transformation der Kanäle in die zugehörigen Energiewerte bestimmt werden.
+Dafür werden die Energien $E_{\gamma, \text{lit}}$ an die bestimmten Kanäle $\mu$ gemäß
+einer linearen Funktion der Form
+\begin{equation}
+  E(x) = m \cdot x + b
+\end{equation}
+angepasst. Dabei ergeben sich die folgenden Parameter:
+\begin{align}
+  m &= (\num{0.40299\pm0.00006})\,\frac{\si{\kilo\eV}}{\text{Kanalnummer}}\\
+  b &= \SI{-2.76(11)}{\kilo\eV}
+\end{align}
+Die verwendeten Kanalnummern, die dazugehörigen Literaturwerte der Energien
+$E_{\gamma, \text{lit}}$ sowie die mit der Transformation bestimmten Energien
+$E_{\gamma}$ sind in Tabelle \ref{tab:Kalibrierung} eingetragen. In Abbildung
+\ref{fig:Kalibrierung} sind die Datenpunkte sowie der dazugehörige Fit
+grafisch dargestellt. Die bestimmten Parameter werden in den folgenden Abschnitten
+verwendet, um das Spektrum direkt in Abhängigkeit von der Energie darzustellen.
+
+\subsubsection{Bestimmung der Parameter für die Effizienz}
+
+Die Nachweiswahrscheinlichkeit der Gamma-Quanten ist im Allgemeinen von der Energie
+abhängig, weshalb im folgenden eine Funktion für die Effizienz in Abhängigkeit von
+der Energie bestimmt werden soll. Dafür muss zuerst die Aktivität der Probe
+bestimmt werden. Es ist bekannt, dass die Aktivität der Probe am 01.10.2000
+$A\ua{0} = \SI{4130(60)}{\becquerel}$ betrug. Bei einer Halbwertszeit von
+$t\ua{1/2} = (\num{4943(5)})\,\text{Tagen}$ ergibt sich somit gemäß des Zerfallsgesetzes
+für den 10.12.2018 eine Aktivität von $A=\SI{1627(24)}{\becquerel}$. Desweiteren
+wird der Raumwinkel benötigt, den der Detektor abdeckt. Dieser kann gemäß Formel ??
+bestimmt werden. 
