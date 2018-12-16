@@ -196,7 +196,7 @@ print("Emission probabilities:",'\n', f" {W}",'\n')
 
 Q = np.array([n/(Omega * W[i] * Ak) for i,n in enumerate(Area_norm)])
 Q_ufloat = np.array([n/(Omega * W[i] * Ak) for i,n in enumerate(Area_norm_ufloat)])
-print(f"Efficiency: {Q_ufloat}")
+print(f"Efficiency: {Q_ufloat}",'\n')
 
 def Effizienz(E, A, B):
      return A*E**B
@@ -219,6 +219,9 @@ plt.ylim(0,0.6)
 plt.legend()
 plt.savefig('Plots/Effizienz.pdf')
 #plt.show()
+
+print("Fit Parameter")
+print(Params_Q_ufloat)
 
 np.savetxt('Europium.txt', np.column_stack([params_energy, covariance_energy[0], covariance_energy[1], params_Q, covariance_Q[0], covariance_Q[1]]))
 np.savetxt('EuropiumQ.txt', np.column_stack([Peaks_mittel, nomval(Q)]))
