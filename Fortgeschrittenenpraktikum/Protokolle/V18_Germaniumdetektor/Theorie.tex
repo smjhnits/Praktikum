@@ -41,7 +41,7 @@ Abblidung~\ref{fig:crosssection} zu finden.
   \caption{Extinktionskoeffizienten der verschiedenen Wechselwirkungen von $\gamma$-Quanten mit Germanium\cite{anleitung}.}
   \label{fig:crosssection}
 \end{figure}
-
+\FloatBarrier
 \subsection{Photoeffekt}
 \label{subsec:photo}
 
@@ -74,7 +74,7 @@ Energieberich approximativ mit
 \end{equation}
 gegeben. $z$ entspricht der Kernladungszahl der wechselwirkenden Materie und $\alpha$
 ist eine Exponent mit $4 < \alpha < 5$\cite{anleitung}.
-
+\FloatBarrier
 \subsection{Compton-Streuung}
 \label{subsec:compton}
 
@@ -112,7 +112,7 @@ Die Energie des Elektrons nach der Streuung $E_{e^-}'$ ist gegeben durch
 Der maximale Energieübertrag ist somit gegeben für $Psi_\gamma = \SI{180}{\degree}$,
 was einer Rückstreuung entspricht. Der Bereich Streuung bei diesem Streuwinkel wird
 im Energiespektrum als Compton-Kante bezeichnet (vgl. Kapitel~\ref{subsec:energiespektrum}).
-
+\FloatBarrier
 \subsection{Paarbildung}
 \label{subsec:paar}
 
@@ -134,7 +134,7 @@ des Absorbers, wobei aus Impulserhaltungsgründen zwei Photonen entstehen.
 Mit einer endlichen Wahrscheinlichkeit kann eines der beiden, oder beide
 Photonen nicht wieder mit dem Absorber wechselwirken und
 den Detektor ohne Energiedeponierung verlassen.
-
+\FloatBarrier
 \subsection{Wirkungsweise eines Reinst-Germanium-Detektors}
 \label{subsec:wirkungsweise}
 Germanium ist ein indirekter Halbleiter, weshalb ein Reinst-Germanium-Detektor
@@ -183,7 +183,7 @@ In diesem Fall erstreckt sich die Verarmungszone über die gesamte $p$-Schicht.
   Das Anlegen einer Sperrspannung $U$ wird durch die eingezeichneten Elektroden angedeutet.}
   \label{fig:pndiode}
 \end{figure}
-
+\FloatBarrier
 \subsection{Energieauflösung eines Halbleiter-Detektors}
 \label{subsec:energieauflösung}
 
@@ -253,7 +253,7 @@ berechnet. $\Omega$ ist der Raumwinkel, den der $\gamma$-Srahler vom Detektor ab
 $A$ ist die Aktivität des Strahlers, $W$ die Emissionswahrschienlichkeit einer bestimmten
 Energie eines Mehrlinienstrahlers und $Z$ die vom Detektor gezählten $\gamma$-Quanten
 zu einer bestimmten Energie.
-
+\FloatBarrier
 \subsection{Energiespektren}
 \label{subsec:energiespektrum}
 
@@ -289,7 +289,7 @@ Aus diesem Grund wird der Peak nicht Photopeak, sonder Vollenergie-Peak genannt.
   \caption{Gemessenens Energiespektrum einer monochromatischen Quelle (nach Quelle \cite{anleitung}).}
   \label{fig:spektrum}
 \end{figure}
-
+\FloatBarrier
 \section{Aufbau}
 \label{sec:Aufbau}
 
@@ -300,9 +300,10 @@ Die Außenseite des Germanium-Kristalls ist mit Lithium dotiert,
 sodass diese gut leitend ist. Die Li-Schicht dient als Pluspol der Sperrspannung $U$.\\
 Der Detektor ist mit einer Aluminiumschicht ummandelt, welcher als Schutzschicht
 vor sonstigen einfallenden $\gamma$-Quanten fungiert. Als zusätzliche Abschirmung
-wird um die Aluminiumschicht eine Kuperschicht und eine Bleischicht angebracht.
-Die Bleischicht eignet sich aufgrund ihrer hohen Dichte besonders gut als Abschirmungsmaterial.
-Die $\ce{Cu}$-Schicht schirmt Strhalung von $\ce{Pb}$-Isotopen aus der Bleischicht ab.
+wird um die Aluminiumschicht eine Kupferschicht und eine Bleischicht angebracht.
+Die Bleischicht eignet sich aufgrund ihrer hohen Dichte besonders gut als Abschirmungsmaterial
+für jegliche Strahlung.
+Die $\ce{Cu}$-Schicht schirmt Strahlung von $\ce{Pb}$-Isotopen aus dem Blei ab.
 
 \begin{figure}
   \centering
@@ -311,44 +312,57 @@ Die $\ce{Cu}$-Schicht schirmt Strhalung von $\ce{Pb}$-Isotopen aus der Bleischic
   die den gesamten Detektor umschließenden Abschirmungsschichten aus Kupfer und Blei\cite{anleitung}.}
   \label{fig:aufbau}
 \end{figure}
-
+\FloatBarrier
 \subsection{Elektronische Beschaltung eines $\ce{Ge}$-Detektors}
 \label{subsec:elektronische}
 
 Damit ein Energiespektrum erstellt werden kann, müssen die vom Detektor gemessenen
-$\gamma$-Quanten ihrer Energie entsprechend Hohe Spannungsimpulse übersetzt werden.
+$\gamma$-Quanten ihrer Energie entsprechend in die Hähe von Spannungsimpulse übersetzt werden.
 Dafür wird der in Abbildung~\ref{fig:vorverstärker} gezeigte Vorverstärker verwendet.
-Dieser wandelt die Ladungsmenge, die das $\gamma$-Quant in dem Detektor freigesetzt hat
+Dieser wandelt die Ladungsmenge, die das $\gamma$-Quant in dem Detektor freisetzt
 über eine Integrationsschaltung in einen Spannungsimpuls um.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{Pics/vorverstaerker.png}
+  \includegraphics[width=0.6\textwidth]{Pics/vorverstaerker.png}
   \caption{Schaltungsskizze eines Vorverstärkers für den $\ce{Ge}$-Detektor\cite{anleitung}.}
   \label{fig:vorverstärker}
 \end{figure}
 
 Nach jedem Quantennachweis muss der Integrationskondensator $C\ua{K}$ aus~\ref{fig:vorverstärker}
-entladen werden. Dies kann über den gestrichelt eingezeichneten
+entladen werden. Dies kann über den in Abb.~\ref{fig:vorverstärker} gestrichelt eingezeichneten
 Widerstand $R\ua{K}$ gelöst werden. Problematisch ist jedoch das Eigenrauschen des
-Widerstandes, welches das Rauschen des Vorverstärkers nachhaltig beeinträchtigt.
+Widerstands, welches das Rauschen des Vorverstärkers signifikant beeinträchtigt.
 Zur Entladung des Kondensator wird aus diesem Grund eine optoelektronische
 Rückkoplung verwendet. Eine solche Schaltung ist schematisch in Abb.~\ref{fig:optoelektronik}
 gezeigt. Nach jedem Nachweis wird ein Eingangs-Feldeffekttransistor (FET)
-über eine LED beluchtet, sodass die Sperrschicht für eine kurze Zeit leitend wird,
-damit die Ladung über den Integrationskondensator abfließen kann.
+mittels einer LED beluchtet, sodass die Sperrschicht für eine kurze Zeit leitend wird.
+Die Ladung kann dann über den Integrationskondensator abfließen.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{Pics/optoelektronik.png}
+  \includegraphics[width=0.6\textwidth]{Pics/optoelektronik.png}
   \caption{Schaltungsskizze zur Entladung des Integrationskondensators $C\ua{K}$ durch optoelektronische Rückkoplung\cite{anleitung}.}
   \label{fig:optoelektronik}
 \end{figure}
 
+Die aus dem Vorverstärker kommenden Spannungsimpulse werden an einen Viel-Kanal-Analysator (VKA)
+weitergegeben, der diese ihrer Länge, welche stellvertretend für die
+Energie des $\gamma$-Quantes steht, entsprechned in die vorhandenen Kanäle eingeordnet.
+Der Viel-Kanal-Analysator wird durch einen Computer mit geeigneter Software
+ausgelesen. Die Kanäle des VKAs sind nicht kalibriert.
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{Pics/WAD_konverter.png}
+%   \caption{Prinzipschaltbild eines Wilkinson-Analog-Konverters\cite{anleitung}.}
+%   \label{fig:konverter}
+% \end{figure}
+\FloatBarrier
 \section{Durchführung}
 \label{sec:durchführung}
 
-Zu Beginn des Versuches wird eine bekannte Probe zum Kallibieren der Eingänge des
+Zu Beginn des Versuches wird eine bekannte Probe zum Kalibieren der Eingänge des
 Viel-Kanal-Analysators und der Effizienzmessung
 vewendet. Dafür wird ein $\ce{^152Eu}$-Strahler verwendet.
 Weiterhin wird ein $\ce{^137Cs}$-Strahler zur Bestimmung weitere Detektoreigenschaften
