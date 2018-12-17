@@ -244,6 +244,15 @@ Neben der Energieauflösung werden Detektoren bezüglich ihrer Nachweiswahrschei
 klassifiziert. Diese Nachweiswahrscheinlichkeit, oder auch Effizienz $Q$
 beschreibt wieviele eingefallene $\gamma$-Quanten von dem Detektor
 registriert werden.
+Die Effizienz wird mittels
+\begin{equation}
+  \label{eqn:effizienz}
+  Q = \frac{\Omega}{4\pi}\frac{AW}{Z}
+\end{equation}
+berechnet. $\Omega$ ist der Raumwinkel, den der $\gamma$-Srahler vom Detektor abdeckt,
+$A$ ist die Aktivität des Strahlers, $W$ die Emissionswahrschienlichkeit einer bestimmten
+Energie eines Mehrlinienstrahlers und $Z$ die vom Detektor gezählten $\gamma$-Quanten
+zu einer bestimmten Energie.
 
 \subsection{Energiespektren}
 \label{subsec:energiespektrum}
@@ -285,8 +294,15 @@ Aus diesem Grund wird der Peak nicht Photopeak, sonder Vollenergie-Peak genannt.
 \label{sec:Aufbau}
 
 Der grundlegende Aufbau ist in Abbildung~\ref{fig:aufbau} gezeigt. Der Detektor
-besteht aus einem hochreinen Germanium-Kristall, welcher im inneren einen
-eingefräßten Zylinder, der mit Gold bedampft ist.
+besteht aus einem hochreinen Germanium-Kristall, welcher im Inneren eine
+koaxiale Bohrung hat, die mit Gold bedampft ist.
+Die Außenseite des Germanium-Kristalls ist mit Lithium dotiert,
+sodass diese gut leitend ist. Die Li-Schicht dient als Pluspol der Sperrspannung $U$.\\
+Der Detektor ist mit einer Aluminiumschicht ummandelt, welcher als Schutzschicht
+vor sonstigen einfallenden $\gamma$-Quanten fungiert. Als zusätzliche Abschirmung
+wird um die Aluminiumschicht eine Kuperschicht und eine Bleischicht angebracht.
+Die Bleischicht eignet sich aufgrund ihrer hohen Dichte besonders gut als Abschirmungsmaterial.
+Die $\ce{Cu}$-Schicht schirmt Strhalung von $\ce{Pb}$-Isotopen aus der Bleischicht ab.
 
 \begin{figure}
   \centering
@@ -296,5 +312,48 @@ eingefräßten Zylinder, der mit Gold bedampft ist.
   \label{fig:aufbau}
 \end{figure}
 
+\subsection{Elektronische Beschaltung eines $\ce{Ge}$-Detektors}
+\label{subsec:elektronische}
+
+Damit ein Energiespektrum erstellt werden kann, müssen die vom Detektor gemessenen
+$\gamma$-Quanten ihrer Energie entsprechend Hohe Spannungsimpulse übersetzt werden.
+Dafür wird der in Abbildung~\ref{fig:vorverstärker} gezeigte Vorverstärker verwendet.
+Dieser wandelt die Ladungsmenge, die das $\gamma$-Quant in dem Detektor freigesetzt hat
+über eine Integrationsschaltung in einen Spannungsimpuls um.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Pics/vorverstaerker.png}
+  \caption{Schaltungsskizze eines Vorverstärkers für den $\ce{Ge}$-Detektor\cite{anleitung}.}
+  \label{fig:vorverstärker}
+\end{figure}
+
+Nach jedem Quantennachweis muss der Integrationskondensator $C\ua{K}$ aus~\ref{fig:vorverstärker}
+entladen werden. Dies kann über den gestrichelt eingezeichneten
+Widerstand $R\ua{K}$ gelöst werden. Problematisch ist jedoch das Eigenrauschen des
+Widerstandes, welches das Rauschen des Vorverstärkers nachhaltig beeinträchtigt.
+Zur Entladung des Kondensator wird aus diesem Grund eine optoelektronische
+Rückkoplung verwendet. Eine solche Schaltung ist schematisch in Abb.~\ref{fig:optoelektronik}
+gezeigt. Nach jedem Nachweis wird ein Eingangs-Feldeffekttransistor (FET)
+über eine LED beluchtet, sodass die Sperrschicht für eine kurze Zeit leitend wird,
+damit die Ladung über den Integrationskondensator abfließen kann.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Pics/optoelektronik.png}
+  \caption{Schaltungsskizze zur Entladung des Integrationskondensators $C\ua{K}$ durch optoelektronische Rückkoplung\cite{anleitung}.}
+  \label{fig:optoelektronik}
+\end{figure}
+
 \section{Durchführung}
 \label{sec:durchführung}
+
+Zu Beginn des Versuches wird eine bekannte Probe zum Kallibieren der Eingänge des
+Viel-Kanal-Analysators und der Effizienzmessung
+vewendet. Dafür wird ein $\ce{^152Eu}$-Strahler verwendet.
+Weiterhin wird ein $\ce{^137Cs}$-Strahler zur Bestimmung weitere Detektoreigenschaften
+ausgemessen.\\
+Abschließend werden zwei unbekannte Strahler vermessen, die anhand ihrers
+Energiespektrums identifiziert werden.
+Darüberhinaus ist es bei dem Versuch wichtig den Abstand zwischen Detektor und Strahler
+zu messen.
