@@ -50,13 +50,13 @@ plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:4000]), 1))),
          weights=Spektrum[0:4000], label='Spektrum')
 plt.yscale('log')
 plt.plot(nomval(Energy(Peaks[0][:])), Spektrum[Peaks[0][:]], '.',
-         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+         markersize=4, label='Gauß-Peaks', color='C1', alpha=0.8)
 plt.xlim(0,1500)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
 #plt.show()
-#plt.savefig('Plots/unbekannt2.pdf')
+plt.savefig('Plots/unbekannt2.pdf')
 
 Peaks_Energy = Energy(Peaks[0][:])
 Energy_co = np.array([1173.237, 1332.501])

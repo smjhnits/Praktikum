@@ -77,7 +77,7 @@ plt.plot(unp.nominal_values(Energy(Channel_FWHM)), Gauss(Channel_FWHM,*params_Ca
 plt.xlabel("E / keV")
 plt.ylabel("Zählungen pro Energie")
 plt.legend()
-plt.savefig('Plots/Caesium_Gauß.pdf')
+plt.savefig('Plots/Caesium_Gaus.pdf')
 #plt.show()
 
 # Full Width Half Maximum and Full Wisth at a tenth of maximum
@@ -198,26 +198,27 @@ plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:np.int(Peak_ce[0]
          bins=unp.nominal_values(Energy(np.linspace(0, len(Spektrum[0:np.int(Peak_ce[0]+200)]), len(Spektrum[0:np.int(Peak_ce[0]+200)])))),
          weights=Spektrum[0:np.int(Peak_ce[0]+200)], label='Spektrum')
 plt.plot(nomval(Energy(np.int(np.round(Peak_bs)))), Spektrum[np.int(np.round(Peak_bs))], '.',
-         markersize=2, label='Rückstreupeak', color='C1', alpha=0.8)
+         markersize=4, label='Rückstreupeak', color='C1', alpha=0.8)
 plt.plot(nomval(Energy(np.int(np.round(Peak_ce)))), Spektrum[np.int(np.round(Peak_ce))], '.',
-         markersize=2, label='Compton Kante', color='C4', alpha=0.8)
+         markersize=4, label='Compton Kante', color='C4', alpha=0.8)
 plt.plot(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), nomval(compton(nomval(Energy(Channels[60:np.int(Peak_ce[0]-2)])), *params_compton)), 'k-', label = 'Compton Kontinuum Fit')
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
+plt.xlim(0,550)
 plt.legend()
 plt.savefig('Plots/Caesium_Compton.pdf')
 #plt.show()
 
 Area_c = integrate.quad(compton_integrate, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
 Area_compton = ufloat(Area_c[0], Area_c[1])
-Area_photo = AreaGaus(params_Ca[0], params_Ca[2])
+Area_photo = AreaGaus(ufloat(params_Ca[0],errors_Ca[0]), ufloat(params_Ca[2],errors_Ca[2]))
 C_Ca_fehler = np.array([ufloat(n, np.sqrt(n)) for n in C_Ca])
 Area_compton2 = sum(C_Ca_fehler[60:np.int(Peak_ce[0]-2)])
 
 print("-- Different Areas --")
 print(f"Area_compton with integrate: {Area_compton}")
 print(f"Area_compton with sum: {nomval(Area_compton2)},{std(Area_compton2)} ")
-print(f"Area_photon: {Area_photo}",'\n')
+print(f"Area_photon: {nomval(Area_photo)},{std(Area_photo)}",'\n')
 
 print("-- Quotient of both areas --")
 print(f"Area_compton/Area_photo: {Area_compton/Area_photo}")
@@ -229,7 +230,7 @@ plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum), 1))),
          weights=Spektrum, label='Spektrum')
 plt.yscale('log')
 plt.plot(nomval(Energy(np.int(np.round(Peaks[0],0)))), Spektrum[np.int(np.round(Peaks[0],0))], '.',
-         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+         markersize=4, label='Gauß-Peak', color='C1', alpha=0.8)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.xlim(0,800)

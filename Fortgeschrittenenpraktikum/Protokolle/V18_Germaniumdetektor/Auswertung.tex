@@ -21,7 +21,7 @@ $t\ua{ges} = \SI{3393}{\second}$ durchgeführt.
 
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{Python/Plots/Europium.pdf}
+  \includegraphics[width = 0.85\textwidth]{Python/Plots/Europium.pdf}
   \caption{}
   \label{fig:EuSpek}
 \end{figure}
@@ -58,7 +58,7 @@ grafisch dargestellt. Die bestimmten Parameter werden in den folgenden Abschnitt
 verwendet, um das Spektrum direkt in Abhängigkeit von der Energie darzustellen.
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{Python/Plots/Kalibrierung.pdf}
+  \includegraphics[width = 0.85\textwidth]{Python/Plots/Kalibrierung.pdf}
   \caption{}
   \label{fig:Kalibrierung}
 \end{figure}
@@ -94,25 +94,50 @@ Die verwendeten Datenpunkte sowie die dazugehörige Fitfunktion sind in
 Abbildung \ref{fig:Effizienz} dargestellt.
 \begin{figure}
   \centering
-  \includegraphics[width = 0.8\textwidth]{Python/Plots/Effizienz.pdf}
+  \includegraphics[width = 0.85\textwidth]{Python/Plots/Effizienz.pdf}
   \caption{}
   \label{fig:Effizienz}
 \end{figure}
 
 \subsection{Bestimmung verschiedener Detektoreigenschaften mithilfe einer $^{137}{Cs}$-Quelle }
 
+Durch Aufnahme eines Spektrums der $^{137}{Cs}$-Quelle kann eine Aussage über
+die tatsächliche Energieauflösung des Detektors getroffen werden. Zudem kann
+durch den Vergleich der Flächen unter dem Compton-Kontinuum sowie des Vollenergiepeaks
+einer Aussage über die Wechselwirkungswahrscheinlichkeit getroffen und mit den
+theoretischen Werten verglichen werden. Die Messung wurde in einem Zeitraum von
+$t\ut{ges} = \SI{3066}{\second}$ durchgeführt.
+
+\subsubsection{Bestimmung der Energieauflösung}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium.pdf}
+  \caption{}
+  \label{fig:Ca}
+\end{figure}
 Das aufgenommene Spektrum für $^{137}{Cs}$ ist in Abbildung \ref{fig:Ca} dargestellt.
 Der Vollenergiepeak wurde analog zu Kapitel \ref{subsec:Eu} mithilfe des
 \textsc{find\_{peaks}}-Paketes bestimmt und gemäß Formel \eqref{eqn:Gausfit}
 angepasst. Dabei ergeben sich die folgenden Parameter:
 \begin{align}
   A &= \SI{2054(13)}{Zählungen} \\
-  \mu &= \SI{661.4(2)}{\kilo\eV} \\
-  \sigma &= \SI{2.15(2)}{\kilo\eV} \\
+  \mu &= \SI{661.4(2)}{\kilo\eV}
+  \label{Ca:mu}\\
+  \sigma &= \SI{2.15(2)}{\kilo\eV}
+  \label{Ca:sigma}\\
   B &= \SI{6{3}}{Zählungen}.
 \end{align}
+Der Vollenergiepeak und die angepasste Gauß-Funktion sind in Abbildung \ref{fig:CaGauß}
+dargestellt.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium_Gaus.pdf}
+  \caption{}
+  \label{fig:CaGauß}
+\end{figure}
 Um die Verwendung einer Gauß-Funktion als Fitfunktion zu rechtfertigen, wird die
-Halbwertsbreite sowie die Zehntelbreite bestimmt. Dafür werden die beiden Bins
+Halbwertsbreite sowie die Zehntelbreite bestimmt. Dafür werden die beiden Energien
 gesucht, die die geringste Abweichungen zur Hälfte bzw. dem Zehntel der bestimmten
 Amplitude haben. Für die Halbwertsbreite und Zehntelbreite sowie deren Verhältniss
 ergibt sich somit:
@@ -121,3 +146,116 @@ ergibt sich somit:
   x\ua{1/10} &= \SI{4.4(2)}{\kilo\eV} \\
   \frac{x\ua{1/10}}{x\ua{1/2}} &= \SI{1.83(18)}{}.
 \end{align}
+Beide Breiten können zudem unter Verwendung der bei der Anpassung der Gaußfunktion
+bestimmten Standardabweichung \ref{Ca:sigma} bestimmt werden. Gemäß Formel ??
+ergeben sich für beide Breiten die Werte
+\begin{align}
+  x\ua{1/2} &= \SI{2.04(21)}{\kilo\eV} \\
+  x\ua{1/10} &= \SI{3.72(21)}{\kilo\eV}.
+\end{align}
+Mithilfe von Formel ?? kann auch das theoretische Auflösungvermögen des
+Germanium Detektors berechnet werden. Dafür werden die in Kapitel \ref{subsec:Eu}
+bestimmte Energie des Vollenergiepeaks und die Anregungsenergie eines
+Elektrons in Germanium $E\ua{EL} = \SI{2.9}{\eV}$ benötigt. Für das theoretische
+Auflösungsvermögen ergibt sich somit
+\begin{equation}
+  \increment E\ua{1/2} = \SI{1.0292(1)}{\kilo\eV}.
+\end{equation}
+
+\subsubsection{Bestimmung der Wechselwirkungswahrscheinlichkeiten}
+
+Für $^{137}{Cs}$ sollen zudem der Rückstreupeak und die Compton-Kante bestimmt werden
+sowie der Quotient der Flächen unter dem Compton-Kontinuum und dem Vollenergiepeak.
+Das Compton-Kontinuum und die bestimmten Punkte des Rückstreupeaks und der Compton-Kante
+sind in Abbildung \ref{fig:CaCompton} dargestellt. Die Lage der beiden Punkte kann
+aus dem Spektrum mithilfe der \textsc{find\_{peaks}}-Funktion bestimmt werden:
+\begin{align}
+  E\ut{Rückstreuung} &= \SI{186.2(1)}{\kilo\eV} \\
+  E\ut{Kompton-Kante} &= \SI{477.1(1)}{\kilo\eV}.
+\end{align}
+Zudem können die Energien auch mithilfe von Formeln ?? bestimmt werden, so dass
+sich für die theoretischen Werte
+\begin{align}
+  E\ut{Rückstreuung} &= \SI{184.3(1)}{\kilo\eV} \\
+  E\ut{Kompton-Kante} &= \SI{477.1(1)}{\kilo\eV}
+\end{align}
+ergibt. Dabei wurde für den Rückstreupeak der Winkel $\theta = \sfrac{\pi}{2}$ und
+für die Compton-Kante der Winkel $\theta = \pi$ verwendet.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium_Compton.pdf}
+  \caption{}
+  \label{fig:CaCompton}
+\end{figure}
+
+Um die Wechselwirkungswahrscheinlichkeit der Comptonstreuung und des Photoeffektes
+zu vergleichen, wird im folgenden der Inhalt des Compton-Kontinuums und des Vollenergiepeaks
+bestimmt. Bei dem Vollenergiepeak kann dieser analog zu Kapitel \ref{subsec:Eu} mithilfe
+der Standardabweichung der Gauß-Fitfunktion \label{Ca:sigma} bestimmt werden:
+\begin{equation}
+  A\ua{Vollenergie} = \SI{11077(111)}{\text{Zählungen}}.
+\end{equation}
+Zur Bestimmung des Inhaltes des Compton-Kontinuums werden zwei verschiedene Methoden
+verwendet. Die einfachere Methode ist das einfach Aufsummieren aller Zählungen
+innerhalb des Compton-Kontinuums. Jedoch wird der Inhalt durch den Rückstreupeak
+verfälscht. Deshalb wird in der zweiten Methode eine Anpassung mit einer Funktion
+durchgeführt, die dem energieabhängigen Anteil des Wirkungsquerschnittes für die
+Comptonstreuung entspricht:
+\begin{equation}
+  N(x) = N\ua{0} \frac{1}{\varepsilon^2} \cdot \left\{2 + \left(\frac{x}{h\nu-x}\right)^2\cdot\left[\frac{1}{\varepsilon^2}+\frac{h\nu-x}{h\nu}-\frac{2}{\varepsilon}\left(\frac{h\nu-x}{h\nu}\right)\right] \right\}
+\end{equation}
+Bei $h\nu$ handelt es sich um die Energie des Vollenergiepeaks \ref{Ca:mu}.
+Der konstante Vorfaktor $N\ua{0}$ und das $\varepsilon$ werden
+dabei als Fit-Parameter verwendet. Der Fit ist in Abbildung \ref{fig:CaCopmton}
+dargestellt. Für die beiden Fit-Parameter ergibt sich
+\begin{align}
+  N\ua{0} &= \SI{58(17)}{\text{Zählungen}} \\
+  \varepsilon &= \SI{1.9(3)}{}
+\end{align}
+Durch Integration über die Energien bis zur Compton-Kante ergibt sich der
+Inhalt des Compton-Kontinuums:
+\begin{align}
+  A\ut{Compton,Summierung} &= \SI{51140(226)}{\text{Zählungen}} \\
+  A\ut{Compton,Integration} &= \SI{15719}{Zählungen}
+\end{align}
+Durch Bestimmung des Quotienten kann später eine Aussage über die relative Wechselwirkungswahrscheinlichkeit
+der Comptonstreuung und des Photoeffektes getroffen werden:
+\begin{align}
+  \frac{A\ut{Compton,Summierung}}{A\ua{Vollenergie}} &= \SI{4.62(5)}{} \\
+  \frac{A\ut{Compton,Integration}}{A\ua{Vollenergie}} &= \SI{1.42(1)}{}
+\end{align}
+Die Quotienten zeigen, dass die Größenordnungen des Inhalts des Compton-Kontinuums
+und des Vollenergiepeaks bei beiden Methoden gleich sind.
+
+Die Wechsewirkungswahrscheinlichkeit lässt sich zudem mithilfe von Formel ??
+berechnen. Dafür müssen die Extinktionskoeffiienzenten aus Quelle \cite{anleitung}
+entnommen werden. Aufgrund der logarithmischen Darstellung werden unterschiedliche
+Ablesefehler angenommen:
+\begin{align}
+  \mu\ut{Photo} &= \SI{8(1)e-3}{\per\cm} \\
+  \mu\ut{Compton} &= \SI{0.37(1)}{\per\cm}
+\end{align}
+Für die Wechselwirkungswahrscheinlichkeiten sowie den Quotienten ergibt sich somit
+\begin{align}
+  P\ua{Photo} &= \SI{3.1(4)}{\percent} \\
+  P\ua{Compton} &= \SI{76.4(9)}{\percent} \\
+  \frac{P\ua{Compton}}{P\ua{Photo}} &= \SI{25(3)}{}
+\end{align}
+Der Quotient der Wechselwirkungswahrscheinlichkeiten ist deutlich größer als
+der Quotient der beiden Flächen.
+
+\subsection{Untersuchung der ersten unbekannten Quelle}
+
+\begin{figure}
+  \centering
+  \includegraphics[width = 0.85\textwidth]{Python/Plots/unbekannt1.pdf}
+  \caption{}
+  \label{fig:u1}
+\end{figure}
+Das aufgenommene Spektrum für die erste unbekannte Quelle ist in Abbildung \ref{fig:u1}
+dargestellt. Die Messzeit betrug $t\ut{ges} = \SI{3066}{\second}$.
+Ein Vergleich der Energien der analog zu dem vorherihen Kapiteln  bestimmten Peaks
+mit den in Quelle \cite{anleitung} gegebenen $E_{\gamma,\su{lit}}$ von $^{133}{Ba}$
+und $^{125}{Sb}$ zeigt, dass es sich bei der untersuchten Quelle um $^{133}{Ba}$
+handelt. Die aus der Anpassung an eine Gaußfunktion erhaltenen Parameter sind in
+Tabelle \ref{tab:u1} aufgelistet.

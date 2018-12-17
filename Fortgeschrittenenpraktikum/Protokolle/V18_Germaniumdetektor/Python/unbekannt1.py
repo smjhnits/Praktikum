@@ -51,12 +51,12 @@ plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:1500]), 1))),
          weights=Spektrum[0:1500], label='Spektrum')
 plt.yscale('log')
 plt.plot(nomval(Energy(Peaks[0][:])), Spektrum[Peaks[0][:]], '.',
-         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+         markersize=4, label='Gauß-Peaks', color='C1', alpha=0.8)
 plt.xlim(0,500)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
-#plt.savefig('Plots/unbekannt1.pdf')
+plt.savefig('Plots/unbekannt1.pdf')
 
 Peaks_Energy = Energy(Peaks[0][:])
 Energy_ba = np.array([80.997,  276.398, 302.85, 356.02, 383.85 ]) # den 2. 160.61 Peak entfernt

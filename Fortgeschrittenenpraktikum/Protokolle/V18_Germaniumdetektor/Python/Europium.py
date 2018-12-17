@@ -83,7 +83,7 @@ plt.hist(range(0, len(Spektrum), 1),
         weights=Spektrum, label='Spektrum')
 plt.yscale('log')
 plt.plot(Peaks_plot, Spektrum[Peaks_plot], '.',
-         markersize=2, label='Gauß-Peaks', color='C1', alpha=0.8)
+         markersize=4, label='Gauß-Peaks', color='C1', alpha=0.8)
 plt.ylabel('Zählungen pro Kanal')
 plt.xlabel('Kanal')
 plt.xlim(0,4000)
