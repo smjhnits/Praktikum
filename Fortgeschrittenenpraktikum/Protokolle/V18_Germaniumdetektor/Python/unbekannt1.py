@@ -92,6 +92,7 @@ sigmas = np.asarray(Params_u1)[:,2]
 sigmas_ufloat =  np.asarray([ufloat(n, np.asarray(errors_u1)[i,2]) for i,n in enumerate(np.asarray(Params_u1)[:,2])])
 Area_Params = np.array([[n,sigmas[i]] for i,n in enumerate(Amplitudes)])
 Area_params_ufloat = np.array([[n,sigmas_ufloat[i]] for i,n in enumerate(Amplitudes_ufloat)])
+Constants_ufloat = np.asarray([ufloat(n, np.asarray(errors_u1)[i,3]) for i,n in enumerate(np.asarray(Params_u1)[:,3])])
 
 print("--- Find Peaks and gaussian fit---")
 print(f"Channel Peaks: {np.round(Peaks_mittel,0)}")
@@ -106,7 +107,8 @@ Area_norm_ufloat = Area_ufloat/tges
 print("-- Fit Parameter --")
 print(f"Amplituden: {Amplitudes_ufloat}")
 print(f"Means: {Energy(Means_ufloat)}")
-print(f"Sigmas: {sigmas_ufloat}", '\n')
+print(f"Sigmas: {sigmas_ufloat}")
+print(f"Constants: {Constants_ufloat}", '\n')
 
 print("--- Calculating the activity ---")
 

@@ -52,7 +52,7 @@ for n in Peaks_rein:
     Params_Eu.append(np.abs(Params.tolist()))
     errors = np.sqrt(np.diag(covariance))
     errors_Eu.append(np.abs(errors.tolist()))
-    print(f"{n}, {Params}")
+    #print(f"{n}, {Params}")
     plt.clf()
     plt.plot(Channels[n-30:n+30], Spektrum[n-30:n+30])
     plt.axvline(Params[1])

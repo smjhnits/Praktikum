@@ -50,6 +50,8 @@ angepasst. Dabei ergeben sich die folgenden Parameter:
   m &= \SI{0.40299(6)}{\kilo\eV\per\text{Kanalnummer}} \\
   b &= \SI{-2.76(11)}{\kilo\eV}
 \end{align}
+\input{Tabellen/Europium_Gaus.tex}
+
 Die verwendeten Kanalnummern, die dazugehörigen Literaturwerte der Energien
 $E_{\gamma, \text{lit}}$ sowie die mit der Transformation bestimmten Energien
 $E_{\gamma}$ sind in Tabelle \ref{tab:Kalibrierung} eingetragen. In Abbildung
@@ -62,8 +64,10 @@ verwendet, um das Spektrum direkt in Abhängigkeit von der Energie darzustellen.
   \caption{}
   \label{fig:Kalibrierung}
 \end{figure}
+\input{Tabellen/Eu_Kalibrierung.tex}
 
 \subsubsection{Bestimmung der Parameter für die Effizienz}
+\label{subsubsec:Eff}
 
 Die Nachweiswahrscheinlichkeit der Gamma-Quanten ist im Allgemeinen von der Energie
 abhängig, weshalb im folgenden eine Funktion für die Effizienz in Abhängigkeit von
@@ -79,11 +83,22 @@ ergibt sich somit
 \begin{equation}
   \frac{\Omega}{4\pi} = 0.0154
 \end{equation}
-Die Übergangswahrscheinlichkeiten werden der Quelle ?? entnommen und sind zusammen
+Zudem werden die Flächen unter den einzelnen Gaus-Peaks benötigt. Die Fläche
+lässt sich bei bekannter Standardabweichung und Amplitude mit
+\begin{equation}
+  A = \sqrt{2\pi}\sigma A
+  \label{eqn:area}
+\end{equation}
+bestimmen. Der konstante Offset der Gauß-Funktionen wird hierbei nicht beachtet,
+da dieser nicht zu den Vollenergiepeaks gehört. Für die Berechnung der Effizienz
+werden die Flächen noch durch die Gesamtmesszeit geteilt.
+Die Übergangswahrscheinlichkeiten werden der Quelle \cite{anleitung} entnommen
+und sind zusammen
 mit den restlichen Werten sowie den bestimmte Effizienzen in Tabelle \ref{tab:Effizienz}
 eingetragen. An die bestimmten Effizienzen wird eine Funktion der Form
 \begin{equation}
   Q(E) = A\cdot E^{-B}
+  \label{eqn:eff}
 \end{equation}
 angepasst. FÜr die beiden Parameter ergeben sich
 \begin{align}
@@ -245,6 +260,7 @@ Der Quotient der Wechselwirkungswahrscheinlichkeiten ist deutlich größer als
 der Quotient der beiden Flächen.
 
 \subsection{Untersuchung der ersten unbekannten Quelle}
+\label{subsec:u1}
 
 \begin{figure}
   \centering
@@ -254,8 +270,46 @@ der Quotient der beiden Flächen.
 \end{figure}
 Das aufgenommene Spektrum für die erste unbekannte Quelle ist in Abbildung \ref{fig:u1}
 dargestellt. Die Messzeit betrug $t\ut{ges} = \SI{3066}{\second}$.
-Ein Vergleich der Energien der analog zu dem vorherihen Kapiteln  bestimmten Peaks
+Ein Vergleich der Energien der analog zu dem vorherigen Kapiteln bestimmten Peaks
 mit den in Quelle \cite{anleitung} gegebenen $E_{\gamma,\su{lit}}$ von $^{133}{Ba}$
 und $^{125}{Sb}$ zeigt, dass es sich bei der untersuchten Quelle um $^{133}{Ba}$
-handelt. Die aus der Anpassung an eine Gaußfunktion erhaltenen Parameter sind in
-Tabelle \ref{tab:u1} aufgelistet.
+handelt. Die aus der Anpassung an die Gaußfunktion \ref{eqn:Gausfit} erhaltenen
+Parameter sind in Tabelle \ref{tab:u1} aufgelistet. Die bestimmten Mittelwerte
+bzw. Energien der einzelnen Peaks sind in Abbildung \ref{fig:u2} markiert.
+
+Um die Aktvität der $^{133}{Ba}$-Quelle zu bestimmen, müssen zuerst die Flächen
+unter den einzelnen Peaks bestimmt werden sowie die jeweilige Effizienz. Der Raumwinkel
+wurde schon in Abschnitt \ref{subsubsec:eff} bestimmt. Die
+Bestimmung beider Größen wird mithilfe der in Kapitel \ref{subsubsec:Eff}
+angegebenen Formel für eine Gaußfunktion \ref{eqn:area} sowie der bestimmten
+Formel für die Effizienz \ref{eqn:eff} durchgeführt. Die Übergangswahrscheinlichkeiten
+können Quelle \cite{anleitung} entnommen werden. Alle verwendeten Messgrößen sowie
+die nach Formel ?? bestimmten Aktivitäten sind in Tabelle \ref{tab:u1Aktivität} eingetragen.
+Unter Berücksichtigung aller Messdaten ergibt sich für die gemittelte
+Aktivität $A\ua{^{133}{Ba}} = \SI{1073(306)}{\becquerel}$. Aufgrund der großen Abweichung
+der Aktivität des Peaks bei einer Energie von $\SI{80.9(1)}{\kilo\eV}$ wird
+auch der Mittelwert ohne diesen Messwert berechnet. Dabei ergibt sich eine gemittelte
+Akitvität von $A\ua{^{133}{Ba}} = \SI{1228(351)}{\becquerel}$.
+
+\subsection{Untersuchung der zweiten unbekannten Quelle}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{Python/Plots/unbekannt2.pdf}
+  \caption{}
+  \label{fig:u2}
+\end{figure}
+Für die zweite unbekannte Quelle wird analog zu der in Kapitel \ref{subsec:u1}
+behandelten unbekannten Quelle vorgegangen. Das aufgenommene Spektrum ist in
+Abbildung \ref{fig:u2} dargestellt und wurde in einem Zeitraum von
+ $t\ut{ges} = \SI{4046}{\second}$ aufgenommen. Die bestimmten Energien der beiden Vollenergiepeaks
+sind zudem grafisch markiert. Ein Vergleich mit verschiedenen Atomen zeigt, dass
+es sich bei dieser Quelle um $^{60}{Co}$ handelt \cite{cobalt}. Die aus dem
+der Anpassung bestimmten Parameter sind in Tabelle \ref{tab:u2} eingetragen.
+
+Zur Bestimmung der Aktivität werden auch bei dieser Quelle die verschiedenen
+Peakflächen sowie die Effizienzen analog zu Kaptel \ref{subsec:u1} bestimmt.
+Die Übergangswahrscheinlichkeiten werden Quelle \cite{cobalt} entnommen.
+Die verschiedenen Größen sowie die bestimmten Aktivitäten sind in Tabelle
+\ref{tab:u2Aktivität} eingetragen. Für die gemittelte Aktivität ergibt sich ein
+Wert von $A\ua{^{60}{Co}} = \SI{1073(306)}{\becquerel}$.
