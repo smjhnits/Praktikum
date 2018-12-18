@@ -86,7 +86,7 @@ ergibt sich somit
 Zudem werden die Flächen unter den einzelnen Gaus-Peaks benötigt. Die Fläche
 lässt sich bei bekannter Standardabweichung und Amplitude mit
 \begin{equation}
-  A = \sqrt{2\pi}\sigma A
+  F = \sqrt{2\pi}\sigma A
   \label{eqn:area}
 \end{equation}
 bestimmen. Der konstante Offset der Gauß-Funktionen wird hierbei nicht beachtet,
@@ -209,7 +209,7 @@ zu vergleichen, wird im folgenden der Inhalt des Compton-Kontinuums und des Voll
 bestimmt. Bei dem Vollenergiepeak kann dieser analog zu Kapitel \ref{subsec:Eu} mithilfe
 der Standardabweichung der Gauß-Fitfunktion \label{Ca:sigma} bestimmt werden:
 \begin{equation}
-  A\ua{Vollenergie} = \SI{11077(111)}{\text{Zählungen}}.
+  F\ua{Vollenergie} = \SI{11077(111)}{\text{Zählungen}}.
 \end{equation}
 Zur Bestimmung des Inhaltes des Compton-Kontinuums werden zwei verschiedene Methoden
 verwendet. Die einfachere Methode ist das einfach Aufsummieren aller Zählungen
@@ -222,7 +222,9 @@ Comptonstreuung entspricht:
 \end{equation}
 Bei $h\nu$ handelt es sich um die Energie des Vollenergiepeaks \ref{Ca:mu}.
 Der konstante Vorfaktor $N\ua{0}$ und das $\varepsilon$ werden
-dabei als Fit-Parameter verwendet. Der Fit ist in Abbildung \ref{fig:CaCopmton}
+dabei als Fit-Parameter verwendet. Für den Fit wird der Bereich ab einer Energie
+von $\SI{400}{\kilo\eV}$ bis zur Comptonkante verwendet.
+Der Fit ist in Abbildung \ref{fig:CaCopmton}
 dargestellt. Für die beiden Fit-Parameter ergibt sich
 \begin{align}
   N\ua{0} &= \SI{58(17)}{\text{Zählungen}} \\
@@ -231,14 +233,14 @@ dargestellt. Für die beiden Fit-Parameter ergibt sich
 Durch Integration über die Energien bis zur Compton-Kante ergibt sich der
 Inhalt des Compton-Kontinuums:
 \begin{align}
-  A\ut{Compton,Summierung} &= \SI{51140(226)}{\text{Zählungen}} \\
-  A\ut{Compton,Integration} &= \SI{15719}{Zählungen}
+  F\ut{Compton,Summierung} &= \SI{51140(226)}{\text{Zählungen}} \\
+  F\ut{Compton,Integration} &= \SI{15719}{Zählungen}
 \end{align}
 Durch Bestimmung des Quotienten kann später eine Aussage über die relative Wechselwirkungswahrscheinlichkeit
 der Comptonstreuung und des Photoeffektes getroffen werden:
 \begin{align}
-  \frac{A\ut{Compton,Summierung}}{A\ua{Vollenergie}} &= \SI{4.62(5)}{} \\
-  \frac{A\ut{Compton,Integration}}{A\ua{Vollenergie}} &= \SI{1.42(1)}{}
+  \frac{F\ut{Compton,Summierung}}{F\ua{Vollenergie}} &= \SI{4.62(5)}{} \\
+  \frac{F\ut{Compton,Integration}}{F\ua{Vollenergie}} &= \SI{1.42(1)}{}
 \end{align}
 Die Quotienten zeigen, dass die Größenordnungen des Inhalts des Compton-Kontinuums
 und des Vollenergiepeaks bei beiden Methoden gleich sind.
@@ -277,6 +279,7 @@ und $^{125}{Sb}$ zeigt, dass es sich bei der untersuchten Quelle um $^{133}{Ba}$
 handelt. Die aus der Anpassung an die Gaußfunktion \ref{eqn:Gausfit} erhaltenen
 Parameter sind in Tabelle \ref{tab:u1} aufgelistet. Die bestimmten Mittelwerte
 bzw. Energien der einzelnen Peaks sind in Abbildung \ref{fig:u2} markiert.
+\input{Tabellen/u1.tex}
 
 Um die Aktvität der $^{133}{Ba}$-Quelle zu bestimmen, müssen zuerst die Flächen
 unter den einzelnen Peaks bestimmt werden sowie die jeweilige Effizienz. Der Raumwinkel
@@ -291,6 +294,7 @@ Aktivität $A\ua{^{133}{Ba}} = \SI{1073(306)}{\becquerel}$. Aufgrund der großen
 der Aktivität des Peaks bei einer Energie von $\SI{80.9(1)}{\kilo\eV}$ wird
 auch der Mittelwert ohne diesen Messwert berechnet. Dabei ergibt sich eine gemittelte
 Akitvität von $A\ua{^{133}{Ba}} = \SI{1228(351)}{\becquerel}$.
+\input{Tabellen/u1_aktivity.tex}
 
 \subsection{Untersuchung der zweiten unbekannten Quelle}
 
@@ -307,6 +311,7 @@ Abbildung \ref{fig:u2} dargestellt und wurde in einem Zeitraum von
 sind zudem grafisch markiert. Ein Vergleich mit verschiedenen Atomen zeigt, dass
 es sich bei dieser Quelle um $^{60}{Co}$ handelt \cite{cobalt}. Die aus dem
 der Anpassung bestimmten Parameter sind in Tabelle \ref{tab:u2} eingetragen.
+\input{Tabellen/u2.tex}
 
 Zur Bestimmung der Aktivität werden auch bei dieser Quelle die verschiedenen
 Peakflächen sowie die Effizienzen analog zu Kaptel \ref{subsec:u1} bestimmt.
@@ -314,3 +319,7 @@ Die Übergangswahrscheinlichkeiten werden Quelle \cite{cobalt} entnommen.
 Die verschiedenen Größen sowie die bestimmten Aktivitäten sind in Tabelle
 \ref{tab:u2Aktivität} eingetragen. Für die gemittelte Aktivität ergibt sich ein
 Wert von $A\ua{^{60}{Co}} = \SI{1073(306)}{\becquerel}$.
+\input{Tabellen/u2_aktivity.tex}
+
+\newpage
+\section{Diskussion}
