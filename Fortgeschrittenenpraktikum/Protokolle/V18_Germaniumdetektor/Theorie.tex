@@ -1,7 +1,7 @@
 \section{Zielsetzung}
 \label{sec:zielsetzung}
 
-In dem Versuch werden mittels $\gamma$-Spektrometrie die Energiespektren verschiedener
+In diesem Versuch werden mittels $\gamma$-Spektrometrie die Energiespektren verschiedener
 $\gamma$-Strahler durch einen Reinst-Germanium-Detektor ausgemessen.
 Es werden insgesamt vier verschiedene Proben untersucht.
 Zu Beginn wird die Theorie hinter der Funktionsweise eines Germanium-Detektors
@@ -16,8 +16,8 @@ Im Folgenden wird die Funktionsweise eines Germanium-Detektors beschrieben,
 wobei zunächst allgemein die Wechselwirkung von $\gamma$-Quanten mit Materie
 betrachtet wird.
 
-$\gamma$-Quanten wechselwirken mit Materie grundlegend über drei verschiedene Effekte,
-den Photoeffekt, die Compton-Streuung und die Paarbildung.
+$\gamma$-Quanten wechselwirken mit Materie grundlegend über drei verschiedene Effekte.
+Es handelt sich dabei um den Photoeffekt, die Compton-Streuung und die Paarbildung.
 Die verschiedenen Effekte haben unterschiedliche Wirkungsquerschnitte $\sigma$,
 welche darüberhinaus noch von der Enenergie $E_{\gamma}$ der $\gamma$-Quanten abhängig sind.
 Mittels des Wirkungsquerschnittes kann die Größe des Extionsktionskoeffizienten $\mu$
@@ -32,8 +32,8 @@ von $\gamma$-Quanten in Materie.
 \begin{equation}
   \bar{x} = \frac{1}{\mu}
 \end{equation}
-Eine Darstelung der auftretenden Extinktionskoeffizienten $\sigma(E_{\gamma})$ ist in
-Abblidung~\ref{fig:crosssection} zu finden.
+Eine Darstellung der auftretenden Extinktionskoeffizienten $\sigma(E_{\gamma})$ ist in
+Abbildung~\ref{fig:crosssection} zu finden.
 
 \begin{figure}
   \centering
@@ -41,19 +41,17 @@ Abblidung~\ref{fig:crosssection} zu finden.
   \caption{Extinktionskoeffizienten der verschiedenen Wechselwirkungen von $\gamma$-Quanten mit Germanium\cite{anleitung}.}
   \label{fig:crosssection}
 \end{figure}
-\FloatBarrier
+
 \subsection{Photoeffekt}
 \label{subsec:photo}
 
 Der Photoeffekt beschreibt die Wechselwirkung eines $\gamma$-Quants mit einem
 Hüllenelektron der bestrahlten Materie.
 Phänomenologisch kann der Photoeffekt über die folgende Gleichung erklärt werden.
-
 \begin{equation}
   \label{eqn:photo}
   \gamma + \ce{Atom -> Atom^+} + e^-
 \end{equation}
-
 Somit beschreibt der Photoeffekt die Ionisation eines Atoms.
 Das eingehende $\gamma$-Quant besitzt die Energie $E_{\gamma} > E\ua{B}$.
 Dabei ist $E\ua{B}$ die Bindungsenergie des Elektrons an dem Atom.
@@ -61,31 +59,29 @@ Die Energiedifferenz zwischen $E_{\gamma}$ und $E\ua{B}$ trägt das Elektron in 
 von kinetischer Energie.
 Das ausgelöste Elektron hinterlässt in dem Atom ein Loch, welhes durch ein Elektron
 aus einer höheren Schale gefüllt wird. Die dabei frei werdende Energie
-ist typischer Weise im Bereich der Röntgenstrahlung. In guter Näherung kann angenommen
+liegt typischerweise im Bereich der Röntgenstrahlung. In guter Näherung kann angenommen
 werden, dass diese Röntgen-Quanten den Absorber nicht verlassen.
 Das bedeutet bei dem Photoeffekt ist davon auszugehen, dass die vollständige
 Energie des $\gamma$-Quants im Absorber verbleibt.
 
-Der Wirkungsquerschnitt des Photoeffektes ist für den in dem Versuch auftretenden
-Energieberich approximativ mit
+Der Wirkungsquerschnitt des Photoeffektes ist für den im Versuch auftretenden
+Energiebereich approximativ mit
 \begin{equation}
   \label{eqn:crosssection_photo}
   \sigma\ua{Ph} \sim \frac{z^\alpha}{E^{\num{3,5}}}
 \end{equation}
 gegeben. $z$ entspricht der Kernladungszahl der wechselwirkenden Materie und $\alpha$
 ist eine Exponent mit $4 < \alpha < 5$\cite{anleitung}.
-\FloatBarrier
+
 \subsection{Compton-Streuung}
 \label{subsec:compton}
 
 Der Compton-Effekt beschreibt die Streuung von $\gamma$-Quanten an freien Elektronen
 und wird durch folgende Gleichung beschrieben.
-
 \begin{equation}
   \label{eqn:compton}
   \gamma + e^- \ce{->} \gamma '+ (e^-)'
 \end{equation}
-
 Gleichung~\eqref{eqn:compton} sagt aus, dass ein Energieübertrag zwischen dem
 $\gamma$-Quant und dem Elektron $e^-$ stattfindet.
 Der Prozess ist in Abbildung~\ref{fig:compton} schematisch illustriert.
@@ -98,7 +94,7 @@ Der Prozess ist in Abbildung~\ref{fig:compton} schematisch illustriert.
   \label{fig:compton}
 \end{figure}
 
-Die Impuls- und Energieerhlatung eines inelastischen Stoßen führen auf eine
+Die Impuls- und Energieerhaltung eines inelastischen Stoßes führen auf eine
 $\gamma$-Quantenergie nach der Streuung $E_{\gamma}'$ von
 \begin{equation}
   \label{eqn:comton_E_gamma}
@@ -112,12 +108,13 @@ Die Energie des Elektrons nach der Streuung $E_{e^-}'$ ist gegeben durch
 Der maximale Energieübertrag ist somit gegeben für $Psi_\gamma = \SI{180}{\degree}$,
 was einer Rückstreuung entspricht. Der Bereich Streuung bei diesem Streuwinkel wird
 im Energiespektrum als Compton-Kante bezeichnet (vgl. Kapitel~\ref{subsec:energiespektrum}).
-\FloatBarrier
+
+
 \subsection{Paarbildung}
 \label{subsec:paar}
 
 Die Paarbildung tritt erst ab einer $\gamma$-Quantenergie von $E\gamma > 2m_0c^2$
-auf, weshalb sie bei der hier betriebenen $\gamma$-Spektroskopie keinen
+auf, weshalb sie bei der hier betriebenen $\gamma$-Spektrometrie keinen
 Einfluss hat. Der Prozess kann durch eine Gleichung der Form
 \begin{equation}
   \label{eqn:paar}
@@ -135,6 +132,7 @@ Mit einer endlichen Wahrscheinlichkeit kann eines der beiden, oder beide
 Photonen nicht wieder mit dem Absorber wechselwirken und
 den Detektor ohne Energiedeponierung verlassen.
 \FloatBarrier
+
 \subsection{Wirkungsweise eines Reinst-Germanium-Detektors}
 \label{subsec:wirkungsweise}
 Germanium ist ein indirekter Halbleiter, weshalb ein Reinst-Germanium-Detektor
@@ -143,7 +141,7 @@ Indirekte Halbleiter zeichnen sich dadurch aus, dass der geringste Abstand zwisc
 Valenz- und Leitungsband
 nicht direkt über dem $\su{\Gamma}$-Punkt liegt, sondern verschoben ist.
 Aus diesem Grund wird für den Übergang eines Elektrons von dem Valenz-
-in das Leitungsband noch ein zusätzliches Phonen benötigt, weshalb die
+in das Leitungsband noch ein zusätzliches Phonon benötigt, weshalb die
 Anregungsenergie um ein Vielfaches größer ist als die eigentliche Bandlücke.
 
 Halbleiter-Detektoren sind prinzipiell wie $pn$-Dioden aufgebaut.
@@ -161,15 +159,15 @@ Wechselwirkungsprozesse proportional zu ihrer Energie Elektronen aus.
 Ein ausgelöstes Elektron hinterlässt eine positive Ladungslücke,
 welche als Loch bezeichnet wird. Elektronen und Löcher diffundieren in dem
 elektrostatischen Feld der $pn$-Diode zu den jeweiligen Elektronen und können dort
-als Strom nachgewisen werden.
+als Strom nachgewiesen werden.
 
-Außerhalb der Verarmungszone werden in einen Halbleiterdetektor die Elektronen
+Außerhalb der Verarmungszone werden in einem Halbleiterdetektor die Elektronen
 und Löcher nicht schnell genug getrennt, sodass diese rekombinieren und nicht
-an den Elektronen nachgewiesen werden.
-Aus diesem Grund ist es wichtig die Verarmungszone möglichst auszuweiten.
-Das Ausweiten kann durch anlegen einer äußeren Spannung, der sogenannten Sperrspannung
+an den Elektronen nachgewiesen werden können.
+Aus diesem Grund ist es wichtig, die Verarmungszone möglichst auszuweiten.
+Das Ausweiten kann durch Anlegen einer äußeren Spannung, der sogenannten Sperrspannung
 $U$ bewirkt werden.
-Bei Temperaturen ungleich Null entstehen sogenannte Leckströme, weshlab die Spannung
+Bei Temperaturen ungleich Null entstehen sogenannte Leckströme, weshalb die Spannung
 nicht beliebig groß sein kann. Leckströme entstehen beispielsweise durch Störstellen
 oder durch das thermischen Auslösen von Elektronen in dem Detektormaterial.
 
@@ -187,11 +185,11 @@ In diesem Fall erstreckt sich die Verarmungszone über die gesamte $p$-Schicht.
 \subsection{Energieauflösung eines Halbleiter-Detektors}
 \label{subsec:energieauflösung}
 
-Die Energieauflösung ist eine wesentliche Eigenschaft eines Detektors.
+Die Energieauflösung ist eine charakteristische Eigenschaft eines Detektors.
 Sie kann anhand der Halbwertsbreite $\Delta E_{1 / 2}$ einer Impulshöhenverteilung
 definiert werden. Qualitativ sagt dieses Kriterium aus, wie nah zwei
-Mittelwerte von gleichen Gaußverteilungen zusammenliegen dürfe um noch
-Eindeutig von einander unterscheidbar zu sein. Dieses Kriterium ist in
+Mittelwerte von gleichen Gaußverteilungen zusammenliegen dürfen um noch
+eindeutig voneinander unterscheidbar zu sein. Dieses Kriterium ist in
 Abbildung~\ref{fig:energieauflösung} veranschaulicht.
 Die Energieauflösung von indirekten Halbleiter-Detektoren wird von der statistischen
 Verteilung der $\gamma$-Quantenergie auf die Phononen- und Elektronen-Loch-Paar-Erzeugung
@@ -203,20 +201,20 @@ ergibt sich ein Fehler von
   \sigma_{Poisson} = \sqrt{\bar{n}},
 \end{equation}
 mit $\bar{n}  = \frac{E_\gamma}{E\ua{E-L}}$.
-Jedoch ist zu beachten, dass die Fluktioationen der Elektron-Loch-Paar-Erzeugung durch
+Jedoch ist zu beachten, dass die Fluktuationen der Elektron-Loch-Paar-Erzeugung durch
 Fluktuationen in der Phononenerzeugung teilweise kompensiert wird.
 Diese Tatsache wird durch den Fano-Faktor $F < 1$ berücksichtigt.
 Für Germanium wird ein Wert von $F\ua{Ge}\approx \num{0.1}$ angegeben\cite{anleitung}.\\
 Ist die Anzahl der Elektronen-Loch-Paar-Erzeugungen sehr groß,
 geht die Poisson-Verteilung in eine Gaußverteilung über, für die sich bei $E_\gamma = \SI{500}{\keV}$
-eine Helbwertsbreite von
+eine Halbwertsbreite von
 \begin{equation}
   \label{eqn:halbwertsbreite}
   \Delta E_{1/2}(\SI{500}{\keV}) \approx \SI{895}{\eV}
 \end{equation}
 ergibt.
 
-Durch Leckströme~$H\ua{I}$, Feldinhomogenitäten in dem Detektor~$H\ua{E}$ und thermischen Rausches
+Durch Leckströme~$H\ua{I}$, Feldinhomogenitäten~$H\ua{E}$ und thermisches Rauschen
 in dem Detektor und der Ausleseelektronik~$H\ua{R}$
 wird die Energieauflösung weiter beeinträchtigt.
 Damit ergibt sich die Gesamthalbwertsbreite eines realen Detektors zu
@@ -224,7 +222,7 @@ Damit ergibt sich die Gesamthalbwertsbreite eines realen Detektors zu
   \label{eqn:reale_energieauflösung}
   H^2\ua{ges} = \Delta E_{1/2}^2 + H^2\ua{I} + H^2\ua{E} + H^2\ua{R} .
 \end{equation}
-Elektronisches Rausch und das Ausbliden von Leckströmen können durch Kühlen
+Elektronisches Rausch und das Ausbilden von Leckströmen können durch Kühlen
 des Detektors verringert werden. Die Feldinhomogenitäten des
 elektrostatischen Feldes des Detektors kann durch Erhöhen der
 Sperrspannung verringert werden, wobei sich die Leckströme antiproportional dazu
@@ -259,8 +257,8 @@ zu einer bestimmten Energie.
 
 Ein idealer Detektor würde beim Ausmessen einer monochromatischen Probe mit~$E_\gamma$
 lediglich im Energiespektrum einen scharfen Peak an der Stelle $E_\gamma$
-ausgeben. Ein realer Detektor produziert hingegen eine Energiespektrum der
-Form von Abbildung~\ref{fig:spektrum}. Dieses entsteht, da der Compton-Effekt
+ausgeben. Ein realer Detektor produziert hingegen ein Energiespektrum gemäß
+Abbildung~\ref{fig:spektrum}. Dieses entsteht, da der Compton-Effekt
 keine diskrete, sondern eine streuwinkelabhängige kontinuierliche Energieverteilung
 erzeugt, die von der Detektorakzeptanz bis zur Compton-Kante reicht.
 Darüberhinaus entsteht ein Rückstreupeak aufgrund von größtenteils
@@ -273,7 +271,7 @@ als $\approx\SI{3}{\MeV}$ trägt lediglich der Photoeffekt zu dem relevanten
 Vollenergie-Peak bei.
 
 Wird eine nicht-monochromatische Probe betrachtet kann der Compton-Effekt
-jedoch ebenfalls beiträge zu einem Vollenergie-Peak leisten.
+jedoch ebenfalls Beiträge zu einem Vollenergie-Peak leisten.
 Der Wirkungsquerschnitt des Compton-Effektes ist gemäß Abbildung~\ref{fig:crosssection}
 für Energien von $E_\gamma>\SI{0.15}{\MeV}$ größer als der Wirkungsquerschnitt
 der Photoeffektes, sodass es für diese Energien wahrscheinlicher ist, dass ein $\gamma$-Quant
@@ -298,7 +296,7 @@ besteht aus einem hochreinen Germanium-Kristall, welcher im Inneren eine
 koaxiale Bohrung hat, die mit Gold bedampft ist.
 Die Außenseite des Germanium-Kristalls ist mit Lithium dotiert,
 sodass diese gut leitend ist. Die Li-Schicht dient als Pluspol der Sperrspannung $U$.\\
-Der Detektor ist mit einer Aluminiumschicht ummandelt, welcher als Schutzschicht
+Der Detektor ist mit einer Aluminiumschicht ummantelt, welche als Schutzschicht
 vor sonstigen einfallenden $\gamma$-Quanten fungiert. Als zusätzliche Abschirmung
 wird um die Aluminiumschicht eine Kupferschicht und eine Bleischicht angebracht.
 Die Bleischicht eignet sich aufgrund ihrer hohen Dichte besonders gut als Abschirmungsmaterial
@@ -336,7 +334,7 @@ Widerstands, welches das Rauschen des Vorverstärkers signifikant beeinträchtig
 Zur Entladung des Kondensator wird aus diesem Grund eine optoelektronische
 Rückkoplung verwendet. Eine solche Schaltung ist schematisch in Abb.~\ref{fig:optoelektronik}
 gezeigt. Nach jedem Nachweis wird ein Eingangs-Feldeffekttransistor (FET)
-mittels einer LED beluchtet, sodass die Sperrschicht für eine kurze Zeit leitend wird.
+mittels einer LED beleuchtet, sodass die Sperrschicht für eine kurze Zeit leitend wird.
 Die Ladung kann dann über den Integrationskondensator abfließen.
 
 \begin{figure}
@@ -348,7 +346,7 @@ Die Ladung kann dann über den Integrationskondensator abfließen.
 
 Die aus dem Vorverstärker kommenden Spannungsimpulse werden an einen Viel-Kanal-Analysator (VKA)
 weitergegeben, der diese ihrer Länge, welche stellvertretend für die
-Energie des $\gamma$-Quantes steht, entsprechned in die vorhandenen Kanäle eingeordnet.
+Energie des $\gamma$-Quantes steht, entsprechend in die vorhandenen Kanäle einordnet.
 Der Viel-Kanal-Analysator wird durch einen Computer mit geeigneter Software
 ausgelesen. Die Kanäle des VKAs sind nicht kalibriert.
 
@@ -365,7 +363,7 @@ ausgelesen. Die Kanäle des VKAs sind nicht kalibriert.
 Zu Beginn des Versuches wird eine bekannte Probe zum Kalibieren der Eingänge des
 Viel-Kanal-Analysators und der Effizienzmessung
 vewendet. Dafür wird ein $\ce{^152Eu}$-Strahler verwendet.
-Weiterhin wird ein $\ce{^137Cs}$-Strahler zur Bestimmung weitere Detektoreigenschaften
+Weiterhin wird ein $\ce{^137Cs}$-Strahler zur Bestimmung weiterer Detektoreigenschaften
 ausgemessen.\\
 Abschließend werden zwei unbekannte Strahler vermessen, die anhand ihrers
 Energiespektrums identifiziert werden.

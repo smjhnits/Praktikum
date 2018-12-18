@@ -1,14 +1,13 @@
 \section{Auswertung}
 
 In der folgenden Auswertung werden die verschiedenen aufgenommenen Spektren
-ausgewertet, um die Eigenschaften des Detektors zu bestimmen so zwei verschiedene
+ausgewertet, um die Eigenschaften des Detektors zu bestimmen sowie zwei verschiedene
 unbekannte Quellen zu klassifizieren. Dafür werden verschiedene \textsc{Python}-Pakete
 verwendet. Es handelt sich um die Pakete \textsc{uncertainties} für die Fehlerrechnung,
 \textsc{scipy.optimize} für die Bestimmung der verschiedenen Peaks sowie
 \textsc{curve\_{fit}} für die Ausgleichsrechnungen.
 
 \subsection{Kalibrierung des Detektors mit einer $^{152}\ce{Eu}$-Quelle}
-\label{subsec:Eu}
 
 Zu Beginn des Experimentes wird eine Kalibrierung des Detektors mithilfe
 einer $^{152}\ce{Eu}$-Probe durchgeführt. Anhand des Spektrums werden dann mithilfe
@@ -18,11 +17,13 @@ der Energie bestimmt. Die Messung wurde in einem Zeitraum von
 $t\ua{ges} = \SI{3393}{\second}$ durchgeführt.
 
 \subsubsection{Bestimmung der Energie-Transformation}
+\label{subsubsec:Eu}
 
 \begin{figure}
   \centering
   \includegraphics[width = 0.85\textwidth]{Python/Plots/Europium.pdf}
-  \caption{}
+  \caption{Aufgenommenes Spektrum der $^{152}\ce{Eu}$-Quelle. Die bestimmen
+  Vollenergiepeaks sind farblich markiert.}
   \label{fig:EuSpek}
 \end{figure}
 In Abbildung \ref{fig:EuSpek} ist das aufgenommene Spektrum für
@@ -61,7 +62,8 @@ verwendet, um das Spektrum direkt in Abhängigkeit von der Energie darzustellen.
 \begin{figure}
   \centering
   \includegraphics[width = 0.85\textwidth]{Python/Plots/Kalibrierung.pdf}
-  \caption{}
+  \caption{Verwendte Datenpunkte für die Energiekalibrierung sowie der bestimmte
+  lineare Fit für $^{152}\ce{Eu}$.}
   \label{fig:Kalibrierung}
 \end{figure}
 \input{Tabellen/Eu_Kalibrierung.tex}
@@ -84,7 +86,7 @@ ergibt sich somit
   \frac{\Omega}{4\pi} = 0.0154
 \end{equation}
 Zudem werden die Flächen unter den einzelnen Gaus-Peaks benötigt. Die Fläche
-lässt sich bei bekannter Standardabweichung und Amplitude mit
+lässt sich bei bekannter Standardabweichung $\sigma$ und Amplitude $A$ mit
 \begin{equation}
   F = \sqrt{2\pi}\sigma A
   \label{eqn:area}
@@ -112,7 +114,7 @@ Abbildung \ref{fig:Effizienz} dargestellt.
 \begin{figure}
   \centering
   \includegraphics[width = 0.85\textwidth]{Python/Plots/Effizienz.pdf}
-  \caption{}
+  \caption{Berechnete Effizienzen $Q$ sowie die angepasste Potenzfunktion $Q(E)$. }
   \label{fig:Effizienz}
 \end{figure}
 
@@ -121,20 +123,21 @@ Abbildung \ref{fig:Effizienz} dargestellt.
 Durch Aufnahme eines Spektrums der $^{137}{Cs}$-Quelle kann eine Aussage über
 die tatsächliche Energieauflösung des Detektors getroffen werden. Zudem kann
 durch den Vergleich der Flächen unter dem Compton-Kontinuum sowie des Vollenergiepeaks
-einer Aussage über die Wechselwirkungswahrscheinlichkeit getroffen und mit den
+eine Aussage über die Wechselwirkungswahrscheinlichkeit getroffen und mit den
 theoretischen Werten verglichen werden. Die Messung wurde in einem Zeitraum von
 $t\ut{ges} = \SI{3066}{\second}$ durchgeführt.
 
 \subsubsection{Bestimmung der Energieauflösung}
+\label{subsubsec:EA}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium.pdf}
-  \caption{}
+  \caption{Aufgenommenes Spektrum für $^{137}{Cs}$. Der Vollenergiepeak ist farblich markiert.}
   \label{fig:Ca}
 \end{figure}
 Das aufgenommene Spektrum für $^{137}{Cs}$ ist in Abbildung \ref{fig:Ca} dargestellt.
-Der Vollenergiepeak wurde analog zu Kapitel \ref{subsec:Eu} mithilfe des
+Der Vollenergiepeak wurde analog zu Kapitel \ref{subsubsec:Eu} mithilfe des
 \textsc{find\_{peaks}}-Paketes bestimmt und gemäß Formel \eqref{eqn:Gausfit}
 angepasst. Dabei ergeben sich die folgenden Parameter:
 \begin{align}
@@ -150,7 +153,7 @@ dargestellt.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium_Gaus.pdf}
-  \caption{}
+  \caption{Angepasste Gaußfunktion für den Vollenergiepeak von $^{137}{Cs}$. }
   \label{fig:CaGauß}
 \end{figure}
 Um die Verwendung einer Gauß-Funktion als Fitfunktion zu rechtfertigen, wird die
@@ -172,7 +175,7 @@ ergeben sich für beide Breiten die Werte
   x\ua{1/10} &= \SI{3.72(21)}{\kilo\eV}.
 \end{align}
 Mithilfe von Formel \eqref{eqn:halbwertsbreite} kann auch das theoretische Auflösungvermögen des
-Germanium Detektors berechnet werden. Dafür werden die in Kapitel \ref{subsec:Eu}
+Germanium Detektors berechnet werden. Dafür werden die in Kapitel \ref{subsubsec:Eu}
 bestimmte Energie des Vollenergiepeaks und die Anregungsenergie eines
 Elektrons in Germanium $E\ua{EL} = \SI{2.9}{\eV}$ benötigt. Für das theoretische
 Auflösungsvermögen ergibt sich somit
@@ -181,6 +184,7 @@ Auflösungsvermögen ergibt sich somit
 \end{equation}
 
 \subsubsection{Bestimmung der Wechselwirkungswahrscheinlichkeiten}
+\label{subsubsec:P}
 
 Für $^{137}{Cs}$ sollen zudem der Rückstreupeak und die Compton-Kante bestimmt werden
 sowie der Quotient der Flächen unter dem Compton-Kontinuum und dem Vollenergiepeak.
@@ -202,13 +206,14 @@ für die Compton-Kante der Winkel $\Psi = \pi$ verwendet.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Python/Plots/Caesium_Compton.pdf}
-  \caption{}
+  \caption{Comptonkontinuum sowie die bestimmte Fitfunktion für $^{137}{Cs}$.
+  Der Rückstreupeak sowie die Comptonkante sind farblich markiert.}
   \label{fig:CaCompton}
 \end{figure}
 
 Um die Wechselwirkungswahrscheinlichkeit der Comptonstreuung und des Photoeffektes
 zu vergleichen, wird im folgenden der Inhalt des Compton-Kontinuums und des Vollenergiepeaks
-bestimmt. Bei dem Vollenergiepeak kann dieser analog zu Kapitel \ref{subsec:Eu} mithilfe
+bestimmt. Bei dem Vollenergiepeak kann dieser analog zu Kapitel \ref{subsubsec:Eu} mithilfe
 der Standardabweichung der Gauß-Fitfunktion \label{Ca:sigma} bestimmt werden:
 \begin{equation}
   F\ua{Vollenergie} = \SI{11077(111)}{\text{Zählungen}}.
@@ -274,7 +279,8 @@ der Quotient der beiden Flächen.
 \begin{figure}
   \centering
   \includegraphics[width = 0.85\textwidth]{Python/Plots/unbekannt1.pdf}
-  \caption{}
+  \caption{Aufgenommenes Spektrum für die 1. unbekannte Quelle. Die bestimmten
+  Vollenergiepeaks sind farblich markiert.}
   \label{fig:u1}
 \end{figure}
 Das aufgenommene Spektrum für die erste unbekannte Quelle ist in Abbildung \ref{fig:u1}
@@ -307,7 +313,8 @@ Akitvität von $A\ua{^{133}{Ba}} = \SI{1228(351)}{\becquerel}$.
 \begin{figure}
   \centering
   \includegraphics[width=0.85\textwidth]{Python/Plots/unbekannt2.pdf}
-  \caption{}
+  \caption{Aufgenommenes Spektrum für die 2. unbekannte Quelle. Die bestimmten
+  Vollenergiepeaks sind farblich markiert.}
   \label{fig:u2}
 \end{figure}
 Für die zweite unbekannte Quelle wird analog zu der in Kapitel \ref{subsec:u1}
@@ -329,3 +336,51 @@ Wert von $A\ua{^{60}{Co}} = \SI{377(121)}{\becquerel}$.
 
 \newpage
 \section{Diskussion}
+
+In Kapitel \ref{subsubsec:Eu} wurde mittels der gefundenen Peaks und einigen Literaturwerten
+die Kalibrierung des Detektors bzw. die Bestimmung der Transformation für die Kanäle
+in die jeweiligen Energien durchgeführt. Die Fehler der bestimmten Parameter
+sind ziemlich gering. Die Genauigkeit lässt sich zudem durch die
+verschiedenen Proben bestätigen, da die Abweichungen der experimentell bestimmten
+Energien von den Literaturwerten durchgehend unter $\SI{1}{\percent}$ liegen.
+
+Bei der Bestimmung der Potenzfunktion für die Effizienz in Abhängigkeit der Energie
+zeigt sich besonders bei der Amplitude ein großer relativer Fehler von knapp
+$\SI{21}{\percent}$. Besonders bei der Bestimmung der Aktivität von $^{60}{Co}$
+zeigt sich für den Peak bei
+einer Energie von $\SI{80.9}{\kilo\eV}$ eine starke Abweichung gegnüber den anderen
+Energien. Diese Abweichung ist schon bei der Effizienz erkennbar. In Kapitel
+\ref{subsubsec:Eff} werden nur Werte für Energien über $\SI{150}{\kilo\eV}$ zur
+Bestimmung der Effizienz verwendet. In Abbildung \ref{fig:Effizienz} ist erkenntlich,
+dass die angepasste Potenzfunktion schon bei einer Energie von $\SI{121.76}{\kilo\eV}$
+starke Abweichungen gegenüber des berechneten Wertes zeigt. Dies rechtfertigt eine
+Berechnung der gemittelten Aktivität ohne Berücksichtigung des stark abweichenden
+Wertes.
+
+In Kapitel \ref{subsubsec:EA} wurde die Halbwertsbreite bzw. das Auflösungsvermögen
+des Detektors anhand der aufgenommenen Spektren bestimmt. Das Verhältniss von
+Halbwertsbreite zur Zehntelbreite zeigt, dass die Annahme einer Gauß-Verteilung
+gerechtfertigt ist. Im Vergleich zur theoretischen Energieauflösung ist der
+experimentell bestimmte Wert jedoch ungefährt doppelt so groß. Dies liegt vermutlich
+an verschiedenen Verbreiterungsmechanismen aufgrund der elektrischen Schaltung etc. .
+
+Bei Betrachtung der Wechselwirkungswahrscheinlichkeiten von Comptonstreuung und
+Photoeffekt in Kapitel \ref{subsubsec:P} zeigen sich deutliche Unterschiede
+bei den verwendeten Methoden. Bei Berechnung des Quotienten beider
+Wechselwirkungswahrscheinlichkeiten mittels der Extinktionskoeffizienten
+ist die Wahrscheinlichkeit für die Comptonstreuung um den Faktor 25 größer als
+für den Photoeffekt. Bei Vergleich der Flächen des Compton-Kontinuums und des
+Vollenergiepeaks ergibt sich jedoch lediglich ein Faktor von $\num{1.42}$
+bzw. $\num{4.62}$. Dies liegt daran, dass bei Verwendung der Extinktionskoeffizienten
+lediglich der 1-fache Photoeffekt berüchsichtigt wird. Jedoch können auch mehrfach
+comptongestreute Photonen bei genügend Energie über den Photoeffekt wechselwirken.
+Zudem wird der Extinktionskoeffizient für den Photoeffekt mit abnehmender Energie
+größer (siehe Abbildung \ref{fig:crosssection}). Dies sorgt für eine deutliche
+Vergößerung der Fläche unter dem Vollenergiepeak. Die starken Unterschiede der
+Flächenverhältnisse bei den verschiedenen Methoden lassen sich dadurch erklären,
+dass bei dem verwendeten Fit neben den Zählungen innerhalb des Rückstreupeaks
+im niedrigen Energiebereich auch ein großer Teil der Compton-Kontinuums
+abgeschnitten wird.
+
+Im Allgemeinen zeigt die Bestimmung der beiden unbekannten Quellen mit sehr hoher
+Genauigkeit, dass der verwendete Germaniumdetektor sehr präzise ist.
