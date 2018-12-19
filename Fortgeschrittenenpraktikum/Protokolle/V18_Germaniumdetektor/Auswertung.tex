@@ -159,7 +159,7 @@ dargestellt.
 Um die Verwendung einer Gauß-Funktion als Fitfunktion zu rechtfertigen, wird die
 Halbwertsbreite sowie die Zehntelbreite bestimmt. Dafür werden die beiden Energien
 gesucht, die die geringste Abweichungen zur Hälfte bzw. dem Zehntel der bestimmten
-Amplitude haben. Für die Halbwertsbreite und Zehntelbreite sowie deren Verhältniss
+Amplitude haben. Für die Halbwertsbreite und Zehntelbreite sowie deren Verhältnis
 ergibt sich somit:
 \begin{align}
   x\ua{1/2} &= \SI{2.4(2)}{\kilo\eV} \\
@@ -175,7 +175,7 @@ ergeben sich für beide Breiten die Werte
   x\ua{1/10} &= \SI{3.72(21)}{\kilo\eV}.
 \end{align}
 Mithilfe von Formel~\eqref{eqn:halbwertsbreite} kann auch das theoretische Auflösungvermögen des
-Germanium Detektors berechnet werden. Dafür werden die in Kapitel~\ref{subsubsec:Eu}
+Germanium Detektors berechnet werden. Dafür wird die in Kapitel~\ref{subsubsec:Eu}
 bestimmte Energie des Vollenergiepeaks und die Anregungsenergie eines
 Elektrons in Germanium $E\ua{EL} = \SI{2.9}{\eV}$ benötigt. Für das theoretische
 Auflösungsvermögen ergibt sich somit
@@ -186,7 +186,7 @@ Auflösungsvermögen ergibt sich somit
 \subsubsection{Bestimmung der Wechselwirkungswahrscheinlichkeiten}
 \label{subsubsec:P}
 
-Für $^{137}{Cs}$ sollen zudem der Rückstreupeak und die Compton-Kante bestimmt werden
+Für $^{137}{Cs}$ soll zudem der Rückstreupeak und die Compton-Kante bestimmt werden,
 sowie der Quotient der Flächen unter dem Compton-Kontinuum und dem Vollenergiepeak.
 Das Compton-Kontinuum und die bestimmten Punkte des Rückstreupeaks und der Compton-Kante
 sind in Abbildung~\ref{fig:CaCompton} dargestellt. Die Lage der beiden Punkte kann
@@ -195,7 +195,7 @@ aus dem Spektrum mithilfe der \textsc{find\_{peaks}}-Funktion bestimmt werden:
   E\ut{Rückstreuung} &= \SI{186.2(1)}{\kilo\eV} \\
   E\ut{Kompton-Kante} &= \SI{477.1(1)}{\kilo\eV}.
 \end{align}
-Zudem können die Energien auch mithilfe von Formeln~\eqref{eqn:comton_E_gamma}
+Zudem können die Energien auch mithilfe von Formel~\eqref{eqn:comton_E_gamma}
 bestimmt werden, so dass sich für die theoretischen Werte
 \begin{align}
   E\ut{Rückstreuung} &= \SI{184.3(1)}{\kilo\eV} \\
@@ -211,16 +211,16 @@ für die Compton-Kante der Winkel $\Psi = \pi$ verwendet.
   \label{fig:CaCompton}
 \end{figure}
 
-Um die Wechselwirkungswahrscheinlichkeit der Comptonstreuung und des Photoeffektes
-zu vergleichen, wird im folgenden der Inhalt des Compton-Kontinuums und des Vollenergiepeaks
+Um die Wechselwirkungswahrscheinlichkeit der Comptonstreuung und des Photoeffekts
+zu vergleichen, wird im Folgenden der Inhalt des Compton-Kontinuums und des Vollenergiepeaks
 bestimmt. Bei dem Vollenergiepeak kann dieser analog zu Kapitel~\ref{subsubsec:Eu} mithilfe
-der Standardabweichung der Gauß-Fitfunktion \label{Ca:sigma} bestimmt werden:
+der Standardabweichung der Gauß-Fitfunktion~\eqref{Ca:sigma} bestimmt werden:
 \begin{equation}
   F\ua{Vollenergie} = \SI{11077(111)}{\text{Zählungen}}.
 \end{equation}
 Zur Bestimmung des Inhaltes des Compton-Kontinuums werden zwei verschiedene Methoden
-verwendet. Die einfachere Methode ist das einfach Aufsummieren aller Zählungen
-innerhalb des Compton-Kontinuums. Jedoch wird der Inhalt durch den Rückstreupeak
+verwendet. Die einfachere Methode ist das Aufsummieren aller Zählungen
+innerhalb des Compton-Kontinuums. Jedoch wird dabei der Inhalt durch den Rückstreupeak
 verfälscht. Deshalb wird in der zweiten Methode eine Anpassung mit einer Funktion
 durchgeführt, die dem energieabhängigen Anteil des Wirkungsquerschnittes für die
 Comptonstreuung entspricht:
@@ -235,19 +235,19 @@ Der Fit ist in Abbildung~\ref{fig:CaCompton}
 dargestellt. Für die beiden Fit-Parameter ergibt sich
 \begin{align}
   N\ua{0} &= \SI{58(17)}{\text{Zählungen}} \\
-  \varepsilon &= \SI{1.9(3)}{}
+  \varepsilon &= \SI{1.9(3)}{}.
 \end{align}
 Durch Integration über die Energien bis zur Compton-Kante ergibt sich der
 Inhalt des Compton-Kontinuums:
 \begin{align}
   F\ut{Compton,Summierung} &= \SI{51140(226)}{\text{Zählungen}} \\
-  F\ut{Compton,Integration} &= \SI{15719}{Zählungen}
+  F\ut{Compton,Integration} &= \SI{15719}{Zählungen}.
 \end{align}
 Durch Bestimmung des Quotienten kann später eine Aussage über die relative Wechselwirkungswahrscheinlichkeit
 der Comptonstreuung und des Photoeffektes getroffen werden:
 \begin{align}
   \frac{F\ut{Compton,Summierung}}{F\ua{Vollenergie}} &= \SI{4.62(5)}{} \\
-  \frac{F\ut{Compton,Integration}}{F\ua{Vollenergie}} &= \SI{1.42(1)}{}
+  \frac{F\ut{Compton,Integration}}{F\ua{Vollenergie}} &= \SI{1.42(1)}{}.
 \end{align}
 Die Quotienten zeigen, dass die Größenordnungen des Inhalts des Compton-Kontinuums
 und des Vollenergiepeaks bei beiden Methoden gleich sind.
@@ -262,13 +262,13 @@ entnommen werden. Aufgrund der logarithmischen Darstellung werden unterschiedlic
 Ablesefehler angenommen:
 \begin{align}
   \mu\ut{Photo} &= \SI{8(1)e-3}{\per\cm} \\
-  \mu\ut{Compton} &= \SI{0.37(1)}{\per\cm}
+  \mu\ut{Compton} &= \SI{0.37(1)}{\per\cm}.
 \end{align}
 Für die Wechselwirkungswahrscheinlichkeiten sowie den Quotienten ergibt sich somit
 \begin{align}
   P\ua{Photo} &= \SI{3.1(4)}{\percent} \\
   P\ua{Compton} &= \SI{76.4(9)}{\percent} \\
-  \frac{P\ua{Compton}}{P\ua{Photo}} &= \SI{25(3)}{}
+  \frac{P\ua{Compton}}{P\ua{Photo}} &= \SI{25(3)}{}.
 \end{align}
 Der Quotient der Wechselwirkungswahrscheinlichkeiten ist deutlich größer als
 der Quotient der beiden Flächen.
@@ -358,7 +358,7 @@ Berechnung der gemittelten Aktivität ohne Berücksichtigung des stark abweichen
 Wertes.
 
 In Kapitel~\ref{subsubsec:EA} wurde die Halbwertsbreite bzw. das Auflösungsvermögen
-des Detektors anhand der aufgenommenen Spektren bestimmt. Das Verhältniss von
+des Detektors anhand der aufgenommenen Spektren bestimmt. Das Verhältnis von
 Halbwertsbreite zur Zehntelbreite zeigt, dass die Annahme einer Gauß-Verteilung
 gerechtfertigt ist. Im Vergleich zur theoretischen Energieauflösung ist der
 experimentell bestimmte Wert jedoch ungefährt doppelt so groß. Dies liegt vermutlich
