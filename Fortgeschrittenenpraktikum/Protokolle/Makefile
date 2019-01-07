@@ -11,19 +11,19 @@ endif
 all: build
 
 build:
-		# mkdir -p V18_Germaniumdetektor/Tabellen
-		# mkdir -p V18_Germaniumdetektor/Pics
-		# mkdir -p V18_Germaniumdetektor/Python
-		# touch V18_Germaniumdetektor/Auswertung.tex
-		# touch V18_Germaniumdetektor/V18_main.tex
-		# touch V18_Germaniumdetektor/Theorie.tex
-		# touch V18_Germaniumdetektor/lit.bib
-		# touch V18_Germaniumdetektor/Makefile
-		# touch V18_Germaniumdetektor/Pics/savedatei.txt
-		# touch V18_Germaniumdetektor/Python/savedatei.txt
-	  # touch V18_Germaniumdetektor/Tabellen/savedatei.txt
-		# cp -r Praeambel_prak.tex V18_Germaniumdetektor/
+		# mkdir -p V60_Diodenlaser/Tabellen
+		# mkdir -p V60_Diodenlaser/Pics
+		# mkdir -p V60_Diodenlaser/Python
+		# touch V60_Diodenlaser/Auswertung.tex
+		# touch V60_Diodenlaser/V60_main.tex
+		# touch V60_Diodenlaser/Theorie.tex
+		# touch V60_Diodenlaser/lit.bib
+		# touch V60_Diodenlaser/Makefile
+		# touch V60_Diodenlaser/Pics/savedatei.txt
+		# touch V60_Diodenlaser/Python/savedatei.txt
+	  # touch V60_Diodenlaser/Tabellen/savedatei.txt
+		# cp -r Praeambel_prak.tex V60_Diodenlaser/
 
 clean:
-		# rm -rf V18_Germaniumdetektor
+		# rm -rf V60_Diodenlaser
 .PHONY: clean all
