@@ -19,7 +19,7 @@ print(f'Threshold lase = {I_lase}\n\nThreshold no lase = {I_no_lase}\n')
 df_1 = pd.read_csv('scope_0.csv', skiprows=2, dtype=np.float64, names=['msecond', 'diode'])
 
 x_1 = np.array(range(len(df_1.diode)))
-verschiebung_1 = 700
+verschiebung_1 = 0 # default war 700
 
 plt.clf()
 plt.plot(x_1, df_1.diode, label='PD')
@@ -39,7 +39,7 @@ plt.savefig('../Pics/Rb_spectrum.pdf')
 df_2 = pd.read_csv('scope_1.csv', skiprows=2, dtype=np.float64, names=['msecond', 'diode'])
 
 x_2 = np.array(range(len(df_2.diode)))
-verschiebung_2 = 650
+verschiebung_2 = 0 # default war 650
 
 plt.clf()
 plt.plot(x_2, -df_2.diode, label='PD')
