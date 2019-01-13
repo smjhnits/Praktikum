@@ -14,16 +14,20 @@ we will use a system with only two energy levels shown in Figure \ref{fig:twolev
 By absorbing a photon, an electron can be excited from the lower state to the
 higher state. The relaxation back into the ground state can be radiative or
 nonradiative.
-
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{fig:twolevelsystem}
+\end{figure}
 In nonradiative relaxation processes the remaining energy will be converted into
 heat by phonon scattering. In a radiative relaxation process the energy will
-be displaced by emitting a photon. This can happen spontanous (Figure \ref{fig;twolevelsystem} b))
-or stimulated by an incoming photon (Figure \ref{fig;twolevelsystem} b)).
+be displaced by emitting a photon. This can happen spontaneous (Figure \ref{fig:twolevelsystem} b))
+or stimulated by an incoming photon (Figure \ref{fig:twolevelsystem} b)).
 Therefore the energy of the incoming photon must be the difference between the
 two states. As a result there will be two photons emitted with the same phase,
 direction and energy. This process called 'stimulated emission' is necessary
 for constructing a lasing system. To reach a higher propability for 'stimulated emission'
-than 'spontanous emission' the population of the second state has to be higher
+than 'spontaneous emission' the population of the second state has to be higher
 than he the ground state. This situation is called 'population inversion'.
 
 Although the principle of a lasing sytem was explained by using a two state system,
@@ -37,6 +41,11 @@ electrons will be excited into the highest state by using a external pump source
 The lifetime of the second state has to be much lower than the lifetime of the
 first state to create a population inversion. The relaxation from the first state
 into the ground state is called 'lasing transition'.
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{threestatesystem}
+\end{figure}
 
 \subsection{General laser system}
 
@@ -82,7 +91,11 @@ description is not a topic of this transcript.
 In the following chapter we will first take a look at the properties of
 a semiconductor as an active laser medium. Than we will discuss the specific
 laser setup, which is used at this experiment.
-
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{fig:n_p_doted}
+\end{figure}
 A semiconductor is a solid material with a band gap below four electron volts
 $E\ut{gap}~<~\SI{4}{\electronvolt}$ between the highest valence band and the
 lowest conduction band. By doping a semiconductor with different atoms it is
@@ -95,6 +108,29 @@ Therefore the used material must be a direct semiconductor. By increasing the
 applied voltage its possible to create a higher intensity of the emitted photons.
 It is important to mention that the laser active only starts above a
 specific current threshold $I\ut{th}$ and lhe laser power is limited due to joule
-heating (figure~\ref{fig:current}). The Bandgap of a semiconductor depends on
-the temperature, which is the reason that varying the temperature also changes
-the wavelength of the emitted photons.
+heating (figure~\ref{fig:current}). Below the threshold the losses exceed the gain
+and the light-ouput is based mainly on spontaneouse emmission. A population
+inversion can not be achieved in this case. Also the Bandgap of a semiconductor
+depends on the temperature, which is the reason that varying the temperature
+also changes the wavelength of the emitted photons.
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{fig:appliedcurrent}
+\end{figure}
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{fig:current}
+\end{figure}
+To reduce the losses inside the diode chip in cause of emitted photons entering
+non active layers often different structres to guide the light will be used.
+One possibility is the gain-guided structure, where the current passes only a
+small part of the active layer. The other possibility can be acheived by limiting
+the active layer itself spatial (index-guided-structure). Both Structures are
+shown in figure~\ref{fig:guided}.
+\begin{figure}
+  \includegraphics{}
+  \caption{}
+  \label{fig:guided}
+\end{figure}
