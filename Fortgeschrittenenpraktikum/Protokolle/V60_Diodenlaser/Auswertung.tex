@@ -1,9 +1,11 @@
+\vspace{-15pt}
 \section{Procedure}
 \label{sec:Procedure}
 
 The first step is to find the minimal current value for the laser setup, where
 it is still lasing. For this measurement the setup is changed to the configuration shown in
-figure~\ref{fig:setup_current}.
+figure~\ref{fig:setup_current}. A voltmeter is connected to the laser current
+monitor for a precise voltage measurement.
 The minimum can be found in an iterative procedure, which follows the following
 steps. First pick a current, where the laser is lasing.
 Then lower the current slightly below the lasing threshold and try to bring the system back to lasing,
@@ -47,8 +49,9 @@ and~\ref{fig:lase}.
   \end{subfigure}
 \end{figure}
 \FloatBarrier
-The setup is now changed to the configuration, shown in figure~\ref{fig:setup_fluorescence}.
-The image depicted in~\ref{fig:fluorescence} is than taken.
+
+The setup is now changed to the configuration shown in figure~\ref{fig:setup_fluorescence},
+so that the image depicted in~\ref{fig:fluorescence} can be taken.
 
 \begin{figure}
   \centering
@@ -60,25 +63,54 @@ The image depicted in~\ref{fig:fluorescence} is than taken.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{Pics/Rb_fluorescence.jpg}
-  \caption{Rubidium fluorescense line.}
+  \caption{Rubidium fluorescence line.}
   \label{fig:fluorescence}
 \end{figure}
 
+\FloatBarrier
+Now a setup shown in figure~\ref{fig:setup_spectrum} is built up.
+The current applied to the piezo is connected to an oscilloscope
+for the following measurements. The piezo current is sweeped with a rectangular
+voltage, so that the wavelength of the laser gets tuned over a broad spectrum.
+Furthermore the current emmited by the photo diode is similary connected to the oscilloscope.
 
+Figure~\ref{fig:example} shows an example spectrum for Rubidium. Whenever
+the laser beam has the right energy to excite an Rubidium atom, the
+measured intensity drops to a minimum. Figure~\ref{fig:example} contains
+mode hops, which lead to an imprecise spectrum.
+Therefore the setup is slightly changed. The internal cavity and the external cavity
+are now varied simultaneously, which prevent mode hops.
+Know the Rubidium spectrum can be measured precise. The observed spectrum
+is shown in~\ref{fig:spectrum}. The identification of the Rubidium isotopes
+is made by the comparison with reference~\cite{anleitung}.
+This setup effects, that there is a linear backgroud through the variation
+of the laser current.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/setup_spectrum.png}
+  \caption{Setup for the Rubidium spectrum measurement.\cite{anleitung}}
+  \label{fig:setup_spectrum}
+\end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{Pics/example_spectrum_hop.pdf}
-  \caption{Example spectrum. The mode hopes are indicated by the orange markers.}
+  \caption{Example Rubidium spectrum. The mode hopes are indicated by the orange markers.}
   \label{fig:example}
 \end{figure}
 
+\FloatBarrier
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{Pics/Rb_spectrum.pdf}
   \caption{Rubidium spectrum.}
   \label{fig:spectrum}
 \end{figure}
+\FloatBarrier
+
+The linear background in figure~\ref{fig:spectrum} can be suppressed by the
+setup shown in image~\ref{fig:setup_substraction}.
 
 \begin{figure}
   \centering
@@ -86,6 +118,7 @@ The image depicted in~\ref{fig:fluorescence} is than taken.
   \caption{Setup for the substraction technique measurement.\cite{anleitung}}
   \label{fig:setup_substraction}
 \end{figure}
+
 
 \begin{figure}
   \centering
