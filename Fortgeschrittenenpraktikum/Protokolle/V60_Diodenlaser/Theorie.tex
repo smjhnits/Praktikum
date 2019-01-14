@@ -12,17 +12,22 @@ quantum mechanical system like an atom. In atoms the electrons posess different
 dicrete energy levels. Nontheless, to discuss the main principle of a laser
 we will use a system with only two energy levels shown in Figure \ref{fig:twolevelsystem}.
 By absorbing a photon, an electron can be excited from the lower state to the
-higher state. The relaxation back into the ground state can be radiative or
+higher state (figure~\ref{fig:twolevelsystem} a)).
+The relaxation back into the ground state can be radiative or
 nonradiative.
 \begin{figure}
-  \includegraphics{}
-  \caption{}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/energyscheme.pdf}
+  \caption{Figures a) - c) show the fundamental interactions of light with a
+  quantum mechanical system: absorption, spontaneous emission and induced emission.
+  Figure d) shows the three level system required for the population inversion
+  \cite{steven}.}%https://github.com/stefangri/s_s_masterpraktikum/blob/master/V60_Diodenlaser/report/pics/energyscheme.pdf
   \label{fig:twolevelsystem}
 \end{figure}
 In nonradiative relaxation processes the remaining energy will be converted into
 heat by phonon scattering. In a radiative relaxation process the energy will
 be displaced by emitting a photon. This can happen spontaneous (Figure \ref{fig:twolevelsystem} b))
-or stimulated by an incoming photon (Figure \ref{fig:twolevelsystem} b)).
+or stimulated by an incoming photon (Figure \ref{fig:twolevelsystem} c)).
 Therefore the energy of the incoming photon must be the difference between the
 two states. As a result there will be two photons emitted with the same phase,
 direction and energy. This process called 'stimulated emission' is necessary
@@ -36,16 +41,11 @@ of a single energy level is given by the maxwell-boltzmann-distribution. The onl
 parameter which can be changed is the temperature. It´s easy to see, that even
 by heating up the system to an infinite temperature, only an equal possesion
 of both states in a two level sytsem is possible. In the three level system
-shown in figure~\ref{fig:threestatesystem},
+shown in figure~\ref{fig:twolevelsystem} d),
 electrons will be excited into the highest state by using a external pump source.
 The lifetime of the second state has to be much lower than the lifetime of the
 first state to create a population inversion. The relaxation from the first state
 into the ground state is called 'lasing transition'.
-\begin{figure}
-  \includegraphics{}
-  \caption{}
-  \label{threestatesystem}
-\end{figure}
 
 \subsection{General laser system}
 
@@ -92,8 +92,11 @@ In the following chapter we will first take a look at the properties of
 a semiconductor as an active laser medium. Than we will discuss the specific
 laser setup, which is used at this experiment.
 \begin{figure}
-  \includegraphics{}
-  \caption{}
+  \centering
+  \includegraphics[width=\textwidth]{Pics/doted.jpg}
+  \caption{a) band scheme for n- and p-doted areas in a semiconductor. b)~space
+  charge density and c)~schematic band structure for connected n- and
+  p-doted areas \cite{eichler}.}
   \label{fig:n_p_doted}
 \end{figure}
 A semiconductor is a solid material with a band gap below four electron volts
@@ -114,23 +117,52 @@ inversion can not be achieved in this case. Also the Bandgap of a semiconductor
 depends on the temperature, which is the reason that varying the temperature
 also changes the wavelength of the emitted photons.
 \begin{figure}
-  \includegraphics{}
-  \caption{}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/appliedcurrent.png}
+  \caption{Radiative emission in cause of recombination at different voltage levels.
+  \cite{eichler}.}
   \label{fig:appliedcurrent}
 \end{figure}
 \begin{figure}
-  \includegraphics{}
-  \caption{}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/current.png}
+  \caption{Relation between output intensity and the applied current. The laser
+  activity starts above the thereshold and is limited due to joule heating.\cite{eichler}.}
   \label{fig:current}
 \end{figure}
 To reduce the losses inside the diode chip in cause of emitted photons entering
-non active layers often different structres to guide the light will be used.
+non active layers, often different structres to guide the light are used.
 One possibility is the gain-guided structure, where the current passes only a
 small part of the active layer. The other possibility can be acheived by limiting
 the active layer itself spatial (index-guided-structure). Both Structures are
 shown in figure~\ref{fig:guided}.
 \begin{figure}
-  \includegraphics{}
-  \caption{}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/guided.png}
+  \caption{Two different heterostructures where guiding of the emitted light is
+  enabled. Figure a) shows a possible realisation of a gain-guided by blocking
+  the current from the active layer. Figure b) shows a index-guided structre in
+  which the active layer is limited spatially \cite{Eichler}. }
   \label{fig:guided}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/setup.png}
+  \caption{Basic configuration of the used diode laser system \cite{anleitung}.}
+  \label{fig:setup}
+\end{figure}
+The setup described in the following paragraph is shown in figure \ref{fig:setup}.
+The emitted photons from the active layer are strongly divergent. For this reason
+a collimating lens is placed behind the diode laser chip. The setup consists of
+two different cavity. The first one is the cavity formed by the two reflective ends
+of the diode chip. The coupling output is in the direction of the collimating lense.
+The second cavity is formed by the rear end of the chip and the grating. The length
+between chip and grating is variable so that the wavelength can be varyied. Additionally
+by reflect different deffraction maxima into the active layer. The resulting
+gain distribution can be seen in figure \ref{fig:gain}
+\begin{figure}
+  \centering
+  \includegraphics[width = \textwidth]{Pics/gain.pdf}
+  \caption{Gain distribution for the different components used in this setup \cite{anleitung}.}
+  \label{fig:gain}
 \end{figure}
