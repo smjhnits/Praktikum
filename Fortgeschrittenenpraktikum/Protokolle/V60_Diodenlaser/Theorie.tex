@@ -1,16 +1,18 @@
 \section{Background}
 
 In the following experiment we will use a diode laser to measure the absorption
-spectrum of rubidium. Therefore, in the following chapters, the basic principle
+spectrum of rubidium. Due to their small size, high efficiency and tunability,
+diode lasers are of a great scientific interest.
+In the following chapters, the basic principle
 of a general laser system will be considered before discussing the specific
 properties of a diode laser.
 
 \subsection{General lasing system}
 
 In this chapter we will look at the main interaction between light and a
-quantum mechanical system like an atom. In atoms the electrons posess different
+quantum mechanical system like an atom. In atoms the electrons possess different
 dicrete energy levels. Nontheless, to discuss the main principle of a laser
-we will use a system with only two energy levels shown in Figure \ref{fig:twolevelsystem}.
+we will use a system with only two energy levels shown in figure \ref{fig:twolevelsystem}.
 By absorbing a photon, an electron can be excited from the lower state to the
 higher state (figure~\ref{fig:twolevelsystem} a).
 The relaxation back into the ground state can be radiative or
@@ -33,14 +35,19 @@ two states. As a result there will be two photons emitted with the same phase,
 direction and energy. This process called 'stimulated emission' is necessary
 for constructing a lasing system. To reach a higher propability for 'stimulated emission'
 than 'spontaneous emission' the population of the second state has to be higher
-than he the ground state. This situation is called 'population inversion'.
+than the ground state. This situation is called 'population inversion'.
 
 Although the principle of a lasing sytem was explained by using a two state system,
-for constructing a real laser at least three energy levels are necessary. The possesion
-of a single energy level is given by the maxwell-boltzmann-distribution. The only
+for constructing a real laser at least three energy levels are necessary. The population
+of a single energy level is given by the boltzmann-distribution:
+\begin{equation}
+    \frac{N\ua{2}}{N\ua{1}} = e^{\frac{E_1-E_2}{k\ua{B}T}}\quad \underset{T \rightarrow \infty}{\longrightarrow}\quad  1, \quad E\ua{2}>E\ua{1}.
+    \label{eqn:pop}
+\end{equation}
+The only
 parameter which can be changed is the temperature. It´s easy to see, that even
-by heating up the system to an infinite temperature, only an equal possesion
-of both states in a two level sytsem is possible. In the three level system
+by heating up the system to an infinite temperature, only an equal population
+of both states in a two level system is possible (\ref{eqn:pop}). In the three level system
 shown in figure~\ref{fig:twolevelsystem} d),
 electrons will be excited into the highest state by using a external pump source.
 The lifetime of the second state has to be much lower than the lifetime of the
