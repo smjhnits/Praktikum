@@ -20,13 +20,29 @@ $\gamma$-Quanten wechselwirken mit Materie grundlegend über drei verschiedene E
 Es handelt sich dabei um den Photoeffekt, die Compton-Streuung und die Paarbildung.
 Die verschiedenen Effekte haben unterschiedliche Wirkungsquerschnitte $\sigma$,
 welche darüber hinaus noch von der Enenergie $E_{\gamma}$ der $\gamma$-Quanten abhängig sind.
-Mittels des Wirkungsquerschnittes kann die Größe des Extionsktionskoeffizienten $\mu$
-definiert werden. Dieser ist gegeben durch
+Anschaulich kann der Wechselwirkungsquerschnitt als eigenommene Fläche
+eines Elektrons aufgfasst werden, welche nicht von den $\gamma$-Quanten durchdrungen
+werden kann, also auf der $\gamma$-Quanten absorbiert werden.
+Die Extinktion einer mit $N_0$  $\gamma$-Quanten eintreffenden Population mit der
+Eindringtiefe $\symup{d}x$ wird aus
+\begin{equation}
+  \label{eqn:dgl_eindringtiefe}
+  \symup{d}N = N_0n\sigma\symup{d}x
+\end{equation}
+hergeleitet. Dabei ist $n$ die Anzahl der Elektronen pro Volumen $V$.
+Für einen Absorber mit
+Dicke $D$ ergibt sich eine Verarmung der ursprünglichen Population $N_0$ auf $N(D)$
+mit dem funktionalen Zusammenhang
+\begin{equation}
+  \label{eqn:eindringtiefe}
+  N(D) = N_0\exp{(-n\sigma D)}.
+\end{equation}
+Der Exponent von~\eqref{eqn:eindringtiefe} wird als Extionsktionskoeffizienten
 \begin{equation}
   \label{eqn:ext}
-  \mu = n\sigma,
+  \mu = n\sigma
 \end{equation}
-wobei $n$ die Anzahl der Elektronen pro Volumen $V$ ist.
+definiert.
 Der reziproke Extinktionskoeffizient ist die mittlere Reichweite $\bar{x}$
 von $\gamma$-Quanten in Materie.
 \begin{equation}
@@ -50,19 +66,22 @@ Hüllenelektron der bestrahlten Materie.
 Phänomenologisch kann der Photoeffekt über die folgende Gleichung erklärt werden.
 \begin{equation}
   \label{eqn:photo}
-  \gamma + \ce{Atom -> Atom^+} + e^-
+  \gamma + \ce{Atom -> Atom^+} + e^-.
 \end{equation}
 Somit beschreibt der Photoeffekt die Ionisation eines Atoms.
 Das eingehende $\gamma$-Quant besitzt die Energie $E_{\gamma} > E\ua{B}$.
 Dabei ist $E\ua{B}$ die Bindungsenergie des Elektrons an dem Atom.
 Die Energiedifferenz zwischen $E_{\gamma}$ und $E\ua{B}$ trägt das Elektron in Form
-von kinetischer Energie.
+von kinetischer Energie weg.
 Das ausgelöste Elektron hinterlässt in dem Atom ein Loch, welches durch ein Elektron
 aus einer höheren Schale gefüllt wird. Die dabei frei werdende Energie
 liegt typischerweise im Bereich der Röntgenstrahlung. In guter Näherung kann angenommen
 werden, dass diese Röntgen-Quanten den Absorber nicht verlassen.
 Das bedeutet bei dem Photoeffekt ist davon auszugehen, dass die vollständige
 Energie des $\gamma$-Quants im Absorber verbleibt.
+Aufgrund dieser Tatsache, kann direkt auf
+den Strahler zurückgeschlossen werden, da die Energie der emitierten $\gamma$-Quanten
+eine charakteristische Größe des Strahles ist.
 
 Der Wirkungsquerschnitt des Photoeffektes ist für den im Versuch auftretenden
 Energiebereich approximativ mit
@@ -105,24 +124,30 @@ Die Energie des Elektrons nach der Streuung $E_{e^-}'$ ist gegeben durch
   \label{eqn:comton_E_el}
   E_{e^-}' = E-\gamma - E_\gamma ' = \frac{E_\gamma^2\left(1 - \cos{(\Psi_\gamma)}\right)}{m_0c^2 + E_\gamma\left(1 - \cos{(\Psi_\gamma)}\right)}.
 \end{equation}
-Der maximale Energieübertrag ist somit gegeben für $Psi_\gamma = \SI{180}{\degree}$,
-was einer Rückstreuung entspricht. Der Bereich Streuung bei diesem Streuwinkel wird
+Der maximale Energieübertrag ist somit gegeben für $\Psi_\gamma = \SI{180}{\degree}$,
+was einer Rückstreuung entspricht. Der Bereich bei diesem Streuwinkel wird
 im Energiespektrum als Compton-Kante bezeichnet (vgl. Kapitel~\ref{subsec:energiespektrum}).
-
+Der Wechselwirkungsquerschnitt der Compton-Streuung $\sigma_{Co}$
+wird in Quelle~\cite{anleitung} angegeben mit
+\begin{equation}
+  \label{eqn:crosssection_compton}
+  \sigma\ua{Co} = \frac{3}{4}\sigma\ua{Th}\left(\frac{1+\epsilon}{\epsilon^2}\left[\frac{2 + 2\epsilon}{1+2\epsilon} - \frac{1}{\epsilon}\ln{(1+2\epsilon)}\right] + \frac{1}{2\epsilon}\ln{(1+2\epsilon)}-\frac{1+3\epsilon}{(1+2\epsilon)^2}\right).
+\end{equation}
+Dabei ist $\sigma\ua{Th} = \frac{8}{3}\pi\left(\frac{e_0}{4\pi\epsilon_0 c^2m_0}\right)$
+der Thomsonsche Streuquerschnitt und $\epsilon = \frac{E_{\gamma}}{m_0c^2}$.
 
 \subsection{Paarbildung}
 \label{subsec:paar}
 
 Die Paarbildung tritt erst ab einer $\gamma$-Quantenergie von $E\gamma > 2m_0c^2$
-auf, weshalb sie bei der hier betriebenen $\gamma$-Spektrometrie keinen
-Einfluss hat. Der Prozess kann durch eine Gleichung der Form
+auf. Der Prozess kann durch eine Gleichung der Form
 \begin{equation}
   \label{eqn:paar}
   \gamma + \ce{Atom -> Atom} + e^+ + e^-
 \end{equation}
 erklärt werden. Aus Impulserhaltungsgründen ist die Energie des $\gamma$-Quants
-auf beide Leptonen gleimäßig aufgeteilt.
-Anstelle des Atoms in~\ref{eqn:paar} kann auch ein Elektron als Stoßpartner
+auf beide Leptonen gleichmäßig aufgeteilt.
+Anstelle des Atoms in Gleichung~\ref{eqn:paar} kann auch ein Elektron als Stoßpartner
 fungieren, wobei die Paarbildung an Elektronen aufgrund einer höheren Schwellenenergie,
 welche aus der geringeren Masse resultiert, unwahrscheinlicher ist.
 Es wird nicht in jedem Fall die gesamte Energie eines einfallenden $\gamma$-Quants
@@ -130,7 +155,28 @@ im Absorber deponiert. Das erzeugte Positron rekombiniert mit einem Elektron
 des Absorbers, wobei aus Impulserhaltungsgründen zwei Photonen entstehen.
 Mit einer endlichen Wahrscheinlichkeit kann eines der beiden, oder beide
 Photonen nicht wieder mit dem Absorber wechselwirken und
-den Detektor ohne Energiedeponierung verlassen.
+den Detektor ohne Energiedeponierung verlassen. Verlässt nur eines Photonen
+den Detektor entsteht in dem Energiespektrum der sogenannte Single-Escape-Peak
+und verlassen beide Photonen den Absorber entsteht der sogenannte
+Double-Escape-Peak.
+Der Wechselwirkungsquerschnitt der Paarbildung wird in der Referenz~\cite{anleitung}
+für zwei verschiedene Fälle angegeben. Zum einen für vollständige
+Abschirmung des Coulomb-Feldes, also wenn die Paarbildung
+außerhalb der Elektronenhülle stattfindet und zum anderen für
+eine verschwindende Abschirmung, wenn die Paarbildung in Kernnähe stattfindet.
+
+Für den Fall vollständiger Abschirmung ergibt sich
+\begin{equation}
+  \label{eqn:crosssection_paar_abschirmung}
+  \sigma\ua{Pa} = \alpha r\ua{e}^2z^2\left(\frac{28}{9}\ln{\left(\frac{183}{\sqrt[3]{z}}\right)} - \frac{2}{27}\right),
+\end{equation}
+und für den Fall verschwindender Abschirmung ergibt sich
+\begin{equation}
+  \label{eqn:crosssection_paar_no_abschirmung}
+  \sigma\ua{Pa} = \alpha r\ua{e}^2z^2\left(\frac{28}{9}\ln{(2\epsilon)} - \frac{218}{27}\right),
+\end{equation}
+mit dem klassischen Elektronenradius $r_e = \frac{e_0}{4\pi\epsilon_0c^2m_0}$.
+
 \FloatBarrier
 
 \subsection{Wirkungsweise eines Reinst-Germanium-Detektors}
@@ -155,7 +201,7 @@ rekombinieren. Diese Grenzschicht wird als Verarmungszone bezeichnet.
 Die $p$-Schicht und die $n$-Schicht bilden aufgrund ihrer unterschiedlichen
 Dotierungen ein elektrostatisches Feld aus.
 Auf die Verarmungszone einfallende $\gamma$-Quanten lösen durch die beschriebenen
-Wechselwirkungsprozesse proportional zu ihrer Energie Elektronen aus.
+Wechselwirkungsprozesse proportional zu ihrer deponierten Energie Elektronen aus.
 Ein ausgelöstes Elektron hinterlässt eine positive Ladungslücke,
 welche als Loch bezeichnet wird. Elektronen und Löcher diffundieren in dem
 elektrostatischen Feld der $pn$-Diode zu den jeweiligen Elektroden und können dort
@@ -164,16 +210,31 @@ als Strom nachgewiesen werden.
 Außerhalb der Verarmungszone werden in einem Halbleiterdetektor die Elektronen
 und Löcher nicht schnell genug getrennt, sodass diese rekombinieren und nicht
 an den Elektroden nachgewiesen werden können.
-Aus diesem Grund ist es wichtig, die Verarmungszone möglichst auszuweiten.
+Aus diesem Grund ist es wichtig, die Verarmungszone möglichst auszuweiten,
+damit möglichst viele $\gamma$-Quanten ihre vollständige Energie deponieren.
+Die Größe der Verarmungsschicht hat aufgrund von~\eqref{eqn:eindringtiefe}
+somit einen direkten Einfluss auf die Anzahl der $\gamma$-Quanten, die
+ihre Gesamtenergie deponieren.
 Das Ausweiten kann durch Anlegen einer äußeren Spannung, der sogenannten Sperrspannung
 $U$ bewirkt werden.
 Bei Temperaturen ungleich Null entstehen Leckströme, weshalb die Spannung
 nicht beliebig groß sein kann. Leckströme entstehen beispielsweise durch Störstellen
 oder durch das thermische Auslösen von Elektronen in dem Detektormaterial.
+Durch aktives Kühlen des Detektors können Leckströme reduziert werden.
 
 Darüber hinaus kann die Verarmungszone durch eine extrem asymmetrische Dotierung
 vergrößert werden, also zum Beispiel $n\ua{D}\gg n\ua{A}$.
-In diesem Fall erstreckt sich die Verarmungszone über die gesamte $p$-Schicht.
+In diesem Fall erstreckt sich die Verarmungszone nahezu über die gesamte $p$-Schicht.
+Es ist zu beachten, dass ein Detektor sogenannte Totbereiche beinhaltet, in denen
+kein Teilchennachweis stattfindet. Durch mangelnde Kühlung kann der Totbereich,
+der aufgrund der Lithium-Schicht entsteht, bei dem verwendeten Detektors vergrößert werden.
+Die von außen aufgedampften Lithium-Atome (vgl. Kapitel~\ref{sec:aufbau}) können bei höheren Temeraturen
+schneller in das Detektormaterial diffundieren, wodurch der Totbereich
+ausgedehnt wird.
+
+Mit Hilfe der beschriebenen Mittel kann die Verarmungszone in dem verwendeten
+Reinst-Germanium-Detektor wenigen $\si{\micro\meter}$ auf
+$d\approx\SI{3}{\centi\meter}$ ausgeweitet werden.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{Pics/pndiode.pdf}
@@ -195,7 +256,7 @@ Die Energieauflösung von indirekten Halbleiter-Detektoren wird aufgrund der sta
 Verteilung der $\gamma$-Quantenergie auf die Phononen- und Elektronen-Loch-Paar-Erzeugung
 beeinträchtigt.
 Wird eine Poisson-Verteilung der Elektronen-Loch-Paar-Erzeugung angenommen
-ergibt sich ein Fehler von
+ergibt sich eine Standardabweichung von
 \begin{equation}
   \label{eqn:poisson}
   \sigma_{Poisson} = \sqrt{\bar{n}},
@@ -214,9 +275,27 @@ geht die Poisson-Verteilung in eine Gaußverteilung über, für die sich bei $E_
 eine Halbwertsbreite von
 \begin{equation}
   \label{eqn:halbwertsbreite}
-  \Delta E_{1/2}(\SI{500}{\keV}) \approx \SI{895}{\eV}
+  \Delta E_{1/2}(\SI{500}{\keV}) = \sqrt{8\ln{(2)}}\sqrt{F\cdot E_\gamma E\ua{E-L}} \approx \num{2,35} \sqrt{\num{0,1}E_\gamma E\ua{E-L}} \approx \SI{895}{\eV}
 \end{equation}
 ergibt.
+In Tabelle~\ref{tab:E_aufloesung} ist die Energieauflösung nach Formel~\eqref{eqn:halbwertsbreite}
+für verschiedene Materialien angegeben.
+\begin{table}
+  \centering
+  \caption{Energieauflösung für verschiedene Halbleitermaterialien nach Formel~\eqref{eqn:halbwertsbreite}
+  mit den Werten aus~\cite{teilchendetektoren}.}
+  \label{tab:E_aufloesung}
+  \begin{tabular}{c S S S}
+    \toprule
+    {Material} & {Fano-Faktor} & {$E\ua{E-L} / \si{eV}$} & {$\Delta E_{1/2} / \si{keV}$} \\
+    \midrule
+    Si & 0,115 & 3,65 & 1,766 \\
+    GaAs & 0,1 & 4,35 & 1,096 \\
+    CdTe & 0,1 & 4,45 & 1,106 \\
+    Diamond & 0,08 & 13,1 & 1,701 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 Durch Leckströme~$H\ua{I}$, Feldinhomogenitäten~$H\ua{E}$ und thermisches Rauschen
 in dem Detektor und der Ausleseelektronik~$H\ua{R}$
@@ -249,7 +328,7 @@ registriert werden.
 Die Effizienz wird mittels
 \begin{equation}
   \label{eqn:effizienz}
-  Q = \frac{\Omega}{4\pi}\frac{AW}{Z}
+  Q = \frac{4\pi}{\Omega}\frac{Z}{AW}
 \end{equation}
 berechnet. $\Omega$ ist der Raumwinkel, den der $\gamma$-Srahler vom Detektor abdeckt,
 $A$ ist die Aktivität des Strahlers, $W$ die Emissionswahrschienlichkeit einer bestimmten
