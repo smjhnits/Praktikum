@@ -280,7 +280,7 @@ eine Halbwertsbreite von
 ergibt.
 In Tabelle~\ref{tab:E_aufloesung} ist die Energieauflösung nach Formel~\eqref{eqn:halbwertsbreite}
 für verschiedene Materialien angegeben.
-\begin{table}
+\begin{table}c
   \centering
   \caption{Energieauflösung für verschiedene Halbleitermaterialien nach Formel~\eqref{eqn:halbwertsbreite}
   mit den Werten aus~\cite{teilchendetektoren}.}
@@ -321,11 +321,11 @@ die addierte Halbwertsbreite beider Effekte minimal ist.
   \label{fig:energieauflösung}
 \end{figure}
 
-Neben der Energieauflösung werden Detektoren bezüglich ihrer Nachweiswahrscheinlichkeit
-klassifiziert. Diese Nachweiswahrscheinlichkeit, oder auch Effizienz $Q$
+Neben der Energieauflösung werden Detektoren bezüglich ihrer Vollenergienachweiswahscheinlichkeit
+klassifiziert. Diese Vollenergienachweiswahscheinlichkeit $Q$
 beschreibt wieviele eingefallene $\gamma$-Quanten von dem Detektor
 registriert werden.
-Die Effizienz wird mittels
+Die Vollenergienachweiswahscheinlichkeit wird mittels
 \begin{equation}
   \label{eqn:effizienz}
   Q = \frac{4\pi}{\Omega}\frac{Z}{AW}
@@ -338,31 +338,32 @@ zu einer bestimmten Energie.
 \subsection{Energiespektren}
 \label{subsec:energiespektrum}
 
-Ein idealer Detektor würde beim Ausmessen einer monochromatischen Probe mit~$E_\gamma$
+Ein unendlich großer Detektor würde beim Ausmessen einer monochromatischen Probe mit~$E_\gamma$
 lediglich im Energiespektrum einen scharfen Peak an der Stelle $E_\gamma$
 ausgeben. Ein realer Detektor produziert hingegen ein Energiespektrum gemäß
 Abbildung~\ref{fig:spektrum}. Dieses entsteht, da der Compton-Effekt
 keine diskrete, sondern eine streuwinkelabhängige kontinuierliche Energieverteilung
-erzeugt, die von der Detektorakzeptanz bis zur Compton-Kante reicht.
+erzeugt, die von der Nachweisgrenze bis zur Compton-Kante reicht.
 Darüber hinaus entsteht ein Rückstreupeak aufgrund von größtenteils
 außerhalb des Detektors rückgestreuten Photonen, welche mehrfach Compton-Streuung
 machen.
 Für die $\gamma$-Spektrometrie ist lediglich der Vollenergie-Peak
 von Bedeutung, da in diesem die gesamte Energie des $\gamma$-Quants
-in dem Detektor deponiert wird. Bei $\gamma$-Quantenergien kleiner
-als $\approx\SI{3}{\MeV}$ trägt lediglich der Photoeffekt zu dem relevanten
-Vollenergie-Peak bei.
+in dem Detektor deponiert wird. Anhand der Vollenergiepeaks lässt
+sich das ausgemessene Material eindeutig identifizieren.
+Bei $\gamma$-Quantenergien kleiner als $\approx\SI{3}{\MeV}$ trägt lediglich der
+Photoeffekt zu dem relevanten Vollenergie-Peak bei.
 
-Wird eine nicht-monochromatische Probe betrachtet kann der Compton-Effekt
-jedoch ebenfalls Beiträge zu einem Vollenergie-Peak leisten.
-Der Wirkungsquerschnitt des Compton-Effektes ist gemäß Abbildung~\ref{fig:crosssection}
-für Energien von $E_\gamma>\SI{0.15}{\MeV}$ größer als der Wirkungsquerschnitt
-der Photoeffektes, sodass es für diese Energien wahrscheinlicher ist, dass ein $\gamma$-Quant
-Energie über Compton-Streuung deponiert. Wenn dieses $\gamma$-Quant
-hinreichend viel Energie seiner anfänglichen Energie abgegeben hat,
-wird der Photoeffekt wahrscheinlicher, sodass es seine übrige Energie wahrscheinlich
-vollständig in dem Detektor deponieren kann.
-Aus diesem Grund wird der Peak nicht Photopeak, sonder Vollenergie-Peak genannt.
+% Wird eine nicht-monochromatische Probe betrachtet kann der Compton-Effekt
+% jedoch ebenfalls Beiträge zu einem Vollenergie-Peak leisten.
+% Der Wirkungsquerschnitt des Compton-Effektes ist gemäß Abbildung~\ref{fig:crosssection}
+% für Energien von $E_\gamma>\SI{0.15}{\MeV}$ größer als der Wirkungsquerschnitt
+% der Photoeffektes, sodass es für diese Energien wahrscheinlicher ist, dass ein $\gamma$-Quant
+% Energie über Compton-Streuung deponiert. Wenn dieses $\gamma$-Quant
+% hinreichend viel Energie seiner anfänglichen Energie abgegeben hat,
+% wird der Photoeffekt wahrscheinlicher, sodass es seine übrige Energie
+% vollständig in dem Detektor deponieren kann.
+% Aus diesem Grund wird der Peak nicht Photopeak, sondern Vollenergie-Peak genannt.
 
 \begin{figure}
   \centering
@@ -379,9 +380,9 @@ besteht aus einem hochreinen Germanium-Kristall, welcher im Inneren eine
 koaxiale Bohrung hat, die mit Gold bedampft ist.
 Die Außenseite des Germanium-Kristalls ist mit Lithium dotiert,
 sodass diese gut leitend ist. Die Li-Schicht dient als Pluspol der Sperrspannung $U$.\\
-Der Detektor ist mit einer Aluminiumschicht ummantelt, welche als Abschirmung
-vor sonstigen einfallenden $\gamma$-Quanten fungiert. Als zusätzliche Abschirmung
-wird um die Aluminiumschicht eine Kupferschicht und eine Bleischicht angebracht.
+Der Detektor ist mit einer Aluminiumschicht ummantelt, welche als mechanischer
+Schutz und zur thermischen Entkopplung von der Umgebung fungiert. Als Abschirmung
+vor natürlicher Strahlung um die Aluminiumschicht eine Kupferschicht und eine Bleischicht angebracht.
 Die Bleischicht eignet sich aufgrund ihrer hohen Dichte besonders gut als Abschirmungsmaterial
 für jegliche Strahlung.
 Die $\ce{Cu}$-Schicht schirmt Strahlung von $\ce{Pb}$-Isotopen aus dem Blei ab.
@@ -397,6 +398,9 @@ Die $\ce{Cu}$-Schicht schirmt Strahlung von $\ce{Pb}$-Isotopen aus dem Blei ab.
 \subsection{Elektronische Beschaltung eines $\ce{Ge}$-Detektors}
 \label{subsec:elektronische}
 
+Das Ziel der elektronischen Beschaltung ist es die im Detektor deponierte
+Energie der gemessenen $\gamma$-Quanten in ein elektronisch auswertbares
+Signal um zu wandeln.
 Damit ein Energiespektrum erstellt werden kann, müssen die vom Detektor gemessenen
 $\gamma$-Quanten ihrer Energie entsprechend in die Höhe von Spannungsimpulse übersetzt werden.
 Dafür wird der in Abbildung~\ref{fig:vorverstärker} gezeigte Vorverstärker verwendet.
@@ -411,7 +415,9 @@ Dieser wandelt die Ladungsmenge, die das $\gamma$-Quant in dem Detektor freisetz
 \end{figure}
 
 Nach jedem Quantennachweis muss der Integrationskondensator $C\ua{K}$ aus Abb.~\ref{fig:vorverstärker}
-entladen werden. Dies kann über den in Abb.~\ref{fig:vorverstärker} gestrichelt eingezeichneten
+entladen werden, damit der korrekte Zusammenhang zwischen $E_\gamma$ und
+der Entladungszeit $t_s$ des Kondensators für jeden Nachweis sichergestellt ist.
+Das Entladen kann über den in Abb.~\ref{fig:vorverstärker} gestrichelt eingezeichneten
 Widerstand $R\ua{K}$ gelöst werden. Problematisch ist jedoch das Eigenrauschen des
 Widerstands, welches das Rauschen des Vorverstärkers signifikant beeinträchtigt.
 Zur Entladung des Kondensator wird aus diesem Grund eine optoelektronische
@@ -427,11 +433,43 @@ Die Ladung kann dann über den Integrationskondensator abfließen.
   \label{fig:optoelektronik}
 \end{figure}
 
-Die aus dem Vorverstärker kommenden Spannungsimpulse werden an einen Viel-Kanal-Analysator (VKA)
-weitergegeben, der diese ihrer Länge, welche stellvertretend für die
-Energie des $\gamma$-Quantes steht, entsprechend in die vorhandenen Kanäle einordnet.
+Die aus dem Vorverstärker kommenden Spannungsimpulse werden meinst
+über ein $RC$-Glied ($R\ua{Verbindung}$ und $C\ua{Verbindung}$)
+mit dem Hauptverstärker verbunden.
+Der Hauptverstärker wandelt das Signal des Vorverstärkers in einen
+Gaußpuls um. Dieser Gaußpuls besitzt dieselbe Fläche wie die
+Entladungskurve des Vorverstärkers.
+Die Verbindung des Vor- und des Hauptverstärkers kann aufgrund
+der verschiedenen Abklingkonstanten der $RC$-Glieder $R\ua{K}C\ua{K}$
+und $R\ua{Verbindung}C\ua{Verbindung}$ Unterschwinger hervorrufen.
+Diese Unterschwinger verschlechtern die Energieauflösung,
+da einem während eines Unterschwinger eintreffenden Impulses
+eine zu kleine Spannungsamplitude im Hauptverstärker zugeordnet werden
+würde. Mit Hilfe einer \emph{Pole-Zero}-Kompensation lassen sich
+die unerwünschten Unterschwinger unterdrücken.
+Die \emph{Pole-Zero}-Kompensation wird erreicht, wenn ein geeigneter
+Anteil der Gleichspannung aus dem Vorverstärker das $RC$-Glied
+umgeht.
+Darüber hinaus beinhaltet der Hauptverstärker eine \emph{Base-Line-Restorer}-Schaltung,
+welche das Absinken der Nullinie am Ausgang des Hauptverstärkers verhindert.
+Ein sogenannter Viel-Kanal-Analysator (VKA)
+nimmt die Gaußspulse entgegen, und ordned deren Höhe, welche stellvertretend für die
+Energie des $\gamma$-Quantes steht, entsprechend in die vorhandenen Kanäle ein.
+Diese Einordnung geschieht über ein Adressregister, das
+digitale Signale von dem Analog-Digital-Konverter (ADC) erhält.
+Der ADC sorgt dafür, dass die Spannungsimpulshöhe des Gaußpeaks
+in eine dazu proportionales Digitalsignal übersetzt wird.
 Der Viel-Kanal-Analysator wird durch einen Computer mit geeigneter Software
 ausgelesen. Die Kanäle des VKAs sind nicht kalibriert.
+
+Treffen mehrere $\gamma$-Quanten innerhalb kurzer Zeit in den Detektor,
+kann es zur fälschlichen Erhöhung des Signale kommen,
+wodurch eine zu hohe $\gamma$-Quantenenergie gemessen wird.
+Diese Erhöhung wird in der Literatur als \emph{pile-up} bezeichnet und
+wird durch sogenannte Pile-up-Rejection-Schaltungen (PUR) unterdrückt.
+Die PUR sperrt den Eingang des Analog-Digial-Konverters, sodass
+diese \emph{pile-up}-Signale nicht im Spektrum auftauchen.
+
 
 % \begin{figure}
 %   \centering
@@ -444,11 +482,9 @@ ausgelesen. Die Kanäle des VKAs sind nicht kalibriert.
 \label{sec:durchführung}
 
 Zu Beginn des Versuches wird eine bekannte Probe zum Kalibieren der Eingänge des
-Viel-Kanal-Analysators und der Effizienzmessung
+Viel-Kanal-Analysators und der Vollenergienachweiswahscheinlichkeitsmessung
 vewendet. Dafür wird ein $\ce{^152Eu}$-Strahler verwendet.
 Weiterhin wird ein $\ce{^137Cs}$-Strahler zur Bestimmung weiterer Detektoreigenschaften
 ausgemessen.\\
 Abschließend werden zwei unbekannte Strahler vermessen, die anhand ihrers
 Energiespektrums identifiziert werden.
-Darüber hinaus ist es bei dem Versuch wichtig den Abstand zwischen Detektor und Strahler
-zu messen.
