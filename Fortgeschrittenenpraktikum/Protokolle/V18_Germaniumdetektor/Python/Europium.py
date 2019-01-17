@@ -61,6 +61,7 @@ for n in Peaks_rein:
     #plt.show()
 
 Peaks_mittel = np.round(np.asarray(Params_Eu)[:,1],0)
+Peaks_error = np.asarray(errors_Eu)[:,1]
 Amplitudes = np.asarray(Params_Eu)[:,0]
 Amplitudes_ufloat = np.asarray([ufloat(n, np.asarray(errors_Eu)[i,0]) for i,n in enumerate(np.asarray(Params_Eu)[:,0])])
 Means_ufloat = np.asarray([ufloat(n, np.asarray(errors_Eu)[i,1]) for i,n in enumerate(np.asarray(Params_Eu)[:,1])])
@@ -82,7 +83,7 @@ plt.hist(range(0, len(Spektrum), 1),
         bins=np.linspace(0, len(Spektrum), len(Spektrum)),
         weights=Spektrum, label='Spektrum')
 plt.yscale('log')
-plt.plot(Peaks_plot, Spektrum[Peaks_plot], '.',
+plt.errorbar(Peaks_plot, Spektrum[Peaks_plot], xerr = Peaks_error, fmt='.',
          markersize=4, label='Gauß-Peaks', color='C1', alpha=0.8)
 plt.ylabel('Zählungen pro Kanal')
 plt.xlabel('Kanal')
@@ -196,6 +197,8 @@ print("Emission probabilities:",'\n', f" {W}",'\n')
 
 Q = np.array([n/(Omega * W[i] * Ak) for i,n in enumerate(Area_norm)])
 Q_ufloat = np.array([n/(Omega * W[i] * Ak) for i,n in enumerate(Area_norm_ufloat)])
+Q_test = Area_norm_ufloat[0] * 1/ (Omega * W[0] * Ak)
+print(Q_test)
 print(f"Efficiency: {Q_ufloat}",'\n')
 
 def Effizienz(E, A, B):
@@ -210,8 +213,9 @@ Params_Q_ufloat = np.array([ufloat(n, errors_Q[i]) for i,n in enumerate(params_Q
 e = np.linspace(90, E_lit[-1]+100,1000)
 plt.clf()
 #plt.plot(E_lit, unp.nominal_values(Q), 'rx', label = 'bestimmte Effizienzen')
-plt.errorbar(E_lit, unp.nominal_values(Q_ufloat), yerr = unp.std_devs(Q_ufloat), fmt='.', ecolor = 'k', color = 'k',  label = 'bestimmte Effizienzen')
-plt.plot(e, Effizienz(e, *params_Q), color = 'C1', label = 'gefittete Effizienz')
+plt.errorbar(E_lit[1:], unp.nominal_values(Q_ufloat[1:]), yerr = unp.std_devs(Q_ufloat[1:]), fmt='.', ecolor = 'k', color = 'k',  label = r'bestimmte $Q$')
+plt.errorbar(E_lit[0], unp.nominal_values(Q_ufloat[0]), yerr = unp.std_devs(Q_ufloat[0]), fmt='.', ecolor = 'r', color = 'r',  label = r'nicht $Q$')
+plt.plot(e, Effizienz(e, *params_Q), color = 'C1', label = r'gefittete $Q$')
 plt.ylabel('Effizienz')
 plt.xlabel(r'E / keV')
 plt.xlim(100, E_lit[-1]+100)

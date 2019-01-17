@@ -209,19 +209,21 @@ plt.legend()
 plt.savefig('Plots/Caesium_Compton.pdf')
 #plt.show()
 
-Area_c = integrate.quad(compton_integrate, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
-Area_compton = ufloat(Area_c[0], Area_c[1])
+
+Area_c_osk = integrate.quad(compton_integrate, nomval(Energy(60)), nomval(Energy(Peak_ce-2)))
+Area_c = 1/ufloat(params_energy[0], errors_energy[0])*ufloat(Area_c_osk[0], Area_c_osk[1])
 Area_photo = AreaGaus(ufloat(params_Ca[0],errors_Ca[0]), ufloat(params_Ca[2],errors_Ca[2]))
 C_Ca_fehler = np.array([ufloat(n, np.sqrt(n)) for n in C_Ca])
 Area_compton2 = sum(C_Ca_fehler[60:np.int(Peak_ce[0]-2)])
 
 print("-- Different Areas --")
-print(f"Area_compton with integrate: {Area_compton}")
+print(f"Area_compton with integrate without scaling: {Area_c_osk}")
+print(f"Area_compton with integrate with scaling: {Area_c}")
 print(f"Area_compton with sum: {nomval(Area_compton2)},{std(Area_compton2)} ")
 print(f"Area_photon: {nomval(Area_photo)},{std(Area_photo)}",'\n')
 
 print("-- Quotient of both areas --")
-print(f"Area_compton/Area_photo: {Area_compton/Area_photo}")
+print(f"Area_compton/Area_photo: {Area_c/Area_photo}")
 print(f"Area_compton/Area_photo: {Area_compton2/Area_photo}")
 
 plt.clf()

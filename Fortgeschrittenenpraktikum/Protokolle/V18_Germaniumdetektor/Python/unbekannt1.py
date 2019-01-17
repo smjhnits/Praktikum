@@ -43,23 +43,26 @@ def Efficiency(E):
 
 Spektrum = C_u1[:3000]
 tges = 4281
-Peaks = find_peaks(Spektrum, height = 200)
+Peaks = find_peaks(Spektrum, height = 140)[0]
+Peaks_little = find_peaks(Spektrum[550:570], height = 50)[0]
+Peaks = np.insert(Peaks, 3, Peaks_little+550)
 
 plt.clf()
 plt.hist(unp.nominal_values(Energy(np.arange(0, len(Spektrum[0:1500]), 1))),
          bins=unp.nominal_values(Energy(np.linspace(0, len(Spektrum[0:1500]), len(Spektrum[0:1500])))),
          weights=Spektrum[0:1500], label='Spektrum')
 plt.yscale('log')
-plt.plot(nomval(Energy(Peaks[0][:])), Spektrum[Peaks[0][:]], '.',
+plt.plot(nomval(Energy(Peaks)), Spektrum[Peaks], '.',
          markersize=4, label='Gauß-Peaks', color='C1', alpha=0.8)
 plt.xlim(0,500)
 plt.ylabel('Zählungen pro Energie')
 plt.xlabel('E / keV')
 plt.legend()
+#plt.show()
 plt.savefig('Plots/unbekannt1.pdf')
 
-Peaks_Energy = Energy(Peaks[0][:])
-Energy_ba = np.array([80.997,  276.398, 302.85, 356.02, 383.85 ]) # den 2. 160.61 Peak entfernt
+Peaks_Energy = Energy(Peaks)
+Energy_ba = np.array([53.16, 80.997, 160.61, 223.25, 276.398, 302.85, 356.02, 383.85 ]) # den 2. 160.61 Peak entfernt
 #print(Peaks_Energy-Energy_ba)
 
 Params_u1 = []
@@ -67,13 +70,13 @@ errors_u1 = []
 
 
 
-for n in Peaks[0]:
+for n in Peaks:
     Params, covariance = curve_fit(Gauss, Channels[n-30:n+30], Spektrum[n-30:n+30], p0 = [C_u1[n], n, 1, 0])
     Params_u1.append(Params.tolist())
     errors = np.sqrt(np.diag(covariance))
     errors_u1.append(errors.tolist())
 
-for i,n in enumerate(Peaks[0]):
+for i,n in enumerate(Peaks):
     l_u = np.int(Channels[n-30])
     l_o = np.int(Channels[n+30])
     plt.clf()
@@ -82,7 +85,7 @@ for i,n in enumerate(Peaks[0]):
             weights=Spektrum[n-30:n+30], label='Spektrum')
     Channel_Gauss = np.linspace(n-30,n+30,1000)
     plt.plot(unp.nominal_values(Energy(Channel_Gauss)), Gauss(Channel_Gauss,*Params_u1[i]))
-    #plt.show()
+    plt.show()
 
 Peaks_mittel = np.round(np.asarray(Params_u1)[:,1],0)
 Amplitudes = np.asarray(Params_u1)[:,0]
@@ -116,7 +119,7 @@ r = 0.5*45*10**(-3)
 L = (73.5+15)*10**(-3)
 Omega = 0.5 * ( 1- L/np.sqrt(L**2+r**2))
 
-W = np.asarray([0.341, 0.072, 0.183, 0.621, 0.089]) # zweite 0.06 entfernt
+W = np.asarray([0.022, 0.341, 0.006, 0.005,  0.072, 0.183, 0.621, 0.089]) # zweite 0.06 entfernt
 Q = Efficiency(Energy(np.round(Peaks_mittel,0)))
 
 Aktivität = np.array([Area_norm[i]/(W[i]*n*Omega) for i,n in enumerate(Q)])
@@ -127,7 +130,7 @@ print(f"Efficiency: {Q}", '\n')
 print(f"resulting acitivity: {Aktivität}")
 
 A_all = sum(Aktivität)/len(Aktivität)#ufloat(np.mean(nomval(Aktivität)),np.std(std(Aktivität)))
-A_4 = sum(Aktivität[1:4])/len(Aktivität[1:4])#ufloat(np.mean(nomval(Aktivität[1:4])),np.std(std(Aktivität[1:4])))
+A_4 = sum(Aktivität[4:])/len(Aktivität[4:])#ufloat(np.mean(nomval(Aktivität[1:4])),np.std(std(Aktivität[1:4])))
 
 print(f"Mean with all values: {nomval(A_all)}, {std(A_all)}")
 print(f"Mean without 1st: {nomval(A_4)}, {std(A_4)}")
