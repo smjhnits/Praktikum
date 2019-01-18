@@ -7,6 +7,7 @@ import scipy.integrate as integrate
 from uncertainties import ufloat
 from uncertainties import unumpy as unp
 from uncertainties.unumpy import nominal_values as nomval
+from uncertainties.unumpy import std_devs as std
 
 C_Eu = np.genfromtxt('2018-12-10_Nitschke_Pape/Europium1.Spe', unpack = True)
 Spektrum = C_Eu[:4000]
@@ -139,7 +140,7 @@ print(f"Gradient: {Energy_ufloat[0]}")
 print(f"Constants: {Energy_ufloat[1]}",'\n')
 
 plt.clf()
-plt.plot(Peaks_mittel, E_lit, '.', markersize = 8, label = 'Fitpunkte')
+plt.errorbar(Peaks_mittel, nomval(Energy_u(Peaks_mittel)), xerr = std(Energy_u(Peaks_error)), fmt = '.', markersize = 8, label = 'Fitpunkte')
 plt.plot(x, Energy(x, *params_energy), '-', label = 'linearer Fit')
 plt.ylabel(r'E / keV')
 plt.xlabel('Kanal')
