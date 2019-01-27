@@ -5,9 +5,9 @@
 The first step is to find the minimal current value for the laser setup, where
 it is still lasing. For this measurement the setup is changed to the configuration shown in
 figure~\ref{fig:setup_current}. A voltmeter is connected to the laser current
-monitor for a precise voltage measurement. It has a resistance
+monitor for a precise voltage measurement. The laser diode has a resistance
 of $\SI{100}{\ohm}$.
-The minimum can be found in an iterative procedure, which follows the following
+The minimum threshold can be found in an iterative procedure, which follows the following
 steps. First pick a current, where the laser is lasing.
 Then lower the current slightly below the lasing threshold and try to bring the system back to lasing,
 by adjusting the cavity with the two knobs.
@@ -72,8 +72,9 @@ shows the Rubidium fluorescence in the gas chamber.
 \FloatBarrier
 Now the setup shown in figure~\ref{fig:setup_spectrum} is built up.
 The current applied to the piezo is connected to an oscilloscope
-for the following measurements. The piezo current is sweeped with a rectangular
-voltage, so that the wavelength of the laser gets tuned over a broad spectrum.
+for the following measurements. The piezo current is sweeped with a triangular
+voltage, so that the cavitylength
+gets varied and the wavelength of the laser gets tuned over a broad spectrum.
 Furthermore the current emmited by the photo diode is similary connected to the oscilloscope.
 
 Figure~\ref{fig:example} shows an example spectrum for Rubidium. Whenever
@@ -82,11 +83,10 @@ measured intensity drops to a minimum. Figure~\ref{fig:example} contains
 mode hops, which lead to an imprecise spectrum.
 Therefore the setup is slightly changed. The internal cavity and the external cavity
 are now varied simultaneously, which prevent mode hops.
-Now the Rubidium spectrum can be measured precise. The observed spectrum
+The simultaneous variation of the laser current and the piezo modulation leads to a linear backgroud.
+The Rubidium spectrum can now be measured precise. The observed spectrum
 is shown in figure~\ref{fig:spectrum}. The identification of the Rubidium isotopes
 is made by the comparison with reference~\cite{anleitung}.
-This setup effects that there is a linear backgroud through the variation
-of the laser current.
 
 \begin{figure}
   \centering
@@ -111,7 +111,7 @@ of the laser current.
 \end{figure}
 \FloatBarrier
 
-The linear background in figure~\ref{fig:spectrum} can be suppressed by the
+The linear background in figure~\ref{fig:spectrum} can be avoided by the
 setup shown in image~\ref{fig:setup_substraction}.
 This technique is called substraction technique.
 The resulting spectrum is shown in figure~\ref{fig:spectrum_sub}.

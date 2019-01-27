@@ -7,10 +7,10 @@ import numpy as np
 threshold_lase = 3.34 # V
 threshold_no_lase = 3.32 # V
 
-R_multimeter = 100 # Ohm
+R = 100 # Ohm
 
-I_lase = threshold_lase / R_multimeter
-I_no_lase = threshold_no_lase / R_multimeter
+I_lase = threshold_lase / R
+I_no_lase = threshold_no_lase / R
 
 print(f'Threshold lase = {I_lase}\n\nThreshold no lase = {I_no_lase}\n')
 
