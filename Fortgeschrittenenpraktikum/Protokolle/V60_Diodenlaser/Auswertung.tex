@@ -6,7 +6,7 @@ The first step is to find the minimal current value for the laser setup, where
 it is still lasing. For this measurement the setup is changed to the configuration shown in
 figure~\ref{fig:setup_current}. A voltmeter is connected to the laser current
 monitor for a precise voltage measurement. The laser diode has a resistance
-of $\SI{100}{\ohm}$.
+of $\SI{100}{\ohm}$, hence the applied current can be calculated.
 The minimum threshold can be found in an iterative procedure, which follows the following
 steps. First pick a current, where the laser is lasing.
 Then lower the current slightly below the lasing threshold and try to bring the system back to lasing,
@@ -73,8 +73,11 @@ shows the Rubidium fluorescence in the gas chamber.
 Now the setup shown in figure~\ref{fig:setup_spectrum} is built up.
 The current applied to the piezo is connected to an oscilloscope
 for the following measurements. The piezo current is sweeped with a triangular
-voltage, so that the cavitylength
-gets varied and the wavelength of the laser gets tuned over a broad spectrum.
+voltage, which leads to a change in the piezo dimensions due to the inverse piezo
+effect. The piezo is attached to the grating, hence the cavity length
+is varied. The variation of the cavity length causes a variation of
+the wavelength (see equation~\eqref{eqn:frequdiff}),
+so that the laser gets tuned over a broad spectrum.
 Furthermore the current emmited by the photo diode is similary connected to the oscilloscope.
 
 Figure~\ref{fig:example} shows an example spectrum for Rubidium. Whenever
@@ -84,7 +87,7 @@ mode hops, which lead to an imprecise spectrum.
 Therefore the setup is slightly changed. The internal cavity and the external cavity
 are now varied simultaneously, which prevent mode hops.
 The simultaneous variation of the laser current and the piezo modulation leads to a linear backgroud.
-The Rubidium spectrum can now be measured precise. The observed spectrum
+The absorption spectrum of Rubidium can now be measured precise. The observed spectrum
 is shown in figure~\ref{fig:spectrum}. The identification of the Rubidium isotopes
 is made by the comparison with reference~\cite{anleitung}.
 
